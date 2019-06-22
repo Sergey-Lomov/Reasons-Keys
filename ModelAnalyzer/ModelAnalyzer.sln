@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelAnalyzer", "ModelController\ModelAnalyzer.csproj", "{A3CFE7E3-71A6-4754-B786-F04A9530434C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelAnalyzer", "ModelAnalyzer\ModelAnalyzer.csproj", "{A3CFE7E3-71A6-4754-B786-F04A9530434C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

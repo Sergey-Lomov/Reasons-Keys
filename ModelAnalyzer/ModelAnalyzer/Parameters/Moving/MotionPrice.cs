@@ -7,8 +7,8 @@ namespace ModelAnalyzer.Parameters.Moving
         public MotionPrice()
         {
             type = ParameterType.Out;
-            title = "Полная цена движения";
-            details = "На сейчас она же - цена движения в ТЗ";
+            title = "Стоимость перемещения (ТЗ)";
+            details = "Перемещение всегда требует только ТЗ. Поэтому стоимость перемещения (ТЗ) является также и полной стоимостью перемещения.";
             fractionalDigits = 0;
         }
 
