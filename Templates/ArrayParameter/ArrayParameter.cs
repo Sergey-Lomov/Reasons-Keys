@@ -10,9 +10,20 @@
             fractionalDigits = 0;
         }
 
-        internal override void Calculate(Calculator calculator)
+        internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
-             float p = calculator.GetSingleValue(typeof(ParamName));
+            calculationReport = new ParameterCalculationReport(this);
+
+            float p = calculator.GetSingleValue(typeof(ParamName));
+
+            return calculationReport;
+        }
+
+        internal override ParameterValidationReport Validate(Validator validator, Storage storage)
+        {
+            var size = storage.GetParameter(typeof(SizeParamName));
+            var report = Validate(validator, storage, size);
+            return report;
         }
     }
 }
