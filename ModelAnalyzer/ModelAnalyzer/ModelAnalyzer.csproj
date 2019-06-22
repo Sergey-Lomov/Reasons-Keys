@@ -101,6 +101,7 @@
     <Compile Include="Parameters\MaxPlayersAmount.cs" />
     <Compile Include="Parameters\Mining\AverageMining.cs" />
     <Compile Include="Parameters\Mining\MiningAUCoef.cs" />
+    <Compile Include="Parameters\Mining\MiningIncrement.cs" />
     <Compile Include="Parameters\Moving\AverageDistance.cs" />
     <Compile Include="Parameters\Moving\AveragePhasesDistance.cs" />
     <Compile Include="Parameters\Moving\InitialSpeed.cs" />
