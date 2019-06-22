@@ -1,0 +1,38 @@
+ModelAnalyzer.Parameters.MaxPlayersAmount:6~-|
+ModelAnalyzer.Parameters.FieldRadius:4~-|
+ModelAnalyzer.Parameters.Activities.AUPriceProportion:0,69~0,686|
+ModelAnalyzer.Parameters.Activities.DestructionCoef:0,75~-|
+ModelAnalyzer.Parameters.Activities.EUPartyAmount:160~-|
+ModelAnalyzer.Parameters.Activities.EventActionsCoef:0,5~-|
+ModelAnalyzer.Parameters.Activities.EventCreationAmount:8,5~-|
+ModelAnalyzer.Parameters.Activities.EventCreationPrice:15,22~15,217|
+ModelAnalyzer.Parameters.Activities.EventCreationPriceAU:1~1,043|
+ModelAnalyzer.Parameters.Activities.EventCreationPriceEU:5~5,217|
+ModelAnalyzer.Parameters.Activities.EventImpactAmount:8~-|
+ModelAnalyzer.Parameters.Activities.EventImpactPrice:5,71~5,707|
+ModelAnalyzer.Parameters.Activities.EventImpactPriceAU:0,33~0,391|
+ModelAnalyzer.Parameters.Activities.EventImpactPriceEU:2~2,373|
+ModelAnalyzer.Parameters.Activities.EventsActionsPotential:175~175|
+ModelAnalyzer.Parameters.Activities.TotalPotential:400~400|
+ModelAnalyzer.Parameters.Events.AverageStabilityIncrement:2~-|
+ModelAnalyzer.Parameters.Mining.AverageMining:10~10|
+ModelAnalyzer.Parameters.Mining.MiningAUCoef:0,4~-|
+ModelAnalyzer.Parameters.Mining.MiningIncrement:3~2,955|
+ModelAnalyzer.Parameters.Moving.AverageDistance:4,91~4,909|
+ModelAnalyzer.Parameters.Moving.AveragePhasesDistance:4,12 4,19 4,57 5,25 6,26~- - - - -|
+ModelAnalyzer.Parameters.Moving.InitialSpeed:2~2,455|
+ModelAnalyzer.Parameters.Moving.InitialSpeedCoef:0,5~-|
+ModelAnalyzer.Parameters.Moving.MaxSpeedCoef:1~-|
+ModelAnalyzer.Parameters.Activities.MotionAmount:50~-|
+ModelAnalyzer.Parameters.Moving.MotionFreeLevel:2~-|
+ModelAnalyzer.Parameters.Moving.MotionPrice:1~1,019|
+ModelAnalyzer.Parameters.Moving.SpeedDoublingRate:2,5~-|
+ModelAnalyzer.Parameters.Timing.AUMoveAmount:2~-|
+ModelAnalyzer.Parameters.Timing.AUPartyAmount:40~40|
+ModelAnalyzer.Parameters.Timing.MoveDuration:1~-|
+ModelAnalyzer.Parameters.Timing.PartyDuration:158~158,25|
+ModelAnalyzer.Parameters.Timing.PhasesAmount:5~5|
+ModelAnalyzer.Parameters.Timing.PhasesDuration:2 3 5 8 2~2 3 5 8 2|
+ModelAnalyzer.Parameters.Timing.PhasesWeight:10 15 25 40 10~- - - - -|
+ModelAnalyzer.Parameters.Timing.RealisationDuration:0,75~-|
+ModelAnalyzer.Parameters.Timing.RoundAmount:20~-|
