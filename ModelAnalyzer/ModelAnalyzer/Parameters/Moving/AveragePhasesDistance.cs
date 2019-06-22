@@ -1,4 +1,6 @@
-﻿namespace ModelAnalyzer.Parameters.Moving
+﻿using ModelAnalyzer.Parameters.Timing;
+
+namespace ModelAnalyzer.Parameters.Moving
 {
     class AveragePhasesDistance : ArrayParameter
     {
@@ -15,7 +17,9 @@
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
-            var report = base.Validate(validator, storage);
+            var size = storage.GetParameter(typeof(PhasesAmount));
+            var report = Validate(validator, storage, size);
+
             var radiusType = typeof(FieldRadius);
             float r = storage.GetSingleValue(radiusType);
 
