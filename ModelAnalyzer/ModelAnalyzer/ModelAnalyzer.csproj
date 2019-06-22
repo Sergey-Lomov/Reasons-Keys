@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3CFE7E3-71A6-4754-B786-F04A9530434C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ModelController</RootNamespace>
+    <AssemblyName>ModelController</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalculationReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculationReportForm.Designer.cs">
+      <DependentUpon>CalculationReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParameterDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParameterDetailsForm.Designer.cs">
+      <DependentUpon>ParameterDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParameterRowDelegate.cs" />
+    <Compile Include="Parameters\Activities\AUPriceProportion.cs" />
+    <Compile Include="Parameters\Activities\DestructionCoef.cs" />
+    <Compile Include="Parameters\Activities\EUPartyAmount.cs" />
+    <Compile Include="Parameters\Activities\EventActionsCoef.cs" />
+    <Compile Include="Parameters\Activities\EventCreationPrice.cs" />
+    <Compile Include="Parameters\Activities\EventCreationPriceAU.cs" />
+    <Compile Include="Parameters\Activities\EventCreationPriceEU.cs" />
+    <Compile Include="Parameters\Activities\EventImpactAmount.cs" />
+    <Compile Include="Parameters\Activities\EventImpactPrice.cs" />
+    <Compile Include="Parameters\Activities\EventImpactPriceAU.cs" />
+    <Compile Include="Parameters\Activities\EventImpactPriceEU.cs" />
+    <Compile Include="Parameters\Activities\EventsActionsPotential.cs" />
+    <Compile Include="Parameters\Activities\TotalPotential.cs" />
+    <Compile Include="Parameters\Events\AverageStabilityIncrement.cs" />
+    <Compile Include="Parameters\FieldRadius.cs" />
+    <Compile Include="Parameters\MaxPlayersAmount.cs" />
+    <Compile Include="Parameters\Mining\AverageMining.cs" />
+    <Compile Include="Parameters\Mining\MiningAUCoef.cs" />
+    <Compile Include="Parameters\Moving\AverageDistance.cs" />
+    <Compile Include="Parameters\Moving\AveragePhasesDistance.cs" />
+    <Compile Include="Parameters\Moving\InitialSpeed.cs" />
+    <Compile Include="Parameters\Moving\InitialSpeedCoef.cs" />
+    <Compile Include="Parameters\Moving\MaxSpeedCoef.cs" />
+    <Compile Include="Parameters\Moving\MotionFreeLevel.cs" />
+    <Compile Include="Parameters\Moving\MotionPrice.cs" />
+    <Compile Include="Parameters\Moving\SpeedDoublingRate.cs" />
+    <Compile Include="Parameters\Timing\AUMoveAmount.cs" />
+    <Compile Include="Parameters\Timing\AUPartyAmount.cs" />
+    <Compile Include="Parameters\Timing\MoveDuration.cs" />
+    <Compile Include="Parameters\Timing\PartyDuration.cs" />
+    <Compile Include="Parameters\Timing\PhasesAmount.cs" />
+    <Compile Include="Parameters\Timing\PhasesDuration.cs" />
+    <Compile Include="Parameters\Timing\PhasesWeight.cs" />
+    <Compile Include="Parameters\Timing\RealisationDuration.cs" />
+    <Compile Include="Parameters\Timing\RoundAmount.cs" />
+    <Compile Include="Services\ArrayParameter.cs" />
+    <Compile Include="Services\ParameterReports.cs" />
+    <Compile Include="Services\Calculator.cs" />
+    <Compile Include="Services\FilesManager.cs" />
+    <Compile Include="Parameters\Activities\EventCreationAmount.cs" />
+    <Compile Include="Services\MAException.cs" />
+    <Compile Include="Services\Parameter.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ParametersFactory.cs" />
+    <Compile Include="Parameters\Moving\MotionAmount.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SingleParameter.cs" />
+    <Compile Include="Services\Storage.cs" />
+    <Compile Include="Services\Utils.cs" />
+    <Compile Include="Services\Validator.cs" />
+    <Compile Include="UIFactory.cs" />
+    <EmbeddedResource Include="CalculationReportForm.resx">
+      <DependentUpon>CalculationReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParameterDetailsForm.resx">
+      <DependentUpon>ParameterDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

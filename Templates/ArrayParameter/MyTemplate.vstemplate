@@ -1,0 +1,14 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>ArrayParameter.cs</DefaultName>
+    <Name>ArrayParameter</Name>
+    <Description>Шаблон не вохдного параметра-массива. Подойдет для всех других видов параметров.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">ArrayParameter.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>
