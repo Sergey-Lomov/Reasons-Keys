@@ -42,5 +42,11 @@ namespace ModelAnalyzer
             issues.Clear();
             issues.Add(issue);
         }
+
+        internal void Failed(List<string> issues)
+        {
+            issues.Clear();
+            issues.AddRange(issues);
+        }
     }
 }
