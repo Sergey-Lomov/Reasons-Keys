@@ -35,6 +35,7 @@ namespace ModelAnalyzer
 
             // Mining
             storage.AddParameter(parameter: new AverageMining());
+            storage.AddParameter(parameter: new MiningAllocation());
             storage.AddParameter(parameter: new MiningAUCoef());
             storage.AddParameter(parameter: new MiningIncrement());
 

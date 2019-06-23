@@ -107,7 +107,7 @@ namespace ModelAnalyzer
             return Validate(validator, storage);
         }
 
-        internal ParameterValidationReport Validate(Validator validator, Storage storage, Parameter sizeParameter = null)
+        protected ParameterValidationReport Validate(Validator validator, Storage storage, Parameter sizeParameter = null)
         {
             var report = base.Validate(validator, storage);
 
@@ -120,14 +120,19 @@ namespace ModelAnalyzer
             if (sizeParameter is SingleParameter single)
             {
                 float size = single.GetValue();
-                if (size != values.Count)
-                {
-                    var issue = string.Format(arraySizeMessage, sizeParameter.title, size);
-                    report.issues.Add(issue);
-                }
+                var issue = string.Format(arraySizeMessage, sizeParameter.title, size);
+                ValidateSize(size, issue, report);
             }
 
             return report;
+        }
+
+        protected void ValidateSize (float size, string issueMessage, ParameterValidationReport report)
+        {
+            if (size != values.Count)
+            {
+                report.issues.Add(issueMessage);
+            }
         }
     }
 }
