@@ -16,6 +16,9 @@
 
             float p = calculator.GetSingleValue(typeof(ParamName));
 
+            unroundValues.Clear();
+            values.Clear();
+
             return calculationReport;
         }
 
