@@ -17,7 +17,7 @@ namespace ModelAnalyzer
         internal ModelValidationReport ValidateModel(Storage storage)
         {
             modelValidationReport = new ModelValidationReport();
-            List<Parameter> parameters = storage.GetParameters();
+            List<Parameter> parameters = storage.Parameters();
 
             foreach (Parameter parameter in parameters)
             {

@@ -22,7 +22,7 @@ namespace ModelAnalyzer
                 File.Delete(filePath);
             }
 
-            List<Parameter> parameters = storage.GetParameters();
+            List<Parameter> parameters = storage.Parameters();
 
             FileStream stream = File.Create(filePath);
 
@@ -53,7 +53,7 @@ namespace ModelAnalyzer
                 string valueString = keyValue.Last();
                 if (Type.GetType(keyString) is Type key)
                 {
-                    Parameter parameter = storage.GetParameter(key);
+                    Parameter parameter = storage.Parameter(key);
                     parameter.SetupByString(valueString);
                 }
             }

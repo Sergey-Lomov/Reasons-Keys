@@ -13,7 +13,7 @@ namespace ModelAnalyzer
             parameters[parameter.GetType()] = parameter;
         }
 
-        public Parameter GetParameter(Type type)
+        public Parameter Parameter(Type type)
         {
             Parameter p = parameters[type];
             if (p == null)
@@ -26,12 +26,12 @@ namespace ModelAnalyzer
             return p;
         }
         
-        public List<Parameter> GetParameters()
+        public List<Parameter> Parameters()
         {
             return parameters.Values.ToList();
         }
 
-        public List<Parameter> GetParameters(ParameterType[] types, string titleFilter = null)
+        public List<Parameter> Parameters(ParameterType[] types, string titleFilter = null)
         {
             Func<Parameter, bool> filterLambda = p => Array.Exists(types, type => type == p.type);
             Func<Parameter, string> sortLambda = p => p.title;
@@ -46,18 +46,18 @@ namespace ModelAnalyzer
             return result;
         }
 
-        internal float GetSingleValue(Type type)
+        internal float SingleValue(Type type)
         {
-            var parameter = GetParameter(type);
+            var parameter = Parameter(type);
             if (parameter is SingleParameter single)
                 return single.GetValue();
 
             return 0;
         }
 
-        internal float[] GetArrayValue(Type type)
+        internal float[] ArrayValue(Type type)
         {
-            var parameter = GetParameter(type);
+            var parameter = Parameter(type);
             if (parameter is ArrayParameter array)
                 return array.GetValue();
 

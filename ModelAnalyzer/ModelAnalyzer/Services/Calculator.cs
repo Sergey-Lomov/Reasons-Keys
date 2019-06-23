@@ -18,7 +18,7 @@ namespace ModelAnalyzer
             updated = new HashSet<Parameter>();
 
             ParameterType[] filter = new ParameterType[] { ParameterType.Out, ParameterType.Inner, ParameterType.Indicator };
-            List<Parameter> parameters = storage.GetParameters(filter);
+            List<Parameter> parameters = storage.Parameters(filter);
 
             foreach (Parameter parameter in parameters)
                 CalculateIfNecessary(parameter);
@@ -26,23 +26,23 @@ namespace ModelAnalyzer
             return modelCalculationReport;
         }
 
-        internal float GetUpdateSingleValue(Type type)
+        internal float UpdateSingleValue(Type type)
         {
-            var parameter = storage.GetParameter(type);
+            var parameter = storage.Parameter(type);
             CalculateIfNecessary(parameter);
-            return storage.GetSingleValue(type);
+            return storage.SingleValue(type);
         }
 
-        internal float[] GetUpdateArrayValue(Type type)
+        internal float[] UpdateArrayValue(Type type)
         {
-            var parameter = storage.GetParameter(type);
+            var parameter = storage.Parameter(type);
             CalculateIfNecessary(parameter);
-            return storage.GetArrayValue(type);
+            return storage.ArrayValue(type);
         }
 
-        internal string GetParameterTitle(Type type)
+        internal string ParameterTitle(Type type)
         {
-            return storage.GetParameter(type).title;
+            return storage.Parameter(type).title;
         }
 
         private void CalculateIfNecessary (Parameter parameter)

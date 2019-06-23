@@ -20,14 +20,14 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float am = calculator.GetUpdateSingleValue(typeof(AverageMining));
-            float pa = calculator.GetUpdateSingleValue(typeof(PhasesAmount));
-            float[] pd = calculator.GetUpdateArrayValue(typeof(PhasesDuration));
+            float am = calculator.UpdateSingleValue(typeof(AverageMining));
+            float pa = calculator.UpdateSingleValue(typeof(PhasesAmount));
+            float[] pd = calculator.UpdateArrayValue(typeof(PhasesDuration));
 
             if (pd.Length != pa)
             {
-                string paTitle = calculator.GetParameterTitle(typeof(PhasesAmount));
-                string pdTitle = calculator.GetParameterTitle(typeof(PhasesDuration));
+                string paTitle = calculator.ParameterTitle(typeof(PhasesAmount));
+                string pdTitle = calculator.ParameterTitle(typeof(PhasesDuration));
                 string issue = string.Format(invalidPhasesAmount, paTitle, pa, pdTitle, pd.Length);
 
                 calculationReport.Failed(issue);

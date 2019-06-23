@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ra = calculator.GetUpdateSingleValue(typeof(RoundAmount));
-            float[] pw = calculator.GetUpdateArrayValue(typeof(PhasesWeight));
+            float ra = calculator.UpdateSingleValue(typeof(RoundAmount));
+            float[] pw = calculator.UpdateArrayValue(typeof(PhasesWeight));
 
             unroundValues.Clear();
             values.Clear();
@@ -44,7 +44,7 @@ namespace ModelAnalyzer.Parameters.Timing
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
-            var size = storage.GetParameter(typeof(PhasesAmount));
+            var size = storage.Parameter(typeof(PhasesAmount));
             var report = Validate(validator, storage, size);
             return report;
         }

@@ -14,7 +14,7 @@
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
-            var size = storage.GetParameter(typeof(PhasesAmount));
+            var size = storage.Parameter(typeof(PhasesAmount));
             var report = Validate(validator, storage, size);
             return report;
         }

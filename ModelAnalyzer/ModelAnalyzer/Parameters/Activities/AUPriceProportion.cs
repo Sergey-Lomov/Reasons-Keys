@@ -18,12 +18,12 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eu = calculator.GetUpdateSingleValue(typeof(EUPartyAmount));
-            float au = calculator.GetUpdateSingleValue(typeof(AUPartyAmount));
-            float ma = calculator.GetUpdateSingleValue(typeof(MotionAmount));
-            float mp = calculator.GetUpdateSingleValue(typeof(MotionPrice));
-            float mac = calculator.GetUpdateSingleValue(typeof(MiningAUCoef));
-            float am = calculator.GetUpdateSingleValue(typeof(AverageMining));
+            float eu = calculator.UpdateSingleValue(typeof(EUPartyAmount));
+            float au = calculator.UpdateSingleValue(typeof(AUPartyAmount));
+            float ma = calculator.UpdateSingleValue(typeof(MotionAmount));
+            float mp = calculator.UpdateSingleValue(typeof(MotionPrice));
+            float mac = calculator.UpdateSingleValue(typeof(MiningAUCoef));
+            float am = calculator.UpdateSingleValue(typeof(AverageMining));
 
             float euFree = eu - ma * mp;
             float auFree = (1 - mac) * au;

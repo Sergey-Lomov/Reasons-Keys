@@ -17,15 +17,15 @@ namespace ModelAnalyzer.Parameters.Moving
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
-            var size = storage.GetParameter(typeof(PhasesAmount));
+            var size = storage.Parameter(typeof(PhasesAmount));
             var report = Validate(validator, storage, size);
 
             var radiusType = typeof(FieldRadius);
-            float r = storage.GetSingleValue(radiusType);
+            float r = storage.SingleValue(radiusType);
 
             if (r != validFieldRadius)
             {
-                var title = storage.GetParameter(radiusType).title;
+                var title = storage.Parameter(radiusType).title;
                 var issue = string.Format(invalidMessageFormat, title, validFieldRadius);
                 report.issues.Add(issue);
             }

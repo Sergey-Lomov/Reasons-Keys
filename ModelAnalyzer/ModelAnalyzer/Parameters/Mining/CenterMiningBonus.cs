@@ -22,12 +22,12 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mp = calculator.GetUpdateSingleValue(typeof(MotionPrice));
-            float isp = calculator.GetUpdateSingleValue(typeof(InitialSpeed));
-            float fr = calculator.GetUpdateSingleValue(typeof(FieldRadius));
-            float au = calculator.GetUpdateSingleValue(typeof(AUMoveAmount));
-            float[] pd = calculator.GetUpdateArrayValue(typeof(PhasesDuration));
-            float[] ma = calculator.GetUpdateArrayValue(typeof(MiningAllocation));
+            float mp = calculator.UpdateSingleValue(typeof(MotionPrice));
+            float isp = calculator.UpdateSingleValue(typeof(InitialSpeed));
+            float fr = calculator.UpdateSingleValue(typeof(FieldRadius));
+            float au = calculator.UpdateSingleValue(typeof(AUMoveAmount));
+            float[] pd = calculator.UpdateArrayValue(typeof(PhasesDuration));
+            float[] ma = calculator.UpdateArrayValue(typeof(MiningAllocation));
 
             // Check values
             var issues = new List<string>();
@@ -37,8 +37,8 @@ namespace ModelAnalyzer.Parameters.Mining
             }
             if (ma.Length < fr + 1)
             {
-                var maTitle = calculator.GetParameterTitle(typeof(MiningAllocation));
-                var frTitle = calculator.GetParameterTitle(typeof(FieldRadius));
+                var maTitle = calculator.ParameterTitle(typeof(MiningAllocation));
+                var frTitle = calculator.ParameterTitle(typeof(FieldRadius));
                 var issue = string.Format(miningAllocationIssue, maTitle, frTitle);
                 issues.Add(issue);
             }

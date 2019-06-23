@@ -92,7 +92,7 @@ namespace ModelAnalyzer
             {
                 if (typesBoxes[type].Checked)
                 {
-                    List<Parameter> parameters = storage.GetParameters(new ParameterType[] {type}, titleFilter);
+                    List<Parameter> parameters = storage.Parameters(new ParameterType[] {type}, titleFilter);
                     if (parameters.Count == 0)
                         continue;
 

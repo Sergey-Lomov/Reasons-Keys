@@ -16,11 +16,11 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float md = calculator.GetUpdateSingleValue(typeof(MoveDuration));
-            float ra = calculator.GetUpdateSingleValue(typeof(RoundAmount));
-            float rd = calculator.GetUpdateSingleValue(typeof(RealisationDuration));
-            float ea = calculator.GetUpdateSingleValue(typeof(EventCreationAmount));
-            float pa = calculator.GetUpdateSingleValue(typeof(MaxPlayersAmount));
+            float md = calculator.UpdateSingleValue(typeof(MoveDuration));
+            float ra = calculator.UpdateSingleValue(typeof(RoundAmount));
+            float rd = calculator.UpdateSingleValue(typeof(RealisationDuration));
+            float ea = calculator.UpdateSingleValue(typeof(EventCreationAmount));
+            float pa = calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
 
             value = unroundValue = md * ra * pa  + rd * ea * pa;
 

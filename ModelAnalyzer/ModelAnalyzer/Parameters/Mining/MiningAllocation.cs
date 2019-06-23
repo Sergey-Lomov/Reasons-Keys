@@ -16,8 +16,8 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mi = calculator.GetUpdateSingleValue(typeof(MiningIncrement));
-            float fr = calculator.GetUpdateSingleValue(typeof(FieldRadius));
+            float mi = calculator.UpdateSingleValue(typeof(MiningIncrement));
+            float fr = calculator.UpdateSingleValue(typeof(FieldRadius));
 
             unroundValues.Clear();
             values.Clear();
@@ -35,8 +35,8 @@
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = Validate(validator, storage);
-            float fr = storage.GetSingleValue(typeof(FieldRadius));
-            string title = storage.GetParameter(typeof(FieldRadius)).title;
+            float fr = storage.SingleValue(typeof(FieldRadius));
+            string title = storage.Parameter(typeof(FieldRadius)).title;
             var issue = string.Format(arraySizeMessage, title, fr + 1);
             ValidateSize(fr + 1, issue, report);
 

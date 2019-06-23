@@ -22,13 +22,13 @@ namespace ModelAnalyzer.Parameters.Moving
 
             calculationReport = new ParameterCalculationReport(this);
 
-            float[] pd = calculator.GetUpdateArrayValue(typeof(AveragePhasesDistance));
-            float[] pw = calculator.GetUpdateArrayValue(typeof(PhasesWeight));
+            float[] pd = calculator.UpdateArrayValue(typeof(AveragePhasesDistance));
+            float[] pw = calculator.UpdateArrayValue(typeof(PhasesWeight));
 
             if (pd.Length != pw.Length)
             {
-                string title1 = calculator.GetParameterTitle(typeof(AveragePhasesDistance));
-                string title2 = calculator.GetParameterTitle(typeof(PhasesWeight));
+                string title1 = calculator.ParameterTitle(typeof(AveragePhasesDistance));
+                string title2 = calculator.ParameterTitle(typeof(PhasesWeight));
                 string message = string.Format(arrayIssueFormat, title1, title2);
 
                 calculationReport.Failed(message);

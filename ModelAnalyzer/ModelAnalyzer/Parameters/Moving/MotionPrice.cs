@@ -16,9 +16,9 @@ namespace ModelAnalyzer.Parameters.Moving
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ad = calculator.GetUpdateSingleValue(typeof(AverageDistance));
-            float am = calculator.GetUpdateSingleValue(typeof(AverageMining));
-            float mfl = calculator.GetUpdateSingleValue(typeof(MotionFreeLevel));
+            float ad = calculator.UpdateSingleValue(typeof(AverageDistance));
+            float am = calculator.UpdateSingleValue(typeof(AverageMining));
+            float mfl = calculator.UpdateSingleValue(typeof(MotionFreeLevel));
 
             unroundValue = am / mfl / ad;
             value = (float) System.Math.Round(unroundValue);

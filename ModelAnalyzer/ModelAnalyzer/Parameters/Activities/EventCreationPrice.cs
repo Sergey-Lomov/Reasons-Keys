@@ -16,12 +16,12 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float asi = calculator.GetUpdateSingleValue(typeof(AverageStabilityIncrement));
-            float eap = calculator.GetUpdateSingleValue(typeof(EventsActionsPotential));
-            float eca = calculator.GetUpdateSingleValue(typeof(EventCreationAmount));
-            float eia = calculator.GetUpdateSingleValue(typeof(EventImpactAmount));
-            float eip = calculator.GetUpdateSingleValue(typeof(EventImpactPrice));
-            float dc = calculator.GetUpdateSingleValue(typeof(DestructionCoef));
+            float asi = calculator.UpdateSingleValue(typeof(AverageStabilityIncrement));
+            float eap = calculator.UpdateSingleValue(typeof(EventsActionsPotential));
+            float eca = calculator.UpdateSingleValue(typeof(EventCreationAmount));
+            float eia = calculator.UpdateSingleValue(typeof(EventImpactAmount));
+            float eip = calculator.UpdateSingleValue(typeof(EventImpactPrice));
+            float dc = calculator.UpdateSingleValue(typeof(DestructionCoef));
 
             // See Mechanic doc for clarify formulas
             float ecp1 = eip * asi / dc; //Rule 1
