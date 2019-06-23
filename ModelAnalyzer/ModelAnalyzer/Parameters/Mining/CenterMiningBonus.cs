@@ -50,14 +50,13 @@ namespace ModelAnalyzer.Parameters.Mining
             }
 
             //Imitate player, which go to bigest radius as fast as possible and mine
-            float radius = 0;
             float profit = 0;
-            for (int i = 0; i < pd[0]; i++)
+            for (int i = 1; i <= pd[0]; i++)
             {
-                var startRadius = radius;
-                radius = Math.Min(fr, radius + isp);
-                var motionCost = (radius - startRadius) * mp;
-                var mining = ma[(int)radius] * au;
+                var finishRadius = Math.Min(fr, isp * i);
+                var startRadius = Math.Min(fr, isp * (i - 1));
+                var motionCost = (finishRadius - startRadius) * mp;
+                var mining = ma[(int)finishRadius] * au;
                 profit += mining - motionCost;
             }
 
