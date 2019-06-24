@@ -14,8 +14,26 @@ ModelAnalyzer.Parameters.Activities.EventImpactPriceAU:0,33~0,391|
 ModelAnalyzer.Parameters.Activities.EventImpactPriceEU:2~2,373|
 ModelAnalyzer.Parameters.Activities.EventsActionsPotential:175~175|
 ModelAnalyzer.Parameters.Activities.TotalPotential:400~400|
+ModelAnalyzer.Parameters.Events.ArtifactsAvaliabilityPhase:2~-|
+ModelAnalyzer.Parameters.Events.ArtifactsRarity:0,16~-|
 ModelAnalyzer.Parameters.Events.AverageStabilityIncrement:2~-|
+ModelAnalyzer.Parameters.Events.BlockEventsCoef_2D:0,5~-|
+ModelAnalyzer.Parameters.Events.BlockRelationsCoef_OB:0,33~-|
+ModelAnalyzer.Parameters.Events.EventMaxMiningBonus:4~-|
+ModelAnalyzer.Parameters.Events.EventMaxRelations:3~-|
+ModelAnalyzer.Parameters.Events.EventMiningBonusAllocation:5 5 5 3 2~- - - - -|
+ModelAnalyzer.Parameters.Events.EventMiningBonusConstraint:0,66~-|
+ModelAnalyzer.Parameters.Events.EventMinMiningBonus:0~-|
+ModelAnalyzer.Parameters.Events.FrontRelationsCoef:0,2~-|
+ModelAnalyzer.Parameters.Events.MinBackRelations:1~-|
+ModelAnalyzer.Parameters.Events.MultyblockAllocation_OB:2 1 0~- - -|
+ModelAnalyzer.Parameters.Events.Pairing2Coef:0,4~-|
+ModelAnalyzer.Parameters.Events.Pairing3Coef:0,33~-|
+ModelAnalyzer.Parameters.Events.RelactionsAmountAllocation_2D:2 1~- -|
+ModelAnalyzer.Parameters.Events.RelactionsAmountAllocation_OB:1 2 1~- - -|
 ModelAnalyzer.Parameters.Mining.AverageMining:10~10|
+ModelAnalyzer.Parameters.Mining.CenterMiningBonus:8~8|
+ModelAnalyzer.Parameters.Mining.MiningAllocation:0 3 6 9 12~0 2,955 5,91 8,865 11,82|
 ModelAnalyzer.Parameters.Mining.MiningAUCoef:0,4~-|
 ModelAnalyzer.Parameters.Mining.MiningIncrement:3~2,955|
 ModelAnalyzer.Parameters.Moving.AverageDistance:4,91~4,909|

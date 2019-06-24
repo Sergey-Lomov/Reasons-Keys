@@ -31,7 +31,23 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new TotalPotential());
 
             // Events
+            storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
+            storage.AddParameter(parameter: new ArtifactsRarity());
             storage.AddParameter(parameter: new AverageStabilityIncrement());
+            storage.AddParameter(parameter: new BlockEventsCoef_2D());
+            storage.AddParameter(parameter: new BlockRelationsCoef_OB());
+            storage.AddParameter(parameter: new EventMaxMiningBonus());
+            storage.AddParameter(parameter: new EventMaxRelations());
+            storage.AddParameter(parameter: new EventMiningBonusAllocation());
+            storage.AddParameter(parameter: new EventMiningBonusConstraint());
+            storage.AddParameter(parameter: new EventMinMiningBonus());
+            storage.AddParameter(parameter: new FrontRelationsCoef());
+            storage.AddParameter(parameter: new MinBackRelations());
+            storage.AddParameter(parameter: new MultyblockAllocation_OB());
+            storage.AddParameter(parameter: new Pairing2Coef());
+            storage.AddParameter(parameter: new Pairing3Coef());
+            storage.AddParameter(parameter: new RelactionsAmountAllocation_2D());
+            storage.AddParameter(parameter: new RelactionsAmountAllocation_OB());
 
             // Mining
             storage.AddParameter(parameter: new AverageMining());
