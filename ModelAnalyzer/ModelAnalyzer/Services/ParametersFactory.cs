@@ -36,6 +36,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageStabilityIncrement());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
             storage.AddParameter(parameter: new BlockRelationsCoef_OB());
+            storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
+            storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
             storage.AddParameter(parameter: new EventMaxMiningBonus());
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());

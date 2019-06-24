@@ -101,6 +101,9 @@
     <Compile Include="Parameters\Events\AverageStabilityIncrement.cs" />
     <Compile Include="Parameters\Events\BlockEventsCoef_2D.cs" />
     <Compile Include="Parameters\Events\BlockRelationsCoef_OB.cs" />
+    <Compile Include="Parameters\Events\BranchPointsAllocation.cs" />
+    <Compile Include="Parameters\Events\BranchPointsAllocation_Standard.cs" />
+    <Compile Include="Parameters\Events\BranchPointsAllocation_Symmetric.cs" />
     <Compile Include="Parameters\Events\EventMaxRelations.cs" />
     <Compile Include="Parameters\Events\EventMiningBonusConstraint.cs" />
     <Compile Include="Parameters\Events\EventMiningBonusAllocation.cs" />
