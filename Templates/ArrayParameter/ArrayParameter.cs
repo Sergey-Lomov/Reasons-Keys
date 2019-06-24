@@ -14,7 +14,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.GetSingleValue(typeof(ParamName));
+            float p = calculator.UpdateSingleValue(typeof(ParamName));
 
             unroundValues.Clear();
             values.Clear();
@@ -24,7 +24,7 @@
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
-            var size = storage.GetParameter(typeof(SizeParamName));
+            var size = storage.Parameter(typeof(SizeParamName));
             var report = Validate(validator, storage, size);
             return report;
         }

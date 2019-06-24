@@ -14,7 +14,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.GetUpdateSingleValue(typeof(ParamName));
+            float p = calculator.UpdateSingleValue(typeof(ParamName));
 
             value = ;
 
