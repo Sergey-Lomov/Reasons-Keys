@@ -14,7 +14,8 @@ namespace ModelAnalyzer
         const string separator = " ";
         const string emptyMessage = "Пустой массив";
 
-        private readonly string arraySizeMessage = "Размер массива должен быть равен \"{0}\": {1}.";
+        private readonly string arraySizeParamMessage = "Размер массива должен быть равен \"{0}\": {1}.";
+        private readonly string arraySizeMessage = "Размер массива должен быть равен {0}";
 
         public override void SetupByString(string str)
         {
@@ -104,11 +105,6 @@ namespace ModelAnalyzer
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
-            return Validate(validator, storage);
-        }
-
-        protected ParameterValidationReport Validate(Validator validator, Storage storage, Parameter sizeParameter = null)
-        {
             var report = base.Validate(validator, storage);
 
             for (int i = 0; i < values.Count; i++)
@@ -117,14 +113,23 @@ namespace ModelAnalyzer
                 report.issues.AddRange(roundingIssues);
             }
 
+            return report;
+        }
+
+        protected void ValidateSize(Parameter sizeParameter, ParameterValidationReport report)
+        {
             if (sizeParameter is SingleParameter single)
             {
                 float size = single.GetValue();
-                var issue = string.Format(arraySizeMessage, sizeParameter.title, size);
+                var issue = string.Format(arraySizeParamMessage, sizeParameter.title, size);
                 ValidateSize(size, issue, report);
             }
+        }
 
-            return report;
+        protected void ValidateSize(float size, ParameterValidationReport report)
+        {
+            var issue = string.Format(arraySizeMessage, size);
+            ValidateSize(size, issue, report);
         }
 
         protected void ValidateSize (float size, string issueMessage, ParameterValidationReport report)

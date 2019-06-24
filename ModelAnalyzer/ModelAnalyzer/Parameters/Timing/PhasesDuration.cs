@@ -44,8 +44,9 @@ namespace ModelAnalyzer.Parameters.Timing
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
+            var report = base.Validate(validator, storage);
             var size = storage.Parameter(typeof(PhasesAmount));
-            var report = Validate(validator, storage, size);
+            ValidateSize(size, report);
             return report;
         }
     }

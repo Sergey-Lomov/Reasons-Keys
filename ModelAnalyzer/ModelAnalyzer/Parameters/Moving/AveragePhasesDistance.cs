@@ -16,9 +16,10 @@ namespace ModelAnalyzer.Parameters.Moving
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
-        {
+        {    
+            var report = base.Validate(validator, storage);
             var size = storage.Parameter(typeof(PhasesAmount));
-            var report = Validate(validator, storage, size);
+            ValidateSize(size, report);
 
             var radiusType = typeof(FieldRadius);
             float r = storage.SingleValue(radiusType);
