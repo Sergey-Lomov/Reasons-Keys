@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.UI
 {
     public partial class CalculationReportForm : Form
     {

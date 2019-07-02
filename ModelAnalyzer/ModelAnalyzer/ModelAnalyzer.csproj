@@ -64,25 +64,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculationReportForm.cs">
+    <Compile Include="Parameters\Events\AdditionalReasonsWeight.cs" />
+    <Compile Include="Parameters\Events\ArtifactsWeight.cs" />
+    <Compile Include="Parameters\Events\AverageRelationStability.cs" />
+    <Compile Include="Parameters\Events\AverageSequenceLength.cs" />
+    <Compile Include="Parameters\Events\BaseRelationsWeight.cs" />
+    <Compile Include="Parameters\Events\EventUsabilityNormalisation.cs" />
+    <Compile Include="Parameters\Events\FrontBlockerWeight.cs" />
+    <Compile Include="Parameters\Events\FrontReasonsWeight.cs" />
+    <Compile Include="Parameters\Events\NodesAvailableBackRelations.cs" />
+    <Compile Include="Parameters\Events\StabilityIncrementAllocation.cs" />
+    <Compile Include="Parameters\MinPlayersAmount.cs" />
+    <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CalculationReportForm.Designer.cs">
+    <Compile Include="UI\CalculationReportForm.Designer.cs">
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditForm.cs">
+    <Compile Include="UI\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditForm.Designer.cs">
+    <Compile Include="UI\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ParameterDetailsForm.cs">
+    <Compile Include="UI\EventsDeckForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParameterDetailsForm.Designer.cs">
+    <Compile Include="UI\EventsDeckForm.Designer.cs">
+      <DependentUpon>EventsDeckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IParameterView.cs" />
+    <Compile Include="UI\ParameterDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ParameterDetailsForm.Designer.cs">
       <DependentUpon>ParameterDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ParameterRowDelegate.cs" />
+    <Compile Include="UI\IParameterRowDelegate.cs" />
     <Compile Include="Parameters\Activities\AUPriceProportion.cs" />
     <Compile Include="Parameters\Activities\DestructionCoef.cs" />
     <Compile Include="Parameters\Activities\EUPartyAmount.cs" />
@@ -104,18 +122,20 @@
     <Compile Include="Parameters\Events\BranchPointsAllocation.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation_Standard.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation_Symmetric.cs" />
+    <Compile Include="Parameters\Events\ContinuumNodesAmount.cs" />
     <Compile Include="Parameters\Events\EventMaxRelations.cs" />
     <Compile Include="Parameters\Events\EventMiningBonusConstraint.cs" />
     <Compile Include="Parameters\Events\EventMiningBonusAllocation.cs" />
     <Compile Include="Parameters\Events\EventMinMiningBonus.cs" />
+    <Compile Include="Parameters\Events\EventsDeck.cs" />
     <Compile Include="Parameters\Events\FrontRelationsCoef.cs" />
     <Compile Include="Parameters\Events\EventMaxMiningBonus.cs" />
     <Compile Include="Parameters\Events\MinBackRelations.cs" />
-    <Compile Include="Parameters\Events\MultyblockAllocation_OB.cs" />
+    <Compile Include="Parameters\Events\MultyblockCardsAllocation_OB.cs" />
     <Compile Include="Parameters\Events\Pairing2Coef.cs" />
     <Compile Include="Parameters\Events\Pairing3Coef.cs" />
-    <Compile Include="Parameters\Events\RelactionsAmountAllocation_2D.cs" />
-    <Compile Include="Parameters\Events\RelactionsAmountAllocation_OB.cs" />
+    <Compile Include="Parameters\Events\RelationsAmountAllocation_2D.cs" />
+    <Compile Include="Parameters\Events\RelationsAmountAllocation_OB.cs" />
     <Compile Include="Parameters\FieldRadius.cs" />
     <Compile Include="Parameters\MaxPlayersAmount.cs" />
     <Compile Include="Parameters\Mining\AverageMining.cs" />
@@ -147,10 +167,10 @@
     <Compile Include="Parameters\Activities\EventCreationAmount.cs" />
     <Compile Include="Services\MAException.cs" />
     <Compile Include="Services\Parameter.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="UI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\ParametersFactory.cs" />
@@ -161,17 +181,21 @@
     <Compile Include="Services\Storage.cs" />
     <Compile Include="Services\Utils.cs" />
     <Compile Include="Services\Validator.cs" />
-    <Compile Include="UIFactory.cs" />
-    <EmbeddedResource Include="CalculationReportForm.resx">
+    <Compile Include="UI\UIFactory.cs" />
+    <EmbeddedResource Include="UI\CalculationReportForm.resx">
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditForm.resx">
+    <EmbeddedResource Include="UI\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="UI\EventsDeckForm.resx">
+      <DependentUpon>EventsDeckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParameterDetailsForm.resx">
+    <EmbeddedResource Include="UI\ParameterDetailsForm.resx">
       <DependentUpon>ParameterDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

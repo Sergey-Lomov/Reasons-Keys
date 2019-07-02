@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.UI
 {
     public partial class MainForm : Form, IParameterRowDelegate
     {
@@ -12,6 +12,7 @@ namespace ModelAnalyzer
         Calculator calculator = new Calculator();
         Validator validator = new Validator();
         FilesManager filesManager = new FilesManager();
+        UIFactory uiFactory = new UIFactory();
 
         public MainForm()
         {
@@ -77,7 +78,6 @@ namespace ModelAnalyzer
             MainLayout.Visible = false;
             MainLayout.Controls.Clear();
             MainLayout.RowCount = 0;
-            var factory = new UIFactory();
 
             Dictionary<ParameterType, CheckBox> typesBoxes = new Dictionary<ParameterType, CheckBox> {
                 {ParameterType.In, inCB},
@@ -101,14 +101,14 @@ namespace ModelAnalyzer
                     if (titleFilter == null)
                     {
                         MainLayout.RowCount += 1;
-                        Panel header = factory.HeaderForParameterType(type);
+                        Panel header = uiFactory.HeaderForParameterType(type);
                         MainLayout.Controls.Add(header);
                     }
 
                     foreach (Parameter parameter in parameters)
                     {
                         var validation = parameter.Validate(validator, storage);
-                        Panel row = factory.RowForParameter(parameter, this, validation);
+                        Panel row = uiFactory.RowForParameter(parameter, this, validation);
                         MainLayout.Controls.Add(row);
                     }
                 }
@@ -179,10 +179,13 @@ namespace ModelAnalyzer
 
         public void HandleTitleClick(Parameter parameter, Label titleLabel)
         {
-            ParameterDetailsForm details = new ParameterDetailsForm() { TopLevel = true };
             ParameterValidationReport validation = parameter.Validate(validator, storage);
-            details.SetParameter(parameter, validation);
-            details.ShowDialog();
+            Form details = uiFactory.DetailsFormForParameter(parameter, validation);
+            if (details != null)
+            {
+                details.TopLevel = true;
+                details.ShowDialog();
+            }
         }
     }
 }

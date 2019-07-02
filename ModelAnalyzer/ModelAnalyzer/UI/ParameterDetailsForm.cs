@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.UI
 {
-    public partial class ParameterDetailsForm : Form
+    public partial class ParameterDetailsForm : Form, IParameterDetailsForm
     {
         private readonly string issueItemPrefix = "- ";
 
@@ -21,7 +21,7 @@ namespace ModelAnalyzer
             InitializeComponent();
         }
 
-        internal void SetParameter (Parameter parameter, ParameterValidationReport validation)
+        public void SetParameter (Parameter parameter, ParameterValidationReport validation)
         {
             this.parameter = parameter;
             bool isParameterIn = parameter.type == ParameterType.In;

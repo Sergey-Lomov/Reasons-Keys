@@ -6,7 +6,7 @@ namespace ModelAnalyzer.Parameters.Mining
 {
     class MiningIncrement : SingleParameter
     {
-        private readonly string invalidPhasesAmount = "Параметр \"{0}\" = {1}, но лдина массива \"{2}\" равна {3}";
+        private readonly string invalidPhasesAmount = "Параметр \"{0}\" = {1}, но длина массива \"{2}\" равна {3}";
 
         public MiningIncrement()
         {

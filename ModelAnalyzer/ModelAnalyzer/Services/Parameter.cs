@@ -17,6 +17,7 @@ namespace ModelAnalyzer
         readonly protected int unroundFractionalDigits = 3;
         readonly protected string invalidValueStub = "-";
         readonly protected string dataSeparator = "~";
+        readonly string invalidInMessage = "Для вычисления необходимы параметры: {0}";
 
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
@@ -31,6 +32,17 @@ namespace ModelAnalyzer
         internal virtual ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             return new ParameterValidationReport(this);
+        }
+
+        internal void FailCalculationByInvalidIn(string[] parametersTitles)
+        {
+            string titles = "";
+            foreach (string title in parametersTitles)
+                titles += "\"" + title + "\",";
+            titles.Remove(titles.Length - 1);
+
+            string issue = string.Format(invalidInMessage, titles);
+            calculationReport.Failed(issue);
         }
     }
 }

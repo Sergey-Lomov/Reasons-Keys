@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelAnalyzer
 {
-    class ParameterValidationReport
+    public class ParameterValidationReport
     {
         public Parameter parameter;
         public bool HasIssues => issues.Count > 0;

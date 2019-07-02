@@ -10,10 +10,26 @@ namespace ModelAnalyzer.Parameters.Events
     {
         public AverageStabilityIncrement()
         {
-            type = ParameterType.In;
+            type = ParameterType.Inner;
             title = "Средний прирост стабильности события";
             details = "";
             fractionalDigits = 2;
+        }
+
+        internal override ParameterCalculationReport Calculate(Calculator calculator)
+        {
+            calculationReport = new ParameterCalculationReport(this);
+
+            float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
+            float[] sia = calculator.UpdateArrayValue(typeof(StabilityIncrementAllocation));
+
+            float average = 0;
+            for (int i = 0; i < sia.Count(); i++)
+                average += i * sia[i] / sia.Sum();
+
+            value = unroundValue = average;
+
+            return calculationReport;
         }
     }
 }

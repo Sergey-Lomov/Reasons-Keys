@@ -12,6 +12,7 @@ namespace ModelAnalyzer
         public void LoadModel (Storage storage)
         {
             storage.AddParameter(parameter: new MaxPlayersAmount());
+            storage.AddParameter(parameter: new MinPlayersAmount());
             storage.AddParameter(parameter: new FieldRadius());
 
             // Activities
@@ -31,25 +32,38 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new TotalPotential());
 
             // Events
+            storage.AddParameter(parameter: new EventsDeck());
+
+            storage.AddParameter(parameter: new AdditionalReasonsWeight());
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
             storage.AddParameter(parameter: new ArtifactsRarity());
+            storage.AddParameter(parameter: new ArtifactsWeight());
+            storage.AddParameter(parameter: new AverageRelationStability());
+            storage.AddParameter(parameter: new AverageSequenceLength());
             storage.AddParameter(parameter: new AverageStabilityIncrement());
+            storage.AddParameter(parameter: new BaseRelationsWeight());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
             storage.AddParameter(parameter: new BlockRelationsCoef_OB());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
+            storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new EventMaxMiningBonus());
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());
             storage.AddParameter(parameter: new EventMiningBonusConstraint());
             storage.AddParameter(parameter: new EventMinMiningBonus());
+            storage.AddParameter(parameter: new EventUsabilityNormalisation());
+            storage.AddParameter(parameter: new FrontBlockerWeight());
+            storage.AddParameter(parameter: new FrontReasonsWeight());
             storage.AddParameter(parameter: new FrontRelationsCoef());
-            storage.AddParameter(parameter: new MinBackRelations());
-            storage.AddParameter(parameter: new MultyblockAllocation_OB());
+            storage.AddParameter(parameter: new MinBackRelations()); 
+            storage.AddParameter(parameter: new MultyblockCardsAllocation_OB());
+            storage.AddParameter(parameter: new NodesAvailableBackRelations());
             storage.AddParameter(parameter: new Pairing2Coef());
             storage.AddParameter(parameter: new Pairing3Coef());
-            storage.AddParameter(parameter: new RelactionsAmountAllocation_2D());
-            storage.AddParameter(parameter: new RelactionsAmountAllocation_OB());
+            storage.AddParameter(parameter: new RelationsAmountAllocation_2D());
+            storage.AddParameter(parameter: new RelationsAmountAllocation_OB());
+            storage.AddParameter(parameter: new StabilityIncrementAllocation());
 
             // Mining
             storage.AddParameter(parameter: new AverageMining());

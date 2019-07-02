@@ -1,4 +1,4 @@
-﻿namespace ModelAnalyzer
+﻿namespace ModelAnalyzer.UI
 {
     partial class EditForm
     {

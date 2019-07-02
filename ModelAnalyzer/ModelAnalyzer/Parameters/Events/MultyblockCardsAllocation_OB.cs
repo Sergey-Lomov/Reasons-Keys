@@ -1,8 +1,8 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class MultyblockAllocation_OB : ArrayParameter
+    class MultyblockCardsAllocation_OB : ArrayParameter
     {
-        public MultyblockAllocation_OB()
+        public MultyblockCardsAllocation_OB()
         {
             type = ParameterType.In;
             title = "Распределение кол-ва блокираторов (только назад)";

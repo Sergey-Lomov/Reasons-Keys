@@ -1,8 +1,8 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class RelactionsAmountAllocation_2D : ArrayParameter
+    class RelationsAmountAllocation_2D : ArrayParameter
     {
-        public RelactionsAmountAllocation_2D()
+        public RelationsAmountAllocation_2D()
         {
             type = ParameterType.In;
             title = "Распределение кол-ва связей (2 стороны)";

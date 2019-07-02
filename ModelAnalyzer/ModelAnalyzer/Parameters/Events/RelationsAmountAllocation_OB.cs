@@ -1,8 +1,8 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class RelactionsAmountAllocation_OB : ArrayParameter
+    class RelationsAmountAllocation_OB : ArrayParameter
     {
-        public RelactionsAmountAllocation_OB()
+        public RelationsAmountAllocation_OB()
         {
             type = ParameterType.In;
             title = "Распределение кол-ва связей (только назад)";

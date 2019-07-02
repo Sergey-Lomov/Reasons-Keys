@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace ModelAnalyzer
+using ModelAnalyzer.Parameters.Events;
+
+namespace ModelAnalyzer.UI
 {
     class UIFactory
     {
@@ -16,6 +15,7 @@ namespace ModelAnalyzer
         readonly Color issueColor = Color.FromArgb(255, 50, 50);
         readonly Font headerFont = new Font("Serif", 10, FontStyle.Bold);
 
+        Dictionary<Type, Type> detailsFormsTypes = new Dictionary<Type, Type>();
         Dictionary<ParameterType, Color> typesColors = new Dictionary<ParameterType, Color>();
         Dictionary<ParameterType, string> typesTitles = new Dictionary<ParameterType, string>();
 
@@ -49,6 +49,11 @@ namespace ModelAnalyzer
             typesTitles.Add(ParameterType.Out, "Исходящие");
             typesTitles.Add(ParameterType.Inner, "Внутренние");
             typesTitles.Add(ParameterType.Indicator, "Индикаторы");
+
+            detailsFormsTypes.Add(typeof(ArrayParameter), typeof(ParameterDetailsForm));
+            detailsFormsTypes.Add(typeof(SingleParameter), typeof(ParameterDetailsForm));
+            detailsFormsTypes.Add(typeof(BranchPointsAllocation), typeof(ParameterDetailsForm));
+            detailsFormsTypes.Add(typeof(EventsDeck), typeof(EventsDeckForm));
         }
 
         private Panel RowPanel(Color backColor, int height)
@@ -272,6 +277,23 @@ namespace ModelAnalyzer
             panel.Controls.Add(IssuesIndicator(parameter, validation));
 
             return panel;
+        }
+
+        public Form DetailsFormForParameter (Parameter parameter, ParameterValidationReport validation)
+        {
+            var formTypes = detailsFormsTypes.Where(pt => pt.Key.IsAssignableFrom(parameter.GetType()));
+            if (formTypes.Count() == 0)
+                return null;
+
+            var formType = formTypes.First().Value;
+            if (typeof(IParameterDetailsForm).IsAssignableFrom(formType) && formType.IsSubclassOf(typeof(Form)))
+            {
+                var form = (IParameterDetailsForm)Activator.CreateInstance(formType);
+                form.SetParameter(parameter, validation);
+                return (Form)form;
+            }
+
+            return null;
         }
     }
 }

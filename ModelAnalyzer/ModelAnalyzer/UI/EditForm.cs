@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.UI
 {
     public partial class EditForm : Form
     {

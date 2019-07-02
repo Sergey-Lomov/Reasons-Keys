@@ -72,6 +72,13 @@ namespace ModelAnalyzer.Parameters.Events
 
             float pa = calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
 
+            if (float.IsNaN(pa))
+            {
+                string title = calculator.ParameterTitle(typeof(MaxPlayersAmount));
+                FailCalculationByInvalidIn(new string[] {title});
+                return calculationReport;
+            }
+
             float combinationsAmount = 0;
             for (int i = 1; i < pa; i++)
                 combinationsAmount += i;
