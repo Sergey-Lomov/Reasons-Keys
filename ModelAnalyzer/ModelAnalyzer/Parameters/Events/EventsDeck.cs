@@ -497,51 +497,6 @@ namespace ModelAnalyzer.Parameters.Events
                 ordered[i*step].provideArtifact = true;
         }
 
-        // Deprecated implementation related to calculation stability increment based on average increment income attribute, 
-        // instead increment allocation.
-
-        /*private void AddStabilityIncrement(List<EventCard> cards, Calculator calculator)
-        {
-            float asi = calculator.UpdateSingleValue(typeof(AverageStabilityIncrement));
-            float eip = calculator.UpdateSingleValue(typeof(EventImpactPrice));
-            int max_si = (int)(asi * 2);
-
-            float averageWeight = 0;
-            foreach (EventCard card in cards)
-                averageWeight += card.weight;
-            averageWeight /= cards.Count();
-
-            var destinationWeight = averageWeight + asi * eip;
-            var totalIncrement = asi * cards.Count();
-            float credit = 0;
-
-            var maxHandleableDif = asi * eip;
-            float totalDif = 0;
-            List <(EventCard card, float weightDif)> difs = new List<(EventCard card, float weightDif)>();
-            foreach (var card in cards)
-            {
-                var dif = destinationWeight - card.weight;
-                dif = dif < maxHandleableDif ? dif : maxHandleableDif;
-                dif = dif > 0 ? dif : 0;
-                card.weight += dif;
-                difs.Add((card, dif));
-
-                totalDif += dif;
-            }
-
-            foreach (var pair in difs)
-            {
-                if (pair.weightDif == 0)
-                    continue;
-
-                var proportion = pair.weightDif / totalDif;
-                var exactIncrement = totalIncrement * proportion - credit;
-                var roundIncrement = (int)Math.Round(exactIncrement, MidpointRounding.AwayFromZero);
-                pair.card.stabilityIncrement = roundIncrement;
-                credit = roundIncrement - exactIncrement;
-            }
-        }*/
-
         private void AddStabilityIncrement(List<EventCard> cards, Calculator calculator)
         {
             float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));

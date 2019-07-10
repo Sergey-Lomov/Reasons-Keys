@@ -30,8 +30,8 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.issuesTab = new System.Windows.Forms.TabPage();
-            this.changesTab = new System.Windows.Forms.TabPage();
             this.issuesTable = new System.Windows.Forms.TableLayoutPanel();
+            this.changesTab = new System.Windows.Forms.TabPage();
             this.changesTable = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl.SuspendLayout();
             this.issuesTab.SuspendLayout();
@@ -60,17 +60,6 @@
             this.issuesTab.Text = "Проблемы";
             this.issuesTab.UseVisualStyleBackColor = true;
             // 
-            // changesTab
-            // 
-            this.changesTab.Controls.Add(this.changesTable);
-            this.changesTab.Location = new System.Drawing.Point(4, 22);
-            this.changesTab.Name = "changesTab";
-            this.changesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.changesTab.Size = new System.Drawing.Size(792, 424);
-            this.changesTab.TabIndex = 1;
-            this.changesTab.Text = "Изменения";
-            this.changesTab.UseVisualStyleBackColor = true;
-            // 
             // issuesTable
             // 
             this.issuesTable.AutoScroll = true;
@@ -85,6 +74,17 @@
             this.issuesTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.issuesTable.Size = new System.Drawing.Size(786, 418);
             this.issuesTable.TabIndex = 0;
+            // 
+            // changesTab
+            // 
+            this.changesTab.Controls.Add(this.changesTable);
+            this.changesTab.Location = new System.Drawing.Point(4, 22);
+            this.changesTab.Name = "changesTab";
+            this.changesTab.Padding = new System.Windows.Forms.Padding(3);
+            this.changesTab.Size = new System.Drawing.Size(792, 424);
+            this.changesTab.TabIndex = 1;
+            this.changesTab.Text = "Изменения";
+            this.changesTab.UseVisualStyleBackColor = true;
             // 
             // changesTable
             // 

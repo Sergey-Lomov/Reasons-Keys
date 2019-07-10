@@ -4,6 +4,7 @@ using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Timing;
+using ModelAnalyzer.Parameters.PlayerInitial;
 
 namespace ModelAnalyzer
 {
@@ -29,6 +30,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventImpactPriceAU());
             storage.AddParameter(parameter: new EventImpactPriceEU());
             storage.AddParameter(parameter: new EventsActionsPotential());
+            storage.AddParameter(parameter: new KeyEventCreationAmount()); 
+            storage.AddParameter(parameter: new UnkeyEventCreationAmount());
             storage.AddParameter(parameter: new TotalPotential());
 
             // Events
@@ -44,6 +47,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BaseRelationsWeight());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
             storage.AddParameter(parameter: new BlockRelationsCoef_OB());
+            storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
             storage.AddParameter(parameter: new ContinuumNodesAmount());
@@ -93,6 +97,16 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new PhasesWeight());
             storage.AddParameter(parameter: new RealisationDuration());
             storage.AddParameter(parameter: new RoundAmount());
+
+            // Player initial state
+            storage.AddParameter(parameter: new AverageInitialEventsBranchPoints());
+            storage.AddParameter(parameter: new AverageUnkeyEventsConcreteBranchPoints());
+            storage.AddParameter(parameter: new InitialEventsAmount());
+            storage.AddParameter(parameter: new InitialEventsWeightCoefficient());
+            storage.AddParameter(parameter: new KeyEventsAmount());
+            storage.AddParameter(parameter: new KeyEventsBrachPointsCoefficient());
+            storage.AddParameter(parameter: new KeyEventsTotalBrachPoints());
+            storage.AddParameter(parameter: new RealKeyEventBrachPointCoefficients());
         }
     }
 }

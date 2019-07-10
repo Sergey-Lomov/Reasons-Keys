@@ -64,17 +64,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Events\AdditionalReasonsWeight.cs" />
     <Compile Include="Parameters\Events\ArtifactsWeight.cs" />
+    <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
+    <Compile Include="Parameters\PlayerInitial\AverageInitialEventsBranchPoints.cs" />
     <Compile Include="Parameters\Events\AverageRelationStability.cs" />
     <Compile Include="Parameters\Events\AverageSequenceLength.cs" />
     <Compile Include="Parameters\Events\BaseRelationsWeight.cs" />
     <Compile Include="Parameters\Events\EventUsabilityNormalisation.cs" />
     <Compile Include="Parameters\Events\FrontBlockerWeight.cs" />
     <Compile Include="Parameters\Events\FrontReasonsWeight.cs" />
+    <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialEventsAmount.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialEventsWeightCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsAmount.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsBrachPointsCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
     <Compile Include="Parameters\Events\NodesAvailableBackRelations.cs" />
     <Compile Include="Parameters\Events\StabilityIncrementAllocation.cs" />
     <Compile Include="Parameters\MinPlayersAmount.cs" />
+    <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
