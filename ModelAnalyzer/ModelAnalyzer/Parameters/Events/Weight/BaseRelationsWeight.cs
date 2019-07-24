@@ -1,4 +1,4 @@
-﻿namespace ModelAnalyzer.Parameters.Events
+﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
     class BaseRelationsWeight : SingleParameter
     {

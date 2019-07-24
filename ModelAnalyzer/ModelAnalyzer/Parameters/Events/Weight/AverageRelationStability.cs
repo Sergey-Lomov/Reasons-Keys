@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ModelAnalyzer.Parameters.Events
+namespace ModelAnalyzer.Parameters.Events.Weight
 {
     class AverageRelationStability : SingleParameter
     {
