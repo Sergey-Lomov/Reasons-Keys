@@ -26,14 +26,14 @@ namespace ModelAnalyzer
             return modelCalculationReport;
         }
 
-        internal float UpdateSingleValue(Type type)
+        internal float UpdatedSingleValue(Type type)
         {
             var parameter = storage.Parameter(type);
             CalculateIfNecessary(parameter);
             return storage.SingleValue(type);
         }
 
-        internal float[] UpdateArrayValue(Type type)
+        internal float[] UpdatedArrayValue(Type type)
         {
             var parameter = storage.Parameter(type);
             CalculateIfNecessary(parameter);

@@ -16,9 +16,9 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ecp = calculator.UpdateSingleValue(typeof(EventCreationPrice));
-            float am = calculator.UpdateSingleValue(typeof(AverageMining));
-            float aupp = calculator.UpdateSingleValue(typeof(AUPriceProportion));
+            float ecp = calculator.UpdatedSingleValue(typeof(EventCreationPrice));
+            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
+            float aupp = calculator.UpdatedSingleValue(typeof(AUPriceProportion));
 
             unroundValue = ecp * aupp / am;
             float timesPerAction = (float)System.Math.Round(1 / unroundValue);

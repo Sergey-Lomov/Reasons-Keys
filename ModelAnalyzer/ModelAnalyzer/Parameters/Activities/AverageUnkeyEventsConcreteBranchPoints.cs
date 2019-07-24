@@ -23,17 +23,17 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int minpa = (int)calculator.UpdateSingleValue(typeof(MinPlayersAmount));
-            int maxpa = (int)calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
+            int minpa = (int)calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
+            int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
-            float kebpc = calculator.UpdateSingleValue(typeof(KeyEventsBrachPointsCoefficient));
-            float iea = calculator.UpdateSingleValue(typeof(InitialEventsAmount));
-            float iewc = calculator.UpdateSingleValue(typeof(InitialEventsWeightCoefficient));
-            float nkeca = calculator.UpdateSingleValue(typeof(UnkeyEventCreationAmount));
-            float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-            float aiebp = calculator.UpdateSingleValue(typeof(AverageInitialEventsBranchPoints));
+            float kebpc = calculator.UpdatedSingleValue(typeof(KeyEventsBrachPointsCoefficient));
+            float iea = calculator.UpdatedSingleValue(typeof(InitialEventsAmount));
+            float iewc = calculator.UpdatedSingleValue(typeof(InitialEventsWeightCoefficient));
+            float nkeca = calculator.UpdatedSingleValue(typeof(UnkeyEventCreationAmount));
+            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
+            float aiebp = calculator.UpdatedSingleValue(typeof(AverageInitialEventsBranchPoints));
 
-            float[] bpal = calculator.UpdateArrayValue(typeof(BrachPointsTemplatesAllocation));
+            float[] bpal = calculator.UpdatedArrayValue(typeof(BrachPointsTemplatesAllocation));
             int[] bpam = BranchPointsAmounts;
 
             // For calculation details see mechanic document

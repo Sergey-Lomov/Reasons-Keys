@@ -22,12 +22,12 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mp = calculator.UpdateSingleValue(typeof(MotionPrice));
-            float isp = calculator.UpdateSingleValue(typeof(InitialSpeed));
-            float fr = calculator.UpdateSingleValue(typeof(FieldRadius));
-            float au = calculator.UpdateSingleValue(typeof(AUMoveAmount));
-            float[] pd = calculator.UpdateArrayValue(typeof(PhasesDuration));
-            float[] ma = calculator.UpdateArrayValue(typeof(MiningAllocation));
+            float mp = calculator.UpdatedSingleValue(typeof(MotionPrice));
+            float isp = calculator.UpdatedSingleValue(typeof(InitialSpeed));
+            float fr = calculator.UpdatedSingleValue(typeof(FieldRadius));
+            float au = calculator.UpdatedSingleValue(typeof(AUMoveAmount));
+            float[] pd = calculator.UpdatedArrayValue(typeof(PhasesDuration));
+            float[] ma = calculator.UpdatedArrayValue(typeof(MiningAllocation));
 
             // Check values
             var issues = new List<string>();

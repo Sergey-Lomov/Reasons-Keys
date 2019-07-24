@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-            float[] sia = calculator.UpdateArrayValue(typeof(StabilityIncrementAllocation));
+            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
+            float[] sia = calculator.UpdatedArrayValue(typeof(StabilityIncrementAllocation));
 
             float average = 0;
             for (int i = 0; i < sia.Count(); i++)

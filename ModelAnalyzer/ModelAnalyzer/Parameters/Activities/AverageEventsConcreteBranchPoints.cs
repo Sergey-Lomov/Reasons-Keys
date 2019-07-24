@@ -22,12 +22,12 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float minpa = calculator.UpdateSingleValue(typeof(MinPlayersAmount));
-            float maxpa = calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
-            float kebp = calculator.UpdateSingleValue(typeof(KeyEventsTotalBrachPoints));
-            float kea = calculator.UpdateSingleValue(typeof(KeyEventsAmount));
-            float keca = calculator.UpdateSingleValue(typeof(KeyEventCreationAmount));
-            float[] auecbp = calculator.UpdateArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
+            float minpa = calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
+            float maxpa = calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
+            float kebp = calculator.UpdatedSingleValue(typeof(KeyEventsTotalBrachPoints));
+            float kea = calculator.UpdatedSingleValue(typeof(KeyEventsAmount));
+            float keca = calculator.UpdatedSingleValue(typeof(KeyEventCreationAmount));
+            float[] auecbp = calculator.UpdatedArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
             
             value = unroundValue = auecbp.Sum() / (maxpa - minpa + 1) + kebp * keca / kea;
 

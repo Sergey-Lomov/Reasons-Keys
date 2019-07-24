@@ -16,8 +16,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bpw = calculator.UpdateSingleValue(typeof(BranchPointWeight));
-            float kebpc = calculator.UpdateSingleValue(typeof(KeyEventsBrachPointsCoefficient));
+            float bpw = calculator.UpdatedSingleValue(typeof(BranchPointWeight));
+            float kebpc = calculator.UpdatedSingleValue(typeof(KeyEventsBrachPointsCoefficient));
 
             value = unroundValue = 1 / kebpc * bpw;
 

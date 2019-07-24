@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ra = calculator.UpdateSingleValue(typeof(RoundAmount));
-            float[] pw = calculator.UpdateArrayValue(typeof(PhasesWeight));
+            float ra = calculator.UpdatedSingleValue(typeof(RoundAmount));
+            float[] pw = calculator.UpdatedArrayValue(typeof(PhasesWeight));
 
             unroundValues.Clear();
             values.Clear();

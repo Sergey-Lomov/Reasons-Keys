@@ -32,20 +32,20 @@ namespace ModelAnalyzer.Parameters.Events
             calculationReport = new ParameterCalculationReport(this);
             deck.Clear();
 
-            float na = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-            float pa = calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
+            float na = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
+            float pa = calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
-            float ar = calculator.UpdateSingleValue(typeof(ArtifactsRarity));
-            float asi = calculator.UpdateSingleValue(typeof(AverageStabilityIncrement));
-            float mbr = calculator.UpdateSingleValue(typeof(MinBackRelations));
+            float ar = calculator.UpdatedSingleValue(typeof(ArtifactsRarity));
+            float asi = calculator.UpdatedSingleValue(typeof(AverageStabilityIncrement));
+            float mbr = calculator.UpdatedSingleValue(typeof(MinBackRelations));
 
-            float max_mb = calculator.UpdateSingleValue(typeof(EventMaxMiningBonus));
-            float min_mb = calculator.UpdateSingleValue(typeof(EventMinMiningBonus));
-            float aap = calculator.UpdateSingleValue(typeof(ArtifactsAvaliabilityPhase));
-            float mbc = calculator.UpdateSingleValue(typeof(EventMiningBonusConstraint));
+            float max_mb = calculator.UpdatedSingleValue(typeof(EventMaxMiningBonus));
+            float min_mb = calculator.UpdatedSingleValue(typeof(EventMinMiningBonus));
+            float aap = calculator.UpdatedSingleValue(typeof(ArtifactsAvaliabilityPhase));
+            float mbc = calculator.UpdatedSingleValue(typeof(EventMiningBonusConstraint));
 
-            float[] mba = calculator.UpdateArrayValue(typeof(EventMiningBonusAllocation));
-            float[] raa_ob = calculator.UpdateArrayValue(typeof(RelationsAmountAllocation_OB));
+            float[] mba = calculator.UpdatedArrayValue(typeof(EventMiningBonusAllocation));
+            float[] raa_ob = calculator.UpdatedArrayValue(typeof(RelationsAmountAllocation_OB));
 
             //bpa_std = calculator.Update???Value(typeof(BranchPointsAllocation_Standard));
             //bpa_sym = calculator.Update???Value(typeof(BranchPointsAllocation_Symmetric));
@@ -110,11 +110,11 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<EventCard> BothDirectionCards (Calculator calculator)
         {
-            float na = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-            float mbr = calculator.UpdateSingleValue(typeof(MinBackRelations));
-            float frc = calculator.UpdateSingleValue(typeof(FrontRelationsCoef));
-            float bec_2d = calculator.UpdateSingleValue(typeof(BlockEventsCoef_2D));
-            float[] raa_2d = calculator.UpdateArrayValue(typeof(RelationsAmountAllocation_2D));
+            float na = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
+            float mbr = calculator.UpdatedSingleValue(typeof(MinBackRelations));
+            float frc = calculator.UpdatedSingleValue(typeof(FrontRelationsCoef));
+            float bec_2d = calculator.UpdatedSingleValue(typeof(BlockEventsCoef_2D));
+            float[] raa_2d = calculator.UpdatedArrayValue(typeof(RelationsAmountAllocation_2D));
 
             var cards = new List<EventCard>();
 
@@ -206,10 +206,10 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<EventCard> OnlyBackCards(Calculator calculator, int cardAmount)
         {
-            float mbr = calculator.UpdateSingleValue(typeof(MinBackRelations));
-            float brc_ob = calculator.UpdateSingleValue(typeof(BlockRelationsCoef_OB));
-            float[] raa_ob = calculator.UpdateArrayValue(typeof(RelationsAmountAllocation_OB));
-            float[] mbca_ob = calculator.UpdateArrayValue(typeof(MultyblockCardsAllocation_OB));
+            float mbr = calculator.UpdatedSingleValue(typeof(MinBackRelations));
+            float brc_ob = calculator.UpdatedSingleValue(typeof(BlockRelationsCoef_OB));
+            float[] raa_ob = calculator.UpdatedArrayValue(typeof(RelationsAmountAllocation_OB));
+            float[] mbca_ob = calculator.UpdatedArrayValue(typeof(MultyblockCardsAllocation_OB));
 
             var cards = new List<EventCard>();
 
@@ -290,8 +290,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void PairReasons(List<EventCard> deck, Calculator calculator)
         {
-            float p2c = calculator.UpdateSingleValue(typeof(Pairing2Coef));
-            float p3c = calculator.UpdateSingleValue(typeof(Pairing3Coef));
+            float p2c = calculator.UpdatedSingleValue(typeof(Pairing2Coef));
+            float p3c = calculator.UpdatedSingleValue(typeof(Pairing3Coef));
 
             var p2available = new List<EventCard>();
             var p3available = new List<EventCard>();
@@ -340,7 +340,7 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void UpdateUsability(List<EventCard> cards, Calculator calculator)
         {
-            float[] abr = calculator.UpdateArrayValue(typeof(NodesAvailableBackRelations));
+            float[] abr = calculator.UpdatedArrayValue(typeof(NodesAvailableBackRelations));
             foreach (EventCard card in cards)
                 card.usability = UsabilityForCard(card, abr);
         }
@@ -399,21 +399,21 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void UpdateWeight(List<EventCard> cards, Calculator calculator)
         {
-            float brw = calculator.UpdateSingleValue(typeof(BaseRelationsWeight));
-            float arw = calculator.UpdateSingleValue(typeof(AdditionalReasonsWeight));
-            float frw = calculator.UpdateSingleValue(typeof(FrontReasonsWeight));
-            float fbw = calculator.UpdateSingleValue(typeof(FrontBlockerWeight));
-            float aw = calculator.UpdateSingleValue(typeof(ArtifactsWeight));
-            float ars = calculator.UpdateSingleValue(typeof(AverageRelationStability));
-            float eip = calculator.UpdateSingleValue(typeof(EventImpactPrice));
-            float am = calculator.UpdateSingleValue(typeof(AverageMining));
+            float brw = calculator.UpdatedSingleValue(typeof(BaseRelationsWeight));
+            float arw = calculator.UpdatedSingleValue(typeof(AdditionalReasonsWeight));
+            float frw = calculator.UpdatedSingleValue(typeof(FrontReasonsWeight));
+            float fbw = calculator.UpdatedSingleValue(typeof(FrontBlockerWeight));
+            float aw = calculator.UpdatedSingleValue(typeof(ArtifactsWeight));
+            float ars = calculator.UpdatedSingleValue(typeof(AverageRelationStability));
+            float eip = calculator.UpdatedSingleValue(typeof(EventImpactPrice));
+            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
 
-            int maxpa = (int)calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
-            int minpa = (int)calculator.UpdateSingleValue(typeof(MinPlayersAmount));
-            float mauc = calculator.UpdateSingleValue(typeof(MiningAUCoef));
-            float aupa = calculator.UpdateSingleValue(typeof(AUPartyAmount));
-            float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-            float eun = calculator.UpdateSingleValue(typeof(EventUsabilityNormalisation));
+            int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
+            int minpa = (int)calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
+            float mauc = calculator.UpdatedSingleValue(typeof(MiningAUCoef));
+            float aupa = calculator.UpdatedSingleValue(typeof(AUPartyAmount));
+            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
+            float eun = calculator.UpdatedSingleValue(typeof(EventUsabilityNormalisation));
 
             float averagePlayersAmount = (maxpa - minpa + 1) / 2;
             float miningBonusMultiplier = aupa * mauc * averagePlayersAmount / cna;
@@ -453,8 +453,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddArtifacts(List<EventCard> cards, Calculator calculator)
         {
-            float ar = calculator.UpdateSingleValue(typeof(ArtifactsRarity));
-            float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
+            float ar = calculator.UpdatedSingleValue(typeof(ArtifactsRarity));
+            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
 
             int amount = (int)Math.Round(cna * ar, MidpointRounding.AwayFromZero);
             var ordered = cards.OrderBy(c => c.weight).ToList();
@@ -466,8 +466,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddStabilityIncrement(List<EventCard> cards, Calculator calculator)
         {
-            float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-            float[] si_allocation = calculator.UpdateArrayValue(typeof(StabilityIncrementAllocation));
+            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
+            float[] si_allocation = calculator.UpdatedArrayValue(typeof(StabilityIncrementAllocation));
 
             int[] si_amounts = AmountsForAllocation(cna, si_allocation);
             if (!calculationReport.IsSucces) return;
@@ -489,8 +489,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddMiningBonuses(List<EventCard> cards, Calculator calculator)
         {
-            float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-            float[] mb_allocation = calculator.UpdateArrayValue(typeof(EventMiningBonusAllocation));
+            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
+            float[] mb_allocation = calculator.UpdatedArrayValue(typeof(EventMiningBonusAllocation));
 
             int[] mb_amounts = AmountsForAllocation(cna, mb_allocation);
             if (!calculationReport.IsSucces) return;

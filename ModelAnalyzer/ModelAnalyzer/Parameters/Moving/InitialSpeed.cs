@@ -16,8 +16,8 @@ namespace ModelAnalyzer.Parameters.Moving
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float isc = calculator.UpdateSingleValue(typeof(InitialSpeedCoef));
-            float ad = calculator.UpdateSingleValue(typeof(AverageDistance));
+            float isc = calculator.UpdatedSingleValue(typeof(InitialSpeedCoef));
+            float ad = calculator.UpdatedSingleValue(typeof(AverageDistance));
 
             unroundValue = ad * isc;
             value = (float) Math.Round(unroundValue);

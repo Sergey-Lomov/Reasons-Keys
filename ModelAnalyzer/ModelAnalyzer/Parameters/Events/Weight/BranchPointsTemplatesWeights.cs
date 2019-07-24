@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using ModelAnalyzer.DataModels;
 
@@ -12,8 +11,6 @@ namespace ModelAnalyzer.Parameters.Events.Weight
 
     class BranchPointsTemplatesWeights : ArrayParameter
     {
-        private Dictionary<BranchPointsTemplate, (int, float)> debug = new Dictionary<BranchPointsTemplate, (int, float)>();
-
         private BranchPointsTemplate[] templates;
         private PlayersCombinations playersCombinations;
         private TemplatesCombinations templatesCombinations;
@@ -51,13 +48,13 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int minpa = (int)calculator.UpdateSingleValue(typeof(MinPlayersAmount));
-            int maxpa = (int)calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
+            int minpa = (int)calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
+            int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
             var config = new CalculationConfig();
-            config.prcc = calculator.UpdateSingleValue(typeof(PlayerRealisationControlCoefficient));
-            config.ppw = calculator.UpdateSingleValue(typeof(PassivePlayerWeight));
-            config.bpw = calculator.UpdateSingleValue(typeof(BranchPointWeight));
+            config.prcc = calculator.UpdatedSingleValue(typeof(PlayerRealisationControlCoefficient));
+            config.ppw = calculator.UpdatedSingleValue(typeof(PassivePlayerWeight));
+            config.bpw = calculator.UpdatedSingleValue(typeof(BranchPointWeight));
 
             SetupPlayersCombinatinos(minpa, maxpa);
             SetupTemplatesCombinatinos(maxpa);
@@ -83,8 +80,6 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-          //  var size = storage.Parameter(typeof(SizeParamName));
-         //   ValidateSize(size, report);
             return report;
         }
 
@@ -95,7 +90,7 @@ namespace ModelAnalyzer.Parameters.Events.Weight
             foreach (var set in templatesCombinations[template])
             {
                 var setWeights = new List<float>();
-                for (int pa = 6/*minpa*/; pa <= 6/*maxpa*/; pa++)
+                for (int pa = minpa; pa <= maxpa; pa++)
                 {
                     foreach (var combination in playersCombinations[pa])
                     {
@@ -114,44 +109,12 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             if (set.ValidOnBranches(availableBranches))
             {
-                var weight = ValidSetWeight(set, availableBranches, config);
-                if (set.Template() == templates[6])
-                {
-                    if (!debug.Keys.Contains(set.Template()))
-                    {
-                        debug[set.Template()] = (1, weight);
-                    }
-                    else
-                    {
-                        var current = debug[set.Template()];
-                        current.Item1++;
-                        current.Item2 += weight;
-                        debug[set.Template()] = current;
-                    }
-
-                    Debug.WriteLine("{0}", weight);
-                }
-
-                return weight;
+                return ValidSetWeight(set, availableBranches, config);
             }
             else
             {
                 var filteredSet = set.Filter(availableBranches);
-                var weight = ValidSetWeight(filteredSet, availableBranches, config);
-                if (set.Template() == templates[6])
-                    if (!debug.Keys.Contains(filteredSet.Template()))
-                    {
-                        debug[filteredSet.Template()] = (1, weight);
-                    }
-                    else
-                    {
-                        var current = debug[filteredSet.Template()];
-                        current.Item1++;
-                        current.Item2 += weight;
-                        debug[filteredSet.Template()] = current;
-                    }   
-
-                return weight;
+                return ValidSetWeight(filteredSet, availableBranches, config);
             }
         }
 

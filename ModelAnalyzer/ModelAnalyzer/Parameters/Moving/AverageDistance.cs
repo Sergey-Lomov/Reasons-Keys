@@ -22,8 +22,8 @@ namespace ModelAnalyzer.Parameters.Moving
 
             calculationReport = new ParameterCalculationReport(this);
 
-            float[] pd = calculator.UpdateArrayValue(typeof(AveragePhasesDistance));
-            float[] pw = calculator.UpdateArrayValue(typeof(PhasesWeight));
+            float[] pd = calculator.UpdatedArrayValue(typeof(AveragePhasesDistance));
+            float[] pw = calculator.UpdatedArrayValue(typeof(PhasesWeight));
 
             if (pd.Length != pw.Length)
             {

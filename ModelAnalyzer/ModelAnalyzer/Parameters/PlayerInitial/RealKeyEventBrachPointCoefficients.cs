@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ketbp = calculator.UpdateSingleValue(typeof(KeyEventsTotalBrachPoints));
-            float[] auecbp = calculator.UpdateArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
+            float ketbp = calculator.UpdatedSingleValue(typeof(KeyEventsTotalBrachPoints));
+            float[] auecbp = calculator.UpdatedArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
 
             List<float> result = new List<float>(auecbp.Length);
             foreach (float current_auecbp in auecbp)

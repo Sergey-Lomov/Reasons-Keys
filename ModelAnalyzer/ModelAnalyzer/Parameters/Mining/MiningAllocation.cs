@@ -16,8 +16,8 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mi = calculator.UpdateSingleValue(typeof(MiningIncrement));
-            float fr = calculator.UpdateSingleValue(typeof(FieldRadius));
+            float mi = calculator.UpdatedSingleValue(typeof(MiningIncrement));
+            float fr = calculator.UpdatedSingleValue(typeof(FieldRadius));
 
             unroundValues.Clear();
             values.Clear();

@@ -14,8 +14,8 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float keca = calculator.UpdateSingleValue(typeof(KeyEventCreationAmount));
-            float nkeca = calculator.UpdateSingleValue(typeof(UnkeyEventCreationAmount));
+            float keca = calculator.UpdatedSingleValue(typeof(KeyEventCreationAmount));
+            float nkeca = calculator.UpdatedSingleValue(typeof(UnkeyEventCreationAmount));
 
             value = unroundValue = keca + nkeca;
 

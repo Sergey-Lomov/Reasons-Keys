@@ -70,7 +70,7 @@ namespace ModelAnalyzer.Parameters.Events
 
             calculationReport = new ParameterCalculationReport(this);
 
-            float pa = calculator.UpdateSingleValue(typeof(MaxPlayersAmount));
+            float pa = calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
             if (float.IsNaN(pa))
             {

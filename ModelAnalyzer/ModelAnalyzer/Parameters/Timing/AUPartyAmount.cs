@@ -14,8 +14,8 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aum = calculator.UpdateSingleValue(typeof(AUMoveAmount));
-            float ra = calculator.UpdateSingleValue(typeof(RoundAmount));
+            float aum = calculator.UpdatedSingleValue(typeof(AUMoveAmount));
+            float ra = calculator.UpdatedSingleValue(typeof(RoundAmount));
 
             value = unroundValue = ra * aum;
 

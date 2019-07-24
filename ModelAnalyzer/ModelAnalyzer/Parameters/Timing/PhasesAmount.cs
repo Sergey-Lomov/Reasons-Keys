@@ -14,7 +14,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float r = calculator.UpdateSingleValue(typeof(FieldRadius));
+            float r = calculator.UpdatedSingleValue(typeof(FieldRadius));
             value = unroundValue = r + 1;
 
             return calculationReport;

@@ -20,9 +20,9 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float am = calculator.UpdateSingleValue(typeof(AverageMining));
-            float pa = calculator.UpdateSingleValue(typeof(PhasesAmount));
-            float[] pd = calculator.UpdateArrayValue(typeof(PhasesDuration));
+            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
+            float pa = calculator.UpdatedSingleValue(typeof(PhasesAmount));
+            float[] pd = calculator.UpdatedArrayValue(typeof(PhasesDuration));
 
             if (pd.Length != pa)
             {

@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float kebpc = calculator.UpdateSingleValue(typeof(KeyEventsBrachPointsCoefficient));
-            float[] auecbp = calculator.UpdateArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
+            float kebpc = calculator.UpdatedSingleValue(typeof(KeyEventsBrachPointsCoefficient));
+            float[] auecbp = calculator.UpdatedArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
 
             unroundValue = auecbp.Sum() / auecbp.Length * kebpc;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);

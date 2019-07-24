@@ -18,10 +18,10 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tp = calculator.UpdateSingleValue(typeof(TotalPotential));
-            float ma = calculator.UpdateSingleValue(typeof(MotionAmount));
-            float mp = calculator.UpdateSingleValue(typeof(MotionPrice));
-            float eac = calculator.UpdateSingleValue(typeof(EventActionsCoef));
+            float tp = calculator.UpdatedSingleValue(typeof(TotalPotential));
+            float ma = calculator.UpdatedSingleValue(typeof(MotionAmount));
+            float mp = calculator.UpdatedSingleValue(typeof(MotionPrice));
+            float eac = calculator.UpdatedSingleValue(typeof(EventActionsCoef));
 
             value = unroundValue = (tp - ma * mp) * eac;
 

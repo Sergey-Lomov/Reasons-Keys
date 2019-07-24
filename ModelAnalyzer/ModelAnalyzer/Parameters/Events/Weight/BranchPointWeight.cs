@@ -16,8 +16,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tp = calculator.UpdateSingleValue(typeof(TotalPotential));
-            float aecbp = calculator.UpdateSingleValue(typeof(AverageEventsConcreteBranchPoints));
+            float tp = calculator.UpdatedSingleValue(typeof(TotalPotential));
+            float aecbp = calculator.UpdatedSingleValue(typeof(AverageEventsConcreteBranchPoints));
 
             value = unroundValue = tp / aecbp;
 

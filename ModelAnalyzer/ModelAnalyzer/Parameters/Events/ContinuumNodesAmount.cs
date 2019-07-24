@@ -16,7 +16,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float fr = calculator.UpdateSingleValue(typeof(FieldRadius));
+            float fr = calculator.UpdatedSingleValue(typeof(FieldRadius));
 
             value = 0;
             for (int i = 1; i <= fr; i++)
