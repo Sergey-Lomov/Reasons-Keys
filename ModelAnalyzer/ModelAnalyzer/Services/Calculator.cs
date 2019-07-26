@@ -40,6 +40,13 @@ namespace ModelAnalyzer
             return storage.ArrayValue(type);
         }
 
+        internal T UpdatedParameter<T>() where T : Parameter
+        {
+            var parameter = storage.Parameter(typeof(T));
+            CalculateIfNecessary(parameter);
+            return parameter as T;
+        }
+
         internal string ParameterTitle(Type type)
         {
             return storage.Parameter(type).title;

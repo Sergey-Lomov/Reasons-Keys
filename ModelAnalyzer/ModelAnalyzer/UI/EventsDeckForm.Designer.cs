@@ -36,6 +36,8 @@
             this.deckIndexLabel = new System.Windows.Forms.Label();
             this.deckRelationsLabel = new System.Windows.Forms.Label();
             this.deckWeightLabel = new System.Windows.Forms.Label();
+            this.successBPLabel = new System.Windows.Forms.Label();
+            this.failedBPLabel = new System.Windows.Forms.Label();
             this.DeckTable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,8 +46,10 @@
             this.DeckTable.AutoScroll = true;
             this.DeckTable.AutoSize = true;
             this.DeckTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeckTable.ColumnCount = 12;
+            this.DeckTable.ColumnCount = 14;
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -63,7 +67,9 @@
             this.DeckTable.Controls.Add(this.deckArtifactLabel, 7, 0);
             this.DeckTable.Controls.Add(this.deckIndexLabel, 0, 0);
             this.DeckTable.Controls.Add(this.deckRelationsLabel, 1, 0);
-            this.DeckTable.Controls.Add(this.deckWeightLabel, 11, 0);
+            this.DeckTable.Controls.Add(this.deckWeightLabel, 13, 0);
+            this.DeckTable.Controls.Add(this.successBPLabel, 11, 0);
+            this.DeckTable.Controls.Add(this.failedBPLabel, 12, 0);
             this.DeckTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DeckTable.Location = new System.Drawing.Point(0, 0);
             this.DeckTable.Name = "DeckTable";
@@ -164,14 +170,42 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deckWeightLabel.AutoSize = true;
             this.deckWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deckWeightLabel.Location = new System.Drawing.Point(433, 10);
+            this.deckWeightLabel.Location = new System.Drawing.Point(513, 10);
             this.deckWeightLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckWeightLabel.Name = "deckWeightLabel";
-            this.deckWeightLabel.Size = new System.Drawing.Size(130, 146);
+            this.deckWeightLabel.Size = new System.Drawing.Size(50, 146);
             this.deckWeightLabel.TabIndex = 7;
             this.deckWeightLabel.Text = "Вес";
             this.deckWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.deckWeightLabel.Click += new System.EventHandler(this.deckWeightLabel_Click);
+            // 
+            // successBPLabel
+            // 
+            this.successBPLabel.AutoSize = true;
+            this.successBPLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.successBPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.successBPLabel.Location = new System.Drawing.Point(433, 10);
+            this.successBPLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.successBPLabel.Name = "successBPLabel";
+            this.successBPLabel.Size = new System.Drawing.Size(34, 146);
+            this.successBPLabel.TabIndex = 8;
+            this.successBPLabel.Text = "+";
+            this.successBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.successBPLabel.Click += new System.EventHandler(this.successBPLabel_Click);
+            // 
+            // failedBPLabel
+            // 
+            this.failedBPLabel.AutoSize = true;
+            this.failedBPLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.failedBPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.failedBPLabel.Location = new System.Drawing.Point(473, 10);
+            this.failedBPLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.failedBPLabel.Name = "failedBPLabel";
+            this.failedBPLabel.Size = new System.Drawing.Size(34, 146);
+            this.failedBPLabel.TabIndex = 9;
+            this.failedBPLabel.Text = "-";
+            this.failedBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.failedBPLabel.Click += new System.EventHandler(this.failedBPLabel_Click);
             // 
             // EventsDeckForm
             // 
@@ -199,5 +233,7 @@
         private System.Windows.Forms.Label deckArtifactLabel;
         private System.Windows.Forms.Label deckRelationsLabel;
         private System.Windows.Forms.Label deckWeightLabel;
+        private System.Windows.Forms.Label successBPLabel;
+        private System.Windows.Forms.Label failedBPLabel;
     }
 }

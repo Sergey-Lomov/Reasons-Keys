@@ -57,8 +57,8 @@ namespace ModelAnalyzer.DataModels
 
         public BranchPointsSet(List<BranchPoint> success, List<BranchPoint> failed)
         {
-            this.success = success;
-            this.failed = failed;
+            this.success = success != null ? success : this.success;
+            this.failed = failed != null ? failed : this.failed;
         }
 
         public static bool operator ==(BranchPointsSet bps1, BranchPointsSet bps2)
@@ -131,6 +131,31 @@ namespace ModelAnalyzer.DataModels
         {
             this.success = success;
             this.failed = failed;
+        }
+
+        public BranchPointsSet SetupByBranches(int[] branches)
+        {
+            if (success.Count() + failed.Count() > branches.Count())
+                return null;
+            
+            var bpSuccess = new List<BranchPoint> ();
+            var bpFailed = new List<BranchPoint>();
+
+            foreach (var point in success)
+            {
+                var branch = branches[bpSuccess.Count()];
+                var branchPoint = new BranchPoint(branch, point);
+                bpSuccess.Add(branchPoint);
+            }
+
+            foreach (var point in failed)
+            {
+                var branch = branches[bpSuccess.Count() + bpFailed.Count()];
+                var branchPoint = new BranchPoint(branch, point);
+                bpFailed.Add(branchPoint);
+            }
+
+            return new BranchPointsSet(bpSuccess, bpFailed);
         }
 
         public static bool operator ==(BranchPointsTemplate bps1, BranchPointsTemplate bps2)

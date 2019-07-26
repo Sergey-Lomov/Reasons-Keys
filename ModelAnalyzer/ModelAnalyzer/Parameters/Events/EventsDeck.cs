@@ -15,6 +15,7 @@ namespace ModelAnalyzer.Parameters.Events
         internal List<EventCard> deck = new List<EventCard>();
         const string valueStub = "Колода";
         private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
+        private readonly string zeroTemplatesIssues = "Невозможно найти шаблон очков ветвей с ненулевым кол-вом карт";
 
         readonly int[] backPosPriority = new int[3] { 1, 0, 2 };
         readonly int[] frontPosPriority = new int[3] { 4, 3, 5 };
@@ -47,9 +48,6 @@ namespace ModelAnalyzer.Parameters.Events
             float[] mba = calculator.UpdatedArrayValue(typeof(EventMiningBonusAllocation));
             float[] raa_ob = calculator.UpdatedArrayValue(typeof(RelationsAmountAllocation_OB));
 
-            //bpa_std = calculator.Update???Value(typeof(BranchPointsAllocation_Standard));
-            //bpa_sym = calculator.Update???Value(typeof(BranchPointsAllocation_Symmetric));
-
             var cards_2d = BothDirectionCards(calculator);
             int amount_ob = (int)na - cards_2d.Count();
             var cards_ob = OnlyBackCards(calculator, amount_ob);
@@ -66,6 +64,7 @@ namespace ModelAnalyzer.Parameters.Events
             UpdateWeight(deck, calculator);
             AddMiningBonuses(deck, calculator);
             UpdateWeight(deck, calculator);
+            AddBranchPoints(deck, calculator);
 
             return calculationReport;
         }
@@ -508,31 +507,145 @@ namespace ModelAnalyzer.Parameters.Events
                     mb_amounts[miningBonus]--;
                 }
             }
-            /*   float cna = calculator.UpdateSingleValue(typeof(ContinuumNodesAmount));
-               float[] mb_allocation = calculator.UpdateArrayValue(typeof(EventMiningBonusAllocation));
+        }
 
-               var ordered = cards.OrderBy(c => c.weight).Reverse().ToArray();
+        private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
+        {
+            float[] bpta = calculator.UpdatedArrayValue(typeof(BrachPointsTemplatesAllocation));
+            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
 
-               int[] mb_amount = new int[mb_allocation.Count()];
-               for (int i = 0; i < mb_allocation.Count(); i++)
-               {
-                   var amount = cna * mb_allocation[i] / mb_allocation.Sum();
-                   mb_amount[i] = (int)Math.Round(amount, MidpointRounding.AwayFromZero);
-               }
+            var templates = new BrachPointsTemplatesAllocation().templates;
+            int[] amounts = AmountsForAllocation(cna, bpta);
+            Dictionary<BranchPointsTemplate, int> templateAmount = new Dictionary<BranchPointsTemplate, int>();
+            for (int i = 0; i < amounts.Length; i++)
+            {
+                var template = templates[i];
+                templateAmount[template] = amounts[i];
+            }
 
-               if (mb_amount.Sum() != cna)
-               {
-                   calculationReport.Failed(roundingIssue);
-                   return;
-               }
+            var filteredAmounts = amounts.Where(i => i > 0).OrderBy(i => i).ToArray();
+            int minAmount = filteredAmounts.Count() > 0 ? filteredAmounts[0] : 0;
+            if (minAmount == 0)
+            {
+                calculationReport.Failed(zeroTemplatesIssues);
+                return;
+            }
 
-               int cardIter = 0;
-               for (int i = 0; i < mb_amount.Count(); i++)
-               {
-                   for (int j = 0; j < mb_amount[i]; j++)
-                       ordered[cardIter + j].miningBonus = i;
-                   cardIter += mb_amount[i];
-               }*/
+            int templateIndex = 0;
+            int amountCounter = 0;
+
+            Dictionary<BranchPointsTemplate, List<EventCard>> templateCards = new Dictionary<BranchPointsTemplate, List<EventCard>>();
+            foreach (var template in templates)
+                templateCards[template] = new List<EventCard>();
+
+            foreach (var card in cards)
+            {
+                var template = templates[templateIndex];
+                int amount = templateAmount[template];
+
+                // Select next template if necessary
+                int checksCounter = 0;
+                while (templateCards[template].Count() == templateAmount[template] 
+                    || amountCounter >= amount / minAmount)
+                {
+                    if (checksCounter == templates.Count())
+                        break;
+
+                    templateIndex = templateIndex < templates.Count() - 1 ? templateIndex + 1 : 0;
+                    template = templates[templateIndex];
+                    amountCounter = 0;
+
+                    checksCounter++;
+                }
+
+                templateCards[template].Add(card);
+                amountCounter++;
+            }
+
+            foreach (var template in templates)
+            {
+                var tCards = templateCards[template];
+                var sequence = SequenceForTemplate(template, tCards.Count(), calculator);
+                for (int i = 0; i < tCards.Count(); i++)
+                    tCards[i].branchPoints = sequence[i];
+            }
+        }
+
+        private List<BranchPointsSet> SequenceForTemplate(BranchPointsTemplate template, int lenght, Calculator calculator)
+        {
+            var sequence = new List<BranchPointsSet>();
+            int branchesAmount = template.failed.Count() + template.success.Count();
+            switch (branchesAmount)
+            {
+                case 0:
+                    sequence = EmptySetsSequence(lenght);
+                    break;
+
+                case 1:
+                    sequence = SingleBranchSequence(template, lenght, calculator);
+                    break;
+                
+                case 2:
+                    sequence = DoubleBranchSequence(template, lenght, calculator);
+                    break;
+            }
+
+            return sequence;
+        }
+
+        private List<BranchPointsSet> EmptySetsSequence(int lenght)
+        {
+            var sequence = new List<BranchPointsSet>();
+            for (int i = 0; i < lenght; i++)
+                sequence.Add(new BranchPointsSet(null, null));
+
+            return sequence;
+        }
+
+        private List<BranchPointsSet> SingleBranchSequence(BranchPointsTemplate template, int lenght, Calculator calculator)
+        {
+            int mpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
+
+            var sequence = new List<BranchPointsSet>();
+            int index = 0;
+            for (int i = 0; i < lenght; i++)
+            {
+                int halfCount = (int)Math.Round(mpa / 2.0f, MidpointRounding.AwayFromZero);
+                var normalisedIndex = index % 2 == 0 ? index / 2 : halfCount + index / 2;
+                var set = template.SetupByBranches(new int[]{normalisedIndex});
+                sequence.Add(set);
+                index = index == mpa - 1 ? 0 : index + 1;
+            }
+
+            return sequence;
+        }
+
+        private List<BranchPointsSet> DoubleBranchSequence(BranchPointsTemplate template, int lenght, Calculator calculator)
+        {
+            var bpa_std = (BranchPointsAllocation)calculator.UpdatedParameter<BranchPointsAllocation_Standard>();
+            var bpa_sym = (BranchPointsAllocation)calculator.UpdatedParameter<BranchPointsAllocation_Symmetric>();
+
+            var sequence = new List<BranchPointsSet>();
+            var activeAllocation = bpa_std;
+            int index = 0;
+            for (int i = 0; i < lenght; i++)
+            {
+                int halfCount = (int)Math.Round(activeAllocation.values.Count() / 2.0f, MidpointRounding.AwayFromZero);
+                var normalisedIndex = index % 2 == 0 ? index / 2: halfCount + index / 2;
+                var pair = activeAllocation.values[normalisedIndex];
+                var branches = new int[] {pair.Item1, pair.Item2};
+                var set = template.SetupByBranches(branches);
+                sequence.Add(set);
+
+                index++;
+                if (index == activeAllocation.values.Count())
+                {
+                    activeAllocation = activeAllocation == bpa_std ? bpa_sym : bpa_std;
+                    index = 0;
+                }
+            }
+
+            return sequence;
         }
 
         private Dictionary<int, List<EventCard>> SplitForAmounts (List<EventCard> cards, int[] amounts)

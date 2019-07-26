@@ -15,15 +15,20 @@ namespace ModelAnalyzer
 
         public Parameter Parameter(Type type)
         {
-            Parameter p = parameters[type];
+            Parameter p = parameters.ContainsKey(type) ? parameters[type] : null;
             if (p == null)
             {
-                String message = String.Format("Invalid parameter type: {0}", type.ToString());
+                string message = string.Format("Invalid parameter type: {0}", type.ToString());
                 MAException e = new MAException(message);
                 throw e;
             }
 
             return p;
+        }
+
+        public bool HasParameterOfType(Type type)
+        {
+            return parameters.ContainsKey(type);
         }
         
         public List<Parameter> Parameters()

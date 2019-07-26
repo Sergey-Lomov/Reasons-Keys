@@ -10,7 +10,7 @@ namespace ModelAnalyzer.Parameters.Events
 
     abstract class BranchPointsAllocation : Parameter
     {
-        protected List<BranchPiar> values = new List<BranchPiar>();
+        internal List<BranchPiar> values = new List<BranchPiar>();
 
         const string invalidStringMessage = "Невозможно перобразовать строку: \"{0}\" в \"{1}\"";
         const string pairsSeparator = " ";

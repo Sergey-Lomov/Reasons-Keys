@@ -69,14 +69,10 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageRelationStability());
             storage.AddParameter(parameter: new AverageSequenceLength());
             storage.AddParameter(parameter: new BaseRelationsWeight());
-            storage.AddParameter(parameter: new BranchPointsTemplatesWeights());
-            storage.AddParameter(parameter: new BranchPointWeight());
             storage.AddParameter(parameter: new EventUsabilityNormalisation());
             storage.AddParameter(parameter: new FrontBlockerWeight());
             storage.AddParameter(parameter: new FrontReasonsWeight());
             storage.AddParameter(parameter: new NodesAvailableBackRelations());
-            storage.AddParameter(parameter: new PassivePlayerWeight());
-            storage.AddParameter(parameter: new PlayerRealisationControlCoefficient());
 
             // Mining
             storage.AddParameter(parameter: new AverageMining());

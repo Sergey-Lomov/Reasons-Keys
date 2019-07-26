@@ -80,6 +80,8 @@ namespace ModelAnalyzer.UI
                 DeckTable.Controls.Add(LabelForInt(card.stabilityIncrement));
                 DeckTable.Controls.Add(LabelForInt(card.miningBonus));
                 DeckTable.Controls.Add(LabelForFloat(card.usability));
+                DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.success));
+                DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.failed));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
             }
         }
@@ -122,6 +124,26 @@ namespace ModelAnalyzer.UI
             return new Label()
             {
                 Text = value ? "+" : "-",
+                MinimumSize = new Size(usabilityWidth, rowHeight),
+                MaximumSize = new Size(usabilityWidth, rowHeight),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+        }
+
+        private Label LabelForBranchPoints(List<BranchPoint> branchPoints)
+        {
+            string text = "";
+            foreach (var branchPoint in branchPoints)
+            {
+                text += string.Format("{0}({1})", branchPoint.point, branchPoint.branch);
+                if (branchPoint != branchPoints.Last())
+                    text += " , ";
+            }
+            text = text == "" ? "-" : text;
+
+            return new Label()
+            {
+                Text = text,
                 MinimumSize = new Size(usabilityWidth, rowHeight),
                 MaximumSize = new Size(usabilityWidth, rowHeight),
                 TextAlign = ContentAlignment.MiddleCenter
@@ -189,6 +211,20 @@ namespace ModelAnalyzer.UI
         {
             order = null;
             reverse = false;
+            UpdateCardsTable();
+        }
+
+        private void successBPLabel_Click(object sender, EventArgs e)
+        {
+            order = c => c.branchPoints.success.Count();
+            reverse = !reverse;
+            UpdateCardsTable();
+        }
+
+        private void failedBPLabel_Click(object sender, EventArgs e)
+        {
+            order = c => c.branchPoints.failed.Count();
+            reverse = !reverse;
             UpdateCardsTable();
         }
     }

@@ -53,8 +53,11 @@ namespace ModelAnalyzer
                 string valueString = keyValue.Last();
                 if (Type.GetType(keyString) is Type key)
                 {
-                    Parameter parameter = storage.Parameter(key);
-                    parameter.SetupByString(valueString);
+                    if (storage.HasParameterOfType(key))
+                    {
+                        Parameter parameter = storage.Parameter(key);
+                        parameter.SetupByString(valueString);
+                    }
                 }
             }
         }
