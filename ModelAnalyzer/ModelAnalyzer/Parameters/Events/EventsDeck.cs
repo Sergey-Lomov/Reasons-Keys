@@ -15,10 +15,12 @@ namespace ModelAnalyzer.Parameters.Events
         internal List<EventCard> deck = new List<EventCard>();
         const string valueStub = "Колода";
         private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
-        private readonly string zeroTemplatesIssues = "Невозможно найти шаблон очков ветвей с ненулевым кол-вом карт";
-
+      
         readonly int[] backPosPriority = new int[3] { 1, 0, 2 };
         readonly int[] frontPosPriority = new int[3] { 4, 3, 5 };
+
+        private Random randoizer;
+        private int randomizerSeed = 485316097;
 
         public EventsDeck()
         {
@@ -32,6 +34,7 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
             deck.Clear();
+            randoizer = new Random(randomizerSeed);
 
             float na = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
             float pa = calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
@@ -511,6 +514,26 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
         {
+            var randomizedCards = cards.OrderBy(c => randoizer.Next()).ToList();
+            var templateCards = SplitCardsForTemplates(randomizedCards, calculator);
+            foreach (var template in templateCards.Keys)
+            {
+                var tCards = templateCards[template];
+                var sequence = SequenceForTemplate(template, tCards.Count(), calculator);
+                /*for (int i = 0; i < tCards.Count(); i++)
+                    tCards[i].branchPoints = sequence[i];*/
+                foreach (var card in tCards)
+                {
+                    var setIndex = randoizer.Next(sequence.Count);
+                    var set = sequence[setIndex];
+                    card.branchPoints = set;
+                    sequence.Remove(set);
+                }
+            }
+        }
+
+        private Dictionary<BranchPointsTemplate, List<EventCard>> SplitCardsForTemplates (List<EventCard> cards, Calculator calculator)
+        {
             float[] bpta = calculator.UpdatedArrayValue(typeof(BrachPointsTemplatesAllocation));
             float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
 
@@ -523,52 +546,23 @@ namespace ModelAnalyzer.Parameters.Events
                 templateAmount[template] = amounts[i];
             }
 
-            var filteredAmounts = amounts.Where(i => i > 0).OrderBy(i => i).ToArray();
-            int minAmount = filteredAmounts.Count() > 0 ? filteredAmounts[0] : 0;
-            if (minAmount == 0)
-            {
-                calculationReport.Failed(zeroTemplatesIssues);
-                return;
-            }
-
-            int templateIndex = 0;
-            int amountCounter = 0;
-
             Dictionary<BranchPointsTemplate, List<EventCard>> templateCards = new Dictionary<BranchPointsTemplate, List<EventCard>>();
             foreach (var template in templates)
                 templateCards[template] = new List<EventCard>();
 
+            var uncompletedTemplates = templates.Where(t => templateAmount[t] != 0).ToList();
+
             foreach (var card in cards)
             {
-                var template = templates[templateIndex];
-                int amount = templateAmount[template];
-
-                // Select next template if necessary
-                int checksCounter = 0;
-                while (templateCards[template].Count() == templateAmount[template] 
-                    || amountCounter >= amount / minAmount)
-                {
-                    if (checksCounter == templates.Count())
-                        break;
-
-                    templateIndex = templateIndex < templates.Count() - 1 ? templateIndex + 1 : 0;
-                    template = templates[templateIndex];
-                    amountCounter = 0;
-
-                    checksCounter++;
-                }
-
+                var templateIndex = randoizer.Next(uncompletedTemplates.Count);
+                var template = uncompletedTemplates[templateIndex];
                 templateCards[template].Add(card);
-                amountCounter++;
+
+                if (templateCards[template].Count == templateAmount[template])
+                    uncompletedTemplates.Remove(template);
             }
 
-            foreach (var template in templates)
-            {
-                var tCards = templateCards[template];
-                var sequence = SequenceForTemplate(template, tCards.Count(), calculator);
-                for (int i = 0; i < tCards.Count(); i++)
-                    tCards[i].branchPoints = sequence[i];
-            }
+            return templateCards;
         }
 
         private List<BranchPointsSet> SequenceForTemplate(BranchPointsTemplate template, int lenght, Calculator calculator)
@@ -582,7 +576,7 @@ namespace ModelAnalyzer.Parameters.Events
                     break;
 
                 case 1:
-                    sequence = SingleBranchSequence(template, lenght, calculator);
+                    sequence = SingleBranchSets(template, lenght, calculator);
                     break;
                 
                 case 2:
@@ -602,22 +596,20 @@ namespace ModelAnalyzer.Parameters.Events
             return sequence;
         }
 
-        private List<BranchPointsSet> SingleBranchSequence(BranchPointsTemplate template, int lenght, Calculator calculator)
+        private List<BranchPointsSet> SingleBranchSets(BranchPointsTemplate template, int lenght, Calculator calculator)
         {
             int mpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
-            var sequence = new List<BranchPointsSet>();
+            var sets = new List<BranchPointsSet>();
             int index = 0;
             for (int i = 0; i < lenght; i++)
             {
-                int halfCount = (int)Math.Round(mpa / 2.0f, MidpointRounding.AwayFromZero);
-                var normalisedIndex = index % 2 == 0 ? index / 2 : halfCount + index / 2;
-                var set = template.SetupByBranches(new int[]{normalisedIndex});
-                sequence.Add(set);
+                var set = template.SetupByBranches(new int[]{ index });
+                sets.Add(set);
                 index = index == mpa - 1 ? 0 : index + 1;
             }
 
-            return sequence;
+            return sets;
         }
 
         private List<BranchPointsSet> DoubleBranchSequence(BranchPointsTemplate template, int lenght, Calculator calculator)
@@ -630,9 +622,7 @@ namespace ModelAnalyzer.Parameters.Events
             int index = 0;
             for (int i = 0; i < lenght; i++)
             {
-                int halfCount = (int)Math.Round(activeAllocation.values.Count() / 2.0f, MidpointRounding.AwayFromZero);
-                var normalisedIndex = index % 2 == 0 ? index / 2: halfCount + index / 2;
-                var pair = activeAllocation.values[normalisedIndex];
+                var pair = activeAllocation.values[index];
                 var branches = new int[] {pair.Item1, pair.Item2};
                 var set = template.SetupByBranches(branches);
                 sequence.Add(set);
