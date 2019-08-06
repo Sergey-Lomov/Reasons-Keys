@@ -105,7 +105,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.relations = relations;
             card.stabilityIncrement = stability;
             card.miningBonus = miningBonus;
-            card.comment = "Логистичекая изначальная";
+            card.comment = "Логистичекое изначальное";
 
             return card;
         }
@@ -154,7 +154,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.relations = relations;
             card.stabilityIncrement = stability;
             card.miningBonus = miningBonus;
-            card.comment = "Добывающая изначальная";
+            card.comment = "Добывающее изначальное";
 
             return card;
         }
@@ -203,7 +203,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.relations = relations;
             card.stabilityIncrement = stability;
             card.miningBonus = miningBonus;
-            card.comment = "Стабилизирующая изначальная";
+            card.comment = "Стабилизирующее изначальное";
 
             return card;
         }
@@ -211,7 +211,67 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         private List<EventCard> KeyEvents(Calculator calculator)
         {
             var keyEvents = new List<EventCard>();
+
+            int kea = (int)calculator.UpdatedSingleValue(typeof(KeyEventsAmount));
+            int kebp = (int)calculator.UpdatedSingleValue(typeof(KeyEventsBranchPoints));
+            int mkebp = (int)calculator.UpdatedSingleValue(typeof(MainKeyEventBranchPoints));
+
+            keyEvents.Add(MainKeyEvent(mkebp));
+            keyEvents.AddRange(NotMainKeyEvents(kea - 1, kebp));
+
             return keyEvents;
+        }
+
+        private List<EventCard> NotMainKeyEvents(int amount, int kebp)
+        {
+            var keyEvents = new List<EventCard>(amount);
+
+            bool withBlocker = false;
+            var blockerRelations = new List<EventRelation>();
+            blockerRelations.Add(new EventRelation(RelationType.blocker, RelationDirection.back, 1));
+            var reasonRelations = new List<EventRelation>();
+            reasonRelations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 1));
+
+            for (int i = 0; i < amount; i++)
+            {
+                var card = new EventCard();
+
+                var branchPoint = new BranchPoint(0, kebp);
+                var success = new List<BranchPoint>();
+                success.Add(branchPoint);
+                var set = new BranchPointsSet(success, null);
+
+                card.branchPoints = set;
+                card.relations = withBlocker ? blockerRelations : reasonRelations;
+                card.isKey = true;
+                card.comment = "Решающее событие";
+                keyEvents.Add(card);
+
+                withBlocker = !withBlocker;
+            }
+
+            return keyEvents;
+        }
+
+        private EventCard MainKeyEvent (int mkebp)
+        {
+            var card = new EventCard();
+
+            var branchPoint = new BranchPoint(0, mkebp);
+            var success = new List<BranchPoint>();
+            success.Add(branchPoint);
+            var set = new BranchPointsSet(success, null);
+
+            var relations = new List<EventRelation>();
+            relations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 0));
+            relations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 1));
+
+            card.branchPoints = set;
+            card.relations = relations;
+            card.isKey = true;
+            card.comment = "Основное решающее событие";
+
+            return card;
         }
     }
 }
