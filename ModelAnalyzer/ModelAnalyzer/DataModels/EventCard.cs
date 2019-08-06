@@ -29,13 +29,13 @@ namespace ModelAnalyzer.DataModels
         internal int stabilityIncrement = 0;
         internal int miningBonus = 0;
         internal bool provideArtifact = false;
-        internal BranchPointsSet branchPoints;
-        internal (int branch, int bonus) succesBranchPoints = (0, 0);
-        internal (int branch, int bonus) failedBranchPoints = (0, 0);
+        internal bool isKey = false;
+        internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
         internal int minRadisuConstrint = 0;
         internal int minPhaseConstraint = 0;
 
         internal float weight = 0;
         internal float usability = 0;
+        internal string comment = "";
     }
 }

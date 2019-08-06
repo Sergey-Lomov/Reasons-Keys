@@ -26,7 +26,7 @@ namespace ModelAnalyzer.Parameters.Activities
             int minpa = (int)calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
             int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
-            float kebpc = calculator.UpdatedSingleValue(typeof(KeyEventsBrachPointsCoefficient));
+            float kebpc = calculator.UpdatedSingleValue(typeof(KeyEventsBranchPointsCoefficient));
             float iea = calculator.UpdatedSingleValue(typeof(InitialEventsAmount));
             float iewc = calculator.UpdatedSingleValue(typeof(InitialEventsWeightCoefficient));
             float nkeca = calculator.UpdatedSingleValue(typeof(UnkeyEventCreationAmount));

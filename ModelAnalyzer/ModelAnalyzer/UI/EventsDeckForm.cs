@@ -16,7 +16,8 @@ namespace ModelAnalyzer.UI
         const int relationWidth = 40;
         const int usabilityWidth = 40;
         const int indexWidth = 30;
-        const string emptyStub = "-";
+        private readonly string emptyStub = "-";
+        private readonly string issueItemPrefix = "- ";
 
         private List<Control> predefinedControls;
         private List<EventCard> deck;
@@ -38,10 +39,21 @@ namespace ModelAnalyzer.UI
 
         public void SetParameter(Parameter parameter, ParameterValidationReport validation)
         {
-            if (!(parameter is EventsDeck))
+            if (!(parameter is DeckParameter))
                 return;
 
-            deck = ((EventsDeck)parameter).deck;
+            deck = ((DeckParameter)parameter).deck;
+            var issues = parameter.calculationReport.issues;
+
+            issuesLabel.Text = "";
+            foreach (string issue in issues)
+            {
+                var prefix = issues.Count > 1 ? issueItemPrefix : "";
+                issuesLabel.Text += prefix + issue;
+                if (issue != issues.Last())
+                    issuesLabel.Text += Environment.NewLine;
+            }
+
             UpdateCardsTable();
         }
 
@@ -83,6 +95,7 @@ namespace ModelAnalyzer.UI
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.success));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.failed));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
+                DeckTable.Controls.Add(LabelForString(card.comment));
             }
         }
 
@@ -147,6 +160,16 @@ namespace ModelAnalyzer.UI
                 MinimumSize = new Size(usabilityWidth, rowHeight),
                 MaximumSize = new Size(usabilityWidth, rowHeight),
                 TextAlign = ContentAlignment.MiddleCenter
+            };
+        }
+
+        private Label LabelForString(string value)
+        {
+            return new Label()
+            {
+                Text = value,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Dock = DockStyle.Fill
             };
         }
 

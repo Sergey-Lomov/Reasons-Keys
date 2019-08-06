@@ -37,6 +37,11 @@ namespace ModelAnalyzer
             oldUnroundValueString = parameter.UnroundValueToString();
         }
 
+        internal void AddFailed(string issue)
+        {
+            issues.Add(issue);
+        }
+
         internal void Failed (string issue)
         {
             issues.Clear();

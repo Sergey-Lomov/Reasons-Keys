@@ -1,8 +1,8 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class KeyEventsBrachPointsCoefficient : SingleParameter
+    class KeyEventsBranchPointsCoefficient : SingleParameter
     {
-        public KeyEventsBrachPointsCoefficient()
+        public KeyEventsBranchPointsCoefficient()
         {
             type = ParameterType.In;
             title = "Коэф. очков ветвей на решающих событиях";

@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 using ModelAnalyzer.DataModels;
-using ModelAnalyzer.Parameters.Activities;
-using ModelAnalyzer.Parameters.Mining;
-using ModelAnalyzer.Parameters.Timing;
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Events.Weight;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    class EventsDeck : Parameter
+    class MainDeck : DeckParameter
     {
-        internal List<EventCard> deck = new List<EventCard>();
-        const string valueStub = "Колода";
         private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
       
         readonly int[] backPosPriority = new int[3] { 1, 0, 2 };
@@ -22,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Events
         private Random randoizer;
         private int randomizerSeed = 485316097;
 
-        public EventsDeck()
+        public MainDeck()
         {
             type = ParameterType.Out;
             title = "Колода карт событий";
@@ -39,18 +35,6 @@ namespace ModelAnalyzer.Parameters.Events
             float na = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
             float pa = calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
-            float ar = calculator.UpdatedSingleValue(typeof(ArtifactsRarity));
-            float asi = calculator.UpdatedSingleValue(typeof(AverageStabilityIncrement));
-            float mbr = calculator.UpdatedSingleValue(typeof(MinBackRelations));
-
-            float max_mb = calculator.UpdatedSingleValue(typeof(EventMaxMiningBonus));
-            float min_mb = calculator.UpdatedSingleValue(typeof(EventMinMiningBonus));
-            float aap = calculator.UpdatedSingleValue(typeof(ArtifactsAvaliabilityPhase));
-            float mbc = calculator.UpdatedSingleValue(typeof(EventMiningBonusConstraint));
-
-            float[] mba = calculator.UpdatedArrayValue(typeof(EventMiningBonusAllocation));
-            float[] raa_ob = calculator.UpdatedArrayValue(typeof(RelationsAmountAllocation_OB));
-
             var cards_2d = BothDirectionCards(calculator);
             int amount_ob = (int)na - cards_2d.Count();
             var cards_ob = OnlyBackCards(calculator, amount_ob);
@@ -59,37 +43,17 @@ namespace ModelAnalyzer.Parameters.Events
             deck.AddRange(cards_ob);
 
             PairReasons(deck, calculator);
-            UpdateUsability(deck, calculator);
-            UpdateWeight(deck, calculator);
+            UpdateDeckUsability(calculator);
+            UpdateDeckWeight(calculator);
             AddArtifacts(deck, calculator);
-            UpdateWeight(deck, calculator);
+            UpdateDeckWeight(calculator);
             AddStabilityIncrement(deck, calculator);
-            UpdateWeight(deck, calculator);
+            UpdateDeckWeight(calculator);
             AddMiningBonuses(deck, calculator);
-            UpdateWeight(deck, calculator);
+            UpdateDeckWeight(calculator);
             AddBranchPoints(deck, calculator);
 
             return calculationReport;
-        }
-
-        public override void SetupByString(string str)
-        {
-            // Not possible. This parameter should be calculated.
-        }
-
-        public override string StringRepresentation()
-        {
-            return valueStub;
-        }
-
-        public override string UnroundValueToString()
-        {
-            return valueStub;
-        }
-
-        public override string ValueToString()
-        {
-            return valueStub;
         }
 
         private void ArrangeRelations(List<EventRelation> relations)
@@ -338,119 +302,6 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (EventRelation relation in card.relations)
                 if (relation.direction == RelationDirection.back && relation.type == RelationType.reason)
                     relation.type = RelationType.paired_reason;
-        }
-
-        private void UpdateUsability(List<EventCard> cards, Calculator calculator)
-        {
-            float[] abr = calculator.UpdatedArrayValue(typeof(NodesAvailableBackRelations));
-            foreach (EventCard card in cards)
-                card.usability = UsabilityForCard(card, abr);
-        }
-
-        private float UsabilityForCard(EventCard card, float[] availableBackAllocation)
-        {
-            int backAmount = card.relations.Where(r => r.direction == RelationDirection.back).Count();
-            int frontAmount = card.relations.Where(r => r.direction == RelationDirection.front).Count();
-
-            int backRange = 0;
-            int frontRange = 0;
-            var back = card.relations.Where(r => r.direction == RelationDirection.back).OrderBy(r => r.position);
-            var front = card.relations.Where(r => r.direction == RelationDirection.front).OrderBy(r => r.position);
-
-            if (back.Count() > 0)
-                backRange = back.Last().position - back.First().position + 1;
-
-            if (front.Count() > 0)
-                frontRange = front.Last().position - front.First().position + 1;
-
-            int combintaions = 0;
-            for (int availableBack = 0; availableBack < availableBackAllocation.Count(); availableBack++)
-            {
-                int availableFront = EventRelation.MaxRelationPosition - availableBack;
-                if (backAmount > availableBack || frontAmount > availableFront)
-                    continue;
-
-            /*    int backRotatinos = availableBack - backAmount + 1;
-                int frontRotatinos = availableFront - frontAmount + 1;
-                int rotations = backRotatinos < frontRotatinos ? backRotatinos : frontRotatinos;
-
-                combintaions += (int)availableBackAllocation[availableBack] * rotations ;*/
-                
-
-                List<int> constraints = new List<int>();
-
-                if (backRange > 0)
-                    constraints.Add(availableBack - backRange + 1);
-                if (frontRange > 0)
-                    constraints.Add(availableFront - frontRange + 1);
-                if (backRange > 0 && frontRange > 0)
-                {
-                    var clocwiseConstraint = front.First().position - back.Last().position;
-                    var unclocwiseConstraint = (EventRelation.MaxRelationPosition - front.Last().position) + back.First().position;
-                    constraints.Add(clocwiseConstraint);
-                    constraints.Add(unclocwiseConstraint);
-                }
-
-                var rotations = constraints.Min();
-                combintaions += (int)availableBackAllocation[availableBack] * rotations;
-            }
-
-            var totalNodesAmount = availableBackAllocation.Sum();
-            return combintaions / totalNodesAmount;
-        }
-
-        private void UpdateWeight(List<EventCard> cards, Calculator calculator)
-        {
-            float brw = calculator.UpdatedSingleValue(typeof(BaseRelationsWeight));
-            float arw = calculator.UpdatedSingleValue(typeof(AdditionalReasonsWeight));
-            float frw = calculator.UpdatedSingleValue(typeof(FrontReasonsWeight));
-            float fbw = calculator.UpdatedSingleValue(typeof(FrontBlockerWeight));
-            float aw = calculator.UpdatedSingleValue(typeof(ArtifactsWeight));
-            float ars = calculator.UpdatedSingleValue(typeof(AverageRelationStability));
-            float eip = calculator.UpdatedSingleValue(typeof(EventImpactPrice));
-            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
-
-            int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
-            int minpa = (int)calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
-            float mauc = calculator.UpdatedSingleValue(typeof(MiningAUCoef));
-            float aupa = calculator.UpdatedSingleValue(typeof(AUPartyAmount));
-            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
-            float eun = calculator.UpdatedSingleValue(typeof(EventUsabilityNormalisation));
-
-            float averagePlayersAmount = (maxpa - minpa + 1) / 2;
-            float miningBonusMultiplier = aupa * mauc * averagePlayersAmount / cna;
-
-            foreach (EventCard card in cards) {
-                card.weight = 0;
-                float relationsWeight = RelationsWeight(card, brw, arw, frw, fbw);
-                float noramalisedUsability = 1 + (card.usability - 1) * eun;
-                card.weight += relationsWeight * ars * eip * noramalisedUsability;
-                card.weight += card.stabilityIncrement * eip;
-                card.weight += card.provideArtifact ? aw * am : 0;
-                card.weight += card.miningBonus * miningBonusMultiplier;
-            }
-        }
-
-        private float RelationsWeight (EventCard card, float brw, float arw, float frw, float fbw)
-        {
-            Func<EventRelation, bool> basePredicate = r => r.direction == RelationDirection.back && r.type != RelationType.reason;
-            Func<EventRelation, bool> backReasonPredicate = r => r.direction == RelationDirection.back && r.type == RelationType.reason;
-            Func<EventRelation, bool> frontReasonPredicate = r => r.direction == RelationDirection.front && r.type == RelationType.reason;
-            Func<EventRelation, bool> frontBlockPredicate = r => r.direction == RelationDirection.front && r.type == RelationType.blocker;
-
-            int baseAmount = card.relations.Where(basePredicate).Count();
-            int backReasonsAmount = card.relations.Where(backReasonPredicate).Count();
-            int frontReasonAmount = card.relations.Where(frontReasonPredicate).Count();
-            int frontBlockAmount = card.relations.Where(frontBlockPredicate).Count();
-
-            float weight = baseAmount * brw + frontReasonAmount * frw + frontBlockAmount * fbw;
-            if (backReasonsAmount > 0)
-            {
-                weight += brw;
-                weight += (backReasonsAmount - 1) * arw;
-            }
-
-            return weight;
         }
 
         private void AddArtifacts(List<EventCard> cards, Calculator calculator)
@@ -721,6 +572,5 @@ namespace ModelAnalyzer.Parameters.Events
 
             return 0;
         }
-
     }
 }

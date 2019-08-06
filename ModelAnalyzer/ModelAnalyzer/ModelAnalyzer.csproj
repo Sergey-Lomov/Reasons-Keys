@@ -71,8 +71,10 @@
     <Compile Include="Parameters\Events\Weight\AdditionalReasonsWeight.cs" />
     <Compile Include="Parameters\Events\Weight\ArtifactsWeight.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
+    <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
     <Compile Include="Parameters\Events\Weight\BranchPointsTemplatesWeights.cs" />
     <Compile Include="Parameters\Events\Weight\BranchPointWeight.cs" />
+    <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\Events\Weight\PassivePlayerWeight.cs" />
     <Compile Include="Parameters\Events\Weight\PlayerRealisationControlCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\AverageInitialEventsBranchPoints.cs" />
@@ -83,16 +85,27 @@
     <Compile Include="Parameters\Events\Weight\FrontBlockerWeight.cs" />
     <Compile Include="Parameters\Events\Weight\FrontReasonsWeight.cs" />
     <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
+    <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
+    <Compile Include="Parameters\PlayerInitial\StartDeck.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEventsAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEventsWeightCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyChainLenghtCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsAmount.cs" />
-    <Compile Include="Parameters\PlayerInitial\KeyEventsBrachPointsCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPointsCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
     <Compile Include="Parameters\Events\Weight\NodesAvailableBackRelations.cs" />
     <Compile Include="Parameters\Events\StabilityIncrementAllocation.cs" />
     <Compile Include="Parameters\MinPlayersAmount.cs" />
+    <Compile Include="Parameters\PlayerInitial\LogisticsInitialCardCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPointsCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPoints.cs" />
+    <Compile Include="Parameters\PlayerInitial\MiningInitialCardCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
     <Compile Include="DataModels\EventCard.cs" />
+    <Compile Include="Parameters\PlayerInitial\StabilityInitialCardCoefficient.cs" />
+    <Compile Include="Services\DeckParameter.cs" />
+    <Compile Include="Services\EventCardsAnalizer.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,7 +158,7 @@
     <Compile Include="Parameters\Events\EventMiningBonusConstraint.cs" />
     <Compile Include="Parameters\Events\EventMiningBonusAllocation.cs" />
     <Compile Include="Parameters\Events\EventMinMiningBonus.cs" />
-    <Compile Include="Parameters\Events\EventsDeck.cs" />
+    <Compile Include="Parameters\Events\MainDeck.cs" />
     <Compile Include="Parameters\Events\FrontRelationsCoef.cs" />
     <Compile Include="Parameters\Events\EventMaxMiningBonus.cs" />
     <Compile Include="Parameters\Events\MinBackRelations.cs" />

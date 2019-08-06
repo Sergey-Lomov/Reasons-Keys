@@ -53,7 +53,7 @@ namespace ModelAnalyzer.UI
             detailsFormsTypes.Add(typeof(ArrayParameter), typeof(ParameterDetailsForm));
             detailsFormsTypes.Add(typeof(SingleParameter), typeof(ParameterDetailsForm));
             detailsFormsTypes.Add(typeof(BranchPointsAllocation), typeof(ParameterDetailsForm));
-            detailsFormsTypes.Add(typeof(EventsDeck), typeof(EventsDeckForm));
+            detailsFormsTypes.Add(typeof(DeckParameter), typeof(EventsDeckForm));
         }
 
         private Panel RowPanel(Color backColor, int height)

@@ -38,7 +38,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new TotalPotential());
 
             // Events
-            storage.AddParameter(parameter: new EventsDeck());
+            storage.AddParameter(parameter: new MainDeck());
 
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
             storage.AddParameter(parameter: new ArtifactsRarity());
@@ -66,12 +66,14 @@ namespace ModelAnalyzer
             // Events weight
             storage.AddParameter(parameter: new AdditionalReasonsWeight());
             storage.AddParameter(parameter: new ArtifactsWeight());
+            storage.AddParameter(parameter: new AverageContinuumEventWeight());
             storage.AddParameter(parameter: new AverageRelationStability());
             storage.AddParameter(parameter: new AverageSequenceLength());
             storage.AddParameter(parameter: new BaseRelationsWeight());
             storage.AddParameter(parameter: new EventUsabilityNormalisation());
             storage.AddParameter(parameter: new FrontBlockerWeight());
             storage.AddParameter(parameter: new FrontReasonsWeight());
+            storage.AddParameter(parameter: new MiningBonusWeight());
             storage.AddParameter(parameter: new NodesAvailableBackRelations());
 
             // Mining
@@ -107,10 +109,19 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageInitialEventsBranchPoints());
             storage.AddParameter(parameter: new InitialEventsAmount());
             storage.AddParameter(parameter: new InitialEventsWeightCoefficient());
+            storage.AddParameter(parameter: new KeyChainLenghtCoefficient());
             storage.AddParameter(parameter: new KeyEventsAmount());
-            storage.AddParameter(parameter: new KeyEventsBrachPointsCoefficient());
+            storage.AddParameter(parameter: new KeyEventsBranchPoints());
+            storage.AddParameter(parameter: new KeyEventsBranchPointsCoefficient());
             storage.AddParameter(parameter: new KeyEventsTotalBrachPoints());
+            storage.AddParameter(parameter: new LogisticsInitialCardCoefficient());
+            storage.AddParameter(parameter: new MainKeyEventBranchPoints());
+            storage.AddParameter(parameter: new MainKeyEventBranchPointsCoefficient());
+            storage.AddParameter(parameter: new MiningInitialCardCoefficient());
+            storage.AddParameter(parameter: new MinInitialCardUsability());
             storage.AddParameter(parameter: new RealKeyEventBrachPointCoefficients());
+            storage.AddParameter(parameter: new StabilityInitialCardCoefficient());
+            storage.AddParameter(parameter: new StartDeck());
         }
     }
 }
