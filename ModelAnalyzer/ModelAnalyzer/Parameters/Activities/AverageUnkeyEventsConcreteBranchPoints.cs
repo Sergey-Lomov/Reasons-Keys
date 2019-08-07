@@ -27,11 +27,12 @@ namespace ModelAnalyzer.Parameters.Activities
             int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
 
             float kebpc = calculator.UpdatedSingleValue(typeof(KeyEventsBranchPointsCoefficient));
-            float iea = calculator.UpdatedSingleValue(typeof(InitialEventsAmount));
             float iewc = calculator.UpdatedSingleValue(typeof(InitialEventsWeightCoefficient));
             float nkeca = calculator.UpdatedSingleValue(typeof(UnkeyEventCreationAmount));
             float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
             float aiebp = calculator.UpdatedSingleValue(typeof(AverageInitialEventsBranchPoints));
+
+            float iea = StartDeck.InitialEventsAmount;
 
             float[] bpal = calculator.UpdatedArrayValue(typeof(BrachPointsTemplatesAllocation));
             int[] bpam = BranchPointsAmounts;

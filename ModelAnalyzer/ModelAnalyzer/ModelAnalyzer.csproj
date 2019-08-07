@@ -87,7 +87,6 @@
     <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
     <Compile Include="Parameters\PlayerInitial\StartDeck.cs" />
-    <Compile Include="Parameters\PlayerInitial\InitialEventsAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEventsWeightCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyChainLenghtCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsAmount.cs" />

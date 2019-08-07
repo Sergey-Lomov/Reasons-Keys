@@ -107,7 +107,6 @@ namespace ModelAnalyzer
 
             // Player initial state
             storage.AddParameter(parameter: new AverageInitialEventsBranchPoints());
-            storage.AddParameter(parameter: new InitialEventsAmount());
             storage.AddParameter(parameter: new InitialEventsWeightCoefficient());
             storage.AddParameter(parameter: new KeyChainLenghtCoefficient());
             storage.AddParameter(parameter: new KeyEventsAmount());
