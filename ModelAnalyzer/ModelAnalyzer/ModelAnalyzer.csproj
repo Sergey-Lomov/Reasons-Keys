@@ -103,6 +103,7 @@
     <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\PlayerInitial\StabilityInitialCardCoefficient.cs" />
+    <Compile Include="Parameters\Topology\MinDistancesPairsAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Services\DeckParameter.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />

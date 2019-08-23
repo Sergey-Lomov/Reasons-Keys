@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 using ModelAnalyzer.Parameters.Timing;
-using ModelAnalyzer.Services.FieldAnalyzer;
 
 namespace ModelAnalyzer.Parameters.Topology
 {
@@ -40,9 +38,7 @@ namespace ModelAnalyzer.Parameters.Topology
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
-
             calculationReport = new ParameterCalculationReport(this);
-            //values = unroundValues = new List<float>(new float[] {4.12f, 4.19f, 4.57f, 5.25f, 6.26f });
 
             unroundValues.Clear();
 

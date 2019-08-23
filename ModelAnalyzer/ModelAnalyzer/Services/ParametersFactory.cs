@@ -108,6 +108,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AveragePhasesDistance());
             storage.AddParameter(parameter: new FieldRadius());
             storage.AddParameter(parameter: new RoutesMap());
+            storage.AddParameter(parameter: new MinDistancesPairsAmount());
 
             // Player initial state
             storage.AddParameter(parameter: new AverageInitialEventsBranchPoints());
