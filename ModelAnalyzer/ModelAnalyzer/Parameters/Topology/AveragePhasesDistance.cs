@@ -1,6 +1,10 @@
-﻿using ModelAnalyzer.Parameters.Timing;
+﻿using System.Collections.Generic;
+using System.Linq;
 
-namespace ModelAnalyzer.Parameters.Moving
+using ModelAnalyzer.Parameters.Timing;
+using ModelAnalyzer.Services.FieldAnalyzer;
+
+namespace ModelAnalyzer.Parameters.Topology
 {
     class AveragePhasesDistance : ArrayParameter
     {
@@ -9,7 +13,7 @@ namespace ModelAnalyzer.Parameters.Moving
 
         public AveragePhasesDistance()
         {
-            type = ParameterType.In;
+            type = ParameterType.Inner;
             title = "Средние расстояния в фазах";
             details = "В разных фазах поле имеет разную конфигурацию, из-за чего математических формул для расчета вывести не удалось. Среднее расстояние определяется с помощью отдельной программы FieldAnalyser, перебирающей все пары узлов. Это значение зависимо от радиуса (4) поля и вытекающего из него кол-ва фаз.";
             fractionalDigits = 2;
@@ -32,6 +36,29 @@ namespace ModelAnalyzer.Parameters.Moving
             }
 
             return report;
+        }
+
+        internal override ParameterCalculationReport Calculate(Calculator calculator)
+        {
+
+            calculationReport = new ParameterCalculationReport(this);
+            //values = unroundValues = new List<float>(new float[] {4.12f, 4.19f, 4.57f, 5.25f, 6.26f });
+
+            unroundValues.Clear();
+
+            float pa = calculator.UpdatedSingleValue(typeof(PhasesAmount));
+            var routesMap = calculator.UpdatedParameter<RoutesMap>();
+
+            for (int i = 0; i < pa; i++)
+            {
+                var distances = routesMap.phasesRoutes[i].Select(r => r.distance);
+                float average = distances.Count() > 0 ? (float)distances.Average() : 0;
+                unroundValues.Add(average);
+            }
+
+            values = unroundValues;
+
+            return calculationReport;
         }
     }
 }

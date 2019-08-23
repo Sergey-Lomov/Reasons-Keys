@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 using ModelAnalyzer.Parameters.Timing;
 
-namespace ModelAnalyzer.Parameters.Moving
+namespace ModelAnalyzer.Parameters.Topology
 {
     class AverageDistance : SingleParameter
     {

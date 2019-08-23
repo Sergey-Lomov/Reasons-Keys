@@ -38,6 +38,12 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             deck.AddRange(initialEvents);
             deck.AddRange(keyEvents);
 
+            if (calculationReport.issues.Count > 0)
+            {
+                deck.Clear();
+                return calculationReport;
+            }
+
             UpdateDeckUsability(calculator);
             UpdateDeckWeight(calculator);
 
@@ -72,6 +78,22 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float[] sia = calculator.UpdatedArrayValue(typeof(StabilityIncrementAllocation));
             float[] mba = calculator.UpdatedArrayValue(typeof(EventMiningBonusAllocation));
 
+            // Check values
+            var invalidTitles = new List<string>();
+
+            if (float.IsNaN(eip))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(EventImpactPrice)));
+
+            if (mainDeck.Count() == 0)
+                invalidTitles.Add(calculator.ParameterTitle(typeof(MainDeck)));
+
+            if (invalidTitles.Count > 0)
+            {
+                FailCalculationByInvalidIn(invalidTitles.ToArray());
+                return null;
+            }
+
+            // Calculation
             Func<EventCard, float> select = c => EventCardsAnalizer.RelationsWeight(c.relations, calculator);
             var relationsWeights = mainDeck.Select(select);
             var average = relationsWeights.Average();
@@ -121,7 +143,23 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float micu = calculator.UpdatedSingleValue(typeof(MinInitialCardUsability));
             float eip = calculator.UpdatedSingleValue(typeof(EventImpactPrice));
             float mbw = calculator.UpdatedSingleValue(typeof(MiningBonusWeight));
+            
+            // Check values
+            var invalidTitles = new List<string>();
 
+            if (float.IsNaN(eip))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(EventImpactPrice)));
+
+            if (mainDeck.Count() == 0)
+                invalidTitles.Add(calculator.ParameterTitle(typeof(MainDeck)));
+
+            if (invalidTitles.Count > 0)
+            {
+                FailCalculationByInvalidIn(invalidTitles.ToArray());
+                return null;
+            }
+
+            //Calculation
             var miningBonuses = mainDeck.Select(s => s.miningBonus);
             float average = (float)miningBonuses.Average();
             float max = miningBonuses.Max();
@@ -171,6 +209,23 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float eip = calculator.UpdatedSingleValue(typeof(EventImpactPrice));
             float mbw = calculator.UpdatedSingleValue(typeof(MiningBonusWeight));
 
+            // Check values
+            var invalidTitles = new List<string>();
+
+            if (float.IsNaN(eip))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(EventImpactPrice)));
+
+            if (mainDeck.Count() == 0)
+                invalidTitles.Add(calculator.ParameterTitle(typeof(MainDeck)));
+
+            if (invalidTitles.Count > 0)
+            {
+                FailCalculationByInvalidIn(invalidTitles.ToArray());
+                return null;
+            }
+
+            //Calculation
+
             var stabilityIncrements = mainDeck.Select(s => s.stabilityIncrement);
             float average = (float)stabilityIncrements.Average();
             float max = stabilityIncrements.Max();
@@ -214,12 +269,30 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var keyEvents = new List<EventCard>();
 
-            int kea = (int)calculator.UpdatedSingleValue(typeof(KeyEventsAmount));
-            int kebp = (int)calculator.UpdatedSingleValue(typeof(KeyEventsBranchPoints));
-            int mkebp = (int)calculator.UpdatedSingleValue(typeof(MainKeyEventBranchPoints));
+            float kea = calculator.UpdatedSingleValue(typeof(KeyEventsAmount));
+            float kebp = calculator.UpdatedSingleValue(typeof(KeyEventsBranchPoints));
+            float mkebp = calculator.UpdatedSingleValue(typeof(MainKeyEventBranchPoints));
 
-            keyEvents.Add(MainKeyEvent(mkebp));
-            keyEvents.AddRange(NotMainKeyEvents(kea - 1, kebp));
+            // Check values
+            var invalidTitles = new List<string>();
+
+            if (float.IsNaN(kea))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(KeyEventsAmount)));
+
+            if (float.IsNaN(kebp))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(KeyEventsBranchPoints)));
+
+            if (float.IsNaN(mkebp))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(MainKeyEventBranchPoints)));
+
+            if (invalidTitles.Count > 0)
+            {
+                FailCalculationByInvalidIn(invalidTitles.ToArray());
+                return keyEvents;
+            }
+
+            keyEvents.Add(MainKeyEvent((int)mkebp));
+            keyEvents.AddRange(NotMainKeyEvents((int)kea - 1, (int)kebp));
 
             return keyEvents;
         }

@@ -103,8 +103,14 @@
     <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\PlayerInitial\StabilityInitialCardCoefficient.cs" />
+    <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Services\DeckParameter.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />
+    <Compile Include="Services\FieldAnalyzer\Field.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldFabric.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldPoint.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldRoute.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,15 +172,15 @@
     <Compile Include="Parameters\Events\Pairing3Coef.cs" />
     <Compile Include="Parameters\Events\RelationsAmountAllocation_2D.cs" />
     <Compile Include="Parameters\Events\RelationsAmountAllocation_OB.cs" />
-    <Compile Include="Parameters\FieldRadius.cs" />
+    <Compile Include="Parameters\Topology\FieldRadius.cs" />
     <Compile Include="Parameters\MaxPlayersAmount.cs" />
     <Compile Include="Parameters\Mining\AverageMining.cs" />
     <Compile Include="Parameters\Mining\CenterMiningBonus.cs" />
     <Compile Include="Parameters\Mining\MiningAllocation.cs" />
     <Compile Include="Parameters\Mining\MiningAUCoef.cs" />
     <Compile Include="Parameters\Mining\MiningIncrement.cs" />
-    <Compile Include="Parameters\Moving\AverageDistance.cs" />
-    <Compile Include="Parameters\Moving\AveragePhasesDistance.cs" />
+    <Compile Include="Parameters\Topology\AverageDistance.cs" />
+    <Compile Include="Parameters\Topology\AveragePhasesDistance.cs" />
     <Compile Include="Parameters\Moving\InitialSpeed.cs" />
     <Compile Include="Parameters\Moving\InitialSpeedCoef.cs" />
     <Compile Include="Parameters\Moving\MaxSpeedCoef.cs" />
@@ -264,5 +270,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

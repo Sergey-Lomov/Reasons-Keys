@@ -1,4 +1,6 @@
-﻿namespace ModelAnalyzer.Parameters.Mining
+﻿using ModelAnalyzer.Parameters.Topology;
+
+namespace ModelAnalyzer.Parameters.Mining
 {
     class MiningAllocation : ArrayParameter
     {

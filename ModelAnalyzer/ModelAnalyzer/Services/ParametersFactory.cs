@@ -6,6 +6,7 @@ using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Parameters.PlayerInitial;
+using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer
 {
@@ -15,7 +16,6 @@ namespace ModelAnalyzer
         {
             storage.AddParameter(parameter: new MaxPlayersAmount());
             storage.AddParameter(parameter: new MinPlayersAmount());
-            storage.AddParameter(parameter: new FieldRadius());
 
             // Activities
             storage.AddParameter(parameter: new AUPriceProportion());
@@ -84,8 +84,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MiningIncrement());
 
             // Moving
-            storage.AddParameter(parameter: new AverageDistance());
-            storage.AddParameter(parameter: new AveragePhasesDistance());
             storage.AddParameter(parameter: new InitialSpeed());
             storage.AddParameter(parameter: new InitialSpeedCoef());
             storage.AddParameter(parameter: new MaxSpeedCoef());
@@ -104,6 +102,12 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new PhasesWeight());
             storage.AddParameter(parameter: new RealisationDuration());
             storage.AddParameter(parameter: new RoundAmount());
+
+            // Topology
+            storage.AddParameter(parameter: new AverageDistance());
+            storage.AddParameter(parameter: new AveragePhasesDistance());
+            storage.AddParameter(parameter: new FieldRadius());
+            storage.AddParameter(parameter: new RoutesMap());
 
             // Player initial state
             storage.AddParameter(parameter: new AverageInitialEventsBranchPoints());

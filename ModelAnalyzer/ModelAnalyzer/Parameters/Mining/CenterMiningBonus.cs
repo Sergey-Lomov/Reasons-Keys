@@ -1,7 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Moving;
-using ModelAnalyzer.Parameters.Timing;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using ModelAnalyzer.Parameters.Topology;
+using ModelAnalyzer.Parameters.Moving;
+using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Mining
 {
@@ -30,6 +32,26 @@ namespace ModelAnalyzer.Parameters.Mining
             float[] ma = calculator.UpdatedArrayValue(typeof(MiningAllocation));
 
             // Check values
+            var invalidTitles = new List<string>();
+            
+            if (float.IsNaN(mp))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(MotionPrice)));
+
+            if (float.IsNaN(isp))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(InitialSpeed)));
+
+            if (float.IsNaN(au))
+                invalidTitles.Add(calculator.ParameterTitle(typeof(AUMoveAmount)));
+
+            if (ma.Length == 0)
+                invalidTitles.Add(calculator.ParameterTitle(typeof(MiningAllocation)));
+
+            if (invalidTitles.Count > 0)
+            {
+                FailCalculationByInvalidIn(invalidTitles.ToArray());
+                return calculationReport;
+            }
+
             var issues = new List<string>();
             if (pd.Length < 1)
             {

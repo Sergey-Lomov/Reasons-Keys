@@ -1,4 +1,6 @@
-﻿namespace ModelAnalyzer.Parameters.Timing
+﻿using ModelAnalyzer.Parameters.Topology;
+
+namespace ModelAnalyzer.Parameters.Timing
 {
     class PhasesAmount : SingleParameter
     {

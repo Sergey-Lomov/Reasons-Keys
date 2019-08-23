@@ -1,5 +1,7 @@
 ﻿using System;
 
+using ModelAnalyzer.Parameters.Topology;
+
 namespace ModelAnalyzer.Parameters.Moving
 {
     class InitialSpeed : SingleParameter

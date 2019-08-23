@@ -1,4 +1,6 @@
-﻿namespace ModelAnalyzer.Parameters.Events
+﻿using ModelAnalyzer.Parameters.Topology;
+
+namespace ModelAnalyzer.Parameters.Events
 {
     class ContinuumNodesAmount : SingleParameter
     {

@@ -1,5 +1,7 @@
 ﻿using ModelAnalyzer.Parameters.Mining;
 
+using ModelAnalyzer.Parameters.Topology;
+
 namespace ModelAnalyzer.Parameters.Moving
 {
     class MotionPrice : SingleParameter

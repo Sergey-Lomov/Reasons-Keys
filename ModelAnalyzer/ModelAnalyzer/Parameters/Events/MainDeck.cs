@@ -401,7 +401,8 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (var template in templates)
                 templateCards[template] = new List<EventCard>();
 
-            var uncompletedTemplates = templates.Where(t => templateAmount[t] != 0).ToList();
+            var templatesWithAmounts = templates.Where(t => templateAmount.ContainsKey(t));
+            var uncompletedTemplates = templatesWithAmounts.Where(t => templateAmount[t] != 0).ToList();
 
             foreach (var card in cards)
             {
