@@ -2,13 +2,13 @@
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    class AverageStabilityIncrement : SingleParameter
+    class AverageMiningBonus : SingleParameter
     {
-        public AverageStabilityIncrement()
+        public AverageMiningBonus()
         {
             type = ParameterType.Inner;
-            title = "Средний прирост стабильности события";
-            details = "";
+            title = "Средний бонус добычи ТЗ";
+            details = "Среднее арифметическое бонуса добычи на всех картах конитнуума";
             fractionalDigits = 2;
         }
 
@@ -17,11 +17,11 @@ namespace ModelAnalyzer.Parameters.Events
             calculationReport = new ParameterCalculationReport(this);
 
             float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
-            float[] sia = calculator.UpdatedArrayValue(typeof(StabilityIncrementAllocation));
+            float[] mba = calculator.UpdatedArrayValue(typeof(EventMiningBonusAllocation));
 
             float average = 0;
-            for (int i = 0; i < sia.Count(); i++)
-                average += i * sia[i] / sia.Sum();
+            for (int i = 0; i < mba.Count(); i++)
+                average += i * mba[i] / mba.Sum();
 
             value = unroundValue = average;
 

@@ -42,6 +42,7 @@ namespace ModelAnalyzer
 
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
             storage.AddParameter(parameter: new ArtifactsRarity());
+            storage.AddParameter(parameter: new AverageMiningBonus());
             storage.AddParameter(parameter: new AverageStabilityIncrement());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
             storage.AddParameter(parameter: new BlockRelationsCoef_OB());

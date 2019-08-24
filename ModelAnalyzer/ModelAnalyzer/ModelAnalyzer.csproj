@@ -68,6 +68,7 @@
     <Compile Include="Parameters\Activities\AverageEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
     <Compile Include="Parameters\Events\Weight\AdditionalReasonsWeight.cs" />
     <Compile Include="Parameters\Events\Weight\ArtifactsWeight.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
