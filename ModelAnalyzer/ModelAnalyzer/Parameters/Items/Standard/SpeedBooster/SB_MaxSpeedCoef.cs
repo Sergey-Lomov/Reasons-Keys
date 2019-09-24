@@ -1,13 +1,14 @@
-﻿namespace ModelAnalyzer.Parameters.Moving
+﻿namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 {
-    class MaxSpeedCoef : SingleParameter
+    class SB_MaxSpeedCoef : SingleParameter
     {
-        public MaxSpeedCoef()
+        public SB_MaxSpeedCoef()
         {
             type = ParameterType.In;
             title = "Коэф. максимальной скорости";
             details = "Задает отношение максимальной скорости (с использование всех базовых ускорителей) к среднему расстоянию";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.items);
             tags.Add(ParameterTag.moving);
         }
     }

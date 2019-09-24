@@ -7,9 +7,11 @@ using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Parameters.PlayerInitial;
 using ModelAnalyzer.Parameters.Topology;
+
 using ModelAnalyzer.Parameters.Items;
 using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
+using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
 
 namespace ModelAnalyzer
 {
@@ -91,7 +93,6 @@ namespace ModelAnalyzer
             // Moving
             storage.AddParameter(parameter: new InitialSpeed());
             storage.AddParameter(parameter: new InitialSpeedCoef());
-            storage.AddParameter(parameter: new MaxSpeedCoef());
             storage.AddParameter(parameter: new MotionAmount());
             storage.AddParameter(parameter: new MotionFreeLevel());
             storage.AddParameter(parameter: new MotionPrice());
@@ -157,6 +158,13 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BW_ShotPrice());
             storage.AddParameter(parameter: new BW_UpgradesAmount());
             storage.AddParameter(parameter: new BW_UpgradesProfit());
+
+            storage.AddParameter(parameter: new SB_FullPrice());
+            storage.AddParameter(parameter: new SB_MaxSpeedCoef());
+            storage.AddParameter(parameter: new SB_Power());
+            storage.AddParameter(parameter: new SB_Profit());
+            storage.AddParameter(parameter: new SB_UpgradesAmount());
+            storage.AddParameter(parameter: new SB_UpgradesProfit());
         }
     }
 }

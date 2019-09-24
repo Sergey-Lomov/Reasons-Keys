@@ -25,6 +25,9 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
             float[] bwsp = calculator.UpdatedArrayValue(typeof(BW_ShotPrice));
             float[] bsd = calculator.UpdatedArrayValue(typeof(BS_Defense));
 
+            unroundValues.Clear();
+            values.Clear();
+
             for (var i = 0; i <= ua; i++)
             {
                 var profit = (bwd[i] - bwsp[i] - bsd[i]) * saa;

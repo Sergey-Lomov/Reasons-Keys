@@ -16,11 +16,13 @@ ModelAnalyzer.Parameters.Activities.EventImpactPriceAU:0,33~0,391|
 ModelAnalyzer.Parameters.Activities.EventImpactPriceEU:2~2,373|
 ModelAnalyzer.Parameters.Activities.EventsActionsPotential:175~175|
 ModelAnalyzer.Parameters.Activities.KeyEventCreationAmount:2,5~-|
+ModelAnalyzer.Parameters.Activities.StandardAtackAmount:6~-|
 ModelAnalyzer.Parameters.Activities.UnkeyEventCreationAmount:6~-|
 ModelAnalyzer.Parameters.Activities.TotalPotential:400~400|
 ModelAnalyzer.Parameters.Events.MainDeck:Кол|
 ModelAnalyzer.Parameters.Events.ArtifactsAvaliabilityPhase:2~-|
 ModelAnalyzer.Parameters.Events.ArtifactsRarity:0,16~-|
+ModelAnalyzer.Parameters.Events.AverageMiningBonus:1,6~1,6|
 ModelAnalyzer.Parameters.Events.AverageStabilityIncrement:2~2|
 ModelAnalyzer.Parameters.Events.BlockEventsCoef_2D:0,6~-|
 ModelAnalyzer.Parameters.Events.BlockRelationsCoef_OB:0,33~-|
@@ -57,13 +59,12 @@ ModelAnalyzer.Parameters.Mining.CenterMiningBonus:8~8|
 ModelAnalyzer.Parameters.Mining.MiningAllocation:0 3 6 9 12~0 2,955 5,91 8,865 11,82|
 ModelAnalyzer.Parameters.Mining.MiningAUCoef:0,4~-|
 ModelAnalyzer.Parameters.Mining.MiningIncrement:3~2,955|
-ModelAnalyzer.Parameters.Moving.InitialSpeed:2~2,455|
-ModelAnalyzer.Parameters.Moving.InitialSpeedCoef:0,5~-|
-ModelAnalyzer.Parameters.Moving.MaxSpeedCoef:1~-|
+ModelAnalyzer.Parameters.Moving.InitialSpeed:2~1,964|
+ModelAnalyzer.Parameters.Moving.InitialSpeedCoef:0,4~-|
 ModelAnalyzer.Parameters.Activities.MotionAmount:50~-|
 ModelAnalyzer.Parameters.Moving.MotionFreeLevel:2~-|
 ModelAnalyzer.Parameters.Moving.MotionPrice:1~1,018|
-ModelAnalyzer.Parameters.Moving.SpeedDoublingRate:2,5~-|
+ModelAnalyzer.Parameters.Moving.SpeedDoublingRate:3,5~-|
 ModelAnalyzer.Parameters.Timing.AUMoveAmount:2~-|
 ModelAnalyzer.Parameters.Timing.AUPartyAmount:40~40|
 ModelAnalyzer.Parameters.Timing.MoveDuration:1~-|
@@ -77,6 +78,7 @@ ModelAnalyzer.Parameters.Topology.AverageDistance:4,91~4,909|
 ModelAnalyzer.Parameters.Topology.AveragePhasesDistance:4,12 4,19 4,57 5,25 6,26~4,121 4,186 4,566 5,254 6,261|
 ModelAnalyzer.Parameters.Topology.FieldRadius:4~-|
 ModelAnalyzer.Parameters.Topology.RoutesMap:Недос|
+ModelAnalyzer.Parameters.Topology.MinDistancesPairsAmount:2112 2958 3225 3297 3357 3090 2535 1743 873 279 72 24~2112 2958 3225 3297 3357 3090 2535 1743 873 279 72 24|
 ModelAnalyzer.Parameters.PlayerInitial.AverageInitialEventsBranchPoints:0~-|
 ModelAnalyzer.Parameters.PlayerInitial.InitialEventsWeightCoefficient:1~-|
 ModelAnalyzer.Parameters.PlayerInitial.KeyChainLenghtCoefficient:0,5~-|
@@ -92,3 +94,30 @@ ModelAnalyzer.Parameters.PlayerInitial.MinInitialCardUsability:1~-|
 ModelAnalyzer.Parameters.PlayerInitial.RealKeyEventBrachPointCoefficients:3,92 2,94 2,35 1,96~3,922 2,941 2,353 1,961|
 ModelAnalyzer.Parameters.PlayerInitial.StabilityInitialCardCoefficient:0,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.StartDeck:Кол|
+ModelAnalyzer.Parameters.Items.ArtifactsEstimatedProfit:0~0|
+ModelAnalyzer.Parameters.Items.ArtifactsProfitCoefficient:2~-|
+ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:0~-|
+ModelAnalyzer.Parameters.Items.ItemPriceCoefficient:0,4~-|
+ModelAnalyzer.Parameters.Items.PureEUProfitCoefficient:2~-|
+ModelAnalyzer.Parameters.Items.WeaponStandardEffectivity:3~-|
+ModelAnalyzer.Parameters.Items.WeaponStandardPower:1~-|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_BasePower:0,3~-|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Defense:3 5 7~3 4,875 7|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_FullPrice:7 5 5~7,2 4,8 4,8|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_MaxPower:0,35~-|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Profit:30~30|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_UpgradesProfit:18 30 42~18 30 42|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Damage:10 15 20~10 15 20|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_FullPrice:10 5 5~9,6 4,8 4,8|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_MaxEffectivityCoefficient:1,33~-|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_MaxPowerCoefficient:2~-|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Profit:36~36|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_ShotPrice:3 4 5~3,333 4,292 5,013|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesAmount:2~-|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesProfit:24 36 48~24 36 48|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_FullPrice:7 5 4~7 4,667 3,5|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_MaxSpeedCoef:1~-|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Power:1 1 1~0,97 0,97 0,97|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Profit:28,19~28,194|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesAmount:3~-|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesProfit:17,5 11,67 8,75~17,5 11,667 8,75|

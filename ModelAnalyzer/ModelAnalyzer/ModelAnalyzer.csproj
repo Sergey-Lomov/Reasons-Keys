@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="DataModels\BranchPointsSet.cs" />
     <Compile Include="Parameters\Activities\AverageEventsConcreteBranchPoints.cs" />
+    <Compile Include="Parameters\Activities\StandardAtackAmount.cs" />
     <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
@@ -78,6 +79,32 @@
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\Events\Weight\PassivePlayerWeight.cs" />
     <Compile Include="Parameters\Events\Weight\PlayerRealisationControlCoefficient.cs" />
+    <Compile Include="Parameters\Items\ArtifactsEstimatedProfit.cs" />
+    <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
+    <Compile Include="Parameters\Items\AverageBaseItemsProfit.cs" />
+    <Compile Include="Parameters\Items\ItemPriceCoefficient.cs" />
+    <Compile Include="Parameters\Items\PureEUProfitCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_BasePower.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_Defense.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_MaxPower.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_Damage.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_MaxPowerCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_ShotPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_MaxEffectivityCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesAmount.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Power.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_UpgradesAmount.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\WeaponStandardEffectivity.cs" />
+    <Compile Include="Parameters\Items\WeaponStandardPower.cs" />
     <Compile Include="Parameters\PlayerInitial\AverageInitialEventsBranchPoints.cs" />
     <Compile Include="Parameters\Events\Weight\AverageRelationStability.cs" />
     <Compile Include="Parameters\Events\Weight\AverageSequenceLength.cs" />
@@ -186,7 +213,7 @@
     <Compile Include="Parameters\Topology\AveragePhasesDistance.cs" />
     <Compile Include="Parameters\Moving\InitialSpeed.cs" />
     <Compile Include="Parameters\Moving\InitialSpeedCoef.cs" />
-    <Compile Include="Parameters\Moving\MaxSpeedCoef.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_MaxSpeedCoef.cs" />
     <Compile Include="Parameters\Moving\MotionFreeLevel.cs" />
     <Compile Include="Parameters\Moving\MotionPrice.cs" />
     <Compile Include="Parameters\Moving\SpeedDoublingRate.cs" />
@@ -275,7 +302,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Parameters\Items\Artifacts\" />
-    <Folder Include="Parameters\Items\Standard\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
