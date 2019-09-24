@@ -98,6 +98,12 @@
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_MaxEffectivityCoefficient.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesAmount.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_Capacity.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_CapacityCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_InversePower.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_RelativeRevenue.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_FullPrice.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Power.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Profit.cs" />

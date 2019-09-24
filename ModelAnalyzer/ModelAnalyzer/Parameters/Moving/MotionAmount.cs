@@ -1,4 +1,4 @@
-﻿namespace ModelAnalyzer.Parameters.Activities
+﻿namespace ModelAnalyzer.Parameters.Moving
 {
     class MotionAmount : SingleParameter
     {

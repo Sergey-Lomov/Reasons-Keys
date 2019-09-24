@@ -12,6 +12,7 @@ using ModelAnalyzer.Parameters.Items;
 using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
 using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
+using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
 
 namespace ModelAnalyzer
 {
@@ -165,6 +166,13 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new SB_Profit());
             storage.AddParameter(parameter: new SB_UpgradesAmount());
             storage.AddParameter(parameter: new SB_UpgradesProfit());
+
+            storage.AddParameter(parameter: new KA_Capacity());
+            storage.AddParameter(parameter: new KA_CapacityCoefficient());
+            storage.AddParameter(parameter: new KA_FullPrice());
+            storage.AddParameter(parameter: new KA_InversePower());
+            storage.AddParameter(parameter: new KA_Profit());
+            storage.AddParameter(parameter: new KA_RelativeRevenue());
         }
     }
 }
