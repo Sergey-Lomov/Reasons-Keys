@@ -12,6 +12,7 @@ namespace ModelAnalyzer.Parameters.Mining
             title = "Распределение добычи";
             details = "Распределение добычи ТЗ по радиусам поля";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.mining);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

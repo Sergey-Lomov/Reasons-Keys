@@ -8,6 +8,8 @@
             title = "Максимальный бонус добычи";
             details = "Имеется ввиду бонус на событиях";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.mining);
         }
     }
 }

@@ -8,6 +8,7 @@
             title = "Коэф. начальной скорости";
             details = "Задает отношение начальной скорости сфер к среднему расстоянию";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.moving);
         }
     }
 }

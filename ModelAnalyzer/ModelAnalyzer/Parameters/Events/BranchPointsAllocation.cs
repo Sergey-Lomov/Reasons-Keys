@@ -16,6 +16,11 @@ namespace ModelAnalyzer.Parameters.Events
         const string pairsSeparator = " ";
         const string branchesSeparator = "-";
 
+        public BranchPointsAllocation ()
+        {
+            tags.Add(ParameterTag.events);
+        }
+
         public override void SetupByString(string str)
         {
             var subs = str.Split(pairsSeparator.ToCharArray());

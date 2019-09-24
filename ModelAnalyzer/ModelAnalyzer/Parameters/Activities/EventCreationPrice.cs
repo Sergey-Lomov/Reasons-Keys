@@ -10,6 +10,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Полная стоимость организации события";
             details = "";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

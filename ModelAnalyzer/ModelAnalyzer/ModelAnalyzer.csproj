@@ -113,6 +113,7 @@
     <Compile Include="Services\FieldAnalyzer\FieldFabric.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldPoint.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldRoute.cs" />
+    <Compile Include="Services\ParameterTag.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>

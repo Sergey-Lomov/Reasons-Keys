@@ -10,6 +10,8 @@ namespace ModelAnalyzer.Parameters.Events
             title = "Средний бонус добычи ТЗ";
             details = "Среднее арифметическое бонуса добычи на всех картах конитнуума";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.mining);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

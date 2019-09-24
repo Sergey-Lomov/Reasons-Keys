@@ -10,6 +10,7 @@ namespace ModelAnalyzer.Parameters.Events
             title = "Средний прирост стабильности события";
             details = "";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

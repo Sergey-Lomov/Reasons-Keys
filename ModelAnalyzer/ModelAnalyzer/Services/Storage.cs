@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer
 {
     class Storage
@@ -38,7 +40,15 @@ namespace ModelAnalyzer
 
         public List<Parameter> Parameters(ParameterType[] types, string titleFilter = null)
         {
-            Func<Parameter, bool> filterLambda = p => Array.Exists(types, type => type == p.type);
+            var allTags = UniquesTags();
+            return Parameters(types, allTags, titleFilter);
+        }
+
+        public List<Parameter> Parameters(ParameterType[] types, List<ParameterTag> tags, string titleFilter = null)
+        {
+            Func<Parameter, bool> typesLambda = p => Array.Exists(types, type => type == p.type);
+            Func<Parameter, bool> tagsLambda = p => tags.Intersect(p.tags).Count() > 0;
+            Func<Parameter, bool> filterLambda = p => typesLambda(p) && tagsLambda(p);
             Func<Parameter, string> sortLambda = p => p.title;
             List<Parameter> result = parameters.Values.Where(filterLambda).OrderBy(sortLambda).ToList();
 
@@ -49,6 +59,18 @@ namespace ModelAnalyzer
             }
 
             return result;
+        }
+
+        public List<ParameterTag> UniquesTags()
+        {
+            var tags = new List<ParameterTag>();
+
+            foreach (var parameter in parameters)
+                foreach (var tag in parameter.Value.tags)
+                    if (!tags.Contains(tag))
+                        tags.Add(tag);
+
+            return tags;
         }
 
         internal float SingleValue(Type type)

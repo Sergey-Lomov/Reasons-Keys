@@ -8,6 +8,8 @@
             title = "Распределение бонусов ТЗ";
             details = "Задает пропорции в которых различные бонусы добычи должны встречаться на событиях континуума.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.mining);
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)

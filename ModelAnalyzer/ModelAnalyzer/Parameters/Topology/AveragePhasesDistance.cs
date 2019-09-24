@@ -15,6 +15,7 @@ namespace ModelAnalyzer.Parameters.Topology
             title = "Средние расстояния в фазах";
             details = "В разных фазах поле имеет разную конфигурацию, из-за чего математических формул для расчета вывести не удалось. Среднее расстояние определяется с помощью отдельной программы FieldAnalyser, перебирающей все пары узлов. Это значение зависимо от радиуса (4) поля и вытекающего из него кол-ва фаз.";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.topology);
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)

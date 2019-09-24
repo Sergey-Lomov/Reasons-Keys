@@ -39,12 +39,18 @@
             this.innerCB = new System.Windows.Forms.CheckBox();
             this.outCB = new System.Windows.Forms.CheckBox();
             this.inCB = new System.Windows.Forms.CheckBox();
+            this.tagsPanel = new System.Windows.Forms.Panel();
+            this.checkAllTagsButton = new System.Windows.Forms.Button();
+            this.tagsCLB = new System.Windows.Forms.CheckedListBox();
+            this.tagsLabel = new System.Windows.Forms.Label();
             this.bottomPlaceholder = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.titleFilterTB = new System.Windows.Forms.TextBox();
+            this.uncheckAllTagsButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.actionsPanel.SuspendLayout();
             this.filtersGroup.SuspendLayout();
+            this.tagsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,13 +80,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.actionsPanel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.filtersGroup, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tagsPanel, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 582);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
@@ -90,7 +97,7 @@
             this.actionsPanel.Controls.Add(this.loadBtn);
             this.actionsPanel.Controls.Add(this.saveBtn);
             this.actionsPanel.Controls.Add(this.calculateBtn);
-            this.actionsPanel.Location = new System.Drawing.Point(3, 87);
+            this.actionsPanel.Location = new System.Drawing.Point(3, 28);
             this.actionsPanel.MinimumSize = new System.Drawing.Size(194, 117);
             this.actionsPanel.Name = "actionsPanel";
             this.actionsPanel.Size = new System.Drawing.Size(194, 117);
@@ -138,7 +145,7 @@
             this.filtersGroup.Controls.Add(this.innerCB);
             this.filtersGroup.Controls.Add(this.outCB);
             this.filtersGroup.Controls.Add(this.inCB);
-            this.filtersGroup.Location = new System.Drawing.Point(3, 379);
+            this.filtersGroup.Location = new System.Drawing.Point(3, 203);
             this.filtersGroup.MinimumSize = new System.Drawing.Size(194, 115);
             this.filtersGroup.Name = "filtersGroup";
             this.filtersGroup.Size = new System.Drawing.Size(194, 115);
@@ -196,6 +203,50 @@
             this.inCB.UseVisualStyleBackColor = true;
             this.inCB.CheckedChanged += new System.EventHandler(this.FilterChanged);
             // 
+            // tagsPanel
+            // 
+            this.tagsPanel.Controls.Add(this.tagsCLB);
+            this.tagsPanel.Controls.Add(this.uncheckAllTagsButton);
+            this.tagsPanel.Controls.Add(this.checkAllTagsButton);
+            this.tagsPanel.Controls.Add(this.tagsLabel);
+            this.tagsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tagsPanel.Location = new System.Drawing.Point(3, 351);
+            this.tagsPanel.Name = "tagsPanel";
+            this.tagsPanel.Size = new System.Drawing.Size(194, 228);
+            this.tagsPanel.TabIndex = 3;
+            // 
+            // checkAllTagsButton
+            // 
+            this.checkAllTagsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkAllTagsButton.Location = new System.Drawing.Point(0, 205);
+            this.checkAllTagsButton.Name = "checkAllTagsButton";
+            this.checkAllTagsButton.Size = new System.Drawing.Size(194, 23);
+            this.checkAllTagsButton.TabIndex = 2;
+            this.checkAllTagsButton.Text = "Выбрать все";
+            this.checkAllTagsButton.UseVisualStyleBackColor = true;
+            // 
+            // tagsCLB
+            // 
+            this.tagsCLB.CheckOnClick = true;
+            this.tagsCLB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tagsCLB.FormattingEnabled = true;
+            this.tagsCLB.Location = new System.Drawing.Point(0, 23);
+            this.tagsCLB.Name = "tagsCLB";
+            this.tagsCLB.Size = new System.Drawing.Size(194, 159);
+            this.tagsCLB.TabIndex = 1;
+            this.tagsCLB.SelectedIndexChanged += new System.EventHandler(this.tagsCLB_SelectedIndexChanged);
+            // 
+            // tagsLabel
+            // 
+            this.tagsLabel.AutoSize = true;
+            this.tagsLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tagsLabel.Location = new System.Drawing.Point(0, 0);
+            this.tagsLabel.Name = "tagsLabel";
+            this.tagsLabel.Padding = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.tagsLabel.Size = new System.Drawing.Size(44, 23);
+            this.tagsLabel.TabIndex = 0;
+            this.tagsLabel.Text = "Метки";
+            // 
             // bottomPlaceholder
             // 
             this.bottomPlaceholder.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -219,9 +270,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.titleFilterTB.Location = new System.Drawing.Point(8, 12);
             this.titleFilterTB.Name = "titleFilterTB";
-            this.titleFilterTB.Size = new System.Drawing.Size(485, 20);
+            this.titleFilterTB.Size = new System.Drawing.Size(531, 20);
             this.titleFilterTB.TabIndex = 0;
             this.titleFilterTB.TextChanged += new System.EventHandler(this.FilterChanged);
+            // 
+            // uncheckAllTagsButton
+            // 
+            this.uncheckAllTagsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uncheckAllTagsButton.Location = new System.Drawing.Point(0, 182);
+            this.uncheckAllTagsButton.Name = "uncheckAllTagsButton";
+            this.uncheckAllTagsButton.Size = new System.Drawing.Size(194, 23);
+            this.uncheckAllTagsButton.TabIndex = 3;
+            this.uncheckAllTagsButton.Text = "Отменить все";
+            this.uncheckAllTagsButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -240,6 +301,8 @@
             this.actionsPanel.PerformLayout();
             this.filtersGroup.ResumeLayout(false);
             this.filtersGroup.PerformLayout();
+            this.tagsPanel.ResumeLayout(false);
+            this.tagsPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -263,6 +326,11 @@
         private System.Windows.Forms.Panel bottomPlaceholder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox titleFilterTB;
+        private System.Windows.Forms.Panel tagsPanel;
+        private System.Windows.Forms.CheckedListBox tagsCLB;
+        private System.Windows.Forms.Label tagsLabel;
+        private System.Windows.Forms.Button checkAllTagsButton;
+        private System.Windows.Forms.Button uncheckAllTagsButton;
     }
 }
 

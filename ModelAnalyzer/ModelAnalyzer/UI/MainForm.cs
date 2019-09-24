@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace ModelAnalyzer.UI
 {
@@ -21,6 +22,7 @@ namespace ModelAnalyzer.UI
             MainLayout.HorizontalScroll.Visible = false;
 
             new ParametersFactory().LoadModel(storage);
+            UpdateTagsPanel();
             try
             { 
                 filesManager.ReadValuesFromDefault(storage);
@@ -73,6 +75,15 @@ namespace ModelAnalyzer.UI
             ReloadTable();
         }
 
+        private void UpdateTagsPanel ()
+        {
+            var tags = storage.UniquesTags();
+
+            tagsCLB.Items.Clear();
+            foreach (var tag in tags.OrderBy(t => t.title))
+                tagsCLB.Items.Add(tag, true);
+        }
+
         private void ReloadTable ()
         {
             MainLayout.Visible = false;
@@ -85,6 +96,9 @@ namespace ModelAnalyzer.UI
                 {ParameterType.Inner, innerCB},
                 {ParameterType.Indicator, indicatorCB}};
 
+            var allTags = storage.UniquesTags();
+            var enabledTags = allTags.Where(t => tagsCLB.CheckedItems.Contains(t)).ToList();
+
             ParameterType[] prioritized = {ParameterType.Indicator, ParameterType.Out, ParameterType.In, ParameterType.Inner};
             string titleFilter = titleFilterTB.Text.Length > 0 ? titleFilterTB.Text : null;
 
@@ -92,7 +106,7 @@ namespace ModelAnalyzer.UI
             {
                 if (typesBoxes[type].Checked)
                 {
-                    List<Parameter> parameters = storage.Parameters(new ParameterType[] {type}, titleFilter);
+                    List<Parameter> parameters = storage.Parameters(new ParameterType[] {type}, enabledTags, titleFilter);
                     if (parameters.Count == 0)
                         continue;
 
@@ -186,6 +200,11 @@ namespace ModelAnalyzer.UI
                 details.TopLevel = true;
                 details.ShowDialog();
             }
+        }
+
+        private void tagsCLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReloadTable();
         }
     }
 }

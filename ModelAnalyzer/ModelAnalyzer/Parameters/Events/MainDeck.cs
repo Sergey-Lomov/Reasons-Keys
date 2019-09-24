@@ -24,6 +24,7 @@ namespace ModelAnalyzer.Parameters.Events
             title = "Колода карт событий";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

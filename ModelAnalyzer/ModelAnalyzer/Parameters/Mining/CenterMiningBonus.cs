@@ -18,6 +18,7 @@ namespace ModelAnalyzer.Parameters.Mining
             title = "Бонус добычи центрального узла";
             details = "Бонус добычи центрального узла, обеспечивающий соблюдение баланса 0-фазы (подробнее в механике).";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.mining);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

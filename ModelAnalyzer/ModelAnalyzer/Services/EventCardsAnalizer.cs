@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using ModelAnalyzer.DataModels;
-using ModelAnalyzer.Parameters;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Mining;
-using ModelAnalyzer.Parameters.Timing;
-using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
 
 namespace ModelAnalyzer.Services

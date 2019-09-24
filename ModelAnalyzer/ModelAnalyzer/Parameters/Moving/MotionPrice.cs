@@ -12,6 +12,8 @@ namespace ModelAnalyzer.Parameters.Moving
             title = "Стоимость перемещения (ТЗ)";
             details = "Перемещение всегда требует только ТЗ. Поэтому стоимость перемещения (ТЗ) является также и полной стоимостью перемещения.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.moving);
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

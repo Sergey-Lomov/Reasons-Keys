@@ -13,6 +13,7 @@ namespace ModelAnalyzer.Parameters.Timing
             title = "Длительность фаз";
             details = "Длительность фаз основанная на их весе";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.timing);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

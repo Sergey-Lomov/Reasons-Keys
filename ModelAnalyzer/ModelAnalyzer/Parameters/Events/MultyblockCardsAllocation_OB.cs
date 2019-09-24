@@ -8,6 +8,7 @@
             title = "Распределение кол-ва блокираторов (только назад)";
             details = "Указывает отношение между картами с различным кол-вом блокираторов";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)

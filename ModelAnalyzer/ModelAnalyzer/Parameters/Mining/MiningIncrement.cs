@@ -14,6 +14,7 @@ namespace ModelAnalyzer.Parameters.Mining
             title = "Прирост добычи";
             details = "Шаг, на который увеличивается добыча ТЗ при увеличение радиуса";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.mining);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

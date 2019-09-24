@@ -10,6 +10,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Стоимость организации события (ТЗ)";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

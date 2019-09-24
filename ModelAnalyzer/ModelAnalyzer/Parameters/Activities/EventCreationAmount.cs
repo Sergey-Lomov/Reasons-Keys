@@ -8,6 +8,7 @@
             title = "Стандартное кол-во организации событий";
             details = "Предполагается, что в течении партии игрок будет организовывать в среднем указанное кол-во событий.";
             fractionalDigits = 1;
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

@@ -17,6 +17,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Среднее кол-во очков конкретной ветви на разыгранных не решающих событиях";
             details = "Имеется ввиду кол-во очков одной конкретной ветви на не решающих событиях, разыгранных за партию. Зависит от кол-ва игроков.";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

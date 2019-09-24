@@ -12,6 +12,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Пропорция стоимости ЕА";
             details = "Та часть полной стоимости какого либо предмета иил действия, которую желательно выразить в ЕА";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

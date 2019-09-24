@@ -13,6 +13,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             title = "Кол-во очков ветвей на решающих событиях";
             details = "Кол-во очков ветвей на всех решающих картах одного игрока.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.playerInitial);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

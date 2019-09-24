@@ -8,6 +8,7 @@
             title = "Распределение кол-ва связей (только назад)";
             details = "Указывает отношение карт с различным кол-вом связей в колоде. Но только среди карт не имеющих связей вперед.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)

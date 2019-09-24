@@ -8,6 +8,7 @@
             title = "Лимит связей события";
             details = "Ни одно событие континуума не может иметь связей больше, чем знаение этого параметра";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
         }
     }
 }

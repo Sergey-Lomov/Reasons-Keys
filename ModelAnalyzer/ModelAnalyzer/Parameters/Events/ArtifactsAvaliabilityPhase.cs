@@ -12,6 +12,8 @@ namespace ModelAnalyzer.Parameters.Events
             title = "Фаза доступности артефактов";
             details = "Все карты имеющие артефакты, получат ограничение, не дающее использовать их раньше указанной фазы.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.artifacts);
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)

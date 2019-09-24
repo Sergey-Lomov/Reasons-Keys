@@ -8,6 +8,7 @@
             title = "Минимальное кол-во игроков";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.general);
         }
     }
 }

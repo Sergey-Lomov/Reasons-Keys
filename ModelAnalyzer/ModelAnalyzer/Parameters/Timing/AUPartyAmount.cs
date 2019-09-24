@@ -8,6 +8,8 @@
             title = "Кол-во ЕА на партию";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.timing);
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

@@ -12,6 +12,8 @@ namespace ModelAnalyzer.Parameters.Events
             title = "Кол-во узлов континуума";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.topology);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

@@ -10,6 +10,7 @@
             title = "Кол-во очков ветви на не главном решающем событие";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.playerInitial);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

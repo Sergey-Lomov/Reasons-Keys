@@ -11,7 +11,7 @@ namespace ModelAnalyzer
 
         public string title;
         public string details;
-        public List<string> issues = new List<string>();
+        public List<ParameterTag> tags = new List<ParameterTag>();
         public int fractionalDigits;
 
         readonly protected int unroundFractionalDigits = 3;

@@ -12,6 +12,7 @@ namespace ModelAnalyzer.Parameters.Moving
             title = "Начальная скорость сфер";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.moving);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

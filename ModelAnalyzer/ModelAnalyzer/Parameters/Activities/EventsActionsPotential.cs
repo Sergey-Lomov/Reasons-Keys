@@ -12,6 +12,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Потенциал событийных действий.";
             details = "";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

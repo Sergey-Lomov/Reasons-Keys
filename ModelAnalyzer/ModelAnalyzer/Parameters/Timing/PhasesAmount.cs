@@ -10,6 +10,7 @@ namespace ModelAnalyzer.Parameters.Timing
             title = "Кол-во фаз";
             details = "Всегда на 1 больше, чем радиус поля";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.timing);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Drawing;
 
 using ModelAnalyzer.Parameters.Events;
+using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.UI
 {
@@ -52,6 +53,7 @@ namespace ModelAnalyzer.UI
 
             detailsFormsTypes.Add(typeof(ArrayParameter), typeof(ParameterDetailsForm));
             detailsFormsTypes.Add(typeof(SingleParameter), typeof(ParameterDetailsForm));
+            detailsFormsTypes.Add(typeof(RoutesMap), typeof(ParameterDetailsForm));   
             detailsFormsTypes.Add(typeof(BranchPointsAllocation), typeof(ParameterDetailsForm));
             detailsFormsTypes.Add(typeof(DeckParameter), typeof(EventsDeckForm));
         }

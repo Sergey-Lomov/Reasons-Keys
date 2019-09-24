@@ -10,6 +10,7 @@ namespace ModelAnalyzer.Parameters.Timing
             title = "Продолжительность партии (мин)";
             details = "Оценка продолжительонсти партии, в случае если игроки используют рекомендованный лимит времени на ход.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.timing);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

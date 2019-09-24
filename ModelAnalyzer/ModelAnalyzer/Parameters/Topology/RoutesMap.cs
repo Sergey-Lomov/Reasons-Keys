@@ -17,6 +17,7 @@ namespace ModelAnalyzer.Parameters.Topology
             title = "Карта путей";
             details = "Хранит карту всех возможных путей между всеми парами узлов во всех конфигурациях поля (фазах). Карта генерируется в модуле FieldAnalyzer и используется другими параметрами из группы \"Топология\". Просмотр недоступен.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.topology);
         }
 
         public override void SetupByString(string str)

@@ -11,6 +11,7 @@ namespace ModelAnalyzer.Parameters.Mining
             title = "Средняя добыча ТЗ";
             details = "Средняя добыча подразумевает, что игрок хаотично перемещается по полю и добывает ТЗ в случайных узлах.";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.mining);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

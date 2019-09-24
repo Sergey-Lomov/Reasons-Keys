@@ -10,6 +10,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Стоимость воздействия на событие (ЕА)";
             details = "";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.activities);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

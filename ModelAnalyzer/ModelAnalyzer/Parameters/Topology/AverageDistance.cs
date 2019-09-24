@@ -14,6 +14,7 @@ namespace ModelAnalyzer.Parameters.Topology
             title = "Среднее расстояние";
             details = "Вычисляется на основе средних расстояний фаз и длительности фаз.";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.topology);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

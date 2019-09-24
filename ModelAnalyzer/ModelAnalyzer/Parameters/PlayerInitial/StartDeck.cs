@@ -25,6 +25,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             title = "Стартовые события";
             details = "Изначальные и решающие события, с которыми игрок начинает игру";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.playerInitial);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

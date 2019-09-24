@@ -8,6 +8,7 @@
             title = "Кол-во раундов в партии";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.timing);
         }
     }
 }

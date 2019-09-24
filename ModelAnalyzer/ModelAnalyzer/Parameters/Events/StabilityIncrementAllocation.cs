@@ -8,6 +8,7 @@
             title = "Распределение увеличения стабильности";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.events);
         }
     }
 }
