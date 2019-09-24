@@ -224,12 +224,15 @@
             this.checkAllTagsButton.TabIndex = 2;
             this.checkAllTagsButton.Text = "Выбрать все";
             this.checkAllTagsButton.UseVisualStyleBackColor = true;
+            this.checkAllTagsButton.Click += new System.EventHandler(this.checkAllTagsButton_Click);
             // 
             // tagsCLB
             // 
             this.tagsCLB.CheckOnClick = true;
             this.tagsCLB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tagsCLB.FormattingEnabled = true;
+            this.tagsCLB.Items.AddRange(new object[] {
+            "tags"});
             this.tagsCLB.Location = new System.Drawing.Point(0, 23);
             this.tagsCLB.Name = "tagsCLB";
             this.tagsCLB.Size = new System.Drawing.Size(194, 159);
@@ -283,6 +286,7 @@
             this.uncheckAllTagsButton.TabIndex = 3;
             this.uncheckAllTagsButton.Text = "Отменить все";
             this.uncheckAllTagsButton.UseVisualStyleBackColor = true;
+            this.uncheckAllTagsButton.Click += new System.EventHandler(this.uncheckAllTagsButton_Click);
             // 
             // MainForm
             // 

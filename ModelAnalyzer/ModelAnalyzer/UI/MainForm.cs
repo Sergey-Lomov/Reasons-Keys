@@ -206,5 +206,21 @@ namespace ModelAnalyzer.UI
         {
             ReloadTable();
         }
+
+        private void uncheckAllTagsButton_Click(object sender, EventArgs e)
+        {
+            foreach (int i in tagsCLB.CheckedIndices)
+                tagsCLB.SetItemCheckState(i, CheckState.Unchecked);
+
+            ReloadTable();
+        }
+
+        private void checkAllTagsButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < tagsCLB.Items.Count; i++)
+                tagsCLB.SetItemCheckState(i, CheckState.Checked);
+
+            ReloadTable();
+        }
     }
 }
