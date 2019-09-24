@@ -8,6 +8,7 @@
             title = "";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)
@@ -24,8 +25,9 @@
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
+            var report = base.Validate(validator, storage);
             var size = storage.Parameter(typeof(SizeParamName));
-            var report = Validate(validator, storage, size);
+            ValidateSize(size, report);
             return report;
         }
     }

@@ -8,6 +8,7 @@
             title = "";
             details = "";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

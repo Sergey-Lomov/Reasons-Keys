@@ -8,6 +8,7 @@
             title = "";
             details = "";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.);
         }
     }
 }
