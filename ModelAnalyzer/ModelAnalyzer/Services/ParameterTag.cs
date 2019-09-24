@@ -24,7 +24,7 @@
         public static ParameterTag timing = new ParameterTag("Тайминг");
         public static ParameterTag topology = new ParameterTag("Топология");
         public static ParameterTag items = new ParameterTag("Предметы");
-        public static ParameterTag itemStandard = new ParameterTag("Стандартные предметы");
-        public static ParameterTag artifacts = new ParameterTag("Артефакты");
+        public static ParameterTag baseItems = new ParameterTag("Предметы: базовые");
+        public static ParameterTag artifacts = new ParameterTag("Предметы: артефакты");
     }
 }

@@ -7,6 +7,9 @@ using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Parameters.PlayerInitial;
 using ModelAnalyzer.Parameters.Topology;
+using ModelAnalyzer.Parameters.Items;
+using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
+using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
 
 namespace ModelAnalyzer
 {
@@ -33,7 +36,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventImpactPriceAU());
             storage.AddParameter(parameter: new EventImpactPriceEU());
             storage.AddParameter(parameter: new EventsActionsPotential());
-            storage.AddParameter(parameter: new KeyEventCreationAmount()); 
+            storage.AddParameter(parameter: new KeyEventCreationAmount());
+            storage.AddParameter(parameter: new StandardAtackAmount());
             storage.AddParameter(parameter: new UnkeyEventCreationAmount());
             storage.AddParameter(parameter: new TotalPotential());
 
@@ -127,6 +131,32 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new RealKeyEventBrachPointCoefficients());
             storage.AddParameter(parameter: new StabilityInitialCardCoefficient());
             storage.AddParameter(parameter: new StartDeck());
+
+            // Items
+            storage.AddParameter(parameter: new ArtifactsEstimatedProfit());
+            storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
+            storage.AddParameter(parameter: new AverageBaseItemsProfit());
+            storage.AddParameter(parameter: new ItemPriceCoefficient());
+            storage.AddParameter(parameter: new PureEUProfitCoefficient());
+            storage.AddParameter(parameter: new WeaponStandardEffectivity());
+            storage.AddParameter(parameter: new WeaponStandardPower());
+
+            // Standard
+            storage.AddParameter(parameter: new BS_BasePower());
+            storage.AddParameter(parameter: new BS_Defense());
+            storage.AddParameter(parameter: new BS_FullPrice());
+            storage.AddParameter(parameter: new BS_MaxPower());
+            storage.AddParameter(parameter: new BS_Profit());
+            storage.AddParameter(parameter: new BS_UpgradesProfit());
+
+            storage.AddParameter(parameter: new BW_Damage());
+            storage.AddParameter(parameter: new BW_FullPrice());
+            storage.AddParameter(parameter: new BW_MaxEffectivityCoefficient());
+            storage.AddParameter(parameter: new BW_MaxPowerCoefficient());
+            storage.AddParameter(parameter: new BW_Profit());
+            storage.AddParameter(parameter: new BW_ShotPrice());
+            storage.AddParameter(parameter: new BW_UpgradesAmount());
+            storage.AddParameter(parameter: new BW_UpgradesProfit());
         }
     }
 }
