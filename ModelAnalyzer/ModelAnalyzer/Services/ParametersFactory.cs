@@ -13,6 +13,7 @@ using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
 using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
 using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
+using ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator;
 
 namespace ModelAnalyzer
 {
@@ -97,7 +98,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MotionAmount());
             storage.AddParameter(parameter: new MotionFreeLevel());
             storage.AddParameter(parameter: new MotionPrice());
-            storage.AddParameter(parameter: new SpeedDoublingRate());
+            storage.AddParameter(parameter: new SpeedDoublingRate()); 
+            storage.AddParameter(parameter: new OneRoundSpeedDoublingProfit());
 
             // Timing
             storage.AddParameter(parameter: new AUMoveAmount());
@@ -135,7 +137,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new StartDeck());
 
             // Items
-            storage.AddParameter(parameter: new ArtifactsEstimatedProfit());
+            storage.AddParameter(parameter: new EstimatedArtifactsProfit());
             storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
             storage.AddParameter(parameter: new AverageBaseItemsProfit());
             storage.AddParameter(parameter: new ItemPriceCoefficient());
@@ -173,6 +175,12 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new KA_InversePower());
             storage.AddParameter(parameter: new KA_Profit());
             storage.AddParameter(parameter: new KA_RelativeRevenue());
+
+            // Artifacts
+            storage.AddParameter(parameter: new CG_ChargesAmount());
+            storage.AddParameter(parameter: new CG_OneUsageProfit());
+            storage.AddParameter(parameter: new CG_Profit());
+            storage.AddParameter(parameter: new CG_V616Mining());
         }
     }
 }

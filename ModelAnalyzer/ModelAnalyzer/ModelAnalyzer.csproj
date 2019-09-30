@@ -81,6 +81,10 @@
     <Compile Include="Parameters\Events\Weight\PlayerRealisationControlCoefficient.cs" />
     <Compile Include="Parameters\Items\ArtifactsEstimatedProfit.cs" />
     <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_ChargesAmount.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_OneUsageProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_Profit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_V616Mining.cs" />
     <Compile Include="Parameters\Items\AverageBaseItemsProfit.cs" />
     <Compile Include="Parameters\Items\ItemPriceCoefficient.cs" />
     <Compile Include="Parameters\Items\PureEUProfitCoefficient.cs" />
@@ -111,6 +115,7 @@
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_UpgradesProfit.cs" />
     <Compile Include="Parameters\Items\WeaponStandardEffectivity.cs" />
     <Compile Include="Parameters\Items\WeaponStandardPower.cs" />
+    <Compile Include="Parameters\Moving\OneRoundSpeedDoublingProfit.cs" />
     <Compile Include="Parameters\PlayerInitial\AverageInitialEventsBranchPoints.cs" />
     <Compile Include="Parameters\Events\Weight\AverageRelationStability.cs" />
     <Compile Include="Parameters\Events\Weight\AverageSequenceLength.cs" />
@@ -306,8 +311,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Parameters\Items\Artifacts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
