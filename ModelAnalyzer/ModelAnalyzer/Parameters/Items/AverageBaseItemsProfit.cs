@@ -1,4 +1,9 @@
-﻿namespace ModelAnalyzer.Parameters.Items
+﻿using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
+using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
+using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
+using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
+
+namespace ModelAnalyzer.Parameters.Items
 {
     class AverageBaseItemsProfit : SingleParameter
     {
@@ -15,9 +20,12 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            //float p = calculator.UpdateSingleValue(typeof(ParamName));
+            float bspr = calculator.UpdatedSingleValue(typeof(BS_Profit));
+            float bwpr = calculator.UpdatedSingleValue(typeof(BW_Profit));
+            float kapr = calculator.UpdatedSingleValue(typeof(KA_Profit));
+            float sbpr = calculator.UpdatedSingleValue(typeof(SB_Profit));
 
-            value = 0;
+            value = unroundValue = (bspr + bwpr + kapr +sbpr) / 4;
 
             return calculationReport;
         }

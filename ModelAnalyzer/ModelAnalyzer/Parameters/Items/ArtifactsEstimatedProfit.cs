@@ -1,8 +1,10 @@
-﻿namespace ModelAnalyzer.Parameters.Items
+﻿using ModelAnalyzer.Parameters.Activities;
+
+namespace ModelAnalyzer.Parameters.Items
 {
-    class ArtifactsEstimatedProfit : SingleParameter
+    class EstimatedArtifactsProfit : SingleParameter
     {
-        public ArtifactsEstimatedProfit()
+        public EstimatedArtifactsProfit()
         {
             type = ParameterType.Inner;
             title = "Расчетная выгодность артефактов";
@@ -18,8 +20,10 @@
 
             float abip = calculator.UpdatedSingleValue(typeof(AverageBaseItemsProfit));
             float apc = calculator.UpdatedSingleValue(typeof(ArtifactsProfitCoefficient));
+            float ipc = calculator.UpdatedSingleValue(typeof(ItemPriceCoefficient));
+            float ecp = calculator.UpdatedSingleValue(typeof(EventCreationPrice));
 
-            value = unroundValue = abip * apc;
+            value = unroundValue = abip * (1 - ipc) * apc + ecp;
 
             return calculationReport;
         }
