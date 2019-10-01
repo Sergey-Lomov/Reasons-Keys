@@ -12,6 +12,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
             details = "Средняя полная выгодность всех ступеней ускорителя";
             fractionalDigits = 2;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

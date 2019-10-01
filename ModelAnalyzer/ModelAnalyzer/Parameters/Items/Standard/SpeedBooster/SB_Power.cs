@@ -18,6 +18,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
             details = "Величина, на которую увеличивают скорость игрока, ступени ускорителя. ПРи округлении используетс специализированный подход, перераспределяющий погрешность - это предотвращает ситуации, когда предыдущая ступень дает больший прирост скоросит чем следующая";
             fractionalDigits = 0;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
             tags.Add(ParameterTag.moving);
         }
 

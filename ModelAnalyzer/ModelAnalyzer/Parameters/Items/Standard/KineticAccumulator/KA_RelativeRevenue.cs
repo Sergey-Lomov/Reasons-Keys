@@ -11,6 +11,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
             details = "Показывает как много ЕА может сэкономить на добыче ТЗ игрок, используя накопитель";
             fractionalDigits = 2;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
             tags.Add(ParameterTag.mining);
         }
 

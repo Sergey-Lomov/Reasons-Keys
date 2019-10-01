@@ -9,6 +9,7 @@
             details = "Задает отношение максимальной скорости (с использование всех базовых ускорителей) к среднему расстоянию";
             fractionalDigits = 2;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
             tags.Add(ParameterTag.moving);
         }
     }

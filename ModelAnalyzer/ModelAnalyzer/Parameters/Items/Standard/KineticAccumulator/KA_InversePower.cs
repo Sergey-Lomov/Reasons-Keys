@@ -9,6 +9,7 @@
             details = "Указывает кол-во перемещений, необходимых для получения 1 ТЗ";
             fractionalDigits = 0;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
             tags.Add(ParameterTag.mining);
         }
     }

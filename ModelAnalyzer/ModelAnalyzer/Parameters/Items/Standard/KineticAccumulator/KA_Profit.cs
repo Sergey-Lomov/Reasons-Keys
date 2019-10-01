@@ -11,6 +11,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
             details = "";
             fractionalDigits = 2;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

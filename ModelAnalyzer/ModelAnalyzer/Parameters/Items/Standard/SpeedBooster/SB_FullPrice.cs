@@ -11,6 +11,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
             details = "";
             fractionalDigits = 0;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

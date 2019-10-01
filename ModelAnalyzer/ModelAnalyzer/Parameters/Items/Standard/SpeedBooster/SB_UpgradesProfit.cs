@@ -12,6 +12,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
             details = "Выгодность улучшений оценивается исходя из того, что игрок не использует других возмжоностей для ускорения, кроме базового ускорителя";
             fractionalDigits = 2;
             tags.Add(ParameterTag.items);
+            tags.Add(ParameterTag.baseItems);
             tags.Add(ParameterTag.moving);
         }
 
