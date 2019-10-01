@@ -16,6 +16,7 @@ using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
 
 using ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator;
 using ModelAnalyzer.Parameters.Items.Artifacts.HoleBox;
+using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
 
 namespace ModelAnalyzer
 {
@@ -31,6 +32,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageEventsConcreteBranchPoints());
             storage.AddParameter(parameter: new AverageUnkeyEventsConcreteBranchPoints());
             storage.AddParameter(parameter: new DestructionCoef());
+            storage.AddParameter(parameter: new EstimatedEventCreationPrice());
+            storage.AddParameter(parameter: new EstimatedEventImpactPrice());
             storage.AddParameter(parameter: new EUPartyAmount());
             storage.AddParameter(parameter: new EventActionsCoef());
             storage.AddParameter(parameter: new EventCreationAmount());
@@ -192,6 +195,10 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new HB_TensionIncreasing());
             storage.AddParameter(parameter: new HB_TensionInreasingStepsAmount());
             storage.AddParameter(parameter: new HB_TensionLimits());
+
+            storage.AddParameter(parameter: new LN_ConnectionsAmount());
+            storage.AddParameter(parameter: new LN_OneConnectionProfit());
+            storage.AddParameter(parameter: new LN_Profit());
         }
     }
 }

@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="DataModels\BranchPointsSet.cs" />
     <Compile Include="Parameters\Activities\AverageEventsConcreteBranchPoints.cs" />
+    <Compile Include="Parameters\Activities\EstimatedEventCreationPrice.cs" />
+    <Compile Include="Parameters\Activities\EstimatedEventImpactPrice.cs" />
     <Compile Include="Parameters\Activities\StandardAtackAmount.cs" />
     <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
@@ -93,6 +95,9 @@
     <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionIncreasing.cs" />
     <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionInreasingStepsAmount.cs" />
     <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionLimits.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_ConnectionsAmount.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_OneConnectionProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Profit.cs" />
     <Compile Include="Parameters\Items\AverageBaseItemsProfit.cs" />
     <Compile Include="Parameters\Items\ItemPriceCoefficient.cs" />
     <Compile Include="Parameters\Items\PureEUProfitCoefficient.cs" />

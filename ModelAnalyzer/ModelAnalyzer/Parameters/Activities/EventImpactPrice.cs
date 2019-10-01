@@ -1,5 +1,4 @@
-﻿using ModelAnalyzer.Parameters.Events;
-using ModelAnalyzer.Parameters.Mining;
+﻿using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
@@ -18,15 +17,12 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float asi = calculator.UpdatedSingleValue(typeof(AverageStabilityIncrement));
             float am = calculator.UpdatedSingleValue(typeof(AverageMining));
-            float eap = calculator.UpdatedSingleValue(typeof(EventsActionsPotential));
-            float eca = calculator.UpdatedSingleValue(typeof(EventCreationAmount));
-            float eia = calculator.UpdatedSingleValue(typeof(EventImpactAmount));
-            float dc = calculator.UpdatedSingleValue(typeof(DestructionCoef));
+            float eip_au = calculator.UpdatedSingleValue(typeof(EventImpactPriceAU));
+            float eip_eu = calculator.UpdatedSingleValue(typeof(EventImpactPriceEU));
 
             // See Mechanic doc for clarify formula
-            value = unroundValue = eap / (eca * asi / dc + eia);
+            value = unroundValue = eip_au * am + eip_eu;
 
             return calculationReport;
         }

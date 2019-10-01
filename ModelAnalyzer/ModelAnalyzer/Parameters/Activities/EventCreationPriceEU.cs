@@ -17,11 +17,11 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ecp = calculator.UpdatedSingleValue(typeof(EventCreationPrice));
+            float eecp = calculator.UpdatedSingleValue(typeof(EstimatedEventCreationPrice));
             float ecpau = calculator.UpdatedSingleValue(typeof(EventCreationPriceAU));
             float am = calculator.UpdatedSingleValue(typeof(AverageMining));
 
-            unroundValue = ecp - ecpau * am;
+            unroundValue = eecp - ecpau * am;
             value = (float)System.Math.Round(unroundValue);
 
             return calculationReport;
