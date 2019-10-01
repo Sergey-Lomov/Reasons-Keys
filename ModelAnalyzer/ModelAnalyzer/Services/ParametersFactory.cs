@@ -13,7 +13,9 @@ using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
 using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
 using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
+
 using ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator;
+using ModelAnalyzer.Parameters.Items.Artifacts.HoleBox;
 
 namespace ModelAnalyzer
 {
@@ -181,6 +183,15 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new CG_OneUsageProfit());
             storage.AddParameter(parameter: new CG_Profit());
             storage.AddParameter(parameter: new CG_V616Mining());
+
+            storage.AddParameter(parameter: new HB_CollapsePreparationDuration());
+            storage.AddParameter(parameter: new HB_MaxTension());
+            storage.AddParameter(parameter: new HB_MaxTransaction());
+            storage.AddParameter(parameter: new HB_OwnerCollapseAbsorbCoefficient());
+            storage.AddParameter(parameter: new HB_Profit());
+            storage.AddParameter(parameter: new HB_TensionIncreasing());
+            storage.AddParameter(parameter: new HB_TensionInreasingStepsAmount());
+            storage.AddParameter(parameter: new HB_TensionLimits());
         }
     }
 }

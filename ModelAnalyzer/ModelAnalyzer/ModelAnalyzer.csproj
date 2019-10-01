@@ -85,6 +85,14 @@
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_OneUsageProfit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_Profit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_V616Mining.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_CollapsePreparationDuration.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_MaxTension.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_MaxTransaction.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_OwnerCollapseAbsorbCoefficient.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_Profit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionIncreasing.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionInreasingStepsAmount.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionLimits.cs" />
     <Compile Include="Parameters\Items\AverageBaseItemsProfit.cs" />
     <Compile Include="Parameters\Items\ItemPriceCoefficient.cs" />
     <Compile Include="Parameters\Items\PureEUProfitCoefficient.cs" />

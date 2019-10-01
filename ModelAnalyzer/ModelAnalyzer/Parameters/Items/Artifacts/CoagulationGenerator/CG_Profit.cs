@@ -4,7 +4,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
 {
     class CG_Profit : SingleParameter
     {
-        private const string missedEstimationIssue = "Выгодность генератор свертывания более чем на 20% отклоняется от оценочной выгондосит артефактов";
+        private const string missedEstimationIssue = "Выгодность генератора свертывания более чем на 20% отклоняется от оценочной выгондосит артефактов";
 
         public CG_Profit()
         {
@@ -31,7 +31,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-
             float eapr = storage.SingleValue(typeof(EstimatedArtifactsProfit));
 
             if (Math.Abs(1 - value / eapr) > 0.2)
