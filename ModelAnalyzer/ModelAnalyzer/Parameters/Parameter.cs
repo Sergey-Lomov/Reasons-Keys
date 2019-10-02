@@ -22,7 +22,6 @@ namespace ModelAnalyzer.Parameters
 
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
-     //   public abstract string ValueToString();
 
         internal virtual Parameter Copy ()
         {

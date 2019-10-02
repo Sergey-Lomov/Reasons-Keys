@@ -29,7 +29,7 @@ namespace ModelAnalyzer.UI
             titleLabel.Text = parameter.title;
             detailsLabel.Text = parameter.details;
 
-            var value = parameter.getValue();
+            var value = parameter.GetValue();
             var firstSequence = value.Select(pair => pair.Item1);
             var secondSequence = value.Select(pair => pair.Item2);
 

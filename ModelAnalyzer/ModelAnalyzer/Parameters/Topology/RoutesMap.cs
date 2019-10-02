@@ -30,6 +30,15 @@ namespace ModelAnalyzer.Parameters.Topology
             return valueStub;
         }
 
+        public int GetRoutesAmount ()
+        {
+            var routesAmount = 0;
+            foreach (var routes in phasesRoutes.Values)
+                routesAmount += routes.Count;
+
+            return routesAmount;
+        }
+
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);

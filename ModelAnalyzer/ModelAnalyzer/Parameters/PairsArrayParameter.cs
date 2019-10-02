@@ -14,7 +14,7 @@ namespace ModelAnalyzer.Parameters
         const string pairsSeparator = " ";
         const string elementsSeparator = "-";
 
-        public List<Pair> getValue()
+        public List<Pair> GetValue()
         {
             return values;
         }
