@@ -17,7 +17,7 @@ namespace ModelAnalyzer.Parameters
     class ParameterCalculationReport
     {
         public Parameter parameter;
-        private Parameter precalculated;
+        public Parameter precalculated;
 
         public bool IsSucces => issues.Count == 0;
         public readonly List<string> issues = new List<string>();

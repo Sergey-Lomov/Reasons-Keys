@@ -31,6 +31,8 @@ namespace ModelAnalyzer.Parameters
             copy.type = type;
             copy.title = title;
             copy.details = details;
+
+            copy.tags.Clear();
             copy.tags.AddRange(tags);
 
             return copy;

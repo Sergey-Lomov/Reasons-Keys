@@ -14,6 +14,29 @@ namespace ModelAnalyzer.Parameters
         const string pairsSeparator = " ";
         const string elementsSeparator = "-";
 
+        internal override Parameter Copy()
+        {
+            var copy = base.Copy() as PairsArrayParameter;
+
+            copy.values.Clear();
+            copy.values.AddRange(values);
+
+            return copy;
+        }
+
+        internal override bool IsEqual(Parameter p)
+        {
+            if (!(p is PairsArrayParameter))
+                return false;
+
+            var baseCheck = base.IsEqual(p);
+
+            var fsp = p as PairsArrayParameter;
+            var valuesCheck = fsp.values.SequenceEqual(values);
+
+            return baseCheck && valuesCheck;
+        }
+
         public List<Pair> GetValue()
         {
             return values;

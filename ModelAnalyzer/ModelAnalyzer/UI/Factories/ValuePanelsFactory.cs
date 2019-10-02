@@ -11,87 +11,77 @@ namespace ModelAnalyzer.UI.Factories
 {
     class ValuePanelsFactory
     {
-        public Panel ValuePanel(Parameter p, EventHandler clickHandler)
+        private readonly int unroundFractionalDigits = 3;
+
+        public Panel ValuePanel(Parameter p, bool advanced = false, EventHandler clickHandler = null)
         {
             var panel = new Panel();
             panel.Click += clickHandler;
 
             if (p is FloatSingleParameter)
-                AddFloatSingle(p as FloatSingleParameter, panel, clickHandler);
+                AddFloatSingle(p as FloatSingleParameter, panel, advanced, clickHandler);
             if (p is FloatArrayParameter)
-                AddFloatArray(p as FloatArrayParameter, panel, clickHandler);
+                AddFloatArray(p as FloatArrayParameter, panel, advanced, clickHandler);
             if (p is DeckParameter)
-                AddDeck(p as DeckParameter, panel, clickHandler);
+                AddDeck(p as DeckParameter, panel, advanced, clickHandler);
             if (p is RoutesMap)
-                AddRoutesMap(p as RoutesMap, panel, clickHandler);
+                AddRoutesMap(p as RoutesMap, panel, advanced, clickHandler);
             if (p is PairsArrayParameter)
-                AddPairsArray(p as PairsArrayParameter, panel, clickHandler);
+                AddPairsArray(p as PairsArrayParameter, panel, advanced, clickHandler);
 
             return panel;
         }
 
-        private void AddFloatSingle(FloatSingleParameter p, Panel panel, EventHandler clickHandler)
+        private void AddFloatSingle(FloatSingleParameter p, Panel panel, bool advanced, EventHandler clickHandler)
         {
-            Label value = new Label()
+            var valueText = FloatStringConverter.FloatToString(p.GetValue(), p.fractionalDigits);
+            var valueDock = advanced ? DockStyle.Top : DockStyle.Fill;
+            AddLabel(valueText, valueDock, panel, clickHandler);
+            
+            if (advanced)
             {
-                Text = FloatStringConverter.FloatToString(p.GetValue(), p.fractionalDigits),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft,
-                Padding = UIConstants.labelsPadding,
-            };
-            value.Click += clickHandler;
-
-            panel.Controls.Add(value);
+                var unroundValueText = FloatStringConverter.FloatToString(p.GetUnroundValue(), unroundFractionalDigits);
+                AddLabel(unroundValueText, DockStyle.Bottom, panel, clickHandler);
+            }
         }
 
-        private void AddFloatArray(FloatArrayParameter p, Panel panel, EventHandler clickHandler)
+        private void AddFloatArray(FloatArrayParameter p, Panel panel, bool advanced, EventHandler clickHandler)
         {
-            Label value = new Label()
-            {
-                Text = FloatStringConverter.ListToString(p.GetValue(), p.fractionalDigits),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft,
-                Padding = UIConstants.labelsPadding,
-            };
-            value.Click += clickHandler;
+            var valueText = FloatStringConverter.ListToString(p.GetValue(), p.fractionalDigits);
+            var valueDock = advanced ? DockStyle.Top : DockStyle.Fill;
+            AddLabel(valueText, valueDock, panel, clickHandler);
 
-            panel.Controls.Add(value);
+            if (advanced)
+            {
+                var unroundValueText = FloatStringConverter.ListToString(p.GetUnroundValue(), unroundFractionalDigits);
+                AddLabel(unroundValueText, DockStyle.Bottom, panel, clickHandler);
+            }
         }
 
-        private void AddDeck(DeckParameter p, Panel panel, EventHandler clickHandler)
+        private void AddDeck(DeckParameter p, Panel panel, bool advanced, EventHandler clickHandler)
         {
-            Label value = new Label()
-            {
-                Text = string.Format("{0} карт", p.deck.Count()),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft,
-                Padding = UIConstants.labelsPadding,
-            };
-            value.Click += clickHandler;
-
-            panel.Controls.Add(value);
+            var text = string.Format("{0} карт", p.deck.Count());
+            AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 
-        private void AddRoutesMap(RoutesMap p, Panel panel, EventHandler clickHandler)
+        private void AddRoutesMap(RoutesMap p, Panel panel, bool advanced, EventHandler clickHandler)
         {
-            Label value = new Label()
-            {
-                Text = string.Format("{0} путей", p.GetRoutesAmount()),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft,
-                Padding = UIConstants.labelsPadding,
-            };
-            value.Click += clickHandler;
-
-            panel.Controls.Add(value);
+            var text = string.Format("{0} путей", p.GetRoutesAmount());
+            AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 
-        private void AddPairsArray(PairsArrayParameter p, Panel panel, EventHandler clickHandler)
+        private void AddPairsArray(PairsArrayParameter p, Panel panel, bool advanced, EventHandler clickHandler)
+        {
+            var text = string.Format("{0} пар", p.GetValue().Count());
+            AddLabel(text, DockStyle.Fill, panel, clickHandler);
+        }
+
+        private void AddLabel(string text, DockStyle dock, Panel panel, EventHandler clickHandler)
         {
             Label value = new Label()
             {
-                Text = string.Format("{0} пар", p.GetValue().Count()),
-                Dock = DockStyle.Fill,
+                Text = text,
+                Dock = dock,
                 TextAlign = ContentAlignment.MiddleLeft,
                 Padding = UIConstants.labelsPadding,
             };

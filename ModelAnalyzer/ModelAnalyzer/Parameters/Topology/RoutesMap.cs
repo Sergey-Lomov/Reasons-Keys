@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Services.FieldAnalyzer;
@@ -6,11 +7,13 @@ using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Topology
 {
+    using PhaseRoutes = Dictionary<int, HashSet<FieldRoute>>;
+
     class RoutesMap : Parameter
     {
         const string valueStub = "Недоступно";
 
-        internal Dictionary<int, HashSet<FieldRoute>> phasesRoutes;
+        internal PhaseRoutes phasesRoutes = new PhaseRoutes();
 
         public RoutesMap()
         {
@@ -18,6 +21,37 @@ namespace ModelAnalyzer.Parameters.Topology
             title = "Карта путей";
             details = "Хранит карту всех возможных путей между всеми парами узлов во всех конфигурациях поля (фазах). Карта генерируется в модуле FieldAnalyzer и используется другими параметрами из группы \"Топология\". Просмотр недоступен.";
             tags.Add(ParameterTag.topology);
+        }
+
+        internal override Parameter Copy()
+        {
+            var copy = base.Copy() as RoutesMap;
+
+            foreach (var phaseRoutes in phasesRoutes)
+                copy.phasesRoutes[phaseRoutes.Key] = new HashSet<FieldRoute>(phaseRoutes.Value);
+
+            return copy;
+        }
+
+        internal override bool IsEqual(Parameter p)
+        {
+            if (!(p is RoutesMap))
+                return false;
+
+            var baseCheck = base.IsEqual(p);
+
+            var fsp = p as RoutesMap;
+
+            bool routesCheck = true;
+            foreach (var phase in phasesRoutes.Keys)
+            {
+                var routes = phasesRoutes[phase];
+                var otherRoutes = fsp.phasesRoutes[phase];
+                if (!routes.SequenceEqual(otherRoutes))
+                    routesCheck = false;
+            }
+
+            return baseCheck && routesCheck;
         }
 
         public override void SetupByString(string str)

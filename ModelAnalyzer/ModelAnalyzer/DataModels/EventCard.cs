@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace ModelAnalyzer.DataModels
 {
@@ -7,7 +9,7 @@ namespace ModelAnalyzer.DataModels
     enum RelationDirection { back, front }
     enum RelationType { reason, blocker, paired_reason }
 
-    internal class EventRelation
+    internal class EventRelation : IEquatable<EventRelation>
     {
         internal const int MaxRelationPosition = 6;
 
@@ -21,9 +23,16 @@ namespace ModelAnalyzer.DataModels
             this.direction = direction;
             this.position = position;
         }
+
+        public bool Equals(EventRelation other)
+        {
+            return type == other.type
+                && direction == other.direction
+                && position == other.position;
+        }
     }
 
-    class EventCard
+    class EventCard : IEquatable<EventCard>
     {
         internal EventRelations relations = new EventRelations();
         internal int stabilityIncrement = 0;
@@ -37,5 +46,17 @@ namespace ModelAnalyzer.DataModels
         internal float weight = 0;
         internal float usability = 0;
         internal string comment = "";
+
+        public bool Equals(EventCard other)
+        {
+            return relations.SequenceEqual(other.relations)
+                && stabilityIncrement == other.stabilityIncrement
+                && miningBonus == other.miningBonus
+                && provideArtifact == other.provideArtifact
+                && isKey == other.isKey
+                && branchPoints == other.branchPoints
+                && minRadisuConstrint == other.minRadisuConstrint
+                && minPhaseConstraint == other.minPhaseConstraint;
+        }
     }
 }

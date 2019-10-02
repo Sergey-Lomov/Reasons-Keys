@@ -43,7 +43,7 @@ namespace ModelAnalyzer.UI.Factories
             title.Click += (sender, e) => rowDelegate.HandleTitleClick(parameter);
 
             EventHandler valueClickHandler = (sender, e) => rowDelegate.HandleValueClick(parameter);
-            Panel value = valuePanels.ValuePanel(parameter, valueClickHandler);
+            Panel value = valuePanels.ValuePanel(parameter, false, valueClickHandler);
 
             value.Dock = DockStyle.Right;
             value.Width = valueWidth;

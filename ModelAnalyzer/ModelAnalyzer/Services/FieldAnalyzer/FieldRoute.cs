@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelAnalyzer.Services.FieldAnalyzer
 {
-    class FieldRoute
+    class FieldRoute : IEquatable<FieldRoute>
     {
         public FieldPoint p1, p2;
         public int distance = 0;
@@ -16,6 +12,13 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             this.p1 = p1;
             this.p2 = p2;
             this.distance = distance;
+        }
+
+        public bool Equals(FieldRoute other)
+        {
+            return p1 == other.p1
+                && p2 == other.p2
+                && distance == other.distance;
         }
     }
 }

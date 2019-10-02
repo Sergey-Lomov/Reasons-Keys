@@ -177,41 +177,41 @@
     <Compile Include="UI\Factories\CalculationReportRowsFactory.cs" />
     <Compile Include="UI\Factories\EditFormsFactory.cs" />
     <Compile Include="UI\Factories\ValuePanelsFactory.cs" />
-    <Compile Include="UI\PairsArrayDetailsForm.cs">
+    <Compile Include="UI\DetailsForms\PairsArrayDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\PairsArrayDetailsForm.Designer.cs">
+    <Compile Include="UI\DetailsForms\PairsArrayDetailsForm.Designer.cs">
       <DependentUpon>PairsArrayDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ParameterEditForm.cs">
+    <Compile Include="UI\EditForms\ParameterEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FloatSingleEditForm.cs">
+    <Compile Include="UI\EditForms\FloatSingleEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FloatSingleEditForm.Designer.cs">
+    <Compile Include="UI\EditForms\FloatSingleEditForm.Designer.cs">
       <DependentUpon>FloatSingleEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UIConstants.cs" />
-    <Compile Include="UI\FloatArrayEditForm.cs">
+    <Compile Include="UI\EditForms\FloatArrayEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FloatArrayEditForm.Designer.cs">
+    <Compile Include="UI\EditForms\FloatArrayEditForm.Designer.cs">
       <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\EventsDeckDetailsForm.cs">
+    <Compile Include="UI\DetailsForms\EventsDeckDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\EventsDeckDetailsForm.Designer.cs">
+    <Compile Include="UI\DetailsForms\EventsDeckDetailsForm.Designer.cs">
       <DependentUpon>EventsDeckDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Factories\ComponentsFactory.cs" />
     <Compile Include="UI\Factories\ParametersRowsFactory.cs" />
     <Compile Include="UI\IParameterView.cs" />
-    <Compile Include="UI\DigitalParameterDetailsForm.cs">
+    <Compile Include="UI\DetailsForms\DigitalParameterDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DigitalParameterDetailsForm.Designer.cs">
+    <Compile Include="UI\DetailsForms\DigitalParameterDetailsForm.Designer.cs">
       <DependentUpon>DigitalParameterDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\IParameterRowDelegate.cs" />
@@ -295,29 +295,29 @@
     <Compile Include="Services\Storage.cs" />
     <Compile Include="Services\Validator.cs" />
     <Compile Include="UI\UIFactory.cs" />
-    <Compile Include="UI\UnavailableEditingForm.cs">
+    <Compile Include="UI\EditForms\UnavailableEditingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\UnavailableEditingForm.Designer.cs">
+    <Compile Include="UI\EditForms\UnavailableEditingForm.Designer.cs">
       <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="UI\CalculationReportForm.resx">
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FloatSingleEditForm.resx">
+    <EmbeddedResource Include="UI\EditForms\FloatSingleEditForm.resx">
       <DependentUpon>FloatSingleEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FloatArrayEditForm.resx">
+    <EmbeddedResource Include="UI\EditForms\FloatArrayEditForm.resx">
       <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\EventsDeckDetailsForm.resx">
+    <EmbeddedResource Include="UI\DetailsForms\EventsDeckDetailsForm.resx">
       <DependentUpon>EventsDeckDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\DigitalParameterDetailsForm.resx">
+    <EmbeddedResource Include="UI\DetailsForms\DigitalParameterDetailsForm.resx">
       <DependentUpon>DigitalParameterDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -330,10 +330,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\PairsArrayDetailsForm.resx">
+    <EmbeddedResource Include="UI\DetailsForms\PairsArrayDetailsForm.resx">
       <DependentUpon>PairsArrayDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\UnavailableEditingForm.resx">
+    <EmbeddedResource Include="UI\EditForms\UnavailableEditingForm.resx">
       <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

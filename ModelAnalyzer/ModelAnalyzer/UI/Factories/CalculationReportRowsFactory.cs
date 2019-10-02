@@ -11,11 +11,12 @@ namespace ModelAnalyzer.UI.Factories
     class CalculationReportRowsFactory
     {
         private ComponentsFactory components = new ComponentsFactory();
+        private ValuePanelsFactory valuesPanels = new ValuePanelsFactory();
 
         private readonly Color reportRowBack = Color.FromArgb(240, 240, 240);
 
-        private readonly int reportRowHeight = 65;
-        private readonly int comparasionLabelsWidth = 125;
+        private readonly int reportRowHeight = 50;
+        private readonly int comparasionLabelsWidth = 150;
         private readonly int comparasionSeparatorWidth = 20;
         private readonly int issuesHPadding = 30;
 
@@ -63,15 +64,13 @@ namespace ModelAnalyzer.UI.Factories
             Panel oldPanel = ComparasionLabelsPanel(DockStyle.Left);
             Panel newPanel = ComparasionLabelsPanel(DockStyle.Right);
 
-         /*   Label oldValue = ComparasionLabel(report.oldValueString, false, true);
-            Label oldUnroundValue = ComparasionLabel(report.oldUnroundValueString, false, false);
-            Label newValue = ComparasionLabel(parameter.ValueToString(), true, true);
-            Label newUnroundValue = ComparasionLabel(parameter.UnroundValueToString(), true, false);
-
+            var oldValue = valuesPanels.ValuePanel(report.precalculated, true);
+            oldValue.MaximumSize = oldPanel.Size;
             oldPanel.Controls.Add(oldValue);
-            oldPanel.Controls.Add(oldUnroundValue);
+
+            var newValue = valuesPanels.ValuePanel(report.parameter, true);
+            newValue.MaximumSize = newPanel.Size;
             newPanel.Controls.Add(newValue);
-            newPanel.Controls.Add(newUnroundValue);*/
 
             comparasionPanel.Controls.Add(separatorLabel);
             comparasionPanel.Controls.Add(oldPanel);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
@@ -9,6 +10,28 @@ namespace ModelAnalyzer.Parameters
     {
         const string valueStub = "Колода";
         internal List<EventCard> deck = new List<EventCard>();
+
+        internal override Parameter Copy()
+        {
+            var copy = base.Copy() as DeckParameter;
+
+            copy.deck.AddRange(deck);
+
+            return copy;
+        }
+
+        internal override bool IsEqual(Parameter p)
+        {
+            if (!(p is DeckParameter))
+                return false;
+
+            var baseCheck = base.IsEqual(p);
+
+            var fsp = p as DeckParameter;
+            var deckCheck = fsp.deck.SequenceEqual(deck);
+
+            return baseCheck && deckCheck;
+        }
 
         public override void SetupByString(string str)
         {
