@@ -10,7 +10,7 @@ using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.UI
 {
-    public partial class EventsDeckForm : Form, IParameterDetailsForm
+    public partial class EventsDeckDetailsForm : Form, IParameterDetailsForm
     {
         const int rowHeight = 35;
         const int relationWidth = 40;
@@ -31,7 +31,7 @@ namespace ModelAnalyzer.UI
             { RelationType.blocker, "Б" }
         };
 
-        public EventsDeckForm()
+        public EventsDeckDetailsForm()
         {
             InitializeComponent();
             predefinedControls = new List<Control>(DeckTable.Controls.Cast<Control>());

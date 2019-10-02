@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.UI
 {
-    partial class EventsDeckForm
+    partial class EventsDeckDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -252,14 +252,14 @@
             this.issuesLabel.TabIndex = 0;
             this.issuesLabel.Text = "Issues";
             // 
-            // EventsDeckForm
+            // EventsDeckDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 343);
             this.Controls.Add(this.DeckTable);
             this.Controls.Add(this.issuesPamel);
-            this.Name = "EventsDeckForm";
+            this.Name = "EventsDeckDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EventsDeckForm";
             this.DeckTable.ResumeLayout(false);

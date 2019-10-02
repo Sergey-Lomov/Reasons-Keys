@@ -6,63 +6,12 @@ using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    using BranchPiar = ValueTuple<int, int>;
-
-    abstract class BranchPointsAllocation : Parameter
+    abstract class BranchPointsAllocation : PairsArrayParameter
     {
-        internal List<BranchPiar> values = new List<BranchPiar>();
-
-        const string invalidStringMessage = "Невозможно перобразовать строку: \"{0}\" в \"{1}\"";
-        const string pairsSeparator = " ";
-        const string branchesSeparator = "-";
 
         public BranchPointsAllocation ()
         {
             tags.Add(ParameterTag.events);
-        }
-
-        public override void SetupByString(string str)
-        {
-            var subs = str.Split(pairsSeparator.ToCharArray());
-
-            foreach (var sub in subs)
-            {
-                var items = sub.Split(branchesSeparator.ToCharArray());
-                if (items.Count() < 2)
-                    ThrowInvalidString(str);
-
-                BranchPiar pair;
-                if (!int.TryParse(items[0], out pair.Item1))
-                    ThrowInvalidString(str);
-                if (!int.TryParse(items[1], out pair.Item2))
-                    ThrowInvalidString(str);
-            }
-        }
-
-        public override string StringRepresentation()
-        {
-            var str = "";
-
-            for (int i = 0; i < values.Count; i++)
-            {
-                var pair = values[i];
-                string elementsSeparator = i < values.Count - 1 ? pairsSeparator : "";
-                str += pair.Item1 + branchesSeparator + pair.Item2 + elementsSeparator;
-            }
-
-            return str;
-        }
-
-/*        public override string ValueToString()
-        {
-            return StringRepresentation();
-        }*/
-
-        private void ThrowInvalidString(string str)
-        {
-            string issue = string.Format(invalidStringMessage, str, title);
-            MAException e = new MAException(issue, this);
-            throw e;
         }
 
         internal ParameterCalculationReport Calculate(Calculator calculator, bool prioritizeEven)

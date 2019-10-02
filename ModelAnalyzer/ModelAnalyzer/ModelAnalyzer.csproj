@@ -129,6 +129,7 @@
     <Compile Include="Parameters\Items\WeaponStandardEffectivity.cs" />
     <Compile Include="Parameters\Items\WeaponStandardPower.cs" />
     <Compile Include="Parameters\Moving\OneRoundSpeedDoublingProfit.cs" />
+    <Compile Include="Parameters\PairsArrayParameter.cs" />
     <Compile Include="Parameters\PlayerInitial\AverageInitialEventsBranchPoints.cs" />
     <Compile Include="Parameters\Events\Weight\AverageRelationStability.cs" />
     <Compile Include="Parameters\Events\Weight\AverageSequenceLength.cs" />
@@ -176,6 +177,12 @@
     <Compile Include="UI\Factories\CalculationReportRowsFactory.cs" />
     <Compile Include="UI\Factories\EditFormsFactory.cs" />
     <Compile Include="UI\Factories\ValuePanelsFactory.cs" />
+    <Compile Include="UI\PairsArrayDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PairsArrayDetailsForm.Designer.cs">
+      <DependentUpon>PairsArrayDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ParameterEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,11 +199,11 @@
     <Compile Include="UI\FloatArrayEditForm.Designer.cs">
       <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\EventsDeckForm.cs">
+    <Compile Include="UI\EventsDeckDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\EventsDeckForm.Designer.cs">
-      <DependentUpon>EventsDeckForm.cs</DependentUpon>
+    <Compile Include="UI\EventsDeckDetailsForm.Designer.cs">
+      <DependentUpon>EventsDeckDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Factories\ComponentsFactory.cs" />
     <Compile Include="UI\Factories\ParametersRowsFactory.cs" />
@@ -304,8 +311,8 @@
     <EmbeddedResource Include="UI\FloatArrayEditForm.resx">
       <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\EventsDeckForm.resx">
-      <DependentUpon>EventsDeckForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\EventsDeckDetailsForm.resx">
+      <DependentUpon>EventsDeckDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -323,6 +330,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\PairsArrayDetailsForm.resx">
+      <DependentUpon>PairsArrayDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\UnavailableEditingForm.resx">
       <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
     </EmbeddedResource>
