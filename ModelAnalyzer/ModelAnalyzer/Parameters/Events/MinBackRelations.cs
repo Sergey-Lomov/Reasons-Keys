@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class MinBackRelations : SingleParameter
+    class MinBackRelations : FloatSingleParameter
     {
         public MinBackRelations()
         {

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class KeyEventsTotalBrachPoints : SingleParameter
+    class KeyEventsTotalBrachPoints : FloatSingleParameter
     {
         public KeyEventsTotalBrachPoints()
         {

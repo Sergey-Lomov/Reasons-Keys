@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items
 {
-    class PureEUProfitCoefficient : SingleParameter
+    class PureEUProfitCoefficient : FloatSingleParameter
     {
         public PureEUProfitCoefficient()
         {

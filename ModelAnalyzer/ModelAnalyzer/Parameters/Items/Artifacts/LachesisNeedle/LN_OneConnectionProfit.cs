@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 {
-    class LN_OneConnectionProfit : SingleParameter
+    class LN_OneConnectionProfit : FloatSingleParameter
     {
         public LN_OneConnectionProfit()
         {

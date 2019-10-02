@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using ModelAnalyzer.Services;
+
+using System.Collections.Generic;
 using System.Linq;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.Parameters
 {
-    abstract class ArrayParameter : Parameter
+    abstract class FloatArrayParameter : DigitalParameter
     {
         protected List<float> values = new List<float>();
         protected List<float> unroundValues = new List<float>();
@@ -13,6 +15,29 @@ namespace ModelAnalyzer
 
         private readonly string arraySizeParamMessage = "Размер массива должен быть равен \"{0}\": {1}.";
         private readonly string arraySizeMessage = "Размер массива должен быть равен {0}";
+
+        internal override Parameter Copy ()
+        {
+            var copy = base.Copy() as FloatArrayParameter;
+            copy.values.AddRange(this.values);
+            copy.unroundValues.AddRange(this.unroundValues);
+
+            return copy;
+        }
+
+        internal override bool IsEqual(Parameter p)
+        {
+            if (!(p is FloatArrayParameter))
+                return false;
+
+            var baseCheck = base.IsEqual(p);
+
+            var fsp = p as FloatArrayParameter;
+            var valuesCheck = fsp.values.SequenceEqual(values);
+            var unroundCheck = fsp.unroundValues.SequenceEqual(unroundValues);
+
+            return baseCheck && valuesCheck && unroundCheck;
+        }
 
         public override void SetupByString(string str)
         {
@@ -72,7 +97,7 @@ namespace ModelAnalyzer
             for (int i = 0; i < list.Count; i++)
             {
                 result += Utils.FloatToString(list[i], fractionalDigits, invalidValueStub);
-                string separator = i < list.Count - 1 ? ArrayParameter.separator : "";
+                string separator = i < list.Count - 1 ? FloatArrayParameter.separator : "";
                 result += separator;
             }
 
@@ -115,7 +140,7 @@ namespace ModelAnalyzer
 
         protected void ValidateSize(Parameter sizeParameter, ParameterValidationReport report)
         {
-            if (sizeParameter is SingleParameter single)
+            if (sizeParameter is FloatSingleParameter single)
             {
                 float size = single.GetValue();
                 var issue = string.Format(arraySizeParamMessage, sizeParameter.title, size);

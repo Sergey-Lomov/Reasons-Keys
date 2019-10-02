@@ -1,10 +1,11 @@
-﻿using ModelAnalyzer.Parameters.Mining;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Parameters.Moving;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class AUPriceProportion : SingleParameter
+    class AUPriceProportion : FloatSingleParameter
     {
         public AUPriceProportion()
         {

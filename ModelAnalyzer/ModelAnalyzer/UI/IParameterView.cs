@@ -1,4 +1,6 @@
-﻿namespace ModelAnalyzer.UI
+﻿using ModelAnalyzer.Parameters;
+
+namespace ModelAnalyzer.UI
 {
     internal interface IParameterDetailsForm
     {

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Moving
 {
-    class InitialSpeedCoef : SingleParameter
+    class InitialSpeedCoef : FloatSingleParameter
     {
         public InitialSpeedCoef()
         {

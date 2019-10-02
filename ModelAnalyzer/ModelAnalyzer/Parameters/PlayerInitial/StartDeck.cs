@@ -24,7 +24,6 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             type = ParameterType.Out;
             title = "Стартовые события";
             details = "Изначальные и решающие события, с которыми игрок начинает игру";
-            fractionalDigits = 0;
             tags.Add(ParameterTag.playerInitial);
         }
 

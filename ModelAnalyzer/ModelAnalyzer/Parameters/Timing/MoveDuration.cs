@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Timing
 {
-    class MoveDuration : SingleParameter
+    class MoveDuration : FloatSingleParameter
     {
         public MoveDuration()
         {

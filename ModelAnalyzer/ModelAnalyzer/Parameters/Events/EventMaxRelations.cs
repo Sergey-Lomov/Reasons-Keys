@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class EventMaxRelations : SingleParameter
+    class EventMaxRelations : FloatSingleParameter
     {
         public EventMaxRelations()
         {

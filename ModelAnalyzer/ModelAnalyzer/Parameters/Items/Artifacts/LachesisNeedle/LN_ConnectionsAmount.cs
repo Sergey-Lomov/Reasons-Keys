@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 {
-    class LN_ConnectionsAmount : SingleParameter
+    class LN_ConnectionsAmount : FloatSingleParameter
     {
         public LN_ConnectionsAmount()
         {

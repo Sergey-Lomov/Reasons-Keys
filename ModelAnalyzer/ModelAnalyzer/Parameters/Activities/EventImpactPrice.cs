@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Mining;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class EventImpactPrice : SingleParameter
+    class EventImpactPrice : FloatSingleParameter
     {
         public EventImpactPrice()
         {

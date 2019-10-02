@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class KeyChainLenghtCoefficient : SingleParameter
+    class KeyChainLenghtCoefficient : FloatSingleParameter
     {
         public KeyChainLenghtCoefficient()
         {

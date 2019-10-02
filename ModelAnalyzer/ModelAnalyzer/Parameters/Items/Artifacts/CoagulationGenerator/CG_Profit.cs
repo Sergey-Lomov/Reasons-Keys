@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
 {
-    class CG_Profit : SingleParameter
+    class CG_Profit : FloatSingleParameter
     {
         private const string missedEstimationIssue = "Выгодность генератора свертывания более чем на 20% отклоняется от оценочной выгондосит артефактов";
 

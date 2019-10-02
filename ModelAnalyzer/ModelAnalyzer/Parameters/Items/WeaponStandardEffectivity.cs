@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items
 {
-    class WeaponStandardEffectivity : SingleParameter
+    class WeaponStandardEffectivity : FloatSingleParameter
     {
         public WeaponStandardEffectivity()
         {

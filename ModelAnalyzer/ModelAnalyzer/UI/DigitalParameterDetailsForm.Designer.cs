@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.UI
 {
-    partial class ParameterDetailsForm
+    partial class DigitalParameterDetailsForm
     {
         /// <summary>
         /// Required designer variable.

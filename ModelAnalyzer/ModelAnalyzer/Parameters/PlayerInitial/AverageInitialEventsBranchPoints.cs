@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class AverageInitialEventsBranchPoints : SingleParameter
+    class AverageInitialEventsBranchPoints : FloatSingleParameter
     {
         public AverageInitialEventsBranchPoints()
         {

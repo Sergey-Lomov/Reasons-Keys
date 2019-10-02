@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_OwnerCollapseAbsorbCoefficient : SingleParameter
+    class HB_OwnerCollapseAbsorbCoefficient : FloatSingleParameter
     {
         public HB_OwnerCollapseAbsorbCoefficient()
         {

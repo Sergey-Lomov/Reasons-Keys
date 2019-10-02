@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items
 {
-    class WeaponStandardPower : SingleParameter
+    class WeaponStandardPower : FloatSingleParameter
     {
         public WeaponStandardPower()
         {

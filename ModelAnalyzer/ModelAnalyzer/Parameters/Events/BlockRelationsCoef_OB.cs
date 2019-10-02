@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class BlockRelationsCoef_OB : SingleParameter
+    class BlockRelationsCoef_OB : FloatSingleParameter
     {
         public BlockRelationsCoef_OB()
         {

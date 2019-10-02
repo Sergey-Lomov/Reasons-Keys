@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class BaseRelationsWeight : SingleParameter
+    class BaseRelationsWeight : FloatSingleParameter
     {
         public BaseRelationsWeight()
         {

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
 {
-    class KA_InversePower : SingleParameter
+    class KA_InversePower : FloatSingleParameter
     {
         public KA_InversePower()
         {

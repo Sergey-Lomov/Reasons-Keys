@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Moving
 {
-    class SpeedDoublingRate : SingleParameter
+    class SpeedDoublingRate : FloatSingleParameter
     {
         public SpeedDoublingRate()
         {

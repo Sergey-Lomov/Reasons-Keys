@@ -147,7 +147,7 @@
     <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
     <Compile Include="Parameters\Events\Weight\NodesAvailableBackRelations.cs" />
     <Compile Include="Parameters\Events\StabilityIncrementAllocation.cs" />
-    <Compile Include="Parameters\MinPlayersAmount.cs" />
+    <Compile Include="Parameters\General\MinPlayersAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\LogisticsInitialCardCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPoints.cs" />
@@ -157,20 +157,24 @@
     <Compile Include="Parameters\PlayerInitial\StabilityInitialCardCoefficient.cs" />
     <Compile Include="Parameters\Topology\MinDistancesPairsAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
-    <Compile Include="Services\DeckParameter.cs" />
+    <Compile Include="Parameters\DeckParameter.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldFabric.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldPoint.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldRoute.cs" />
-    <Compile Include="Services\ParameterTag.cs" />
+    <Compile Include="Parameters\DigitalParameter.cs" />
+    <Compile Include="Parameters\ParameterTag.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\CalculationReportForm.Designer.cs">
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Factories\CalculationReportRowsFactory.cs" />
+    <Compile Include="UI\Factories\ValuePanelsFactory.cs" />
+    <Compile Include="UI\UIConstants.cs" />
     <Compile Include="UI\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,12 +187,14 @@
     <Compile Include="UI\EventsDeckForm.Designer.cs">
       <DependentUpon>EventsDeckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Factories\ComponentsFactory.cs" />
+    <Compile Include="UI\Factories\ParametersRowsFactory.cs" />
     <Compile Include="UI\IParameterView.cs" />
-    <Compile Include="UI\ParameterDetailsForm.cs">
+    <Compile Include="UI\DigitalParameterDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ParameterDetailsForm.Designer.cs">
-      <DependentUpon>ParameterDetailsForm.cs</DependentUpon>
+    <Compile Include="UI\DigitalParameterDetailsForm.Designer.cs">
+      <DependentUpon>DigitalParameterDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\IParameterRowDelegate.cs" />
     <Compile Include="Parameters\Activities\AUPriceProportion.cs" />
@@ -227,7 +233,7 @@
     <Compile Include="Parameters\Events\RelationsAmountAllocation_2D.cs" />
     <Compile Include="Parameters\Events\RelationsAmountAllocation_OB.cs" />
     <Compile Include="Parameters\Topology\FieldRadius.cs" />
-    <Compile Include="Parameters\MaxPlayersAmount.cs" />
+    <Compile Include="Parameters\General\MaxPlayersAmount.cs" />
     <Compile Include="Parameters\Mining\AverageMining.cs" />
     <Compile Include="Parameters\Mining\CenterMiningBonus.cs" />
     <Compile Include="Parameters\Mining\MiningAllocation.cs" />
@@ -250,13 +256,13 @@
     <Compile Include="Parameters\Timing\PhasesWeight.cs" />
     <Compile Include="Parameters\Timing\RealisationDuration.cs" />
     <Compile Include="Parameters\Timing\RoundAmount.cs" />
-    <Compile Include="Services\ArrayParameter.cs" />
-    <Compile Include="Services\ParameterReports.cs" />
+    <Compile Include="Parameters\FloatArrayParameter.cs" />
+    <Compile Include="Parameters\ParametersHandlingReports.cs" />
     <Compile Include="Services\Calculator.cs" />
     <Compile Include="Services\FilesManager.cs" />
     <Compile Include="Parameters\Activities\EventCreationAmount.cs" />
     <Compile Include="Services\MAException.cs" />
-    <Compile Include="Services\Parameter.cs" />
+    <Compile Include="Parameters\Parameter.cs" />
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,7 +273,7 @@
     <Compile Include="Parameters\Moving\MotionAmount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\SingleParameter.cs" />
+    <Compile Include="Parameters\FloatSingleParameter.cs" />
     <Compile Include="Services\Storage.cs" />
     <Compile Include="Services\Utils.cs" />
     <Compile Include="Services\Validator.cs" />
@@ -285,8 +291,8 @@
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ParameterDetailsForm.resx">
-      <DependentUpon>ParameterDetailsForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\DigitalParameterDetailsForm.resx">
+      <DependentUpon>DigitalParameterDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

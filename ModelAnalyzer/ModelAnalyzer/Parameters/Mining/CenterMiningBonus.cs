@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Mining
 {
-    class CenterMiningBonus : SingleParameter
+    class CenterMiningBonus : FloatSingleParameter
     {
         private readonly string phaseDurationIssue = "Не удалось получить длительность 0-фазы";
         private readonly string miningAllocationIssue = "Массив \"{0}\" содержит меньше элементов чем, \"{1}\" + 1. Невозможно получить значение на максимальном радиусе.";

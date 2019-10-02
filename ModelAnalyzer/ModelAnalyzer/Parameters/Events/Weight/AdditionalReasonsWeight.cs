@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class AdditionalReasonsWeight : SingleParameter
+    class AdditionalReasonsWeight : FloatSingleParameter
     {
         public AdditionalReasonsWeight()
         {

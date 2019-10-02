@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Events.Weight
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class NodesAvailableBackRelations : ArrayParameter
+    class NodesAvailableBackRelations : FloatArrayParameter
     {
         const string invalidSizeMessage = "Размер массива должен быть от 7 (от 0 до 6)";
         const int validSize = 7;

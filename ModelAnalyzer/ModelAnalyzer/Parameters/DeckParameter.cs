@@ -3,7 +3,7 @@
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.Parameters
 {
     abstract class DeckParameter : Parameter
     {
@@ -16,11 +16,6 @@ namespace ModelAnalyzer
         }
 
         public override string StringRepresentation()
-        {
-            return valueStub;
-        }
-
-        public override string UnroundValueToString()
         {
             return valueStub;
         }

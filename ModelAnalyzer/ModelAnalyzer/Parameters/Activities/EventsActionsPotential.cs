@@ -1,10 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Events;
-using ModelAnalyzer.Parameters.Mining;
+﻿using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Moving;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class EventsActionsPotential : SingleParameter
+    class EventsActionsPotential : FloatSingleParameter
     {
         public EventsActionsPotential()
         {

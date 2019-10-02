@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.Parameters.Events
 {
@@ -51,11 +51,6 @@ namespace ModelAnalyzer.Parameters.Events
             }
 
             return str;
-        }
-
-        public override string UnroundValueToString()
-        {
-            return ValueToString();
         }
 
         public override string ValueToString()

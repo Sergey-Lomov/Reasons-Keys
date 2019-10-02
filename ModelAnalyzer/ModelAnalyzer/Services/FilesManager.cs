@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
+using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters;
+
 namespace ModelAnalyzer
 {
     class FilesManager

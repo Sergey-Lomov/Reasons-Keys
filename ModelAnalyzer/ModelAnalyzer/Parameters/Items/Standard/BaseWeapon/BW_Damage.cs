@@ -1,10 +1,11 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
-    class BW_Damage : ArrayParameter
+    class BW_Damage : FloatArrayParameter
     {
         public BW_Damage()
         {

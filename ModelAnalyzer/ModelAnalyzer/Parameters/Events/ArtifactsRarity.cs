@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class ArtifactsRarity : SingleParameter
+    class ArtifactsRarity : FloatSingleParameter
     {
         public ArtifactsRarity()
         {

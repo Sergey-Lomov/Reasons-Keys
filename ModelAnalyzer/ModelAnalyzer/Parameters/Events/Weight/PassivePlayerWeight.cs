@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.PlayerInitial;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.PlayerInitial;
 
 namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class PassivePlayerWeight : SingleParameter
+    class PassivePlayerWeight : FloatSingleParameter
     {
         public PassivePlayerWeight()
         {

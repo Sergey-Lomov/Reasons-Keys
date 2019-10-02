@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_MaxTransaction : SingleParameter
+    class HB_MaxTransaction : FloatSingleParameter
     {
         private const string emptyArrayIssue = "Параметр {0} не содержит значений";
 

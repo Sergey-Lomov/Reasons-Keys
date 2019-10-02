@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class AverageRelationStability : SingleParameter
+    class AverageRelationStability : FloatSingleParameter
     {
         public AverageRelationStability()
         {

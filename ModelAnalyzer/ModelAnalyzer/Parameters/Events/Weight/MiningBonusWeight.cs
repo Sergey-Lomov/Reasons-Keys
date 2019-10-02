@@ -1,9 +1,10 @@
-﻿using ModelAnalyzer.Parameters.Timing;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class MiningBonusWeight : SingleParameter
+    class MiningBonusWeight : FloatSingleParameter
     {
         public MiningBonusWeight()
         {

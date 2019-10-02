@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items
 {
-    class ItemPriceCoefficient : SingleParameter
+    class ItemPriceCoefficient : FloatSingleParameter
     {
         public ItemPriceCoefficient()
         {

@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 {
-    class BS_FullPrice : ArrayParameter
+    class BS_FullPrice : FloatArrayParameter
     {
         public BS_FullPrice()
         {

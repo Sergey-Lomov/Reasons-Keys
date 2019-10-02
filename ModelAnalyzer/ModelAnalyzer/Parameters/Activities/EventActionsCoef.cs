@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class EventActionsCoef : SingleParameter
+    class EventActionsCoef : FloatSingleParameter
     {
         public EventActionsCoef()
         {

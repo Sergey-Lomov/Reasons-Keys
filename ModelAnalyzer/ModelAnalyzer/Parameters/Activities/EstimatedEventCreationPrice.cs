@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Events;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Events;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class EstimatedEventCreationPrice : SingleParameter
+    class EstimatedEventCreationPrice : FloatSingleParameter
     {
         public EstimatedEventCreationPrice()
         {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 using ModelAnalyzer.DataModels;
-using ModelAnalyzer.Parameters.Events;
+using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.UI
 {

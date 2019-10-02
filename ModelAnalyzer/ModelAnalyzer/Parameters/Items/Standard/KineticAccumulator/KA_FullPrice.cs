@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
 {
-    class KA_FullPrice : SingleParameter
+    class KA_FullPrice : FloatSingleParameter
     {
         public KA_FullPrice()
         {

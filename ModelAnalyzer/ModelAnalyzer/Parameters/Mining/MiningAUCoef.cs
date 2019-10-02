@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Mining
 {
-    class MiningAUCoef : SingleParameter
+    class MiningAUCoef : FloatSingleParameter
     {
         public MiningAUCoef()
         {

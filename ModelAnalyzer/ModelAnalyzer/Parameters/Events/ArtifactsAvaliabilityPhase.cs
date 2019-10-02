@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Timing;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    class ArtifactsAvaliabilityPhase : SingleParameter
+    class ArtifactsAvaliabilityPhase : FloatSingleParameter
     {
         const string phasesAmountIssue = "Не может быть больше, чем знаение \"{0}\": {1}";
 

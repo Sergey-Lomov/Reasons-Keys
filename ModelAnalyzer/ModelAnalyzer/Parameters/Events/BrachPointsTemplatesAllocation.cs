@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.DataModels;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    class BrachPointsTemplatesAllocation : ArrayParameter
+    class BrachPointsTemplatesAllocation : FloatArrayParameter
     {
         const int BrachPointsTeplatesAmount = 7;
         public List<BranchPointsTemplate> templates;

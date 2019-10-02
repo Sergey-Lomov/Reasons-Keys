@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class ArtifactsWeight : SingleParameter
+    class ArtifactsWeight : FloatSingleParameter
     {
         public ArtifactsWeight()
         {

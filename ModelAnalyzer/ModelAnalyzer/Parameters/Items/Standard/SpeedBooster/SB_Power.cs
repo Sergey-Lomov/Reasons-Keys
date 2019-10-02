@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 {
-    class SB_Power : ArrayParameter
+    class SB_Power : FloatArrayParameter
     {
         private const string zeroBoostIssue = "Одна или несколько ступеней ускорителя не дают прироста скорости";
         private const string roundingIssue = "Значительная потеря точности при округлении";

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Timing
 {
-    class RoundAmount : SingleParameter
+    class RoundAmount : FloatSingleParameter
     {
         public RoundAmount()
         {

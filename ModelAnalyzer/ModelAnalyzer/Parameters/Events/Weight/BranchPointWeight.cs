@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Activities;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class BranchPointWeight : SingleParameter
+    class BranchPointWeight : FloatSingleParameter
     {
         public BranchPointWeight()
         {

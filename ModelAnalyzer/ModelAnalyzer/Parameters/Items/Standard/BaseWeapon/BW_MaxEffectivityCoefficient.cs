@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
-    class BW_MaxEffectivityCoefficient : SingleParameter
+    class BW_MaxEffectivityCoefficient : FloatSingleParameter
     {
         public BW_MaxEffectivityCoefficient()
         {

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class FrontReasonsWeight : SingleParameter
+    class FrontReasonsWeight : FloatSingleParameter
     {
         public FrontReasonsWeight()
         {

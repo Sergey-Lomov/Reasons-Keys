@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Events
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Events
 {
-    class MultyblockCardsAllocation_OB : ArrayParameter
+    class MultyblockCardsAllocation_OB : FloatArrayParameter
     {
         public MultyblockCardsAllocation_OB()
         {

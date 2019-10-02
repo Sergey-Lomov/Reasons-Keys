@@ -1,4 +1,6 @@
-﻿using ModelAnalyzer.Parameters;
+﻿using ModelAnalyzer.Services;
+
+using ModelAnalyzer.Parameters;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;

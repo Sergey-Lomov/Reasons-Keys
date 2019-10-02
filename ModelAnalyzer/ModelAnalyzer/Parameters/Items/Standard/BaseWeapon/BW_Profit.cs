@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
-    class BW_Profit : SingleParameter
+    class BW_Profit : FloatSingleParameter
     {
         public BW_Profit()
         {

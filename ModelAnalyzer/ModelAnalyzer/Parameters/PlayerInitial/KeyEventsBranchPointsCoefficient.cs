@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class KeyEventsBranchPointsCoefficient : SingleParameter
+    class KeyEventsBranchPointsCoefficient : FloatSingleParameter
     {
         public KeyEventsBranchPointsCoefficient()
         {

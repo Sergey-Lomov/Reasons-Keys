@@ -1,10 +1,11 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 {
-    class BS_Defense : ArrayParameter
+    class BS_Defense : FloatArrayParameter
     {
         public BS_Defense()
         {

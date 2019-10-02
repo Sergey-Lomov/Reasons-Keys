@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 {
-    class SB_FullPrice : ArrayParameter
+    class SB_FullPrice : FloatArrayParameter
     {
         public SB_FullPrice()
         {

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
-    class BW_UpgradesAmount : SingleParameter
+    class BW_UpgradesAmount : FloatSingleParameter
     {
         public BW_UpgradesAmount()
         {

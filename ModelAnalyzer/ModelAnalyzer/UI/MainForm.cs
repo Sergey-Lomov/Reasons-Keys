@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 
+using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters;
+
 namespace ModelAnalyzer.UI
 {
     public partial class MainForm : Form, IParameterRowDelegate
@@ -14,6 +17,8 @@ namespace ModelAnalyzer.UI
         Validator validator = new Validator();
         FilesManager filesManager = new FilesManager();
         UIFactory uiFactory = new UIFactory();
+
+        private Dictionary<Parameter, Panel> parametersRows = new Dictionary<Parameter, Panel>();
 
         public MainForm()
         {
@@ -89,6 +94,7 @@ namespace ModelAnalyzer.UI
             MainLayout.Visible = false;
             MainLayout.Controls.Clear();
             MainLayout.RowCount = 0;
+            parametersRows.Clear();
 
             Dictionary<ParameterType, CheckBox> typesBoxes = new Dictionary<ParameterType, CheckBox> {
                 {ParameterType.In, inCB},
@@ -124,6 +130,7 @@ namespace ModelAnalyzer.UI
                         var validation = parameter.Validate(validator, storage);
                         Panel row = uiFactory.RowForParameter(parameter, this, validation);
                         MainLayout.Controls.Add(row);
+                        parametersRows[parameter] = row;
                     }
                 }
             }
@@ -165,7 +172,7 @@ namespace ModelAnalyzer.UI
             ReloadTable();
         }
 
-        public void HandleValueClick(Parameter parameter, Label valueLabel)
+        public void HandleValueClick(Parameter parameter)
         {
             EditForm edit = new EditForm() { TopLevel = true };
 
@@ -181,7 +188,17 @@ namespace ModelAnalyzer.UI
                     }
                     else
                     {
-                        valueLabel.Text = parameter.ValueToString();
+                        var row = parametersRows[parameter];
+                        var validation = parameter.Validate(validator, storage);
+                        var newRow = uiFactory.RowForParameter(parameter, this, validation);
+
+                        var rowIndex = MainLayout.Controls.IndexOf(row);
+                        MainLayout.Controls.RemoveAt(rowIndex);
+                        MainLayout.Controls.Add(newRow, 0, rowIndex);
+
+                        parametersRows[parameter] = newRow;
+
+                        //valueLabel.Text = parameter.ValueToString();
                     }
                 }
                 catch (MAException e)
@@ -191,7 +208,7 @@ namespace ModelAnalyzer.UI
             }
         }
 
-        public void HandleTitleClick(Parameter parameter, Label titleLabel)
+        public void HandleTitleClick(Parameter parameter)
         {
             ParameterValidationReport validation = parameter.Validate(validator, storage);
             Form details = uiFactory.DetailsFormForParameter(parameter, validation);

@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
 {
-    class KA_Capacity : SingleParameter
+    class KA_Capacity : FloatSingleParameter
     {
         public KA_Capacity()
         {

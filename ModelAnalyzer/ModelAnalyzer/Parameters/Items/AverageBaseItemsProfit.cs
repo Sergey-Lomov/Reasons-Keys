@@ -1,11 +1,12 @@
-﻿using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
 using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
 using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
 
 namespace ModelAnalyzer.Parameters.Items
 {
-    class AverageBaseItemsProfit : SingleParameter
+    class AverageBaseItemsProfit : FloatSingleParameter
     {
         public AverageBaseItemsProfit()
         {

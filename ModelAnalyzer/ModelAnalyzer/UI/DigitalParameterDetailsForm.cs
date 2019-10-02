@@ -1,29 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.UI
 {
-    public partial class ParameterDetailsForm : Form, IParameterDetailsForm
+    public partial class DigitalParameterDetailsForm : Form, IParameterDetailsForm
     {
         private readonly string issueItemPrefix = "- ";
 
-        Parameter parameter;
+        DigitalParameter parameter;
 
-        public ParameterDetailsForm()
+        public DigitalParameterDetailsForm()
         {
             InitializeComponent();
         }
 
-        public void SetParameter (Parameter parameter, ParameterValidationReport validation)
+        public void SetParameter (Parameter _parameter, ParameterValidationReport validation)
         {
-            this.parameter = parameter;
+            if (!(_parameter is DigitalParameter))
+                return;
+
+            parameter = _parameter as DigitalParameter;
             bool isParameterIn = parameter.type == ParameterType.In;
 
             titleLabel.Text = parameter.title;

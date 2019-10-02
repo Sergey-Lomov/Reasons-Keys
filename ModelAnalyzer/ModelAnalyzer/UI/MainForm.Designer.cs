@@ -40,13 +40,13 @@
             this.outCB = new System.Windows.Forms.CheckBox();
             this.inCB = new System.Windows.Forms.CheckBox();
             this.tagsPanel = new System.Windows.Forms.Panel();
-            this.checkAllTagsButton = new System.Windows.Forms.Button();
             this.tagsCLB = new System.Windows.Forms.CheckedListBox();
+            this.uncheckAllTagsButton = new System.Windows.Forms.Button();
+            this.checkAllTagsButton = new System.Windows.Forms.Button();
             this.tagsLabel = new System.Windows.Forms.Label();
             this.bottomPlaceholder = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.titleFilterTB = new System.Windows.Forms.TextBox();
-            this.uncheckAllTagsButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.actionsPanel.SuspendLayout();
             this.filtersGroup.SuspendLayout();
@@ -215,17 +215,6 @@
             this.tagsPanel.Size = new System.Drawing.Size(194, 228);
             this.tagsPanel.TabIndex = 3;
             // 
-            // checkAllTagsButton
-            // 
-            this.checkAllTagsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.checkAllTagsButton.Location = new System.Drawing.Point(0, 205);
-            this.checkAllTagsButton.Name = "checkAllTagsButton";
-            this.checkAllTagsButton.Size = new System.Drawing.Size(194, 23);
-            this.checkAllTagsButton.TabIndex = 2;
-            this.checkAllTagsButton.Text = "Выбрать все";
-            this.checkAllTagsButton.UseVisualStyleBackColor = true;
-            this.checkAllTagsButton.Click += new System.EventHandler(this.checkAllTagsButton_Click);
-            // 
             // tagsCLB
             // 
             this.tagsCLB.CheckOnClick = true;
@@ -238,6 +227,28 @@
             this.tagsCLB.Size = new System.Drawing.Size(194, 159);
             this.tagsCLB.TabIndex = 1;
             this.tagsCLB.SelectedIndexChanged += new System.EventHandler(this.tagsCLB_SelectedIndexChanged);
+            // 
+            // uncheckAllTagsButton
+            // 
+            this.uncheckAllTagsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uncheckAllTagsButton.Location = new System.Drawing.Point(0, 182);
+            this.uncheckAllTagsButton.Name = "uncheckAllTagsButton";
+            this.uncheckAllTagsButton.Size = new System.Drawing.Size(194, 23);
+            this.uncheckAllTagsButton.TabIndex = 3;
+            this.uncheckAllTagsButton.Text = "Отменить все";
+            this.uncheckAllTagsButton.UseVisualStyleBackColor = true;
+            this.uncheckAllTagsButton.Click += new System.EventHandler(this.uncheckAllTagsButton_Click);
+            // 
+            // checkAllTagsButton
+            // 
+            this.checkAllTagsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkAllTagsButton.Location = new System.Drawing.Point(0, 205);
+            this.checkAllTagsButton.Name = "checkAllTagsButton";
+            this.checkAllTagsButton.Size = new System.Drawing.Size(194, 23);
+            this.checkAllTagsButton.TabIndex = 2;
+            this.checkAllTagsButton.Text = "Выбрать все";
+            this.checkAllTagsButton.UseVisualStyleBackColor = true;
+            this.checkAllTagsButton.Click += new System.EventHandler(this.checkAllTagsButton_Click);
             // 
             // tagsLabel
             // 
@@ -276,17 +287,6 @@
             this.titleFilterTB.Size = new System.Drawing.Size(531, 20);
             this.titleFilterTB.TabIndex = 0;
             this.titleFilterTB.TextChanged += new System.EventHandler(this.FilterChanged);
-            // 
-            // uncheckAllTagsButton
-            // 
-            this.uncheckAllTagsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uncheckAllTagsButton.Location = new System.Drawing.Point(0, 182);
-            this.uncheckAllTagsButton.Name = "uncheckAllTagsButton";
-            this.uncheckAllTagsButton.Size = new System.Drawing.Size(194, 23);
-            this.uncheckAllTagsButton.TabIndex = 3;
-            this.uncheckAllTagsButton.Text = "Отменить все";
-            this.uncheckAllTagsButton.UseVisualStyleBackColor = true;
-            this.uncheckAllTagsButton.Click += new System.EventHandler(this.uncheckAllTagsButton_Click);
             // 
             // MainForm
             // 

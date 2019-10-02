@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Timing
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Timing
 {
-    class PhasesWeight : ArrayParameter
+    class PhasesWeight : FloatArrayParameter
     {
         public PhasesWeight()
         {

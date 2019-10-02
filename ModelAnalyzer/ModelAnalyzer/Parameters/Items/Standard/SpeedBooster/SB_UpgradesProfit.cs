@@ -1,9 +1,10 @@
-﻿using ModelAnalyzer.Parameters.Moving;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 {
-    class SB_UpgradesProfit : ArrayParameter
+    class SB_UpgradesProfit : FloatArrayParameter
     {
         public SB_UpgradesProfit()
         {

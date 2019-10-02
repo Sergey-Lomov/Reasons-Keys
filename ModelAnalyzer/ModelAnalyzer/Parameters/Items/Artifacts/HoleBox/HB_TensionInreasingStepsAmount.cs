@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_TensionInreasingStepsAmount : SingleParameter
+    class HB_TensionInreasingStepsAmount : FloatSingleParameter
     {
         public HB_TensionInreasingStepsAmount()
         {

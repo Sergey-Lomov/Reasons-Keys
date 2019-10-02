@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters
 {
-    class MaxPlayersAmount : SingleParameter
+    class MaxPlayersAmount : FloatSingleParameter
     {
         public MaxPlayersAmount()
         {

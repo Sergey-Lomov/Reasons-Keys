@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
-    class BW_MaxPowerCoefficient : SingleParameter
+    class BW_MaxPowerCoefficient : FloatSingleParameter
     {
         public BW_MaxPowerCoefficient()
         {

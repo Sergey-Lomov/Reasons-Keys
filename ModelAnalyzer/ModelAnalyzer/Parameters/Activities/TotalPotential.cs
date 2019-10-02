@@ -1,9 +1,10 @@
-﻿using ModelAnalyzer.Parameters.Mining;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class TotalPotential : SingleParameter
+    class TotalPotential : FloatSingleParameter
     {
         public TotalPotential()
         {

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ModelAnalyzer
+using ModelAnalyzer.Parameters;
+
+namespace ModelAnalyzer.Services
 {
     using ModelCalcultaionReport = List<ParameterCalculationReport>;
 

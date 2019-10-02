@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
-    class BW_ShotPrice : ArrayParameter
+    class BW_ShotPrice : FloatArrayParameter
     {
         public BW_ShotPrice()
         {

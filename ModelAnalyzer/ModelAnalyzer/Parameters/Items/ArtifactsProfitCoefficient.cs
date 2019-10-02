@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items
 {
-    class ArtifactsProfitCoefficient : SingleParameter
+    class ArtifactsProfitCoefficient : FloatSingleParameter
     {
         public ArtifactsProfitCoefficient()
         {

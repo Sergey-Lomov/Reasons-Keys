@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class EventMaxMiningBonus : SingleParameter
+    class EventMaxMiningBonus : FloatSingleParameter
     {
         public EventMaxMiningBonus()
         {

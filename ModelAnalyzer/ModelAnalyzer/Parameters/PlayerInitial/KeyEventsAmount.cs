@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class KeyEventsAmount : SingleParameter
+    class KeyEventsAmount : FloatSingleParameter
     {
         public KeyEventsAmount()
         {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.Services
 {
     class Storage
     {
@@ -76,7 +76,7 @@ namespace ModelAnalyzer
         internal float SingleValue(Type type)
         {
             var parameter = Parameter(type);
-            if (parameter is SingleParameter single)
+            if (parameter is FloatSingleParameter single)
                 return single.GetValue();
 
             return 0;
@@ -85,7 +85,7 @@ namespace ModelAnalyzer
         internal float[] ArrayValue(Type type)
         {
             var parameter = Parameter(type);
-            if (parameter is ArrayParameter array)
+            if (parameter is FloatArrayParameter array)
                 return array.GetValue();
 
             return new float[] { };

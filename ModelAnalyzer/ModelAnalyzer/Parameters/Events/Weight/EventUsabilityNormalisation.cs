@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class EventUsabilityNormalisation : SingleParameter
+    class EventUsabilityNormalisation : FloatSingleParameter
     {
         public EventUsabilityNormalisation()
         {

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class RealKeyEventBrachPointCoefficients : ArrayParameter
+    class RealKeyEventBrachPointCoefficients : FloatArrayParameter
     {
         public RealKeyEventBrachPointCoefficients()
         {

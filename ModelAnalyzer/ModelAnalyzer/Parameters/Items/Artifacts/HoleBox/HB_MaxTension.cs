@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_MaxTension : SingleParameter
+    class HB_MaxTension : FloatSingleParameter
     {
         private const string emptyArrayIssue = "Параметр {0} не содержит значений";
 

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class MinInitialCardUsability : SingleParameter
+    class MinInitialCardUsability : FloatSingleParameter
     {
         public MinInitialCardUsability()
         {

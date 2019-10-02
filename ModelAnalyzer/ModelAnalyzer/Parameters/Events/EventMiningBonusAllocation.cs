@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Events
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Events
 {
-    class EventMiningBonusAllocation : ArrayParameter
+    class EventMiningBonusAllocation : FloatArrayParameter
     {
         public EventMiningBonusAllocation()
         {

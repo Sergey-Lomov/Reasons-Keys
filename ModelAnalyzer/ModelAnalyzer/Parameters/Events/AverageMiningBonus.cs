@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Events
 {
-    class AverageMiningBonus : SingleParameter
+    class AverageMiningBonus : FloatSingleParameter
     {
         public AverageMiningBonus()
         {

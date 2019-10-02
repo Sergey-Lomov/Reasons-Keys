@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Topology;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Mining
 {
-    class MiningAllocation : ArrayParameter
+    class MiningAllocation : FloatArrayParameter
     {
         private readonly string arraySizeMessage = "Размер массива должен быть равен \"{0}\" + 1 (нулевой центральный): {1}.";
 

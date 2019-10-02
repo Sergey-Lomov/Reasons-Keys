@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class BlockEventsCoef_2D : SingleParameter
+    class BlockEventsCoef_2D : FloatSingleParameter
     {
         public BlockEventsCoef_2D()
         {

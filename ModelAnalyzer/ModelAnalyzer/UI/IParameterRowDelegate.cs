@@ -1,11 +1,12 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace ModelAnalyzer
+using ModelAnalyzer.Parameters;
+
+namespace ModelAnalyzer.UI
 {
     internal interface IParameterRowDelegate
     {
-        void HandleValueClick(Parameter parameter, Label valueLabel);
-        void HandleTitleClick(Parameter parameter, Label titleLabel);
+        void HandleValueClick(Parameter parameter);
+        void HandleTitleClick(Parameter parameter);
     }
 }

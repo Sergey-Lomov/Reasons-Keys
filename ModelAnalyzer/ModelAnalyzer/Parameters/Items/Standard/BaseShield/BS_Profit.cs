@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 {
-    class BS_Profit : SingleParameter
+    class BS_Profit : FloatSingleParameter
     {
         public BS_Profit()
         {

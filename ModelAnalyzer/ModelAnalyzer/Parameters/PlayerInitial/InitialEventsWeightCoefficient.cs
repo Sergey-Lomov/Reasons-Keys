@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class InitialEventsWeightCoefficient : SingleParameter
+    class InitialEventsWeightCoefficient : FloatSingleParameter
     {
         public InitialEventsWeightCoefficient()
         {

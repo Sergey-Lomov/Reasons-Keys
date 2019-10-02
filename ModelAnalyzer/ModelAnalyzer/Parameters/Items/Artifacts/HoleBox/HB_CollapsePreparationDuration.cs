@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_CollapsePreparationDuration : SingleParameter
+    class HB_CollapsePreparationDuration : FloatSingleParameter
     {
         public HB_CollapsePreparationDuration()
         {

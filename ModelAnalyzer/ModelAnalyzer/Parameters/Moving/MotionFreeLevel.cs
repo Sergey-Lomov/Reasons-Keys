@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Moving
 {
-    class MotionFreeLevel : SingleParameter
+    class MotionFreeLevel : FloatSingleParameter
     {
         public MotionFreeLevel()
         {

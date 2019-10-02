@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters;
+
 namespace ModelAnalyzer
 {
     using ModelValidationReport = List<ParameterValidationReport>;

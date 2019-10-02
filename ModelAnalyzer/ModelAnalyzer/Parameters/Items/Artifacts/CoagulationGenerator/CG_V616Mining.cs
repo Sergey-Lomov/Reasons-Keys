@@ -1,11 +1,12 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Events;
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
 {
-    class CG_V616Mining : SingleParameter
+    class CG_V616Mining : FloatSingleParameter
     {
         public CG_V616Mining()
         {

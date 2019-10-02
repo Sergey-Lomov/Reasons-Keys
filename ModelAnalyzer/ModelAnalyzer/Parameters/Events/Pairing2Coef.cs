@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class Pairing2Coef : SingleParameter
+    class Pairing2Coef : FloatSingleParameter
     {
         public Pairing2Coef()
         {

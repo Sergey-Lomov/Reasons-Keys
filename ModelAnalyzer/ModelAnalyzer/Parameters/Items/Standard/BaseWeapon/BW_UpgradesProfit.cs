@@ -1,9 +1,10 @@
-﻿using ModelAnalyzer.Parameters.Activities;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
-    class BW_UpgradesProfit : ArrayParameter
+    class BW_UpgradesProfit : FloatArrayParameter
     {
         public BW_UpgradesProfit()
         {

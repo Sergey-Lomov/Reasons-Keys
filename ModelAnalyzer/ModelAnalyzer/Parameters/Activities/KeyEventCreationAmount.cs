@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class KeyEventCreationAmount : SingleParameter
+    class KeyEventCreationAmount : FloatSingleParameter
     {
         public KeyEventCreationAmount()
         {

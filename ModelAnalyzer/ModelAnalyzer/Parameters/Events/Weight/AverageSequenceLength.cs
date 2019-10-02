@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class AverageSequenceLength : SingleParameter
+    class AverageSequenceLength : FloatSingleParameter
     {
         public AverageSequenceLength()
         {

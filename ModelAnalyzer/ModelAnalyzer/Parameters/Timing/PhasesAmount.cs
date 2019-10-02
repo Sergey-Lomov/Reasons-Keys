@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Topology;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Timing
 {
-    class PhasesAmount : SingleParameter
+    class PhasesAmount : FloatSingleParameter
     {
         public PhasesAmount()
         {

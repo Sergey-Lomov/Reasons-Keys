@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.PlayerInitial;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class AverageEventsConcreteBranchPoints : SingleParameter
+    class AverageEventsConcreteBranchPoints : FloatSingleParameter
     {
         readonly int[] BranchPointsAmounts = {2, 2, 1, 1, 1, 1, 0};
 

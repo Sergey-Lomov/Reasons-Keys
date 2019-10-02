@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class FrontRelationsCoef : SingleParameter
+    class FrontRelationsCoef : FloatSingleParameter
     {
         public FrontRelationsCoef()
         {

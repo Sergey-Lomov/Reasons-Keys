@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.PlayerInitial
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class MainKeyEventBranchPoints : SingleParameter
+    class MainKeyEventBranchPoints : FloatSingleParameter
     {
         public MainKeyEventBranchPoints()
         {

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Topology
 {
-    class MinDistancesPairsAmount : ArrayParameter
+    class MinDistancesPairsAmount : FloatArrayParameter
     {
         private const string arraySizeIssue = "Кол-во фаз в массиве длительности фаз и в карте путей не совпадают";
 

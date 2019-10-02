@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class FrontBlockerWeight : SingleParameter
+    class FrontBlockerWeight : FloatSingleParameter
     {
         public FrontBlockerWeight()
         {

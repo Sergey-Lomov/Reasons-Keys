@@ -1,4 +1,4 @@
-﻿namespace ModelAnalyzer
+﻿namespace ModelAnalyzer.Parameters
 {
     public class ParameterTag
     {

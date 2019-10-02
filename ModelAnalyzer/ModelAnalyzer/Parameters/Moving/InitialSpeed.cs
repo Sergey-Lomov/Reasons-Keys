@@ -1,10 +1,11 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Moving
 {
-    class InitialSpeed : SingleParameter
+    class InitialSpeed : FloatSingleParameter
     {
         public InitialSpeed()
         {

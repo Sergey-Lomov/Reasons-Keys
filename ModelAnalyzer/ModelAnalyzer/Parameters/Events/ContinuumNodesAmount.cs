@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Topology;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    class ContinuumNodesAmount : SingleParameter
+    class ContinuumNodesAmount : FloatSingleParameter
     {
         const int topologicIncrement = 6;
 

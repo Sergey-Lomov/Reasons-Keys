@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Services.FieldAnalyzer;
 using ModelAnalyzer.Parameters.Timing;
 
@@ -16,7 +17,6 @@ namespace ModelAnalyzer.Parameters.Topology
             type = ParameterType.Inner;
             title = "Карта путей";
             details = "Хранит карту всех возможных путей между всеми парами узлов во всех конфигурациях поля (фазах). Карта генерируется в модуле FieldAnalyzer и используется другими параметрами из группы \"Топология\". Просмотр недоступен.";
-            fractionalDigits = 0;
             tags.Add(ParameterTag.topology);
         }
 
@@ -26,11 +26,6 @@ namespace ModelAnalyzer.Parameters.Topology
         }
 
         public override string StringRepresentation()
-        {
-            return valueStub;
-        }
-
-        public override string UnroundValueToString()
         {
             return valueStub;
         }

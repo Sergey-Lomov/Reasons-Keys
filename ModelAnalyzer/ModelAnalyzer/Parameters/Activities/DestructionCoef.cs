@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class DestructionCoef : SingleParameter
+    class DestructionCoef : FloatSingleParameter
     {
         public DestructionCoef()
         {

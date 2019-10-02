@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+
+using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.Parameters.Events
 {
@@ -13,7 +13,6 @@ namespace ModelAnalyzer.Parameters.Events
             type = ParameterType.Inner;
             title = "Распределение очков ветвей (симметричная вариация)";
             details = "Очки ветвей на картах располагаются согласно набору правил, которые подробно описанны в основном документе по механике";
-            fractionalDigits = 0;
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

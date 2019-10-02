@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Mining;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
 {
-    class KA_RelativeRevenue : SingleParameter
+    class KA_RelativeRevenue : FloatSingleParameter
     {
         public KA_RelativeRevenue()
         {

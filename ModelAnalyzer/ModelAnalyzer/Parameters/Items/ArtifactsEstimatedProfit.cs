@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Activities;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.Items
 {
-    class EstimatedArtifactsProfit : SingleParameter
+    class EstimatedArtifactsProfit : FloatSingleParameter
     {
         public EstimatedArtifactsProfit()
         {

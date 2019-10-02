@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Topology
 {
-    class FieldRadius : SingleParameter
+    class FieldRadius : FloatSingleParameter
     {
         public FieldRadius()
         {

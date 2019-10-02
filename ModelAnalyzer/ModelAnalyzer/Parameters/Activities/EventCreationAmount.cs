@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Activities
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Activities
 {
-    class EventCreationAmount : SingleParameter
+    class EventCreationAmount : FloatSingleParameter
     {
         public EventCreationAmount()
         {

@@ -1,9 +1,10 @@
-﻿using ModelAnalyzer.Parameters.Activities;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Mining
 {
-    class AverageMining : SingleParameter
+    class AverageMining : FloatSingleParameter
     {
         public AverageMining()
         {

@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Topology
 {
-    class AverageDistance : SingleParameter
+    class AverageDistance : FloatSingleParameter
     {
         private readonly string arrayIssueFormat = "Длина массивов \"{0}\" и \"{1}\" не совпадает.";
 

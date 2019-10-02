@@ -23,7 +23,6 @@ namespace ModelAnalyzer.Parameters.Events
             type = ParameterType.Out;
             title = "Колода карт событий";
             details = "";
-            fractionalDigits = 0;
             tags.Add(ParameterTag.events);
         }
 

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
+using ModelAnalyzer.Services;
 namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class AverageContinuumEventWeight : SingleParameter
+    class AverageContinuumEventWeight : FloatSingleParameter
     {
         public AverageContinuumEventWeight()
         {

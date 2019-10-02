@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class StabilityIncrementAllocation : ArrayParameter
+    class StabilityIncrementAllocation : FloatArrayParameter
     {
         public StabilityIncrementAllocation()
         {

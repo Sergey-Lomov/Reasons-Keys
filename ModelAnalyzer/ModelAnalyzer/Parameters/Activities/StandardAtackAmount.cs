@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class StandardAtackAmount : SingleParameter
+    class StandardAtackAmount : FloatSingleParameter
     {
         public StandardAtackAmount()
         {

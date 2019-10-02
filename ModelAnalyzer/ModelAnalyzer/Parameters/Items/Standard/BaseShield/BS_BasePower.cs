@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 {
-    class BS_BasePower : SingleParameter
+    class BS_BasePower : FloatSingleParameter
     {
         public BS_BasePower()
         {

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Events.Weight
 {
-    class PlayerRealisationControlCoefficient : SingleParameter
+    class PlayerRealisationControlCoefficient : FloatSingleParameter
     {
         public PlayerRealisationControlCoefficient()
         {

@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
-namespace ModelAnalyzer
+using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters
 {
     public enum ParameterType {In, Out, Inner, Indicator}
 
@@ -12,9 +16,7 @@ namespace ModelAnalyzer
         public string title;
         public string details;
         public List<ParameterTag> tags = new List<ParameterTag>();
-        public int fractionalDigits;
 
-        readonly protected int unroundFractionalDigits = 3;
         readonly protected string invalidValueStub = "-";
         readonly protected string dataSeparator = "~";
         readonly string invalidInMessage = "Для вычисления необходимы параметры: {0}";
@@ -22,7 +24,29 @@ namespace ModelAnalyzer
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
         public abstract string ValueToString();
-        public abstract string UnroundValueToString();
+
+        internal virtual Parameter Copy ()
+        {
+            var selfType = GetType();
+            var copy = Activator.CreateInstance(selfType) as Parameter;
+
+            copy.type = type;
+            copy.title = title;
+            copy.details = details;
+            copy.tags.AddRange(tags);
+
+            return copy;
+        }
+
+        internal virtual bool IsEqual(Parameter p)
+        {
+            var typeCheck = p.type == type;
+            var titleCheck = p.title.Equals(title);
+            var detailsCheck = p.details.Equals(details);
+            var tagsCheck = p.tags.SequenceEqual(tags);
+
+            return typeCheck && titleCheck && detailsCheck && tagsCheck;
+        }
 
         internal virtual ParameterCalculationReport Calculate(Calculator calculator)
         {

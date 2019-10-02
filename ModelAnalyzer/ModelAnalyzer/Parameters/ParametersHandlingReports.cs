@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace ModelAnalyzer
+namespace ModelAnalyzer.Parameters
 {
     public class ParameterValidationReport
     {
@@ -18,23 +14,20 @@ namespace ModelAnalyzer
         }
     }
 
-
     class ParameterCalculationReport
     {
         public Parameter parameter;
+        private Parameter precalculated;
 
         public bool IsSucces => issues.Count == 0;
         public readonly List<string> issues = new List<string>();
 
-        public bool WasChanged => parameter.ValueToString() != oldValueString || parameter.UnroundValueToString() != oldUnroundValueString;
-        public string oldValueString = null;
-        public string oldUnroundValueString = null;
+        public bool WasChanged => !parameter.IsEqual(precalculated);
 
         internal ParameterCalculationReport(Parameter parameter)
         {
             this.parameter = parameter;
-            oldValueString = parameter.ValueToString();
-            oldUnroundValueString = parameter.UnroundValueToString();
+            precalculated = parameter.Copy();
         }
 
         internal void AddFailed(string issue)

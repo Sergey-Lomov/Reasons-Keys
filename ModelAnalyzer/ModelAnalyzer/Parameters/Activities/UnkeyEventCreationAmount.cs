@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class UnkeyEventCreationAmount : SingleParameter
+    class UnkeyEventCreationAmount : FloatSingleParameter
     {
         public UnkeyEventCreationAmount()
         {

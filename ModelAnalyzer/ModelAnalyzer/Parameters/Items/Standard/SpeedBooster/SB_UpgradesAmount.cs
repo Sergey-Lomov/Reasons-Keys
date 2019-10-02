@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 {
-    class SB_UpgradesAmount : SingleParameter
+    class SB_UpgradesAmount : FloatSingleParameter
     {
         public SB_UpgradesAmount()
         {

@@ -1,10 +1,10 @@
-﻿using ModelAnalyzer.Parameters.Mining;
-
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Moving
 {
-    class MotionPrice : SingleParameter
+    class MotionPrice : FloatSingleParameter
     {
         public MotionPrice()
         {

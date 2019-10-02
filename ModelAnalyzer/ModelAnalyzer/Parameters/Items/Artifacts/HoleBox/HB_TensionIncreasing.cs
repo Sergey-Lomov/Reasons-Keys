@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_TensionIncreasing : ArrayParameter
+    class HB_TensionIncreasing : FloatArrayParameter
     {
         private const string missedTISAIssue = "Параметр {0} не задан или равен 0";
 

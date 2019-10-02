@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 
 using ModelAnalyzer.Parameters.Timing;
+using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.Parameters.Mining
 {
-    class MiningIncrement : SingleParameter
+    class MiningIncrement : FloatSingleParameter
     {
         private readonly string invalidPhasesAmount = "Параметр \"{0}\" = {1}, но длина массива \"{2}\" равна {3}";
 

@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Events
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Events
 {
-    class RelationsAmountAllocation_OB : ArrayParameter
+    class RelationsAmountAllocation_OB : FloatArrayParameter
     {
         public RelationsAmountAllocation_OB()
         {

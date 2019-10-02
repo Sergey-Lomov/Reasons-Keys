@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Timing
 {
-    class RealisationDuration : SingleParameter
+    class RealisationDuration : FloatSingleParameter
     {
         public RealisationDuration()
         {

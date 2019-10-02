@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Moving;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Moving;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
 {
-    class KA_Profit : SingleParameter
+    class KA_Profit : FloatSingleParameter
     {
         public KA_Profit()
         {

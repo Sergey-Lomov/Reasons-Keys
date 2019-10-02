@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.PlayerInitial
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class KeyEventsBranchPoints : SingleParameter
+    class KeyEventsBranchPoints : FloatSingleParameter
     {
         private const string roundIssueMessage = "Из-за округления реальная сумма очков ветвей на решающих событиях не совпадает со значением параметра\"Кол-во очков ветвей на решающих событиях\"";
 

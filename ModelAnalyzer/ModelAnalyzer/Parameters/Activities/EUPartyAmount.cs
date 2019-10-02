@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class EUPartyAmount : SingleParameter
+    class EUPartyAmount : FloatSingleParameter
     {
         public EUPartyAmount()
         {

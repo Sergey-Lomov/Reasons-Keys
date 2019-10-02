@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using ModelAnalyzer.Services;
 using ModelAnalyzer.DataModels;
 
 namespace ModelAnalyzer.Parameters.Events.Weight
@@ -9,7 +11,7 @@ namespace ModelAnalyzer.Parameters.Events.Weight
     using TemplatesCombinations = Dictionary<BranchPointsTemplate, List<BranchPointsSet>>;
     using TemplatesWeights = Dictionary<BranchPointsTemplate, float>;
 
-    class BranchPointsTemplatesWeights : ArrayParameter
+    class BranchPointsTemplatesWeights : FloatArrayParameter
     {
         private BranchPointsTemplate[] templates;
         private PlayersCombinations playersCombinations;

@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters
 {
-    class MinPlayersAmount : SingleParameter
+    class MinPlayersAmount : FloatSingleParameter
     {
         public MinPlayersAmount()
         {

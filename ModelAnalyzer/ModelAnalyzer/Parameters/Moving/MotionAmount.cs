@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Moving
 {
-    class MotionAmount : SingleParameter
+    class MotionAmount : FloatSingleParameter
     {
         public MotionAmount()
         {

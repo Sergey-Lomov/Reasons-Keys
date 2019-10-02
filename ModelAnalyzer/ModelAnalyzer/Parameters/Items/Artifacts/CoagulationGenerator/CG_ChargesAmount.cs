@@ -1,8 +1,10 @@
 ﻿using System;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
 {
-    class CG_ChargesAmount : SingleParameter
+    class CG_ChargesAmount : FloatSingleParameter
     {
         public CG_ChargesAmount()
         {

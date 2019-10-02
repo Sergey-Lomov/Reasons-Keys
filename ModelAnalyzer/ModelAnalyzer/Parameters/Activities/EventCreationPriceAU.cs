@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Mining;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class EventCreationPriceAU : SingleParameter
+    class EventCreationPriceAU : FloatSingleParameter
     {
         public EventCreationPriceAU()
         {

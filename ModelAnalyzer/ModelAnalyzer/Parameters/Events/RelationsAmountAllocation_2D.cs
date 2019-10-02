@@ -1,6 +1,8 @@
-﻿namespace ModelAnalyzer.Parameters.Events
+﻿using ModelAnalyzer.Services;
+
+namespace ModelAnalyzer.Parameters.Events
 {
-    class RelationsAmountAllocation_2D : ArrayParameter
+    class RelationsAmountAllocation_2D : FloatArrayParameter
     {
         public RelationsAmountAllocation_2D()
         {

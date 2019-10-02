@@ -1,8 +1,9 @@
-﻿using ModelAnalyzer.Parameters.Activities;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.Timing
 {
-    class PartyDuration : SingleParameter
+    class PartyDuration : FloatSingleParameter
     {
         public PartyDuration()
         {

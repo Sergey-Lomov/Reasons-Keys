@@ -1,10 +1,9 @@
-﻿using System;
-
+﻿using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 {
-    class BS_UpgradesProfit : ArrayParameter
+    class BS_UpgradesProfit : FloatArrayParameter
     {
         public BS_UpgradesProfit()
         {

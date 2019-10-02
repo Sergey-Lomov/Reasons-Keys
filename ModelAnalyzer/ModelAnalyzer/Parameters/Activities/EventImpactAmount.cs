@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class EventImpactAmount : SingleParameter
+    class EventImpactAmount : FloatSingleParameter
     {
         public EventImpactAmount()
         {

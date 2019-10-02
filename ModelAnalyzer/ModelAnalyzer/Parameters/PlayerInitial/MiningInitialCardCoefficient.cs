@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class MiningInitialCardCoefficient : SingleParameter
+    class MiningInitialCardCoefficient : FloatSingleParameter
     {
         public MiningInitialCardCoefficient()
         {

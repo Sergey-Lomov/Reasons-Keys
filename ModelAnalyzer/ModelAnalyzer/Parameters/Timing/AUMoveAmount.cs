@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Timing
 {
-    class AUMoveAmount : SingleParameter
+    class AUMoveAmount : FloatSingleParameter
     {
         public AUMoveAmount()
         {

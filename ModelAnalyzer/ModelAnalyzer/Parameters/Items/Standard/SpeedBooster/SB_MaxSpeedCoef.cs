@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 {
-    class SB_MaxSpeedCoef : SingleParameter
+    class SB_MaxSpeedCoef : FloatSingleParameter
     {
         public SB_MaxSpeedCoef()
         {

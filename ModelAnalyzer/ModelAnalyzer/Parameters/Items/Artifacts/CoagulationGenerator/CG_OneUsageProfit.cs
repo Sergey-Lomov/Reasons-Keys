@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
 {
-    class CG_OneUsageProfit : SingleParameter
+    class CG_OneUsageProfit : FloatSingleParameter
     {
         public CG_OneUsageProfit()
         {

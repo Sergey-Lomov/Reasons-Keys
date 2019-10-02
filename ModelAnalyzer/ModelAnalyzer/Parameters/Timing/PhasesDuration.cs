@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Timing
 {
-    class PhasesDuration : ArrayParameter
+    class PhasesDuration : FloatArrayParameter
     {
         private readonly string roundingIssue = "Невозможно корректно округлить значения. Сумма округленных значений отличется суммы не округленных.";
 

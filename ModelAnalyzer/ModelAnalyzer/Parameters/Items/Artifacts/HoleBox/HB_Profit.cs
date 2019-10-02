@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_Profit : SingleParameter
+    class HB_Profit : FloatSingleParameter
     {
         private const string missedEstimationIssue = "Выгодность дыры в коробке более чем на 20% отклоняется от оценочной выгондосит артефактов";
         private const string emptyArrayIssue = "Параметр {0} не содержит значений";

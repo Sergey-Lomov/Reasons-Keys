@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 {
-    class SB_Profit : SingleParameter
+    class SB_Profit : FloatSingleParameter
     {
         public SB_Profit()
         {

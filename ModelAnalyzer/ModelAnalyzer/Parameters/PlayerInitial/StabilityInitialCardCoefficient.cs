@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class StabilityInitialCardCoefficient : SingleParameter
+    class StabilityInitialCardCoefficient : FloatSingleParameter
     {
         public StabilityInitialCardCoefficient()
         {

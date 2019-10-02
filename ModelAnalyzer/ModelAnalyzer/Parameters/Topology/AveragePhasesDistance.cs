@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Topology
 {
-    class AveragePhasesDistance : ArrayParameter
+    class AveragePhasesDistance : FloatArrayParameter
     {
         private readonly float validFieldRadius = 4;
         private readonly string invalidMessageFormat = "Параметр был расчитан при \"{0}\" = {1}. Сейчас его значение не актуально.";

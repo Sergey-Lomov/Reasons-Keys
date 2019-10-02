@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters.Events
 {
-    class AverageStabilityIncrement : SingleParameter
+    class AverageStabilityIncrement : FloatSingleParameter
     {
         public AverageStabilityIncrement()
         {
