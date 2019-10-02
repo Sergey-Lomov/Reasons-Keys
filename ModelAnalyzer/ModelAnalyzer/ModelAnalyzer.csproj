@@ -166,6 +166,7 @@
     <Compile Include="Services\FieldAnalyzer\FieldRoute.cs" />
     <Compile Include="Parameters\DigitalParameter.cs" />
     <Compile Include="Parameters\ParameterTag.cs" />
+    <Compile Include="Services\FloatStringConverter.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,13 +174,23 @@
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Factories\CalculationReportRowsFactory.cs" />
+    <Compile Include="UI\Factories\EditFormsFactory.cs" />
     <Compile Include="UI\Factories\ValuePanelsFactory.cs" />
-    <Compile Include="UI\UIConstants.cs" />
-    <Compile Include="UI\EditForm.cs">
+    <Compile Include="UI\ParameterEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\EditForm.Designer.cs">
-      <DependentUpon>EditForm.cs</DependentUpon>
+    <Compile Include="UI\FloatSingleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FloatSingleEditForm.Designer.cs">
+      <DependentUpon>FloatSingleEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UIConstants.cs" />
+    <Compile Include="UI\FloatArrayEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FloatArrayEditForm.Designer.cs">
+      <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\EventsDeckForm.cs">
       <SubType>Form</SubType>
@@ -275,15 +286,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Parameters\FloatSingleParameter.cs" />
     <Compile Include="Services\Storage.cs" />
-    <Compile Include="Services\Utils.cs" />
     <Compile Include="Services\Validator.cs" />
     <Compile Include="UI\UIFactory.cs" />
+    <Compile Include="UI\UnavailableEditingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UnavailableEditingForm.Designer.cs">
+      <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\CalculationReportForm.resx">
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\EditForm.resx">
-      <DependentUpon>EditForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FloatSingleEditForm.resx">
+      <DependentUpon>FloatSingleEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FloatArrayEditForm.resx">
+      <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\EventsDeckForm.resx">
       <DependentUpon>EventsDeckForm.cs</DependentUpon>
@@ -304,6 +323,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\UnavailableEditingForm.resx">
+      <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

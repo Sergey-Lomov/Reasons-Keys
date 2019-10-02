@@ -53,10 +53,10 @@ namespace ModelAnalyzer.Parameters.Events
             return str;
         }
 
-        public override string ValueToString()
+/*        public override string ValueToString()
         {
             return StringRepresentation();
-        }
+        }*/
 
         private void ThrowInvalidString(string str)
         {

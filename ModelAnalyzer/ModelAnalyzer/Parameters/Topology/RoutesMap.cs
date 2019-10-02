@@ -30,11 +30,6 @@ namespace ModelAnalyzer.Parameters.Topology
             return valueStub;
         }
 
-        public override string ValueToString()
-        {
-            return valueStub;
-        }
-
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);

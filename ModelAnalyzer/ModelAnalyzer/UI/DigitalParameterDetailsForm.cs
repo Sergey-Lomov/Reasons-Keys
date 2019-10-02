@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.UI
@@ -10,6 +11,7 @@ namespace ModelAnalyzer.UI
     public partial class DigitalParameterDetailsForm : Form, IParameterDetailsForm
     {
         private readonly string issueItemPrefix = "- ";
+        private readonly int unroundFractionalDigits = 3;
 
         DigitalParameter parameter;
 
@@ -28,8 +30,19 @@ namespace ModelAnalyzer.UI
 
             titleLabel.Text = parameter.title;
             detailsLabel.Text = parameter.details;
-            valueLabel.Text = parameter.ValueToString();
-            unroundValueLabel.Text = parameter.UnroundValueToString();
+
+            if (parameter is FloatSingleParameter)
+            {
+                var single = parameter as FloatSingleParameter;
+                valueLabel.Text = FloatStringConverter.FloatToString(single.GetValue(), single.fractionalDigits);
+                unroundValueLabel.Text = FloatStringConverter.FloatToString(single.GetUnroundValue(), unroundFractionalDigits);
+            } else if (parameter is FloatArrayParameter)
+            {
+                var array = parameter as FloatArrayParameter;
+                valueLabel.Text = FloatStringConverter.ListToString(array.GetValue(), array.fractionalDigits);
+                unroundValueLabel.Text = FloatStringConverter.ListToString(array.GetUnroundValue(), unroundFractionalDigits);
+            }
+
             unroundValueLabel.Visible = !isParameterIn;
 
             var issues = new List<string>();

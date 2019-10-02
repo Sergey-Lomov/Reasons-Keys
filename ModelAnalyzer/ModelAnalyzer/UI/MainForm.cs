@@ -91,7 +91,8 @@ namespace ModelAnalyzer.UI
 
         private void ReloadTable ()
         {
-            MainLayout.Visible = false;
+            MainLayout.SuspendLayout();
+
             MainLayout.Controls.Clear();
             MainLayout.RowCount = 0;
             parametersRows.Clear();
@@ -136,7 +137,8 @@ namespace ModelAnalyzer.UI
             }
 
             Invalidate(true);
-            MainLayout.Visible = true;
+ 
+            MainLayout.ResumeLayout();
         }
 
         private void Calculate(bool showReport = true)
@@ -174,38 +176,39 @@ namespace ModelAnalyzer.UI
 
         public void HandleValueClick(Parameter parameter)
         {
-            EditForm edit = new EditForm() { TopLevel = true };
+            if (parameter.type != ParameterType.In)
+                return;
 
-            edit.SetValue(parameter.ValueToString());
-            if (edit.ShowDialog() == DialogResult.OK)
-            {
+            ParameterEditForm edit = uiFactory.EditFormForParameter(parameter);
+            edit.TopLevel = true;
+
+            edit.ShowDialog();
                 try
                 {
-                    parameter.SetupByString(edit.GetValue());
-                    if (edit.calculation)
+                    if (edit.IsModelUpdateNecessary())
                     {
                         Calculate(edit, null);
                     }
-                    else
-                    {
+                    else if (edit.IsParameterUpdateNecessary())
+                {
                         var row = parametersRows[parameter];
                         var validation = parameter.Validate(validator, storage);
                         var newRow = uiFactory.RowForParameter(parameter, this, validation);
 
-                        var rowIndex = MainLayout.Controls.IndexOf(row);
-                        MainLayout.Controls.RemoveAt(rowIndex);
-                        MainLayout.Controls.Add(newRow, 0, rowIndex);
+                        var rowIndex = MainLayout.GetPositionFromControl(row);
+
+                        MainLayout.SuspendLayout();
+                        MainLayout.Controls.Remove(row);
+                        MainLayout.Controls.Add(newRow, rowIndex.Column, rowIndex.Row);
+                        MainLayout.ResumeLayout();
 
                         parametersRows[parameter] = newRow;
-
-                        //valueLabel.Text = parameter.ValueToString();
                     }
                 }
                 catch (MAException e)
                 {
                     MessageBox.Show(e.Message);
                 }
-            }
         }
 
         public void HandleTitleClick(Parameter parameter)

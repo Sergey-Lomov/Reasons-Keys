@@ -20,11 +20,6 @@ namespace ModelAnalyzer.Parameters
             return valueStub;
         }
 
-        public override string ValueToString()
-        {
-            return valueStub;
-        }
-
         protected void UpdateDeckWeight(Calculator calculator)
         {
             foreach (EventCard card in deck)

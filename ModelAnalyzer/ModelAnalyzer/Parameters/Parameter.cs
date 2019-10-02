@@ -17,13 +17,12 @@ namespace ModelAnalyzer.Parameters
         public string details;
         public List<ParameterTag> tags = new List<ParameterTag>();
 
-        readonly protected string invalidValueStub = "-";
         readonly protected string dataSeparator = "~";
         readonly string invalidInMessage = "Для вычисления необходимы параметры: {0}";
 
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
-        public abstract string ValueToString();
+     //   public abstract string ValueToString();
 
         internal virtual Parameter Copy ()
         {

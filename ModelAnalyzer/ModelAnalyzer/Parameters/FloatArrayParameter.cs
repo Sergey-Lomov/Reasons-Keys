@@ -10,7 +10,6 @@ namespace ModelAnalyzer.Parameters
         protected List<float> values = new List<float>();
         protected List<float> unroundValues = new List<float>();
 
-        const string separator = " ";
         const string emptyMessage = "Пустой массив";
 
         private readonly string arraySizeParamMessage = "Размер массива должен быть равен \"{0}\": {1}.";
@@ -50,11 +49,11 @@ namespace ModelAnalyzer.Parameters
                 throw e;
             }
 
-            values = ListFromString(subs[0]);
+            values = FloatStringConverter.ListFromString(subs[0]);
                 
             if (subs.Count() >= 2)
             {
-                unroundValues = ListFromString(subs[1]);
+                unroundValues = FloatStringConverter.ListFromString(subs[1]);
             } else
             {
                 unroundValues = Enumerable.Repeat(float.NaN, values.Count).ToList();
@@ -63,66 +62,28 @@ namespace ModelAnalyzer.Parameters
 
         public override string StringRepresentation()
         {
-            return ListToString(values, fractionalDigits) + dataSeparator + ListToString(unroundValues, unroundFractionalDigits);
+            return FloatStringConverter.ListToString(values, fractionalDigits) 
+                + dataSeparator 
+                + FloatStringConverter.ListToString(unroundValues, fractionalDigits);
         }
 
-        private List<float> ListFromString(string str)
+        public List<float> GetValue()
         {
-            List<float> list = new List<float>();
-            if (str.Length == 0)
-                return list;
-
-            string[] subs = str.Split(separator.ToCharArray());
-            foreach (string sub in subs)
-                list.Add(FloatFromString(sub));
-
-            return list;
+            return values;
         }
 
-        private float FloatFromString(string str)
+        public List<float> GetUnroundValue()
         {
-            try
-            {
-                return Utils.FloatFromString(str, invalidValueStub);
-            }
-            catch (MAException e)
-            {
-                throw new MAException(e.Message, this);
-            }
+            return unroundValues;
         }
 
-        private string ListToString(List<float> list, int fractionalDigits)
+        public void SetValue(List<float> newValues)
         {
-            string result = "";
-            for (int i = 0; i < list.Count; i++)
-            {
-                result += Utils.FloatToString(list[i], fractionalDigits, invalidValueStub);
-                string separator = i < list.Count - 1 ? FloatArrayParameter.separator : "";
-                result += separator;
-            }
+            values.Clear();
+            unroundValues.Clear();
 
-            return result;
-        }
-
-        private string ListToHRString(List<float> list, int fractionalDigits)
-        {
-            var str = ListToString(list, fractionalDigits);
-            return str.Length > 0 ? str : emptyMessage;
-        }
-
-        public override string ValueToString()
-        {
-            return ListToHRString(values, fractionalDigits);
-        }
-
-        public override string UnroundValueToString()
-        {
-            return ListToHRString(unroundValues, unroundFractionalDigits);
-        }
-
-        public float[] GetValue()
-        {
-            return values.ToArray();
+            unroundValues.AddRange(newValues);
+            values.AddRange(newValues);
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)

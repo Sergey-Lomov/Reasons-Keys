@@ -2,9 +2,9 @@
 {
     internal abstract class DigitalParameter : Parameter
     {
-        public int fractionalDigits;
-        readonly protected int unroundFractionalDigits = 3;
+        internal int fractionalDigits;
+        //readonly protected int unroundFractionalDigits = 3;
 
-        public abstract string UnroundValueToString();
+       // public abstract string UnroundValueToString();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -41,9 +42,9 @@ namespace ModelAnalyzer.UI.Factories
             Label title = components.TitleLabel(parameter.title);
             title.Click += (sender, e) => rowDelegate.HandleTitleClick(parameter);
 
-            Panel value = valuePanels.ValuePanel(parameter, rowBack, rowHeight);
-            if (parameter.type == ParameterType.In)
-                value.Click += (sender, e) => rowDelegate.HandleValueClick(parameter);
+            EventHandler valueClickHandler = (sender, e) => rowDelegate.HandleValueClick(parameter);
+            Panel value = valuePanels.ValuePanel(parameter, valueClickHandler);
+
             value.Dock = DockStyle.Right;
             value.Width = valueWidth;
 

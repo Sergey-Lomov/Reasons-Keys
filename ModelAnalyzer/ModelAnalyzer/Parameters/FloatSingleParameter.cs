@@ -53,11 +53,11 @@ namespace ModelAnalyzer.Parameters
                 throw e;
             }
 
-            value = FloatFromString(subs[0]);
+            value = FloatStringConverter.FloatFromString(subs[0]);
 
             if (subs.Count() >= 2)
             {
-                unroundValue = FloatFromString(subs[1]);
+                unroundValue = FloatStringConverter.FloatFromString(subs[1]);
             }
             else
             {
@@ -65,36 +65,26 @@ namespace ModelAnalyzer.Parameters
             }
         }
 
-        private float FloatFromString(string str)
-        {
-            try
-            {
-                return Utils.FloatFromString(str, invalidValueStub);
-            }
-            catch (MAException e)
-            {
-                throw new MAException(e.Message, this);
-            }
-        }
-
         public override string StringRepresentation()
         {
-            return ValueToString() + dataSeparator + UnroundValueToString();
-        }
-
-        public override string ValueToString()
-        {
-            return Utils.FloatToString(value, fractionalDigits, invalidValueStub);
-        }
-
-        public override string UnroundValueToString()
-        {
-            return Utils.FloatToString(unroundValue, unroundFractionalDigits, invalidValueStub);
+            return FloatStringConverter.FloatToString(value, fractionalDigits) 
+                + dataSeparator 
+                + FloatStringConverter.FloatToString(unroundValue, fractionalDigits);
         }
 
         public float GetValue()
         {
             return value;
+        }
+
+        public float GetUnroundValue()
+        {
+            return unroundValue;
+        }
+
+        public void SetValue(float newValue)
+        {
+            value = unroundValue = newValue;
         }
     }
 }

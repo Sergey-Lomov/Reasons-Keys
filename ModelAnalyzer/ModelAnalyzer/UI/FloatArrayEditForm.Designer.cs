@@ -1,6 +1,6 @@
 ﻿namespace ModelAnalyzer.UI
 {
-    partial class EditForm
+    partial class FloatArrayEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -43,36 +43,35 @@
             // 
             // approveButton
             // 
-            this.approveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.approveButton.Location = new System.Drawing.Point(12, 64);
             this.approveButton.Name = "approveButton";
             this.approveButton.Size = new System.Drawing.Size(159, 23);
             this.approveButton.TabIndex = 1;
             this.approveButton.Text = "Обновить";
             this.approveButton.UseVisualStyleBackColor = true;
+            this.approveButton.Click += new System.EventHandler(this.approveButton_Click);
             // 
             // calculateButton
             // 
-            this.calculateButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.calculateButton.Location = new System.Drawing.Point(12, 93);
             this.calculateButton.Name = "calculateButton";
             this.calculateButton.Size = new System.Drawing.Size(159, 23);
             this.calculateButton.TabIndex = 2;
             this.calculateButton.Text = "Обновить всё";
             this.calculateButton.UseVisualStyleBackColor = true;
-            this.calculateButton.Click += new System.EventHandler(this.CalculateClick);
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(12, 122);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(159, 23);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Отменить";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // EditForm
+            // FloatArrayEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -85,7 +84,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "EditForm";
+            this.Name = "FloatArrayEditForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

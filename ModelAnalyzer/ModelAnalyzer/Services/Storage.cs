@@ -86,7 +86,7 @@ namespace ModelAnalyzer.Services
         {
             var parameter = Parameter(type);
             if (parameter is FloatArrayParameter array)
-                return array.GetValue();
+                return array.GetValue().ToArray();
 
             return new float[] { };
         }

@@ -15,8 +15,10 @@ namespace ModelAnalyzer.UI
     class UIFactory
     {
         Dictionary<Type, Type> detailsFormsTypes = new Dictionary<Type, Type>();
+
         private readonly ParametersRowsFactory parameters = new ParametersRowsFactory();
         private readonly CalculationReportRowsFactory calculation = new CalculationReportRowsFactory();
+        private readonly EditFormsFactory editForms = new EditFormsFactory();
 
         public UIFactory()
         {
@@ -25,6 +27,11 @@ namespace ModelAnalyzer.UI
             detailsFormsTypes.Add(typeof(RoutesMap), typeof(DigitalParameterDetailsForm));   
             detailsFormsTypes.Add(typeof(BranchPointsAllocation), typeof(DigitalParameterDetailsForm));
             detailsFormsTypes.Add(typeof(DeckParameter), typeof(EventsDeckForm));
+        }
+
+        public ParameterEditForm EditFormForParameter (Parameter parameter)
+        {
+            return editForms.EditFormForParameter(parameter);
         }
 
         public Form DetailsFormForParameter (Parameter parameter, ParameterValidationReport validation)
