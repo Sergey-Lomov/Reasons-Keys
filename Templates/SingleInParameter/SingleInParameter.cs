@@ -1,6 +1,6 @@
 ﻿namespace $rootnamespace$
 {
-    class $safeitemname$ : SingleParameter
+    class $safeitemname$ : FloatSingleParameter
     {
         public $safeitemname$()
         {

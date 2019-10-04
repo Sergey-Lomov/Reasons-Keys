@@ -1,6 +1,6 @@
 ﻿namespace $rootnamespace$
 {
-    class $safeitemname$ : SingleParameter
+    class $safeitemname$ : FloatSingleParameter
     {
         public $safeitemname$()
         {
@@ -15,7 +15,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.UpdateSingleValue(typeof(ParamName));
+            float p = calculator.UpdateParameter<ParamName>.GetValue();
 
             value = ;
 

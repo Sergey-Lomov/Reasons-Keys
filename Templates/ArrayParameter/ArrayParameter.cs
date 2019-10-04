@@ -1,6 +1,6 @@
 ﻿namespace $rootnamespace$
 {
-    class $safeitemname$ : ArrayParameter
+    class $safeitemname$ : FloatArrayParameter
     {
         public $safeitemname$()
         {
@@ -15,7 +15,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.UpdateSingleValue(typeof(ParamName));
+            float p = calculator.UpdatedParameter<ParamName>.GetValue();
 
             unroundValues.Clear();
             values.Clear();
@@ -26,7 +26,7 @@
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var size = storage.Parameter(typeof(SizeParamName));
+            var size = storage.Parameter<SizeParamName>.GetValue();
             ValidateSize(size, report);
             return report;
         }
