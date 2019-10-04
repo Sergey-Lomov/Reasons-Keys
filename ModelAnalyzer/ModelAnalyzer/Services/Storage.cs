@@ -15,6 +15,19 @@ namespace ModelAnalyzer.Services
             parameters[parameter.GetType()] = parameter;
         }
 
+        public Parameter Parameter(Type type)
+        {
+            Parameter p = parameters.ContainsKey(type) ? parameters[type] : null;
+            if (p == null)
+            {
+                string message = string.Format("Invalid parameter type: {0}", type.ToString());
+                MAException e = new MAException(message);
+                throw e;
+            }
+
+            return p;
+        }
+
         public T Parameter<T>() where T : Parameter
         {
             var type = typeof(T);

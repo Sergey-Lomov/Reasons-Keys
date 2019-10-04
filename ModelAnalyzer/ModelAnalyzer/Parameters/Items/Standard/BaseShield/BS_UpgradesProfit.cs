@@ -1,4 +1,6 @@
-﻿using ModelAnalyzer.Services;
+﻿using System.Collections.Generic;
+
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
@@ -19,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float saa = calculator.UpdatedSingleValue(typeof(StandardAtackAmount));
-            float[] bsd = calculator.UpdatedArrayValue(typeof(BS_Defense));
+            float saa = calculator.UpdatedParameter<StandardAtackAmount>().GetValue();
+            List<float> bsd = calculator.UpdatedParameter<BS_Defense>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

@@ -77,7 +77,7 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int pa = (int)calculator.UpdatedSingleValue(typeof(PhasesAmount));
+            int pa = (int)calculator.UpdatedParameter<PhasesAmount>().GetValue();
             phasesRoutes = new FieldAnalyzer(pa).phasesRoutes();
 
             return calculationReport;

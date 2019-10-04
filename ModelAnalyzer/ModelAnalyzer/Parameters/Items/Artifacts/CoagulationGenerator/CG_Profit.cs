@@ -22,8 +22,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float oupr = calculator.UpdatedSingleValue(typeof(CG_OneUsageProfit));
-            float ca = calculator.UpdatedSingleValue(typeof(CG_ChargesAmount));
+            float oupr = calculator.UpdatedParameter<CG_OneUsageProfit>().GetValue();
+            float ca = calculator.UpdatedParameter<CG_ChargesAmount>().GetValue();
 
             value = unroundValue = oupr * ca;
 

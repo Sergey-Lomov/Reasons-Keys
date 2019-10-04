@@ -43,7 +43,7 @@ namespace ModelAnalyzer.Parameters.Topology
 
             unroundValues.Clear();
 
-            float pa = calculator.UpdatedSingleValue(typeof(PhasesAmount));
+            float pa = calculator.UpdatedParameter<PhasesAmount>().GetValue();
             var routesMap = calculator.UpdatedParameter<RoutesMap>();
 
             for (int i = 0; i < pa; i++)

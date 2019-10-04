@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 
@@ -23,12 +24,12 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tisa = calculator.UpdatedSingleValue(typeof(HB_TensionInreasingStepsAmount));
-            float[] tl = calculator.UpdatedArrayValue(typeof(HB_TensionLimits));
+            float tisa = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().GetValue();
+            List<float> tl = calculator.UpdatedParameter<HB_TensionLimits>().GetValue();
 
             if (tl.Count() == 0)
             {
-                var title = calculator.ParameterTitle(typeof(HB_TensionLimits));
+                var title = calculator.UpdatedParameter<HB_TensionLimits>().title;
                 var mesasge = string.Format(emptyArrayIssue, title);
                 calculationReport.Failed(mesasge);
                 value = unroundValue = 0;

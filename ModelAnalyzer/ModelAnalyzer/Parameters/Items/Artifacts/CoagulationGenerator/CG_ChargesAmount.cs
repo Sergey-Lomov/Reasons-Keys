@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eapr = calculator.UpdatedSingleValue(typeof(EstimatedArtifactsProfit));
-            float oupr = calculator.UpdatedSingleValue(typeof(CG_OneUsageProfit));
+            float eapr = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
+            float oupr = calculator.UpdatedParameter<CG_OneUsageProfit>().GetValue();
 
             unroundValue = eapr / oupr;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);

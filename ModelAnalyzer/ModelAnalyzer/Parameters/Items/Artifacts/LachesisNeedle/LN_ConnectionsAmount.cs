@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ocpr = calculator.UpdatedSingleValue(typeof(LN_OneConnectionProfit));
-            float eapr = calculator.UpdatedSingleValue(typeof(EstimatedArtifactsProfit));
+            float ocpr = calculator.UpdatedParameter<LN_OneConnectionProfit>().GetValue();
+            float eapr = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
 
             unroundValue = eapr / ocpr;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);

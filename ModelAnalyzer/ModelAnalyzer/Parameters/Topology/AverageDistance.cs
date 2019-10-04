@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
@@ -23,13 +24,13 @@ namespace ModelAnalyzer.Parameters.Topology
 
             calculationReport = new ParameterCalculationReport(this);
 
-            float[] pd = calculator.UpdatedArrayValue(typeof(AveragePhasesDistance));
-            float[] pw = calculator.UpdatedArrayValue(typeof(PhasesWeight));
+            List<float> pd = calculator.UpdatedParameter<AveragePhasesDistance>().GetValue();
+            List<float> pw = calculator.UpdatedParameter<PhasesWeight>().GetValue();
 
-            if (pd.Length != pw.Length)
+            if (pd.Count != pw.Count)
             {
-                string title1 = calculator.ParameterTitle(typeof(AveragePhasesDistance));
-                string title2 = calculator.ParameterTitle(typeof(PhasesWeight));
+                string title1 = calculator.UpdatedParameter<AveragePhasesDistance>().title;
+                string title2 = calculator.UpdatedParameter<PhasesWeight>().title;
                 string message = string.Format(arrayIssueFormat, title1, title2);
 
                 calculationReport.Failed(message);
@@ -37,7 +38,7 @@ namespace ModelAnalyzer.Parameters.Topology
             }
 
             float sum = 0;
-            for (int i = 0; i < pd.Length; i++)
+            for (int i = 0; i < pd.Count; i++)
                 sum += pd[i] * pw[i];
 
             value = unroundValue = sum / pw.Sum();

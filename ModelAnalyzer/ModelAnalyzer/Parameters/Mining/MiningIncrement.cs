@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Services;
@@ -22,15 +23,15 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
-            float pa = calculator.UpdatedSingleValue(typeof(PhasesAmount));
-            float[] pd = calculator.UpdatedArrayValue(typeof(PhasesDuration));
+            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float pa = calculator.UpdatedParameter<PhasesAmount>().GetValue();
+            List<float> pd = calculator.UpdatedParameter<PhasesDuration>().GetValue();
 
-            if (pd.Length != pa)
+            if (pd.Count != pa)
             {
-                string paTitle = calculator.ParameterTitle(typeof(PhasesAmount));
-                string pdTitle = calculator.ParameterTitle(typeof(PhasesDuration));
-                string issue = string.Format(invalidPhasesAmount, paTitle, pa, pdTitle, pd.Length);
+                string paTitle = calculator.UpdatedParameter<PhasesAmount>().title;
+                string pdTitle = calculator.UpdatedParameter<PhasesDuration>().title;
+                string issue = string.Format(invalidPhasesAmount, paTitle, pa, pdTitle, pd.Count);
 
                 calculationReport.Failed(issue);
                 return calculationReport;

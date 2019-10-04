@@ -19,11 +19,11 @@ namespace ModelAnalyzer.Parameters.Events
 
             calculationReport = new ParameterCalculationReport(this);
 
-            float pa = calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
+            float pa = calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
 
             if (float.IsNaN(pa))
             {
-                string title = calculator.ParameterTitle(typeof(MaxPlayersAmount));
+                string title = calculator.UpdatedParameter<MaxPlayersAmount>().title;
                 FailCalculationByInvalidIn(new string[] {title});
                 return calculationReport;
             }

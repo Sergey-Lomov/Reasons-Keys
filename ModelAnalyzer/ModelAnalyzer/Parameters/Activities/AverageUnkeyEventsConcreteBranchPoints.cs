@@ -25,23 +25,23 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int minpa = (int)calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
-            int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
+            int minpa = (int)calculator.UpdatedParameter<MinPlayersAmount>().GetValue();
+            int maxpa = (int)calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
 
-            float kebpc = calculator.UpdatedSingleValue(typeof(KeyEventsBranchPointsCoefficient));
-            float iewc = calculator.UpdatedSingleValue(typeof(InitialEventsWeightCoefficient));
-            float nkeca = calculator.UpdatedSingleValue(typeof(UnkeyEventCreationAmount));
-            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
-            float aiebp = calculator.UpdatedSingleValue(typeof(AverageInitialEventsBranchPoints));
+            float kebpc = calculator.UpdatedParameter<KeyEventsBranchPointsCoefficient>().GetValue();
+            float iewc = calculator.UpdatedParameter<InitialEventsWeightCoefficient>().GetValue();
+            float nkeca = calculator.UpdatedParameter<UnkeyEventCreationAmount>().GetValue();
+            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
+            float aiebp = calculator.UpdatedParameter<AverageInitialEventsBranchPoints>().GetValue();
 
             float iea = StartDeck.InitialEventsAmount;
 
-            float[] bpal = calculator.UpdatedArrayValue(typeof(BrachPointsTemplatesAllocation));
+            List<float> bpal = calculator.UpdatedParameter<BrachPointsTemplatesAllocation>().GetValue();
             int[] bpam = BranchPointsAmounts;
 
             // For calculation details see mechanic document
             float acebp = 0; //Average brach points in continuum event
-            for (int i = 0; i < bpal.Length; i++)
+            for (int i = 0; i < bpal.Count; i++)
                 acebp += bpal[i] * bpam[i];
             acebp = acebp / bpal.Sum();
 

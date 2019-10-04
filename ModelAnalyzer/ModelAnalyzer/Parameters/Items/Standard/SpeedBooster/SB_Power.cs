@@ -27,10 +27,10 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float isp = calculator.UpdatedSingleValue(typeof(InitialSpeed));
-            float mspc = calculator.UpdatedSingleValue(typeof(SB_MaxSpeedCoef));
-            float ad = calculator.UpdatedSingleValue(typeof(AverageDistance));
-            float ua = calculator.UpdatedSingleValue(typeof(SB_UpgradesAmount));
+            float isp = calculator.UpdatedParameter<InitialSpeed>().GetValue();
+            float mspc = calculator.UpdatedParameter<SB_MaxSpeedCoef>().GetValue();
+            float ad = calculator.UpdatedParameter<AverageDistance>().GetValue();
+            float ua = calculator.UpdatedParameter<SB_UpgradesAmount>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

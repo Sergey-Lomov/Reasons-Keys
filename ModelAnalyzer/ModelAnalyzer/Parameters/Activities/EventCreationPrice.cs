@@ -18,9 +18,9 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
-            float eсp_au = calculator.UpdatedSingleValue(typeof(EventCreationPriceAU));
-            float eсp_eu = calculator.UpdatedSingleValue(typeof(EventCreationPriceEU));
+            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float eсp_au = calculator.UpdatedParameter<EventCreationPriceAU>().GetValue();
+            float eсp_eu = calculator.UpdatedParameter<EventCreationPriceEU>().GetValue();
 
             // See Mechanic doc for clarify formula
             value = unroundValue = eсp_au * am + eсp_eu;

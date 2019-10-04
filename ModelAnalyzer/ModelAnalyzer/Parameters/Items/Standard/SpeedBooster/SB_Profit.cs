@@ -21,7 +21,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float[] up = calculator.UpdatedArrayValue(typeof(SB_UpgradesProfit));
+            List<float> up = calculator.UpdatedParameter<SB_UpgradesProfit>().GetValue();
 
             if (up.Count() == 0)
             {

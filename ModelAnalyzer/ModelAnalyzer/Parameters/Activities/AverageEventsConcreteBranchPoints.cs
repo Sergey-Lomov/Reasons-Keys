@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.PlayerInitial;
@@ -22,13 +23,13 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float minpa = calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
-            float maxpa = calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
-            float kebp = calculator.UpdatedSingleValue(typeof(KeyEventsTotalBrachPoints));
-            float kea = calculator.UpdatedSingleValue(typeof(KeyEventsAmount));
-            float keca = calculator.UpdatedSingleValue(typeof(KeyEventCreationAmount));
-            float[] auecbp = calculator.UpdatedArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
-            
+            float minpa = calculator.UpdatedParameter<MinPlayersAmount>().GetValue();
+            float maxpa = calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
+            float kebp = calculator.UpdatedParameter<KeyEventsTotalBrachPoints>().GetValue();
+            float kea = calculator.UpdatedParameter<KeyEventsAmount>().GetValue();
+            float keca = calculator.UpdatedParameter<KeyEventCreationAmount>().GetValue();
+            List<float> auecbp = calculator.UpdatedParameter<AverageUnkeyEventsConcreteBranchPoints>().GetValue();
+
             value = unroundValue = auecbp.Sum() / (maxpa - minpa + 1) + kebp * keca / kea;
 
             return calculationReport;

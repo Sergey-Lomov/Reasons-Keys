@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
@@ -25,15 +26,15 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float peuprc = calculator.UpdatedSingleValue(typeof(PureEUProfitCoefficient));
-            float ra = calculator.UpdatedSingleValue(typeof(RoundAmount));
-            float cpd = calculator.UpdatedSingleValue(typeof(HB_CollapsePreparationDuration));
-            float ocac = calculator.UpdatedSingleValue(typeof(HB_OwnerCollapseAbsorbCoefficient));
-            float[] tl = calculator.UpdatedArrayValue(typeof(HB_TensionLimits));
+            float peuprc = calculator.UpdatedParameter<PureEUProfitCoefficient>().GetValue();
+            float ra = calculator.UpdatedParameter<RoundAmount>().GetValue();
+            float cpd = calculator.UpdatedParameter<HB_CollapsePreparationDuration>().GetValue();
+            float ocac = calculator.UpdatedParameter<HB_OwnerCollapseAbsorbCoefficient>().GetValue();
+            List<float> tl = calculator.UpdatedParameter<HB_TensionLimits>().GetValue();
 
             if (tl.Count() == 0)
             {
-                var title = calculator.ParameterTitle(typeof(HB_TensionLimits));
+                var title = calculator.UpdatedParameter<HB_TensionLimits>().title;
                 var mesasge = string.Format(emptyArrayIssue, title);
                 calculationReport.Failed(mesasge);
                 value = unroundValue = 0;

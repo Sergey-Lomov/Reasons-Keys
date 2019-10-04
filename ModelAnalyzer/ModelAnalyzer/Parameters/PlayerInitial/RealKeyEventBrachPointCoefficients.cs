@@ -20,10 +20,10 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ketbp = calculator.UpdatedSingleValue(typeof(KeyEventsTotalBrachPoints));
-            float[] auecbp = calculator.UpdatedArrayValue(typeof(AverageUnkeyEventsConcreteBranchPoints));
+            float ketbp = calculator.UpdatedParameter<KeyEventsTotalBrachPoints>().GetValue();
+            List<float> auecbp = calculator.UpdatedParameter<AverageUnkeyEventsConcreteBranchPoints>().GetValue();
 
-            List<float> result = new List<float>(auecbp.Length);
+            List<float> result = new List<float>(auecbp.Count);
             foreach (float current_auecbp in auecbp)
                 result.Add(ketbp / current_auecbp);
 

@@ -21,10 +21,10 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float wsp = calculator.UpdatedSingleValue(typeof(WeaponStandardPower));
-            float mpc = calculator.UpdatedSingleValue(typeof(BW_MaxPowerCoefficient));
-            float ua = calculator.UpdatedSingleValue(typeof(BW_UpgradesAmount));
-            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
+            float wsp = calculator.UpdatedParameter<WeaponStandardPower>().GetValue();
+            float mpc = calculator.UpdatedParameter<BW_MaxPowerCoefficient>().GetValue();
+            float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
+            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

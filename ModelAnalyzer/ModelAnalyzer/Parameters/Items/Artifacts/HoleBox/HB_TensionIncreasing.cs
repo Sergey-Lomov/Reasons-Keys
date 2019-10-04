@@ -23,14 +23,14 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tisa = calculator.UpdatedSingleValue(typeof(HB_TensionInreasingStepsAmount));
+            float tisa = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().GetValue();
 
             unroundValues.Clear();
             values.Clear();
 
             if (tisa == 0 || float.IsNaN(tisa))
             {
-                var title = calculator.ParameterTitle(typeof(HB_TensionInreasingStepsAmount));
+                var title = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().title;
                 var mesasge = string.Format(missedTISAIssue, title);
                 calculationReport.Failed(mesasge);
                 return calculationReport;

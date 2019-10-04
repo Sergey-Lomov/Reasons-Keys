@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 
@@ -20,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = calculator.UpdatedSingleValue(typeof(ItemPriceCoefficient));
-            float[] up = calculator.UpdatedArrayValue(typeof(BW_UpgradesProfit));
+            float ipc = calculator.UpdatedParameter<ItemPriceCoefficient>().GetValue();
+            List<float> up = calculator.UpdatedParameter<BW_UpgradesProfit>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

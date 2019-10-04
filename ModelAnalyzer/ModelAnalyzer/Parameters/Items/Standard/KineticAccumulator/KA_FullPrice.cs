@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = calculator.UpdatedSingleValue(typeof(ItemPriceCoefficient));
-            float pr = calculator.UpdatedSingleValue(typeof(KA_Profit));
+            float ipc = calculator.UpdatedParameter<ItemPriceCoefficient>().GetValue();
+            float pr = calculator.UpdatedParameter<KA_Profit>().GetValue();
 
             unroundValue = ipc * pr;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);

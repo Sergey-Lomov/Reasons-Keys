@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
@@ -21,10 +22,10 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bp = calculator.UpdatedSingleValue(typeof(BS_BasePower));
-            float mp = calculator.UpdatedSingleValue(typeof(BS_MaxPower));
-            float ua = calculator.UpdatedSingleValue(typeof(BW_UpgradesAmount));
-            float[] bwd = calculator.UpdatedArrayValue(typeof(BW_Damage));
+            float bp = calculator.UpdatedParameter<BS_BasePower>().GetValue();
+            float mp = calculator.UpdatedParameter<BS_MaxPower>().GetValue();
+            float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
+            List<float> bwd = calculator.UpdatedParameter<BW_Damage>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

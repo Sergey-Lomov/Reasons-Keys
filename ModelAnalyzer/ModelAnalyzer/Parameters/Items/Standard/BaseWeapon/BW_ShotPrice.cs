@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 
@@ -20,10 +21,10 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float wse = calculator.UpdatedSingleValue(typeof(WeaponStandardEffectivity));
-            float mec = calculator.UpdatedSingleValue(typeof(BW_MaxEffectivityCoefficient));
-            float ua = calculator.UpdatedSingleValue(typeof(BW_UpgradesAmount));
-            float[] bwd = calculator.UpdatedArrayValue(typeof(BW_Damage));
+            float wse = calculator.UpdatedParameter<WeaponStandardEffectivity>().GetValue();
+            float mec = calculator.UpdatedParameter<BW_MaxEffectivityCoefficient>().GetValue();
+            float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
+            List<float> bwd = calculator.UpdatedParameter<BW_Damage>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

@@ -26,27 +26,27 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mp = calculator.UpdatedSingleValue(typeof(MotionPrice));
-            float isp = calculator.UpdatedSingleValue(typeof(InitialSpeed));
-            float fr = calculator.UpdatedSingleValue(typeof(FieldRadius));
-            float au = calculator.UpdatedSingleValue(typeof(AUMoveAmount));
-            float[] pd = calculator.UpdatedArrayValue(typeof(PhasesDuration));
-            float[] ma = calculator.UpdatedArrayValue(typeof(MiningAllocation));
+            float mp = calculator.UpdatedParameter<MotionPrice>().GetValue();
+            float isp = calculator.UpdatedParameter<InitialSpeed>().GetValue();
+            float fr = calculator.UpdatedParameter<FieldRadius>().GetValue();
+            float au = calculator.UpdatedParameter<AUMoveAmount>().GetValue();
+            List<float> pd = calculator.UpdatedParameter<PhasesDuration>().GetValue();
+            List<float> ma = calculator.UpdatedParameter<MiningAllocation>().GetValue();
 
             // Check values
             var invalidTitles = new List<string>();
             
             if (float.IsNaN(mp))
-                invalidTitles.Add(calculator.ParameterTitle(typeof(MotionPrice)));
+                invalidTitles.Add(calculator.UpdatedParameter<MotionPrice>().title);
 
             if (float.IsNaN(isp))
-                invalidTitles.Add(calculator.ParameterTitle(typeof(InitialSpeed)));
+                invalidTitles.Add(calculator.UpdatedParameter<InitialSpeed>().title);
 
             if (float.IsNaN(au))
-                invalidTitles.Add(calculator.ParameterTitle(typeof(AUMoveAmount)));
+                invalidTitles.Add(calculator.UpdatedParameter<AUMoveAmount>().title);
 
-            if (ma.Length == 0)
-                invalidTitles.Add(calculator.ParameterTitle(typeof(MiningAllocation)));
+            if (ma.Count == 0)
+                invalidTitles.Add(calculator.UpdatedParameter<MiningAllocation>().title);
 
             if (invalidTitles.Count > 0)
             {
@@ -55,14 +55,14 @@ namespace ModelAnalyzer.Parameters.Mining
             }
 
             var issues = new List<string>();
-            if (pd.Length < 1)
+            if (pd.Count < 1)
             {
                 issues.Add(phaseDurationIssue);
             }
-            if (ma.Length < fr + 1)
+            if (ma.Count < fr + 1)
             {
-                var maTitle = calculator.ParameterTitle(typeof(MiningAllocation));
-                var frTitle = calculator.ParameterTitle(typeof(FieldRadius));
+                var maTitle = calculator.UpdatedParameter<MiningAllocation>().title;
+                var frTitle = calculator.UpdatedParameter<FieldRadius>().title;
                 var issue = string.Format(miningAllocationIssue, maTitle, frTitle);
                 issues.Add(issue);
             }

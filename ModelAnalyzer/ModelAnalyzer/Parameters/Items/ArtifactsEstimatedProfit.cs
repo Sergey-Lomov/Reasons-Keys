@@ -19,10 +19,10 @@ namespace ModelAnalyzer.Parameters.Items
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float abip = calculator.UpdatedSingleValue(typeof(AverageBaseItemsProfit));
-            float apc = calculator.UpdatedSingleValue(typeof(ArtifactsProfitCoefficient));
-            float ipc = calculator.UpdatedSingleValue(typeof(ItemPriceCoefficient));
-            float ecp = calculator.UpdatedSingleValue(typeof(EventCreationPrice));
+            float abip = calculator.UpdatedParameter<AverageBaseItemsProfit>().GetValue();
+            float apc = calculator.UpdatedParameter<ArtifactsProfitCoefficient>().GetValue();
+            float ipc = calculator.UpdatedParameter<ItemPriceCoefficient>().GetValue();
+            float ecp = calculator.UpdatedParameter<EventCreationPrice>().GetValue();
 
             value = unroundValue = abip * (1 - ipc) * apc + ecp;
 

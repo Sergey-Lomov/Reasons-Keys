@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mi = calculator.UpdatedSingleValue(typeof(MiningIncrement));
-            float fr = calculator.UpdatedSingleValue(typeof(FieldRadius));
+            float mi = calculator.UpdatedParameter<MiningIncrement>().GetValue();
+            float fr = calculator.UpdatedParameter<FieldRadius>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

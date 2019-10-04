@@ -21,7 +21,7 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float fr = calculator.UpdatedSingleValue(typeof(FieldRadius));
+            float fr = calculator.UpdatedParameter<FieldRadius>().GetValue();
 
             value = 0;
             for (int i = 1; i <= fr; i++)

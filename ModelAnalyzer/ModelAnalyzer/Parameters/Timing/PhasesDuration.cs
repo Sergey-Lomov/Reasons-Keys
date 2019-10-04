@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 
@@ -22,8 +23,8 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ra = calculator.UpdatedSingleValue(typeof(RoundAmount));
-            float[] pw = calculator.UpdatedArrayValue(typeof(PhasesWeight));
+            float ra = calculator.UpdatedParameter<RoundAmount>().GetValue();
+            List<float> pw = calculator.UpdatedParameter<PhasesWeight>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

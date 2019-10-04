@@ -50,13 +50,13 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int minpa = (int)calculator.UpdatedSingleValue(typeof(MinPlayersAmount));
-            int maxpa = (int)calculator.UpdatedSingleValue(typeof(MaxPlayersAmount));
+            int minpa = (int)calculator.UpdatedParameter<MinPlayersAmount>().GetValue();
+            int maxpa = (int)calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
 
             var config = new CalculationConfig();
-            config.prcc = calculator.UpdatedSingleValue(typeof(PlayerRealisationControlCoefficient));
-            config.ppw = calculator.UpdatedSingleValue(typeof(PassivePlayerWeight));
-            config.bpw = calculator.UpdatedSingleValue(typeof(BranchPointWeight));
+            config.prcc = calculator.UpdatedParameter<PlayerRealisationControlCoefficient>().GetValue();
+            config.ppw = calculator.UpdatedParameter<PassivePlayerWeight>().GetValue();
+            config.bpw = calculator.UpdatedParameter<BranchPointWeight>().GetValue();
 
             SetupPlayersCombinatinos(minpa, maxpa);
             SetupTemplatesCombinatinos(maxpa);

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = calculator.UpdatedSingleValue(typeof(ItemPriceCoefficient));
-            float[] up = calculator.UpdatedArrayValue(typeof(BS_UpgradesProfit));
+            float ipc = calculator.UpdatedParameter<ItemPriceCoefficient>().GetValue();
+            List<float> up = calculator.UpdatedParameter<BS_UpgradesProfit>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

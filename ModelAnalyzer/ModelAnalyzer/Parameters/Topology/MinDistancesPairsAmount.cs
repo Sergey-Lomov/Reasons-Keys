@@ -23,13 +23,13 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float[] pd = calculator.UpdatedArrayValue(typeof(PhasesDuration));
+            List<float> pd = calculator.UpdatedParameter<PhasesDuration>().GetValue();
             var phasesRoutes = calculator.UpdatedParameter<RoutesMap>().phasesRoutes;
 
             unroundValues.Clear();
             values.Clear();
 
-            if (pd.Length != phasesRoutes.Keys.Count)
+            if (pd.Count != phasesRoutes.Keys.Count)
             {
                 calculationReport.Failed(arraySizeIssue);
                 return calculationReport;

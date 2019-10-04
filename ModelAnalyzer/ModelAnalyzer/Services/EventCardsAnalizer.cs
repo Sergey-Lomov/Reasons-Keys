@@ -13,10 +13,10 @@ namespace ModelAnalyzer.Services
     {
         static internal float WeightForCard(EventCard card, Calculator calculator)
         {
-            float aw = calculator.UpdatedSingleValue(typeof(ArtifactsWeight));
-            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
-            float eip = calculator.UpdatedSingleValue(typeof(EventImpactPrice));
-            float mbw = calculator.UpdatedSingleValue(typeof(MiningBonusWeight));
+            float aw = calculator.UpdatedParameter<ArtifactsWeight>().GetValue();
+            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
+            float mbw = calculator.UpdatedParameter<MiningBonusWeight>().GetValue();
 
             float weight = 0;
             weight += RelationsWeight(card.relations, calculator);
@@ -29,15 +29,14 @@ namespace ModelAnalyzer.Services
 
         static internal float RelationsWeight (List<EventRelation> relations, Calculator calculator)
         {
-            float brw = calculator.UpdatedSingleValue(typeof(BaseRelationsWeight));
-            float arw = calculator.UpdatedSingleValue(typeof(AdditionalReasonsWeight));
-            float frw = calculator.UpdatedSingleValue(typeof(FrontReasonsWeight));
-            float fbw = calculator.UpdatedSingleValue(typeof(FrontBlockerWeight));
+            float brw = calculator.UpdatedParameter<BaseRelationsWeight>().GetValue();
+            float arw = calculator.UpdatedParameter<AdditionalReasonsWeight>().GetValue();
+            float frw = calculator.UpdatedParameter<FrontReasonsWeight>().GetValue();
+            float fbw = calculator.UpdatedParameter<FrontBlockerWeight>().GetValue();
 
-            float ars = calculator.UpdatedSingleValue(typeof(AverageRelationStability));
-            float eip = calculator.UpdatedSingleValue(typeof(EventImpactPrice));
-            float eun = calculator.UpdatedSingleValue(typeof(EventUsabilityNormalisation));
-
+            float ars = calculator.UpdatedParameter<AverageRelationStability>().GetValue();
+            float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
+            float eun = calculator.UpdatedParameter<EventUsabilityNormalisation>().GetValue();
 
             Func<EventRelation, bool> basePredicate = r => r.direction == RelationDirection.back && r.type != RelationType.reason;
             Func<EventRelation, bool> backReasonPredicate = r => r.direction == RelationDirection.back && r.type == RelationType.reason;
@@ -67,7 +66,7 @@ namespace ModelAnalyzer.Services
             if (relations.Count == 0)
                 return 0;
 
-            float[] availableBackAllocation = calculator.UpdatedArrayValue(typeof(NodesAvailableBackRelations));
+            List<float> availableBackAllocation = calculator.UpdatedParameter<NodesAvailableBackRelations>().GetValue();
 
             int backAmount = relations.Where(r => r.direction == RelationDirection.back).Count();
             int frontAmount = relations.Where(r => r.direction == RelationDirection.front).Count();

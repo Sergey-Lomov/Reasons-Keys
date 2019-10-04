@@ -1,4 +1,6 @@
-﻿using ModelAnalyzer.Services;
+﻿using System.Collections.Generic;
+
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Mining;
 
@@ -21,11 +23,11 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float sdr = calculator.UpdatedSingleValue(typeof(SpeedDoublingRate));
-            float am = calculator.UpdatedSingleValue(typeof(AverageMining));
-            float isp = calculator.UpdatedSingleValue(typeof(InitialSpeed));
-            float ua = calculator.UpdatedSingleValue(typeof(SB_UpgradesAmount));
-            float[] sbp = calculator.UpdatedArrayValue(typeof(SB_Power));
+            float sdr = calculator.UpdatedParameter<SpeedDoublingRate>().GetValue();
+            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float isp = calculator.UpdatedParameter<InitialSpeed>().GetValue();
+            float ua = calculator.UpdatedParameter<SB_UpgradesAmount>().GetValue();
+            List<float> sbp = calculator.UpdatedParameter<SB_Power>().GetValue();
 
             unroundValues.Clear();
             values.Clear();

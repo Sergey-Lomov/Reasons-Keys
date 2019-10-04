@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 using ModelAnalyzer.Services;
 
@@ -19,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cna = calculator.UpdatedSingleValue(typeof(ContinuumNodesAmount));
-            float[] sia = calculator.UpdatedArrayValue(typeof(StabilityIncrementAllocation));
+            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
+            List<float> sia = calculator.UpdatedParameter<StabilityIncrementAllocation>().GetValue(); 
 
             float average = 0;
             for (int i = 0; i < sia.Count(); i++)

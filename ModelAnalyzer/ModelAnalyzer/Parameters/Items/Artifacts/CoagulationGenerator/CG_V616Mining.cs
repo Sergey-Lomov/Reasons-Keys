@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Mining;
@@ -23,10 +24,10 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float amb = calculator.UpdatedSingleValue(typeof(AverageMiningBonus));
-            float[] ma = calculator.UpdatedArrayValue(typeof(MiningAllocation));
+            float amb = calculator.UpdatedParameter<AverageMiningBonus>().GetValue();
+            List<float> ma = calculator.UpdatedParameter<MiningAllocation>().GetValue();
 
-            unroundValue = ma[ma.Length - 1] + amb;
+            unroundValue = ma[ma.Count - 1] + amb;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);
 
             return calculationReport;

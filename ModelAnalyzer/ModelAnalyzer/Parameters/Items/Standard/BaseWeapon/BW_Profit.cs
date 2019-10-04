@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 
@@ -20,7 +21,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float[] up = calculator.UpdatedArrayValue(typeof(BW_UpgradesProfit));
+            List<float> up = calculator.UpdatedParameter<BW_UpgradesProfit>().GetValue();
             if (up.Count() > 0)
                 value = unroundValue = up.Average();
 

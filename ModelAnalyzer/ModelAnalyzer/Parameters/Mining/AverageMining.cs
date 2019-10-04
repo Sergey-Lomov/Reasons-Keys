@@ -19,9 +19,9 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eu = calculator.UpdatedSingleValue(typeof(EUPartyAmount));
-            float au = calculator.UpdatedSingleValue(typeof(AUPartyAmount));
-            float mc = calculator.UpdatedSingleValue(typeof(MiningAUCoef));
+            float eu = calculator.UpdatedParameter<EUPartyAmount>().GetValue();
+            float au = calculator.UpdatedParameter<AUPartyAmount>().GetValue();
+            float mc = calculator.UpdatedParameter<MiningAUCoef>().GetValue();
 
             value = unroundValue = eu / (au * mc);
 
