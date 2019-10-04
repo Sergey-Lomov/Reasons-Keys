@@ -2,7 +2,7 @@
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 {
-    class LN_Profit : FloatSingleParameter
+    class LN_Profit : ArtifactProfit
     {
         public LN_Profit()
         {

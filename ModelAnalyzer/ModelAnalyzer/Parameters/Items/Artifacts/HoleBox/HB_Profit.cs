@@ -7,9 +7,8 @@ using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
-    class HB_Profit : FloatSingleParameter
+    class HB_Profit : ArtifactProfit
     {
-        private const string missedEstimationIssue = "Выгодность дыры в коробке более чем на 20% отклоняется от оценочной выгондосит артефактов";
         private const string emptyArrayIssue = "Параметр {0} не содержит значений";
 
         public HB_Profit()
@@ -46,17 +45,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
             value = unroundValue = maeu * (peuprc + (1 - cpd / ra) * (1 - ocac) / 2);
 
             return calculationReport;
-        }
-
-        internal override ParameterValidationReport Validate(Validator validator, Storage storage)
-        {
-            var report = base.Validate(validator, storage);
-            float eapr = storage.Parameter<EstimatedArtifactsProfit>().GetValue();
-
-            if (Math.Abs(1 - value / eapr) > 0.2)
-                report.issues.Add(missedEstimationIssue);
-
-            return report;
         }
     }
 }
