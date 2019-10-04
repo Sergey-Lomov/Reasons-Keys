@@ -83,6 +83,7 @@
     <Compile Include="Parameters\Events\Weight\PlayerRealisationControlCoefficient.cs" />
     <Compile Include="Parameters\Items\ArtifactsEstimatedProfit.cs" />
     <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
+    <Compile Include="Parameters\Items\Artifacts\ArtifactProfit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_ChargesAmount.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_OneUsageProfit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_Profit.cs" />
