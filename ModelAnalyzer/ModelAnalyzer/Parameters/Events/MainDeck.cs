@@ -4,6 +4,7 @@ using System.Linq;
 
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Events
 {

@@ -32,22 +32,16 @@ namespace ModelAnalyzer.Services
             return modelCalculationReport;
         }
 
-        internal CalculationModule UpdatedModule (Type type)
+        internal T UpdatedModule<T> () where T : CalculationModule, new()
         {
-            if (modules.ContainsKey(type))
-                return modules[type];
+            if (modules.ContainsKey(typeof(T)))
+                return modules[typeof(T)] as T;
 
-            var instance = Activator.CreateInstance(type);
-            if (instance is CalculationModule)
-            {
-                var module = instance as CalculationModule;
-                var report = module.Execute(this);
-                modelCalculationReport.Add(report);
-                modules[type] = module;
-                return module;
-            }
-
-            return null;
+            var module = new T();
+            var report = module.Execute(this);
+            modelCalculationReport.Add(report);
+            modules[typeof(T)] = module;
+            return module;
         }
 
         internal T UpdatedParameter<T>() where T : Parameter

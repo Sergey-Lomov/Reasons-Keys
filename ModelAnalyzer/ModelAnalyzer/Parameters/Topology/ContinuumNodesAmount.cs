@@ -1,7 +1,6 @@
 ﻿using ModelAnalyzer.Services;
-using ModelAnalyzer.Parameters.Topology;
 
-namespace ModelAnalyzer.Parameters.Events
+namespace ModelAnalyzer.Parameters.Topology
 {
     class ContinuumNodesAmount : FloatSingleParameter
     {

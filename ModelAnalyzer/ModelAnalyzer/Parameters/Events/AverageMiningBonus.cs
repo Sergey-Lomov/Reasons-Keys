@@ -2,6 +2,7 @@
 using System.Linq;
 
 using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Events
 {
