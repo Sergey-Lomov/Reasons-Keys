@@ -31,17 +31,17 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
             {
                 var title = calculator.ParameterTitle(typeof(HB_TensionLimits));
                 var mesasge = string.Format(emptyArrayIssue, title);
-                calculationReport.AddFailed(mesasge);
+                calculationReport.AddIssue(mesasge);
             }
 
             if (ti.Count() == 0)
             {
                 var title = calculator.ParameterTitle(typeof(HB_TensionIncreasing));
                 var mesasge = string.Format(emptyArrayIssue, title);
-                calculationReport.AddFailed(mesasge);
+                calculationReport.AddIssue(mesasge);
             }
 
-            if (!calculationReport.IsSucces)
+            if (!calculationReport.IsSuccess)
             {
                 value = unroundValue = 0;
                 return calculationReport;

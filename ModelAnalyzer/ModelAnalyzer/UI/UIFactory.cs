@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
-using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Topology;
 
 using ModelAnalyzer.UI.Factories;
@@ -68,14 +67,9 @@ namespace ModelAnalyzer.UI
             return calculation.HeaderForIssues(title);
         }
 
-        public Panel RowForValidationReport(ParameterValidationReport report)
+        public Panel RowForReport(OperationReport report)
         {
-            return calculation.RowForValidationReport(report);
-        }
-
-        public Panel RowForCalculationReport(ParameterCalculationReport report)
-        {
-            return calculation.RowForCalculationReport(report);
+            return calculation.RowForReport(report);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.UI
@@ -10,20 +11,25 @@ namespace ModelAnalyzer.UI
     public partial class CalculationReportForm : Form
     {
         List<ParameterValidationReport> validations = new List<ParameterValidationReport>();
-        List<ParameterCalculationReport> calculations = new List<ParameterCalculationReport>();
+        List<ModuleCalculationReport> modulesCalculations = new List<ModuleCalculationReport>();
+        List<ParameterCalculationReport> parametersCalculations = new List<ParameterCalculationReport>();
 
         public CalculationReportForm()
         {
             InitializeComponent();
         }
 
-        internal void SetData (List<ParameterValidationReport> validations, List<ParameterCalculationReport> calculations)
+        internal void SetData (List<ParameterValidationReport> validations, List<OperationReport> calculations)
         {
             if (validations != null)
                 this.validations = validations;
 
             if (calculations != null)
-                this.calculations = calculations;
+            {
+                modulesCalculations = calculations.Where(r => r is ModuleCalculationReport).Select(r => r as ModuleCalculationReport).ToList();
+                parametersCalculations = calculations.Where(r => r is ParameterCalculationReport).Select(r => r as ParameterCalculationReport).ToList();
+
+            }
 
             ReloadChanges();
             ReloadIssues();
@@ -36,14 +42,14 @@ namespace ModelAnalyzer.UI
             changesTable.RowStyles.Clear();
 
             var factory = new UIFactory();
-            var succes = calculations.Where(r => r.IsSucces);
+            var succes = parametersCalculations.Where(r => r.IsSuccess);
             var succesChanged = succes.Where(r => r.WasChanged).ToList();
             var ordered = succesChanged.OrderBy(r => r.parameter.title);
             changesTable.RowCount = ordered.Count();
 
             foreach (ParameterCalculationReport report in ordered)
             {
-                Panel row = factory.RowForCalculationReport(report);
+                Panel row = factory.RowForReport(report);
                 changesTable.Controls.Add(row);
             }
 
@@ -60,48 +66,40 @@ namespace ModelAnalyzer.UI
             issuesTable.RowStyles.Clear();
             issuesTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-            var factory = new UIFactory();
+            var totalIssues = 0;
+            totalIssues += AddIssuesGroup("Проблемы расчетов модулей", modulesCalculations);
+            totalIssues += AddIssuesGroup("Проблемы расчетов параметров", parametersCalculations);
+            totalIssues += AddIssuesGroup("Проблемы валидации", validations); 
 
-            // Calculation issues
-            var failedCalculations = calculations.Where(r => !r.IsSucces);
-            var orderedCalculations = failedCalculations.OrderBy(r => r.parameter.title);
-
-            issuesTable.RowCount += failedCalculations.Count();
-            if (failedCalculations.Count() > 0)
-            {
-                issuesTable.RowCount += 1;
-                Panel header = factory.HeaderForIssues("Проблемы расчетов");
-                issuesTable.Controls.Add(header);
-            }
-
-            foreach (ParameterCalculationReport report in orderedCalculations)
-            {
-                Panel row = factory.RowForCalculationReport(report);
-                issuesTable.Controls.Add(row);
-            }
-
-            // Validation issues
-            var failedValidations = validations.Where(r => r.HasIssues);
-            var orderedValidations = failedValidations.OrderBy(r => r.parameter.title);
-            issuesTable.RowCount += failedValidations.Count();
-
-            if (failedValidations.Count() > 0)
-            {
-                issuesTable.RowCount += 1;
-                Panel header = factory.HeaderForIssues("Проблемы валидации");
-                issuesTable.Controls.Add(header);
-            }
-
-            foreach (ParameterValidationReport report in orderedValidations)
-            {
-                Panel row = factory.RowForValidationReport(report);
-                issuesTable.Controls.Add(row);
-            }
-
-            issuesTab.Text = string.Format("Проблемы ({0})", failedValidations.Count() + failedCalculations.Count());
+            issuesTab.Text = string.Format("Проблемы ({0})", totalIssues);
 
             Invalidate(true);
             issuesTable.Visible = true;
+        }
+
+        private int AddIssuesGroup(string headerTitle, IEnumerable<OperationReport> reports)
+        {
+            var factory = new UIFactory();
+
+            var failed = reports.Where(r => !r.IsSuccess);
+            var ordered = failed.OrderBy(r => r.operationTitle);
+
+            issuesTable.RowCount += failed.Count();
+
+            if (failed.Count() > 0)
+            {
+                issuesTable.RowCount += 1;
+                Panel header = factory.HeaderForIssues(headerTitle);
+                issuesTable.Controls.Add(header);
+            }
+
+            foreach (OperationReport report in ordered)
+            {
+                Panel row = factory.RowForReport(report);
+                issuesTable.Controls.Add(row);
+            }
+
+            return failed.Count();
         }
     }
 }

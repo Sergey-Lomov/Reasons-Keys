@@ -53,7 +53,7 @@ namespace ModelAnalyzer.UI.Factories
 
         internal Panel IssuesIndicator(Parameter parameter, ParameterValidationReport validation)
         {
-            var hasIssues = validation.HasIssues || parameter.calculationReport?.IsSucces == false;
+            var hasIssues = !validation.IsSuccess || parameter.calculationReport?.IsSuccess == false;
             Color issuesIndicatorColor = hasIssues ? issueColor : Color.Transparent;
             return new Panel()
             {

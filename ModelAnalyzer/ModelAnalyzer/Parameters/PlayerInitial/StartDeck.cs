@@ -124,7 +124,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             weightLeft -= miningBonus * eip;
 
             if (Math.Abs(weightLeft) / estimatedWeight > 0.1)
-                calculationReport.AddFailed(logisticsCardIssueMessage);
+                calculationReport.AddIssue(logisticsCardIssueMessage);
 
             card.relations = relations;
             card.stabilityIncrement = stability;
@@ -179,7 +179,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var filteredDeck = mainDeck.Where(c => c.usability >= micu);
             if (filteredDeck.Count() == 0)
             {
-                calculationReport.AddFailed(emptyFilterIssueMessage);
+                calculationReport.AddIssue(emptyFilterIssueMessage);
                 card.comment = "Сбой";
                 return card;
             }
@@ -189,7 +189,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             weightLeft -= EventCardsAnalizer.RelationsWeight(relations, calculator);
 
             if (Math.Abs(weightLeft) / estimatedWeight > 0.1)
-                calculationReport.AddFailed(miningCardIssueMessage);
+                calculationReport.AddIssue(miningCardIssueMessage);
 
             card.relations = relations;
             card.stabilityIncrement = stability;
@@ -245,7 +245,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var filteredDeck = mainDeck.Where(c => c.usability >= micu);
             if (filteredDeck.Count() == 0)
             {
-                calculationReport.AddFailed(emptyFilterIssueMessage);
+                calculationReport.AddIssue(emptyFilterIssueMessage);
                 card.comment = "Сбой";
                 return card;
             }
@@ -255,7 +255,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             weightLeft -= EventCardsAnalizer.RelationsWeight(relations, calculator);
 
             if (Math.Abs(weightLeft) / estimatedWeight > 0.1)
-                calculationReport.AddFailed(stabilityCardIssueMessage);
+                calculationReport.AddIssue(stabilityCardIssueMessage);
 
             card.relations = relations;
             card.stabilityIncrement = stability;

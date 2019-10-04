@@ -159,6 +159,7 @@
     <Compile Include="Parameters\Topology\MinDistancesPairsAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />
+    <Compile Include="Services\CalculationModule.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Parameters\DigitalParameter.cs" />
     <Compile Include="Parameters\ParameterTag.cs" />
     <Compile Include="Services\FloatStringConverter.cs" />
+    <Compile Include="Services\OperationReport.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>

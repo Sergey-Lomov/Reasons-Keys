@@ -26,7 +26,7 @@ namespace ModelAnalyzer.UI
             MainLayout.RowStyles.Clear();
             MainLayout.HorizontalScroll.Visible = false;
 
-            new ParametersFactory().LoadModel(storage);
+            new ModelFactory().LoadModel(storage);
             UpdateTagsPanel();
             try
             { 

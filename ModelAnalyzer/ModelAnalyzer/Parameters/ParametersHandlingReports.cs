@@ -1,50 +1,35 @@
 ﻿using System.Collections.Generic;
 
+using ModelAnalyzer.Services;
+
 namespace ModelAnalyzer.Parameters
 {
-    public class ParameterValidationReport
+    public class ParameterOperationReport : OperationReport
     {
         public Parameter parameter;
-        public bool HasIssues => issues.Count > 0;
-        public List<string> issues = new List<string>();
 
-        internal ParameterValidationReport(Parameter parameter)
+        internal override string operationTitle => parameter.title;
+
+        internal ParameterOperationReport(Parameter parameter)
         {
             this.parameter = parameter;
         }
     }
 
-    class ParameterCalculationReport
+    public class ParameterValidationReport : ParameterOperationReport
     {
-        public Parameter parameter;
-        public Parameter precalculated;
+        internal ParameterValidationReport(Parameter parameter) : base(parameter) { }
+    }
 
-        public bool IsSucces => issues.Count == 0;
-        public readonly List<string> issues = new List<string>();
+    public class ParameterCalculationReport : ParameterOperationReport
+    {
+        public Parameter precalculated;
 
         public bool WasChanged => !parameter.IsEqual(precalculated);
 
-        internal ParameterCalculationReport(Parameter parameter)
+        internal ParameterCalculationReport(Parameter parameter) : base(parameter)
         {
-            this.parameter = parameter;
             precalculated = parameter.Copy();
-        }
-
-        internal void AddFailed(string issue)
-        {
-            issues.Add(issue);
-        }
-
-        internal void Failed (string issue)
-        {
-            issues.Clear();
-            issues.Add(issue);
-        }
-
-        internal void Failed(List<string> issues)
-        {
-            issues.Clear();
-            issues.AddRange(issues);
         }
     }
 }

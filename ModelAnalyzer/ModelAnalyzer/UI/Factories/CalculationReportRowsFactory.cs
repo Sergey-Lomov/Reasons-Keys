@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Linq;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
-using System;
 
 namespace ModelAnalyzer.UI.Factories
 {
@@ -30,19 +30,8 @@ namespace ModelAnalyzer.UI.Factories
             return panel;
         }
 
-        public Panel RowForValidationReport(ParameterValidationReport report)
+        private Panel ParameterComparasionRow(Parameter left, Parameter right)
         {
-            return RowForIssues(report.parameter, report.issues);
-        }
-
-        public Panel RowForCalculationReport(ParameterCalculationReport report)
-        {
-            return report.IsSucces ? RowForSuccesCalculation(report) : RowForFailedCalculation(report);
-        }
-
-        private Panel RowForSuccesCalculation(ParameterCalculationReport report)
-        {
-            var parameter = report.parameter;
             Panel panel = components.RowPanel(reportRowBack, reportRowHeight);
 
             int valuesPanelWidth = comparasionLabelsWidth * 2 + comparasionSeparatorWidth;
@@ -61,35 +50,32 @@ namespace ModelAnalyzer.UI.Factories
                 TextAlign = ContentAlignment.MiddleCenter,
             };
 
-            Panel oldPanel = ComparasionLabelsPanel(DockStyle.Left);
-            Panel newPanel = ComparasionLabelsPanel(DockStyle.Right);
+            Panel leftComparasionPanel = ComparasionLabelsPanel(DockStyle.Left);
+            Panel rightComparasionPanel = ComparasionLabelsPanel(DockStyle.Right);
 
-            var oldValue = valuesPanels.ValuePanel(report.precalculated, true);
-            oldValue.MaximumSize = oldPanel.Size;
-            oldPanel.Controls.Add(oldValue);
+            var leftValue = valuesPanels.ValuePanel(left, true);
+            leftValue.MaximumSize = leftComparasionPanel.Size;
+            leftComparasionPanel.Controls.Add(leftValue);
 
-            var newValue = valuesPanels.ValuePanel(report.parameter, true);
-            newValue.MaximumSize = newPanel.Size;
-            newPanel.Controls.Add(newValue);
+            var rightValue = valuesPanels.ValuePanel(right, true);
+            rightValue.MaximumSize = rightComparasionPanel.Size;
+            rightComparasionPanel.Controls.Add(rightValue);
 
             comparasionPanel.Controls.Add(separatorLabel);
-            comparasionPanel.Controls.Add(oldPanel);
-            comparasionPanel.Controls.Add(newPanel);
+            comparasionPanel.Controls.Add(leftComparasionPanel);
+            comparasionPanel.Controls.Add(rightComparasionPanel);
 
             panel.Controls.Add(comparasionPanel);
-            panel.Controls.Add(components.TitleLabel(parameter.title));
-            panel.Controls.Add(components.TypeIndicator(parameter.type));
+            panel.Controls.Add(components.TitleLabel(right.title));
+            panel.Controls.Add(components.TypeIndicator(right.type));
 
             return panel;
         }
 
-        private Panel RowForFailedCalculation(ParameterCalculationReport report)
+        internal Panel RowForReport(OperationReport report)
         {
-            return RowForIssues(report.parameter, report.issues);
-        }
+            var issues = report.issues;
 
-        private Panel RowForIssues(Parameter parameter, List<string> issues)
-        {
             Panel panel = new Panel()
             {
                 BackColor = reportRowBack,
@@ -116,16 +102,25 @@ namespace ModelAnalyzer.UI.Factories
                 AutoSize = true
             };
 
-            Label title = components.TitleLabel(parameter.title);
+            panel.Controls.Add(issuesLabel);
+
+            Label title = components.TitleLabel(report.operationTitle);
             title.Dock = DockStyle.Top;
             title.Font = new Font(title.Font, FontStyle.Bold);
 
-            panel.Controls.Add(issuesLabel);
             panel.Controls.Add(title);
-            panel.Controls.Add(components.TypeIndicator(parameter.type));
+
+            if (report is ParameterOperationReport)
+                CustomiseForParameterReport(panel, report as ParameterOperationReport);
 
             return panel;
         }
+
+        private void CustomiseForParameterReport (Panel panel, ParameterOperationReport report)
+        {
+            panel.Controls.Add(components.TypeIndicator(report.parameter.type));
+        }
+
 
         private Label ComparasionLabel(string value, bool isNew, bool isRounded)
         {

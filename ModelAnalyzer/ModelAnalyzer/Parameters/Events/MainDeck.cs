@@ -323,7 +323,7 @@ namespace ModelAnalyzer.Parameters.Events
             float[] si_allocation = calculator.UpdatedArrayValue(typeof(StabilityIncrementAllocation));
 
             int[] si_amounts = AmountsForAllocation(cna, si_allocation);
-            if (!calculationReport.IsSucces) return;
+            if (!calculationReport.IsSuccess) return;
 
             var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
             var groups = SplitForAmounts(ordered, si_amounts);
@@ -346,7 +346,7 @@ namespace ModelAnalyzer.Parameters.Events
             float[] mb_allocation = calculator.UpdatedArrayValue(typeof(EventMiningBonusAllocation));
 
             int[] mb_amounts = AmountsForAllocation(cna, mb_allocation);
-            if (!calculationReport.IsSucces) return;
+            if (!calculationReport.IsSuccess) return;
 
             var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
             var groups = SplitForAmounts(ordered, mb_amounts);

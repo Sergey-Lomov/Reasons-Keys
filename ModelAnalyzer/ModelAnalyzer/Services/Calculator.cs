@@ -5,13 +5,15 @@ using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.Services
 {
-    using ModelCalcultaionReport = List<ParameterCalculationReport>;
+    using ModelCalcultaionReport = List<OperationReport>;
 
     class Calculator
     {
         Storage storage;
         HashSet<Parameter> updated;
         ModelCalcultaionReport modelCalculationReport;
+
+        private Dictionary<Type, CalculationModule> modules = new Dictionary<Type, CalculationModule>();
 
         internal ModelCalcultaionReport CalculateModel (Storage storage)
         {
@@ -25,7 +27,27 @@ namespace ModelAnalyzer.Services
             foreach (Parameter parameter in parameters)
                 CalculateIfNecessary(parameter);
 
+            modules.Clear();
+
             return modelCalculationReport;
+        }
+
+        internal CalculationModule UpdatedModule (Type type)
+        {
+            if (modules.ContainsKey(type))
+                return modules[type];
+
+            var instance = Activator.CreateInstance(type);
+            if (instance is CalculationModule)
+            {
+                var module = instance as CalculationModule;
+                var report = module.Execute(this);
+                modelCalculationReport.Add(report);
+                modules[type] = module;
+                return module;
+            }
+
+            return null;
         }
 
         internal float UpdatedSingleValue(Type type)

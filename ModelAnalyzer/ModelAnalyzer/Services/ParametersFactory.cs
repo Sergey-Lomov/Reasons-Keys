@@ -22,7 +22,7 @@ using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
 
 namespace ModelAnalyzer
 {
-    class ParametersFactory
+    class ModelFactory
     {
         public void LoadModel (Storage storage)
         {
