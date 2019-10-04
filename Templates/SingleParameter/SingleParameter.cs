@@ -1,4 +1,6 @@
-﻿namespace $rootnamespace$
+﻿using ModelAnalyzer.Services;
+
+namespace $rootnamespace$
 {
     class $safeitemname$ : FloatSingleParameter
     {
@@ -15,7 +17,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.UpdateParameter<ParamName>.GetValue();
+            float p = calculator.UpdatedParameter<ParamName>().GetValue();
 
             value = ;
 

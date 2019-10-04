@@ -1,4 +1,6 @@
-﻿namespace $rootnamespace$
+﻿using ModelAnalyzer.Services;
+
+namespace $rootnamespace$
 {
     class $safeitemname$ : FloatArrayParameter
     {
@@ -15,7 +17,7 @@
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.UpdatedParameter<ParamName>.GetValue();
+            float p = calculator.UpdatedParameter<ParamName>().GetValue();
 
             unroundValues.Clear();
             values.Clear();
@@ -26,7 +28,7 @@
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var size = storage.Parameter<SizeParamName>.GetValue();
+            var size = storage.Parameter<SizeParamName>().GetValue();
             ValidateSize(size, report);
             return report;
         }

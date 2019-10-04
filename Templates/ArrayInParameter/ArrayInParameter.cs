@@ -1,4 +1,6 @@
-﻿namespace $rootnamespace$
+﻿using ModelAnalyzer.Services;
+
+namespace $rootnamespace$
 {
     class $safeitemname$ : FloatArrayParameter
     {
