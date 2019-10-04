@@ -30,7 +30,7 @@ namespace ModelAnalyzer.UI.Factories
             return panel;
         }
 
-        private Panel ParameterComparasionRow(Parameter left, Parameter right)
+        internal Panel ParameterComparasionRow(Parameter left, Parameter right)
         {
             Panel panel = components.RowPanel(reportRowBack, reportRowHeight);
 

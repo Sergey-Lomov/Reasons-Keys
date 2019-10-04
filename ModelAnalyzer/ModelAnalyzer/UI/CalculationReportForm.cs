@@ -49,7 +49,7 @@ namespace ModelAnalyzer.UI
 
             foreach (ParameterCalculationReport report in ordered)
             {
-                Panel row = factory.RowForReport(report);
+                Panel row = factory.ParameterComparasionRow(report.precalculated, report.parameter);
                 changesTable.Controls.Add(row);
             }
 

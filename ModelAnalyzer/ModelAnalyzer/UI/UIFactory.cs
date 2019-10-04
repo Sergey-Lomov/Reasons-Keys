@@ -61,7 +61,7 @@ namespace ModelAnalyzer.UI
             return parameters.RowForParameter(parameter, rowDelegate, validation);
         }
 
-        // Calculatino results
+        // Calculation results
         public Panel HeaderForIssues(string title)
         {
             return calculation.HeaderForIssues(title);
@@ -70,6 +70,11 @@ namespace ModelAnalyzer.UI
         public Panel RowForReport(OperationReport report)
         {
             return calculation.RowForReport(report);
+        }
+
+        public Panel ParameterComparasionRow(Parameter left, Parameter right)
+        {
+            return calculation.ParameterComparasionRow(left, right);
         }
     }
 }
