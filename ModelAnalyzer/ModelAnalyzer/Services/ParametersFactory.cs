@@ -19,6 +19,7 @@ using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
 using ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator;
 using ModelAnalyzer.Parameters.Items.Artifacts.HoleBox;
 using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
+using ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser;
 
 namespace ModelAnalyzer
 {
@@ -201,6 +202,12 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new LN_ConnectionsAmount());
             storage.AddParameter(parameter: new LN_OneConnectionProfit());
             storage.AddParameter(parameter: new LN_Profit());
+
+            storage.AddParameter(parameter: new SS_Profit());
+            storage.AddParameter(parameter: new SS_SecondaryStabilisationPower());
+            storage.AddParameter(parameter: new SS_StabilisationPower());
+            storage.AddParameter(parameter: new SS_SymmetricalNodesAmount());
+            storage.AddParameter(parameter: new SS_UsageAmount());
         }
     }
 }
