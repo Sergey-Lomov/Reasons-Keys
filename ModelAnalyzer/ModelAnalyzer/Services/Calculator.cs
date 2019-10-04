@@ -50,30 +50,11 @@ namespace ModelAnalyzer.Services
             return null;
         }
 
-        internal float UpdatedSingleValue(Type type)
-        {
-            var parameter = storage.Parameter(type);
-            CalculateIfNecessary(parameter);
-            return storage.SingleValue(type);
-        }
-
-        internal float[] UpdatedArrayValue(Type type)
-        {
-            var parameter = storage.Parameter(type);
-            CalculateIfNecessary(parameter);
-            return storage.ArrayValue(type);
-        }
-
         internal T UpdatedParameter<T>() where T : Parameter
         {
-            var parameter = storage.Parameter(typeof(T));
+            var parameter = storage.Parameter<T>();
             CalculateIfNecessary(parameter);
             return parameter as T;
-        }
-
-        internal string ParameterTitle(Type type)
-        {
-            return storage.Parameter(type).title;
         }
 
         private void CalculateIfNecessary (Parameter parameter)

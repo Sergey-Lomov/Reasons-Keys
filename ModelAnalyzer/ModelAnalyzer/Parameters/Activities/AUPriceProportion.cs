@@ -20,7 +20,7 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eu = calculator.UpdatedSingleValue(typeof(EUPartyAmount));
+            float eu = calculator.UpdatedParameter<EUPartyAmount));
             float au = calculator.UpdatedSingleValue(typeof(AUPartyAmount));
             float ma = calculator.UpdatedSingleValue(typeof(MotionAmount));
             float mp = calculator.UpdatedSingleValue(typeof(MotionPrice));

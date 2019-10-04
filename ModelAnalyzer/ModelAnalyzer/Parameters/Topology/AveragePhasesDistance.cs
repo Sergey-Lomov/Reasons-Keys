@@ -22,15 +22,14 @@ namespace ModelAnalyzer.Parameters.Topology
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {    
             var report = base.Validate(validator, storage);
-            var size = storage.Parameter(typeof(PhasesAmount));
+            var size = storage.Parameter<PhasesAmount>();
             ValidateSize(size, report);
 
-            var radiusType = typeof(FieldRadius);
-            float r = storage.SingleValue(radiusType);
+            var radius = storage.Parameter<FieldRadius>();
 
-            if (r != validFieldRadius)
+            if (radius.GetValue() != validFieldRadius)
             {
-                var title = storage.Parameter(radiusType).title;
+                var title = radius.title;
                 var issue = string.Format(invalidMessageFormat, title, validFieldRadius);
                 report.issues.Add(issue);
             }

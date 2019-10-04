@@ -18,16 +18,16 @@ namespace ModelAnalyzer.UI.Factories
             var panel = new Panel();
             panel.Click += clickHandler;
 
-            if (p is FloatSingleParameter)
-                AddFloatSingle(p as FloatSingleParameter, panel, advanced, clickHandler);
-            if (p is FloatArrayParameter)
-                AddFloatArray(p as FloatArrayParameter, panel, advanced, clickHandler);
-            if (p is DeckParameter)
-                AddDeck(p as DeckParameter, panel, advanced, clickHandler);
-            if (p is RoutesMap)
-                AddRoutesMap(p as RoutesMap, panel, advanced, clickHandler);
-            if (p is PairsArrayParameter)
-                AddPairsArray(p as PairsArrayParameter, panel, advanced, clickHandler);
+            if (p is FloatSingleParameter floatSingle)
+                AddFloatSingle(floatSingle, panel, advanced, clickHandler);
+            if (p is FloatArrayParameter floatArray)
+                AddFloatArray(floatArray, panel, advanced, clickHandler);
+            if (p is DeckParameter deck)
+                AddDeck(deck, panel, advanced, clickHandler);
+            if (p is RoutesMap routesMap)
+                AddRoutesMap(routesMap, panel, advanced, clickHandler);
+            if (p is PairsArrayParameter pairsArray)
+                AddPairsArray(pairsArray, panel, advanced, clickHandler);
 
             return panel;
         }

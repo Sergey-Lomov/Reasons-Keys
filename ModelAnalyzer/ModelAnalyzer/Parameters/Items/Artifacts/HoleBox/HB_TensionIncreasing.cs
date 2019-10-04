@@ -56,7 +56,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var tisa = storage.SingleValue(typeof(HB_TensionInreasingStepsAmount));
+            var tisa = storage.Parameter<HB_TensionInreasingStepsAmount>().GetValue();
             ValidateSize(tisa + 1, report);
             return report;
         }

@@ -15,8 +15,9 @@ namespace ModelAnalyzer.Services
             parameters[parameter.GetType()] = parameter;
         }
 
-        public Parameter Parameter(Type type)
+        public T Parameter<T>() where T : Parameter
         {
+            var type = typeof(T);
             Parameter p = parameters.ContainsKey(type) ? parameters[type] : null;
             if (p == null)
             {
@@ -25,7 +26,7 @@ namespace ModelAnalyzer.Services
                 throw e;
             }
 
-            return p;
+            return p as T;
         }
 
         public bool HasParameterOfType(Type type)
@@ -71,24 +72,6 @@ namespace ModelAnalyzer.Services
                         tags.Add(tag);
 
             return tags;
-        }
-
-        internal float SingleValue(Type type)
-        {
-            var parameter = Parameter(type);
-            if (parameter is FloatSingleParameter single)
-                return single.GetValue();
-
-            return 0;
-        }
-
-        internal float[] ArrayValue(Type type)
-        {
-            var parameter = Parameter(type);
-            if (parameter is FloatArrayParameter array)
-                return array.GetValue().ToArray();
-
-            return new float[] { };
         }
     }
 }

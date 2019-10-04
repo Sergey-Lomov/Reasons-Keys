@@ -20,12 +20,12 @@ namespace ModelAnalyzer.Parameters.Events
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var pa = storage.SingleValue(typeof(PhasesAmount));
+            float pa = storage.Parameter<PhasesAmount>().GetValue();
 
             if (pa != float.NaN)
                 if (value >= pa)
                 {
-                    string title = storage.Parameter(typeof(PhasesAmount)).title;
+                    string title = storage.Parameter<PhasesAmount>().title;
                     string issue = string.Format(phasesAmountIssue, title, pa);
                     report.issues.Add(issue);
                 }

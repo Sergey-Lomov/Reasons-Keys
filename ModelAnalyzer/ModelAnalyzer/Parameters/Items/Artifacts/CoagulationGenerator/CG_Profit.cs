@@ -33,7 +33,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            float eapr = storage.SingleValue(typeof(EstimatedArtifactsProfit));
+            float eapr = storage.Parameter<EstimatedArtifactsProfit>().GetValue();
 
             if (Math.Abs(1 - value / eapr) > 0.2)
                 report.issues.Add(missedEstimationIssue);

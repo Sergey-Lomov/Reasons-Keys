@@ -39,8 +39,8 @@ namespace ModelAnalyzer.Parameters.Mining
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            float fr = storage.SingleValue(typeof(FieldRadius));
-            string title = storage.Parameter(typeof(FieldRadius)).title;
+            float fr = storage.Parameter<FieldRadius>().GetValue();
+            string title = storage.Parameter<FieldRadius>().title;
             var issue = string.Format(arraySizeMessage, title, fr + 1);
             ValidateSize(fr + 1, issue, report);
 

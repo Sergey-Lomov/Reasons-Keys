@@ -17,8 +17,8 @@ namespace ModelAnalyzer.Parameters.Events
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var max = storage.SingleValue(typeof(EventMaxMiningBonus));
-            var min = storage.SingleValue(typeof(EventMinMiningBonus));
+            var max = storage.Parameter<EventMaxMiningBonus>().GetValue();
+            var min = storage.Parameter<EventMinMiningBonus>().GetValue();
 
             var validSize = max - min + 1;
             ValidateSize(validSize, report);

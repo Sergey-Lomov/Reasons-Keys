@@ -61,7 +61,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var size = storage.Parameter(typeof(SB_UpgradesAmount));
+            var size = storage.Parameter<SB_UpgradesAmount>();
             ValidateSize(size, report);
 
             if (values.Contains(0))

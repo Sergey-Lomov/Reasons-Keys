@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 
@@ -20,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = calculator.UpdatedSingleValue(typeof(ItemPriceCoefficient));
-            float[] up = calculator.UpdatedArrayValue(typeof(SB_UpgradesProfit));
+            float ipc = calculator.UpdatedParameter<ItemPriceCoefficient>().GetValue();
+            List<float> up = calculator.UpdatedParameter<SB_UpgradesProfit>().GetValue();
 
             unroundValues.Clear();
             values.Clear();
@@ -40,7 +41,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var size = storage.Parameter(typeof(SB_UpgradesAmount));
+            var size = storage.Parameter<SB_UpgradesAmount>();
             ValidateSize(size, report);
             return report;
         }

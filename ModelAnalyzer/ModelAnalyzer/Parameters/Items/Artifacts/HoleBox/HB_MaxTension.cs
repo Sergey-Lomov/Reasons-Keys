@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 using ModelAnalyzer.Services;
 
@@ -22,21 +23,21 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cpd = calculator.UpdatedSingleValue(typeof(HB_CollapsePreparationDuration));
-            int mtr = (int)calculator.UpdatedSingleValue(typeof(HB_MaxTransaction));
-            float[] tl = calculator.UpdatedArrayValue(typeof(HB_TensionLimits));
-            float[] ti = calculator.UpdatedArrayValue(typeof(HB_TensionIncreasing));
+            float cpd = calculator.UpdatedParameter<HB_CollapsePreparationDuration>().GetValue();
+            int mtr = (int)calculator.UpdatedParameter<HB_MaxTransaction>().GetValue();
+            List<float> tl = calculator.UpdatedParameter<HB_TensionLimits>().GetValue();
+            List<float> ti = calculator.UpdatedParameter<HB_TensionIncreasing>().GetValue();
 
             if (tl.Count() == 0)
             {
-                var title = calculator.ParameterTitle(typeof(HB_TensionLimits));
+                var title = calculator.UpdatedParameter<HB_TensionLimits>().title;
                 var mesasge = string.Format(emptyArrayIssue, title);
                 calculationReport.AddIssue(mesasge);
             }
 
             if (ti.Count() == 0)
             {
-                var title = calculator.ParameterTitle(typeof(HB_TensionIncreasing));
+                var title = calculator.UpdatedParameter<HB_TensionIncreasing>().title;
                 var mesasge = string.Format(emptyArrayIssue, title);
                 calculationReport.AddIssue(mesasge);
             }

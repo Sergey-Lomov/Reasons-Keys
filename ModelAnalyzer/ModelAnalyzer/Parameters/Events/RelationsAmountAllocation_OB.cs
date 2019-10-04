@@ -16,8 +16,8 @@ namespace ModelAnalyzer.Parameters.Events
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
-            var mbr = storage.SingleValue(typeof(MinBackRelations));
-            var emr = storage.SingleValue(typeof(EventMaxRelations));
+            var mbr = storage.Parameter<MinBackRelations>().GetValue();
+            var emr = storage.Parameter<EventMaxRelations>().GetValue();
 
             var validSize = emr - mbr + 1;
             ValidateSize(validSize, report);

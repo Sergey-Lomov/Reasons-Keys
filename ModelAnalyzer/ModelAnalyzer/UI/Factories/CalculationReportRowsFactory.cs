@@ -110,8 +110,8 @@ namespace ModelAnalyzer.UI.Factories
 
             panel.Controls.Add(title);
 
-            if (report is ParameterOperationReport)
-                CustomiseForParameterReport(panel, report as ParameterOperationReport);
+            if (report is ParameterOperationReport parameterReport)
+                CustomiseForParameterReport(panel, parameterReport);
 
             return panel;
         }
