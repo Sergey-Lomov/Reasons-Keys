@@ -44,6 +44,9 @@ namespace ModelAnalyzer.Parameters
 
         public override void SetupByString(string str)
         {
+            if (str.Length == 0)
+                return;
+
             var subs = str.Split(pairsSeparator.ToCharArray());
 
             foreach (var sub in subs)

@@ -3,6 +3,7 @@ using System.Linq;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.PlayerInitial;
+using ModelAnalyzer.Parameters.General;
 
 namespace ModelAnalyzer.Parameters.Activities
 {

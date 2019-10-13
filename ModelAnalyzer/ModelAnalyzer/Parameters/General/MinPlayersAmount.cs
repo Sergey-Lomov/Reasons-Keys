@@ -1,4 +1,4 @@
-﻿namespace ModelAnalyzer.Parameters
+﻿namespace ModelAnalyzer.Parameters.General
 {
     class MinPlayersAmount : FloatSingleParameter
     {

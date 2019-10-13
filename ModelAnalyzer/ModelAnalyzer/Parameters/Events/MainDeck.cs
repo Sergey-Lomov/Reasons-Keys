@@ -4,6 +4,7 @@ using System.Linq;
 
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Events
@@ -35,23 +36,31 @@ namespace ModelAnalyzer.Parameters.Events
             float na = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
             float pa = calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
 
-            var cards_2d = BothDirectionCards(calculator);
-            int amount_ob = (int)na - cards_2d.Count();
-            var cards_ob = OnlyBackCards(calculator, amount_ob);
+            try
+            {
+                var cards_2d = BothDirectionCards(calculator);
+                int amount_ob = (int)na - cards_2d.Count();
+                var cards_ob = OnlyBackCards(calculator, amount_ob);
 
-            deck.AddRange(cards_2d);
-            deck.AddRange(cards_ob);
+                deck.AddRange(cards_2d);
+                deck.AddRange(cards_ob);
 
-            PairReasons(deck, calculator);
-            UpdateDeckUsability(calculator);
-            UpdateDeckWeight(calculator);
-            AddArtifacts(deck, calculator);
-            UpdateDeckWeight(calculator);
-            AddStabilityIncrement(deck, calculator);
-            UpdateDeckWeight(calculator);
-            AddMiningBonuses(deck, calculator);
-            UpdateDeckWeight(calculator);
-            AddBranchPoints(deck, calculator);
+                PairReasons(deck, calculator);
+                UpdateDeckUsability(calculator);
+                UpdateDeckWeight(calculator);
+                AddArtifacts(deck, calculator);
+                UpdateDeckWeight(calculator);
+                AddStabilityIncrement(deck, calculator);
+                UpdateDeckWeight(calculator);
+                AddMiningBonuses(deck, calculator);
+                UpdateDeckWeight(calculator);
+                AddBranchPoints(deck, calculator);
+            }
+
+            catch (MACalculationException)
+            {
+                deck.Clear();
+            }
 
             return calculationReport;
         }
@@ -370,9 +379,8 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (var template in templateCards.Keys)
             {
                 var tCards = templateCards[template];
-                var sequence = SequenceForTemplate(template, tCards.Count(), calculator);
-                /*for (int i = 0; i < tCards.Count(); i++)
-                    tCards[i].branchPoints = sequence[i];*/
+                var sequence = SequenceForTemplate(template, tCards.Count(), calculator); 
+
                 foreach (var card in tCards)
                 {
                     var setIndex = randoizer.Next(sequence.Count);
@@ -468,6 +476,13 @@ namespace ModelAnalyzer.Parameters.Events
         {
             var bpa_std = (BranchPointsAllocation)calculator.UpdatedParameter<BranchPointsAllocation_Standard>();
             var bpa_sym = (BranchPointsAllocation)calculator.UpdatedParameter<BranchPointsAllocation_Symmetric>();
+
+            if (bpa_std.GetValue().Count() == 0 || bpa_sym.GetValue().Count() == 0)
+            {
+                FailCalculationByInvalidIn(new string[]{ bpa_std.title, bpa_sym.title});
+                var exception = new MACalculationException("");
+                throw exception;
+            }
 
             var sequence = new List<BranchPointsSet>();
             var activeAllocation = bpa_std;

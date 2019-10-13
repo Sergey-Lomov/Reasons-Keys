@@ -22,4 +22,11 @@ namespace ModelAnalyzer
             this.parameter = parameter;
         }
     }
+
+    class MACalculationException : MAException
+    {
+        public MACalculationException(string message) : base(message)
+        {
+        }
+    }
 }

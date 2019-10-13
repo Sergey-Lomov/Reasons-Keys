@@ -88,6 +88,9 @@
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_OneUsageProfit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_Profit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_V616Mining.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_CalculationModule.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_Power.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_Profit.cs" />
     <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_CollapsePreparationDuration.cs" />
     <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_MaxTension.cs" />
     <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_MaxTransaction.cs" />
@@ -164,6 +167,7 @@
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\PlayerInitial\StabilityInitialCardCoefficient.cs" />
     <Compile Include="Parameters\Topology\MinDistancesPairsAmount.cs" />
+    <Compile Include="Parameters\Topology\NodesNearestAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />
     <Compile Include="Services\CalculationModule.cs" />
@@ -176,6 +180,7 @@
     <Compile Include="Parameters\DigitalParameter.cs" />
     <Compile Include="Parameters\ParameterTag.cs" />
     <Compile Include="Services\FloatStringConverter.cs" />
+    <Compile Include="Services\MathAdditional.cs" />
     <Compile Include="Services\OperationReport.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
@@ -357,7 +362,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

@@ -1,4 +1,5 @@
 ﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.Timing

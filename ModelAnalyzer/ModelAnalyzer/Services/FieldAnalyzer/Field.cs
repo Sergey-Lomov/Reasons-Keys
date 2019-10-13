@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelAnalyzer.Services.FieldAnalyzer
 {
@@ -15,7 +13,13 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             this.points = points;
         }
 
-        public HashSet<FieldRoute> allRoutes()
+        public List<FieldPoint> AvailableNearestFor(FieldPoint point)
+        {
+            var nearest = point.nearest();
+            return nearest.Where(p => points.Contains(p)).ToList();
+        }
+
+        public HashSet<FieldRoute> AllRoutes()
         {
             var routes = new HashSet<FieldRoute>();
             var globalHanledPoitns = new HashSet<FieldPoint>();

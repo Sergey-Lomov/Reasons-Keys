@@ -6,7 +6,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts
 {
     abstract class ArtifactProfit : FloatSingleParameter
     {
-        private const string missedEstimationIssue = "Более чем на 20% отклоняется от оценочной выгондосит артефактов";
+        private const string missedEstimationIssue = "Более чем на 20% отклоняется от оценочной выгодности артефактов {0}";
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
@@ -14,7 +14,10 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts
             float eapr = storage.Parameter<EstimatedArtifactsProfit>().GetValue();
 
             if (Math.Abs(1 - value / eapr) > 0.2)
-                report.issues.Add(missedEstimationIssue);
+            {
+                var message = string.Format(missedEstimationIssue, eapr);
+                report.issues.Add(message);
+            }
 
             return report;
         }

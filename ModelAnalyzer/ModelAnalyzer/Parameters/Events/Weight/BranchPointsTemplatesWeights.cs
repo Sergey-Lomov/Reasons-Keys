@@ -4,6 +4,7 @@ using System.Linq;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.DataModels;
+using ModelAnalyzer.Parameters.General;
 
 namespace ModelAnalyzer.Parameters.Events.Weight
 {

@@ -4,8 +4,6 @@ using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    using BranchPiar = ValueTuple<int, int>;
-
     class BranchPointsAllocation_Symmetric : BranchPointsAllocation
     {
         public BranchPointsAllocation_Symmetric()

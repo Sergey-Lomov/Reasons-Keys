@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ModelAnalyzer.Services.FieldAnalyzer
 {
@@ -22,7 +18,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             var phasesRoutes = new Dictionary<int, HashSet<FieldRoute>>();
 
             foreach (var phaseField in phasesFields)
-                phasesRoutes[phaseField.Key] = phaseField.Value.allRoutes();
+                phasesRoutes[phaseField.Key] = phaseField.Value.AllRoutes();
 
             return phasesRoutes;
         }

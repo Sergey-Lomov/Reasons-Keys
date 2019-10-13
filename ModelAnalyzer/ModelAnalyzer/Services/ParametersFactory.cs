@@ -1,6 +1,6 @@
 ﻿using ModelAnalyzer.Services;
 
-using ModelAnalyzer.Parameters;
+using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
@@ -20,6 +20,7 @@ using ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator;
 using ModelAnalyzer.Parameters.Items.Artifacts.HoleBox;
 using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
 using ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser;
+using ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule;
 
 namespace ModelAnalyzer
 {
@@ -65,7 +66,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
-            storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new EventMaxMiningBonus());
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());
@@ -123,9 +123,11 @@ namespace ModelAnalyzer
             // Topology
             storage.AddParameter(parameter: new AverageDistance());
             storage.AddParameter(parameter: new AveragePhasesDistance());
+            storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new FieldRadius());
-            storage.AddParameter(parameter: new RoutesMap());
             storage.AddParameter(parameter: new MinDistancesPairsAmount());
+            storage.AddParameter(parameter: new NodesNearestAmount());
+            storage.AddParameter(parameter: new RoutesMap());
 
             // Player initial state
             storage.AddParameter(parameter: new AverageInitialEventsBranchPoints());
@@ -208,6 +210,9 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new SS_StabilisationPower());
             storage.AddParameter(parameter: new SS_SymmetricalNodesAmount());
             storage.AddParameter(parameter: new SS_UsageAmount());
+
+            storage.AddParameter(parameter: new CM_Power());
+            storage.AddParameter(parameter: new CM_Profit());
         }
     }
 }
