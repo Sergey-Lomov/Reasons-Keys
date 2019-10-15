@@ -13,6 +13,7 @@ namespace ModelAnalyzer.Parameters.Activities
             details = "Стоимость, которую должно было бы иметь воздействие на событие, если бы не нужно было округлять стоимость в ЕА и ТЗ";
             fractionalDigits = 2;
             tags.Add(ParameterTag.activities);
+            tags.Add(ParameterTag.events);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

@@ -1,8 +1,8 @@
 ﻿namespace ModelAnalyzer.Parameters.Activities
 {
-    class StandardAtackAmount : FloatSingleParameter
+    class AtackAmount : FloatSingleParameter
     {
-        public StandardAtackAmount()
+        public AtackAmount()
         {
             type = ParameterType.In;
             title = "Стандартное кол-во нападений";

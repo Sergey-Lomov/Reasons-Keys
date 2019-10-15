@@ -32,6 +32,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MinPlayersAmount());
 
             // Activities
+            storage.AddParameter(parameter: new AtackAmount());
             storage.AddParameter(parameter: new AUPriceProportion());
             storage.AddParameter(parameter: new AverageEventsConcreteBranchPoints());
             storage.AddParameter(parameter: new AverageUnkeyEventsConcreteBranchPoints());
@@ -50,9 +51,9 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventImpactPriceEU());
             storage.AddParameter(parameter: new EventsActionsPotential());
             storage.AddParameter(parameter: new KeyEventCreationAmount());
-            storage.AddParameter(parameter: new StandardAtackAmount());
-            storage.AddParameter(parameter: new UnkeyEventCreationAmount());
+            storage.AddParameter(parameter: new MiningAmount());
             storage.AddParameter(parameter: new TotalPotential());
+            storage.AddParameter(parameter: new UnkeyEventCreationAmount());
 
             // Events
             storage.AddParameter(parameter: new MainDeck());

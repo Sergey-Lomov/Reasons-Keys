@@ -12,6 +12,7 @@ namespace ModelAnalyzer.Parameters.Activities
             details = "";
             fractionalDigits = 0;
             tags.Add(ParameterTag.activities);
+            tags.Add(ParameterTag.events);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

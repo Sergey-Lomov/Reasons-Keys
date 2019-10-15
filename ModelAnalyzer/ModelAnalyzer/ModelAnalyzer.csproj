@@ -68,7 +68,8 @@
     <Compile Include="Parameters\Activities\AverageEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventCreationPrice.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventImpactPrice.cs" />
-    <Compile Include="Parameters\Activities\StandardAtackAmount.cs" />
+    <Compile Include="Parameters\Activities\AtackAmount.cs" />
+    <Compile Include="Parameters\Activities\MiningAmount.cs" />
     <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />

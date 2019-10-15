@@ -22,7 +22,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float saa = calculator.UpdatedParameter<StandardAtackAmount>().GetValue();
+            float saa = calculator.UpdatedParameter<AtackAmount>().GetValue();
             float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
             List<float> bwd = calculator.UpdatedParameter<BW_Damage>().GetValue();
             List<float> bwsp = calculator.UpdatedParameter<BW_ShotPrice>().GetValue();

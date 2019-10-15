@@ -1,6 +1,5 @@
 ﻿using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Activities;
-using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Mining
 {
@@ -20,10 +19,9 @@ namespace ModelAnalyzer.Parameters.Mining
             calculationReport = new ParameterCalculationReport(this);
 
             float eu = calculator.UpdatedParameter<EUPartyAmount>().GetValue();
-            float au = calculator.UpdatedParameter<AUPartyAmount>().GetValue();
-            float mc = calculator.UpdatedParameter<MiningAUCoef>().GetValue();
+            float ma = calculator.UpdatedParameter<MiningAmount>().GetValue();
 
-            value = unroundValue = eu / (au * mc);
+            value = unroundValue = eu / ma;
 
             return calculationReport;
         }

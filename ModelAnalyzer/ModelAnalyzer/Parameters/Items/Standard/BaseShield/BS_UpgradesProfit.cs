@@ -21,7 +21,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float saa = calculator.UpdatedParameter<StandardAtackAmount>().GetValue();
+            float saa = calculator.UpdatedParameter<AtackAmount>().GetValue();
             List<float> bsd = calculator.UpdatedParameter<BS_Defense>().GetValue();
 
             unroundValues.Clear();
