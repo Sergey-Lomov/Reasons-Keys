@@ -22,14 +22,14 @@ namespace ModelAnalyzer.Parameters.Activities
 
             float eu = calculator.UpdatedParameter<EUPartyAmount>().GetValue();
             float au = calculator.UpdatedParameter<AUPartyAmount>().GetValue();
-            float ma = calculator.UpdatedParameter<MotionAmount>().GetValue();
+            float mota = calculator.UpdatedParameter<MotionAmount>().GetValue();
             float mp = calculator.UpdatedParameter<MotionPrice>().GetValue();
-            float mac = calculator.UpdatedParameter<MiningAUCoef>().GetValue();
+            float mina = calculator.UpdatedParameter<MiningAmount>().GetValue();
             float am = calculator.UpdatedParameter<AverageMining>().GetValue();
 
-            float euFree = eu - ma * mp;
-            float auFree = (1 - mac) * au;
-            value = unroundValue = (auFree * am) / (auFree * am + euFree);
+            float euFree = eu - mota * mp;
+            float auFree = au - mina;
+            value = unroundValue = auFree * am / (auFree * am + euFree);
 
             return calculationReport;
         }

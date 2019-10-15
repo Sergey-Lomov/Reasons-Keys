@@ -37,8 +37,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             var maxPlayersAmount = (int)calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
             var roundAmount = calculator.UpdatedParameter<RoundAmount>().GetValue();
             var continuumNodesAmount = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            var miningAUCoeff = calculator.UpdatedParameter<MiningAUCoef>().GetValue();
-            var auPartyAmount = calculator.UpdatedParameter<AUPartyAmount>().GetValue();
+            var miningAmount = calculator.UpdatedParameter<MiningAmount>().GetValue();
             var eventCreationAmount = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
             var estimatedArtifactProfit = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
             var pureEUCoeff = calculator.UpdatedParameter<PureEUProfitCoefficient>().GetValue();
@@ -116,7 +115,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
                      }
             }
 
-            float estimatedUsage = auPartyAmount * miningAUCoeff * (1 - artifactGainCoefficient);
+            float estimatedUsage = miningAmount * (1 - artifactGainCoefficient);
             float eoupr = estimatedArtifactProfit / (estimatedUsage * pureEUCoeff);
 
             foreach (var currentPower in powerProfit.Keys)
