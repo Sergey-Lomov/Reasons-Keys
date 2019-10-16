@@ -20,12 +20,15 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float asi = calculator.UpdatedParameter<AverageStabilityIncrement>().GetValue();
-            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
-            float eap = calculator.UpdatedParameter<EventsActionsPotential>().GetValue();
-            float eca = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
-            float eia = calculator.UpdatedParameter<EventImpactAmount>().GetValue();
-            float dc = calculator.UpdatedParameter<DestructionCoef>().GetValue();
+            float asi = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
+            float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            float eap = RequestParmeter<EventsActionsPotential>(calculator).GetValue();
+            float eca = RequestParmeter<EventCreationAmount>(calculator).GetValue();
+            float eia = RequestParmeter<EventImpactAmount>(calculator).GetValue();
+            float dc = RequestParmeter<DestructionCoef>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             // See Mechanic doc for clarify formula
             value = unroundValue = eap / (eca * asi / dc + eia);

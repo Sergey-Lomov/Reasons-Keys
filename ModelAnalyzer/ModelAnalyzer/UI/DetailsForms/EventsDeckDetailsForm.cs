@@ -43,7 +43,7 @@ namespace ModelAnalyzer.UI
                 return;
 
             deck = ((DeckParameter)parameter).deck;
-            var issues = parameter.calculationReport.issues;
+            var issues = parameter.calculationReport.GetIssues();
 
             issuesLabel.Text = "";
             foreach (string issue in issues)

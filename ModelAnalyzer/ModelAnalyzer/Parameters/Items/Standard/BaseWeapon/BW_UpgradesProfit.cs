@@ -22,14 +22,17 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float saa = calculator.UpdatedParameter<AtackAmount>().GetValue();
-            float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
-            List<float> bwd = calculator.UpdatedParameter<BW_Damage>().GetValue();
-            List<float> bwsp = calculator.UpdatedParameter<BW_ShotPrice>().GetValue();
-            List<float> bsd = calculator.UpdatedParameter<BS_Defense>().GetValue();
+            float saa = RequestParmeter<AtackAmount>(calculator).GetValue();
+            float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
+            List<float> bwd = RequestParmeter<BW_Damage>(calculator).GetValue();
+            List<float> bwsp = RequestParmeter<BW_ShotPrice>(calculator).GetValue();
+            List<float> bsd = RequestParmeter<BS_Defense>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             for (var i = 0; i <= ua; i++)
             {

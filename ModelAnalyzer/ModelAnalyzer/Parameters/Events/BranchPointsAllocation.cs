@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.General;
@@ -15,17 +16,14 @@ namespace ModelAnalyzer.Parameters.Events
 
         internal ParameterCalculationReport Calculate(Calculator calculator, bool prioritizeEven)
         {
-
             calculationReport = new ParameterCalculationReport(this);
 
-            float pa = calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
+            float pa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
-            if (float.IsNaN(pa))
-            {
-                string title = calculator.UpdatedParameter<MaxPlayersAmount>().title;
-                FailCalculationByInvalidIn(new string[] {title});
+            if (!calculationReport.IsSuccess)
                 return calculationReport;
-            }
+
+            values = new List<ValueTuple<int, int>>();
 
             float combinationsAmount = 0;
             for (int i = 1; i < pa; i++)

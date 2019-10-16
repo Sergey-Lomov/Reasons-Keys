@@ -5,11 +5,23 @@ namespace ModelAnalyzer.Services
     {
         abstract internal string operationTitle { get; }
         internal bool IsSuccess => issues.Count == 0;
-        internal List<string> issues = new List<string>();
+        protected List<string> issues = new List<string>();
+
+        internal List<string> GetIssues()
+        {
+            return new List<string>(issues);
+        }
 
         internal void AddIssue(string issue)
         {
-            issues.Add(issue);
+            if (!issues.Contains(issue))
+                issues.Add(issue);
+        }
+
+        internal void AddIssues(List<string> newIssues)
+        {
+            foreach (var newIssue in newIssues)
+                AddIssue(newIssue);
         }
 
         internal void Failed(string issue)

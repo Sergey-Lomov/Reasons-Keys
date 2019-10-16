@@ -27,18 +27,21 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int minpa = (int)calculator.UpdatedParameter<MinPlayersAmount>().GetValue();
-            int maxpa = (int)calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
+            int minpa = (int)RequestParmeter<MinPlayersAmount>(calculator).GetValue();
+            int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
-            float kebpc = calculator.UpdatedParameter<KeyEventsBranchPointsCoefficient>().GetValue();
-            float iewc = calculator.UpdatedParameter<InitialEventsWeightCoefficient>().GetValue();
-            float nkeca = calculator.UpdatedParameter<UnkeyEventCreationAmount>().GetValue();
-            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            float aiebp = calculator.UpdatedParameter<AverageInitialEventsBranchPoints>().GetValue();
+            float kebpc = RequestParmeter<KeyEventsBranchPointsCoefficient>(calculator).GetValue();
+            float iewc = RequestParmeter<InitialEventsWeightCoefficient>(calculator).GetValue();
+            float nkeca = RequestParmeter<UnkeyEventCreationAmount>(calculator).GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            float aiebp = RequestParmeter<AverageInitialEventsBranchPoints>(calculator).GetValue();
+
+            List<float> bpal = RequestParmeter<BrachPointsTemplatesAllocation>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             float iea = StartDeck.InitialEventsAmount;
-
-            List<float> bpal = calculator.UpdatedParameter<BrachPointsTemplatesAllocation>().GetValue();
             int[] bpam = BranchPointsAmounts;
 
             // For calculation details see mechanic document

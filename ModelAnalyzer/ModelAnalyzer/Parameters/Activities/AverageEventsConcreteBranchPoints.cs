@@ -24,12 +24,15 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float minpa = calculator.UpdatedParameter<MinPlayersAmount>().GetValue();
-            float maxpa = calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
-            float kebp = calculator.UpdatedParameter<KeyEventsTotalBrachPoints>().GetValue();
-            float kea = calculator.UpdatedParameter<KeyEventsAmount>().GetValue();
-            float keca = calculator.UpdatedParameter<KeyEventCreationAmount>().GetValue();
-            List<float> auecbp = calculator.UpdatedParameter<AverageUnkeyEventsConcreteBranchPoints>().GetValue();
+            float minpa = RequestParmeter<MinPlayersAmount>(calculator).GetValue();
+            float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            float kebp = RequestParmeter<KeyEventsTotalBrachPoints>(calculator).GetValue();
+            float kea = RequestParmeter<KeyEventsAmount>(calculator).GetValue();
+            float keca = RequestParmeter<KeyEventCreationAmount>(calculator).GetValue();
+            List<float> auecbp = RequestParmeter<AverageUnkeyEventsConcreteBranchPoints>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             value = unroundValue = auecbp.Sum() / (maxpa - minpa + 1) + kebp * keca / kea;
 

@@ -8,7 +8,7 @@ namespace ModelAnalyzer.Parameters
 
     abstract class PairsArrayParameter : Parameter
     {
-        internal List<Pair> values = new List<Pair>();
+        internal List<Pair> values = null;
 
         const string invalidStringMessage = "Невозможно перобразовать строку: \"{0}\" в \"{1}\"";
         const string pairsSeparator = " ";
@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters
         {
             var copy = base.Copy() as PairsArrayParameter;
 
-            copy.values.Clear();
-            copy.values.AddRange(values);
+            if (values != null)
+                copy.values = new List<Pair>(values);
 
             return copy;
         }
@@ -82,6 +82,18 @@ namespace ModelAnalyzer.Parameters
             string issue = string.Format(invalidStringMessage, str, title);
             MAException e = new MAException(issue, this);
             throw e;
+        }
+
+        protected override void NullifyValue()
+        {
+            values = null;
+        }
+
+        internal override bool VerifyValue()
+        {
+            bool baseVerify = base.VerifyValue();
+
+            return baseVerify && values != null;
         }
     }
 }

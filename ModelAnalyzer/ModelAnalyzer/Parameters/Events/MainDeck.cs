@@ -30,11 +30,15 @@ namespace ModelAnalyzer.Parameters.Events
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);
-            deck.Clear();
             randoizer = new Random(randomizerSeed);
 
-            float na = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            float pa = calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
+            float na = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            float pa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            deck = new List<EventCard>((int)na);
 
             try
             {
@@ -85,11 +89,11 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<EventCard> BothDirectionCards (Calculator calculator)
         {
-            float na = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            float mbr = calculator.UpdatedParameter<MinBackRelations>().GetValue();
-            float frc = calculator.UpdatedParameter<FrontRelationsCoef>().GetValue();
-            float bec_2d = calculator.UpdatedParameter<BlockEventsCoef_2D>().GetValue();
-            List<float> raa_2d = calculator.UpdatedParameter<RelationsAmountAllocation_2D>().GetValue();
+            float na = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            float mbr = RequestParmeter<MinBackRelations>(calculator).GetValue();
+            float frc = RequestParmeter<FrontRelationsCoef>(calculator).GetValue();
+            float bec_2d = RequestParmeter<BlockEventsCoef_2D>(calculator).GetValue();
+            List<float> raa_2d = RequestParmeter<RelationsAmountAllocation_2D>(calculator).GetValue();
 
             var cards = new List<EventCard>();
 
@@ -181,10 +185,10 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<EventCard> OnlyBackCards(Calculator calculator, int cardAmount)
         {
-            float mbr = calculator.UpdatedParameter<MinBackRelations>().GetValue();
-            float brc_ob = calculator.UpdatedParameter<BlockRelationsCoef_OB>().GetValue();
-            List<float> raa_ob = calculator.UpdatedParameter<RelationsAmountAllocation_OB>().GetValue();
-            List<float> mbca_ob = calculator.UpdatedParameter<MultyblockCardsAllocation_OB>().GetValue();
+            float mbr = RequestParmeter<MinBackRelations>(calculator).GetValue();
+            float brc_ob = RequestParmeter<BlockRelationsCoef_OB>(calculator).GetValue();
+            List<float> raa_ob = RequestParmeter<RelationsAmountAllocation_OB>(calculator).GetValue();
+            List<float> mbca_ob = RequestParmeter<MultyblockCardsAllocation_OB>(calculator).GetValue();
 
             var cards = new List<EventCard>();
 
@@ -265,8 +269,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void PairReasons(List<EventCard> deck, Calculator calculator)
         {
-            float p2c = calculator.UpdatedParameter<Pairing2Coef>().GetValue();
-            float p3c = calculator.UpdatedParameter<Pairing3Coef>().GetValue();
+            float p2c = RequestParmeter<Pairing2Coef>(calculator).GetValue();
+            float p3c = RequestParmeter<Pairing3Coef>(calculator).GetValue();
 
             var p2available = new List<EventCard>();
             var p3available = new List<EventCard>();
@@ -315,8 +319,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddArtifacts(List<EventCard> cards, Calculator calculator)
         {
-            float ar = calculator.UpdatedParameter<ArtifactsRarity>().GetValue();
-            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
+            float ar = RequestParmeter<ArtifactsRarity>(calculator).GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
 
             int amount = (int)Math.Round(cna * ar, MidpointRounding.AwayFromZero);
             var ordered = cards.OrderBy(c => c.weight).ToList();
@@ -328,8 +332,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddStabilityIncrement(List<EventCard> cards, Calculator calculator)
         {
-            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            List<float> si_allocation = calculator.UpdatedParameter<StabilityIncrementAllocation>().GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            List<float> si_allocation = RequestParmeter<StabilityIncrementAllocation>(calculator).GetValue();
 
             int[] si_amounts = AmountsForAllocation(cna, si_allocation);
             if (!calculationReport.IsSuccess) return;
@@ -351,8 +355,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddMiningBonuses(List<EventCard> cards, Calculator calculator)
         {
-            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            List<float> mb_allocation = calculator.UpdatedParameter<EventMiningBonusAllocation>().GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            List<float> mb_allocation = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
 
             int[] mb_amounts = AmountsForAllocation(cna, mb_allocation);
             if (!calculationReport.IsSuccess) return;
@@ -393,8 +397,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private Dictionary<BranchPointsTemplate, List<EventCard>> SplitCardsForTemplates (List<EventCard> cards, Calculator calculator)
         {
-            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            List<float> bpta = calculator.UpdatedParameter<BrachPointsTemplatesAllocation>().GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            List<float> bpta = RequestParmeter<BrachPointsTemplatesAllocation>(calculator).GetValue();
 
             var templates = new BrachPointsTemplatesAllocation().templates;
             int[] amounts = AmountsForAllocation(cna, bpta);
@@ -458,7 +462,7 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<BranchPointsSet> SingleBranchSets(BranchPointsTemplate template, int lenght, Calculator calculator)
         {
-            float mpa = calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
+            float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
             var sets = new List<BranchPointsSet>();
             int index = 0;
@@ -474,12 +478,11 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<BranchPointsSet> DoubleBranchSequence(BranchPointsTemplate template, int lenght, Calculator calculator)
         {
-            var bpa_std = (BranchPointsAllocation)calculator.UpdatedParameter<BranchPointsAllocation_Standard>();
-            var bpa_sym = (BranchPointsAllocation)calculator.UpdatedParameter<BranchPointsAllocation_Symmetric>();
+            var bpa_std = (BranchPointsAllocation)RequestParmeter<BranchPointsAllocation_Standard>(calculator);
+            var bpa_sym = (BranchPointsAllocation)RequestParmeter<BranchPointsAllocation_Symmetric>(calculator);
 
-            if (bpa_std.GetValue().Count() == 0 || bpa_sym.GetValue().Count() == 0)
+            if (!calculationReport.IsSuccess)
             {
-                FailCalculationByInvalidIn(new string[]{ bpa_std.title, bpa_sym.title});
                 var exception = new MACalculationException("");
                 throw exception;
             }

@@ -23,11 +23,14 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ra = calculator.UpdatedParameter<RoundAmount>().GetValue();
-            List<float> pw = calculator.UpdatedParameter<PhasesWeight>().GetValue();
+            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
+            List<float> pw = RequestParmeter<PhasesWeight>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             foreach (float phaseWeight in pw)
             {

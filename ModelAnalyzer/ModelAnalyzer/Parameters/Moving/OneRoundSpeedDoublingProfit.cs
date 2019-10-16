@@ -19,9 +19,9 @@ namespace ModelAnalyzer.Parameters.Moving
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float sdr = calculator.UpdatedParameter<SpeedDoublingRate>().GetValue();
-            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
-            float ra = calculator.UpdatedParameter<RoundAmount>().GetValue();
+            float sdr = RequestParmeter<SpeedDoublingRate>(calculator).GetValue();
+            float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
 
             value = unroundValue = sdr * am / (ra / 2);
 

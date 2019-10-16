@@ -31,20 +31,23 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
         {
             var report = new ModuleCalculationReport(this);
 
-            var phasesAmount = (int)calculator.UpdatedParameter<PhasesAmount>().GetValue();
-            var phasesDuration = calculator.UpdatedParameter<PhasesDuration>().GetValue();
-            var minPlayersAmount = (int)calculator.UpdatedParameter<MinPlayersAmount>().GetValue();
-            var maxPlayersAmount = (int)calculator.UpdatedParameter<MaxPlayersAmount>().GetValue();
-            var roundAmount = calculator.UpdatedParameter<RoundAmount>().GetValue();
-            var continuumNodesAmount = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            var miningAmount = calculator.UpdatedParameter<MiningAmount>().GetValue();
-            var eventCreationAmount = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
-            var estimatedArtifactProfit = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
-            var pureEUCoeff = calculator.UpdatedParameter<PureEUProfitCoefficient>().GetValue();
+            var phasesAmount = (int)RequestParmeter<PhasesAmount>(calculator, report).GetValue();
+            var phasesDuration = RequestParmeter<PhasesDuration>(calculator, report).GetValue();
+            var minPlayersAmount = (int)RequestParmeter<MinPlayersAmount>(calculator, report).GetValue();
+            var maxPlayersAmount = (int)RequestParmeter<MaxPlayersAmount>(calculator, report).GetValue();
+            var roundAmount = RequestParmeter<RoundAmount>(calculator, report).GetValue();
+            var continuumNodesAmount = RequestParmeter<ContinuumNodesAmount>(calculator, report).GetValue();
+            var miningAmount = RequestParmeter<MiningAmount>(calculator, report).GetValue();
+            var eventCreationAmount = RequestParmeter<EventCreationAmount>(calculator, report).GetValue();
+            var estimatedArtifactProfit = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
+            var pureEUCoeff = RequestParmeter<PureEUProfitCoefficient>(calculator, report).GetValue();
 
-            var nodes = calculator.UpdatedParameter<NodesNearestAmount>();
-            var mainDeck = calculator.UpdatedParameter<MainDeck>();
-            var startDeck = calculator.UpdatedParameter<StartDeck>();
+            var nodes = RequestParmeter<NodesNearestAmount>(calculator, report);
+            var mainDeck = RequestParmeter<MainDeck>(calculator, report);
+            var startDeck = RequestParmeter<StartDeck>(calculator, report);
+
+            if (!report.IsSuccess)
+                return report;
 
             List<float> relativeDurations = new List<float>(phasesDuration);
             int currentPhase = 0;

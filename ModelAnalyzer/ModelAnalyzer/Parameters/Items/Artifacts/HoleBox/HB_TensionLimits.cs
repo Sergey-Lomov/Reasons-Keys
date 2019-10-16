@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
@@ -21,15 +22,18 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eapr = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
-            float peuprc = calculator.UpdatedParameter<PureEUProfitCoefficient>().GetValue();
-            float ra = calculator.UpdatedParameter<RoundAmount>().GetValue();
-            float cpd = calculator.UpdatedParameter<HB_CollapsePreparationDuration>().GetValue();
-            float ocac = calculator.UpdatedParameter<HB_OwnerCollapseAbsorbCoefficient>().GetValue();
-            float tisa = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().GetValue();
+            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
+            float peuprc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
+            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
+            float cpd = RequestParmeter<HB_CollapsePreparationDuration>(calculator).GetValue();
+            float ocac = RequestParmeter<HB_OwnerCollapseAbsorbCoefficient>(calculator).GetValue();
+            float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             float unroundMaeu = eapr / (peuprc + (1 - cpd / ra) * (1 - ocac) / 2);
             float maeu = (float)Math.Round(unroundMaeu, MidpointRounding.AwayFromZero);

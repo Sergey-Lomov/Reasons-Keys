@@ -1,4 +1,6 @@
-﻿using ModelAnalyzer.Services;
+﻿using System.Collections.Generic;
+
+using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Mining
@@ -20,11 +22,14 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mi = calculator.UpdatedParameter<MiningIncrement>().GetValue();
-            float fr = calculator.UpdatedParameter<FieldRadius>().GetValue();
+            float mi = RequestParmeter<MiningIncrement>(calculator).GetValue();
+            float fr = RequestParmeter<FieldRadius>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             for (int i = 0; i <= fr; i++)
             {

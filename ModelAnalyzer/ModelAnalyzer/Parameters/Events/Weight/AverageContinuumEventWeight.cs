@@ -17,7 +17,10 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var deck = calculator.UpdatedParameter<MainDeck>().deck;
+            var deck = RequestParmeter<MainDeck>(calculator).deck;
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             if (deck.Count != 0)
                 value = unroundValue = deck.Select(c => c.weight).Average();

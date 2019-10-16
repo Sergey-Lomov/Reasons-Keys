@@ -10,6 +10,9 @@ namespace ModelAnalyzer.Services
         internal static string ListToString(List<float> list, int fractionalDigits)
         {
             string result = "";
+            if (list == null)
+                return result;
+
             for (int i = 0; i < list.Count; i++)
             {
                 result += FloatToString(list[i], fractionalDigits);

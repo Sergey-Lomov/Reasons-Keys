@@ -22,8 +22,8 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            List<float> mba = calculator.UpdatedParameter<EventMiningBonusAllocation>().GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            List<float> mba = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
 
             float average = 0;
             for (int i = 0; i < mba.Count(); i++)

@@ -19,8 +19,11 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float md = calculator.UpdatedParameter<AUPartyAmount>().GetValue();
-            float m = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float md = RequestParmeter<AUPartyAmount>(calculator).GetValue();
+            float m = RequestParmeter<AverageMining>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             value = unroundValue = md * m;
 

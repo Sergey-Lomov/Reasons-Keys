@@ -7,8 +7,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
     class HB_MaxTension : FloatSingleParameter
     {
-        private const string emptyArrayIssue = "Параметр {0} не содержит значений";
-
         public HB_MaxTension()
         {
             type = ParameterType.Out;
@@ -23,31 +21,13 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cpd = calculator.UpdatedParameter<HB_CollapsePreparationDuration>().GetValue();
-            int mtr = (int)calculator.UpdatedParameter<HB_MaxTransaction>().GetValue();
-            List<float> tl = calculator.UpdatedParameter<HB_TensionLimits>().GetValue();
-            List<float> ti = calculator.UpdatedParameter<HB_TensionIncreasing>().GetValue();
-
-            if (tl.Count() == 0)
-            {
-                var title = calculator.UpdatedParameter<HB_TensionLimits>().title;
-                var mesasge = string.Format(emptyArrayIssue, title);
-                calculationReport.AddIssue(mesasge);
-            }
-
-            if (ti.Count() == 0)
-            {
-                var title = calculator.UpdatedParameter<HB_TensionIncreasing>().title;
-                var mesasge = string.Format(emptyArrayIssue, title);
-                calculationReport.AddIssue(mesasge);
-            }
+            float cpd = RequestParmeter<HB_CollapsePreparationDuration>(calculator).GetValue();
+            int mtr = (int)RequestParmeter<HB_MaxTransaction>(calculator).GetValue();
+            List<float> tl = RequestParmeter<HB_TensionLimits>(calculator).GetValue();
+            List<float> ti = RequestParmeter<HB_TensionIncreasing>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
-            {
-                value = unroundValue = 0;
                 return calculationReport;
-            }
-
 
             int maeu = (int)tl.Last();
 

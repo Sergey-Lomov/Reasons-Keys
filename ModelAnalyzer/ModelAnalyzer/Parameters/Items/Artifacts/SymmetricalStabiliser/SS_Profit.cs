@@ -20,13 +20,13 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            float eca = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
-            float eifp = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
-            float ua = calculator.UpdatedParameter<SS_UsageAmount>().GetValue();
-            float sna = calculator.UpdatedParameter<SS_SymmetricalNodesAmount>().GetValue();
-            float sp = calculator.UpdatedParameter<SS_StabilisationPower>().GetValue();
-            float ssp = calculator.UpdatedParameter<SS_SecondaryStabilisationPower>().GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            float eca = RequestParmeter<EventCreationAmount>(calculator).GetValue();
+            float eifp = RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            float ua = RequestParmeter<SS_UsageAmount>(calculator).GetValue();
+            float sna = RequestParmeter<SS_SymmetricalNodesAmount>(calculator).GetValue();
+            float sp = RequestParmeter<SS_StabilisationPower>(calculator).GetValue();
+            float ssp = RequestParmeter<SS_SecondaryStabilisationPower>(calculator).GetValue();
 
             value = unroundValue = (sp + (eca / cna * sna * ssp)) * eifp * ua;
 

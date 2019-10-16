@@ -60,7 +60,8 @@ namespace ModelAnalyzer.UI.Factories
 
         private void AddDeck(DeckParameter p, Panel panel, bool advanced, EventHandler clickHandler)
         {
-            var text = string.Format("{0} карт", p.deck.Count());
+            int amount = p.VerifyValue() ? p.deck.Count() : 0;
+            var text = string.Format("{0} карт", amount);
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 

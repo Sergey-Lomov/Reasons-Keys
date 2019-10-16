@@ -26,33 +26,15 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mp = calculator.UpdatedParameter<MotionPrice>().GetValue();
-            float isp = calculator.UpdatedParameter<InitialSpeed>().GetValue();
-            float fr = calculator.UpdatedParameter<FieldRadius>().GetValue();
-            float au = calculator.UpdatedParameter<AUMoveAmount>().GetValue();
-            List<float> pd = calculator.UpdatedParameter<PhasesDuration>().GetValue();
-            List<float> ma = calculator.UpdatedParameter<MiningAllocation>().GetValue();
+            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
+            float isp = RequestParmeter<InitialSpeed>(calculator).GetValue();
+            float fr = RequestParmeter<FieldRadius>(calculator).GetValue();
+            float au = RequestParmeter<AUMoveAmount>(calculator).GetValue();
+            List<float> pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
+            List<float> ma = RequestParmeter<MiningAllocation>(calculator).GetValue();
 
-            // Check values
-            var invalidTitles = new List<string>();
-            
-            if (float.IsNaN(mp))
-                invalidTitles.Add(calculator.UpdatedParameter<MotionPrice>().title);
-
-            if (float.IsNaN(isp))
-                invalidTitles.Add(calculator.UpdatedParameter<InitialSpeed>().title);
-
-            if (float.IsNaN(au))
-                invalidTitles.Add(calculator.UpdatedParameter<AUMoveAmount>().title);
-
-            if (ma.Count == 0)
-                invalidTitles.Add(calculator.UpdatedParameter<MiningAllocation>().title);
-
-            if (invalidTitles.Count > 0)
-            {
-                FailCalculationByInvalidIn(invalidTitles.ToArray());
+            if (!calculationReport.IsSuccess)
                 return calculationReport;
-            }
 
             var issues = new List<string>();
             if (pd.Count < 1)
@@ -61,8 +43,8 @@ namespace ModelAnalyzer.Parameters.Mining
             }
             if (ma.Count < fr + 1)
             {
-                var maTitle = calculator.UpdatedParameter<MiningAllocation>().title;
-                var frTitle = calculator.UpdatedParameter<FieldRadius>().title;
+                var maTitle = RequestParmeter<MiningAllocation>(calculator).title;
+                var frTitle = RequestParmeter<FieldRadius>(calculator).title;
                 var issue = string.Format(miningAllocationIssue, maTitle, frTitle);
                 issues.Add(issue);
             }

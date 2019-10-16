@@ -23,13 +23,13 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float asl = calculator.UpdatedParameter<AverageSequenceLength>().GetValue();
-            float asi = calculator.UpdatedParameter<AverageStabilityIncrement>().GetValue();
-            float eifp = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
-            float eapr = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
-            float brw = calculator.UpdatedParameter<BaseRelationsWeight>().GetValue();
-            float frw = calculator.UpdatedParameter<FrontReasonsWeight>().GetValue();
-            float fbw = calculator.UpdatedParameter<FrontBlockerWeight>().GetValue();
+            float asl = RequestParmeter<AverageSequenceLength>(calculator).GetValue();
+            float asi = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
+            float eifp = RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
+            float brw = RequestParmeter<BaseRelationsWeight>(calculator).GetValue();
+            float frw = RequestParmeter<FrontReasonsWeight>(calculator).GetValue();
+            float fbw = RequestParmeter<FrontBlockerWeight>(calculator).GetValue();
 
             float mrw = new float[] { brw, frw, fbw }.Max();
 

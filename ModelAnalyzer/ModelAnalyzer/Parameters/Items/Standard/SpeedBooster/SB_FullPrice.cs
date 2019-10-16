@@ -21,11 +21,14 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = calculator.UpdatedParameter<ItemPriceCoefficient>().GetValue();
-            List<float> up = calculator.UpdatedParameter<SB_UpgradesProfit>().GetValue();
+            float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
+            List<float> up = RequestParmeter<SB_UpgradesProfit>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             foreach (var profit in up)
             {

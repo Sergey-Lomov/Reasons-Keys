@@ -21,7 +21,11 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> up = calculator.UpdatedParameter<BW_UpgradesProfit>().GetValue();
+            List<float> up = RequestParmeter<BW_UpgradesProfit>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
             if (up.Count() > 0)
                 value = unroundValue = up.Average();
 

@@ -9,13 +9,14 @@ namespace ModelAnalyzer.Parameters
     abstract class DeckParameter : Parameter
     {
         const string valueStub = "Колода";
-        internal List<EventCard> deck = new List<EventCard>();
+        internal List<EventCard> deck = null;
 
         internal override Parameter Copy()
         {
             var copy = base.Copy() as DeckParameter;
 
-            copy.deck.AddRange(deck);
+            if (deck != null)
+                copy.deck = new List<EventCard>(deck);
 
             return copy;
         }
@@ -53,6 +54,18 @@ namespace ModelAnalyzer.Parameters
         {
             foreach (EventCard card in deck)
                 card.usability = EventCardsAnalizer.RelationsUsability(card.relations, calculator);
+        }
+
+        protected override void NullifyValue()
+        {
+            deck = null;
+        }
+
+        internal override bool VerifyValue()
+        {
+            bool baseVerify = base.VerifyValue();
+
+            return baseVerify && deck != null;
         }
     }
 }

@@ -21,13 +21,16 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float wse = calculator.UpdatedParameter<WeaponStandardEffectivity>().GetValue();
-            float mec = calculator.UpdatedParameter<BW_MaxEffectivityCoefficient>().GetValue();
-            float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
-            List<float> bwd = calculator.UpdatedParameter<BW_Damage>().GetValue();
+            float wse = RequestParmeter<WeaponStandardEffectivity>(calculator).GetValue();
+            float mec = RequestParmeter<BW_MaxEffectivityCoefficient>(calculator).GetValue();
+            float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
+            List<float> bwd = RequestParmeter<BW_Damage>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             float step = wse * (mec - 1) / ua;
             for (int i = 0; i <= (int)ua; i++)

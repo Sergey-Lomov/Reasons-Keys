@@ -16,12 +16,14 @@ namespace ModelAnalyzer.Parameters
         public string title;
         public string details;
         public List<ParameterTag> tags = new List<ParameterTag>();
-
         readonly protected string dataSeparator = "~";
-        readonly string invalidInMessage = "Для вычисления необходимы параметры: {0}";
+        readonly string multyInvalidInMessage = "Для вычисления необходимы параметры: {0}";
+        readonly string singleInvalidInMessage = "Для вычисления необходим параметр: \"{0}\""; 
 
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
+
+        protected abstract void NullifyValue();
 
         internal virtual Parameter Copy ()
         {
@@ -48,6 +50,15 @@ namespace ModelAnalyzer.Parameters
             return typeCheck && titleCheck && detailsCheck && tagsCheck;
         }
 
+        // Return true if value may be used in other calculations
+        internal virtual bool VerifyValue ()
+        {
+            if (type != ParameterType.In)
+                return calculationReport.IsSuccess;
+
+            return true;
+        }
+
         internal virtual ParameterCalculationReport Calculate(Calculator calculator)
         {
             return calculationReport;
@@ -58,6 +69,12 @@ namespace ModelAnalyzer.Parameters
             return new ParameterValidationReport(this);
         }
 
+        internal void FailCalculationByInvalidIn(string parameterTitle)
+        {
+            string issue = string.Format(singleInvalidInMessage, parameterTitle);
+            calculationReport.AddIssue(issue);
+        }
+
         internal void FailCalculationByInvalidIn(string[] parametersTitles)
         {
             string titles = "";
@@ -65,8 +82,21 @@ namespace ModelAnalyzer.Parameters
                 titles += "\"" + title + "\",";
             titles.Remove(titles.Length - 1);
 
-            string issue = string.Format(invalidInMessage, titles);
-            calculationReport.Failed(issue);
+            string issue = string.Format(multyInvalidInMessage, titles);
+            calculationReport.AddIssue(issue);
+        }
+
+        internal T RequestParmeter<T> (Calculator calculator) where T : Parameter
+        {
+            var parameter = calculator.UpdatedParameter<T>();
+
+            if (!parameter.VerifyValue())
+            {
+                NullifyValue();
+                FailCalculationByInvalidIn(parameter.title);
+            }
+
+            return parameter;
         }
     }
 }

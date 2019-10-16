@@ -23,14 +23,17 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float sdr = calculator.UpdatedParameter<SpeedDoublingRate>().GetValue();
-            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
-            float isp = calculator.UpdatedParameter<InitialSpeed>().GetValue();
-            float ua = calculator.UpdatedParameter<SB_UpgradesAmount>().GetValue();
-            List<float> sbp = calculator.UpdatedParameter<SB_Power>().GetValue();
+            float sdr = RequestParmeter<SpeedDoublingRate>(calculator).GetValue();
+            float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            float isp = RequestParmeter<InitialSpeed>(calculator).GetValue();
+            float ua = RequestParmeter<SB_UpgradesAmount>(calculator).GetValue();
+            List<float> sbp = RequestParmeter<SB_Power>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             float prevUpgradeSpeed = isp;
             for (int i = 0; i < ua; i++)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Mining;
@@ -21,13 +22,16 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float wsp = calculator.UpdatedParameter<WeaponStandardPower>().GetValue();
-            float mpc = calculator.UpdatedParameter<BW_MaxPowerCoefficient>().GetValue();
-            float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
-            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float wsp = RequestParmeter<WeaponStandardPower>(calculator).GetValue();
+            float mpc = RequestParmeter<BW_MaxPowerCoefficient>(calculator).GetValue();
+            float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
+            float am = RequestParmeter<AverageMining>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             float step = wsp * (mpc - 1) / ua;
             for (int i = 0; i <= (int)ua; i++)

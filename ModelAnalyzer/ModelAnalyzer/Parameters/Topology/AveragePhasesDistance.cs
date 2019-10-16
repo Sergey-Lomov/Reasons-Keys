@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
@@ -31,7 +32,7 @@ namespace ModelAnalyzer.Parameters.Topology
             {
                 var title = radius.title;
                 var issue = string.Format(invalidMessageFormat, title, validFieldRadius);
-                report.issues.Add(issue);
+                report.AddIssue(issue);
             }
 
             return report;
@@ -41,10 +42,13 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            unroundValues.Clear();
+            float pa = RequestParmeter<PhasesAmount>(calculator).GetValue();
+            var routesMap = RequestParmeter<RoutesMap>(calculator);
 
-            float pa = calculator.UpdatedParameter<PhasesAmount>().GetValue();
-            var routesMap = calculator.UpdatedParameter<RoutesMap>();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
 
             for (int i = 0; i < pa; i++)
             {

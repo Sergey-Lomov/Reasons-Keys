@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ma = calculator.UpdatedParameter<MotionAmount>().GetValue();
-            float ip = calculator.UpdatedParameter<KA_InversePower>().GetValue();
+            float ma = RequestParmeter<MotionAmount>(calculator).GetValue();
+            float ip = RequestParmeter<KA_InversePower>(calculator).GetValue();
 
             value = unroundValue = ma / ip;
 

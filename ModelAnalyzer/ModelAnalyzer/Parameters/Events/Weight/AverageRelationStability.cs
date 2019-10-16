@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float asl = calculator.UpdatedParameter<AverageSequenceLength>().GetValue();
-            float asi = calculator.UpdatedParameter<AverageStabilityIncrement>().GetValue();
+            float asl = RequestParmeter<AverageSequenceLength>(calculator).GetValue();
+            float asi = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
 
             float floorSum = 0;
             float floor_asl = (float)Math.Floor(asl);

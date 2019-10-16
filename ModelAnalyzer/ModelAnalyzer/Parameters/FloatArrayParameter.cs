@@ -7,10 +7,11 @@ namespace ModelAnalyzer.Parameters
 {
     abstract class FloatArrayParameter : DigitalParameter
     {
-        protected List<float> values = new List<float>();
-        protected List<float> unroundValues = new List<float>();
+        protected List<float> values = null;
+        protected List<float> unroundValues = null;
 
         const string emptyMessage = "Пустой массив";
+        const string invalidMessage = "Массив не валиден";
 
         private readonly string arraySizeParamMessage = "Размер массива должен быть равен \"{0}\": {1}.";
         private readonly string arraySizeMessage = "Размер массива должен быть равен {0}";
@@ -18,8 +19,19 @@ namespace ModelAnalyzer.Parameters
         internal override Parameter Copy ()
         {
             var copy = base.Copy() as FloatArrayParameter;
-            copy.values.AddRange(this.values);
-            copy.unroundValues.AddRange(this.unroundValues);
+
+            if (values != null)
+            {
+                copy.values = new List<float>();
+                copy.values.AddRange(values);
+            }
+
+
+            if (unroundValues != null)
+            {
+                copy.unroundValues = new List<float>();
+                copy.unroundValues.AddRange(unroundValues);
+            }
 
             return copy;
         }
@@ -79,8 +91,8 @@ namespace ModelAnalyzer.Parameters
 
         public void SetValue(List<float> newValues)
         {
-            values.Clear();
-            unroundValues.Clear();
+            values = new List<float>();
+            unroundValues = new List<float>();
 
             unroundValues.AddRange(newValues);
             values.AddRange(newValues);
@@ -89,11 +101,16 @@ namespace ModelAnalyzer.Parameters
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
+            if (values == null || unroundValues == null)
+            {
+                report.Failed(invalidMessage);
+                return report;
+            }
 
             for (int i = 0; i < values.Count; i++)
             {
                 var roundingIssues = validator.ValidateRounding(unroundValues[i], values[i]);
-                report.issues.AddRange(roundingIssues);
+                report.AddIssues(roundingIssues);
             }
 
             return report;
@@ -117,10 +134,25 @@ namespace ModelAnalyzer.Parameters
 
         protected void ValidateSize (float size, string issueMessage, ParameterValidationReport report)
         {
-            if (size != values.Count)
+            if (values == null)
             {
-                report.issues.Add(issueMessage);
+                report.AddIssue(invalidMessage); ;
+            } else if (size != values.Count)
+            {
+                report.AddIssue(issueMessage);
             }
+        }
+
+        protected override void NullifyValue()
+        {
+            values = unroundValues = null;
+        }
+
+        internal override bool VerifyValue()
+        {
+            bool baseVerify = base.VerifyValue();
+
+            return baseVerify && values != null;
         }
     }
 }

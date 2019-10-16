@@ -18,8 +18,11 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eu = calculator.UpdatedParameter<EUPartyAmount>().GetValue();
-            float ma = calculator.UpdatedParameter<MiningAmount>().GetValue();
+            float eu = RequestParmeter<EUPartyAmount>(calculator).GetValue();
+            float ma = RequestParmeter<MiningAmount>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             value = unroundValue = eu / ma;
 

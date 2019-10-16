@@ -30,19 +30,16 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);
-            deck.Clear();
 
             var initialEvents = InitialEvents(calculator);
             var keyEvents = KeyEvents(calculator);
 
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            deck = new List<EventCard>(initialEvents.Count() + keyEvents.Count());
             deck.AddRange(initialEvents);
             deck.AddRange(keyEvents);
-
-            if (calculationReport.issues.Count > 0)
-            {
-                deck.Clear();
-                return calculationReport;
-            }
 
             UpdateDeckUsability(calculator);
             UpdateDeckWeight(calculator);
@@ -54,8 +51,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var initialEvents = new List<EventCard>();
 
-            float acew = calculator.UpdatedParameter<AverageContinuumEventWeight>().GetValue();
-            float iewc = calculator.UpdatedParameter<InitialEventsWeightCoefficient>().GetValue();
+            float acew = RequestParmeter<AverageContinuumEventWeight>(calculator).GetValue();
+            float iewc = RequestParmeter<InitialEventsWeightCoefficient>(calculator).GetValue();
 
             float estimatedWeight = acew * iewc;
 
@@ -70,29 +67,17 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var card = new EventCard();
 
-            var mainDeck = calculator.UpdatedParameter<MainDeck>().deck;
+            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
 
-            float licc = calculator.UpdatedParameter<LogisticsInitialCardCoefficient>().GetValue();
-            float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
-            float mbw = calculator.UpdatedParameter<MiningBonusWeight>().GetValue();
+            float licc = RequestParmeter<LogisticsInitialCardCoefficient>(calculator).GetValue();
+            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            float mbw = RequestParmeter<MiningBonusWeight>(calculator).GetValue();
 
-            List<float> sia = calculator.UpdatedParameter<StabilityIncrementAllocation>().GetValue();
-            List<float> mba = calculator.UpdatedParameter<EventMiningBonusAllocation>().GetValue();
+            List<float> sia = RequestParmeter<StabilityIncrementAllocation>(calculator).GetValue();
+            List<float> mba = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
 
-            // Check values
-            var invalidTitles = new List<string>();
-
-            if (float.IsNaN(eip))
-                invalidTitles.Add(calculator.UpdatedParameter<EventImpactPrice>().title);
-
-            if (mainDeck.Count() == 0)
-                invalidTitles.Add(calculator.UpdatedParameter<MainDeck>().title);
-
-            if (invalidTitles.Count > 0)
-            {
-                FailCalculationByInvalidIn(invalidTitles.ToArray());
+            if (!calculationReport.IsSuccess)
                 return null;
-            }
 
             // Calculation
             Func<EventCard, float> select = c => EventCardsAnalizer.RelationsWeight(c.relations, calculator);
@@ -139,26 +124,14 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var card = new EventCard();
 
-            var mainDeck = calculator.UpdatedParameter<MainDeck>().deck;
-            float micc = calculator.UpdatedParameter<MiningInitialCardCoefficient>().GetValue();
-            float micu = calculator.UpdatedParameter<MinInitialCardUsability>().GetValue();
-            float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
-            float mbw = calculator.UpdatedParameter<MiningBonusWeight>().GetValue();
+            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
+            float micc = RequestParmeter<MiningInitialCardCoefficient>(calculator).GetValue();
+            float micu = RequestParmeter<MinInitialCardUsability>(calculator).GetValue();
+            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            float mbw = RequestParmeter<MiningBonusWeight>(calculator).GetValue();
 
-            // Check values
-            var invalidTitles = new List<string>();
-
-            if (float.IsNaN(eip))
-                invalidTitles.Add(calculator.UpdatedParameter<EventImpactPrice>().title);
-
-            if (mainDeck.Count() == 0)
-                invalidTitles.Add(calculator.UpdatedParameter<MainDeck>().title);
-
-            if (invalidTitles.Count > 0)
-            {
-                FailCalculationByInvalidIn(invalidTitles.ToArray());
+            if (!calculationReport.IsSuccess)
                 return null;
-            }
 
             //Calculation
             var miningBonuses = mainDeck.Select(s => s.miningBonus);
@@ -204,26 +177,14 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var card = new EventCard();
 
-            var mainDeck = calculator.UpdatedParameter<MainDeck>().deck;
-            float sicc = calculator.UpdatedParameter<StabilityInitialCardCoefficient>().GetValue();
-            float micu = calculator.UpdatedParameter<MinInitialCardUsability>().GetValue();
-            float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
-            float mbw = calculator.UpdatedParameter<MiningBonusWeight>().GetValue();
+            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
+            float sicc = RequestParmeter<StabilityInitialCardCoefficient>(calculator).GetValue();
+            float micu = RequestParmeter<MinInitialCardUsability>(calculator).GetValue();
+            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            float mbw = RequestParmeter<MiningBonusWeight>(calculator).GetValue();
 
-            // Check values
-            var invalidTitles = new List<string>();
-
-            if (float.IsNaN(eip))
-                invalidTitles.Add(calculator.UpdatedParameter<EventImpactPrice>().title);
-
-            if (mainDeck.Count() == 0)
-                invalidTitles.Add(calculator.UpdatedParameter<MainDeck>().title);
-
-            if (invalidTitles.Count > 0)
-            {
-                FailCalculationByInvalidIn(invalidTitles.ToArray());
+            if (!calculationReport.IsSuccess)
                 return null;
-            }
 
             //Calculation
 
@@ -270,27 +231,12 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var keyEvents = new List<EventCard>();
 
-            float kea = calculator.UpdatedParameter<KeyEventsAmount>().GetValue();
-            float kebp = calculator.UpdatedParameter<KeyEventsBranchPoints>().GetValue();
-            float mkebp = calculator.UpdatedParameter<MainKeyEventBranchPoints>().GetValue();
+            float kea = RequestParmeter<KeyEventsAmount>(calculator).GetValue();
+            float kebp = RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
+            float mkebp = RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
 
-            // Check values
-            var invalidTitles = new List<string>();
-
-            if (float.IsNaN(kea))
-                invalidTitles.Add(calculator.UpdatedParameter<KeyEventsAmount>().title);
-
-            if (float.IsNaN(kebp))
-                invalidTitles.Add(calculator.UpdatedParameter<KeyEventsBranchPoints>().title);
-
-            if (float.IsNaN(mkebp))
-                invalidTitles.Add(calculator.UpdatedParameter<MainKeyEventBranchPoints>().title);
-
-            if (invalidTitles.Count > 0)
-            {
-                FailCalculationByInvalidIn(invalidTitles.ToArray());
-                return keyEvents;
-            }
+            if (!calculationReport.IsSuccess)
+                return null;
 
             keyEvents.Add(MainKeyEvent((int)mkebp));
             keyEvents.AddRange(NotMainKeyEvents((int)kea - 1, (int)kebp));

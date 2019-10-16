@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using ModelAnalyzer.Services;
@@ -7,8 +8,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
     class HB_TensionIncreasing : FloatArrayParameter
     {
-        private const string missedTISAIssue = "Параметр {0} не задан или равен 0";
-
         public HB_TensionIncreasing()
         {
             type = ParameterType.Out;
@@ -23,18 +22,13 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tisa = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().GetValue();
+            float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            unroundValues = new List<float>();
+            values = new List<float>();
 
-            if (tisa == 0 || float.IsNaN(tisa))
-            {
-                var title = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().title;
-                var mesasge = string.Format(missedTISAIssue, title);
-                calculationReport.Failed(mesasge);
+            if (!calculationReport.IsSuccess)
                 return calculationReport;
-            }
 
             for (int i = 0; i < tisa; i++)
             {

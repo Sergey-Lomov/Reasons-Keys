@@ -13,7 +13,7 @@ namespace ModelAnalyzer.Parameters.Topology
     {
         const string valueStub = "Недоступно";
 
-        internal PhaseRoutes phasesRoutes = new PhaseRoutes();
+        internal PhaseRoutes phasesRoutes = null;//new PhaseRoutes();
 
         public RoutesMap()
         {
@@ -27,8 +27,12 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             var copy = base.Copy() as RoutesMap;
 
-            foreach (var phaseRoutes in phasesRoutes)
-                copy.phasesRoutes[phaseRoutes.Key] = new HashSet<FieldRoute>(phaseRoutes.Value);
+            if (phasesRoutes != null)
+            {
+                copy.phasesRoutes = new PhaseRoutes();
+                foreach (var phaseRoutes in phasesRoutes)
+                    copy.phasesRoutes[phaseRoutes.Key] = new HashSet<FieldRoute>(phaseRoutes.Value);
+            }
 
             return copy;
         }
@@ -66,6 +70,9 @@ namespace ModelAnalyzer.Parameters.Topology
 
         public int GetRoutesAmount ()
         {
+            if (phasesRoutes == null)
+                return 0;
+
             var routesAmount = 0;
             foreach (var routes in phasesRoutes.Values)
                 routesAmount += routes.Count;
@@ -77,10 +84,26 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int pa = (int)calculator.UpdatedParameter<PhasesAmount>().GetValue();
+            int pa = (int)RequestParmeter<PhasesAmount>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
             phasesRoutes = new FieldAnalyzer(pa).phasesRoutes();
 
             return calculationReport;
+        }
+
+        protected override void NullifyValue()
+        {
+            phasesRoutes = null;
+        }
+
+        internal override bool VerifyValue()
+        {
+            bool baseVerify = base.VerifyValue();
+
+            return baseVerify && phasesRoutes != null;
         }
     }
 }

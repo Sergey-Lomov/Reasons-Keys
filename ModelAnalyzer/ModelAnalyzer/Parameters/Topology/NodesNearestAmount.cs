@@ -26,7 +26,7 @@ namespace ModelAnalyzer.Parameters.Topology
         private readonly string stringRepresentationStub = "stub";
         private readonly int maxNearestAmount = 6;
 
-        private List<NearestNodesData> value = new List<NearestNodesData>();
+        private List<NearestNodesData> value = null;
 
         public NodesNearestAmount()
         {
@@ -54,9 +54,12 @@ namespace ModelAnalyzer.Parameters.Topology
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);
-            value.Clear();
+            value = new List<NearestNodesData>();
 
-            int pa = (int)calculator.UpdatedParameter<PhasesAmount>().GetValue();
+            int pa = (int)RequestParmeter<PhasesAmount>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             var fieldAnalyzer = new FieldAnalyzer(pa);
 
@@ -80,6 +83,18 @@ namespace ModelAnalyzer.Parameters.Topology
             }
 
             return calculationReport;
+        }
+
+        protected override void NullifyValue()
+        {
+            value = null;
+        }
+
+        internal override bool VerifyValue()
+        {
+            bool baseVerify = base.VerifyValue();
+
+            return baseVerify && value != null;
         }
     }
 }

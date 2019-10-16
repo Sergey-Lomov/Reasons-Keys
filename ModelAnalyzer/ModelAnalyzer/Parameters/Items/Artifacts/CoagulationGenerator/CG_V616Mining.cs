@@ -24,8 +24,11 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float amb = calculator.UpdatedParameter<AverageMiningBonus>().GetValue();
-            List<float> ma = calculator.UpdatedParameter<MiningAllocation>().GetValue();
+            float amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
+            List<float> ma = RequestParmeter<MiningAllocation>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             unroundValue = ma[ma.Count - 1] + amb;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);

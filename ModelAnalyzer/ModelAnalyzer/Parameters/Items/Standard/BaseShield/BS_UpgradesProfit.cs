@@ -21,11 +21,14 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float saa = calculator.UpdatedParameter<AtackAmount>().GetValue();
-            List<float> bsd = calculator.UpdatedParameter<BS_Defense>().GetValue();
+            float saa = RequestParmeter<AtackAmount>(calculator).GetValue();
+            List<float> bsd = RequestParmeter<BS_Defense>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             foreach (var defense in bsd)
                 unroundValues.Add(saa * defense);

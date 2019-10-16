@@ -23,14 +23,17 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
-            float pa = calculator.UpdatedParameter<PhasesAmount>().GetValue();
-            List<float> pd = calculator.UpdatedParameter<PhasesDuration>().GetValue();
+            float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            float pa = RequestParmeter<PhasesAmount>(calculator).GetValue();
+            List<float> pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             if (pd.Count != pa)
             {
-                string paTitle = calculator.UpdatedParameter<PhasesAmount>().title;
-                string pdTitle = calculator.UpdatedParameter<PhasesDuration>().title;
+                string paTitle = RequestParmeter<PhasesAmount>(calculator).title;
+                string pdTitle = RequestParmeter<PhasesDuration>(calculator).title;
                 string issue = string.Format(invalidPhasesAmount, paTitle, pa, pdTitle, pd.Count);
 
                 calculationReport.Failed(issue);

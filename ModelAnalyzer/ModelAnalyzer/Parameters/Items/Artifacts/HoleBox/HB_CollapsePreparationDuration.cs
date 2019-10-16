@@ -18,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tisa = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().GetValue();
+            float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
 
             value = unroundValue = tisa + 2;
 

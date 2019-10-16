@@ -16,7 +16,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts
             if (Math.Abs(1 - value / eapr) > 0.2)
             {
                 var message = string.Format(missedEstimationIssue, eapr);
-                report.issues.Add(message);
+                report.AddIssue(message);
             }
 
             return report;

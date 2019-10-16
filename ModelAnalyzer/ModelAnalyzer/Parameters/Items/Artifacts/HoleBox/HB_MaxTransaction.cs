@@ -8,8 +8,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
     class HB_MaxTransaction : FloatSingleParameter
     {
-        private const string emptyArrayIssue = "Параметр {0} не содержит значений";
-
         public HB_MaxTransaction()
         {
             type = ParameterType.Out;
@@ -24,18 +22,12 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tisa = calculator.UpdatedParameter<HB_TensionInreasingStepsAmount>().GetValue();
-            List<float> tl = calculator.UpdatedParameter<HB_TensionLimits>().GetValue();
+            float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
+            List<float> tl = RequestParmeter<HB_TensionLimits>(calculator).GetValue();
 
-            if (tl.Count() == 0)
-            {
-                var title = calculator.UpdatedParameter<HB_TensionLimits>().title;
-                var mesasge = string.Format(emptyArrayIssue, title);
-                calculationReport.Failed(mesasge);
-                value = unroundValue = 0;
+            if (!calculationReport.IsSuccess)
                 return calculationReport;
-            }
-
+            
             float maeu = tl.Last();
 
             unroundValue = maeu / (tisa + 1);

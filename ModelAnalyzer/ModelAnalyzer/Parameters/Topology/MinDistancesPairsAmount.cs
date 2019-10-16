@@ -23,11 +23,14 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> pd = calculator.UpdatedParameter<PhasesDuration>().GetValue();
-            var phasesRoutes = calculator.UpdatedParameter<RoutesMap>().phasesRoutes;
+            List<float> pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
+            var phasesRoutes = RequestParmeter<RoutesMap>(calculator).phasesRoutes;
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             if (pd.Count != phasesRoutes.Keys.Count)
             {

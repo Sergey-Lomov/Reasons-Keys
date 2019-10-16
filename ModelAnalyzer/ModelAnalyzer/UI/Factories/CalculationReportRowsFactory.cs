@@ -74,7 +74,7 @@ namespace ModelAnalyzer.UI.Factories
 
         internal Panel RowForReport(OperationReport report)
         {
-            var issues = report.issues;
+            var issues = report.GetIssues();
 
             Panel panel = new Panel()
             {

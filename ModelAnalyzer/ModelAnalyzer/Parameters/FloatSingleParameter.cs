@@ -37,7 +37,7 @@ namespace ModelAnalyzer.Parameters
             var report = base.Validate(validator, storage);
 
             var roundingIssues = validator.ValidateRounding(unroundValue, value);
-            report.issues.AddRange(roundingIssues);
+            report.AddIssues(roundingIssues);
 
             return report;
         }
@@ -85,6 +85,18 @@ namespace ModelAnalyzer.Parameters
         public void SetValue(float newValue)
         {
             value = unroundValue = newValue;
+        }
+
+        protected override void NullifyValue()
+        {
+            value = unroundValue = float.NaN;
+        }
+
+        internal override bool VerifyValue()
+        {
+            bool baseVerify = base.VerifyValue();
+
+            return baseVerify && !float.IsNaN(value);
         }
     }
 }

@@ -22,13 +22,16 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bp = calculator.UpdatedParameter<BS_BasePower>().GetValue();
-            float mp = calculator.UpdatedParameter<BS_MaxPower>().GetValue();
-            float ua = calculator.UpdatedParameter<BW_UpgradesAmount>().GetValue();
-            List<float> bwd = calculator.UpdatedParameter<BW_Damage>().GetValue();
+            float bp = RequestParmeter<BS_BasePower>(calculator).GetValue();
+            float mp = RequestParmeter<BS_MaxPower>(calculator).GetValue();
+            float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
+            List<float> bwd = RequestParmeter<BW_Damage>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             float step = (mp - bp) / ua;
             for (int i = 0; i <= (int)ua; i++)

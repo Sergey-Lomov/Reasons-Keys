@@ -17,8 +17,11 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float keca = calculator.UpdatedParameter<KeyEventCreationAmount>().GetValue();
-            float nkeca = calculator.UpdatedParameter<UnkeyEventCreationAmount>().GetValue();
+            float keca = RequestParmeter<KeyEventCreationAmount>(calculator).GetValue();
+            float nkeca = RequestParmeter<UnkeyEventCreationAmount>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             value = unroundValue = keca + nkeca;
 

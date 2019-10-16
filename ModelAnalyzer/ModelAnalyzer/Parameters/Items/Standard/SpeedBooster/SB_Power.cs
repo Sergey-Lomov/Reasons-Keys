@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using ModelAnalyzer.Services;
@@ -27,13 +28,16 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float isp = calculator.UpdatedParameter<InitialSpeed>().GetValue();
-            float mspc = calculator.UpdatedParameter<SB_MaxSpeedCoef>().GetValue();
-            float ad = calculator.UpdatedParameter<AverageDistance>().GetValue();
-            float ua = calculator.UpdatedParameter<SB_UpgradesAmount>().GetValue();
+            float isp = RequestParmeter<InitialSpeed>(calculator).GetValue();
+            float mspc = RequestParmeter<SB_MaxSpeedCoef>(calculator).GetValue();
+            float ad = RequestParmeter<AverageDistance>(calculator).GetValue();
+            float ua = RequestParmeter<SB_UpgradesAmount>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             float msp = ad * mspc;
             float step = (msp - isp) / ua;
@@ -64,10 +68,13 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
             var size = storage.Parameter<SB_UpgradesAmount>();
             ValidateSize(size, report);
 
-            if (values.Contains(0))
-                report.issues.Add(zeroBoostIssue);
+            if (values != null)
+            {
+                if (values.Contains(0))
+                    report.AddIssue(zeroBoostIssue);
 
-            var roundingIssues = validator.ValidateRounding(unroundValues.Sum(), values.Sum());
+                var roundingIssues = validator.ValidateRounding(unroundValues.Sum(), values.Sum());
+            }
 
             return report;
         }

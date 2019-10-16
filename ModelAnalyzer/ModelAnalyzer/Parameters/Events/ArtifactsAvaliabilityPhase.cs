@@ -27,7 +27,7 @@ namespace ModelAnalyzer.Parameters.Events
                 {
                     string title = storage.Parameter<PhasesAmount>().title;
                     string issue = string.Format(phasesAmountIssue, title, pa);
-                    report.issues.Add(issue);
+                    report.AddIssue(issue);
                 }
 
             return report;

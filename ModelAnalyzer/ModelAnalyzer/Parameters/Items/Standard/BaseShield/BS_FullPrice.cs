@@ -20,11 +20,14 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = calculator.UpdatedParameter<ItemPriceCoefficient>().GetValue();
-            List<float> up = calculator.UpdatedParameter<BS_UpgradesProfit>().GetValue();
+            float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
+            List<float> up = RequestParmeter<BS_UpgradesProfit>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            unroundValues = new List<float>();
+            values = new List<float>();
 
             float previousUpgradeProfit = 0;
             foreach (var profit in up)

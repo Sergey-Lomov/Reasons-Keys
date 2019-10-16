@@ -20,12 +20,15 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eu = calculator.UpdatedParameter<EUPartyAmount>().GetValue();
-            float au = calculator.UpdatedParameter<AUPartyAmount>().GetValue();
-            float mota = calculator.UpdatedParameter<MotionAmount>().GetValue();
-            float mp = calculator.UpdatedParameter<MotionPrice>().GetValue();
-            float mina = calculator.UpdatedParameter<MiningAmount>().GetValue();
-            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float eu = RequestParmeter<EUPartyAmount>(calculator).GetValue();
+            float au = RequestParmeter<AUPartyAmount>(calculator).GetValue();
+            float mota = RequestParmeter<MotionAmount>(calculator).GetValue();
+            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
+            float mina = RequestParmeter<MiningAmount>(calculator).GetValue();
+            float am = RequestParmeter<AverageMining>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             float euFree = eu - mota * mp;
             float auFree = au - mina;

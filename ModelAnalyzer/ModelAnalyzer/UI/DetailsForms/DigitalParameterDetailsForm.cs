@@ -47,9 +47,9 @@ namespace ModelAnalyzer.UI
 
             var issues = new List<string>();
             if (parameter.calculationReport != null) 
-                issues.AddRange(parameter.calculationReport.issues);
+                issues.AddRange(parameter.calculationReport.GetIssues());
 
-            issues.AddRange(validation.issues);
+            issues.AddRange(validation.GetIssues());
 
             issuesLabel.Text = "";
             foreach (string issue in issues)

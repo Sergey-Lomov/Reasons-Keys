@@ -21,11 +21,14 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
         {
             var report = new ModuleCalculationReport(this);
 
-            var eca = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
-            var ua = calculator.UpdatedParameter<SS_UsageAmount>().GetValue();
-            var cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
-            var eapr = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
-            var eifp = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
+            var eca = RequestParmeter<EventCreationAmount>(calculator, report).GetValue();
+            var ua = RequestParmeter<SS_UsageAmount>(calculator, report).GetValue();
+            var cna = RequestParmeter<ContinuumNodesAmount>(calculator, report).GetValue();
+            var eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
+            var eifp = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
+
+            if (!report.IsSuccess)
+                return report;
 
             var eoupr = eapr / ua;
 

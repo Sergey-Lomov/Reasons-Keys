@@ -9,8 +9,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 {
     class HB_Profit : ArtifactProfit
     {
-        private const string emptyArrayIssue = "Параметр {0} не содержит значений";
-
         public HB_Profit()
         {
             type = ParameterType.Inner;
@@ -25,20 +23,14 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float peuprc = calculator.UpdatedParameter<PureEUProfitCoefficient>().GetValue();
-            float ra = calculator.UpdatedParameter<RoundAmount>().GetValue();
-            float cpd = calculator.UpdatedParameter<HB_CollapsePreparationDuration>().GetValue();
-            float ocac = calculator.UpdatedParameter<HB_OwnerCollapseAbsorbCoefficient>().GetValue();
-            List<float> tl = calculator.UpdatedParameter<HB_TensionLimits>().GetValue();
+            float peuprc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
+            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
+            float cpd = RequestParmeter<HB_CollapsePreparationDuration>(calculator).GetValue();
+            float ocac = RequestParmeter<HB_OwnerCollapseAbsorbCoefficient>(calculator).GetValue();
+            List<float> tl = RequestParmeter<HB_TensionLimits>(calculator).GetValue();
 
-            if (tl.Count() == 0)
-            {
-                var title = calculator.UpdatedParameter<HB_TensionLimits>().title;
-                var mesasge = string.Format(emptyArrayIssue, title);
-                calculationReport.Failed(mesasge);
-                value = unroundValue = 0;
+            if (!calculationReport.IsSuccess)
                 return calculationReport;
-            }
 
             float maeu = tl.Last();
 
