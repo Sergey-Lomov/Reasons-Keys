@@ -25,6 +25,9 @@ namespace ModelAnalyzer.Parameters.Timing
             float ea = RequestParmeter<EventCreationAmount>(calculator).GetValue();
             float pa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
             value = unroundValue = md * ra * pa  + rd * ea * pa;
 
             return calculationReport;
