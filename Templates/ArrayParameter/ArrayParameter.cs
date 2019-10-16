@@ -17,10 +17,12 @@ namespace $rootnamespace$
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.UpdatedParameter<ParamName>().GetValue();
+            float p = RequestParmeter<ParamName>(calculator).GetValue();
 
-            unroundValues.Clear();
-            values.Clear();
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
+            ClearValues();
 
             return calculationReport;
         }

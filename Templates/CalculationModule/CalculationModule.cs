@@ -13,9 +13,12 @@ namespace $rootnamespace$
         {
             var report = new ModuleCalculationReport(this);
 
-            var p = calculator.UpdatedParameter<ParamName>().GetValue();
+            var p = RequestParmeter<ParamName>(calculator, report).GetValue();
 
-            return report;
+            if (!report.IsSuccess)
+                return report;
+
+    return report;
         }
     }
 }

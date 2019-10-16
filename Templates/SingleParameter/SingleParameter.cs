@@ -17,7 +17,10 @@ namespace $rootnamespace$
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float p = calculator.UpdatedParameter<ParamName>().GetValue();
+            float p = RequestParmeter<ParamName>(calculator).GetValue();
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             value = ;
 

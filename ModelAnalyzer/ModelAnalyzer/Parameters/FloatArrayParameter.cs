@@ -154,5 +154,11 @@ namespace ModelAnalyzer.Parameters
 
             return baseVerify && values != null;
         }
+
+        internal void ClearValues ()
+        {
+            values = new List<float>();
+            unroundValues = new List<float>();
+        }
     }
 }
