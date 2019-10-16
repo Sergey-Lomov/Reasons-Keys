@@ -29,9 +29,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             float step = (mp - bp) / ua;
             for (int i = 0; i <= (int)ua; i++)

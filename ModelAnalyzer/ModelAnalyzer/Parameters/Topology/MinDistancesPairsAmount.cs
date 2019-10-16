@@ -28,9 +28,7 @@ namespace ModelAnalyzer.Parameters.Topology
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             if (pd.Count != phasesRoutes.Keys.Count)
             {

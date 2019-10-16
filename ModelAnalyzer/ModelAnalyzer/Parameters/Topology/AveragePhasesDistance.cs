@@ -47,8 +47,7 @@ namespace ModelAnalyzer.Parameters.Topology
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
+            ClearValues();
 
             for (int i = 0; i < pa; i++)
             {

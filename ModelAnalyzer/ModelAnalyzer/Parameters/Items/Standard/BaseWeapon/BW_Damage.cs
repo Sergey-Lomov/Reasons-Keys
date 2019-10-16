@@ -29,9 +29,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             float step = wsp * (mpc - 1) / ua;
             for (int i = 0; i <= (int)ua; i++)

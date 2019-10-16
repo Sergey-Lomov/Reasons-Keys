@@ -25,9 +25,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             float previousUpgradeProfit = 0;
             foreach (var profit in up)

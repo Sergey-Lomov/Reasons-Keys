@@ -76,8 +76,7 @@ namespace ModelAnalyzer.Parameters.Events.Weight
 
             weights.Reverse();
 
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
             values = unroundValues = weights;
 
             return calculationReport;

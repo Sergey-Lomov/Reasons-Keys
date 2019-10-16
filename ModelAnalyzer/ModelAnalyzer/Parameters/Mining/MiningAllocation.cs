@@ -27,9 +27,7 @@ namespace ModelAnalyzer.Parameters.Mining
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             for (int i = 0; i <= fr; i++)
             {

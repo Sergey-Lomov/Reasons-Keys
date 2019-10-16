@@ -26,9 +26,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             foreach (var profit in up)
             {

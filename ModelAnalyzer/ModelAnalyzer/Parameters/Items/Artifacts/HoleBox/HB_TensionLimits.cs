@@ -31,9 +31,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             float unroundMaeu = eapr / (peuprc + (1 - cpd / ra) * (1 - ocac) / 2);
             float maeu = (float)Math.Round(unroundMaeu, MidpointRounding.AwayFromZero);

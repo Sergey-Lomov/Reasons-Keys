@@ -24,11 +24,9 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
 
             float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
 
-            unroundValues = new List<float>();
-            values = new List<float>();
-
             if (!calculationReport.IsSuccess)
                 return calculationReport;
+            ClearValues();
 
             for (int i = 0; i < tisa; i++)
             {

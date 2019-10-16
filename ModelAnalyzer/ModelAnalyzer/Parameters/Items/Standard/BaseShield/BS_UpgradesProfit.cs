@@ -26,9 +26,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             foreach (var defense in bsd)
                 unroundValues.Add(saa * defense);

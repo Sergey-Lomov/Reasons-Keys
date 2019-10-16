@@ -31,9 +31,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            unroundValues = new List<float>();
-            values = new List<float>();
+            ClearValues();
 
             float prevUpgradeSpeed = isp;
             for (int i = 0; i < ua; i++)
