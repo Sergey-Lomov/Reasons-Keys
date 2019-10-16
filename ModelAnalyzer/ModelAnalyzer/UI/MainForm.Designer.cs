@@ -66,7 +66,7 @@
             this.MainLayout.Location = new System.Drawing.Point(200, 37);
             this.MainLayout.Margin = new System.Windows.Forms.Padding(10);
             this.MainLayout.Name = "MainLayout";
-            this.MainLayout.Padding = new System.Windows.Forms.Padding(5);
+            this.MainLayout.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.MainLayout.RowCount = 1;
             this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 525F));
             this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 525F));
@@ -275,16 +275,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(200, 0);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(8);
             this.panel1.Size = new System.Drawing.Size(518, 37);
             this.panel1.TabIndex = 0;
             // 
             // titleFilterTB
             // 
-            this.titleFilterTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.titleFilterTB.Location = new System.Drawing.Point(8, 12);
+            this.titleFilterTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.titleFilterTB.Location = new System.Drawing.Point(8, 8);
             this.titleFilterTB.Name = "titleFilterTB";
-            this.titleFilterTB.Size = new System.Drawing.Size(531, 20);
+            this.titleFilterTB.Size = new System.Drawing.Size(502, 20);
             this.titleFilterTB.TabIndex = 0;
             this.titleFilterTB.TextChanged += new System.EventHandler(this.FilterChanged);
             // 

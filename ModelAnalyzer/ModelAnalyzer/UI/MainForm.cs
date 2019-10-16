@@ -125,6 +125,10 @@ namespace ModelAnalyzer.UI
                     {
                         MainLayout.RowCount += 1;
                         Panel header = uiFactory.HeaderForParameterType(type);
+
+                        if (MainLayout.Controls.Count == 0)
+                            header.Margin = new Padding(header.Margin.Left, 0, header.Margin.Right, header.Margin.Bottom);
+
                         MainLayout.Controls.Add(header);
                     }
 
