@@ -5,6 +5,7 @@ using System.Linq;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
+using System.Drawing;
 
 namespace ModelAnalyzer.UI
 {
@@ -24,7 +25,7 @@ namespace ModelAnalyzer.UI
         {
             InitializeComponent();
             MainLayout.RowStyles.Clear();
-            MainLayout.HorizontalScroll.Visible = false;
+            MainLayout.HorizontalScroll.Enabled = false;
 
             new ModelFactory().LoadModel(storage);
             UpdateTagsPanel();
@@ -91,6 +92,7 @@ namespace ModelAnalyzer.UI
 
         private void ReloadTable ()
         {
+            MainLayout.AutoScroll = false;
             MainLayout.SuspendLayout();
 
             MainLayout.Controls.Clear();
@@ -137,8 +139,8 @@ namespace ModelAnalyzer.UI
             }
 
             Invalidate(true);
- 
-            MainLayout.ResumeLayout();
+            MainLayout.ResumeLayout(true);
+            MainLayout.AutoScroll = true;
         }
 
         private void Calculate(bool showReport = true)
