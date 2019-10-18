@@ -10,6 +10,11 @@ namespace ModelAnalyzer.Parameters
 
         internal override string operationTitle => parameter.title;
 
+        internal ParameterOperationReport(ParameterOperationReport report) : base(report)
+        {
+            parameter = report.parameter;
+        }
+
         internal ParameterOperationReport(Parameter parameter)
         {
             this.parameter = parameter;
@@ -27,9 +32,17 @@ namespace ModelAnalyzer.Parameters
 
         public bool WasChanged => !parameter.IsEqual(precalculated);
 
+        internal ParameterCalculationReport(ParameterCalculationReport report) : base(report)
+        {
+            precalculated = report.precalculated;
+        }
+
         internal ParameterCalculationReport(Parameter parameter) : base(parameter)
         {
             precalculated = parameter.Copy();
+
+            if (precalculated.calculationReport != null)
+                precalculated.calculationReport.precalculated = null;
         }
     }
 }

@@ -31,8 +31,11 @@ namespace ModelAnalyzer.Parameters
 
             var baseCheck = base.IsEqual(p);
 
-            var fsp = p as PairsArrayParameter;
-            var valuesCheck = fsp.values.SequenceEqual(values);
+            var pap = p as PairsArrayParameter;
+            if (values == null || pap.values == null)
+                return values == null && pap.values == null;
+
+            var valuesCheck = pap.values.SequenceEqual(values);
 
             return baseCheck && valuesCheck;
         }

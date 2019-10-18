@@ -37,6 +37,9 @@ namespace ModelAnalyzer.Parameters
             copy.tags.Clear();
             copy.tags.AddRange(tags);
 
+            if (calculationReport != null)
+                copy.calculationReport = new ParameterCalculationReport(calculationReport);
+
             return copy;
         }
 
@@ -54,7 +57,10 @@ namespace ModelAnalyzer.Parameters
         internal virtual bool VerifyValue ()
         {
             if (type != ParameterType.In)
-                return calculationReport.IsSuccess;
+                if (calculationReport != null)
+                    return calculationReport.IsSuccess;
+                else
+                    return false;
 
             return true;
         }

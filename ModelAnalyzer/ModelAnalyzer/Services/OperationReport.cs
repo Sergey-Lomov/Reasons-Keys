@@ -7,6 +7,13 @@ namespace ModelAnalyzer.Services
         internal bool IsSuccess => issues.Count == 0;
         protected List<string> issues = new List<string>();
 
+        public OperationReport() {}
+
+        public OperationReport (OperationReport report)
+        {
+            issues = new List<string>(report.issues);
+        }
+
         internal List<string> GetIssues()
         {
             return new List<string>(issues);

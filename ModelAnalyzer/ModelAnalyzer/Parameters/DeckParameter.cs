@@ -28,8 +28,11 @@ namespace ModelAnalyzer.Parameters
 
             var baseCheck = base.IsEqual(p);
 
-            var fsp = p as DeckParameter;
-            var deckCheck = fsp.deck.SequenceEqual(deck);
+            var dp = p as DeckParameter;
+            if (deck == null || dp.deck == null)
+                return deck == null && dp.deck == null;
+
+            var deckCheck = dp.deck.SequenceEqual(deck);
 
             return baseCheck && deckCheck;
         }

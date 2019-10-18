@@ -73,7 +73,8 @@ namespace ModelAnalyzer.UI.Factories
 
         private void AddPairsArray(PairsArrayParameter p, Panel panel, bool advanced, EventHandler clickHandler)
         {
-            var text = string.Format("{0} пар", p.GetValue().Count());
+            int pairsAmount = p.GetValue() != null ? p.GetValue().Count() : 0; 
+            var text = string.Format("{0} пар", pairsAmount);
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 

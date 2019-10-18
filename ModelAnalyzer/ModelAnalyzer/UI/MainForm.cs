@@ -188,33 +188,34 @@ namespace ModelAnalyzer.UI
             ParameterEditForm edit = uiFactory.EditFormForParameter(parameter);
             edit.TopLevel = true;
 
-            edit.ShowDialog();
-                try
+            try
+            {
+                edit.ShowDialog();
+
+                if (edit.IsModelUpdateNecessary())
                 {
-                    if (edit.IsModelUpdateNecessary())
-                    {
-                        Calculate(edit, null);
-                    }
-                    else if (edit.IsParameterUpdateNecessary())
-                {
-                        var row = parametersRows[parameter];
-                        var validation = parameter.Validate(validator, storage);
-                        var newRow = uiFactory.RowForParameter(parameter, this, validation);
-
-                        var rowIndex = MainLayout.GetPositionFromControl(row);
-
-                        MainLayout.SuspendLayout();
-                        MainLayout.Controls.Remove(row);
-                        MainLayout.Controls.Add(newRow, rowIndex.Column, rowIndex.Row);
-                        MainLayout.ResumeLayout();
-
-                        parametersRows[parameter] = newRow;
-                    }
+                    Calculate(edit, null);
                 }
-                catch (MAException e)
+                else if (edit.IsParameterUpdateNecessary())
                 {
-                    MessageBox.Show(e.Message);
+                    var row = parametersRows[parameter];
+                    var validation = parameter.Validate(validator, storage);
+                    var newRow = uiFactory.RowForParameter(parameter, this, validation);
+
+                    var rowIndex = MainLayout.GetPositionFromControl(row);
+
+                    MainLayout.SuspendLayout();
+                    MainLayout.Controls.Remove(row);
+                    MainLayout.Controls.Add(newRow, rowIndex.Column, rowIndex.Row);
+                    MainLayout.ResumeLayout();
+
+                    parametersRows[parameter] = newRow;
                 }
+            }
+            catch (MAException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void HandleTitleClick(Parameter parameter)

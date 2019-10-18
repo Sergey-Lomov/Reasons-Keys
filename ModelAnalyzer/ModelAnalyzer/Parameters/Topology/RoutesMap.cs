@@ -13,7 +13,7 @@ namespace ModelAnalyzer.Parameters.Topology
     {
         const string valueStub = "Недоступно";
 
-        internal PhaseRoutes phasesRoutes = null;//new PhaseRoutes();
+        internal PhaseRoutes phasesRoutes = null;
 
         public RoutesMap()
         {
@@ -43,8 +43,10 @@ namespace ModelAnalyzer.Parameters.Topology
                 return false;
 
             var baseCheck = base.IsEqual(p);
-
             var fsp = p as RoutesMap;
+
+            if (phasesRoutes == null || fsp.phasesRoutes == null)
+                return phasesRoutes == null && fsp.phasesRoutes == null;
 
             bool routesCheck = true;
             foreach (var phase in phasesRoutes.Keys)
