@@ -27,8 +27,9 @@ namespace ModelAnalyzer.Parameters.Activities
                 return calculationReport;
 
             unroundValue = eecp * aupp / am;
+            float roundValue = (float)System.Math.Round(unroundValue);
             float timesPerAction = (float)System.Math.Round(1 / unroundValue);
-            value = 1 / timesPerAction;
+            value = unroundValue < 1 ? 1 / timesPerAction : roundValue;
 
             return calculationReport;
         }
