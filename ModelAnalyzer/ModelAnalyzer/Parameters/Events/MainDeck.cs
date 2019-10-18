@@ -63,7 +63,7 @@ namespace ModelAnalyzer.Parameters.Events
 
             catch (MACalculationException)
             {
-                deck.Clear();
+                deck = null;
             }
 
             return calculationReport;

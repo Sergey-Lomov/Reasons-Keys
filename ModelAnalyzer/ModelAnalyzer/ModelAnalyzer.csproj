@@ -157,7 +157,7 @@
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
-    <Compile Include="Parameters\Events\Weight\NodesAvailableBackRelations.cs" />
+    <Compile Include="Parameters\Topology\NodesAvailableBackRelations.cs" />
     <Compile Include="Parameters\Events\StabilityIncrementAllocation.cs" />
     <Compile Include="Parameters\General\MinPlayersAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\LogisticsInitialCardCoefficient.cs" />

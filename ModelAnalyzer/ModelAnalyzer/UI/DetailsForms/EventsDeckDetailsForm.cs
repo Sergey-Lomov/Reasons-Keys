@@ -69,6 +69,9 @@ namespace ModelAnalyzer.UI
             DeckTable.ColumnStyles.Clear();
             DeckTable.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 
+            if (cards == null)
+                return;
+
             DeckTable.RowCount = cards.Count;
             DeckTable.Controls.AddRange(predefinedControls.ToArray());
 

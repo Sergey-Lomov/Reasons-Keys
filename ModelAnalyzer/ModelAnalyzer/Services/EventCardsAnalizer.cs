@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using ModelAnalyzer.DataModels;
+using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Events.Weight;
@@ -11,6 +12,8 @@ namespace ModelAnalyzer.Services
 {
     class EventCardsAnalizer
     {
+        static private readonly string invalidIn = "Значение параметра {0} не верифицированно";
+
         static internal float WeightForCard(EventCard card, Calculator calculator)
         {
             float aw = calculator.UpdatedParameter<ArtifactsWeight>().GetValue();
@@ -66,8 +69,15 @@ namespace ModelAnalyzer.Services
             if (relations.Count == 0)
                 return 0;
 
-            List<float> availableBackAllocation = calculator.UpdatedParameter<NodesAvailableBackRelations>().GetValue();
+            var availableBackAllocationParameter = calculator.UpdatedParameter<NodesAvailableBackRelations>();
+            if (!availableBackAllocationParameter.VerifyValue())
+            {
+                var message = string.Format(invalidIn, availableBackAllocationParameter.title);
+                var e = new MACalculationException(message);
+                throw e;
+            }
 
+            List<float> availableBackAllocation = availableBackAllocationParameter.GetValue();
             int backAmount = relations.Where(r => r.direction == RelationDirection.back).Count();
             int frontAmount = relations.Where(r => r.direction == RelationDirection.front).Count();
 
