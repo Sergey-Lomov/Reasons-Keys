@@ -14,6 +14,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
             title = "Вес бонуса добычи";
             details = "Имеется ввиду вес ондой единицв бонуса добычи";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.eventsWeight);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

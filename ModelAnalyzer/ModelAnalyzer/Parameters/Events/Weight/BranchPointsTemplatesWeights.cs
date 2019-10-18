@@ -32,6 +32,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
             title = "Вес шаблонов очков ветвей";
             details = "Вес задается в порядке: -1/-1, +1/+1, -1/0, 0/-1, +1/0, 0/+1, 0/0";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.eventsWeight);
 
             int[] p1 = { +1 };
             int[] m1 = { -1 };

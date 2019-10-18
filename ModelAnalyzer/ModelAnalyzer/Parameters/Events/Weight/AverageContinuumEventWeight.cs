@@ -11,6 +11,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
             title = "Средний вес событий континуума";
             details = "";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.eventsWeight);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

@@ -13,6 +13,7 @@ namespace ModelAnalyzer.Parameters.Topology
             title = "Распределение возможных связей назад";
             details = "Кол-во узлов в которых возможно различное кол-во связей назад. В массиве должно быть 7 значений: кол-во узлов у которых возможно 0 связей назад, 1 связь, 2 и т.д. до 6.";
             fractionalDigits = 0;
+            tags.Add(ParameterTag.topology);
         }
 
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)

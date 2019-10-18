@@ -1,24 +1,27 @@
-ModelAnalyzer.Parameters.MaxPlayersAmount:6~-|
-ModelAnalyzer.Parameters.MinPlayersAmount:3~-|
-ModelAnalyzer.Parameters.Activities.AUPriceProportion:0,69~0,686|
-ModelAnalyzer.Parameters.Activities.AverageEventsConcreteBranchPoints:12,16~12,158|
+ModelAnalyzer.Parameters.General.MaxPlayersAmount:6~6|
+ModelAnalyzer.Parameters.General.MinPlayersAmount:3~3|
+ModelAnalyzer.Parameters.Activities.AtackAmount:6~6|
+ModelAnalyzer.Parameters.Activities.AUPriceProportion:0,69~0,69|
+ModelAnalyzer.Parameters.Activities.AverageEventsConcreteBranchPoints:12,16~12,16|
 ModelAnalyzer.Parameters.Activities.AverageUnkeyEventsConcreteBranchPoints:2,55 3,4 4,25 5,1~2,55 3,4 4,25 5,1|
 ModelAnalyzer.Parameters.Activities.DestructionCoef:0,75~-|
+ModelAnalyzer.Parameters.Activities.EstimatedEventCreationPrice:14,9~14,9|
+ModelAnalyzer.Parameters.Activities.EstimatedEventImpactPrice:5,71~5,71|
 ModelAnalyzer.Parameters.Activities.EUPartyAmount:160~-|
 ModelAnalyzer.Parameters.Activities.EventActionsCoef:0,5~-|
 ModelAnalyzer.Parameters.Activities.EventCreationAmount:8,5~8,5|
-ModelAnalyzer.Parameters.Activities.EventCreationPrice:15,22~15,217|
-ModelAnalyzer.Parameters.Activities.EventCreationPriceAU:1~1,043|
-ModelAnalyzer.Parameters.Activities.EventCreationPriceEU:5~5,217|
+ModelAnalyzer.Parameters.Activities.EventCreationPrice:15~15|
+ModelAnalyzer.Parameters.Activities.EventCreationPriceAU:1~1,02|
+ModelAnalyzer.Parameters.Activities.EventCreationPriceEU:5~5|
 ModelAnalyzer.Parameters.Activities.EventImpactAmount:8~-|
-ModelAnalyzer.Parameters.Activities.EventImpactPrice:5,71~5,707|
-ModelAnalyzer.Parameters.Activities.EventImpactPriceAU:0,33~0,391|
-ModelAnalyzer.Parameters.Activities.EventImpactPriceEU:2~2,373|
+ModelAnalyzer.Parameters.Activities.EventImpactPrice:5,33~5,33|
+ModelAnalyzer.Parameters.Activities.EventImpactPriceAU:0,33~0,39|
+ModelAnalyzer.Parameters.Activities.EventImpactPriceEU:2~2|
 ModelAnalyzer.Parameters.Activities.EventsActionsPotential:175~175|
 ModelAnalyzer.Parameters.Activities.KeyEventCreationAmount:2,5~-|
-ModelAnalyzer.Parameters.Activities.StandardAtackAmount:6~-|
-ModelAnalyzer.Parameters.Activities.UnkeyEventCreationAmount:6~-|
+ModelAnalyzer.Parameters.Activities.MiningAmount:16~16|
 ModelAnalyzer.Parameters.Activities.TotalPotential:400~400|
+ModelAnalyzer.Parameters.Activities.UnkeyEventCreationAmount:6~-|
 ModelAnalyzer.Parameters.Events.MainDeck:Кол|
 ModelAnalyzer.Parameters.Events.ArtifactsAvaliabilityPhase:2~-|
 ModelAnalyzer.Parameters.Events.ArtifactsRarity:0,16~-|
@@ -29,7 +32,6 @@ ModelAnalyzer.Parameters.Events.BlockRelationsCoef_OB:0,33~-|
 ModelAnalyzer.Parameters.Events.BrachPointsTemplatesAllocation:10 5 2 2 0 0 1~- - - - - - -|
 ModelAnalyzer.Parameters.Events.BranchPointsAllocation_Standard:0-1 0-2 0-3 1-2 1-3 2-3 2-4 2-5 3-4 3-5 4-0 4-1 4-5 5-0 5-1|
 ModelAnalyzer.Parameters.Events.BranchPointsAllocation_Symmetric:0-1 0-2 1-2 1-3 1-4 2-3 2-4 3-0 3-4 3-5 4-0 4-5 5-0 5-1 5-2|
-ModelAnalyzer.Parameters.Events.ContinuumNodesAmount:60~60|
 ModelAnalyzer.Parameters.Events.EventMaxMiningBonus:4~-|
 ModelAnalyzer.Parameters.Events.EventMaxRelations:3~-|
 ModelAnalyzer.Parameters.Events.EventMiningBonusAllocation:5 5 5 3 2~- - - - -|
@@ -45,7 +47,7 @@ ModelAnalyzer.Parameters.Events.RelationsAmountAllocation_OB:1 2 1~- - -|
 ModelAnalyzer.Parameters.Events.StabilityIncrementAllocation:1 2 4 2 1~- - - - -|
 ModelAnalyzer.Parameters.Events.Weight.AdditionalReasonsWeight:0,8~-|
 ModelAnalyzer.Parameters.Events.Weight.ArtifactsWeight:1,5~-|
-ModelAnalyzer.Parameters.Events.Weight.AverageContinuumEventWeight:92,43~92,426|
+ModelAnalyzer.Parameters.Events.Weight.AverageContinuumEventWeight:86,67~86,67|
 ModelAnalyzer.Parameters.Events.Weight.AverageRelationStability:5,5~5,5|
 ModelAnalyzer.Parameters.Events.Weight.AverageSequenceLength:4,5~-|
 ModelAnalyzer.Parameters.Events.Weight.BaseRelationsWeight:1~-|
@@ -56,68 +58,99 @@ ModelAnalyzer.Parameters.Events.Weight.MiningBonusWeight:1,2~1,2|
 ModelAnalyzer.Parameters.Events.Weight.NodesAvailableBackRelations:0 4 19 34 3 0 0~- - - - - - -|
 ModelAnalyzer.Parameters.Mining.AverageMining:10~10|
 ModelAnalyzer.Parameters.Mining.CenterMiningBonus:8~8|
-ModelAnalyzer.Parameters.Mining.MiningAllocation:0 3 6 9 12~0 2,955 5,91 8,865 11,82|
+ModelAnalyzer.Parameters.Mining.MiningAllocation:0 3 6 9 12~0 3 6 9 12|
 ModelAnalyzer.Parameters.Mining.MiningAUCoef:0,4~-|
-ModelAnalyzer.Parameters.Mining.MiningIncrement:3~2,955|
-ModelAnalyzer.Parameters.Moving.InitialSpeed:2~1,964|
+ModelAnalyzer.Parameters.Mining.MiningIncrement:3~3|
+ModelAnalyzer.Parameters.Moving.InitialSpeed:2~2|
 ModelAnalyzer.Parameters.Moving.InitialSpeedCoef:0,4~-|
-ModelAnalyzer.Parameters.Activities.MotionAmount:50~-|
+ModelAnalyzer.Parameters.Moving.MotionAmount:50~50|
 ModelAnalyzer.Parameters.Moving.MotionFreeLevel:2~-|
-ModelAnalyzer.Parameters.Moving.MotionPrice:1~1,018|
+ModelAnalyzer.Parameters.Moving.MotionPrice:1~1|
 ModelAnalyzer.Parameters.Moving.SpeedDoublingRate:3,5~-|
+ModelAnalyzer.Parameters.Moving.OneRoundSpeedDoublingProfit:3,5~3,5|
 ModelAnalyzer.Parameters.Timing.AUMoveAmount:2~-|
 ModelAnalyzer.Parameters.Timing.AUPartyAmount:40~40|
 ModelAnalyzer.Parameters.Timing.MoveDuration:1~-|
-ModelAnalyzer.Parameters.Timing.PartyDuration:158~158,25|
+ModelAnalyzer.Parameters.Timing.PartyDuration:158~158|
 ModelAnalyzer.Parameters.Timing.PhasesAmount:5~5|
 ModelAnalyzer.Parameters.Timing.PhasesDuration:2 3 5 8 2~2 3 5 8 2|
 ModelAnalyzer.Parameters.Timing.PhasesWeight:10 15 25 40 10~- - - - -|
 ModelAnalyzer.Parameters.Timing.RealisationDuration:0,75~-|
 ModelAnalyzer.Parameters.Timing.RoundAmount:20~-|
-ModelAnalyzer.Parameters.Topology.AverageDistance:4,91~4,909|
-ModelAnalyzer.Parameters.Topology.AveragePhasesDistance:4,12 4,19 4,57 5,25 6,26~4,121 4,186 4,566 5,254 6,261|
+ModelAnalyzer.Parameters.Topology.AverageDistance:4,91~4,91|
+ModelAnalyzer.Parameters.Topology.AveragePhasesDistance:4,12 4,19 4,57 5,25 6,26~4,12 4,19 4,57 5,25 6,26|
+ModelAnalyzer.Parameters.Topology.ContinuumNodesAmount:60~60|
 ModelAnalyzer.Parameters.Topology.FieldRadius:4~-|
-ModelAnalyzer.Parameters.Topology.RoutesMap:Недос|
 ModelAnalyzer.Parameters.Topology.MinDistancesPairsAmount:2112 2958 3225 3297 3357 3090 2535 1743 873 279 72 24~2112 2958 3225 3297 3357 3090 2535 1743 873 279 72 24|
+ModelAnalyzer.Parameters.Topology.NodesNearestAmount:stub|
+ModelAnalyzer.Parameters.Topology.RoutesMap:Недос|
 ModelAnalyzer.Parameters.PlayerInitial.AverageInitialEventsBranchPoints:0~-|
 ModelAnalyzer.Parameters.PlayerInitial.InitialEventsWeightCoefficient:1~-|
 ModelAnalyzer.Parameters.PlayerInitial.KeyChainLenghtCoefficient:0,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsAmount:3~-|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPoints:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPointsCoefficient:2,5~-|
-ModelAnalyzer.Parameters.PlayerInitial.KeyEventsTotalBrachPoints:10~9,563|
+ModelAnalyzer.Parameters.PlayerInitial.KeyEventsTotalBrachPoints:10~10|
 ModelAnalyzer.Parameters.PlayerInitial.LogisticsInitialCardCoefficient:0,4~-|
-ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPoints:4~4,286|
+ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPoints:4~4|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPointsCoefficient:1,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.MiningInitialCardCoefficient:0,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.MinInitialCardUsability:1~-|
-ModelAnalyzer.Parameters.PlayerInitial.RealKeyEventBrachPointCoefficients:3,92 2,94 2,35 1,96~3,922 2,941 2,353 1,961|
+ModelAnalyzer.Parameters.PlayerInitial.RealKeyEventBrachPointCoefficients:3,92 2,94 2,35 1,96~3,92 2,94 2,35 1,96|
 ModelAnalyzer.Parameters.PlayerInitial.StabilityInitialCardCoefficient:0,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.StartDeck:Кол|
-ModelAnalyzer.Parameters.Items.ArtifactsEstimatedProfit:0~0|
+ModelAnalyzer.Parameters.Items.EstimatedArtifactsProfit:58,26~58,26|
 ModelAnalyzer.Parameters.Items.ArtifactsProfitCoefficient:2~-|
-ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:0~-|
-ModelAnalyzer.Parameters.Items.ItemPriceCoefficient:0,4~-|
+ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:36,05~36,05|
+ModelAnalyzer.Parameters.Items.ItemPriceCoefficient:0,4~0,4|
 ModelAnalyzer.Parameters.Items.PureEUProfitCoefficient:2~-|
 ModelAnalyzer.Parameters.Items.WeaponStandardEffectivity:3~-|
 ModelAnalyzer.Parameters.Items.WeaponStandardPower:1~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_BasePower:0,3~-|
-ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Defense:3 5 7~3 4,875 7|
-ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_FullPrice:7 5 5~7,2 4,8 4,8|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Defense:3 5 7~3 5 7|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_FullPrice:7 5 5~7 5 5|
 ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_MaxPower:0,35~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Profit:30~30|
 ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_UpgradesProfit:18 30 42~18 30 42|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Damage:10 15 20~10 15 20|
-ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_FullPrice:10 5 5~9,6 4,8 4,8|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_FullPrice:10 5 5~10 5 5|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_MaxEffectivityCoefficient:1,33~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_MaxPowerCoefficient:2~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Profit:36~36|
-ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_ShotPrice:3 4 5~3,333 4,292 5,013|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_ShotPrice:3 4 5~3 4 5|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesAmount:2~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesProfit:24 36 48~24 36 48|
-ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_FullPrice:7 5 4~7 4,667 3,5|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_FullPrice:7 5 4~7 5 4|
 ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_MaxSpeedCoef:1~-|
-ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Power:1 1 1~0,97 0,97 0,97|
-ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Profit:28,19~28,194|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Power:1 1 1~1 1 1|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Profit:28,19~28,19|
 ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesAmount:3~-|
-ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesProfit:17,5 11,67 8,75~17,5 11,667 8,75|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesProfit:17,5 11,67 8,75~17,5 11,67 8,75|
+ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_Capacity:65~65|
+ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_CapacityCoefficient:1,5~1,5|
+ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_FullPrice:20~20|
+ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_InversePower:1~1|
+ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_Profit:50~50|
+ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_RelativeRevenue:3~3|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_ChargesAmount:7~7|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_OneUsageProfit:7,89~7,89|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_Profit:55,22~55,22|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_V616Mining:14~14|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_CollapsePreparationDuration:5~5|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTension:12~12|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTransaction:7~6|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_OwnerCollapseAbsorbCoefficient:0,2~0,2|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_Profit:57,5~57,5|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionIncreasing:-2 1 2 4~-2 1 2 4|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionInreasingStepsAmount:3~3|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionLimits:0 8 17 25~0 8 17 25|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_ConnectionsAmount:1~1|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_OneConnectionProfit:57,6~57,6|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Profit:57,6~57,6|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_Profit:57,78~57,78|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SecondaryStabilisationPower:2~2|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_StabilisationPower:4~4|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SymmetricalNodesAmount:5~5|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_UsageAmount:2~2|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_Power:2~2|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_Profit:61,91~61,91|

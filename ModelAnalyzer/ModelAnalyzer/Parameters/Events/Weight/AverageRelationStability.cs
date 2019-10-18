@@ -12,6 +12,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
             title = "Средняя стабильность, переносимая связью";
             details = "";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.eventsWeight);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

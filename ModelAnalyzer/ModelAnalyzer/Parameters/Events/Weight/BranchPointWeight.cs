@@ -11,6 +11,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
             title = "Вес очка ветви";
             details = "Имеется ввиду ТЗ эквивалент ондого очка ветви игрока";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.eventsWeight);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

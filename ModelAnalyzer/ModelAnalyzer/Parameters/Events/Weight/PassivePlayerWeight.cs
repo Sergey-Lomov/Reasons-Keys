@@ -11,6 +11,8 @@ namespace ModelAnalyzer.Parameters.Events.Weight
             title = "Вес пассивного игрока";
             details = "Пассивным игроком называется пассивный союзник/проитвник - игрок, которого очки ветвей склоняют поддерживать или противодействовать томучтобы некоторое событие случилось.";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.eventsWeight);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

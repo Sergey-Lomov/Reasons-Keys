@@ -8,6 +8,8 @@
             title = "Вес причин вперед";
             details = "Используется для причин направленных вперед. При расчете веса карты, вес связи умножается на среднюю стабильность, переносимую связью.";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.eventsWeight);
         }
     }
 }

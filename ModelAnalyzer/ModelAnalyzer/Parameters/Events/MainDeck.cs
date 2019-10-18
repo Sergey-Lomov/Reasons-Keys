@@ -60,7 +60,6 @@ namespace ModelAnalyzer.Parameters.Events
                 UpdateDeckWeight(calculator);
                 AddBranchPoints(deck, calculator);
             }
-
             catch (MACalculationException)
             {
                 deck = null;
