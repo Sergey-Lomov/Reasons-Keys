@@ -29,13 +29,9 @@ namespace ModelAnalyzer.Parameters.Activities
 
             int minpa = (int)RequestParmeter<MinPlayersAmount>(calculator).GetValue();
             int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-
-            float kebpc = RequestParmeter<KeyEventsBranchPointsCoefficient>(calculator).GetValue();
             float iewc = RequestParmeter<InitialEventsWeightCoefficient>(calculator).GetValue();
             float nkeca = RequestParmeter<UnkeyEventCreationAmount>(calculator).GetValue();
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
             float aiebp = RequestParmeter<AverageInitialEventsBranchPoints>(calculator).GetValue();
-
             List<float> bpal = RequestParmeter<BrachPointsTemplatesAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)

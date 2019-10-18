@@ -21,7 +21,6 @@ namespace ModelAnalyzer.Parameters.Activities
             calculationReport = new ParameterCalculationReport(this);
 
             float asi = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
-            float am = RequestParmeter<AverageMining>(calculator).GetValue();
             float eap = RequestParmeter<EventsActionsPotential>(calculator).GetValue();
             float eca = RequestParmeter<EventCreationAmount>(calculator).GetValue();
             float eia = RequestParmeter<EventImpactAmount>(calculator).GetValue();
