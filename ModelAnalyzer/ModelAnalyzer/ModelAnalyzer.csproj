@@ -233,7 +233,6 @@
     <Compile Include="Parameters\Activities\AUPriceProportion.cs" />
     <Compile Include="Parameters\Activities\DestructionCoef.cs" />
     <Compile Include="Parameters\Activities\EUPartyAmount.cs" />
-    <Compile Include="Parameters\Activities\EventActionsCoef.cs" />
     <Compile Include="Parameters\Activities\EventCreationPrice.cs" />
     <Compile Include="Parameters\Activities\EventCreationPriceAU.cs" />
     <Compile Include="Parameters\Activities\EventCreationPriceEU.cs" />

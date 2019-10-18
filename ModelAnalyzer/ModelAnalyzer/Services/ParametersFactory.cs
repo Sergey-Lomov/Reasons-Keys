@@ -40,7 +40,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EstimatedEventCreationPrice());
             storage.AddParameter(parameter: new EstimatedEventImpactPrice());
             storage.AddParameter(parameter: new EUPartyAmount());
-            storage.AddParameter(parameter: new EventActionsCoef());
             storage.AddParameter(parameter: new EventCreationAmount());
             storage.AddParameter(parameter: new EventCreationPrice());
             storage.AddParameter(parameter: new EventCreationPriceAU());

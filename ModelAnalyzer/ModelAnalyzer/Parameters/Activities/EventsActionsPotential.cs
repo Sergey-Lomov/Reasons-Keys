@@ -21,9 +21,8 @@ namespace ModelAnalyzer.Parameters.Activities
             float tp = RequestParmeter<TotalPotential>(calculator).GetValue();
             float ma = RequestParmeter<MotionAmount>(calculator).GetValue();
             float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
-            float eac = RequestParmeter<EventActionsCoef>(calculator).GetValue();
 
-            value = unroundValue = (tp - ma * mp) * eac;
+            value = unroundValue = tp - ma * mp;
 
             return calculationReport;
         }
