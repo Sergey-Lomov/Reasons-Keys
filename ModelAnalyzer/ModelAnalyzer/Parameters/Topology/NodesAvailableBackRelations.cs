@@ -1,6 +1,6 @@
 ﻿using ModelAnalyzer.Services;
 
-namespace ModelAnalyzer.Parameters.Events.Weight
+namespace ModelAnalyzer.Parameters.Topology
 {
     class NodesAvailableBackRelations : FloatArrayParameter
     {
