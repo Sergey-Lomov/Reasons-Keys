@@ -6,7 +6,6 @@ using ModelAnalyzer.Services;
 using ModelAnalyzer.Services.FieldAnalyzer;
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Timing;
-using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
