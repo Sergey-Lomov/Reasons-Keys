@@ -122,7 +122,8 @@ namespace ModelAnalyzer.Services
 
         static internal void UpdateCardConstraints (EventCard card, Calculator calculator)
         {
-            var aap = calculator.UpdatedParameter<ArtifactsAvaliabilityPhase>();
+            // For now cards have no contraints 
+           /* var aap = calculator.UpdatedParameter<ArtifactsAvaliabilityPhase>();
             if (!aap.VerifyValue())
             {
                 var message = string.Format(invalidIn, aap.title);
@@ -131,7 +132,7 @@ namespace ModelAnalyzer.Services
             }
 
             if (card.provideArtifact)
-                card.minPhaseConstraint = (int)aap.GetValue();
+                card.minPhaseConstraint = (int)aap.GetValue();*/
         }
     }
 }
