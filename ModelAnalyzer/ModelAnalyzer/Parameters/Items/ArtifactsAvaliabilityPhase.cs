@@ -13,7 +13,6 @@ namespace ModelAnalyzer.Parameters.Items
             title = "Фаза доступности артефактов";
             details = "Все карты имеющие артефакты, получат ограничение, не дающее использовать их раньше указанной фазы.";
             fractionalDigits = 0;
-            tags.Add(ParameterTag.events);
             tags.Add(ParameterTag.artifacts);
         }
 
