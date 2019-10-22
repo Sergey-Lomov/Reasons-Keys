@@ -22,7 +22,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         public StartDeck()
         {
             type = ParameterType.Out;
-            title = "Стартовые события";
+            title = "Колода стартовых событий";
             details = "Изначальные и решающие события, с которыми игрок начинает игру";
             tags.Add(ParameterTag.playerInitial);
         }
@@ -116,7 +116,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.relations = relations;
             card.stabilityIncrement = stability;
             card.miningBonus = miningBonus;
-            card.comment = "Логистичекое изначальное";
+            card.comment = "Логистичекое изначальное событие";
 
             return card;
         }
@@ -169,7 +169,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.relations = relations;
             card.stabilityIncrement = stability;
             card.miningBonus = miningBonus;
-            card.comment = "Добывающее изначальное";
+            card.comment = "Добывающее изначальное событие";
 
             return card;
         }
@@ -223,7 +223,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.relations = relations;
             card.stabilityIncrement = stability;
             card.miningBonus = miningBonus;
-            card.comment = "Стабилизирующее изначальное";
+            card.comment = "Стабилизирующее изначальное событие";
 
             return card;
         }
@@ -235,17 +235,26 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float kea = RequestParmeter<KeyEventsAmount>(calculator).GetValue();
             float kebp = RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
             float mkebp = RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
+            float kclc = RequestParmeter<KeyChainLenghtCoefficient>(calculator).GetValue();
+            float asi = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
+            float ueca = RequestParmeter<UnkeyEventCreationAmount>(calculator).GetValue();
+
+            float kesc = kclc * ueca * asi;
+            float mkesc = kesc * mkebp / kebp;
 
             if (!calculationReport.IsSuccess)
                 return null;
 
-            keyEvents.Add(MainKeyEvent((int)mkebp));
-            keyEvents.AddRange(NotMainKeyEvents((int)kea - 1, (int)kebp));
+
+            var mainEvent = MainKeyEvent((int)mkebp, (int)mkesc);
+            var notMainEvents = NotMainKeyEvents((int)kea - 1, (int)kebp, (int)kesc);
+            keyEvents.Add(mainEvent);
+            keyEvents.AddRange(notMainEvents);
 
             return keyEvents;
         }
 
-        private List<EventCard> NotMainKeyEvents(int amount, int kebp)
+        private List<EventCard> NotMainKeyEvents(int amount, int kebp, int kesc)
         {
             var keyEvents = new List<EventCard>(amount);
 
@@ -266,6 +275,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
                 card.branchPoints = set;
                 card.relations = withBlocker ? blockerRelations : reasonRelations;
+                card.minStabilityConstraint = kesc;
                 card.isKey = true;
                 card.comment = "Решающее событие";
                 keyEvents.Add(card);
@@ -276,7 +286,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return keyEvents;
         }
 
-        private EventCard MainKeyEvent (int mkebp)
+        private EventCard MainKeyEvent (int mkebp, int mkesc)
         {
             var card = new EventCard();
 
@@ -291,6 +301,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             card.branchPoints = set;
             card.relations = relations;
+            card.minStabilityConstraint = mkesc;
             card.isKey = true;
             card.comment = "Основное решающее событие";
 

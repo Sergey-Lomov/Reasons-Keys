@@ -22,7 +22,7 @@ namespace ModelAnalyzer.Parameters.Events
         public MainDeck()
         {
             type = ParameterType.Out;
-            title = "Колода карт событий";
+            title = "Колода событий континуума";
             details = "";
             tags.Add(ParameterTag.events);
         }

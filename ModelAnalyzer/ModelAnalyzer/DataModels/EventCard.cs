@@ -42,6 +42,7 @@ namespace ModelAnalyzer.DataModels
         internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
         internal int minRadisuConstraint = 0;
         internal int minPhaseConstraint = 0;
+        internal int minStabilityConstraint = 0;
 
         internal float weight = 0;
         internal float usability = 0;

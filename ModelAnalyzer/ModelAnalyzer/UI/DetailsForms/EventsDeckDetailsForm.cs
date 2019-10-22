@@ -99,6 +99,7 @@ namespace ModelAnalyzer.UI
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.failed));
                 DeckTable.Controls.Add(LabelForInt(card.minPhaseConstraint));
                 DeckTable.Controls.Add(LabelForInt(card.minRadisuConstraint));
+                DeckTable.Controls.Add(LabelForInt(card.minStabilityConstraint));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
                 DeckTable.Controls.Add(LabelForString(card.comment));
             }
@@ -266,6 +267,13 @@ namespace ModelAnalyzer.UI
         private void minRadiusLabel_Click(object sender, EventArgs e)
         {
             order = c => c.minRadisuConstraint;
+            reverse = !reverse;
+            UpdateCardsTable();
+        }
+
+        private void minStavilityLabel_Click(object sender, EventArgs e)
+        {
+            order = c => c.minStabilityConstraint;
             reverse = !reverse;
             UpdateCardsTable();
         }
