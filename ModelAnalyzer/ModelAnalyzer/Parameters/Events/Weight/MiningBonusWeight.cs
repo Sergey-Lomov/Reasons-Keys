@@ -1,8 +1,7 @@
 ﻿using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Topology;
-using ModelAnalyzer.Parameters.Timing;
-using ModelAnalyzer.Parameters.Mining;
+using ModelAnalyzer.Parameters.Activities;
 
 namespace ModelAnalyzer.Parameters.Events.Weight
 {
@@ -24,12 +23,11 @@ namespace ModelAnalyzer.Parameters.Events.Weight
 
             float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
             float minpa = RequestParmeter<MinPlayersAmount>(calculator).GetValue();
-            float mauc = RequestParmeter<MiningAUCoef>(calculator).GetValue();
-            float aupa = RequestParmeter<AUPartyAmount>(calculator).GetValue();
+            float ma = RequestParmeter<MiningAmount>(calculator).GetValue();
             float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
 
             float averagePlayersAmount = (maxpa + minpa) / 2;
-            value = unroundValue = aupa * mauc * averagePlayersAmount / cna; ;
+            value = unroundValue = ma * averagePlayersAmount / cna; ;
 
             return calculationReport;
         }
