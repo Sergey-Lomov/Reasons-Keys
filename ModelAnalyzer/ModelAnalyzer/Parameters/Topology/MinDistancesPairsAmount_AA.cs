@@ -3,26 +3,30 @@ using System.Linq;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
+using ModelAnalyzer.Parameters.Items;
 
 namespace ModelAnalyzer.Parameters.Topology
 {
-    class MinDistancesPairsAmount : FloatArrayParameter
+    class MinDistancesPairsAmount_AA : FloatArrayParameter
     {
         private const string arraySizeIssue = "Кол-во фаз в массиве длительности фаз и в карте путей не совпадают";
 
-        public MinDistancesPairsAmount()
+        public MinDistancesPairsAmount_AA()
         {
             type = ParameterType.Inner;
-            title = "Кол-во пар с минимальными расстояниями";
-            details = "Этот параметр отвечает за подсчет кол-ва пар узлов, группируя их по минимальным расстояниям. То-есть он является массивом, индексированным минимальным расстояние между узлами пары, уменьшенным на 1, так как пар узлов между которыми расстояние 0 не существует, а индексация начинается с 0. На нулевом месте идет кол-во пар узлов, между которыми минимальное расстояние 1, на первом месте - кол-во пар с минимальным расстоянием 2 и т.д. С течением фаз кол-во пар с определенным расстоянием будет меняться. В этом параметре учитываются все пары во всех раундах.";
+            title = "Кол-во пар с минимальными расстояниями в фазах доступности артефактов";
+            details = "Этот параметр отвечает за подсчет кол-ва пар узлов, группируя их по минимальным расстояниям. То-есть он является массивом, индексированным минимальным расстояние между узлами пары, уменьшенным на 1, так как пар узлов между которыми расстояние 0 не существует, а индексация начинается с 0. На нулевом месте идет кол-во пар узлов, между которыми минимальное расстояние 1, на первом месте - кол-во пар с минимальным расстоянием 2 и т.д. С течением фаз кол-во пар с определенным расстоянием будет меняться. В этом параметре учитываются все пары во всех раундах. При этом учитываются только те пары, которые расположены в фаза, в которых могут быть использованный артефакты.";
             fractionalDigits = 0;
             tags.Add(ParameterTag.topology);
+            tags.Add(ParameterTag.artifacts);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);
 
+            float pa = RequestParmeter<PhasesAmount>(calculator).GetValue();
+            int aap = (int)RequestParmeter<ArtifactsAvaliabilityPhase>(calculator).GetValue();
             List<float> pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
             var phasesRoutes = RequestParmeter<RoutesMap>(calculator).phasesRoutes;
 
@@ -38,7 +42,7 @@ namespace ModelAnalyzer.Parameters.Topology
 
             var distancesAmount = new Dictionary<int, int>();
 
-            foreach (var phase in phasesRoutes.Keys)
+            for (int phase = aap; phase < pa; phase++)
                 foreach (var route in phasesRoutes[phase])
                 {
                     var distance = route.distance;

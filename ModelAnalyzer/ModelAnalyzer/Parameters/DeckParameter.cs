@@ -53,6 +53,13 @@ namespace ModelAnalyzer.Parameters
                 card.weight = EventCardsAnalizer.WeightForCard(card, calculator);
         }
 
+        protected void UpdateDeckConstraints(Calculator calculator)
+        {
+            foreach (EventCard card in deck)
+                EventCardsAnalizer.UpdateCardConstraints(card, calculator);
+        }
+
+
         protected void UpdateDeckUsability(Calculator calculator)
         {
             foreach (EventCard card in deck)

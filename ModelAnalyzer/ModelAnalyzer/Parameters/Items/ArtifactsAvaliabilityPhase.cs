@@ -1,7 +1,7 @@
 ﻿using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Timing;
 
-namespace ModelAnalyzer.Parameters.Events
+namespace ModelAnalyzer.Parameters.Items
 {
     class ArtifactsAvaliabilityPhase : FloatSingleParameter
     {

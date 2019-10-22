@@ -7,6 +7,7 @@ using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Events.Weight;
+using ModelAnalyzer.Parameters.Items;
 
 namespace ModelAnalyzer.Services
 {
@@ -119,6 +120,20 @@ namespace ModelAnalyzer.Services
 
             var totalNodesAmount = availableBackAllocation.Sum();
             return combintaions / totalNodesAmount;
+        }
+
+        static internal void UpdateCardConstraints (EventCard card, Calculator calculator)
+        {
+            var aap = calculator.UpdatedParameter<ArtifactsAvaliabilityPhase>();
+            if (!aap.VerifyValue())
+            {
+                var message = string.Format(invalidIn, aap.title);
+                var e = new MACalculationException(message);
+                throw e;
+            }
+
+            if (card.provideArtifact)
+                card.minPhaseConstraint = (int)aap.GetValue();
         }
     }
 }

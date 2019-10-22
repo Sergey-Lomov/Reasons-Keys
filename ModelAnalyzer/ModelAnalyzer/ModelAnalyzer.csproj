@@ -82,6 +82,7 @@
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\Events\Weight\PassivePlayerWeight.cs" />
     <Compile Include="Parameters\Events\Weight\PlayerRealisationControlCoefficient.cs" />
+    <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
     <Compile Include="Parameters\Items\ArtifactsEstimatedProfit.cs" />
     <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
     <Compile Include="Parameters\Items\Artifacts\ArtifactProfit.cs" />
@@ -167,7 +168,7 @@
     <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\PlayerInitial\StabilityInitialCardCoefficient.cs" />
-    <Compile Include="Parameters\Topology\MinDistancesPairsAmount.cs" />
+    <Compile Include="Parameters\Topology\MinDistancesPairsAmount_AA.cs" />
     <Compile Include="Parameters\Topology\NodesNearestAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />
@@ -242,7 +243,7 @@
     <Compile Include="Parameters\Activities\EventImpactPriceEU.cs" />
     <Compile Include="Parameters\Activities\EventsActionsPotential.cs" />
     <Compile Include="Parameters\Activities\TotalPotential.cs" />
-    <Compile Include="Parameters\Events\ArtifactsAvaliabilityPhase.cs" />
+    <Compile Include="Parameters\Items\ArtifactsAvaliabilityPhase.cs" />
     <Compile Include="Parameters\Events\ArtifactsRarity.cs" />
     <Compile Include="Parameters\Events\AverageStabilityIncrement.cs" />
     <Compile Include="Parameters\Events\BlockEventsCoef_2D.cs" />

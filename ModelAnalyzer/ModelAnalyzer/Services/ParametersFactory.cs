@@ -57,7 +57,6 @@ namespace ModelAnalyzer
             // Events
             storage.AddParameter(parameter: new MainDeck());
 
-            storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
             storage.AddParameter(parameter: new ArtifactsRarity());
             storage.AddParameter(parameter: new AverageMiningBonus());
             storage.AddParameter(parameter: new AverageStabilityIncrement());
@@ -125,7 +124,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AveragePhasesDistance());
             storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new FieldRadius());
-            storage.AddParameter(parameter: new MinDistancesPairsAmount());
+            storage.AddParameter(parameter: new MinDistancesPairsAmount_AA());
             storage.AddParameter(parameter: new NodesNearestAmount());
             storage.AddParameter(parameter: new RoutesMap());
 
@@ -147,6 +146,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new StartDeck());
 
             // Items
+            storage.AddParameter(parameter: new ArtifactsAvailabilityRound());
+            storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
             storage.AddParameter(parameter: new EstimatedArtifactsProfit());
             storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
             storage.AddParameter(parameter: new AverageBaseItemsProfit());

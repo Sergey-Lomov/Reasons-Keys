@@ -43,6 +43,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             UpdateDeckUsability(calculator);
             UpdateDeckWeight(calculator);
+            UpdateDeckConstraints(calculator);
 
             return calculationReport;
         }

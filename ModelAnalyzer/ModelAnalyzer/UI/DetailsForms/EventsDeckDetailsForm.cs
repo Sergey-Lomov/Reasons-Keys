@@ -97,6 +97,8 @@ namespace ModelAnalyzer.UI
                 DeckTable.Controls.Add(LabelForFloat(card.usability));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.success));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.failed));
+                DeckTable.Controls.Add(LabelForInt(card.minPhaseConstraint));
+                DeckTable.Controls.Add(LabelForInt(card.minRadisuConstraint));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
                 DeckTable.Controls.Add(LabelForString(card.comment));
             }
@@ -250,6 +252,20 @@ namespace ModelAnalyzer.UI
         private void failedBPLabel_Click(object sender, EventArgs e)
         {
             order = c => c.branchPoints.failed.Count();
+            reverse = !reverse;
+            UpdateCardsTable();
+        }
+
+        private void minPhaseLabel_Click(object sender, EventArgs e)
+        {
+            order = c => c.minPhaseConstraint;
+            reverse = !reverse;
+            UpdateCardsTable();
+        }
+
+        private void minRadiusLabel_Click(object sender, EventArgs e)
+        {
+            order = c => c.minRadisuConstraint;
             reverse = !reverse;
             UpdateCardsTable();
         }

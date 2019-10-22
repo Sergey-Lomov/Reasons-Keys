@@ -37,8 +37,10 @@
             this.deckRelationsLabel = new System.Windows.Forms.Label();
             this.deckWeightLabel = new System.Windows.Forms.Label();
             this.successBPLabel = new System.Windows.Forms.Label();
-            this.failedBPLabel = new System.Windows.Forms.Label();
+            this.minRadiusLabel = new System.Windows.Forms.Label();
             this.deckCommentLabel = new System.Windows.Forms.Label();
+            this.failedBPLabel = new System.Windows.Forms.Label();
+            this.minPhaseLabel = new System.Windows.Forms.Label();
             this.issuesPamel = new System.Windows.Forms.Panel();
             this.issuesLabel = new System.Windows.Forms.Label();
             this.DeckTable.SuspendLayout();
@@ -50,7 +52,7 @@
             this.DeckTable.AutoScroll = true;
             this.DeckTable.AutoSize = true;
             this.DeckTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeckTable.ColumnCount = 15;
+            this.DeckTable.ColumnCount = 17;
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -64,25 +66,29 @@
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 274F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 186F));
             this.DeckTable.Controls.Add(this.deckUsabilityLabel, 10, 0);
             this.DeckTable.Controls.Add(this.deckMBLabel, 9, 0);
             this.DeckTable.Controls.Add(this.deckSILabel, 8, 0);
             this.DeckTable.Controls.Add(this.deckArtifactLabel, 7, 0);
             this.DeckTable.Controls.Add(this.deckIndexLabel, 0, 0);
             this.DeckTable.Controls.Add(this.deckRelationsLabel, 1, 0);
-            this.DeckTable.Controls.Add(this.deckWeightLabel, 13, 0);
+            this.DeckTable.Controls.Add(this.deckWeightLabel, 15, 0);
             this.DeckTable.Controls.Add(this.successBPLabel, 11, 0);
+            this.DeckTable.Controls.Add(this.minRadiusLabel, 14, 0);
+            this.DeckTable.Controls.Add(this.deckCommentLabel, 16, 0);
             this.DeckTable.Controls.Add(this.failedBPLabel, 12, 0);
-            this.DeckTable.Controls.Add(this.deckCommentLabel, 14, 0);
+            this.DeckTable.Controls.Add(this.minPhaseLabel, 13, 0);
             this.DeckTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DeckTable.Location = new System.Drawing.Point(0, 23);
             this.DeckTable.Name = "DeckTable";
             this.DeckTable.RowCount = 2;
             this.DeckTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.DeckTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DeckTable.Size = new System.Drawing.Size(834, 320);
+            this.DeckTable.Size = new System.Drawing.Size(866, 316);
             this.DeckTable.TabIndex = 0;
             // 
             // deckUsabilityLabel
@@ -93,7 +99,7 @@
             this.deckUsabilityLabel.Location = new System.Drawing.Point(393, 10);
             this.deckUsabilityLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckUsabilityLabel.Name = "deckUsabilityLabel";
-            this.deckUsabilityLabel.Size = new System.Drawing.Size(34, 140);
+            this.deckUsabilityLabel.Size = new System.Drawing.Size(34, 138);
             this.deckUsabilityLabel.TabIndex = 5;
             this.deckUsabilityLabel.Text = "Us";
             this.deckUsabilityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,7 +113,7 @@
             this.deckMBLabel.Location = new System.Drawing.Point(353, 10);
             this.deckMBLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckMBLabel.Name = "deckMBLabel";
-            this.deckMBLabel.Size = new System.Drawing.Size(34, 140);
+            this.deckMBLabel.Size = new System.Drawing.Size(34, 138);
             this.deckMBLabel.TabIndex = 4;
             this.deckMBLabel.Text = "MB";
             this.deckMBLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,7 +127,7 @@
             this.deckSILabel.Location = new System.Drawing.Point(313, 10);
             this.deckSILabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckSILabel.Name = "deckSILabel";
-            this.deckSILabel.Size = new System.Drawing.Size(34, 140);
+            this.deckSILabel.Size = new System.Drawing.Size(34, 138);
             this.deckSILabel.TabIndex = 3;
             this.deckSILabel.Text = "SI";
             this.deckSILabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,7 +141,7 @@
             this.deckArtifactLabel.Location = new System.Drawing.Point(273, 10);
             this.deckArtifactLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckArtifactLabel.Name = "deckArtifactLabel";
-            this.deckArtifactLabel.Size = new System.Drawing.Size(34, 140);
+            this.deckArtifactLabel.Size = new System.Drawing.Size(34, 138);
             this.deckArtifactLabel.TabIndex = 2;
             this.deckArtifactLabel.Text = "Art";
             this.deckArtifactLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,7 +155,7 @@
             this.deckIndexLabel.Location = new System.Drawing.Point(3, 10);
             this.deckIndexLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckIndexLabel.Name = "deckIndexLabel";
-            this.deckIndexLabel.Size = new System.Drawing.Size(24, 140);
+            this.deckIndexLabel.Size = new System.Drawing.Size(24, 138);
             this.deckIndexLabel.TabIndex = 0;
             this.deckIndexLabel.Text = "#";
             this.deckIndexLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -164,7 +170,7 @@
             this.deckRelationsLabel.Location = new System.Drawing.Point(33, 10);
             this.deckRelationsLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckRelationsLabel.Name = "deckRelationsLabel";
-            this.deckRelationsLabel.Size = new System.Drawing.Size(234, 140);
+            this.deckRelationsLabel.Size = new System.Drawing.Size(234, 138);
             this.deckRelationsLabel.TabIndex = 1;
             this.deckRelationsLabel.Text = "Связи";
             this.deckRelationsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,10 +182,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deckWeightLabel.AutoSize = true;
             this.deckWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deckWeightLabel.Location = new System.Drawing.Point(513, 10);
+            this.deckWeightLabel.Location = new System.Drawing.Point(633, 10);
             this.deckWeightLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckWeightLabel.Name = "deckWeightLabel";
-            this.deckWeightLabel.Size = new System.Drawing.Size(44, 140);
+            this.deckWeightLabel.Size = new System.Drawing.Size(44, 138);
             this.deckWeightLabel.TabIndex = 7;
             this.deckWeightLabel.Text = "Вес";
             this.deckWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -193,25 +199,25 @@
             this.successBPLabel.Location = new System.Drawing.Point(433, 10);
             this.successBPLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.successBPLabel.Name = "successBPLabel";
-            this.successBPLabel.Size = new System.Drawing.Size(34, 140);
+            this.successBPLabel.Size = new System.Drawing.Size(34, 138);
             this.successBPLabel.TabIndex = 8;
             this.successBPLabel.Text = "+";
             this.successBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.successBPLabel.Click += new System.EventHandler(this.successBPLabel_Click);
             // 
-            // failedBPLabel
+            // minRadiusLabel
             // 
-            this.failedBPLabel.AutoSize = true;
-            this.failedBPLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.failedBPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.failedBPLabel.Location = new System.Drawing.Point(473, 10);
-            this.failedBPLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.failedBPLabel.Name = "failedBPLabel";
-            this.failedBPLabel.Size = new System.Drawing.Size(34, 140);
-            this.failedBPLabel.TabIndex = 9;
-            this.failedBPLabel.Text = "-";
-            this.failedBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.failedBPLabel.Click += new System.EventHandler(this.failedBPLabel_Click);
+            this.minRadiusLabel.AutoSize = true;
+            this.minRadiusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.minRadiusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.minRadiusLabel.Location = new System.Drawing.Point(573, 10);
+            this.minRadiusLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.minRadiusLabel.Name = "minRadiusLabel";
+            this.minRadiusLabel.Size = new System.Drawing.Size(54, 138);
+            this.minRadiusLabel.TabIndex = 9;
+            this.minRadiusLabel.Text = "Мин Радиус";
+            this.minRadiusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.minRadiusLabel.Click += new System.EventHandler(this.minRadiusLabel_Click);
             // 
             // deckCommentLabel
             // 
@@ -220,13 +226,45 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deckCommentLabel.AutoSize = true;
             this.deckCommentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deckCommentLabel.Location = new System.Drawing.Point(563, 10);
+            this.deckCommentLabel.Location = new System.Drawing.Point(683, 10);
             this.deckCommentLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckCommentLabel.Name = "deckCommentLabel";
-            this.deckCommentLabel.Size = new System.Drawing.Size(268, 140);
+            this.deckCommentLabel.Size = new System.Drawing.Size(180, 138);
             this.deckCommentLabel.TabIndex = 10;
             this.deckCommentLabel.Text = "Комментарий";
             this.deckCommentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // failedBPLabel
+            // 
+            this.failedBPLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.failedBPLabel.AutoSize = true;
+            this.failedBPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.failedBPLabel.Location = new System.Drawing.Point(473, 10);
+            this.failedBPLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.failedBPLabel.Name = "failedBPLabel";
+            this.failedBPLabel.Size = new System.Drawing.Size(34, 138);
+            this.failedBPLabel.TabIndex = 11;
+            this.failedBPLabel.Text = "-";
+            this.failedBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.failedBPLabel.Click += new System.EventHandler(this.failedBPLabel_Click);
+            // 
+            // minPhaseLabel
+            // 
+            this.minPhaseLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.minPhaseLabel.AutoSize = true;
+            this.minPhaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.minPhaseLabel.Location = new System.Drawing.Point(513, 10);
+            this.minPhaseLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.minPhaseLabel.Name = "minPhaseLabel";
+            this.minPhaseLabel.Size = new System.Drawing.Size(54, 138);
+            this.minPhaseLabel.TabIndex = 12;
+            this.minPhaseLabel.Text = "Мин Фаза";
+            this.minPhaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.minPhaseLabel.Click += new System.EventHandler(this.minPhaseLabel_Click);
             // 
             // issuesPamel
             // 
@@ -236,7 +274,7 @@
             this.issuesPamel.Dock = System.Windows.Forms.DockStyle.Top;
             this.issuesPamel.Location = new System.Drawing.Point(0, 0);
             this.issuesPamel.Name = "issuesPamel";
-            this.issuesPamel.Size = new System.Drawing.Size(834, 23);
+            this.issuesPamel.Size = new System.Drawing.Size(866, 23);
             this.issuesPamel.TabIndex = 1;
             // 
             // issuesLabel
@@ -256,7 +294,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 343);
+            this.ClientSize = new System.Drawing.Size(866, 339);
             this.Controls.Add(this.DeckTable);
             this.Controls.Add(this.issuesPamel);
             this.Name = "EventsDeckDetailsForm";
@@ -280,11 +318,13 @@
         private System.Windows.Forms.Label deckSILabel;
         private System.Windows.Forms.Label deckArtifactLabel;
         private System.Windows.Forms.Label deckRelationsLabel;
-        private System.Windows.Forms.Label deckWeightLabel;
         private System.Windows.Forms.Label successBPLabel;
-        private System.Windows.Forms.Label failedBPLabel;
-        private System.Windows.Forms.Label deckCommentLabel;
         private System.Windows.Forms.Panel issuesPamel;
         private System.Windows.Forms.Label issuesLabel;
+        private System.Windows.Forms.Label deckWeightLabel;
+        private System.Windows.Forms.Label minRadiusLabel;
+        private System.Windows.Forms.Label deckCommentLabel;
+        private System.Windows.Forms.Label failedBPLabel;
+        private System.Windows.Forms.Label minPhaseLabel;
     }
 }

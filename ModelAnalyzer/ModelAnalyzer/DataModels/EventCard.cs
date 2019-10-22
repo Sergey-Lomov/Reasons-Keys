@@ -40,7 +40,7 @@ namespace ModelAnalyzer.DataModels
         internal bool provideArtifact = false;
         internal bool isKey = false;
         internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
-        internal int minRadisuConstrint = 0;
+        internal int minRadisuConstraint = 0;
         internal int minPhaseConstraint = 0;
 
         internal float weight = 0;
@@ -55,7 +55,7 @@ namespace ModelAnalyzer.DataModels
                 && provideArtifact == other.provideArtifact
                 && isKey == other.isKey
                 && branchPoints == other.branchPoints
-                && minRadisuConstrint == other.minRadisuConstrint
+                && minRadisuConstraint == other.minRadisuConstraint
                 && minPhaseConstraint == other.minPhaseConstraint;
         }
     }
