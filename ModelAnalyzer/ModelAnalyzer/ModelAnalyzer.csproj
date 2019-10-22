@@ -253,7 +253,6 @@
     <Compile Include="Parameters\Events\BranchPointsAllocation_Symmetric.cs" />
     <Compile Include="Parameters\Topology\ContinuumNodesAmount.cs" />
     <Compile Include="Parameters\Events\EventMaxRelations.cs" />
-    <Compile Include="Parameters\Events\EventMiningBonusConstraint.cs" />
     <Compile Include="Parameters\Events\EventMiningBonusAllocation.cs" />
     <Compile Include="Parameters\Events\EventMinMiningBonus.cs" />
     <Compile Include="Parameters\Events\MainDeck.cs" />
