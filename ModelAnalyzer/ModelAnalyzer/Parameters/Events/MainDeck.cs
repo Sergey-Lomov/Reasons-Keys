@@ -53,7 +53,6 @@ namespace ModelAnalyzer.Parameters.Events
                 UpdateDeckUsability(calculator);
                 UpdateDeckWeight(calculator);
                 AddArtifacts(deck, calculator);
-                UpdateDeckConstraints(calculator);
                 UpdateDeckWeight(calculator);
                 AddStabilityIncrement(deck, calculator);
                 UpdateDeckWeight(calculator);
