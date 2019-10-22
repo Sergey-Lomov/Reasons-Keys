@@ -18,7 +18,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
         internal int power;
         internal float profit;
 
-        private readonly float artifactGainCoefficient = 0.0f;
         private readonly int maxPower = 6;
 
         public CM_CalculationModule()
@@ -35,6 +34,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             var minPlayersAmount = (int)RequestParmeter<MinPlayersAmount>(calculator, report).GetValue();
             var maxPlayersAmount = (int)RequestParmeter<MaxPlayersAmount>(calculator, report).GetValue();
             var roundAmount = RequestParmeter<RoundAmount>(calculator, report).GetValue();
+            var artifactsAvailabilityRound = RequestParmeter<ArtifactsAvailabilityRound>(calculator, report).GetValue();
             var continuumNodesAmount = RequestParmeter<ContinuumNodesAmount>(calculator, report).GetValue();
             var miningAmount = RequestParmeter<MiningAmount>(calculator, report).GetValue();
             var eventCreationAmount = RequestParmeter<EventCreationAmount>(calculator, report).GetValue();
@@ -50,7 +50,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
 
             List<float> relativeDurations = new List<float>(phasesDuration);
             int currentPhase = 0;
-            for (int round = 0; round < roundAmount * artifactGainCoefficient; round++)
+            for (int round = 0; round < artifactsAvailabilityRound; round++)
             {
                 relativeDurations[currentPhase]--;
                 if (relativeDurations[currentPhase] == 0)
@@ -117,7 +117,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
                      }
             }
 
-            float estimatedUsage = miningAmount * (1 - artifactGainCoefficient);
+            float estimatedUsage = miningAmount * (1 - artifactsAvailabilityRound / roundAmount);
             float eoupr = estimatedArtifactProfit / (estimatedUsage * pureEUCoeff);
 
             foreach (var currentPower in powerProfit.Keys)

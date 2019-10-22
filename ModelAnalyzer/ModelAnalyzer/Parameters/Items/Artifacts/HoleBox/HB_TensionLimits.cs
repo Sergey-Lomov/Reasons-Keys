@@ -25,6 +25,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
             float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
             float peuprc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
             float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
+            float aar = RequestParmeter<ArtifactsAvailabilityRound>(calculator).GetValue();
             float cpd = RequestParmeter<HB_CollapsePreparationDuration>(calculator).GetValue();
             float ocac = RequestParmeter<HB_OwnerCollapseAbsorbCoefficient>(calculator).GetValue();
             float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
@@ -33,7 +34,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
                 return calculationReport;
             ClearValues();
 
-            float unroundMaeu = eapr / (peuprc + (1 - cpd / ra) * (1 - ocac) / 2);
+            float cpc = 1 - cpd / (ra - aar + 1);
+            float unroundMaeu = eapr / (peuprc + cpc * (1 - ocac) / 2);
             float maeu = (float)Math.Round(unroundMaeu, MidpointRounding.AwayFromZero);
 
             for (int i = 0; i <= tisa; i++)
