@@ -80,7 +80,6 @@ namespace ModelAnalyzer
 
             // Events weight
             storage.AddParameter(parameter: new AdditionalReasonsWeight());
-            storage.AddParameter(parameter: new ArtifactsWeight());
             storage.AddParameter(parameter: new AverageContinuumEventWeight());
             storage.AddParameter(parameter: new AverageRelationStability());
             storage.AddParameter(parameter: new AverageSequenceLength());
@@ -147,9 +146,9 @@ namespace ModelAnalyzer
             // Items
             storage.AddParameter(parameter: new ArtifactsAvailabilityRound());
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
-            storage.AddParameter(parameter: new EstimatedArtifactsProfit());
             storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
             storage.AddParameter(parameter: new AverageBaseItemsProfit());
+            storage.AddParameter(parameter: new EstimatedArtifactsProfit());
             storage.AddParameter(parameter: new ItemPriceCoefficient());
             storage.AddParameter(parameter: new PureEUProfitCoefficient());
             storage.AddParameter(parameter: new WeaponStandardEffectivity());

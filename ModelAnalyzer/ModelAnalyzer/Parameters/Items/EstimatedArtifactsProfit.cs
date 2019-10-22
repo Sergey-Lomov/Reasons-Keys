@@ -24,7 +24,7 @@ namespace ModelAnalyzer.Parameters.Items
             float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
             float ecp = RequestParmeter<EventCreationPrice>(calculator).GetValue();
 
-            value = unroundValue = abip * (1 - ipc) * apc + ecp;
+            value = unroundValue = abip * (1 - ipc) * apc + ecp / 2;
 
             return calculationReport;
         }

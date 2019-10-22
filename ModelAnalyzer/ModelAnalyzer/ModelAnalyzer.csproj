@@ -74,7 +74,6 @@
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
     <Compile Include="Parameters\Events\Weight\AdditionalReasonsWeight.cs" />
-    <Compile Include="Parameters\Events\Weight\ArtifactsWeight.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
     <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
     <Compile Include="Parameters\Events\Weight\BranchPointsTemplatesWeights.cs" />
@@ -83,7 +82,7 @@
     <Compile Include="Parameters\Events\Weight\PassivePlayerWeight.cs" />
     <Compile Include="Parameters\Events\Weight\PlayerRealisationControlCoefficient.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
-    <Compile Include="Parameters\Items\ArtifactsEstimatedProfit.cs" />
+    <Compile Include="Parameters\Items\EstimatedArtifactsProfit.cs" />
     <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
     <Compile Include="Parameters\Items\Artifacts\ArtifactProfit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_ChargesAmount.cs" />

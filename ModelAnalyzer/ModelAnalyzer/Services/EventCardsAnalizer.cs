@@ -5,7 +5,6 @@ using System.Linq;
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
-using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Events.Weight;
 using ModelAnalyzer.Parameters.Items;
 
@@ -17,15 +16,14 @@ namespace ModelAnalyzer.Services
 
         static internal float WeightForCard(EventCard card, Calculator calculator)
         {
-            float aw = calculator.UpdatedParameter<ArtifactsWeight>().GetValue();
-            float am = calculator.UpdatedParameter<AverageMining>().GetValue();
+            float eap = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
             float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
             float mbw = calculator.UpdatedParameter<MiningBonusWeight>().GetValue();
 
             float weight = 0;
             weight += RelationsWeight(card.relations, calculator);
             weight += card.stabilityIncrement * eip;
-            weight += card.provideArtifact ? aw * am : 0;
+            weight += card.provideArtifact ? eap : 0;
             weight += card.miningBonus * mbw;
 
             return weight;
