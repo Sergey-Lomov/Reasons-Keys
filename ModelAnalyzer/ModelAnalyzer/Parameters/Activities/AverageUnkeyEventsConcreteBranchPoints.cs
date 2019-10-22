@@ -13,6 +13,7 @@ namespace ModelAnalyzer.Parameters.Activities
     class AverageUnkeyEventsConcreteBranchPoints : FloatArrayParameter
     {
         readonly int[] BranchPointsAmounts = {2, 2, 1, 1, 1, 1, 0};
+        readonly float averageInitialEventsBranchPointsAmount = 0;
 
         public AverageUnkeyEventsConcreteBranchPoints()
         {
@@ -31,7 +32,7 @@ namespace ModelAnalyzer.Parameters.Activities
             int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
             float iewc = RequestParmeter<InitialEventsWeightCoefficient>(calculator).GetValue();
             float nkeca = RequestParmeter<UnkeyEventCreationAmount>(calculator).GetValue();
-            float aiebp = RequestParmeter<AverageInitialEventsBranchPoints>(calculator).GetValue();
+            float aiebpa = averageInitialEventsBranchPointsAmount;
             List<float> bpal = RequestParmeter<BrachPointsTemplatesAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
@@ -53,7 +54,7 @@ namespace ModelAnalyzer.Parameters.Activities
             {
                 float acea = (nkeca - Math.Min(eaiea, iea)) * pa;
                 float aiea = Math.Min(eaiea, iea) * pa;
-                float abpp = (acea * acebp + aiea * aiebp) / maxpa;
+                float abpp = (acea * acebp + aiea * aiebpa) / maxpa;
                 euebp.Add(abpp);
             }
 

@@ -137,7 +137,6 @@
     <Compile Include="Parameters\Items\WeaponStandardPower.cs" />
     <Compile Include="Parameters\Moving\OneRoundSpeedDoublingProfit.cs" />
     <Compile Include="Parameters\PairsArrayParameter.cs" />
-    <Compile Include="Parameters\PlayerInitial\AverageInitialEventsBranchPoints.cs" />
     <Compile Include="Parameters\Events\Weight\AverageRelationStability.cs" />
     <Compile Include="Parameters\Events\Weight\AverageSequenceLength.cs" />
     <Compile Include="Parameters\Events\Weight\BaseRelationsWeight.cs" />
