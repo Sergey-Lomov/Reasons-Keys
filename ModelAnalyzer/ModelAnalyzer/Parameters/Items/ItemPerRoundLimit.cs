@@ -9,7 +9,7 @@ namespace ModelAnalyzer.Parameters.Items
     {
         public ItemPerRoundLimit()
         {
-            type = ParameterType.Inner;
+            type = ParameterType.Out;
             title = "Лимит покупок за раунд";
             details = "Указывает максимальное число предметов, которые можно укпить за один раунд";
             fractionalDigits = 2;

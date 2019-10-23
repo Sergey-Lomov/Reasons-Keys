@@ -14,6 +14,7 @@ namespace ModelAnalyzer.Parameters.Items
             title = "Средняя выгодность базовых предметов";
             details = "Среднее арифметическое выгодностей всех базовых предметов";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.items);
             tags.Add(ParameterTag.baseItems);
         }
 
