@@ -148,7 +148,10 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
             storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
             storage.AddParameter(parameter: new AverageBaseItemsProfit());
+            storage.AddParameter(parameter: new BaseItemsAmount());
             storage.AddParameter(parameter: new EstimatedArtifactsProfit());
+            storage.AddParameter(parameter: new FullLoadCoefficient());
+            storage.AddParameter(parameter: new ItemPerRoundLimit());
             storage.AddParameter(parameter: new ItemPriceCoefficient());
             storage.AddParameter(parameter: new PureEUProfitCoefficient());
             storage.AddParameter(parameter: new WeaponStandardEffectivity());

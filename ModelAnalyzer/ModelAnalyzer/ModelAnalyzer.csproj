@@ -78,6 +78,7 @@
     <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
+    <Compile Include="Parameters\Items\BaseItemsAmount.cs" />
     <Compile Include="Parameters\Items\EstimatedArtifactsProfit.cs" />
     <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
     <Compile Include="Parameters\Items\Artifacts\ArtifactProfit.cs" />
@@ -106,6 +107,8 @@
     <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_SymmetricalNodesAmount.cs" />
     <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_UsageAmount.cs" />
     <Compile Include="Parameters\Items\AverageBaseItemsProfit.cs" />
+    <Compile Include="Parameters\Items\FullLoadCoefficient.cs" />
+    <Compile Include="Parameters\Items\ItemPerRoundLimit.cs" />
     <Compile Include="Parameters\Items\ItemPriceCoefficient.cs" />
     <Compile Include="Parameters\Items\PureEUProfitCoefficient.cs" />
     <Compile Include="Parameters\Items\Standard\BaseShield\BS_BasePower.cs" />
