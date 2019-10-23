@@ -127,6 +127,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new RoutesMap());
 
             // Player initial state
+            storage.AddParameter(parameter: new InitialEU());
             storage.AddParameter(parameter: new InitialEventsWeightCoefficient());
             storage.AddParameter(parameter: new KeyChainLenghtCoefficient());
             storage.AddParameter(parameter: new KeyEventsAmount());

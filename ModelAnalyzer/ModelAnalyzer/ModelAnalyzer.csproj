@@ -144,6 +144,7 @@
     <Compile Include="Parameters\Events\Weight\FrontBlockerWeight.cs" />
     <Compile Include="Parameters\Events\Weight\FrontReasonsWeight.cs" />
     <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialEU.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
     <Compile Include="Parameters\PlayerInitial\StartDeck.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEventsWeightCoefficient.cs" />

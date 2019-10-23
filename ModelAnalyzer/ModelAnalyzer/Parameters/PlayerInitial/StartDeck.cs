@@ -25,6 +25,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             title = "Колода стартовых событий";
             details = "Изначальные и решающие события, с которыми игрок начинает игру";
             tags.Add(ParameterTag.playerInitial);
+            tags.Add(ParameterTag.events);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)
