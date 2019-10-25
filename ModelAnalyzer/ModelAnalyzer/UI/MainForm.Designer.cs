@@ -68,8 +68,8 @@
             this.MainLayout.Name = "MainLayout";
             this.MainLayout.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.MainLayout.RowCount = 1;
-            this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 525F));
-            this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 525F));
+            this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 530F));
+            this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 530F));
             this.MainLayout.Size = new System.Drawing.Size(518, 535);
             this.MainLayout.TabIndex = 0;
             // 

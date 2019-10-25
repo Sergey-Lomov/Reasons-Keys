@@ -5,7 +5,6 @@ using System.Linq;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
-using System.Drawing;
 
 namespace ModelAnalyzer.UI
 {

@@ -171,6 +171,7 @@
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />
     <Compile Include="Services\CalculationModule.cs" />
+    <Compile Include="Services\DeckXMLGenerator.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />

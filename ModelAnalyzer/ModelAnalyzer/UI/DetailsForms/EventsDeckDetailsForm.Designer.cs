@@ -41,11 +41,15 @@
             this.deckCommentLabel = new System.Windows.Forms.Label();
             this.failedBPLabel = new System.Windows.Forms.Label();
             this.minPhaseLabel = new System.Windows.Forms.Label();
+            this.minStavilityLabel = new System.Windows.Forms.Label();
             this.issuesPamel = new System.Windows.Forms.Panel();
             this.issuesLabel = new System.Windows.Forms.Label();
-            this.minStavilityLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.GenerateXMLButton = new System.Windows.Forms.Button();
+            this.saveXMLDialog = new System.Windows.Forms.SaveFileDialog();
             this.DeckTable.SuspendLayout();
             this.issuesPamel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DeckTable
@@ -71,7 +75,7 @@
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 186F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 311F));
             this.DeckTable.Controls.Add(this.deckUsabilityLabel, 10, 0);
             this.DeckTable.Controls.Add(this.deckMBLabel, 9, 0);
             this.DeckTable.Controls.Add(this.deckSILabel, 8, 0);
@@ -269,6 +273,22 @@
             this.minPhaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.minPhaseLabel.Click += new System.EventHandler(this.minPhaseLabel_Click);
             // 
+            // minStavilityLabel
+            // 
+            this.minStavilityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.minStavilityLabel.AutoSize = true;
+            this.minStavilityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.minStavilityLabel.Location = new System.Drawing.Point(633, 10);
+            this.minStavilityLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.minStavilityLabel.Name = "minStavilityLabel";
+            this.minStavilityLabel.Size = new System.Drawing.Size(54, 132);
+            this.minStavilityLabel.TabIndex = 13;
+            this.minStavilityLabel.Text = "Мин Стаб.";
+            this.minStavilityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.minStavilityLabel.Click += new System.EventHandler(this.minStavilityLabel_Click);
+            // 
             // issuesPamel
             // 
             this.issuesPamel.AutoSize = true;
@@ -293,27 +313,36 @@
             this.issuesLabel.TabIndex = 0;
             this.issuesLabel.Text = "Issues";
             // 
-            // minStavilityLabel
+            // panel1
             // 
-            this.minStavilityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.minStavilityLabel.AutoSize = true;
-            this.minStavilityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.minStavilityLabel.Location = new System.Drawing.Point(633, 10);
-            this.minStavilityLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.minStavilityLabel.Name = "minStavilityLabel";
-            this.minStavilityLabel.Size = new System.Drawing.Size(54, 132);
-            this.minStavilityLabel.TabIndex = 13;
-            this.minStavilityLabel.Text = "Мин Стаб.";
-            this.minStavilityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.minStavilityLabel.Click += new System.EventHandler(this.minStavilityLabel_Click);
+            this.panel1.Controls.Add(this.GenerateXMLButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 288);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1051, 40);
+            this.panel1.TabIndex = 2;
+            // 
+            // GenerateXMLButton
+            // 
+            this.GenerateXMLButton.Location = new System.Drawing.Point(6, 8);
+            this.GenerateXMLButton.Name = "GenerateXMLButton";
+            this.GenerateXMLButton.Size = new System.Drawing.Size(159, 23);
+            this.GenerateXMLButton.TabIndex = 0;
+            this.GenerateXMLButton.Text = "Сгенерировать XML колоды";
+            this.GenerateXMLButton.UseVisualStyleBackColor = true;
+            this.GenerateXMLButton.Click += new System.EventHandler(this.GenerateXMLButton_Click);
+            // 
+            // saveXMLDialog
+            // 
+            this.saveXMLDialog.FileName = "Deck.xml";
+            this.saveXMLDialog.Filter = "\"XML File|*.xml\"";
             // 
             // EventsDeckDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1051, 328);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.DeckTable);
             this.Controls.Add(this.issuesPamel);
             this.Name = "EventsDeckDetailsForm";
@@ -323,6 +352,7 @@
             this.DeckTable.PerformLayout();
             this.issuesPamel.ResumeLayout(false);
             this.issuesPamel.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +376,8 @@
         private System.Windows.Forms.Label failedBPLabel;
         private System.Windows.Forms.Label minPhaseLabel;
         private System.Windows.Forms.Label minStavilityLabel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button GenerateXMLButton;
+        private System.Windows.Forms.SaveFileDialog saveXMLDialog;
     }
 }

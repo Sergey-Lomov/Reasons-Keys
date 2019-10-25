@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+using ModelAnalyzer.Services;
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Parameters;
 
@@ -276,6 +277,16 @@ namespace ModelAnalyzer.UI
             order = c => c.minStabilityConstraint;
             reverse = !reverse;
             UpdateCardsTable();
+        }
+
+        private void GenerateXMLButton_Click(object sender, EventArgs e)
+        {
+            if (saveXMLDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            
+            string filename = saveXMLDialog.FileName;
+
+            DeckXMLGenerator.GenerateXML(deck, filename);
         }
     }
 }
