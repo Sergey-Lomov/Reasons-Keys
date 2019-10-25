@@ -26,23 +26,23 @@ namespace ModelAnalyzer.Services
         private static string bpElement = "BranchPoint";
 
         // Card
-        private static string idAttribute = "id";
-        private static string mbAttribute = "mining_bonus";
-        private static string siAttribute = "stability_increment";
-        private static string paAttribute = "provides_artifact";
-        private static string isKeyAttribute = "is_key";
-        private static string msKeyAttribute = "min_stability_constraint";
-        private static string weightAttribute = "weight";
-        private static string usabilityAttribute = "uisability";
+        private static string idElement = "id";
+        private static string mbElement = "mining_bonus";
+        private static string siElement = "stability_increment";
+        private static string paElement = "provides_artifact";
+        private static string isKeyElement = "is_key";
+        private static string mscElement = "min_stability_constraint";
+        private static string weightElement = "weight";
+        private static string usabilityElement = "uisability";
 
         // BracnhPoint
-        private static string branchAttribute = "branch";
-        private static string pointsAttribute = "points";
+        private static string branchElement = "branch";
+        private static string pointsElement = "points";
 
         // Relation
-        private static string typeAttribute = "type";
-        private static string directionAttribute = "direction";
-        private static string positionAttribute = "position";
+        private static string typeElement = "type";
+        private static string directionElement = "direction";
+        private static string positionElement = "position";
 
         private static Dictionary<RelationType, string> typesStrings = new Dictionary<RelationType, string> {
             { RelationType.blocker, "blocker"},
@@ -81,15 +81,15 @@ namespace ModelAnalyzer.Services
         {
             writer.WriteStartElement(cardElement);
 
-            // Attributes
-            writer.WriteElementString(idAttribute, index.ToString());
-            writer.WriteElementString(mbAttribute, card.miningBonus.ToString());
-            writer.WriteElementString(siAttribute, card.stabilityIncrement.ToString());
-            writer.WriteElementString(paAttribute, card.provideArtifact.ToString());
-            writer.WriteElementString(isKeyAttribute, card.isKey.ToString());
-            writer.WriteElementString(msKeyAttribute, card.minStabilityConstraint.ToString());
-            writer.WriteElementString(weightAttribute, card.weight.ToString("F0"));
-            writer.WriteElementString(usabilityAttribute, card.usability.ToString("F1"));
+            // Common elements
+            writer.WriteElementString(idElement, index.ToString());
+            writer.WriteElementString(mbElement, card.miningBonus.ToString());
+            writer.WriteElementString(siElement, card.stabilityIncrement.ToString());
+            writer.WriteElementString(paElement, card.provideArtifact.ToString());
+            writer.WriteElementString(isKeyElement, card.isKey.ToString());
+            writer.WriteElementString(mscElement, card.minStabilityConstraint.ToString());
+            writer.WriteElementString(weightElement, card.weight.ToString("F0"));
+            writer.WriteElementString(usabilityElement, card.usability.ToString("F1"));
 
             WriteBranchPoints(card.branchPoints, writer);
             WriteRelations(card.relations, writer);
@@ -117,8 +117,8 @@ namespace ModelAnalyzer.Services
         private static void WriteBranchPoint (BranchPoint bp, XmlWriter writer)
         {
             writer.WriteStartElement(bpElement);
-            writer.WriteElementString(branchAttribute, bp.branch.ToString());
-            writer.WriteElementString(pointsAttribute, bp.point.ToString());
+            writer.WriteElementString(branchElement, bp.branch.ToString());
+            writer.WriteElementString(pointsElement, bp.point.ToString());
             writer.WriteEndElement();
         }
 
@@ -135,9 +135,9 @@ namespace ModelAnalyzer.Services
         private static void WriteRelation(EventRelation relation, XmlWriter writer)
         {
             writer.WriteStartElement(relationElement);
-            writer.WriteElementString(typeAttribute, typesStrings[relation.type]);
-            writer.WriteElementString(directionAttribute, directionsStrings[relation.direction]);
-            writer.WriteElementString(positionAttribute, relation.position.ToString());
+            writer.WriteElementString(typeElement, typesStrings[relation.type]);
+            writer.WriteElementString(directionElement, directionsStrings[relation.direction]);
+            writer.WriteElementString(positionElement, relation.position.ToString());
             writer.WriteEndElement();
         }
     }
