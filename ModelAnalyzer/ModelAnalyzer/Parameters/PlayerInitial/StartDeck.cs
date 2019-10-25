@@ -4,6 +4,7 @@ using System.Linq;
 
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
@@ -53,14 +54,22 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var initialEvents = new List<EventCard>();
 
+            float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
             float acew = RequestParmeter<AverageContinuumEventWeight>(calculator).GetValue();
             float iewc = RequestParmeter<InitialEventsWeightCoefficient>(calculator).GetValue();
 
             float estimatedWeight = acew * iewc;
 
-            initialEvents.Add(LogisticsEvent(estimatedWeight, calculator));
-            initialEvents.Add(MiningEvent(estimatedWeight, calculator));
-            initialEvents.Add(StabilityEvent(estimatedWeight, calculator));
+            var logisticEvent = LogisticsEvent(estimatedWeight, calculator);
+            var miningEvent = MiningEvent(estimatedWeight, calculator);
+            var stabilityEvent = StabilityEvent(estimatedWeight, calculator);
+
+            for (int i = 0; i < mpa; i++)
+            {
+                initialEvents.Add(new EventCard(logisticEvent));
+                initialEvents.Add(new EventCard(miningEvent));
+                initialEvents.Add(new EventCard(stabilityEvent));
+            }
 
             return initialEvents;
         }
@@ -233,6 +242,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var keyEvents = new List<EventCard>();
 
+            float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
             float kea = RequestParmeter<KeyEventsAmount>(calculator).GetValue();
             float kebp = RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
             float mkebp = RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
@@ -246,16 +256,18 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             if (!calculationReport.IsSuccess)
                 return null;
 
-
-            var mainEvent = MainKeyEvent((int)mkebp, (int)mkesc);
-            var notMainEvents = NotMainKeyEvents((int)kea - 1, (int)kebp, (int)kesc);
-            keyEvents.Add(mainEvent);
-            keyEvents.AddRange(notMainEvents);
+            for (int i = 0; i < mpa; i++)
+            {
+                var mainEvent = MainKeyEvent((int)mkebp, (int)mkesc, i);
+                var notMainEvents = NotMainKeyEvents((int)kea - 1, (int)kebp, (int)kesc, i);
+                keyEvents.Add(mainEvent);
+                keyEvents.AddRange(notMainEvents);
+            }
 
             return keyEvents;
         }
 
-        private List<EventCard> NotMainKeyEvents(int amount, int kebp, int kesc)
+        private List<EventCard> NotMainKeyEvents(int amount, int kebp, int kesc, int owner)
         {
             var keyEvents = new List<EventCard>(amount);
 
@@ -269,7 +281,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             {
                 var card = new EventCard();
 
-                var branchPoint = new BranchPoint(0, kebp);
+                var branchPoint = new BranchPoint(owner, kebp);
                 var success = new List<BranchPoint>();
                 success.Add(branchPoint);
                 var set = new BranchPointsSet(success, null);
@@ -287,11 +299,11 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return keyEvents;
         }
 
-        private EventCard MainKeyEvent (int mkebp, int mkesc)
+        private EventCard MainKeyEvent (int mkebp, int mkesc, int owner)
         {
             var card = new EventCard();
 
-            var branchPoint = new BranchPoint(0, mkebp);
+            var branchPoint = new BranchPoint(owner, mkebp);
             var success = new List<BranchPoint>();
             success.Add(branchPoint);
             var set = new BranchPointsSet(success, null);

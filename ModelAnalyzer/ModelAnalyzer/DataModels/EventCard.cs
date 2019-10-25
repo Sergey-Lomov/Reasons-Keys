@@ -35,11 +35,13 @@ namespace ModelAnalyzer.DataModels
     class EventCard : IEquatable<EventCard>
     {
         internal EventRelations relations = new EventRelations();
+        internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
+
         internal int stabilityIncrement = 0;
         internal int miningBonus = 0;
         internal bool provideArtifact = false;
         internal bool isKey = false;
-        internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
+        
         internal int minRadisuConstraint = 0;
         internal int minPhaseConstraint = 0;
         internal int minStabilityConstraint = 0;
@@ -47,6 +49,27 @@ namespace ModelAnalyzer.DataModels
         internal float weight = 0;
         internal float usability = 0;
         internal string comment = "";
+
+        public EventCard() : base() { }
+
+        public EventCard (EventCard card)
+        {
+            relations = new EventRelations(card.relations);
+            branchPoints = new BranchPointsSet(card.branchPoints.success, card.branchPoints.failed);
+
+            stabilityIncrement = card.stabilityIncrement;
+            miningBonus = card.miningBonus;
+            provideArtifact = card.provideArtifact;
+            isKey = card.isKey;
+
+            minRadisuConstraint = card.minRadisuConstraint;
+            minPhaseConstraint = card.minPhaseConstraint;
+            minStabilityConstraint = card.minStabilityConstraint;
+
+            weight = card.weight;
+            usability = card.usability;
+            comment = card.comment;
+        }
 
         public bool Equals(EventCard other)
         {

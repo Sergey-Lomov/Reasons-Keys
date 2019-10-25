@@ -334,8 +334,9 @@
             // 
             // saveXMLDialog
             // 
+            this.saveXMLDialog.DefaultExt = "xml";
             this.saveXMLDialog.FileName = "Deck.xml";
-            this.saveXMLDialog.Filter = "\"XML File|*.xml\"";
+            this.saveXMLDialog.Filter = "XML File|*.xml";
             // 
             // EventsDeckDetailsForm
             // 

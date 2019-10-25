@@ -64,10 +64,13 @@ namespace ModelAnalyzer.Services
             });
 
             writer.WriteStartDocument();
-            writer.WriteStartElement(deckElement); 
-            
+            writer.WriteStartElement(deckElement);
+
             foreach (var card in deck)
-                WriteCard(card, deck.IndexOf(card), writer);
+            {
+                var index = deck.FindIndex(c => ReferenceEquals(c, card)) + 1;
+                WriteCard(card, index, writer);
+            }
 
             writer.WriteEndElement();
             writer.WriteEndDocument();
@@ -133,7 +136,7 @@ namespace ModelAnalyzer.Services
         {
             writer.WriteStartElement(relationElement);
             writer.WriteElementString(typeAttribute, typesStrings[relation.type]);
-            writer.WriteElementString(pointsAttribute, directionsStrings[relation.direction]);
+            writer.WriteElementString(directionAttribute, directionsStrings[relation.direction]);
             writer.WriteElementString(positionAttribute, relation.position.ToString());
             writer.WriteEndElement();
         }

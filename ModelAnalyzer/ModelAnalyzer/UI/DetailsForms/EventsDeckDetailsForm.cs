@@ -79,7 +79,8 @@ namespace ModelAnalyzer.UI
             foreach (EventCard card in cards)
             {
                 var relations = card.relations.OrderBy(r => r.position);
-                var index = cards.IndexOf(card) + 1;
+                var index = cards.FindIndex(c => ReferenceEquals(c, card)) + 1;
+
                 DeckTable.Controls.Add(IndexLabel(index));
 
                 for (int i = 0; i < EventRelation.MaxRelationPosition; i++)
