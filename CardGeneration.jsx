@@ -76,7 +76,7 @@ const weightValue = "Value";
 const usabilityValue = "Value";
 const idValue = "Value";
 
-var dest = "~/testme.pdf";
+var filesPrefix = "card";
 var useCircular = true;
 
 function HandleTextValue (mainLayerName, textFrameName, value, doc)
@@ -236,7 +236,25 @@ function HandleRelations (relations, doc)
      }
 }
 
-function HandleCard (card, doc)
+ //Saving
+function SaveWithName(file, doc) 
+{
+    var originalInteractionLevel = userInteractionLevel;
+    userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
+
+    alert(file);
+
+    var saveName = new File ( file );
+    saveOpts = new PDFSaveOptions();
+    saveOpts.compatibility = PDFCompatibility.ACROBAT5; 
+    saveOpts.generateThumbnails = true; 
+    saveOpts.preserveEditability = true;
+    doc.saveAs( saveName, saveOpts );    
+    
+    userInteractionLevel = originalInteractionLevel;
+}
+
+function HandleCard (card, doc, folder)
 {
       //Get values
       var id = card.child(idElement);
@@ -272,46 +290,29 @@ function HandleCard (card, doc)
       HandleBrachPoints(successBPLayerName, useCircular, success, doc);
       
       HandleRelations(relations, doc);
+      
+      //Save
+      SaveWithName(folder.fsName + "\\" + filesPrefix + id, doc);
 }
 
-if ( app.documents.length > 0 )
+function GenerateDeck ()
 {
-    var doc = app.activeDocument;
-
-    var file = File.openDialog ("Select cards XML", "*.xml;");
-    file.open("r");
-    
-    var xmlContent = XML ( file.read() );
-    var card = xmlContent.elements ()[0];
-    HandleCard(card, doc);
- /*   for each(var card in xmlContent.elements()) {  
-        HandleCard(card);
-    }*/
-
-/*
-    doc.activeLayer = doc.layers.getByName("Mining");
-    var miningLayer = doc.activeLayer.layers.getByName("Values");
-    var labels = miningLayer.textFrames;
-    alert(labels.length);
-    for (var i = 0; i < labels.length; i++)
+    if ( app.documents.length > 0 )
     {
-        var label = labels[i];
-        label.contents = "4";
+        var doc = app.activeDocument;
+        var file = File.openDialog ("Select cards XML", "*.xml;");
+        var folder = Folder.selectDialog("Select destination folder");
+        
+        file.open("r");
+        var xmlContent = XML ( file.read() );
+        for each(var card in xmlContent.elements()) {  
+            HandleCard(card, doc, folder);
+        }
     }
-  
-    var originalInteractionLevel = userInteractionLevel;
-    userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
+    else
+    {
+        alert( "Please open a document with template." );
+    }
+}
 
-    var saveName = new File ( dest );
-    saveOpts = new PDFSaveOptions();
-    saveOpts.compatibility = PDFCompatibility.ACROBAT5; 
-    saveOpts.generateThumbnails = true; 
-    saveOpts.preserveEditability = true;
-    doc.saveAs( saveName, saveOpts );    
-    
-    userInteractionLevel = originalInteractionLevel;*/
-}
-else
-{
-	alert( "Please open a document with template." );
-}
+GenerateDeck ();
