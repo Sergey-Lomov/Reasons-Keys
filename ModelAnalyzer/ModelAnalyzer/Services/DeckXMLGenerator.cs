@@ -13,19 +13,10 @@ namespace ModelAnalyzer.Services
 {
     class DeckXMLGenerator
     {
-        // Elements
+        // Card
         private static string deckElement = "Deck";
         private static string cardElement = "Card";
 
-        private static string relationsElement = "Relations";
-        private static string relationElement = "Relation";
-
-        private static string branchPointsElement = "BranchPoints";
-        private static string bpSuccessElement = "Success";
-        private static string bpFailedElement = "Failed";
-        private static string bpElement = "BranchPoint";
-
-        // Card
         private static string idElement = "id";
         private static string mbElement = "mining_bonus";
         private static string siElement = "stability_increment";
@@ -36,10 +27,18 @@ namespace ModelAnalyzer.Services
         private static string usabilityElement = "uisability";
 
         // BracnhPoint
+        private static string branchPointsElement = "BranchPoints";
+        private static string bpSuccessElement = "Success";
+        private static string bpFailedElement = "Failed";
+        private static string bpElement = "BranchPoint";
+
         private static string branchElement = "branch";
         private static string pointsElement = "points";
 
         // Relation
+        private static string relationsElement = "Relations";
+        private static string relationElement = "Relation";
+
         private static string typeElement = "type";
         private static string directionElement = "direction";
         private static string positionElement = "position";
