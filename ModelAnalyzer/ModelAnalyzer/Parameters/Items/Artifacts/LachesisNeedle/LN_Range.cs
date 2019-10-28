@@ -2,13 +2,13 @@
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 {
-    class LN_OneConnectionProfit : FloatSingleParameter
+    class LN_Range : FloatSingleParameter
     {
-        public LN_OneConnectionProfit()
+        public LN_Range()
         {
-            type = ParameterType.Inner;
-            title = "ИЛ: выгодность установки одной связи";
-            details = "";
+            type = ParameterType.Out;
+            title = "ИЛ: радиус действия";
+            details = "Артефакт позволяет соединять причинно-следственными связями пару узлов с помощью маркеров, если они расположены на расстоянии не большем, чем задает этот параметр";
             fractionalDigits = 2;
             tags.Add(ParameterTag.items);
             tags.Add(ParameterTag.artifacts);
@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
             calculationReport = new ParameterCalculationReport(this);
 
             var cm = calculator.UpdatedModule<LN_CalculationModule>();
-            value = unroundValue = cm.oneUsageProfit;
+            value = unroundValue = cm.range;
 
             return calculationReport;
         }

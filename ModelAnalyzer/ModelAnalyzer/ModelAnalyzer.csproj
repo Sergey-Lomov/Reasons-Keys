@@ -78,6 +78,8 @@
     <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_CalculationModule.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Range.cs" />
     <Compile Include="Parameters\Items\BaseItemsAmount.cs" />
     <Compile Include="Parameters\Items\EstimatedArtifactsProfit.cs" />
     <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />

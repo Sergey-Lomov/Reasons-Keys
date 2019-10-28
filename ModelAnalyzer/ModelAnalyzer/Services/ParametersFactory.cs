@@ -206,6 +206,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new LN_ConnectionsAmount());
             storage.AddParameter(parameter: new LN_OneConnectionProfit());
             storage.AddParameter(parameter: new LN_Profit());
+            storage.AddParameter(parameter: new LN_Range());
 
             storage.AddParameter(parameter: new SS_Profit());
             storage.AddParameter(parameter: new SS_SecondaryStabilisationPower());
