@@ -42,8 +42,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
             int best_ssp = 0;
 
             foreach (var sna in available_sna)
-                for (int sp = 1; sp < max_sp; sp++)
-                    for (int ssp = 1; ssp < max_ssp; ssp++)
+                for (int sp = 1; sp <= max_sp; sp++)
+                    for (int ssp = 1; ssp <= max_ssp; ssp++)
                     {
                         var current_oupr = (sp + (eca / cna * sna * ssp)) * eifp;
                         if (Math.Abs(eoupr - best_oupr) > Math.Abs(eoupr - current_oupr))
