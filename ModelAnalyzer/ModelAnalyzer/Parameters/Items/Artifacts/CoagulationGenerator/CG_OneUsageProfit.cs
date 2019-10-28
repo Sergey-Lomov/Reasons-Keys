@@ -55,7 +55,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
 
             var moud = leftValues.Sum() / rightValues.Sum();
             var asp = isp + sbp.Sum() / 2;
-            var sspr = (float)Math.Pow(orsdpr, Math.Log(moud / asp, 2));
+            var sp = (moud + asp - 1) / asp;
+            var sspr = (float)Math.Pow(orsdpr, Math.Log(sp, 2));
 
             value = unroundValue = (moud - 1) * mp + sspr;
 

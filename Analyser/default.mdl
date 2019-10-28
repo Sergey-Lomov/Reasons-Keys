@@ -133,9 +133,9 @@ ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_FullPrice:20~20|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_InversePower:1~1|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_Profit:50~50|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_RelativeRevenue:3~3|
-ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_ChargesAmount:7~7|
-ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_OneUsageProfit:8,63~8,63|
-ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_Profit:60,38~60,38|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_ChargesAmount:5~5|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_OneUsageProfit:11,09~11,09|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_Profit:55,43~55,43|
 ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_V616Mining:14~14|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_CollapsePreparationDuration:5~5|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTension:12~12|
@@ -145,9 +145,10 @@ ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_Profit:58,93~58,93|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionIncreasing:-2 1 2 4~-2 1 2 4|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionInreasingStepsAmount:3~3|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionLimits:0 9 17 26~0 9 17 26|
-ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_ConnectionsAmount:0~0|
-ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_OneConnectionProfit:118,8~118,8|
-ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Profit:0~0|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_ConnectionsAmount:1~1|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_OneConnectionProfit:66,47~66,47|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Profit:66,47~66,47|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Range:2~2|
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_Profit:37,58~37,58|
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SecondaryStabilisationPower:1~1|
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_StabilisationPower:1~1|
