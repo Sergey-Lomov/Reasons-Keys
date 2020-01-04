@@ -48,9 +48,10 @@ const artifactIndicatorLayer = "ArtifactIndicator";
 const miningBonusLayer = "MiningBonus";
 const stabilityIncrementLayer = "StabilityIncrement";
 
-const minStavilityConstraintLayer = "MinStabilityConstraint";
-const minStavilityConstraintValue = "Value";
+const minStabilityConstraintLayer = "MinStabilityConstraint";
+const minStabilityConstraintValue = "Value";
 
+const circularKeyEventBPLayerName = "CircularKeyEventBP";
 const failedBPLayerName = "FailedBP";
 const successBPLayerName = "SuccessBP";
 const hasValueGroupName = "HasValue";
@@ -69,16 +70,28 @@ const backGroupName = "In";
 const frontGroupName = "Out";
 const pairedGroupName = "CoReason";
 
-const weightLayer = "Weight";
-const usabilityLayer = "Usability";
-const idLayer = "Id";
+const weightLayerName = "Weight";
+const usabilityLayerName = "Usability";
+const idLayerName = "Id";
 const weightValue = "Value";
 const usabilityValue = "Value";
 const idValue = "Value";
 
+var outputInit = "/d/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0/%D0%91%D1%83%D0%BC%D0%B0%D0%B3%D0%B0/%D0%9A%D0%BB%D1%8E%D1%87%D0%B8%20%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD/%D0%A3%D0%BF%D1%80%D0%BE%D1%89%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F/ModelAnalyzer/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/%D0%9A%D0%B0%D1%80%D1%82%D1%8B";
 var filesPrefix = "card";
 var useCircular = true;
+var showSystemInfo = false;
+var previewMode = false;
+var saveAI = true;
 
+function HandleSystemInfo (show, doc)
+{
+    doc.layers.getByName(idLayerName).visible = show;
+    doc.layers.getByName(usabilityLayerName).visible = show;
+    doc.layers.getByName(weightLayerName).visible = show;
+}
+
+ // Test
 function HandleTextValue (mainLayerName, textFrameName, value, doc)
 {
     var layer = doc.layers.getByName(mainLayerName);
@@ -106,19 +119,18 @@ function HandleMarkup  (useCircular, doc)
 function HandleNumberValue  (mainLayerName, useCircular, value, doc)
 {
     var mainLayer = doc.layers.getByName(mainLayerName);
+    if (!mainLayer.visible)
+        return;
+    
     var circularGroup = mainLayer.groupItems.getByName(circularName);
     var orientatedGroup = mainLayer.groupItems.getByName(orientatedName);
     circularGroup.hidden = !useCircular;
     orientatedGroup.hidden = useCircular;
     
     if (useCircular) 
-    {
-        HandleCircularNumberValue(circularGroup, value);
-    } 
+        HandleCircularNumberValue(circularGroup, value); 
     else 
-    {
         HandleOrientatedNumberValue (orientatedGroup, value);
-    }
 }
 
 function HandleCircularNumberValue (circularGroup, value)
@@ -192,6 +204,21 @@ function HandleOrientatedPoints (mainGroup, points)
             mainGroup.textFrames.getByName(valueLayerName).contents = points.toString();
 }
 
+function HandleCircularKeySuccessPoints (success, useCircular, isKey, doc)
+{
+    var items = success.child(bpElement);
+    if (items.length() > 0 && useCircular && isKey == "True") 
+    {
+        var points = items[0].child(pointsElement)
+        doc.layers.getByName(circularKeyEventBPLayerName).visible = true;
+        HandleNumberValue(circularKeyEventBPLayerName, true, points, doc);
+    }
+    else
+    {
+        doc.layers.getByName(circularKeyEventBPLayerName).visible = false;
+    }
+}
+
 // Relations
 function HandleRelations (relations, doc)
 {
@@ -237,12 +264,24 @@ function HandleRelations (relations, doc)
 }
 
  //Saving
-function SaveWithName(file, doc) 
+ 
+function ExportFileToAI(file, doc) {
+    var originalInteractionLevel = userInteractionLevel;
+    userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;    
+
+    var ai8Doc = new File(file);
+    var saveOptions = new IllustratorSaveOptions();
+    saveOptions.embedICCProfile = true;
+
+    app.activeDocument.saveAs(ai8Doc, saveOptions);
+    
+    userInteractionLevel = originalInteractionLevel;
+}
+
+function ExportFileToPDF(file, doc) 
 {
     var originalInteractionLevel = userInteractionLevel;
     userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
-
-    alert(file);
 
     var saveName = new File ( file );
     saveOpts = new PDFSaveOptions();
@@ -252,6 +291,19 @@ function SaveWithName(file, doc)
     doc.saveAs( saveName, saveOpts );    
     
     userInteractionLevel = originalInteractionLevel;
+}
+
+function ExportFileToPNG24(file, doc) {
+    var exportOptions = new ExportOptionsPNG24();
+    exportOptions.antiAliasing = true;
+    exportOptions.transparency = false;
+    exportOptions.verticalScale = 500;
+    exportOptions.horizontalScale = 500;
+
+    var type = ExportType.PNG24;
+    var fileSpec = new File(file);
+
+    doc.exportFile(fileSpec, type, exportOptions);
 }
 
 function HandleCard (card, doc, folder)
@@ -273,26 +325,37 @@ function HandleCard (card, doc, folder)
       var relations = card.child(relationsElement);
       
       //Update UI
+      HandleSystemInfo(showSystemInfo, doc);
       HandleMarkup(useCircular, doc);
       
-      HandleBoolValue(keyIndicatorLayer, isKey, doc);
+      //HandleBoolValue(keyIndicatorLayer, isKey, doc);
       HandleBoolValue(artifactIndicatorLayer, pa, doc);
 
-      HandleTextValue(minStavilityConstraintLayer, minStavilityConstraintValue, msc, doc);
-      HandleTextValue(weightLayer, weightValue, weight, doc);
-      HandleTextValue(usabilityLayer, usabilityValue, usability, doc);
-      HandleTextValue(idLayer, idValue, id, doc);
+      //HandleTextValue(minStabilityConstraintLayer, minStabilityConstraintValue, msc, doc);
+      HandleTextValue(weightLayerName, weightValue, weight, doc);
+      HandleTextValue(usabilityLayerName, usabilityValue, usability, doc);
+      HandleTextValue(idLayerName, idValue, id, doc);
 
       HandleNumberValue(stabilityIncrementLayer, useCircular, si, doc);
       HandleNumberValue(miningBonusLayer, useCircular, mb, doc);
+      HandleNumberValue(minStabilityConstraintLayer, useCircular, msc, doc);
 
       HandleBrachPoints(failedBPLayerName, useCircular, failed, doc);
       HandleBrachPoints(successBPLayerName, useCircular, success, doc);
+      HandleCircularKeySuccessPoints(success, useCircular, isKey, doc);
       
       HandleRelations(relations, doc);
       
       //Save
-      SaveWithName(folder.fsName + "\\" + filesPrefix + id, doc);
+     var filePath = folder.fsName + "\\" + filesPrefix + id
+      if (previewMode) 
+      {
+            ExportFileToPNG24(filePath, doc);
+      } else if (saveAI) {
+            ExportFileToAI(filePath, doc);
+      } else {
+            ExportFileToPDF(filePath, doc);
+      }
 }
 
 function GenerateDeck ()
@@ -301,12 +364,12 @@ function GenerateDeck ()
     {
         var doc = app.activeDocument;
         var file = File.openDialog ("Select cards XML", "*.xml;");
-        var folder = Folder.selectDialog("Select destination folder");
-        
+        var outputFolder = new Folder(outputInit).selectDlg("Select destination folder");
+
         file.open("r");
         var xmlContent = XML ( file.read() );
         for each(var card in xmlContent.elements()) {  
-            HandleCard(card, doc, folder);
+            HandleCard(card, doc, outputFolder);
         }
     }
     else
