@@ -68,7 +68,7 @@ const reasonGroupName = "Reason";
 const blockerGroupName = "Blocker";
 const backGroupName = "In";
 const frontGroupName = "Out";
-const pairedGroupName = "CoReason";
+const pairedPathName = "CoReason";
 
 const weightLayerName = "Weight";
 const usabilityLayerName = "Usability";
@@ -222,6 +222,7 @@ function HandleCircularKeySuccessPoints (success, useCircular, isKey, doc)
 // Relations
 function HandleRelations (relations, doc)
 {
+    // Comented code related to old paired reasons design
       var items = relations.child(relationElement);
       var mainGroup = doc.layers.getByName(relationsLayerName).groupItems;
       for (var i = 0; i < mainGroup.length; i++)
@@ -229,16 +230,17 @@ function HandleRelations (relations, doc)
             mainGroup.getByName(i).hidden = true;
       }
   
-      var minPaired = -1;
+//      var minPaired = -1;
       for each(var relation in items)
       {
           var position = relation.child(positionElement).toString();
           var groupItem = mainGroup.getByName(position);
           groupItem.hidden = false;
           var reasonGroup = groupItem.groupItems.getByName(reasonGroupName);
-          var blockerGroup = groupItem.groupItems.getByName(blockerGroupName);       
-          
-          var isReason = relation.child(typeElement).toString() != blockerType
+          var blockerGroup = groupItem.groupItems.getByName(blockerGroupName);
+
+          var type = relation.child(typeElement).toString() 
+          var isReason = type != blockerType
           reasonGroup.hidden = !isReason;
           blockerGroup.hidden = isReason;
           var activeGroup = isReason ? reasonGroup : blockerGroup;
@@ -249,18 +251,19 @@ function HandleRelations (relations, doc)
           backGroup.hidden = !isBack;
           frontGroup.hidden = isBack;
           
-          reasonGroup.pathItems.getByName(pairedGroupName).hidden = true;
-          if (relation.child(typeElement).toString() == pairedReasonType)
+          var pairedReasonPath = reasonGroup.pathItems.getByName(pairedPathName)
+          alert(type)
+          pairedReasonPath.hidden = type != pairedReasonType;
+ /*         if (relation.child(typeElement).toString() == pairedReasonType)
           {
               minPaired = minPaired < parseInt (position) && minPaired  != -1 ? minPaired : parseInt (position);
-          }
+          }*/
       }
-
-     if (minPaired != -1) 
+ /*    if (minPaired != -1) 
      {
          var reasonGroup = mainGroup.getByName(minPaired).groupItems.getByName(reasonGroupName);
-         reasonGroup.pathItems.getByName(pairedGroupName).hidden = false;
-     }
+         reasonGroup.pathItems.getByName(pairedPathName).hidden = false;
+     }*/
 }
 
  //Saving
