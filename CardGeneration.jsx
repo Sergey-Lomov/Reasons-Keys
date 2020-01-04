@@ -77,11 +77,11 @@ const weightValue = "Value";
 const usabilityValue = "Value";
 const idValue = "Value";
 
-var outputInit = "/d/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0/%D0%91%D1%83%D0%BC%D0%B0%D0%B3%D0%B0/%D0%9A%D0%BB%D1%8E%D1%87%D0%B8%20%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD/%D0%A3%D0%BF%D1%80%D0%BE%D1%89%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F/ModelAnalyzer/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/%D0%9A%D0%B0%D1%80%D1%82%D1%8B";
+var outputInit = "/d/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0/%D0%91%D1%83%D0%BC%D0%B0%D0%B3%D0%B0/%D0%9A%D0%BB%D1%8E%D1%87%D0%B8%20%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD/%D0%A3%D0%BF%D1%80%D0%BE%D1%89%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/%D0%9A%D0%B0%D1%80%D1%82%D1%8B";
 var filesPrefix = "card";
 var useCircular = true;
 var showSystemInfo = false;
-var previewMode = false;
+var previewMode = true;
 var saveAI = true;
 
 function HandleSystemInfo (show, doc)
@@ -229,7 +229,7 @@ function HandleRelations (relations, doc)
             mainGroup.getByName(i).hidden = true;
       }
   
-      var minPaired = 0;
+      var minPaired = -1;
       for each(var relation in items)
       {
           var position = relation.child(positionElement).toString();
@@ -252,13 +252,13 @@ function HandleRelations (relations, doc)
           reasonGroup.pathItems.getByName(pairedGroupName).hidden = true;
           if (relation.child(typeElement).toString() == pairedReasonType)
           {
-              minPaired = minPaired < parseInt (position) ? minPaired : parseInt (position);
+              minPaired = minPaired < parseInt (position) && minPaired  != -1 ? minPaired : parseInt (position);
           }
       }
 
-     if (minPaired != 0) 
+     if (minPaired != -1) 
      {
-         var reasonGroup = mainGroup.groupItems.getByName(minPaired).pathItems.getByName(reasonGroupName);
+         var reasonGroup = mainGroup.getByName(minPaired).groupItems.getByName(reasonGroupName);
          reasonGroup.pathItems.getByName(pairedGroupName).hidden = false;
      }
 }
@@ -297,14 +297,142 @@ function ExportFileToPNG24(file, doc) {
     var exportOptions = new ExportOptionsPNG24();
     exportOptions.antiAliasing = true;
     exportOptions.transparency = false;
-    exportOptions.verticalScale = 500;
-    exportOptions.horizontalScale = 500;
-
+    exportOptions.artBoardClipping = false;
+    exportOptions.horizontalScale = 300;
+    exportOptions.verticalScale = 300;
+    
     var type = ExportType.PNG24;
     var fileSpec = new File(file);
 
     doc.exportFile(fileSpec, type, exportOptions);
 }
+
+function ExportFileToJPEG(file, doc) {
+   /*var exportOptions = new ExportOptionsJPEG();
+    exportOptions.qualitySetting = 100;
+
+    var type = ExportType.JPEG;
+    var fileSpec = new File(file);
+
+    doc.outputResolution = 300;
+    doc.exportFile(fileSpec, type, exportOptions);*/
+var fileSpec = new File(file);
+
+var captureOptions = new ImageCaptureOptions();
+captureOptions.resolution = 300;
+captureOptions.antiAliasing = true;
+
+var curBoard = doc.artboards[doc.artboards.getActiveArtboardIndex()];
+var captureClip = curBoard.artboardRect;
+alert(doc.documentColorSpace);
+doc.imageCapture(fileSpec, captureClip,captureOptions);
+}
+
+// TEST CODE SECTION
+ var antilag = 0;
+function exportJPG(pth){ //Export 300dpi CMYK jpg
+
+  var str = "";
+
+  for (var i=0;i<pth.length;i++) str += u16to8(pth.charCodeAt(i));
+
+  var act = "/version 3/name [ 4 73657431]/isOpen 1"
+
+  + "/actionCount 1/action-1 {/name [ 4 61637431]/keyIndex 0/colorIndex 0/isOpen 1/eventCount 1"
+
+  + "/event-1 {/useRulersIn1stQuadrant 0/internalName (adobe_exportDocument)"
+
+  + "/isOpen 0/isOn 1/hasDialog 1/showDialog 0/parameterCount 7"
+
+  + "/parameter-1 {/key 1885434477/showInPalette 0/type (raw)"
+
+  + "/value < 100 0a00000001000000030000000100000000002c01020000000000000001000000"
+
+  + "69006d006100670065006d006100700000000000000000000000000000000000"
+
+  + "0000000000000000000000000000000000000000000000000000000000000000"
+
+  + "00000100>/size 100}" //Probably, parameter for exporter plugin
+
+  + "/parameter-2 {/key 1851878757/showInPalette 4294967295"
+
+  + "/type (ustring)/value [ " + str.length/2 + " " + str + "]}"
+
+  + "/parameter-3 {/key 1718775156/showInPalette 4294967295"
+
+  + "/type (ustring)/value [ 16 4a5045472066696c6520666f726d6174]}" // JPEG file format
+
+  + "/parameter-4 {/key 1702392942/showInPalette 4294967295"
+
+  + "/type (ustring)/value [ 12 6a70672c6a70652c6a706567]}" //jpg,jpe,jpeg
+
+  + "/parameter-5 {/key 1936548194/showInPalette 4294967295/type (boolean)/value 0}"
+
+  + "/parameter-6 {/key 1935764588/showInPalette 4294967295/type (boolean)/value 1}"
+
+  + "/parameter-7 {/key 1936875886/showInPalette 4294967295/type (ustring)/value [ 0]}}}";
+
+  var tmp = File(Folder.desktop + "/set1.aia");  
+
+  tmp.open('w');  
+
+  tmp.write(act); 
+
+  tmp.close();
+
+  app.loadAction(tmp); 
+
+  app.doScript("act1", "set1", false);  
+
+  app.unloadAction("set1","");
+
+  tmp.remove();
+
+if (antilag == 12)
+{
+    antilag = 0;
+    alert("Antilag");
+    }
+else {
+    antilag++;
+    }
+
+  }
+
+function u16to8(cd) {
+
+  var out =
+
+  (cd < 0x80
+
+  ? toHex2(cd)
+
+  : (cd < 0x800
+
+  ? toHex2(cd >> 6 & 0x1f | 0xc0)
+
+  : toHex2(cd >> 12 | 0xe0) +
+
+  toHex2(cd >> 6 & 0x3f | 0x80)
+
+  ) + toHex2(cd & 0x3f | 0x80)
+
+  );
+
+  return out;
+
+  }
+
+function toHex2(num) {
+
+  var out = '0' + num.toString(16);
+
+  return out.slice(-2);
+
+}
+
+// TEST CODE SECTION END
+
 
 function HandleCard (card, doc, folder)
 {
@@ -350,7 +478,9 @@ function HandleCard (card, doc, folder)
      var filePath = folder.fsName + "\\" + filesPrefix + id
       if (previewMode) 
       {
-            ExportFileToPNG24(filePath, doc);
+          exportJPG(filePath + ".jpeg");
+          // ExportFileToJPEG(filePath, doc);
+          // ExportFileToPNG24(filePath, doc);
       } else if (saveAI) {
             ExportFileToAI(filePath, doc);
       } else {
