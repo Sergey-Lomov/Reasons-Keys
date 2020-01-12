@@ -1,0 +1,374 @@
+<Field>
+    
+    <!-- Part 1 -->
+    <Node>
+        <layer>12</layer>
+        <x>90.112</x>
+        <y>239.378</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>90.112</x>
+        <y>178.756</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>142.545</x>
+        <y>148.446</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>195.035</x>
+        <y>118.135</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>247.524</x>
+        <y>87.824</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>300</x>
+        <y>57.513</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>352.535</x>
+        <y>87.824</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>405.069</x>
+        <y>118.135</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>142.544</x>
+        <y>269.689</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>142.544</x>
+        <y>209.067</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>195.035</x>
+        <y>178.756</y>
+    </Node>
+        
+    <Node>
+        <layer>9</layer>
+        <x>247.524</x>
+        <y>148.446</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>300</x>
+        <y>118.135</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>352.535</x>
+        <y>148.446</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>405.029</x>
+        <y>178.756</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>195.037</x>
+        <y>239.378</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>247.524</x>
+        <y>209.067</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>300</x>
+        <y>078.756</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>352.535</x>
+        <y>209.067</y>
+    </Node>
+        
+    <Node>
+        <layer>6</layer>
+        <x>405.028</x>
+        <y>239.378</y>
+    </Node>
+        
+    <Node>
+        <layer>3</layer>
+        <x>247.525</x>
+        <y>269.689</y>
+    </Node>
+        
+    <Node>
+        <layer>3</layer>
+        <x>300</x>
+        <y>239.378</y>
+    </Node>
+        
+    <Node>
+        <layer>3</layer>
+        <x>352.535</x>
+        <y>269.689</y>
+    </Node>
+    
+    <!-- Part 2 -->
+    
+    <Node>
+        <layer>12</layer>
+        <x>90.112</x>
+        <y>300</y>
+    </Node>
+        
+    <Node>
+        <layer>12</layer>
+        <x>90.112</x>
+        <y>360.623</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>90.112</x>
+        <y>421.244</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>142.545</x>
+        <y>451.556</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>195.035</x>
+        <y>481.865</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>247.526</x>
+        <y>512.179</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>352.535</x>
+        <y>512.179</y>
+    </Node>
+        
+    <Node>
+        <layer>12</layer>
+        <x>405.068</x>
+        <y>481.868</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>405.068</x>
+        <y>421.243</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>352.535</x>
+        <y>451.554</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>300</x>
+        <y>481.855</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>247.525</x>
+        <y>451.556</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>195.038</x>
+        <y>421.245</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>142.544</x>
+        <y>390.933</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>142.544</x>
+        <y>330.312</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>195.037</x>
+        <y>300</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>195.038</x>
+        <y>360.622</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>247.524</x>
+        <y>390.934</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>300</x>
+        <y>421.244</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>352.536</x>
+        <y>390.934</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>405.029</x>
+        <y>360.623</y>
+    </Node>
+    
+    <Node>
+        <layer>6</layer>
+        <x>405.038</x>
+        <y>300</y>
+    </Node>
+    
+    <Node>
+        <layer>3</layer>
+        <x>352.535</x>
+        <y>330.311</y>
+    </Node>
+    
+    <Node>
+        <layer>3</layer>
+        <x>300</x>
+        <y>360.622</y>
+    </Node>
+    
+    <Node>
+        <layer>3</layer>
+        <x>247.525</x>
+        <y>330.311</y>
+    </Node>
+    
+    <Node>
+        <layer>Center</layer>
+        <x>300</x>
+        <y>300</y>
+    </Node>
+    
+    <!-- Part 3 -->
+    <Node>
+        <layer>12</layer>
+        <x>457.577</x>
+        <y>148.446</y>
+    </Node>
+        
+    <Node>
+        <layer>12</layer>
+        <x>510.124</x>
+        <y>178.756</y>
+    </Node>
+        
+    <Node>
+        <layer>12</layer>
+        <x>510.124</x>
+        <y>239.379</y>
+    </Node>
+        
+    <Node>
+        <layer>12</layer>
+        <x>510.124</x>
+        <y>300</y>
+    </Node>
+        
+    <Node>
+        <layer>12</layer>
+        <x>510.124</x>
+        <y>360.623</y>
+    </Node>
+        
+    <Node>
+        <layer>12</layer>
+        <x>510.124</x>
+        <y>421.243</y>
+    </Node>
+    
+    <Node>
+        <layer>12</layer>
+        <x>457.6</x>
+        <y>451.554</y>
+    </Node>
+        
+    <Node>
+        <layer>9</layer>
+        <x>457.6</x>
+        <y>390.932</y>
+    </Node>
+    
+    <Node>
+        <layer>9</layer>
+        <x>457.6</x>
+        <y>330.311</y>
+    </Node>
+        
+    <Node>
+        <layer>9</layer>
+        <x>457.6</x>
+        <y>269.69</y>
+    </Node>
+    
+    <Node>    
+        <layer>9</layer>
+        <x>457.6</x>
+        <y>209.067</y>
+    </Node>
+    
+    <!-- Part 4 -->
+    <Node>
+        <layer>12</layer>
+        <x>300</x>
+        <y>542.49</y>
+    </Node>
+    
+</Field>
