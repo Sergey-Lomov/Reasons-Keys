@@ -1,4 +1,6 @@
-﻿//--------------------- XML Constants
+﻿const millimetersToPixels = 2.83465
+
+//--------------------- XML Constants
 // Card
 const nodeElement = "Node";
 const layerElement = "layer";
@@ -7,7 +9,7 @@ const yElement = "y";
 
 //--------------------- Layers Constants
 const prototypeLayerName = "Prototype";
-const miningLayerName = "Mining";
+const contentLayerName = "Content";
 const makeupName = "Makeup";
 const backLayerName = "Back"
 
@@ -15,6 +17,7 @@ function CopyLayer (layer, toLayer, doc)
 {
     var newLayer = toLayer.layers.add();
     newLayer.name = layer.name
+    newLayer.opacity = layer.opacity
 
     for (var i = 0; i < layer.layers.length; i++) {
          CopyLayer (layer.layers[i], newLayer, doc)
@@ -86,15 +89,15 @@ function HandleNode (node, doc)
 
     //Get values
     var layerName = node.child(layerElement)
-    var x = node.child(xElement)
-    var y = -1 * node.child(yElement)
+    var x = node.child(xElement) * millimetersToPixels
+    var y = -1 * node.child(yElement) * millimetersToPixels
       
     var protypeLayer = doc.layers.getByName(prototypeLayerName)
-    var protypeMiningLayer = protypeLayer.layers.getByName(miningLayerName)
+    var protypeContentLayer = protypeLayer.layers.getByName(contentLayerName)
     var protypeMakeupLayer = protypeLayer.layers.getByName(makeupName)
     var protypeBackLayer = protypeLayer.layers.getByName(backLayerName)
       
-    var miningLayer = doc.layers.getByName(miningLayerName)
+    var contentLayer = doc.layers.getByName(contentLayerName)
     var makeupLayer = doc.layers.getByName(makeupName)
     var backLayer = doc.layers.getByName(backLayerName)
 
@@ -106,9 +109,9 @@ function HandleNode (node, doc)
     newMakeup.name = HandleNode.counter
     move(newMakeup, x, y)
 
-    var nodeMiningLayer = protypeMiningLayer.layers.getByName(layerName)
-    var newMining = CopyLayer (nodeMiningLayer, miningLayer, doc)
-    move(newMining, x, y)
+    var nodeContentLayer = protypeContentLayer.layers.getByName(layerName)
+    var newContent = CopyLayer (nodeContentLayer, contentLayer, doc)
+    move(newContent, x, y)
 
     HandleNode.counter++
 }
