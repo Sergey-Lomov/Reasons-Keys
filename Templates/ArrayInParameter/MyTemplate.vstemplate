@@ -1,0 +1,14 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>ArrayInParameter.cs</DefaultName>
+    <Name>ArrayInParameter</Name>
+    <Description>Шаблон входного параметра-массива. Не содержит метода для расчетов.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">ArrayInParameter.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

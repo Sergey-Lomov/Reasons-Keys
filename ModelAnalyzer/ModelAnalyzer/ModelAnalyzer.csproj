@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3CFE7E3-71A6-4754-B786-F04A9530434C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ModelAnalyzer</RootNamespace>
+    <AssemblyName>ModelAnalyzer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataModels\BranchPointsSet.cs" />
+    <Compile Include="Parameters\Activities\AverageEventsConcreteBranchPoints.cs" />
+    <Compile Include="Parameters\Activities\EstimatedEventCreationPrice.cs" />
+    <Compile Include="Parameters\Activities\EstimatedEventImpactPrice.cs" />
+    <Compile Include="Parameters\Activities\AtackAmount.cs" />
+    <Compile Include="Parameters\Activities\MiningAmount.cs" />
+    <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
+    <Compile Include="Parameters\Events\Weight\AdditionalReasonsWeight.cs" />
+    <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
+    <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
+    <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
+    <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_CalculationModule.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Range.cs" />
+    <Compile Include="Parameters\Items\BaseItemsAmount.cs" />
+    <Compile Include="Parameters\Items\EstimatedArtifactsProfit.cs" />
+    <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
+    <Compile Include="Parameters\Items\Artifacts\ArtifactProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_ChargesAmount.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_OneUsageProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_Profit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CoagulationGenerator\CG_V616Mining.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_CalculationModule.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_Power.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_Profit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_CollapsePreparationDuration.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_MaxTension.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_MaxTransaction.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_OwnerCollapseAbsorbCoefficient.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_Profit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionIncreasing.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionInreasingStepsAmount.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_TensionLimits.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_ConnectionsAmount.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_OneConnectionProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Profit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_CalculationModule.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_Profit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_SecondaryStabilisationPower.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_StabilisationPower.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_SymmetricalNodesAmount.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_UsageAmount.cs" />
+    <Compile Include="Parameters\Items\AverageBaseItemsProfit.cs" />
+    <Compile Include="Parameters\Items\FullLoadCoefficient.cs" />
+    <Compile Include="Parameters\Items\ItemPerRoundLimit.cs" />
+    <Compile Include="Parameters\Items\ItemPriceCoefficient.cs" />
+    <Compile Include="Parameters\Items\PureEUProfitCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_BasePower.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_Defense.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_MaxPower.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseShield\BS_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_Damage.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_MaxPowerCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_ShotPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_MaxEffectivityCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesAmount.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_Capacity.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_CapacityCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_InversePower.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_RelativeRevenue.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Power.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_UpgradesAmount.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\WeaponStandardEffectivity.cs" />
+    <Compile Include="Parameters\Items\WeaponStandardPower.cs" />
+    <Compile Include="Parameters\Moving\OneRoundSpeedDoublingProfit.cs" />
+    <Compile Include="Parameters\PairsArrayParameter.cs" />
+    <Compile Include="Parameters\Events\Weight\AverageRelationStability.cs" />
+    <Compile Include="Parameters\Events\Weight\AverageSequenceLength.cs" />
+    <Compile Include="Parameters\Events\Weight\BaseRelationsWeight.cs" />
+    <Compile Include="Parameters\Events\Weight\EventUsabilityNormalisation.cs" />
+    <Compile Include="Parameters\Events\Weight\FrontBlockerWeight.cs" />
+    <Compile Include="Parameters\Events\Weight\FrontReasonsWeight.cs" />
+    <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialEU.cs" />
+    <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
+    <Compile Include="Parameters\PlayerInitial\StartDeck.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialEventsWeightCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyChainLenghtCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsAmount.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPointsCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />
+    <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
+    <Compile Include="Parameters\Topology\NodesAvailableBackRelations.cs" />
+    <Compile Include="Parameters\Events\StabilityIncrementAllocation.cs" />
+    <Compile Include="Parameters\General\MinPlayersAmount.cs" />
+    <Compile Include="Parameters\PlayerInitial\LogisticsInitialCardCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPointsCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPoints.cs" />
+    <Compile Include="Parameters\PlayerInitial\MiningInitialCardCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
+    <Compile Include="DataModels\EventCard.cs" />
+    <Compile Include="Parameters\PlayerInitial\StabilityInitialCardCoefficient.cs" />
+    <Compile Include="Parameters\Topology\MinDistancesPairsAmount_AA.cs" />
+    <Compile Include="Parameters\Topology\NodesNearestAmount.cs" />
+    <Compile Include="Parameters\Topology\RoutesMap.cs" />
+    <Compile Include="Parameters\DeckParameter.cs" />
+    <Compile Include="Services\CalculationModule.cs" />
+    <Compile Include="Services\DeckXMLGenerator.cs" />
+    <Compile Include="Services\EventCardsAnalizer.cs" />
+    <Compile Include="Services\FieldAnalyzer\Field.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldFabric.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldPoint.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldRoute.cs" />
+    <Compile Include="Parameters\DigitalParameter.cs" />
+    <Compile Include="Parameters\ParameterTag.cs" />
+    <Compile Include="Services\FloatStringConverter.cs" />
+    <Compile Include="Services\MathAdditional.cs" />
+    <Compile Include="Services\OperationReport.cs" />
+    <Compile Include="UI\CalculationReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CalculationReportForm.Designer.cs">
+      <DependentUpon>CalculationReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Factories\CalculationReportRowsFactory.cs" />
+    <Compile Include="UI\Factories\EditFormsFactory.cs" />
+    <Compile Include="UI\Factories\ValuePanelsFactory.cs" />
+    <Compile Include="UI\DetailsForms\PairsArrayDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DetailsForms\PairsArrayDetailsForm.Designer.cs">
+      <DependentUpon>PairsArrayDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\ParameterEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\FloatSingleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\FloatSingleEditForm.Designer.cs">
+      <DependentUpon>FloatSingleEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UIConstants.cs" />
+    <Compile Include="UI\EditForms\FloatArrayEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\FloatArrayEditForm.Designer.cs">
+      <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DetailsForms\EventsDeckDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DetailsForms\EventsDeckDetailsForm.Designer.cs">
+      <DependentUpon>EventsDeckDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Factories\ComponentsFactory.cs" />
+    <Compile Include="UI\Factories\ParametersRowsFactory.cs" />
+    <Compile Include="UI\IParameterView.cs" />
+    <Compile Include="UI\DetailsForms\DigitalParameterDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DetailsForms\DigitalParameterDetailsForm.Designer.cs">
+      <DependentUpon>DigitalParameterDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IParameterRowDelegate.cs" />
+    <Compile Include="Parameters\Activities\AUPriceProportion.cs" />
+    <Compile Include="Parameters\Activities\DestructionCoef.cs" />
+    <Compile Include="Parameters\Activities\EUPartyAmount.cs" />
+    <Compile Include="Parameters\Activities\EventCreationPrice.cs" />
+    <Compile Include="Parameters\Activities\EventCreationPriceAU.cs" />
+    <Compile Include="Parameters\Activities\EventCreationPriceEU.cs" />
+    <Compile Include="Parameters\Activities\EventImpactAmount.cs" />
+    <Compile Include="Parameters\Activities\EventImpactPrice.cs" />
+    <Compile Include="Parameters\Activities\EventImpactPriceAU.cs" />
+    <Compile Include="Parameters\Activities\EventImpactPriceEU.cs" />
+    <Compile Include="Parameters\Activities\EventsActionsPotential.cs" />
+    <Compile Include="Parameters\Activities\TotalPotential.cs" />
+    <Compile Include="Parameters\Items\ArtifactsAvaliabilityPhase.cs" />
+    <Compile Include="Parameters\Events\ArtifactsRarity.cs" />
+    <Compile Include="Parameters\Events\AverageStabilityIncrement.cs" />
+    <Compile Include="Parameters\Events\BlockEventsCoef_2D.cs" />
+    <Compile Include="Parameters\Events\BlockRelationsCoef_OB.cs" />
+    <Compile Include="Parameters\Events\BranchPointsAllocation.cs" />
+    <Compile Include="Parameters\Events\BranchPointsAllocation_Standard.cs" />
+    <Compile Include="Parameters\Events\BranchPointsAllocation_Symmetric.cs" />
+    <Compile Include="Parameters\Topology\ContinuumNodesAmount.cs" />
+    <Compile Include="Parameters\Events\EventMaxRelations.cs" />
+    <Compile Include="Parameters\Events\EventMiningBonusAllocation.cs" />
+    <Compile Include="Parameters\Events\EventMinMiningBonus.cs" />
+    <Compile Include="Parameters\Events\MainDeck.cs" />
+    <Compile Include="Parameters\Events\FrontRelationsCoef.cs" />
+    <Compile Include="Parameters\Events\EventMaxMiningBonus.cs" />
+    <Compile Include="Parameters\Events\MinBackRelations.cs" />
+    <Compile Include="Parameters\Events\MultyblockCardsAllocation_OB.cs" />
+    <Compile Include="Parameters\Events\Pairing2Coef.cs" />
+    <Compile Include="Parameters\Events\Pairing3Coef.cs" />
+    <Compile Include="Parameters\Events\RelationsAmountAllocation_2D.cs" />
+    <Compile Include="Parameters\Events\RelationsAmountAllocation_OB.cs" />
+    <Compile Include="Parameters\Topology\FieldRadius.cs" />
+    <Compile Include="Parameters\General\MaxPlayersAmount.cs" />
+    <Compile Include="Parameters\Mining\AverageMining.cs" />
+    <Compile Include="Parameters\Mining\CenterMiningBonus.cs" />
+    <Compile Include="Parameters\Mining\MiningAllocation.cs" />
+    <Compile Include="Parameters\Mining\MiningAUCoef.cs" />
+    <Compile Include="Parameters\Mining\MiningIncrement.cs" />
+    <Compile Include="Parameters\Topology\AverageDistance.cs" />
+    <Compile Include="Parameters\Topology\AveragePhasesDistance.cs" />
+    <Compile Include="Parameters\Moving\InitialSpeed.cs" />
+    <Compile Include="Parameters\Moving\InitialSpeedCoef.cs" />
+    <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_MaxSpeedCoef.cs" />
+    <Compile Include="Parameters\Moving\MotionFreeLevel.cs" />
+    <Compile Include="Parameters\Moving\MotionPrice.cs" />
+    <Compile Include="Parameters\Moving\SpeedDoublingRate.cs" />
+    <Compile Include="Parameters\Timing\AUMoveAmount.cs" />
+    <Compile Include="Parameters\Timing\AUPartyAmount.cs" />
+    <Compile Include="Parameters\Timing\MoveDuration.cs" />
+    <Compile Include="Parameters\Timing\PartyDuration.cs" />
+    <Compile Include="Parameters\Timing\PhasesAmount.cs" />
+    <Compile Include="Parameters\Timing\PhasesDuration.cs" />
+    <Compile Include="Parameters\Timing\PhasesWeight.cs" />
+    <Compile Include="Parameters\Timing\RealisationDuration.cs" />
+    <Compile Include="Parameters\Timing\RoundAmount.cs" />
+    <Compile Include="Parameters\FloatArrayParameter.cs" />
+    <Compile Include="Parameters\ParametersHandlingReports.cs" />
+    <Compile Include="Services\Calculator.cs" />
+    <Compile Include="Services\FilesManager.cs" />
+    <Compile Include="Parameters\Activities\EventCreationAmount.cs" />
+    <Compile Include="Services\MAException.cs" />
+    <Compile Include="Parameters\Parameter.cs" />
+    <Compile Include="UI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ParametersFactory.cs" />
+    <Compile Include="Parameters\Moving\MotionAmount.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Parameters\FloatSingleParameter.cs" />
+    <Compile Include="Services\Storage.cs" />
+    <Compile Include="Services\Validator.cs" />
+    <Compile Include="UI\UIFactory.cs" />
+    <Compile Include="UI\EditForms\UnavailableEditingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\UnavailableEditingForm.Designer.cs">
+      <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\CalculationReportForm.resx">
+      <DependentUpon>CalculationReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\FloatSingleEditForm.resx">
+      <DependentUpon>FloatSingleEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\FloatArrayEditForm.resx">
+      <DependentUpon>FloatArrayEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DetailsForms\EventsDeckDetailsForm.resx">
+      <DependentUpon>EventsDeckDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DetailsForms\DigitalParameterDetailsForm.resx">
+      <DependentUpon>DigitalParameterDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\DetailsForms\PairsArrayDetailsForm.resx">
+      <DependentUpon>PairsArrayDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\UnavailableEditingForm.resx">
+      <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
