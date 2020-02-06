@@ -9,6 +9,8 @@ namespace ModelAnalyzer.Services
 
     class Calculator
     {
+        private const string emptyInParametersException = "Часть входящих параметров не заполнена";
+
         Storage storage;
         HashSet<Parameter> updated;
         ModelCalcultaionReport modelCalculationReport;
@@ -21,10 +23,19 @@ namespace ModelAnalyzer.Services
             this.storage = storage;
             updated = new HashSet<Parameter>();
 
-            ParameterType[] filter = new ParameterType[] { ParameterType.Out, ParameterType.Inner, ParameterType.Indicator };
-            List<Parameter> parameters = storage.Parameters(filter);
+            var inParameters = storage.Parameters(new [] { ParameterType.In});
+            var missedParameters = new List<string>();
+            foreach (Parameter parameter in inParameters)
+                if (!parameter.VerifyValue())
+                    missedParameters.Add(parameter.title);
 
-            foreach (Parameter parameter in parameters)
+            if (missedParameters.Count > 0)
+                throw new MAException(emptyInParametersException);
+
+            ParameterType[] filter = new ParameterType[] { ParameterType.Out, ParameterType.Inner, ParameterType.Indicator };
+            List<Parameter> calculationParameters = storage.Parameters(filter);
+
+            foreach (Parameter parameter in calculationParameters)
                 CalculateIfNecessary(parameter);
 
             modules.Clear();

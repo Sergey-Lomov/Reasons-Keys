@@ -40,6 +40,8 @@ namespace ModelAnalyzer.Parameters
         {
             if (!(p is FloatArrayParameter))
                 return false;
+            if (p.isValueNull())
+                return this.isValueNull();
 
             var baseCheck = base.IsEqual(p);
 
@@ -87,6 +89,11 @@ namespace ModelAnalyzer.Parameters
         public List<float> GetUnroundValue()
         {
             return unroundValues;
+        }
+
+        public override bool isValueNull()
+        {
+            return values == null;
         }
 
         public void SetValue(List<float> newValues)

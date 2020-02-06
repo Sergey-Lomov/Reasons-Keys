@@ -69,6 +69,12 @@
     <Compile Include="Parameters\Activities\EstimatedEventCreationPrice.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventImpactPrice.cs" />
     <Compile Include="Parameters\Activities\AtackAmount.cs" />
+    <Compile Include="Parameters\Activities\EventsRestoring\EventsRestoringStackSize.cs" />
+    <Compile Include="Parameters\Activities\EventsRestoring\EstimatedUnluckyStackChance.cs" />
+    <Compile Include="Parameters\Activities\EventsRestoring\EventsRestoringModule.cs" />
+    <Compile Include="Parameters\Activities\EventsRestoring\MinimalLuckyStackChance.cs" />
+    <Compile Include="Parameters\Activities\EventsRestoring\RealLuckyStackChance.cs" />
+    <Compile Include="Parameters\Activities\EventsRestoring\RealUnluckyStackChance.cs" />
     <Compile Include="Parameters\Activities\MiningAmount.cs" />
     <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
@@ -173,6 +179,7 @@
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />
     <Compile Include="Services\CalculationModule.cs" />
+    <Compile Include="Services\Combinations.cs" />
     <Compile Include="Services\DeckXMLGenerator.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />

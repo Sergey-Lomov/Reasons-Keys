@@ -55,6 +55,14 @@ namespace ModelAnalyzer.DataModels
         internal readonly List<BranchPoint> success = new List<BranchPoint>();
         internal readonly List<BranchPoint> failed = new List<BranchPoint>();
 
+        public List<BranchPoint> all()
+        {
+            var result = new List<BranchPoint>(success.Count() + failed.Count());
+            result.AddRange(success);
+            result.AddRange(failed);
+            return result;
+        }
+
         public BranchPointsSet(List<BranchPoint> success, List<BranchPoint> failed)
         {
             this.success = success != null ? success : this.success;

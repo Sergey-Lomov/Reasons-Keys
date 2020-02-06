@@ -2,6 +2,7 @@
 
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
+using ModelAnalyzer.Parameters.Activities.EventsRestoring;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
 using ModelAnalyzer.Parameters.Mining;
@@ -32,6 +33,12 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MinPlayersAmount());
 
             // Activities
+            storage.AddParameter(parameter: new EstimatedUnluckyStackChance());
+            storage.AddParameter(parameter: new EventRestoringStackSize());
+            storage.AddParameter(parameter: new MinimalLuckyStackChance());
+            storage.AddParameter(parameter: new RealLuckyStackChance());
+            storage.AddParameter(parameter: new RealUnluckyStackChance());
+
             storage.AddParameter(parameter: new AtackAmount());
             storage.AddParameter(parameter: new AUPriceProportion());
             storage.AddParameter(parameter: new AverageEventsConcreteBranchPoints());

@@ -85,6 +85,11 @@ namespace ModelAnalyzer.Parameters.Topology
             return calculationReport;
         }
 
+        public override bool isValueNull()
+        {
+            return value == null;
+        }
+
         protected override void NullifyValue()
         {
             value = null;

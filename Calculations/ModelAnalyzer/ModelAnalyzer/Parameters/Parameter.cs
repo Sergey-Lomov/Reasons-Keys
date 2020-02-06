@@ -23,6 +23,7 @@ namespace ModelAnalyzer.Parameters
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
 
+        public abstract bool isValueNull();
         protected abstract void NullifyValue();
 
         internal virtual Parameter Copy ()
@@ -56,13 +57,13 @@ namespace ModelAnalyzer.Parameters
         // Return true if value may be used in other calculations
         internal virtual bool VerifyValue ()
         {
-            if (type != ParameterType.In)
-                if (calculationReport != null)
-                    return calculationReport.IsSuccess;
-                else
-                    return false;
+            if (type == ParameterType.In)
+                return !isValueNull();
 
-            return true;
+            if (calculationReport != null)
+                return calculationReport.IsSuccess;
+            else
+                return false;
         }
 
         internal virtual ParameterCalculationReport Calculate(Calculator calculator)

@@ -66,6 +66,11 @@ namespace ModelAnalyzer.Parameters
                 card.usability = EventCardsAnalizer.RelationsUsability(card.relations, calculator);
         }
 
+        public override bool isValueNull()
+        {
+            return deck == null;
+        }
+
         protected override void NullifyValue()
         {
             deck = null;

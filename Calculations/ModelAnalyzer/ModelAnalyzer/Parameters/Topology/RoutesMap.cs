@@ -96,6 +96,11 @@ namespace ModelAnalyzer.Parameters.Topology
             return calculationReport;
         }
 
+        public override bool isValueNull()
+        {
+            return phasesRoutes == null;
+        }
+
         protected override void NullifyValue()
         {
             phasesRoutes = null;
