@@ -88,7 +88,6 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
         private StackDescrition StackFor(int[] availablePlayers, List<EventCard> deck, float eusc, float mlsc, OperationReport report)
         {
-            var result = new StackDescrition();
             var player = availablePlayers.First(); //Calculates only for first player, because all player have simmetrically cards concepts
             var negativeCards = deck.Where(c => TypeOf(c, player, availablePlayers) == CardType.negative).Count();
             var positiveCards = deck.Where(c => TypeOf(c, player, availablePlayers) == CardType.positive).Count();
