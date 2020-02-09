@@ -78,7 +78,10 @@
     <Compile Include="Parameters\Activities\MiningAmount.cs" />
     <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\Events\AverageEventStability.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
+    <Compile Include="Parameters\Events\ChainStabilityLimit.cs" />
+    <Compile Include="Parameters\Events\MinigForBalanceAverageStability.cs" />
     <Compile Include="Parameters\Events\Weight\AdditionalReasonsWeight.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
     <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />

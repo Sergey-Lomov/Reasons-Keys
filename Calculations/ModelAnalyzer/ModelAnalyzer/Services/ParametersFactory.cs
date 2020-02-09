@@ -65,6 +65,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MainDeck());
 
             storage.AddParameter(parameter: new ArtifactsRarity());
+            storage.AddParameter(parameter: new AverageEventStability());
             storage.AddParameter(parameter: new AverageMiningBonus());
             storage.AddParameter(parameter: new AverageStabilityIncrement());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
@@ -72,12 +73,14 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
+            storage.AddParameter(parameter: new ChainStabilityLimit());
             storage.AddParameter(parameter: new EventMaxMiningBonus());
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());
             storage.AddParameter(parameter: new EventMinMiningBonus());
             storage.AddParameter(parameter: new FrontRelationsCoef());
-            storage.AddParameter(parameter: new MinBackRelations()); 
+            storage.AddParameter(parameter: new MinBackRelations());
+            storage.AddParameter(parameter: new MinigForBalanceAverageStability());
             storage.AddParameter(parameter: new MultyblockCardsAllocation_OB());
             storage.AddParameter(parameter: new Pairing2Coef());
             storage.AddParameter(parameter: new Pairing3Coef());
