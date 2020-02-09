@@ -12,7 +12,7 @@ namespace ModelAnalyzer.Parameters.Events
             type = ParameterType.Indicator;
             title = "Кол-во актов добычи для уравновешивания средней стабильности";
             details = "Этот параметр отражает кол-во актов добычи (средней добычи), необходимых для получения ТЗ, уравновешивающего среднестатистическую стабильности события.";
-            fractionalDigits = 0;
+            fractionalDigits = 2;
             tags.Add(ParameterTag.events);
         }
 
