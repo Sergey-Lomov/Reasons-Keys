@@ -6,7 +6,7 @@ namespace ModelAnalyzer.Parameters.Events
     {
         public AverageEventStability()
         {
-            type = ParameterType.Indicator;
+            type = ParameterType.Inner;
             title = "Средняя стабильность события";
             details = "Средняя стабильность события, с учетом цепной и бонусной стабильностей";
             fractionalDigits = 2;
@@ -18,12 +18,12 @@ namespace ModelAnalyzer.Parameters.Events
             calculationReport = new ParameterCalculationReport(this);
 
             float abs = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
-            float csl = RequestParmeter<ChainStabilityLimit>(calculator).GetValue();
+            float acs = RequestParmeter<AverageChainStability>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            value = unroundValue = (csl + 1) / 2 + abs;
+            value = unroundValue = acs + abs;
 
             return calculationReport;
         }

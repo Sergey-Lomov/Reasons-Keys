@@ -65,6 +65,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MainDeck());
 
             storage.AddParameter(parameter: new ArtifactsRarity());
+            storage.AddParameter(parameter: new AverageChainStability());
             storage.AddParameter(parameter: new AverageEventStability());
             storage.AddParameter(parameter: new AverageMiningBonus());
             storage.AddParameter(parameter: new AverageStabilityIncrement());

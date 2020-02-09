@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float asi = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
+            float aes = RequestParmeter<AverageEventStability>(calculator).GetValue();
             float eap = RequestParmeter<EventsActionsPotential>(calculator).GetValue();
             float eca = RequestParmeter<EventCreationAmount>(calculator).GetValue();
             float eia = RequestParmeter<EventImpactAmount>(calculator).GetValue();
@@ -30,7 +30,7 @@ namespace ModelAnalyzer.Parameters.Activities
                 return calculationReport;
 
             // See Mechanic doc for clarify formulas
-            float ecp1 = eip * asi / dc; //Rule 1
+            float ecp1 = eip * aes * dc; //Rule 1
             float ecp2 = (eap - eia * eip) / eca; //Rule 2
             value = unroundValue = (ecp1 + ecp2) / 2;
 
