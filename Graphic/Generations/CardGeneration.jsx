@@ -5,7 +5,7 @@ const cardElement = "Card";
 
 const idElement = "id";
 const mbElement = "mining_bonus";
-const siElement = "stability_increment";
+const siElement = "stability_bonus";
 const paElement = "provides_artifact";
 const isKeyElement = "is_key";
 const mscElement = "min_stability_constraint";

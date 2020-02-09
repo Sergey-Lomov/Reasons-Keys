@@ -37,7 +37,7 @@ namespace ModelAnalyzer.DataModels
         internal EventRelations relations = new EventRelations();
         internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
 
-        internal int stabilityIncrement = 0;
+        internal int stabilityBonus = 0;
         internal int miningBonus = 0;
         internal bool provideArtifact = false;
         internal bool isKey = false;
@@ -57,7 +57,7 @@ namespace ModelAnalyzer.DataModels
             relations = new EventRelations(card.relations);
             branchPoints = new BranchPointsSet(card.branchPoints.success, card.branchPoints.failed);
 
-            stabilityIncrement = card.stabilityIncrement;
+            stabilityBonus = card.stabilityBonus;
             miningBonus = card.miningBonus;
             provideArtifact = card.provideArtifact;
             isKey = card.isKey;
@@ -74,7 +74,7 @@ namespace ModelAnalyzer.DataModels
         public bool Equals(EventCard other)
         {
             return relations.SequenceEqual(other.relations)
-                && stabilityIncrement == other.stabilityIncrement
+                && stabilityBonus == other.stabilityBonus
                 && miningBonus == other.miningBonus
                 && provideArtifact == other.provideArtifact
                 && isKey == other.isKey

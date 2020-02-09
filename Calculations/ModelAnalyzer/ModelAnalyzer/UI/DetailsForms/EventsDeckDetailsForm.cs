@@ -94,7 +94,7 @@ namespace ModelAnalyzer.UI
                 }
 
                 DeckTable.Controls.Add(LabelForBool(card.provideArtifact));
-                DeckTable.Controls.Add(LabelForInt(card.stabilityIncrement));
+                DeckTable.Controls.Add(LabelForInt(card.stabilityBonus));
                 DeckTable.Controls.Add(LabelForInt(card.miningBonus));
                 DeckTable.Controls.Add(LabelForFloat(card.usability));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.success));
@@ -212,7 +212,7 @@ namespace ModelAnalyzer.UI
 
         private void deckSILabel_Click(object sender, EventArgs e)
         {
-            order = c => c.stabilityIncrement;
+            order = c => c.stabilityBonus;
             reverse = !reverse;
             UpdateCardsTable();
         }

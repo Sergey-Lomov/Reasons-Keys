@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Services
 
         private static string idElement = "id";
         private static string mbElement = "mining_bonus";
-        private static string siElement = "stability_increment";
+        private static string siElement = "stability_bonus";
         private static string paElement = "provides_artifact";
         private static string isKeyElement = "is_key";
         private static string mscElement = "min_stability_constraint";
@@ -83,7 +83,7 @@ namespace ModelAnalyzer.Services
             // Common elements
             writer.WriteElementString(idElement, index.ToString());
             writer.WriteElementString(mbElement, card.miningBonus.ToString());
-            writer.WriteElementString(siElement, card.stabilityIncrement.ToString());
+            writer.WriteElementString(siElement, card.stabilityBonus.ToString());
             writer.WriteElementString(paElement, card.provideArtifact.ToString());
             writer.WriteElementString(isKeyElement, card.isKey.ToString());
             writer.WriteElementString(mscElement, card.minStabilityConstraint.ToString());

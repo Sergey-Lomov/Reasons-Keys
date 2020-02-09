@@ -84,7 +84,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
             float mbw = RequestParmeter<MiningBonusWeight>(calculator).GetValue();
 
-            List<float> sia = RequestParmeter<StabilityIncrementAllocation>(calculator).GetValue();
+            List<float> sia = RequestParmeter<StabilityBonusAllocation>(calculator).GetValue();
             List<float> mba = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
@@ -124,7 +124,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 calculationReport.AddIssue(logisticsCardIssueMessage);
 
             card.relations = relations;
-            card.stabilityIncrement = stability;
+            card.stabilityBonus = stability;
             card.miningBonus = miningBonus;
             card.comment = "Логистичекое изначальное событие";
 
@@ -157,7 +157,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 unroundMiningBonus = average + (min - average) * micc;
             int miningBonus = (int)Math.Round(unroundMiningBonus, MidpointRounding.AwayFromZero);
 
-            var averageStability = mainDeck.Select(s => s.stabilityIncrement).Average();
+            var averageStability = mainDeck.Select(s => s.stabilityBonus).Average();
             int stability = (int)Math.Round(averageStability, MidpointRounding.AwayFromZero);
             var weightLeft = estimatedWeight - stability * eip - miningBonus * mbw;
 
@@ -177,7 +177,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 calculationReport.AddIssue(miningCardIssueMessage);
 
             card.relations = relations;
-            card.stabilityIncrement = stability;
+            card.stabilityBonus = stability;
             card.miningBonus = miningBonus;
             card.comment = "Добывающее изначальное событие";
 
@@ -199,10 +199,10 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             //Calculation
 
-            var stabilityIncrements = mainDeck.Select(s => s.stabilityIncrement);
-            float average = (float)stabilityIncrements.Average();
-            float max = stabilityIncrements.Max();
-            float min = stabilityIncrements.Min();
+            var stabilityBonuses = mainDeck.Select(s => s.stabilityBonus);
+            float average = (float)stabilityBonuses.Average();
+            float max = stabilityBonuses.Max();
+            float min = stabilityBonuses.Min();
 
             float unroundStability;
             if (sicc > 0)
@@ -231,7 +231,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 calculationReport.AddIssue(stabilityCardIssueMessage);
 
             card.relations = relations;
-            card.stabilityIncrement = stability;
+            card.stabilityBonus = stability;
             card.miningBonus = miningBonus;
             card.comment = "Стабилизирующее изначальное событие";
 
@@ -247,7 +247,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float kebp = RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
             float mkebp = RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
             float kclc = RequestParmeter<KeyChainLenghtCoefficient>(calculator).GetValue();
-            float asi = RequestParmeter<AverageStabilityIncrement>(calculator).GetValue();
+            float asi = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
             float ueca = RequestParmeter<UnkeyEventCreationAmount>(calculator).GetValue();
 
             float kesc = kclc * ueca * asi;

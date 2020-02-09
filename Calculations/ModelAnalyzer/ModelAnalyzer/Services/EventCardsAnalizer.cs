@@ -22,7 +22,7 @@ namespace ModelAnalyzer.Services
 
             float weight = 0;
             weight += RelationsWeight(card.relations, calculator);
-            weight += card.stabilityIncrement * eip;
+            weight += card.stabilityBonus * eip;
             weight += card.provideArtifact ? eap : 0;
             weight += card.miningBonus * mbw;
 

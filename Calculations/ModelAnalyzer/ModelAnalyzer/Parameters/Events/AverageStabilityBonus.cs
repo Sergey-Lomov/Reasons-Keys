@@ -22,7 +22,7 @@ namespace ModelAnalyzer.Parameters.Events
             calculationReport = new ParameterCalculationReport(this);
 
             float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            List<float> sia = RequestParmeter<StabilityIncrementAllocation>(calculator).GetValue(); 
+            List<float> sia = RequestParmeter<StabilityBonusAllocation>(calculator).GetValue(); 
 
             float average = 0;
             for (int i = 0; i < sia.Count(); i++)

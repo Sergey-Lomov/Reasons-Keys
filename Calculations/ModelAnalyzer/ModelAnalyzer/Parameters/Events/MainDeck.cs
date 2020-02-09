@@ -16,7 +16,7 @@ namespace ModelAnalyzer.Parameters.Events
         readonly int[] backPosPriority = new int[3] { 1, 0, 2 };
         readonly int[] frontPosPriority = new int[3] { 4, 3, 5 };
 
-        private Random randoizer;
+        private Random randomizer;
         private int randomizerSeed = 485316097;
 
         public MainDeck()
@@ -30,7 +30,7 @@ namespace ModelAnalyzer.Parameters.Events
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);
-            randoizer = new Random(randomizerSeed);
+            randomizer = new Random(randomizerSeed);
 
             float na = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
             float pa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
@@ -54,7 +54,7 @@ namespace ModelAnalyzer.Parameters.Events
                 UpdateDeckWeight(calculator);
                 AddArtifacts(deck, calculator);
                 UpdateDeckWeight(calculator);
-                AddStabilityIncrement(deck, calculator);
+                AddStabilityBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);
                 AddMiningBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);
@@ -330,25 +330,25 @@ namespace ModelAnalyzer.Parameters.Events
                 ordered[i*step].provideArtifact = true;
         }
 
-        private void AddStabilityIncrement(List<EventCard> cards, Calculator calculator)
+        private void AddStabilityBonuses(List<EventCard> cards, Calculator calculator)
         {
             float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            List<float> si_allocation = RequestParmeter<StabilityIncrementAllocation>(calculator).GetValue();
+            List<float> sb_allocation = RequestParmeter<StabilityBonusAllocation>(calculator).GetValue();
 
-            int[] si_amounts = AmountsForAllocation(cna, si_allocation);
+            int[] sb_amounts = AmountsForAllocation(cna, sb_allocation);
             if (!calculationReport.IsSuccess) return;
 
             var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
-            var groups = SplitForAmounts(ordered, si_amounts);
+            var groups = SplitForAmounts(ordered, sb_amounts);
 
-            for (int incrementIter = 0; incrementIter < groups.Count() ; incrementIter++)
+            for (int bonusIter = 0; bonusIter < groups.Count() ; bonusIter++)
             {
-                foreach (EventCard card in groups[incrementIter])
+                foreach (EventCard card in groups[bonusIter])
                 {
-                    int index = groups[incrementIter].IndexOf(card);
-                    int stabilityIncrement = SpreadValue(incrementIter, index, si_amounts);
-                    card.stabilityIncrement = stabilityIncrement;
-                    si_amounts[stabilityIncrement]--;
+                    int index = groups[bonusIter].IndexOf(card);
+                    int stabilityBonus = SpreadValue(bonusIter, index, sb_amounts);
+                    card.stabilityBonus = stabilityBonus;
+                    sb_amounts[stabilityBonus]--;
                 }
             }
         }
@@ -364,12 +364,12 @@ namespace ModelAnalyzer.Parameters.Events
             var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
             var groups = SplitForAmounts(ordered, mb_amounts);
 
-            for (int incrementIter = 0; incrementIter < groups.Count(); incrementIter++)
+            for (int bonusIter = 0; bonusIter < groups.Count(); bonusIter++)
             {
-                foreach (EventCard card in groups[incrementIter])
+                foreach (EventCard card in groups[bonusIter])
                 {
-                    int index = groups[incrementIter].IndexOf(card);
-                    int miningBonus = SpreadValue(incrementIter, index, mb_amounts);
+                    int index = groups[bonusIter].IndexOf(card);
+                    int miningBonus = SpreadValue(bonusIter, index, mb_amounts);
                     card.miningBonus = miningBonus;
                     mb_amounts[miningBonus]--;
                 }
@@ -378,7 +378,7 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
         {
-            var randomizedCards = cards.OrderBy(c => randoizer.Next()).ToList();
+            var randomizedCards = cards.OrderBy(c => randomizer.Next()).ToList();
             var templateCards = SplitCardsForTemplates(randomizedCards, calculator);
             foreach (var template in templateCards.Keys)
             {
@@ -387,7 +387,7 @@ namespace ModelAnalyzer.Parameters.Events
 
                 foreach (var card in tCards)
                 {
-                    var setIndex = randoizer.Next(sequence.Count);
+                    var setIndex = randomizer.Next(sequence.Count);
                     var set = sequence[setIndex];
                     card.branchPoints = set;
                     sequence.Remove(set);
@@ -418,7 +418,7 @@ namespace ModelAnalyzer.Parameters.Events
 
             foreach (var card in cards)
             {
-                var templateIndex = randoizer.Next(uncompletedTemplates.Count);
+                var templateIndex = randomizer.Next(uncompletedTemplates.Count);
                 var template = uncompletedTemplates[templateIndex];
                 templateCards[template].Add(card);
 
@@ -585,9 +585,9 @@ namespace ModelAnalyzer.Parameters.Events
                 }
             }
 
-            foreach (int stabilityIncrement in sequence)
-                if (amounts[stabilityIncrement] > 0)
-                    return stabilityIncrement;
+            foreach (int stabilityBonus in sequence)
+                if (amounts[stabilityBonus] > 0)
+                    return stabilityBonus;
 
             return 0;
         }

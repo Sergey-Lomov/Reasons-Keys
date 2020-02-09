@@ -87,7 +87,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new Pairing3Coef());
             storage.AddParameter(parameter: new RelationsAmountAllocation_2D());
             storage.AddParameter(parameter: new RelationsAmountAllocation_OB());
-            storage.AddParameter(parameter: new StabilityIncrementAllocation());
+            storage.AddParameter(parameter: new StabilityBonusAllocation());
 
             // Events weight
             storage.AddParameter(parameter: new AdditionalReasonsWeight());

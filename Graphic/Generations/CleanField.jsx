@@ -1,6 +1,5 @@
 ﻿//--------------------- Layers Constants
-const prototypeLayerName = "Prototype";
-const miningLayerName = "Mining";
+const miningLayerName = "Content";
 const makeupName = "Makeup";
 const backLayerName = "Back"
 

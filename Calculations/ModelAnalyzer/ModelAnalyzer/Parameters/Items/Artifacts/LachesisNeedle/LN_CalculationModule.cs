@@ -31,7 +31,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 
             float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
             float asl = RequestParmeter<AverageSequenceLength>(calculator, report).GetValue();
-            float asi = RequestParmeter<AverageStabilityIncrement>(calculator, report).GetValue();
+            float asi = RequestParmeter<AverageStabilityBonus>(calculator, report).GetValue();
             float eifp = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
             float brw = RequestParmeter<BaseRelationsWeight>(calculator, report).GetValue();
             float frw = RequestParmeter<FrontReasonsWeight>(calculator, report).GetValue();
