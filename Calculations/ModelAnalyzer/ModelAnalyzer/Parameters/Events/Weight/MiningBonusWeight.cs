@@ -11,7 +11,7 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             type = ParameterType.Inner;
             title = "Вес бонуса добычи";
-            details = "Имеется ввиду вес ондой единицв бонуса добычи";
+            details = "Имеется ввиду вес ондой единицы бонуса добычи";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);
             tags.Add(ParameterTag.eventsWeight);

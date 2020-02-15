@@ -7,18 +7,13 @@ using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
-using ModelAnalyzer.Parameters.Events.Weight;
+using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.PlayerInitial
 {
     class StartDeck : DeckParameter
     {
         internal const int InitialEventsAmount = 3;
-
-        private const string logisticsCardIssueMessage = "Невозможно сгенерировать логистическую изначальную карту, которая бы совмещала занчения параметров \"Коэф. логистической изначальной карты\" и \"Коэф. веса изначальных событий\" в рамках погрешности 10%";
-        private const string miningCardIssueMessage = "Невозможно сгенерировать добывающую изначальную карту, которая бы совмещала занчения параметров \"Коэф. добывающей изначальной карты\" и \"Коэф. веса изначальных событий\" в рамках погрешности 10%";
-        private const string stabilityCardIssueMessage = "Невозможно сгенерировать стабилизирующую изначальную карту, которая бы совмещала занчения параметров \"Коэф. стабилизирующей изначальной карты\" и \"Коэф. веса изначальных событий\" в рамках погрешности 10%";
-        private const string emptyFilterIssueMessage = "Несуществует карт континуума с необходимой стабильностью, определяемой параметром \"Коэф. минимальной применимости изначальных событий\"";
 
         public StartDeck()
         {
@@ -55,185 +50,61 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var initialEvents = new List<EventCard>();
 
             float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float acew = RequestParmeter<AverageContinuumEventWeight>(calculator).GetValue();
-            float iewc = RequestParmeter<InitialEventsWeightCoefficient>(calculator).GetValue();
+            float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
 
-            float estimatedWeight = acew * iewc;
+            var miningEvent = MiningEvent(calculator);
+            var attackEvent = AverageStabilityWithUndefineBranchesEvent(asb, -1, "Атакующая изначальная карта");
+            var supportEvent = AverageStabilityWithUndefineBranchesEvent(asb, +1, "Поддерживающая изначальная карта");
 
-            var logisticEvent = LogisticsEvent(estimatedWeight, calculator);
-            var miningEvent = MiningEvent(estimatedWeight, calculator);
-            var stabilityEvent = StabilityEvent(estimatedWeight, calculator);
+            if (!calculationReport.IsSuccess)
+                return initialEvents;
 
             for (int i = 0; i < mpa; i++)
             {
-                initialEvents.Add(new EventCard(logisticEvent));
                 initialEvents.Add(new EventCard(miningEvent));
-                initialEvents.Add(new EventCard(stabilityEvent));
+                initialEvents.Add(new EventCard(attackEvent));
+                initialEvents.Add(new EventCard(supportEvent));
             }
 
             return initialEvents;
         }
 
-        private EventCard LogisticsEvent(float estimatedWeight, Calculator calculator)
+        private EventCard MiningEvent(Calculator calculator)
         {
             var card = new EventCard();
 
-            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
-
-            float licc = RequestParmeter<LogisticsInitialCardCoefficient>(calculator).GetValue();
-            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
-            float mbw = RequestParmeter<MiningBonusWeight>(calculator).GetValue();
-
-            List<float> sia = RequestParmeter<StabilityBonusAllocation>(calculator).GetValue();
-            List<float> mba = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
-
-            if (!calculationReport.IsSuccess)
-                return null;
-
-            // Calculation
-            Func<EventCard, float> select = c => EventCardsAnalizer.RelationsWeight(c.relations, calculator);
-            var relationsWeights = mainDeck.Select(select);
-            var average = relationsWeights.Average();
-            var max = relationsWeights.Max();
-            var min = relationsWeights.Min();
-
-            float estimatedRelationsWeight;
-            if (licc > 0)
-                estimatedRelationsWeight = average + (max - average) * licc;
-            else
-                estimatedRelationsWeight = average + (min - average) * licc;
-
-            Func<EventCard, float> order = c => Math.Abs(EventCardsAnalizer.RelationsWeight(c.relations, calculator) - estimatedRelationsWeight);
-            var relations = mainDeck.OrderBy(order).First().relations;
-            var realRelationsWeight = EventCardsAnalizer.RelationsWeight(relations, calculator);
-
-            var weightLeft = estimatedWeight - realRelationsWeight;
-            int stability = (int)Math.Round(weightLeft / eip, MidpointRounding.AwayFromZero);
-            int maxStability = sia.Count - 1;
-            stability = stability > 0 ? stability : 0;
-            stability = stability < maxStability ? stability : maxStability;
-            weightLeft -= stability * eip;
-
-            int miningBonus = (int)Math.Round(weightLeft / mbw, MidpointRounding.AwayFromZero);
-            int maxMiningBonus = mba.Count - 1;
-            miningBonus = miningBonus > 0 ? miningBonus : 0;
-            miningBonus = miningBonus < maxMiningBonus ? miningBonus : maxMiningBonus;
-            weightLeft -= miningBonus * eip;
-
-            if (Math.Abs(weightLeft) / estimatedWeight > 0.1)
-                calculationReport.AddIssue(logisticsCardIssueMessage);
-
-            card.relations = relations;
-            card.stabilityBonus = stability;
-            card.miningBonus = miningBonus;
-            card.comment = "Логистичекое изначальное событие";
-
-            return card;
-        }
-
-        private EventCard MiningEvent(float estimatedWeight, Calculator calculator)
-        {
-            var card = new EventCard();
-
-            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
             float micc = RequestParmeter<MiningInitialCardCoefficient>(calculator).GetValue();
-            float micu = RequestParmeter<MinInitialCardUsability>(calculator).GetValue();
-            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
-            float mbw = RequestParmeter<MiningBonusWeight>(calculator).GetValue();
+            float am = RequestParmeter<AverageMining>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
 
-            //Calculation
-            var miningBonuses = mainDeck.Select(s => s.miningBonus);
-            float average = (float)miningBonuses.Average();
-            float max = miningBonuses.Max();
-            float min = miningBonuses.Min();
-
-            float unroundMiningBonus;
-            if (micc > 0)
-                unroundMiningBonus = average + (max - average) * micc;
-            else
-                unroundMiningBonus = average + (min - average) * micc;
-            int miningBonus = (int)Math.Round(unroundMiningBonus, MidpointRounding.AwayFromZero);
-
-            var averageStability = mainDeck.Select(s => s.stabilityBonus).Average();
-            int stability = (int)Math.Round(averageStability, MidpointRounding.AwayFromZero);
-            var weightLeft = estimatedWeight - stability * eip - miningBonus * mbw;
-
-            var filteredDeck = mainDeck.Where(c => c.usability >= micu);
-            if (filteredDeck.Count() == 0)
-            {
-                calculationReport.AddIssue(emptyFilterIssueMessage);
-                card.comment = "Сбой";
-                return card;
-            }
-
-            Func<EventCard, float> order = c => Math.Abs(EventCardsAnalizer.RelationsWeight(c.relations, calculator) - weightLeft);
-            var relations = filteredDeck.OrderBy(order).First().relations;
-            weightLeft -= EventCardsAnalizer.RelationsWeight(relations, calculator);
-
-            if (Math.Abs(weightLeft) / estimatedWeight > 0.1)
-                calculationReport.AddIssue(miningCardIssueMessage);
+            var frontBlocker = new EventRelation(RelationType.blocker, RelationDirection.front, 4);
+            var relations = new List<EventRelation> { frontBlocker };
 
             card.relations = relations;
-            card.stabilityBonus = stability;
-            card.miningBonus = miningBonus;
+            card.stabilityBonus = 0;
+            card.miningBonus = (int)Math.Round(micc * am, MidpointRounding.AwayFromZero);
             card.comment = "Добывающее изначальное событие";
 
             return card;
         }
 
-        private EventCard StabilityEvent (float estimatedWeight, Calculator calculator)
+        private EventCard AverageStabilityWithUndefineBranchesEvent(float asb, int points, string comment)
         {
             var card = new EventCard();
+            var backReason = new EventRelation(RelationType.reason, RelationDirection.back, 0);
+            var relations = new List<EventRelation> { backReason };
 
-            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
-            float sicc = RequestParmeter<StabilityInitialCardCoefficient>(calculator).GetValue();
-            float micu = RequestParmeter<MinInitialCardUsability>(calculator).GetValue();
-            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
-            float mbw = RequestParmeter<MiningBonusWeight>(calculator).GetValue();
-
-            if (!calculationReport.IsSuccess)
-                return null;
-
-            //Calculation
-
-            var stabilityBonuses = mainDeck.Select(s => s.stabilityBonus);
-            float average = (float)stabilityBonuses.Average();
-            float max = stabilityBonuses.Max();
-            float min = stabilityBonuses.Min();
-
-            float unroundStability;
-            if (sicc > 0)
-                unroundStability = average + (max - average) * sicc;
-            else
-                unroundStability = average + (min - average) * sicc;
-            int stability = (int)Math.Round(unroundStability, MidpointRounding.AwayFromZero);
-
-            var averageMiningBonus = mainDeck.Select(s => s.miningBonus).Average();
-            int miningBonus = (int)Math.Round(averageMiningBonus, MidpointRounding.AwayFromZero);
-            var weightLeft = estimatedWeight - stability * eip - miningBonus * mbw;
-        
-            var filteredDeck = mainDeck.Where(c => c.usability >= micu);
-            if (filteredDeck.Count() == 0)
-            {
-                calculationReport.AddIssue(emptyFilterIssueMessage);
-                card.comment = "Сбой";
-                return card;
-            }
-
-            Func<EventCard, float> order = c => Math.Abs(EventCardsAnalizer.RelationsWeight(c.relations, calculator) - weightLeft);
-            var relations = filteredDeck.OrderBy(order).First().relations;
-            weightLeft -= EventCardsAnalizer.RelationsWeight(relations, calculator);
-
-            if (Math.Abs(weightLeft) / estimatedWeight > 0.1)
-                calculationReport.AddIssue(stabilityCardIssueMessage);
+            var undefine = new BranchPoint(BranchPoint.undefineBranch, points);
+            var undefineList = new List<BranchPoint> { undefine };
+            var branchPoints = new BranchPointsSet(undefineList, undefineList);
 
             card.relations = relations;
-            card.stabilityBonus = stability;
-            card.miningBonus = miningBonus;
-            card.comment = "Стабилизирующее изначальное событие";
+            card.branchPoints = branchPoints;
+            card.stabilityBonus = (int)Math.Round(asb, MidpointRounding.AwayFromZero);
+            card.miningBonus = 0;
+            card.comment = comment;
 
             return card;
         }

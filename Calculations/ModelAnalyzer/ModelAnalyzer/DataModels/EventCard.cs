@@ -34,7 +34,21 @@ namespace ModelAnalyzer.DataModels
 
     class EventCard : IEquatable<EventCard>
     {
-        internal EventRelations relations = new EventRelations();
+        internal EventRelations _relations = new EventRelations();
+        internal EventRelations relations
+        {
+            get { return _relations; }
+            set {
+                if (value == null)
+                {
+                    _relations = new EventRelations();
+                } else
+                {
+                    _relations = value;
+                }
+            }
+        }
+
         internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
 
         internal int stabilityBonus = 0;

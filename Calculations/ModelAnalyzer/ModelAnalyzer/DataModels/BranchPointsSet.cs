@@ -5,6 +5,8 @@ namespace ModelAnalyzer.DataModels
 {
     internal class BranchPoint
     {
+        internal static readonly int undefineBranch = -1;
+
         private const int hashMult = 13;
         private const int hashInit = 17;
 

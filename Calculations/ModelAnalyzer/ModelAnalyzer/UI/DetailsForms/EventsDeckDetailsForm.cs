@@ -156,7 +156,9 @@ namespace ModelAnalyzer.UI
             string text = "";
             foreach (var branchPoint in branchPoints)
             {
-                text += string.Format("{0}({1})", branchPoint.point, branchPoint.branch);
+                var sign = branchPoint.point > 0 ? "+" : "-";
+                var points = Math.Abs(branchPoint.point);
+                text += string.Format("{0}{1}({2})", sign, points, branchPoint.branch);
                 if (branchPoint != branchPoints.Last())
                     text += " , ";
             }

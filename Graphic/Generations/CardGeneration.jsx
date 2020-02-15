@@ -83,6 +83,7 @@ var useCircular = true;
 var showSystemInfo = false;
 var previewMode = true;
 var saveAI = true;
+const maxPlayers = 6;
 
 function HandleSystemInfo (show, doc)
 {
@@ -170,9 +171,9 @@ function HandleBrachPoints (mainLayerName, useCircular, value, doc)
     {
         var branch = items[0].child(branchElement);
         var points = items[0].child(pointsElement);    
-        
+
         var playersColorsGroup = hasValueGroup.groupItems.getByName(playersColorsLayerName);
-        for (var i = 0; i < playersColorsGroup.pathItems.length; i++)
+        for (var i = -1; i < maxPlayers; i++)
         {
             var playerColorItem = playersColorsGroup.pathItems.getByName(playersColorsPrefix + i);
             playerColorItem.hidden = i != parseInt (branch.toString());
@@ -310,14 +311,6 @@ function ExportFileToPNG24(file, doc) {
 }
 
 function ExportFileToJPEG(file, doc) {
-   /*var exportOptions = new ExportOptionsJPEG();
-    exportOptions.qualitySetting = 100;
-
-    var type = ExportType.JPEG;
-    var fileSpec = new File(file);
-
-    doc.outputResolution = 300;
-    doc.exportFile(fileSpec, type, exportOptions);*/
 var fileSpec = new File(file);
 
 var captureOptions = new ImageCaptureOptions();
