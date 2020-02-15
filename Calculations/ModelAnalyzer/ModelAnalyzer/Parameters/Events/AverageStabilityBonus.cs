@@ -6,12 +6,12 @@ using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    class AverageStabilityIncrement : FloatSingleParameter
+    class AverageStabilityBonus : FloatSingleParameter
     {
-        public AverageStabilityIncrement()
+        public AverageStabilityBonus()
         {
             type = ParameterType.Inner;
-            title = "Средний прирост стабильности события";
+            title = "Средний бонус стабильности";
             details = "";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);

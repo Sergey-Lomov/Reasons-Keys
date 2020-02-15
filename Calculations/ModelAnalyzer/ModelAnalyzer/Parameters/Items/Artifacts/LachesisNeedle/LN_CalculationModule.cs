@@ -4,6 +4,7 @@ using System.Linq;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.General;
+using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
@@ -29,22 +30,24 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
         {
             var report = new ModuleCalculationReport(this);
 
-            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
-            float asl = RequestParmeter<AverageSequenceLength>(calculator, report).GetValue();
-            float asi = RequestParmeter<AverageStabilityBonus>(calculator, report).GetValue();
-            float eifp = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
-            float brw = RequestParmeter<BaseRelationsWeight>(calculator, report).GetValue();
-            float frw = RequestParmeter<FrontReasonsWeight>(calculator, report).GetValue();
-            float fbw = RequestParmeter<FrontBlockerWeight>(calculator, report).GetValue();
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator, report).GetValue();
+            float csl = RequestParmeter<ChainStabilityLimit>(calculator, report).GetValue();
+            float eip = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
+            float ra = RequestParmeter<RoundAmount>(calculator, report).GetValue();
+            float aar = RequestParmeter<ArtifactsAvailabilityRound>(calculator, report).GetValue();
+            float eca = RequestParmeter<EventCreationAmount>(calculator, report).GetValue();
+            float frwc = RequestParmeter<FrontRelationsWeightCoef>(calculator, report).GetValue();
             float minpa = RequestParmeter<MinPlayersAmount>(calculator, report).GetValue();
             float maxpa = RequestParmeter<MaxPlayersAmount>(calculator, report).GetValue();
+            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
             List<float> mdpa = RequestParmeter<MinDistancesPairsAmount_AA>(calculator, report).GetValue();
 
             if (!report.IsSuccess)
                 return report;
 
-            float mrw = new float[] { brw, frw, fbw }.Max();
-            float averpa = (minpa + maxpa) / 2;
+            float fea = (minpa + maxpa) / 2 * eca;
+            float ec = fea / cna * (1 - aar / ra) / 2;
+            float ncsc = 2 / csl;
 
             int range = 1;
             float oupr = 0;
@@ -60,8 +63,9 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
                     validPairsSum += mdpa[i];
 
                 float rc = validPairsSum / mdpa.Sum();
-                float nrc = 1 - (float)Math.Pow(1 - rc, averpa - 1);
-                oupr = mrw * asl * asi * eifp * nrc;
+                float nec = rc * ec * ncsc;
+
+                oupr = (csl - 1) * eip * frwc * nec;
                 int ua = (int)Math.Round(eapr / oupr, MidpointRounding.AwayFromZero);
                 if (Math.Abs(eapr - oupr * ua) < Math.Abs(eapr - best_oupr * best_ua))
                 {

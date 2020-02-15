@@ -68,7 +68,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageChainStability());
             storage.AddParameter(parameter: new AverageEventStability());
             storage.AddParameter(parameter: new AverageMiningBonus());
-            storage.AddParameter(parameter: new AverageStabilityIncrement());
+            storage.AddParameter(parameter: new AverageStabilityBonus());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
             storage.AddParameter(parameter: new BlockRelationsCoef_OB());
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
@@ -90,16 +90,11 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new StabilityBonusAllocation());
 
             // Events weight
-            storage.AddParameter(parameter: new AdditionalReasonsWeight());
             storage.AddParameter(parameter: new AverageContinuumEventWeight());
-            storage.AddParameter(parameter: new AverageRelationStability());
-            storage.AddParameter(parameter: new AverageSequenceLength());
-            storage.AddParameter(parameter: new BaseRelationsWeight());
+            storage.AddParameter(parameter: new BackRelationsWeightCoef());
             storage.AddParameter(parameter: new EventUsabilityNormalisation());
-            storage.AddParameter(parameter: new FrontBlockerWeight());
-            storage.AddParameter(parameter: new FrontReasonsWeight());
+            storage.AddParameter(parameter: new FrontRelationsWeightCoef());
             storage.AddParameter(parameter: new MiningBonusWeight());
-            storage.AddParameter(parameter: new NodesAvailableBackRelations());
 
             // Mining
             storage.AddParameter(parameter: new AverageMining());
@@ -134,6 +129,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new FieldRadius());
             storage.AddParameter(parameter: new MinDistancesPairsAmount_AA());
+            storage.AddParameter(parameter: new NodesAvailableBackRelations());
             storage.AddParameter(parameter: new NodesNearestAmount());
             storage.AddParameter(parameter: new RoutesMap());
 

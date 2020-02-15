@@ -7,6 +7,7 @@ using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events.Weight;
 using ModelAnalyzer.Parameters.Items;
+using ModelAnalyzer.Parameters.Events;
 
 namespace ModelAnalyzer.Services
 {
@@ -31,36 +32,20 @@ namespace ModelAnalyzer.Services
 
         static internal float RelationsWeight (List<EventRelation> relations, Calculator calculator)
         {
-            float brw = calculator.UpdatedParameter<BaseRelationsWeight>().GetValue();
-            float arw = calculator.UpdatedParameter<AdditionalReasonsWeight>().GetValue();
-            float frw = calculator.UpdatedParameter<FrontReasonsWeight>().GetValue();
-            float fbw = calculator.UpdatedParameter<FrontBlockerWeight>().GetValue();
-
-            float ars = calculator.UpdatedParameter<AverageRelationStability>().GetValue();
+            float frwc = calculator.UpdatedParameter<FrontRelationsWeightCoef>().GetValue();
+            float brwc = calculator.UpdatedParameter<BackRelationsWeightCoef>().GetValue();
+            float aсs = calculator.UpdatedParameter<AverageChainStability>().GetValue();
             float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
             float eun = calculator.UpdatedParameter<EventUsabilityNormalisation>().GetValue();
 
-            Func<EventRelation, bool> basePredicate = r => r.direction == RelationDirection.back && r.type != RelationType.reason;
-            Func<EventRelation, bool> backReasonPredicate = r => r.direction == RelationDirection.back && r.type == RelationType.reason;
-            Func<EventRelation, bool> frontReasonPredicate = r => r.direction == RelationDirection.front && r.type == RelationType.reason;
-            Func<EventRelation, bool> frontBlockPredicate = r => r.direction == RelationDirection.front && r.type == RelationType.blocker;
+            Func<EventRelation, bool> frontPredicate = r => r.direction == RelationDirection.front;
+            bool hasFront = relations.Where(frontPredicate).Count() > 0;
 
-            int baseAmount = relations.Where(basePredicate).Count();
-            int backReasonsAmount = relations.Where(backReasonPredicate).Count();
-            int frontReasonAmount = relations.Where(frontReasonPredicate).Count();
-            int frontBlockAmount = relations.Where(frontBlockPredicate).Count();
-
-            float baseWeight = baseAmount * brw + frontReasonAmount * frw + frontBlockAmount * fbw;
-            if (backReasonsAmount > 0)
-            {
-                baseWeight += brw;
-                baseWeight += (backReasonsAmount - 1) * arw;
-            }
-
+            float rtwc = hasFront ? frwc : brwc;
             float usability = RelationsUsability(relations, calculator);
             float noramalisedUsability = 1 + (usability - 1) * eun;
 
-            return baseWeight * noramalisedUsability * ars * eip;
+            return aсs * eip * noramalisedUsability * rtwc;
         }
 
         static public float RelationsUsability(List<EventRelation> relations, Calculator calculator)

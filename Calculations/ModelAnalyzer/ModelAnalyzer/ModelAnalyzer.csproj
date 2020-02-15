@@ -83,9 +83,10 @@
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
     <Compile Include="Parameters\Events\ChainStabilityLimit.cs" />
     <Compile Include="Parameters\Events\MinigForBalanceAverageStability.cs" />
-    <Compile Include="Parameters\Events\Weight\AdditionalReasonsWeight.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
     <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
+    <Compile Include="Parameters\Events\Weight\BackRelationsWeightCoef.cs" />
+    <Compile Include="Parameters\Events\Weight\FrontRelationsWeightCoef.cs" />
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_CalculationModule.cs" />
@@ -152,12 +153,7 @@
     <Compile Include="Parameters\Items\WeaponStandardPower.cs" />
     <Compile Include="Parameters\Moving\OneRoundSpeedDoublingProfit.cs" />
     <Compile Include="Parameters\PairsArrayParameter.cs" />
-    <Compile Include="Parameters\Events\Weight\AverageRelationStability.cs" />
-    <Compile Include="Parameters\Events\Weight\AverageSequenceLength.cs" />
-    <Compile Include="Parameters\Events\Weight\BaseRelationsWeight.cs" />
     <Compile Include="Parameters\Events\Weight\EventUsabilityNormalisation.cs" />
-    <Compile Include="Parameters\Events\Weight\FrontBlockerWeight.cs" />
-    <Compile Include="Parameters\Events\Weight\FrontReasonsWeight.cs" />
     <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEU.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
@@ -169,7 +165,7 @@
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
     <Compile Include="Parameters\Topology\NodesAvailableBackRelations.cs" />
-    <Compile Include="Parameters\Events\StabilityIncrementAllocation.cs" />
+    <Compile Include="Parameters\Events\StabilityBonusAllocation.cs" />
     <Compile Include="Parameters\General\MinPlayersAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\LogisticsInitialCardCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPointsCoefficient.cs" />
@@ -257,7 +253,7 @@
     <Compile Include="Parameters\Activities\TotalPotential.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvaliabilityPhase.cs" />
     <Compile Include="Parameters\Events\ArtifactsRarity.cs" />
-    <Compile Include="Parameters\Events\AverageStabilityIncrement.cs" />
+    <Compile Include="Parameters\Events\AverageStabilityBonus.cs" />
     <Compile Include="Parameters\Events\BlockEventsCoef_2D.cs" />
     <Compile Include="Parameters\Events\BlockRelationsCoef_OB.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation.cs" />
