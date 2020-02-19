@@ -119,7 +119,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float mkebp = RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
             float kclc = RequestParmeter<KeyChainLenghtCoefficient>(calculator).GetValue();
             float asi = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
-            float ueca = RequestParmeter<UnkeyEventCreationAmount>(calculator).GetValue();
+            float ueca = RequestParmeter<NokeyEventCreationAmount>(calculator).GetValue();
 
             float kesc = kclc * ueca * asi;
             float mkesc = kesc * mkebp / kebp;

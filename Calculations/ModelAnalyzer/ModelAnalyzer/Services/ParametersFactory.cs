@@ -3,6 +3,7 @@
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Activities.EventsRestoring;
+using ModelAnalyzer.Parameters.BranchPointsTrack;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
 using ModelAnalyzer.Parameters.Mining;
@@ -56,10 +57,18 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventImpactPriceAU());
             storage.AddParameter(parameter: new EventImpactPriceEU());
             storage.AddParameter(parameter: new EventsActionsPotential());
+            storage.AddParameter(parameter: new InitialEventCreationAmount());
             storage.AddParameter(parameter: new KeyEventCreationAmount());
             storage.AddParameter(parameter: new MiningAmount());
             storage.AddParameter(parameter: new TotalPotential());
-            storage.AddParameter(parameter: new UnkeyEventCreationAmount());
+            storage.AddParameter(parameter: new NokeyEventCreationAmount());
+
+            // BranchPointsTrack
+            storage.AddParameter(parameter: new BPTrackLength());
+            storage.AddParameter(parameter: new EstimatedGameBP());
+            storage.AddParameter(parameter: new InitialBP());
+            storage.AddParameter(parameter: new MaxBPLoosingCoefficient());
+            storage.AddParameter(parameter: new MaxGameBP());
 
             // Events
             storage.AddParameter(parameter: new MainDeck());

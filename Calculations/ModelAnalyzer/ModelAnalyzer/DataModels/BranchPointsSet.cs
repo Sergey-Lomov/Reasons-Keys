@@ -83,6 +83,13 @@ namespace ModelAnalyzer.DataModels
             return !(bps1 == bps2);
         }
 
+        public bool ContainsBranchPoint(BranchPoint branchPoint)
+        {
+            var filteredSuccess = success.Where(bp => bp == branchPoint);
+            var filteredFailed = failed.Where(bp => bp == branchPoint);
+            return filteredSuccess.Count() > 0 || filteredFailed.Count() > 0;
+        }
+
         public BranchPointsTemplate Template()
         {
             var templateSucces = success.Select(bp => bp.point).ToArray();

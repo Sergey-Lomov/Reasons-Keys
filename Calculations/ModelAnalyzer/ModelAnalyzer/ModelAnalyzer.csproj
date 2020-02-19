@@ -75,9 +75,16 @@
     <Compile Include="Parameters\Activities\EventsRestoring\MinimalLuckyStackChance.cs" />
     <Compile Include="Parameters\Activities\EventsRestoring\RealLuckyStackChance.cs" />
     <Compile Include="Parameters\Activities\EventsRestoring\RealUnluckyStackChance.cs" />
+    <Compile Include="Parameters\Activities\InitialEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\MiningAmount.cs" />
-    <Compile Include="Parameters\Activities\UnkeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\Activities\NokeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\BranchPointsTrack\BPTrackLength.cs" />
+    <Compile Include="Parameters\BranchPointsTrack\EstimatedGameBP.cs" />
+    <Compile Include="Parameters\BranchPointsTrack\EstimatedGameBP_Combinatoric.cs" />
+    <Compile Include="Parameters\BranchPointsTrack\InitialBP.cs" />
+    <Compile Include="Parameters\BranchPointsTrack\MaxBPLoosingCoefficient.cs" />
+    <Compile Include="Parameters\BranchPointsTrack\MaxGameBP.cs" />
     <Compile Include="Parameters\Events\AverageChainStability.cs" />
     <Compile Include="Parameters\Events\AverageEventStability.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
