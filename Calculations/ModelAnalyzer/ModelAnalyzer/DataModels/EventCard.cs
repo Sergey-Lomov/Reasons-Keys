@@ -9,6 +9,27 @@ namespace ModelAnalyzer.DataModels
     enum RelationDirection { back, front }
     enum RelationType { reason, blocker, paired_reason }
 
+    internal class EventConstraints
+    {
+        internal List<int> unavailableRadiuses = new List<int>();
+        internal int minPhase = 0;
+        internal int minStability = 0;
+
+        internal void MakeEqual (EventConstraints constraints)
+        {
+            unavailableRadiuses = new List<int>(constraints.unavailableRadiuses);
+            minPhase = constraints.minPhase;
+            minStability = constraints.minStability;
+        }
+
+        public bool Equals(EventConstraints constraints)
+        {
+            return unavailableRadiuses.SequenceEqual(constraints.unavailableRadiuses)
+                && minPhase == constraints.minPhase
+                && minStability == constraints.minStability;
+        }
+    }
+
     internal class EventRelation : IEquatable<EventRelation>
     {
         internal const int MaxRelationPosition = 6;
@@ -55,10 +76,8 @@ namespace ModelAnalyzer.DataModels
         internal int miningBonus = 0;
         internal bool provideArtifact = false;
         internal bool isKey = false;
-        
-        internal int minRadisuConstraint = 0;
-        internal int minPhaseConstraint = 0;
-        internal int minStabilityConstraint = 0;
+
+        internal EventConstraints constraints = new EventConstraints();
 
         internal float weight = 0;
         internal float usability = 0;
@@ -70,15 +89,12 @@ namespace ModelAnalyzer.DataModels
         {
             relations = new EventRelations(card.relations);
             branchPoints = new BranchPointsSet(card.branchPoints.success, card.branchPoints.failed);
+            constraints.MakeEqual(card.constraints);
 
             stabilityBonus = card.stabilityBonus;
             miningBonus = card.miningBonus;
             provideArtifact = card.provideArtifact;
             isKey = card.isKey;
-
-            minRadisuConstraint = card.minRadisuConstraint;
-            minPhaseConstraint = card.minPhaseConstraint;
-            minStabilityConstraint = card.minStabilityConstraint;
 
             weight = card.weight;
             usability = card.usability;
@@ -88,13 +104,12 @@ namespace ModelAnalyzer.DataModels
         public bool Equals(EventCard other)
         {
             return relations.SequenceEqual(other.relations)
+                && constraints.Equals(other.constraints)
                 && stabilityBonus == other.stabilityBonus
                 && miningBonus == other.miningBonus
                 && provideArtifact == other.provideArtifact
                 && isKey == other.isKey
-                && branchPoints == other.branchPoints
-                && minRadisuConstraint == other.minRadisuConstraint
-                && minPhaseConstraint == other.minPhaseConstraint;
+                && branchPoints == other.branchPoints;
         }
     }
 }

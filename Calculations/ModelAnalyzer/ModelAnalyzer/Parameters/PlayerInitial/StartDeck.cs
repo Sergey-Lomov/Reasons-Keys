@@ -5,7 +5,7 @@ using System.Linq;
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.General;
-using ModelAnalyzer.Parameters.Activities;
+using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Mining;
 
@@ -113,24 +113,20 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var keyEvents = new List<EventCard>();
 
-            float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float kea = RequestParmeter<KeyEventsAmount>(calculator).GetValue();
-            float kebp = RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
-            float mkebp = RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
-            float kclc = RequestParmeter<KeyChainLenghtCoefficient>(calculator).GetValue();
-            float asi = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
-            float ueca = RequestParmeter<NokeyEventCreationAmount>(calculator).GetValue();
-
-            float kesc = kclc * ueca * asi;
-            float mkesc = kesc * mkebp / kebp;
+            int mpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            int kea = (int)RequestParmeter<KeyEventsAmount>(calculator).GetValue();
+            int kebp = (int)RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
+            int mkebp = (int)RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
+            int mkemr = (int)RequestParmeter<MainKeyEventMinRadius>(calculator).GetValue();
+            int nmkemr = (int)RequestParmeter<NotMainKeyEventMinRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
 
             for (int i = 0; i < mpa; i++)
             {
-                var mainEvent = MainKeyEvent((int)mkebp, (int)mkesc, i);
-                var notMainEvents = NotMainKeyEvents((int)kea - 1, (int)kebp, (int)kesc, i);
+                var mainEvent = MainKeyEvent(mkebp, mkemr, i);
+                var notMainEvents = NotMainKeyEvents(kea - 1, kebp, nmkemr, i);
                 keyEvents.Add(mainEvent);
                 keyEvents.AddRange(notMainEvents);
             }
@@ -138,7 +134,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return keyEvents;
         }
 
-        private List<EventCard> NotMainKeyEvents(int amount, int kebp, int kesc, int owner)
+        private List<EventCard> NotMainKeyEvents(int amount, int kebp, int minRadius, int owner)
         {
             var keyEvents = new List<EventCard>(amount);
 
@@ -150,17 +146,9 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             for (int i = 0; i < amount; i++)
             {
-                var card = new EventCard();
+                var card = KeyEvent(kebp, minRadius, owner);
 
-                var branchPoint = new BranchPoint(owner, kebp);
-                var success = new List<BranchPoint>();
-                success.Add(branchPoint);
-                var set = new BranchPointsSet(success, null);
-
-                card.branchPoints = set;
                 card.relations = withBlocker ? blockerRelations : reasonRelations;
-                card.minStabilityConstraint = kesc;
-                card.isKey = true;
                 card.comment = "Решающее событие";
                 keyEvents.Add(card);
 
@@ -170,24 +158,36 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return keyEvents;
         }
 
-        private EventCard MainKeyEvent (int mkebp, int mkesc, int owner)
+        private EventCard MainKeyEvent (int mkebp, int minRadius, int owner)
         {
-            var card = new EventCard();
-
-            var branchPoint = new BranchPoint(owner, mkebp);
-            var success = new List<BranchPoint>();
-            success.Add(branchPoint);
-            var set = new BranchPointsSet(success, null);
+            var card = KeyEvent(mkebp, minRadius, owner);
 
             var relations = new List<EventRelation>();
             relations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 0));
             relations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 1));
 
-            card.branchPoints = set;
             card.relations = relations;
-            card.minStabilityConstraint = mkesc;
-            card.isKey = true;
             card.comment = "Основное решающее событие";
+
+            return card;
+        }
+
+        private EventCard KeyEvent (int points, int minRadius, int owner)
+        {
+            var card = new EventCard();
+
+            var branchPoint = new BranchPoint(owner, points);
+            var success = new List<BranchPoint>();
+            success.Add(branchPoint);
+            var set = new BranchPointsSet(success, null);
+
+            card.branchPoints = set;
+            card.isKey = true;
+
+            for (int i = 1; i < minRadius; i++)
+            {
+                card.constraints.unavailableRadiuses.Add(i);
+            }
 
             return card;
         }

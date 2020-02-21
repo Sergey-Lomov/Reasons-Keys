@@ -19,6 +19,7 @@ namespace ModelAnalyzer.UI
         const int indexWidth = 30;
         private readonly string emptyStub = "-";
         private readonly string issueItemPrefix = "- ";
+        private readonly int maxRadius = 4;
 
         private List<Control> predefinedControls;
         private List<EventCard> deck;
@@ -99,9 +100,9 @@ namespace ModelAnalyzer.UI
                 DeckTable.Controls.Add(LabelForFloat(card.usability));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.success));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.failed));
-                DeckTable.Controls.Add(LabelForInt(card.minPhaseConstraint));
-                DeckTable.Controls.Add(LabelForInt(card.minRadisuConstraint));
-                DeckTable.Controls.Add(LabelForInt(card.minStabilityConstraint));
+                DeckTable.Controls.Add(LabelForInt(card.constraints.minPhase));
+                DeckTable.Controls.Add(LabelForRadiusesConstraint(card.constraints.unavailableRadiuses));
+                DeckTable.Controls.Add(LabelForInt(card.constraints.minStability));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
                 DeckTable.Controls.Add(LabelForString(card.comment));
             }
@@ -170,6 +171,24 @@ namespace ModelAnalyzer.UI
                 MinimumSize = new Size(usabilityWidth, rowHeight),
                 MaximumSize = new Size(usabilityWidth, rowHeight),
                 TextAlign = ContentAlignment.MiddleCenter
+            };
+        }
+
+        private Label LabelForRadiusesConstraint(List<int> unavailable)
+        {
+            string text = "";
+            if (unavailable.Count() != 0)
+                for (int i = 1; i <= maxRadius; i++)
+                    text += unavailable.Contains(i) ? "- " : "+ ";
+            else
+                text = "-";
+            text.TrimEnd();
+
+            return new Label()
+            {
+                Text = text,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill
             };
         }
 
@@ -263,21 +282,21 @@ namespace ModelAnalyzer.UI
 
         private void minPhaseLabel_Click(object sender, EventArgs e)
         {
-            order = c => c.minPhaseConstraint;
+            order = c => c.constraints.minPhase;
             reverse = !reverse;
             UpdateCardsTable();
         }
 
         private void minRadiusLabel_Click(object sender, EventArgs e)
         {
-            order = c => c.minRadisuConstraint;
+            order = c => c.constraints.unavailableRadiuses.Count();
             reverse = !reverse;
             UpdateCardsTable();
         }
 
         private void minStavilityLabel_Click(object sender, EventArgs e)
         {
-            order = c => c.minStabilityConstraint;
+            order = c => c.constraints.minStability;
             reverse = !reverse;
             UpdateCardsTable();
         }

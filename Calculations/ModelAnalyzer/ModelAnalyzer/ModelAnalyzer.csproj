@@ -163,10 +163,11 @@
     <Compile Include="Parameters\Events\Weight\EventUsabilityNormalisation.cs" />
     <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEU.cs" />
+    <Compile Include="Parameters\PlayerInitial\MainKeyEventMinRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
+    <Compile Include="Parameters\PlayerInitial\NotMainKeyEventMinRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\StartDeck.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEventsWeightCoefficient.cs" />
-    <Compile Include="Parameters\PlayerInitial\KeyChainLenghtCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />

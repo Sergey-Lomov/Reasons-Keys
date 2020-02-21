@@ -9,6 +9,7 @@ const siElement = "stability_bonus";
 const paElement = "provides_artifact";
 const isKeyElement = "is_key";
 const mscElement = "min_stability_constraint";
+const urcElement = "unavailable_radiuses_constraint";
 const weightElement = "weight";
 const usabilityElement = "uisability";
 
@@ -51,6 +52,11 @@ const stabilityIncrementLayer = "StabilityIncrement";
 const minStabilityConstraintLayer = "MinStabilityConstraint";
 const minStabilityConstraintValue = "Value";
 
+const minRadiusConstraint = "MinRadiusConstraint";
+const radiusLayersPrefix = "r";
+const radiusEnabledLayer = "+";
+const radiusDisabledLayer = "-";
+
 const circularKeyEventBPLayerName = "CircularKeyEventBP";
 const failedBPLayerName = "FailedBP";
 const successBPLayerName = "SuccessBP";
@@ -80,12 +86,13 @@ const idValue = "Value";
 var outputInit = "/d/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0/%D0%91%D1%83%D0%BC%D0%B0%D0%B3%D0%B0/%D0%9A%D0%BB%D1%8E%D1%87%D0%B8%20%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD/%D0%A3%D0%BF%D1%80%D0%BE%D1%89%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/%D0%9A%D0%B0%D1%80%D1%82%D1%8B";
 var filesPrefix = "card";
 var useCircular = true;
-var showSystemInfo = false;
+var showSystemInfo = true;
 var previewMode = true;
 var saveAI = true;
 const maxPlayers = 6;
+const maxRadius = 4;
 
-function HandleSystemInfo (show, doc)
+function HandleSystemInfoShowing (show, doc)
 {
     doc.layers.getByName(idLayerName).visible = show;
     doc.layers.getByName(usabilityLayerName).visible = show;
@@ -220,6 +227,22 @@ function HandleCircularKeySuccessPoints (success, useCircular, isKey, doc)
     }
 }
 
+// Constraints
+function HandleRadiusConstraint (unavailable, doc)  {
+    var mainLayer = doc.layers.getByName(minRadiusConstraint);
+    
+    mainLayer.visible = unavailable != 0
+    if (unavailable == 0)
+        return;
+    
+    for (var i = 1; i <= maxRadius; i++) {
+        var radiusLayer = mainLayer.layers.getByName(radiusLayersPrefix + i)
+        var isAvailalbe = (unavailable & (1 << i)) == 0
+        radiusLayer.pathItems.getByName(radiusEnabledLayer).hidden = !isAvailalbe
+        radiusLayer.pathItems.getByName(radiusDisabledLayer).hidden = isAvailalbe
+    }
+}
+
 // Relations
 function HandleRelations (relations, doc)
 {
@@ -311,16 +334,16 @@ function ExportFileToPNG24(file, doc) {
 }
 
 function ExportFileToJPEG(file, doc) {
-var fileSpec = new File(file);
+    var fileSpec = new File(file);
 
-var captureOptions = new ImageCaptureOptions();
-captureOptions.resolution = 300;
-captureOptions.antiAliasing = true;
+    var captureOptions = new ImageCaptureOptions();
+    captureOptions.resolution = 300;
+    captureOptions.antiAliasing = true;
 
-var curBoard = doc.artboards[doc.artboards.getActiveArtboardIndex()];
-var captureClip = curBoard.artboardRect;
-alert(doc.documentColorSpace);
-doc.imageCapture(fileSpec, captureClip,captureOptions);
+    var curBoard = doc.artboards[doc.artboards.getActiveArtboardIndex()];
+    var captureClip = curBoard.artboardRect;
+    alert(doc.documentColorSpace);
+    doc.imageCapture(fileSpec, captureClip,captureOptions);
 }
 
 // TEST CODE SECTION
@@ -438,6 +461,7 @@ function HandleCard (card, doc, folder)
       var pa = card.child(paElement);
       var isKey = card.child(isKeyElement);
       var msc = card.child(mscElement);
+      var urc = card.child(urcElement);
       var weight = card.child(weightElement);
       var usability = card.child(usabilityElement);
       
@@ -447,8 +471,8 @@ function HandleCard (card, doc, folder)
       
       var relations = card.child(relationsElement);
       
-      //Update UI
-      HandleSystemInfo(showSystemInfo, doc);
+      var noMiddleInfo = urc == 0;
+      
       HandleMarkup(useCircular, doc);
       
       //HandleBoolValue(keyIndicatorLayer, isKey, doc);
@@ -458,6 +482,7 @@ function HandleCard (card, doc, folder)
       HandleTextValue(weightLayerName, weightValue, weight, doc);
       HandleTextValue(usabilityLayerName, usabilityValue, usability, doc);
       HandleTextValue(idLayerName, idValue, id, doc);
+      HandleSystemInfoShowing(showSystemInfo && noMiddleInfo, doc);
 
       HandleNumberValue(stabilityIncrementLayer, useCircular, si, doc);
       HandleNumberValue(miningBonusLayer, useCircular, mb, doc);
@@ -467,6 +492,7 @@ function HandleCard (card, doc, folder)
       HandleBrachPoints(successBPLayerName, useCircular, success, doc);
       HandleCircularKeySuccessPoints(success, useCircular, isKey, doc);
       
+      HandleRadiusConstraint(urc, doc)
       HandleRelations(relations, doc);
       
       //Save

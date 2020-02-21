@@ -23,6 +23,7 @@ namespace ModelAnalyzer.Services
         private static string paElement = "provides_artifact";
         private static string isKeyElement = "is_key";
         private static string mscElement = "min_stability_constraint";
+        private static string urcElement = "unavailable_radiuses_constraint";
         private static string weightElement = "weight";
         private static string usabilityElement = "uisability";
 
@@ -86,10 +87,11 @@ namespace ModelAnalyzer.Services
             writer.WriteElementString(siElement, card.stabilityBonus.ToString());
             writer.WriteElementString(paElement, card.provideArtifact.ToString());
             writer.WriteElementString(isKeyElement, card.isKey.ToString());
-            writer.WriteElementString(mscElement, card.minStabilityConstraint.ToString());
+            writer.WriteElementString(mscElement, card.constraints.minStability.ToString());
             writer.WriteElementString(weightElement, card.weight.ToString("F0"));
             writer.WriteElementString(usabilityElement, card.usability.ToString("F1"));
 
+            WriteRadiusesConstraint(card.constraints.unavailableRadiuses, writer);
             WriteBranchPoints(card.branchPoints, writer);
             WriteRelations(card.relations, writer);
 
@@ -138,6 +140,14 @@ namespace ModelAnalyzer.Services
             writer.WriteElementString(directionElement, directionsStrings[relation.direction]);
             writer.WriteElementString(positionElement, relation.position.ToString());
             writer.WriteEndElement();
+        }
+
+        private static void WriteRadiusesConstraint(List<int> unavailable, XmlWriter writer)
+        {
+            int mask = 0;
+            foreach (var radius in unavailable)
+                mask += 1 << radius;
+            writer.WriteElementString(urcElement, mask.ToString());
         }
     }
 }

@@ -145,7 +145,6 @@ namespace ModelAnalyzer
             // Player initial state
             storage.AddParameter(parameter: new InitialEU());
             storage.AddParameter(parameter: new InitialEventsWeightCoefficient());
-            storage.AddParameter(parameter: new KeyChainLenghtCoefficient());
             storage.AddParameter(parameter: new KeyEventsAmount());
             storage.AddParameter(parameter: new KeyEventsBranchPoints());
             storage.AddParameter(parameter: new KeyEventsBranchPointsCoefficient());
@@ -153,8 +152,10 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new LogisticsInitialCardCoefficient());
             storage.AddParameter(parameter: new MainKeyEventBranchPoints());
             storage.AddParameter(parameter: new MainKeyEventBranchPointsCoefficient());
+            storage.AddParameter(parameter: new MainKeyEventMinRadius());
             storage.AddParameter(parameter: new MiningInitialCardCoefficient());
             storage.AddParameter(parameter: new MinInitialCardUsability());
+            storage.AddParameter(parameter: new NotMainKeyEventMinRadius());
             storage.AddParameter(parameter: new RealKeyEventBrachPointCoefficients());
             storage.AddParameter(parameter: new StabilityInitialCardCoefficient());
             storage.AddParameter(parameter: new StartDeck());

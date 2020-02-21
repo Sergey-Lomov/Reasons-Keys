@@ -95,7 +95,7 @@
             this.DeckTable.RowCount = 2;
             this.DeckTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.DeckTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DeckTable.Size = new System.Drawing.Size(1051, 305);
+            this.DeckTable.Size = new System.Drawing.Size(1051, 265);
             this.DeckTable.TabIndex = 0;
             // 
             // deckUsabilityLabel
@@ -106,7 +106,7 @@
             this.deckUsabilityLabel.Location = new System.Drawing.Point(393, 10);
             this.deckUsabilityLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckUsabilityLabel.Name = "deckUsabilityLabel";
-            this.deckUsabilityLabel.Size = new System.Drawing.Size(34, 132);
+            this.deckUsabilityLabel.Size = new System.Drawing.Size(34, 112);
             this.deckUsabilityLabel.TabIndex = 5;
             this.deckUsabilityLabel.Text = "Us";
             this.deckUsabilityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,7 +120,7 @@
             this.deckMBLabel.Location = new System.Drawing.Point(353, 10);
             this.deckMBLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckMBLabel.Name = "deckMBLabel";
-            this.deckMBLabel.Size = new System.Drawing.Size(34, 132);
+            this.deckMBLabel.Size = new System.Drawing.Size(34, 112);
             this.deckMBLabel.TabIndex = 4;
             this.deckMBLabel.Text = "MB";
             this.deckMBLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,7 +134,7 @@
             this.deckSILabel.Location = new System.Drawing.Point(313, 10);
             this.deckSILabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckSILabel.Name = "deckSILabel";
-            this.deckSILabel.Size = new System.Drawing.Size(34, 132);
+            this.deckSILabel.Size = new System.Drawing.Size(34, 112);
             this.deckSILabel.TabIndex = 3;
             this.deckSILabel.Text = "SI";
             this.deckSILabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,7 +148,7 @@
             this.deckArtifactLabel.Location = new System.Drawing.Point(273, 10);
             this.deckArtifactLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckArtifactLabel.Name = "deckArtifactLabel";
-            this.deckArtifactLabel.Size = new System.Drawing.Size(34, 132);
+            this.deckArtifactLabel.Size = new System.Drawing.Size(34, 112);
             this.deckArtifactLabel.TabIndex = 2;
             this.deckArtifactLabel.Text = "Art";
             this.deckArtifactLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -162,7 +162,7 @@
             this.deckIndexLabel.Location = new System.Drawing.Point(3, 10);
             this.deckIndexLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckIndexLabel.Name = "deckIndexLabel";
-            this.deckIndexLabel.Size = new System.Drawing.Size(24, 132);
+            this.deckIndexLabel.Size = new System.Drawing.Size(24, 112);
             this.deckIndexLabel.TabIndex = 0;
             this.deckIndexLabel.Text = "#";
             this.deckIndexLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -177,7 +177,7 @@
             this.deckRelationsLabel.Location = new System.Drawing.Point(33, 10);
             this.deckRelationsLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckRelationsLabel.Name = "deckRelationsLabel";
-            this.deckRelationsLabel.Size = new System.Drawing.Size(234, 132);
+            this.deckRelationsLabel.Size = new System.Drawing.Size(234, 112);
             this.deckRelationsLabel.TabIndex = 1;
             this.deckRelationsLabel.Text = "Связи";
             this.deckRelationsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,7 +192,7 @@
             this.deckWeightLabel.Location = new System.Drawing.Point(693, 10);
             this.deckWeightLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckWeightLabel.Name = "deckWeightLabel";
-            this.deckWeightLabel.Size = new System.Drawing.Size(44, 132);
+            this.deckWeightLabel.Size = new System.Drawing.Size(44, 112);
             this.deckWeightLabel.TabIndex = 7;
             this.deckWeightLabel.Text = "Вес";
             this.deckWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,7 +206,7 @@
             this.successBPLabel.Location = new System.Drawing.Point(433, 10);
             this.successBPLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.successBPLabel.Name = "successBPLabel";
-            this.successBPLabel.Size = new System.Drawing.Size(34, 132);
+            this.successBPLabel.Size = new System.Drawing.Size(34, 112);
             this.successBPLabel.TabIndex = 8;
             this.successBPLabel.Text = "+";
             this.successBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,7 +220,7 @@
             this.minRadiusLabel.Location = new System.Drawing.Point(573, 10);
             this.minRadiusLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.minRadiusLabel.Name = "minRadiusLabel";
-            this.minRadiusLabel.Size = new System.Drawing.Size(54, 132);
+            this.minRadiusLabel.Size = new System.Drawing.Size(54, 112);
             this.minRadiusLabel.TabIndex = 9;
             this.minRadiusLabel.Text = "Мин Радиус";
             this.minRadiusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,7 +236,7 @@
             this.deckCommentLabel.Location = new System.Drawing.Point(743, 10);
             this.deckCommentLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.deckCommentLabel.Name = "deckCommentLabel";
-            this.deckCommentLabel.Size = new System.Drawing.Size(305, 132);
+            this.deckCommentLabel.Size = new System.Drawing.Size(305, 112);
             this.deckCommentLabel.TabIndex = 10;
             this.deckCommentLabel.Text = "Комментарий";
             this.deckCommentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -251,7 +251,7 @@
             this.failedBPLabel.Location = new System.Drawing.Point(473, 10);
             this.failedBPLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.failedBPLabel.Name = "failedBPLabel";
-            this.failedBPLabel.Size = new System.Drawing.Size(34, 132);
+            this.failedBPLabel.Size = new System.Drawing.Size(34, 112);
             this.failedBPLabel.TabIndex = 11;
             this.failedBPLabel.Text = "-";
             this.failedBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -267,7 +267,7 @@
             this.minPhaseLabel.Location = new System.Drawing.Point(513, 10);
             this.minPhaseLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.minPhaseLabel.Name = "minPhaseLabel";
-            this.minPhaseLabel.Size = new System.Drawing.Size(54, 132);
+            this.minPhaseLabel.Size = new System.Drawing.Size(54, 112);
             this.minPhaseLabel.TabIndex = 12;
             this.minPhaseLabel.Text = "Мин Фаза";
             this.minPhaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -283,7 +283,7 @@
             this.minStavilityLabel.Location = new System.Drawing.Point(633, 10);
             this.minStavilityLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.minStavilityLabel.Name = "minStavilityLabel";
-            this.minStavilityLabel.Size = new System.Drawing.Size(54, 132);
+            this.minStavilityLabel.Size = new System.Drawing.Size(54, 112);
             this.minStavilityLabel.TabIndex = 13;
             this.minStavilityLabel.Text = "Мин Стаб.";
             this.minStavilityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -343,8 +343,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1051, 328);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.DeckTable);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.issuesPamel);
             this.Name = "EventsDeckDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
