@@ -149,7 +149,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new KeyEventsBranchPoints());
             storage.AddParameter(parameter: new KeyEventsBranchPointsCoefficient());
             storage.AddParameter(parameter: new KeyEventsTotalBrachPoints());
-            storage.AddParameter(parameter: new LogisticsInitialCardCoefficient());
             storage.AddParameter(parameter: new MainKeyEventBranchPoints());
             storage.AddParameter(parameter: new MainKeyEventBranchPointsCoefficient());
             storage.AddParameter(parameter: new MainKeyEventMinRadius());
@@ -157,7 +156,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MinInitialCardUsability());
             storage.AddParameter(parameter: new NotMainKeyEventMinRadius());
             storage.AddParameter(parameter: new RealKeyEventBrachPointCoefficients());
-            storage.AddParameter(parameter: new StabilityInitialCardCoefficient());
             storage.AddParameter(parameter: new StartDeck());
 
             // Items
