@@ -50,11 +50,10 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var initialEvents = new List<EventCard>();
 
             float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
 
             var miningEvent = MiningEvent(calculator);
-            var attackEvent = AverageStabilityWithUndefineBranchesEvent(asb, -1, "Атакующая изначальная карта");
-            var supportEvent = AverageStabilityWithUndefineBranchesEvent(asb, +1, "Поддерживающая изначальная карта");
+            var attackEvent = AtackEvent(calculator);
+            var supportEvent = SupportEvent(calculator);
 
             if (!calculationReport.IsSuccess)
                 return initialEvents;
@@ -75,6 +74,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             float micc = RequestParmeter<MiningInitialCardCoefficient>(calculator).GetValue();
             float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
+            int immr = (int)RequestParmeter<InitialMiningEventMaxRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
@@ -85,7 +86,32 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.relations = relations;
             card.stabilityBonus = 0;
             card.miningBonus = (int)Math.Round(micc * am, MidpointRounding.AwayFromZero);
+            card.constraints.SetMaxRadius(immr, fr);
             card.comment = "Добывающее изначальное событие";
+
+            return card;
+        }
+
+        private EventCard AtackEvent(Calculator calculator)
+        {
+            int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
+            float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
+            int iamr = (int)RequestParmeter<InitialAtackEventMaxRadius>(calculator).GetValue();
+
+            var card = AverageStabilityWithUndefineBranchesEvent(asb, -1, "Атакующая изначальная карта");
+            card.constraints.SetMaxRadius(iamr, fr);
+
+            return card;
+        }
+
+        private EventCard SupportEvent(Calculator calculator)
+        {
+            int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
+            float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
+            int ismr = (int)RequestParmeter<InitialSupportEventMaxRadius>(calculator).GetValue();
+
+            var card = AverageStabilityWithUndefineBranchesEvent(asb, +1, "Поддерживающая изначальная карта");
+            card.constraints.SetMaxRadius(ismr, fr);
 
             return card;
         }
@@ -183,11 +209,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             card.branchPoints = set;
             card.isKey = true;
-
-            for (int i = 1; i < minRadius; i++)
-            {
-                card.constraints.unavailableRadiuses.Add(i);
-            }
+            card.constraints.SetMinRadius(minRadius);
 
             return card;
         }

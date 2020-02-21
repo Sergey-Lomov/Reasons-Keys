@@ -28,6 +28,20 @@ namespace ModelAnalyzer.DataModels
                 && minPhase == constraints.minPhase
                 && minStability == constraints.minStability;
         }
+
+        public void SetMinRadius (int minRadius)
+        {
+            unavailableRadiuses.Clear();
+            for (int i = 1; i < minRadius; i++)
+                unavailableRadiuses.Add(i);
+        }
+
+        public void SetMaxRadius(int maxAvailableRadius, int totalMaxRadius)
+        {
+            unavailableRadiuses.Clear();
+            for (int i = maxAvailableRadius + 1; i <= totalMaxRadius; i++)
+                unavailableRadiuses.Add(i);
+        }
     }
 
     internal class EventRelation : IEquatable<EventRelation>

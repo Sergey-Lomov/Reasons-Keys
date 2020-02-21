@@ -163,6 +163,8 @@
     <Compile Include="Parameters\Events\Weight\EventUsabilityNormalisation.cs" />
     <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEU.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialMiningEventMaxRadius.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialSupportEventMaxRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventMinRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
     <Compile Include="Parameters\PlayerInitial\NotMainKeyEventMinRadius.cs" />
@@ -196,6 +198,7 @@
     <Compile Include="Parameters\DigitalParameter.cs" />
     <Compile Include="Parameters\ParameterTag.cs" />
     <Compile Include="Services\FloatStringConverter.cs" />
+    <Compile Include="Parameters\PlayerInitial\InitialAtackEventMaxRadius.cs" />
     <Compile Include="Services\MathAdditional.cs" />
     <Compile Include="Services\OperationReport.cs" />
     <Compile Include="UI\CalculationReportForm.cs">

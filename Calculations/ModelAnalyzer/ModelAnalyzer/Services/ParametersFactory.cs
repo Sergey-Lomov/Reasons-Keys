@@ -143,8 +143,11 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new RoutesMap());
 
             // Player initial state
+            storage.AddParameter(parameter: new InitialAtackEventMaxRadius());
             storage.AddParameter(parameter: new InitialEU());
             storage.AddParameter(parameter: new InitialEventsWeightCoefficient());
+            storage.AddParameter(parameter: new InitialMiningEventMaxRadius());
+            storage.AddParameter(parameter: new InitialSupportEventMaxRadius());
             storage.AddParameter(parameter: new KeyEventsAmount());
             storage.AddParameter(parameter: new KeyEventsBranchPoints());
             storage.AddParameter(parameter: new KeyEventsBranchPointsCoefficient());
