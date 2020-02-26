@@ -19,6 +19,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
         internal float oneUsageProfit;
         internal float connectinosAmount;
 
+        private const int minRange = 2; //Min LN range for selection
         private const int maxRange = 8; //Max distance between two points
 
         public LN_CalculationModule()
@@ -35,7 +36,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
             float eip = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
             float ra = RequestParmeter<RoundAmount>(calculator, report).GetValue();
             float aar = RequestParmeter<ArtifactsAvailabilityRound>(calculator, report).GetValue();
-            float eca = RequestParmeter<EventCreationAmount>(calculator, report).GetValue();
+            float nkeca = RequestParmeter<NokeyEventCreationAmount>(calculator, report).GetValue();
             float frwc = RequestParmeter<FrontRelationsWeightCoef>(calculator, report).GetValue();
             float minpa = RequestParmeter<MinPlayersAmount>(calculator, report).GetValue();
             float maxpa = RequestParmeter<MaxPlayersAmount>(calculator, report).GetValue();
@@ -45,11 +46,11 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
             if (!report.IsSuccess)
                 return report;
 
-            float fea = (minpa + maxpa) / 2 * eca;
-            float ec = fea / cna * (1 - aar / ra) / 2;
-            float ncsc = 2 / csl;
+            float fea = (minpa + maxpa) / 2 * nkeca;
+            float vea = fea * (1 + aar / ra) / 2;
+            float ncsc = 1 / csl;
 
-            int range = 1;
+            int range = minRange;
             float oupr = 0;
 
             int best_range = 1;
@@ -63,10 +64,11 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
                     validPairsSum += mdpa[i];
 
                 float rc = validPairsSum / mdpa.Sum();
-                float nec = rc * ec * ncsc;
+                float nec = rc * vea * ncsc;
 
                 oupr = (csl - 1) * eip * frwc * nec;
                 int ua = (int)Math.Round(eapr / oupr, MidpointRounding.AwayFromZero);
+                Console.WriteLine("range:{0:D2} ua:{1:f2} oupr:{2:f2}", range, ua, oupr);
                 if (Math.Abs(eapr - oupr * ua) < Math.Abs(eapr - best_oupr * best_ua))
                 {
                     best_range = range;

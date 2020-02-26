@@ -27,10 +27,10 @@ ModelAnalyzer.Parameters.Activities.KeyEventCreationAmount:2,5~-|
 ModelAnalyzer.Parameters.Activities.MiningAmount:16~16|
 ModelAnalyzer.Parameters.Activities.TotalPotential:400~400|
 ModelAnalyzer.Parameters.Activities.NokeyEventCreationAmount:6~6|
-ModelAnalyzer.Parameters.BranchPointsTrack.BPTrackLength:22~22|
-ModelAnalyzer.Parameters.BranchPointsTrack.EstimatedGameBP:6~6|
-ModelAnalyzer.Parameters.BranchPointsTrack.InitialBP:2~2|
-ModelAnalyzer.Parameters.BranchPointsTrack.MaxBPLoosingCoefficient:0,3~0,3|
+ModelAnalyzer.Parameters.BranchPointsTrack.BPTrackLength:23~23|
+ModelAnalyzer.Parameters.BranchPointsTrack.EstimatedGameBP:6,27 5,8 5,33 4,87~6,27 5,8 5,33 4,87|
+ModelAnalyzer.Parameters.BranchPointsTrack.InitialBP:3 2 2 2~3 2 2 2|
+ModelAnalyzer.Parameters.BranchPointsTrack.MaxBPLoosingCoefficient:0,4~0,4|
 ModelAnalyzer.Parameters.BranchPointsTrack.MaxGameBP:20~20|
 ModelAnalyzer.Parameters.Events.MainDeck:Кол|
 ModelAnalyzer.Parameters.Events.ArtifactsRarity:0,16~-|
@@ -91,20 +91,22 @@ ModelAnalyzer.Parameters.Topology.MinDistancesPairsAmount_AA:1350 1698 1698 1728
 ModelAnalyzer.Parameters.Topology.NodesAvailableBackRelations:0 4 19 34 3 0 0~0 4 19 34 3 0 0|
 ModelAnalyzer.Parameters.Topology.NodesNearestAmount:stub|
 ModelAnalyzer.Parameters.Topology.RoutesMap:Недос|
+ModelAnalyzer.Parameters.PlayerInitial.InitialAtackEventMaxRadius:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.InitialEU:16~16|
 ModelAnalyzer.Parameters.PlayerInitial.InitialEventsWeightCoefficient:1~-|
-ModelAnalyzer.Parameters.PlayerInitial.KeyChainLenghtCoefficient:0,5~-|
+ModelAnalyzer.Parameters.PlayerInitial.InitialMiningEventMaxRadius:2~2|
+ModelAnalyzer.Parameters.PlayerInitial.InitialSupportEventMaxRadius:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsAmount:3~-|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPoints:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPointsCoefficient:2,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsTotalBrachPoints:10~10|
-ModelAnalyzer.Parameters.PlayerInitial.LogisticsInitialCardCoefficient:0,4~-|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPoints:4~4|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPointsCoefficient:1,5~-|
+ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventMinRadius:4~4|
 ModelAnalyzer.Parameters.PlayerInitial.MiningInitialCardCoefficient:0,5~0,5|
 ModelAnalyzer.Parameters.PlayerInitial.MinInitialCardUsability:1~1|
+ModelAnalyzer.Parameters.PlayerInitial.NotMainKeyEventMinRadius:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.RealKeyEventBrachPointCoefficients:3,92 2,94 2,35 1,96~3,92 2,94 2,35 1,96|
-ModelAnalyzer.Parameters.PlayerInitial.StabilityInitialCardCoefficient:0,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.StartDeck:Кол|
 ModelAnalyzer.Parameters.Items.ArtifactsAvailabilityRound:6~6|
 ModelAnalyzer.Parameters.Items.ArtifactsAvaliabilityPhase:2~2|
