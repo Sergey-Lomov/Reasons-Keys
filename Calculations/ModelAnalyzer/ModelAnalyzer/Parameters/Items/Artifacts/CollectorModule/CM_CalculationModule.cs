@@ -50,7 +50,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
 
             List<float> relativeDurations = new List<float>(phasesDuration);
             int currentPhase = 0;
-            for (int round = 0; round < artifactsAvailabilityRound; round++)
+            for (int round = 1; round < artifactsAvailabilityRound; round++) // Round start from 1 not from 0, because artifactsAvailabilityRound value also means numeration from 1, not from 0
             {
                 relativeDurations[currentPhase]--;
                 if (relativeDurations[currentPhase] == 0)
@@ -61,7 +61,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             foreach (var duration in relativeDurations)
                 phaseChance.Add(duration / relativeDurations.Sum());
 
-            float averagePlayersAmount = (minPlayersAmount + maxPlayersAmount) / 2.0f;
             var bonusAmount = new Dictionary<int, float>();
             foreach (var card in mainDeck.deck)
                 if (bonusAmount.ContainsKey(card.miningBonus))
@@ -71,9 +70,9 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
 
             foreach (var card in startDeck.deck)
                 if (bonusAmount.ContainsKey(card.miningBonus))
-                    bonusAmount[card.miningBonus] += averagePlayersAmount;
+                    bonusAmount[card.miningBonus]++;
                 else
-                    bonusAmount[card.miningBonus] = averagePlayersAmount;
+                    bonusAmount[card.miningBonus] = 1;
 
             var nearestCombinations = new Dictionary<int, List<List<int>>>();
             for (int i = 0; i <= maxPower; i++)
@@ -85,11 +84,12 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             for (int i = 0; i <= maxPower; i++)
                 powerProfit[i] = 0;
 
+            float averagePlayersAmount = (minPlayersAmount + maxPlayersAmount) / 2.0f;
             var phasesEventChances = new Dictionary<int, float>();
-            float phaseStart = 0;
+            float phaseStart = 1;
             for (int i = 0; i < phasesAmount; i++)
             {
-                var phaseEnd = phaseStart + phasesDuration[i];
+                var phaseEnd = phaseStart + phasesDuration[i] - 1;
                 float phaseStartEventsAmount = averagePlayersAmount * eventCreationAmount * phaseStart / roundAmount;
                 float phaseEndEventsAmount = averagePlayersAmount * eventCreationAmount * phaseEnd / roundAmount;
                 phasesEventChances[i] = (phaseStartEventsAmount + phaseEndEventsAmount) / continuumNodesAmount / 2;
