@@ -119,5 +119,12 @@ namespace ModelAnalyzer.Services
             if (card.provideArtifact)
                 card.minPhaseConstraint = (int)aap.GetValue();*/
         }
+
+        static internal float PositiveRealisationChance(EventCard card, Calculator calculator)
+        {
+            float chance = 0;
+
+            return chance;
+        }
     }
 }

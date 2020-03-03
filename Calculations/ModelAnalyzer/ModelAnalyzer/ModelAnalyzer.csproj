@@ -88,6 +88,7 @@
     <Compile Include="Parameters\Events\AverageChainStability.cs" />
     <Compile Include="Parameters\Events\AverageEventStability.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
+    <Compile Include="Parameters\Events\BackRelationIgnoringChance.cs" />
     <Compile Include="Parameters\Events\ChainStabilityLimit.cs" />
     <Compile Include="Parameters\Events\MainDeck.cs" />
     <Compile Include="Parameters\Events\MinigForBalanceAverageStability.cs" />

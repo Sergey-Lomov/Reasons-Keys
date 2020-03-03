@@ -79,6 +79,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageEventStability());
             storage.AddParameter(parameter: new AverageMiningBonus());
             storage.AddParameter(parameter: new AverageStabilityBonus());
+            storage.AddParameter(parameter: new BackRelationIgnoringChance());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
             storage.AddParameter(parameter: new BlockRelationsCoef_OB());
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());

@@ -1,10 +1,11 @@
 ﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Services.FieldAnalyzer;
 
 namespace ModelAnalyzer.Parameters.Topology
 {
     class ContinuumNodesAmount : FloatSingleParameter
     {
-        const int topologicIncrement = 6;
+        const int topologicIncrement = Field.nearesNodesAmount;
 
         public ContinuumNodesAmount()
         {

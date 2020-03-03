@@ -11,9 +11,6 @@ namespace ModelAnalyzer.Parameters.Events
 {
     class MainDeck : DeckParameter
     {
-        private Random randomizer;
-        private int randomizerSeed = 485316097;
-
         private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
 
         public MainDeck()
@@ -27,7 +24,6 @@ namespace ModelAnalyzer.Parameters.Events
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);
-            randomizer = new Random(randomizerSeed);
 
             var core = RequestParmeter<MainDeckCore>(calculator);
 
@@ -61,24 +57,24 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
         {
-            var randomizedCards = cards.OrderBy(c => randomizer.Next()).ToList();
-            var templateCards = SplitCardsForTemplates(randomizedCards, calculator);
-            foreach (var template in templateCards.Keys)
-            {
-                var tCards = templateCards[template];
-                var sequence = SequenceForTemplate(template, tCards.Count(), calculator);
-
-                foreach (var card in tCards)
-                {
-                    var setIndex = randomizer.Next(sequence.Count);
-                    var set = sequence[setIndex];
-                    card.branchPoints = set;
-                    sequence.Remove(set);
-                }
-            }
+            var bpSets = BranchPointSets(calculator);
+          //  float balance(EventCard card) => Math.Abs(0.5 - card);
         }
 
-        private Dictionary<BranchPointsTemplate, List<EventCard>> SplitCardsForTemplates(List<EventCard> cards, Calculator calculator)
+        private List<BranchPointsSet> BranchPointSets(Calculator calculator)
+        {
+            var bpSets = new List<BranchPointsSet>();
+            var templatesAmount = AmountsForTemplates(calculator);
+            foreach (var template in templatesAmount.Keys)
+            {
+                var sequence = SequenceForTemplate(template, templatesAmount[template], calculator);
+                bpSets.AddRange(sequence);
+            }
+
+            return bpSets;
+        }
+
+        private Dictionary<BranchPointsTemplate, int> AmountsForTemplates(Calculator calculator)
         {
             float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
             List<float> bpta = RequestParmeter<BrachPointsTemplatesAllocation>(calculator).GetValue();
@@ -92,27 +88,10 @@ namespace ModelAnalyzer.Parameters.Events
                 templateAmount[template] = amounts[i];
             }
 
-            Dictionary<BranchPointsTemplate, List<EventCard>> templateCards = new Dictionary<BranchPointsTemplate, List<EventCard>>();
-            foreach (var template in templates)
-                templateCards[template] = new List<EventCard>();
-
-            var templatesWithAmounts = templates.Where(t => templateAmount.ContainsKey(t));
-            var uncompletedTemplates = templatesWithAmounts.Where(t => templateAmount[t] != 0).ToList();
-
-            foreach (var card in cards)
-            {
-                var templateIndex = randomizer.Next(uncompletedTemplates.Count);
-                var template = uncompletedTemplates[templateIndex];
-                templateCards[template].Add(card);
-
-                if (templateCards[template].Count == templateAmount[template])
-                    uncompletedTemplates.Remove(template);
-            }
-
-            return templateCards;
+            return templateAmount;
         }
 
-        private int[] AmountsForAllocation(float cna, List<float> allocation)
+       private int[] AmountsForAllocation(float cna, List<float> allocation)
         {
             int[] amounts = new int[allocation.Count()];
             for (int i = 0; i < allocation.Count(); i++)

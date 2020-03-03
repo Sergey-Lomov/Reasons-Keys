@@ -6,6 +6,8 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
 {
     class Field
     {
+        public const int nearesNodesAmount = 6;
+
         public HashSet<FieldPoint> points = new HashSet<FieldPoint>();
 
         public Field(HashSet<FieldPoint>  points)

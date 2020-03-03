@@ -47,6 +47,14 @@ namespace ModelAnalyzer.Parameters
             return valueStub;
         }
 
+        public int RelationsAmount(RelationType type, RelationDirection direction)
+        {
+            bool isValid(EventRelation r) => r.type == type && r.direction == direction;
+            int validInList(List<EventRelation> rl) => rl.Where(r => isValid(r)).Count();
+            var relationsLists = deck.Select(c => c.relations);
+            return relationsLists.Select(rl => validInList(rl)).Sum();
+        }
+
         protected void UpdateDeckWeight(Calculator calculator)
         {
             foreach (EventCard card in deck)

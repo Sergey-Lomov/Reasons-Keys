@@ -18,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
         internal int power;
         internal float profit;
 
-        private readonly int maxPower = 6;
+        private readonly int maxPower = Field.nearesNodesAmount;
 
         public CM_CalculationModule()
         {

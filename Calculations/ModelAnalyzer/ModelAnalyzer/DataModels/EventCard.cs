@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 
+using ModelAnalyzer.Services.FieldAnalyzer;
+
 namespace ModelAnalyzer.DataModels
 {
     using EventRelations = List<EventRelation>;
@@ -46,7 +48,7 @@ namespace ModelAnalyzer.DataModels
 
     internal class EventRelation : IEquatable<EventRelation>
     {
-        internal const int MaxRelationPosition = 6;
+        internal const int MaxRelationPosition = Field.nearesNodesAmount;
 
         internal RelationType type;
         internal RelationDirection direction;
@@ -95,6 +97,7 @@ namespace ModelAnalyzer.DataModels
 
         internal float weight = 0;
         internal float usability = 0;
+        internal float positiveRealisationChance = 0;
         internal string comment = "";
 
         public EventCard() : base() { }
@@ -112,6 +115,7 @@ namespace ModelAnalyzer.DataModels
 
             weight = card.weight;
             usability = card.usability;
+            positiveRealisationChance = card.positiveRealisationChance;
             comment = card.comment;
         }
 

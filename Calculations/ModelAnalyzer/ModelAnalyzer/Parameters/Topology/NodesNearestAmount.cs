@@ -24,7 +24,7 @@ namespace ModelAnalyzer.Parameters.Topology
     class NodesNearestAmount : Parameter
     {
         private readonly string stringRepresentationStub = "stub";
-        private readonly int maxNearestAmount = 6;
+        private readonly int maxNearestAmount = Field.nearesNodesAmount;
 
         private List<NearestNodesData> value = null;
 
