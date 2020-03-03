@@ -72,6 +72,7 @@ namespace ModelAnalyzer
 
             // Events
             storage.AddParameter(parameter: new MainDeck());
+            storage.AddParameter(parameter: new MainDeckCore());
 
             storage.AddParameter(parameter: new ArtifactsRarity());
             storage.AddParameter(parameter: new AverageChainStability());
