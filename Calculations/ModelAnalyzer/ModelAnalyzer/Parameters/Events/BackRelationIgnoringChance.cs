@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Collections.Generic;
 
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
@@ -7,7 +6,6 @@ using ModelAnalyzer.Services.FieldAnalyzer;
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
-using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.PlayerInitial;
 
 namespace ModelAnalyzer.Parameters.Events
@@ -33,6 +31,8 @@ namespace ModelAnalyzer.Parameters.Events
             float eca = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
             float keca = calculator.UpdatedParameter<KeyEventCreationAmount>().GetValue();
             var abr = calculator.UpdatedParameter<NodesAvailableBackRelations>().GetValue();
+            var tfra = calculator.UpdatedParameter<FrontReasonsInEstimatedDeck>().GetValue();
+            var tfba = calculator.UpdatedParameter<FrontBlockersInEstimatedDeck>().GetValue();
             var mainDeck = calculator.UpdatedParameter<MainDeckCore>();
             var startDeck = calculator.UpdatedParameter<StartDeck>();
 
@@ -48,20 +48,13 @@ namespace ModelAnalyzer.Parameters.Events
             var nfbrc = mainDeck.deck.Select(c => backCount(c) - 1).Where(i => i >= 0).Sum();
             var nfbrs = startDeck.deck.Select(c => backCount(c) - 1).Where(i => i >= 0).Sum();
 
-            var tfrc = mainDeck.RelationsAmount(RelationType.reason, RelationDirection.front);
-            var tfrs = startDeck.RelationsAmount(RelationType.reason, RelationDirection.front);
-            var tfbc = mainDeck.RelationsAmount(RelationType.blocker, RelationDirection.front);
-            var tfbs = startDeck.RelationsAmount(RelationType.blocker, RelationDirection.front);
-
             float totalRelationsSlots = Field.nearesNodesAmount * cna;
             double sumAlpha(float i) => i * abr[(int)i];
             float backRelationsSlots = (float)MathAdditional.sum(0, Field.nearesNodesAmount, sumAlpha);
 
             float bra(int pa) => brc + brs * (float)pa / maxpa;
             float nfbra(int pa) => nfbrc + nfbrs * (float)pa / maxpa;
-            float tfra(int pa) => tfrc + tfrs * (float)pa / maxpa;
-            float tfba(int pa) => tfbc + tfbs * (float)pa / maxpa;
-            float tfr(int pa) => tfra(pa) + tfba(pa);
+            float tfr(int pa) => tfra[pa - minpa] + tfba[pa - minpa];
             float frc(int pa) => tfr(pa) / (totalRelationsSlots - backRelationsSlots);
             float enc(int pa) => (1 - pa * eca / cna) * (nfbra(pa) / bra(pa));
             float kec(int pa) => pa * keca / cna;

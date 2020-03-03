@@ -90,6 +90,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());
             storage.AddParameter(parameter: new EventMinMiningBonus());
+            storage.AddParameter(parameter: new FrontBlockersInEstimatedDeck());
+            storage.AddParameter(parameter: new FrontReasonsInEstimatedDeck());
             storage.AddParameter(parameter: new FrontRelationsCoef());
             storage.AddParameter(parameter: new MinBackRelations());
             storage.AddParameter(parameter: new MinigForBalanceAverageStability());

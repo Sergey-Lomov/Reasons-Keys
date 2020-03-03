@@ -90,6 +90,8 @@
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
     <Compile Include="Parameters\Events\BackRelationIgnoringChance.cs" />
     <Compile Include="Parameters\Events\ChainStabilityLimit.cs" />
+    <Compile Include="Parameters\Events\FrontBlockersInEstimatedDeck.cs" />
+    <Compile Include="Parameters\Events\FrontReasonsInEstimatedDeck.cs" />
     <Compile Include="Parameters\Events\MainDeck.cs" />
     <Compile Include="Parameters\Events\MinigForBalanceAverageStability.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
