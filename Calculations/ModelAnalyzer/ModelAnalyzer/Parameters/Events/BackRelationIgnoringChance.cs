@@ -30,7 +30,7 @@ namespace ModelAnalyzer.Parameters.Events
             float cna = calculator.UpdatedParameter<ContinuumNodesAmount>().GetValue();
             float eca = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
             float keca = calculator.UpdatedParameter<KeyEventCreationAmount>().GetValue();
-            var abr = calculator.UpdatedParameter<NodesAvailableBackRelations>().GetValue();
+            float bea = calculator.UpdatedParameter<BackEdgesAmount>().GetValue();
             var tfra = calculator.UpdatedParameter<FrontReasonsInEstimatedDeck>().GetValue();
             var tfba = calculator.UpdatedParameter<FrontBlockersInEstimatedDeck>().GetValue();
             var mainDeck = calculator.UpdatedParameter<MainDeckCore>();
@@ -48,20 +48,19 @@ namespace ModelAnalyzer.Parameters.Events
             var nfbrc = mainDeck.deck.Select(c => backCount(c) - 1).Where(i => i >= 0).Sum();
             var nfbrs = startDeck.deck.Select(c => backCount(c) - 1).Where(i => i >= 0).Sum();
 
-            float totalRelationsSlots = Field.nearesNodesAmount * cna;
-            double sumAlpha(float i) => i * abr[(int)i];
-            float backRelationsSlots = (float)MathAdditional.sum(0, Field.nearesNodesAmount, sumAlpha);
+            float totalEdgesAmount = Field.nearesNodesAmount * cna;
 
             float bra(int pa) => brc + brs * (float)pa / maxpa;
             float nfbra(int pa) => nfbrc + nfbrs * (float)pa / maxpa;
             float tfr(int pa) => tfra[pa - minpa] + tfba[pa - minpa];
-            float frc(int pa) => tfr(pa) / (totalRelationsSlots - backRelationsSlots);
-            float enc(int pa) => (1 - pa * eca / cna) * (nfbra(pa) / bra(pa));
+            float frc(int pa) => tfr(pa) / (totalEdgesAmount - bea);
+            float enc(int pa) => 1 - pa * eca / cna;
+            float nfenc(int pa) => enc(pa) * nfbra(pa) / bra(pa);
             float kec(int pa) => pa * keca / cna;
 
             for (int pa = minpa; pa <= maxpa; pa++)
             {
-                float bric = frc(pa) + enc(pa) + kec(pa);
+                float bric = frc(pa) + nfenc(pa) + kec(pa);
                 unroundValues.Add(bric);
             }
 

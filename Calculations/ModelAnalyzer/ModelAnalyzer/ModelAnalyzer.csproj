@@ -86,13 +86,17 @@
     <Compile Include="Parameters\BranchPointsTrack\MaxBPLoosingCoefficient.cs" />
     <Compile Include="Parameters\BranchPointsTrack\MaxGameBP.cs" />
     <Compile Include="Parameters\Events\AverageChainStability.cs" />
+    <Compile Include="Parameters\Events\AverageContinuumBP.cs" />
     <Compile Include="Parameters\Events\AverageEventStability.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
+    <Compile Include="Parameters\Events\AveragePositiveRealisationChance.cs" />
     <Compile Include="Parameters\Events\BackRelationIgnoringChance.cs" />
+    <Compile Include="Parameters\Events\BranchPointsRandomizationLimit.cs" />
     <Compile Include="Parameters\Events\ChainStabilityLimit.cs" />
     <Compile Include="Parameters\Events\FrontBlockersInEstimatedDeck.cs" />
     <Compile Include="Parameters\Events\FrontReasonsInEstimatedDeck.cs" />
     <Compile Include="Parameters\Events\MainDeck.cs" />
+    <Compile Include="Parameters\Events\MaxContinuumBPDeviation.cs" />
     <Compile Include="Parameters\Events\MinigForBalanceAverageStability.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
     <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
@@ -178,6 +182,7 @@
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
+    <Compile Include="Parameters\Topology\BackEdgesAmount.cs" />
     <Compile Include="Parameters\Topology\NodesAvailableBackRelations.cs" />
     <Compile Include="Parameters\Events\StabilityBonusAllocation.cs" />
     <Compile Include="Parameters\General\MinPlayersAmount.cs" />
@@ -193,7 +198,9 @@
     <Compile Include="Services\CalculationModule.cs" />
     <Compile Include="Services\Combinations.cs" />
     <Compile Include="Services\DeckXMLGenerator.cs" />
+    <Compile Include="Services\Dichotomiser.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />
+    <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldFabric.cs" />

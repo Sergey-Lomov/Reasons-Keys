@@ -5,6 +5,7 @@ using System.Linq;
 using ModelAnalyzer.Services;
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Parameters.General;
+using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Topology;
 
 namespace ModelAnalyzer.Parameters.Events
@@ -34,12 +35,50 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (var card in core.deck)
                 deck.Add(new EventCard(card));
 
+            AddPositiveRealisationChances(deck, calculator);
             AddBranchPoints(deck, calculator);
             AddArtifacts(deck, calculator);
             UpdateDeckConstraints(calculator);
             UpdateDeckWeight(calculator);
 
             return calculationReport;
+        }
+
+        private void AddPositiveRealisationChances(List<EventCard> cards, Calculator calculator)
+        {
+            var minpa = (int)RequestParmeter<MinPlayersAmount>(calculator).GetValue();
+            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            var cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            var eca = calculator.UpdatedParameter<EventCreationAmount>().GetValue();
+            var aprc = calculator.UpdatedParameter<AveragePositiveRealisationChance>().GetValue().Average();
+            var bea = RequestParmeter<BackEdgesAmount>(calculator).GetValue();
+            var bric = RequestParmeter<BackRelationIgnoringChance>(calculator).GetValue();
+            var tfra = RequestParmeter<FrontReasonsInEstimatedDeck>(calculator).GetValue();
+            var tfba = RequestParmeter<FrontBlockersInEstimatedDeck>(calculator).GetValue();
+            var core = RequestParmeter<MainDeckCore>(calculator).deck;
+            var startDeck = RequestParmeter<MainDeckCore>(calculator).deck;
+
+            float ane = bea / cna;
+            float edca(int pa) => core.Count() + startDeck.Count() * pa / maxpa;
+            float calcAfra(int pa) => tfra[pa - minpa] / edca(pa) * pa * eca / bea * ane;
+            float calcAfba(int pa) => tfba[pa - minpa] / edca(pa) * pa * eca / bea * ane;
+
+            var afra = new List<float>();
+            var afba = new List<float>();
+            for (int pa = minpa; pa <= maxpa; pa++)
+            {
+                var afraValue = calcAfra(pa);
+                var afbaValue = calcAfba(pa);
+                afra.Add(afraValue);
+                afba.Add(afbaValue);
+            }
+
+            double aafra = afra.Average();
+            double aafba = afba.Average();
+            double abric = bric.Average();
+
+            foreach (var card in cards)
+                card.positiveRealisationChance = (float)EventCardsAnalizer.PositiveRealisationChance(card, aprc, aafra, aafba, abric);
         }
 
         private void AddArtifacts(List<EventCard> cards, Calculator calculator)
@@ -57,8 +96,48 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
         {
+            // Calculation
+            /*          var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+
+                      List<float> signPoints = Enumerable.Repeat(0f, maxpa).ToList();
+                      List<float> totalPoints = Enumerable.Repeat(0f, maxpa).ToList();
+                      var bpSets = BranchPointSets(calculator);
+
+                      double cardBalance(EventCard card) => Math.Abs(0.5 - card.positiveRealisationChance);
+                      var sortedCards = cards.OrderBy(c => cardBalance(c)).Reverse().ToList();
+                      foreach (var card in sortedCards)
+                      {
+                          float orderFunc(BranchPointsSet set) => EventCardsAnalizer.PointsByAppend(signPoints, card, set).Deviation();
+                          var minDisbalanceSet = bpSets.OrderBy( s => orderFunc(s)).First();
+                          signPoints = EventCardsAnalizer.PointsByAppend(signPoints, card, minDisbalanceSet);
+                          totalPoints = EventCardsAnalizer.PointsByAppend(totalPoints, card, minDisbalanceSet, false);
+                          card.branchPoints = minDisbalanceSet;
+                          bpSets.Remove(minDisbalanceSet);
+                      }*/
+
+            // Randomization
+            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            var bprl = (int)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
+
+            var randomizer = new Random(0);
             var bpSets = BranchPointSets(calculator);
-          //  float balance(EventCard card) => Math.Abs(0.5 - card);
+            float minDeviation = float.MaxValue;
+            var minDeviationBPSets = bpSets.ToArray();
+            for (int i = 0; i < bprl; i++)
+            {
+                List<float> points = Enumerable.Repeat(0f, maxpa).ToList();
+                var sets = bpSets.OrderBy(bps => randomizer.Next()).ToArray();
+                for (int j = 0; j < cards.Count(); j++)
+                    points = EventCardsAnalizer.PointsByAppend(points, cards[j], sets[j]);
+                var deviation = points.Deviation();
+                if (deviation < minDeviation) {
+                    minDeviation = deviation;
+                    minDeviationBPSets = sets;
+                }
+            }
+
+            for (int i = 0; i < cards.Count(); i++)
+                cards[i].branchPoints = minDeviationBPSets[i];
         }
 
         private List<BranchPointsSet> BranchPointSets(Calculator calculator)

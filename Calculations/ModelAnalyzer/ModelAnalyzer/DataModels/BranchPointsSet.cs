@@ -19,6 +19,15 @@ namespace ModelAnalyzer.DataModels
             this.point = point;
         }
 
+        public override string ToString()
+        {
+            if (point == 0)
+                return "-";
+
+            var sign = point > 0 ? "+" : "";
+            return sign + point.ToString() + "(" + branch + ")";
+        }
+
         public static bool operator ==(BranchPoint bp1, BranchPoint bp2)
         {
             return bp1.point == bp2.point && bp1.branch == bp2.branch;
@@ -56,6 +65,19 @@ namespace ModelAnalyzer.DataModels
 
         internal readonly List<BranchPoint> success = new List<BranchPoint>();
         internal readonly List<BranchPoint> failed = new List<BranchPoint>();
+
+        public override string ToString()
+        {
+            var str = success.Count() > 0 ? "" : "-";
+            foreach (var bp in success)
+                str += bp.ToString() + " ";
+
+            str += failed.Count() > 0 ? "/ " : "/ -";
+            foreach (var bp in failed)
+                str += bp.ToString() + " ";
+
+            return str;
+        }
 
         public List<BranchPoint> all()
         {

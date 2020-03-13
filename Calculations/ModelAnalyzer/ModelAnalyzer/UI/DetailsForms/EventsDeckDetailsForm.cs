@@ -104,6 +104,7 @@ namespace ModelAnalyzer.UI
                 DeckTable.Controls.Add(LabelForRadiusesConstraint(card.constraints.unavailableRadiuses));
                 DeckTable.Controls.Add(LabelForInt(card.constraints.minStability));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
+                DeckTable.Controls.Add(LabelForFloat(card.positiveRealisationChance));
                 DeckTable.Controls.Add(LabelForString(card.comment));
             }
         }
@@ -309,6 +310,13 @@ namespace ModelAnalyzer.UI
             string filename = saveXMLDialog.FileName;
 
             DeckXMLGenerator.GenerateXML(deck, filename);
+        }
+
+        private void PRClabel_Click(object sender, EventArgs e)
+        {
+            order = c => c.positiveRealisationChance;
+            reverse = !reverse;
+            UpdateCardsTable();
         }
     }
 }

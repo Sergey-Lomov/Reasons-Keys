@@ -120,11 +120,45 @@ namespace ModelAnalyzer.Services
                 card.minPhaseConstraint = (int)aap.GetValue();*/
         }
 
-        static internal float PositiveRealisationChance(EventCard card, Calculator calculator)
+        static internal double PositiveRealisationChance(EventCard card, double aprc, double afra, double afba, double bric)
         {
-            float chance = 0;
+            bool isBack(EventRelation rel) => rel.direction == RelationDirection.back;
+            var relations = card.relations.Where(rel => isBack(rel));
+            var b = (double)relations.Where(rel => rel.type == RelationType.blocker).Count();
+            var r = (double)relations.Where(rel => rel.type == RelationType.reason).Count();
+            var pr = (double)relations.Where(rel => rel.type == RelationType.paired_reason).Count();
 
-            return chance;
+            var aab = b * (1 - bric) + afba;
+            var aar = r * (1 - bric) + afra;
+            var aapr = pr * (1 - bric);
+
+            var anrc = 1 - aprc;
+            var bComponent = aab <= 1 ? 1 - aprc * aab : Math.Pow(anrc, aab);
+            var rComponent = aar <= 1 ? 1 - anrc * aar : 1 - Math.Pow(anrc, aar);
+            var prComponent = aapr <= 1 ? 1 - anrc * aapr : Math.Pow(aprc, aapr);
+
+            return bComponent * rComponent * prComponent;
+        }
+
+        static internal List<float> PointsByAppend(List<float> points, EventCard card)
+        {
+            return PointsByAppend(points, card, card.branchPoints);
+        }
+
+        static internal List<float> PointsByAppend(List<float> points, EventCard card, BranchPointsSet bpSet, bool sign = true)
+        {
+            var newPoints = new List<float>(points);
+            foreach (var bp in bpSet.success)
+            {
+                float point = sign ? bp.point : Math.Abs(bp.point);
+                newPoints[bp.branch] += point * card.positiveRealisationChance;
+            }
+            foreach (var bp in bpSet.failed)
+            {
+                float point = sign ? bp.point : Math.Abs(bp.point);
+                newPoints[bp.branch] += point * (1 - card.positiveRealisationChance);
+            }
+            return newPoints;
         }
     }
 }

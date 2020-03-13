@@ -76,8 +76,10 @@ namespace ModelAnalyzer
 
             storage.AddParameter(parameter: new ArtifactsRarity());
             storage.AddParameter(parameter: new AverageChainStability());
+            storage.AddParameter(parameter: new AverageContinuumBP());
             storage.AddParameter(parameter: new AverageEventStability());
             storage.AddParameter(parameter: new AverageMiningBonus());
+            storage.AddParameter(parameter: new AveragePositiveRealisationChance());
             storage.AddParameter(parameter: new AverageStabilityBonus());
             storage.AddParameter(parameter: new BackRelationIgnoringChance());
             storage.AddParameter(parameter: new BlockEventsCoef_2D());
@@ -85,6 +87,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
+            storage.AddParameter(parameter: new BranchPointsRandomizationLimit());
             storage.AddParameter(parameter: new ChainStabilityLimit());
             storage.AddParameter(parameter: new EventMaxMiningBonus());
             storage.AddParameter(parameter: new EventMaxRelations());
@@ -93,6 +96,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new FrontBlockersInEstimatedDeck());
             storage.AddParameter(parameter: new FrontReasonsInEstimatedDeck());
             storage.AddParameter(parameter: new FrontRelationsCoef());
+            storage.AddParameter(parameter: new MaxContinuumBPDeviation());
             storage.AddParameter(parameter: new MinBackRelations());
             storage.AddParameter(parameter: new MinigForBalanceAverageStability());
             storage.AddParameter(parameter: new MultyblockCardsAllocation_OB());
@@ -139,6 +143,7 @@ namespace ModelAnalyzer
             // Topology
             storage.AddParameter(parameter: new AverageDistance());
             storage.AddParameter(parameter: new AveragePhasesDistance());
+            storage.AddParameter(parameter: new BackEdgesAmount());
             storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new FieldRadius());
             storage.AddParameter(parameter: new MinDistancesPairsAmount_AA());

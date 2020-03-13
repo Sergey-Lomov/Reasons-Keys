@@ -68,7 +68,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 
                 oupr = (csl - 1) * eip * frwc * nec;
                 int ua = (int)Math.Round(eapr / oupr, MidpointRounding.AwayFromZero);
-                Console.WriteLine("range:{0:D2} ua:{1:f2} oupr:{2:f2}", range, ua, oupr);
                 if (Math.Abs(eapr - oupr * ua) < Math.Abs(eapr - best_oupr * best_ua))
                 {
                     best_range = range;
