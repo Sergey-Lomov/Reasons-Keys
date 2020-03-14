@@ -13,6 +13,7 @@ namespace ModelAnalyzer.Parameters.Events
     class MainDeck : DeckParameter
     {
         private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
+        private readonly string artifactsIssue = "Невозможно распределить артефакты симметрично очкам ветвей.";
 
         public MainDeck()
         {
@@ -37,7 +38,7 @@ namespace ModelAnalyzer.Parameters.Events
 
             AddPositiveRealisationChances(deck, calculator);
             AddBranchPoints(deck, calculator);
-            AddArtifacts(deck, calculator);
+            AddArtifacts(deck, calculator, calculationReport);
             UpdateDeckConstraints(calculator);
             UpdateDeckWeight(calculator);
 
@@ -81,7 +82,7 @@ namespace ModelAnalyzer.Parameters.Events
                 card.positiveRealisationChance = (float)EventCardsAnalizer.PositiveRealisationChance(card, aprc, aafra, aafba, abric);
         }
 
-        private void AddArtifacts(List<EventCard> cards, Calculator calculator)
+        private void AddArtifacts(List<EventCard> cards, Calculator calculator, ParameterCalculationReport report)
         {
             float ar = RequestParmeter<ArtifactsRarity>(calculator).GetValue();
             int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
@@ -108,6 +109,9 @@ namespace ModelAnalyzer.Parameters.Events
 
                 ordered = ordered.Except(cartage).ToList();
             }
+
+            if (amount < estimatedAmount)
+                report.AddIssue(artifactsIssue);
         }
 
         private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
