@@ -133,6 +133,14 @@ namespace ModelAnalyzer.DataModels
             return invalidSuccess.Count() == 0 && invalidFailed.Count() == 0;
         }
 
+        public HashSet<int> UsedBranches()
+        {
+            var branches = new HashSet<int>();
+            branches.UnionWith(success.Select(bp => bp.branch));
+            branches.UnionWith(failed.Select(bp => bp.branch));
+            return branches;
+        }
+
         public override int GetHashCode()
         {
             unchecked

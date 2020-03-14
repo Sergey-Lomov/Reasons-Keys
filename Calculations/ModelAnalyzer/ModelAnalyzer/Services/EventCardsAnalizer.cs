@@ -160,5 +160,29 @@ namespace ModelAnalyzer.Services
             }
             return newPoints;
         }
+
+        static internal List<EventCard> FirstFullCartage(EventCard card, List<EventCard> deck, int maxpa)
+        {
+            var cartage = new List<EventCard>();
+            cartage.Add(card);
+            var usedBranches = card.branchPoints.UsedBranches();
+
+            if (usedBranches.Count() == 0)
+                return cartage;
+
+            bool isAvailable(EventCard c) => c.branchPoints.UsedBranches().Intersect(usedBranches).Count() == 0; 
+            var templatedCards = deck.Where(c => c.branchPoints.Template() == card.branchPoints.Template()).ToList();
+            var availableCards = templatedCards.Where(c => isAvailable(c)).ToList();
+
+            while (usedBranches.Count() < maxpa && availableCards.Count() > 0)
+            {
+                var incomeCard = availableCards.First();
+                cartage.Add(incomeCard);
+                usedBranches.UnionWith(incomeCard.branchPoints.UsedBranches());
+                availableCards = templatedCards.Where(c => isAvailable(c)).ToList();
+            }
+
+            return usedBranches.Count() == maxpa ? cartage : null;
+        }
     }
 }

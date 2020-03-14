@@ -71,7 +71,7 @@ namespace ModelAnalyzer.DataModels
 
     class EventCard : IEquatable<EventCard>
     {
-        internal EventRelations _relations = new EventRelations();
+        private EventRelations _relations = new EventRelations();
         internal EventRelations relations
         {
             get { return _relations; }

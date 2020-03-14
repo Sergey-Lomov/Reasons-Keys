@@ -84,14 +84,30 @@ namespace ModelAnalyzer.Parameters.Events
         private void AddArtifacts(List<EventCard> cards, Calculator calculator)
         {
             float ar = RequestParmeter<ArtifactsRarity>(calculator).GetValue();
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
-            int amount = (int)Math.Round(cna * ar, MidpointRounding.AwayFromZero);
+            int estimatedAmount = (int)Math.Round(cards.Count() * ar, MidpointRounding.AwayFromZero);
             var ordered = cards.OrderBy(c => c.weight).ToList();
-            var step = (int)Math.Floor(cards.Count() / 2f / amount);
 
-            for (int i = 0; i < amount; i++)
-                ordered[i * step].provideArtifact = true;
+            int amount = 0;
+            while (ordered.Count() > 0 && amount < estimatedAmount)
+            {
+                var candidate = ordered.First();
+                var cartage = EventCardsAnalizer.FirstFullCartage(candidate, ordered, maxpa);
+                if (cartage == null) {
+                    ordered.Remove(candidate);
+                    continue;
+                }
+
+                if (cartage.Count() + amount <= estimatedAmount)
+                {
+                    foreach (var card in cartage)
+                        card.provideArtifact = true;
+                    amount += cartage.Count();
+                }
+
+                ordered = ordered.Except(cartage).ToList();
+            }
         }
 
         private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
