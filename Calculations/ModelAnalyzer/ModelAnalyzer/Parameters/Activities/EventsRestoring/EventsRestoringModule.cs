@@ -127,9 +127,13 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
             var availableNegativeCount = negativePlayers.Where(p => availablePlayers.Contains(p)).Count();
             var playerPositiveCount = positivePlayers.Where(b => b == player).Count();
             var playerNegativeCount = negativePlayers.Where(b => b == player).Count();
-            if ((availableNegativeCount >= 2 && playerNegativeCount == 0) || playerPositiveCount > 0)
+            if ((availableNegativeCount >= 2 && playerNegativeCount == 0) // Guaranted -1 to enemy
+                || playerPositiveCount > 0 // Chance to get +1 to player
+                || (card.provideArtifact && (availablePositiveCount <= 2 || playerPositiveCount >= 0))) // Provide artifact and not get guaranted +1 to enemy   
                 return CardType.positive;
-            else if ((availablePositiveCount >= 2 && playerPositiveCount == 0) || playerNegativeCount > 0)
+            else if (((availablePositiveCount >= 2 && playerPositiveCount == 0) // Guaranted +1 to enemy
+                || playerNegativeCount > 0) // Chance to get -1 to player
+                && !card.provideArtifact) // Card with artifact is not negative anyway
                 return CardType.negative;
             else
                 return CardType.neutral;
