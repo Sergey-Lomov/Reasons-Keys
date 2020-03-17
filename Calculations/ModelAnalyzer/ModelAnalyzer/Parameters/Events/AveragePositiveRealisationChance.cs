@@ -16,7 +16,7 @@ namespace ModelAnalyzer.Parameters.Events
         public AveragePositiveRealisationChance()
         {
             type = ParameterType.Indicator;
-            title = "Cредний шанс на то, что событие произойдет";
+            title = "Cредний шанс происхождения события";
             details = "Зависит от кол-ва игроков";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);

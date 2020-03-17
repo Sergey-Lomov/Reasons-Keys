@@ -30,6 +30,7 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
             float keca = RequestParmeter<KeyEventCreationAmount>(calculator).GetValue();
             float nkeca = RequestParmeter<NokeyEventCreationAmount>(calculator).GetValue();
             float ieca = RequestParmeter<InitialEventCreationAmount>(calculator).GetValue();
+            var bcbp = RequestParmeter<AverageContinuumBP>(calculator).GetValue();
             float kea = RequestParmeter<KeyEventsAmount>(calculator).GetValue();
             float iea = StartDeck.InitialEventsAmount;
             float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
@@ -42,23 +43,18 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
 
             ClearValues();
 
-            var negativeBP = new BranchPoint(0, -1);
-            var positiveBP = new BranchPoint(0, +1);
-            float cnea = deck.Where(c => c.branchPoints.ContainsBranchPoint(negativeBP)).Count();
-            float cpea = deck.Where(c => c.branchPoints.ContainsBranchPoint(positiveBP)).Count();
-
             float akebp = keca / kea * ketbp;
             float aiebp = (1 - 2) * ieca / iea;
+            float abcbp = bcbp.Average();
 
             float aceca(float pa) => pa * (nkeca - ieca);
-            float acpea(float pa) => aceca(pa) * cpea / cna;
-            float acnea(float pa) => aceca(pa) * cnea / cna;
-            float acebp(float pa) => acpea(pa) - acnea(pa);
+            float acebp(float pa) => abcbp * aceca(pa) / cna;
             float abp(float pa) => akebp + aiebp + acebp(pa);
 
             for (int pa = (int)minpa; pa <= maxpa; pa++)
             {
                 var value = abp(pa);
+                Console.WriteLine("Acebp " + pa + " : " + acebp(pa));
                 unroundValues.Add(value);
                 values.Add(value);
             }
