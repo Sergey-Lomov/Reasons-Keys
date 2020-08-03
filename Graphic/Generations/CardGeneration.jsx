@@ -5,7 +5,7 @@ const cardElement = "Card";
 
 const idElement = "id";
 const mbElement = "mining_bonus";
-const siElement = "stability_bonus";
+const siElement = "stability_increment";
 const paElement = "provides_artifact";
 const isKeyElement = "is_key";
 const mscElement = "min_stability_constraint";
@@ -44,6 +44,7 @@ const orientatedTextFrameName = "Value"
 const circularValuesGroupName = "Values";
 
 const keyIndicatorLayer = "KeyIndicator";
+const keyEventBarierLeayer = "KeyEventBarier";
 const artifactIndicatorLayer = "ArtifactIndicator";
 
 const miningBonusLayer = "MiningBonus";
@@ -475,9 +476,9 @@ function HandleCard (card, doc, folder)
       
       HandleMarkup(useCircular, doc);
       
-      //HandleBoolValue(keyIndicatorLayer, isKey, doc);
+      HandleBoolValue(keyEventBarierLeayer, isKey, doc);
       HandleBoolValue(artifactIndicatorLayer, pa, doc);
-
+      
       //HandleTextValue(minStabilityConstraintLayer, minStabilityConstraintValue, msc, doc);
       HandleTextValue(weightLayerName, weightValue, weight, doc);
       HandleTextValue(usabilityLayerName, usabilityValue, usability, doc);
