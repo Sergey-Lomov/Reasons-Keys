@@ -156,7 +156,7 @@
             this.deckSILabel.Name = "deckSILabel";
             this.deckSILabel.Size = new System.Drawing.Size(34, 112);
             this.deckSILabel.TabIndex = 3;
-            this.deckSILabel.Text = "SI";
+            this.deckSILabel.Text = "SB";
             this.deckSILabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.deckSILabel.Click += new System.EventHandler(this.deckSILabel_Click);
             // 
