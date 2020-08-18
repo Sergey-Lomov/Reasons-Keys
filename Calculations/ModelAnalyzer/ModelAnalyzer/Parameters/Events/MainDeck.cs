@@ -14,6 +14,7 @@ namespace ModelAnalyzer.Parameters.Events
     {
         private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
         private readonly string artifactsIssue = "Невозможно распределить артефакты симметрично очкам ветвей.";
+        private readonly string cardsNamesPrefix = "Main";
 
         public MainDeck()
         {
@@ -41,6 +42,7 @@ namespace ModelAnalyzer.Parameters.Events
             AddArtifacts(deck, calculator, calculationReport);
             UpdateDeckConstraints(calculator);
             UpdateDeckWeight(calculator);
+            UpdateDeckNames();
 
             return calculationReport;
         }
@@ -95,7 +97,8 @@ namespace ModelAnalyzer.Parameters.Events
             {
                 var candidate = ordered.First();
                 var cartage = EventCardsAnalizer.FirstFullCartage(candidate, ordered, maxpa);
-                if (cartage == null) {
+                if (cartage == null)
+                {
                     ordered.Remove(candidate);
                     continue;
                 }
@@ -150,7 +153,8 @@ namespace ModelAnalyzer.Parameters.Events
                 for (int j = 0; j < cards.Count(); j++)
                     points = EventCardsAnalizer.PointsByAppend(points, cards[j], sets[j]);
                 var deviation = points.Deviation();
-                if (deviation < minDeviation) {
+                if (deviation < minDeviation)
+                {
                     minDeviation = deviation;
                     minDeviationBPSets = sets;
                 }
@@ -190,7 +194,7 @@ namespace ModelAnalyzer.Parameters.Events
             return templateAmount;
         }
 
-       private int[] AmountsForAllocation(float cna, List<float> allocation)
+        private int[] AmountsForAllocation(float cna, List<float> allocation)
         {
             int[] amounts = new int[allocation.Count()];
             for (int i = 0; i < allocation.Count(); i++)
@@ -285,6 +289,14 @@ namespace ModelAnalyzer.Parameters.Events
             }
 
             return sequence;
+        }
+
+        private void UpdateDeckNames()
+        {
+            for (int i = 0; i < deck.Count(); i++)
+            {
+                deck[i].name = cardsNamesPrefix + (i + 1);
+            }
         }
     }
 }

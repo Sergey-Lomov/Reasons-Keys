@@ -60,9 +60,17 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             for (int i = 0; i < mpa; i++)
             {
-                initialEvents.Add(new EventCard(miningEvent));
-                initialEvents.Add(new EventCard(attackEvent));
-                initialEvents.Add(new EventCard(supportEvent));
+                var playerMining = new EventCard(miningEvent);
+                playerMining.name = "P" + (i + 1) + "_1";
+                initialEvents.Add(playerMining);
+
+                var playerAttack = new EventCard(attackEvent);
+                playerAttack.name = "P" + (i + 1) + "_2";
+                initialEvents.Add(new EventCard(playerAttack));
+
+                var playerSupport = new EventCard(supportEvent);
+                playerSupport.name = "P" + (i + 1) + "_3";
+                initialEvents.Add(new EventCard(playerSupport));
             }
 
             return initialEvents;
@@ -176,6 +184,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
                 card.relations = withBlocker ? blockerRelations : reasonRelations;
                 card.comment = "Решающее событие";
+                card.name = "P" + (owner + 1) + "_" + (5 + i);
                 keyEvents.Add(card);
 
                 withBlocker = !withBlocker;
@@ -194,6 +203,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             card.relations = relations;
             card.comment = "Основное решающее событие";
+            card.name = "P" + (owner + 1) + "_4";
 
             return card;
         }

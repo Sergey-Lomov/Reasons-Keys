@@ -4,8 +4,9 @@ const deckElement = "Deck";
 const cardElement = "Card";
 
 const idElement = "id";
+const nameElement = "name";
 const mbElement = "mining_bonus";
-const siElement = "stability_increment";
+const siElement = "stability_bonus";
 const paElement = "provides_artifact";
 const isKeyElement = "is_key";
 const mscElement = "min_stability_constraint";
@@ -457,6 +458,7 @@ function HandleCard (card, doc, folder)
 {
       //Get values
       var id = card.child(idElement);
+      var name = card.child(nameElement);
       var mb = card.child(mbElement);
       var si = card.child(siElement);
       var pa = card.child(paElement);
@@ -497,7 +499,8 @@ function HandleCard (card, doc, folder)
       HandleRelations(relations, doc);
       
       //Save
-     var filePath = folder.fsName + "\\" + filesPrefix + id
+      var fileName = name == "" ?  filesPrefix + id : name;
+      var filePath = folder.fsName + "\\" + fileName;
       if (previewMode) 
       {
           exportJPG(filePath + ".jpeg");

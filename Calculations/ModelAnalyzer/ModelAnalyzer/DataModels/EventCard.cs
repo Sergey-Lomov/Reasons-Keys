@@ -99,6 +99,7 @@ namespace ModelAnalyzer.DataModels
         internal float usability = 0;
         internal float positiveRealisationChance = 0;
         internal string comment = "";
+        internal string name = "";
 
         public EventCard() : base() { }
 
@@ -117,6 +118,7 @@ namespace ModelAnalyzer.DataModels
             usability = card.usability;
             positiveRealisationChance = card.positiveRealisationChance;
             comment = card.comment;
+            name = card.name;
         }
 
         public bool Equals(EventCard other)

@@ -26,6 +26,7 @@ namespace ModelAnalyzer.Services
         private static string urcElement = "unavailable_radiuses_constraint";
         private static string weightElement = "weight";
         private static string usabilityElement = "uisability";
+        private static string nameElement = "name";
 
         // BracnhPoint
         private static string branchPointsElement = "BranchPoints";
@@ -90,6 +91,7 @@ namespace ModelAnalyzer.Services
             writer.WriteElementString(mscElement, card.constraints.minStability.ToString());
             writer.WriteElementString(weightElement, card.weight.ToString("F0"));
             writer.WriteElementString(usabilityElement, card.usability.ToString("F1"));
+            writer.WriteElementString(nameElement, card.name);
 
             WriteRadiusesConstraint(card.constraints.unavailableRadiuses, writer);
             WriteBranchPoints(card.branchPoints, writer);
