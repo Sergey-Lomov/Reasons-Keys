@@ -8,8 +8,8 @@ namespace ModelAnalyzer.Parameters.Activities
         public EventImpactPriceAU()
         {
             type = ParameterType.Out;
-            title = "Стоимость воздействия на событие (ЕА)";
-            details = "";
+            title = "Стоимость слабого воздействия на событие (ЕА)";
+            details = "Слабое воздействие - воздействие имеющее стандартный эффект (х1)";
             fractionalDigits = 2;
             tags.Add(ParameterTag.activities);
             tags.Add(ParameterTag.events);
@@ -27,9 +27,7 @@ namespace ModelAnalyzer.Parameters.Activities
                 return calculationReport;
 
             unroundValue = eeip * aupp / am;
-            float roundValue = (float)System.Math.Round(unroundValue);
-            float timesPerAction = (float)System.Math.Round(1 / unroundValue);
-            value = unroundValue < 1 ? 1 / timesPerAction : roundValue;
+            value = (float)System.Math.Round(unroundValue);
 
             return calculationReport;
         }

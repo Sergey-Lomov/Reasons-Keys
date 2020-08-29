@@ -3,14 +3,16 @@ using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.Activities
 {
-    class EventImpactPriceEU : FloatSingleParameter
+    class EventImpact2PriceAU : FloatSingleParameter
     {
-        public EventImpactPriceEU()
+        private const int multyplier = 2;
+
+        public EventImpact2PriceAU()
         {
             type = ParameterType.Out;
-            title = "Стоимость слабого воздействия на событие (ТЗ)";
-            details = "Слабое воздействие - воздействие имеющее стандартный эффект (х1)";
-            fractionalDigits = 0;
+            title = "Стоимость среднего воздействия на событие (ЕА)";
+            details = "Среднее воздействие - воздействие имеющее двойной эффект";
+            fractionalDigits = 2;
             tags.Add(ParameterTag.activities);
             tags.Add(ParameterTag.events);
         }
@@ -20,14 +22,14 @@ namespace ModelAnalyzer.Parameters.Activities
             calculationReport = new ParameterCalculationReport(this);
 
             float eeip = RequestParmeter<EstimatedEventImpactPrice>(calculator).GetValue();
-            float eipau = RequestParmeter<EventImpactPriceAU>(calculator).GetValue();
             float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            float aupp = RequestParmeter<AUPriceProportion>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            unroundValue = eeip - eipau * am;
-            value = (float) System.Math.Round(unroundValue);
+            unroundValue = eeip * multyplier * aupp / am;
+            value = (float)System.Math.Round(unroundValue);
 
             return calculationReport;
         }

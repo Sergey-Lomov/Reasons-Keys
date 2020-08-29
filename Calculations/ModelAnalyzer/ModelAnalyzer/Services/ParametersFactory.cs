@@ -56,6 +56,10 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventImpactPrice());
             storage.AddParameter(parameter: new EventImpactPriceAU());
             storage.AddParameter(parameter: new EventImpactPriceEU());
+            storage.AddParameter(parameter: new EventImpact2PriceAU());
+            storage.AddParameter(parameter: new EventImpact2PriceEU());
+            storage.AddParameter(parameter: new EventImpact3PriceAU());
+            storage.AddParameter(parameter: new EventImpact3PriceEU());
             storage.AddParameter(parameter: new EventsActionsPotential());
             storage.AddParameter(parameter: new InitialEventCreationAmount());
             storage.AddParameter(parameter: new KeyEventCreationAmount());

@@ -69,6 +69,10 @@
     <Compile Include="Parameters\Activities\EstimatedEventCreationPrice.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventImpactPrice.cs" />
     <Compile Include="Parameters\Activities\AtackAmount.cs" />
+    <Compile Include="Parameters\Activities\EventImpact2PriceAU.cs" />
+    <Compile Include="Parameters\Activities\EventImpact2PriceEU.cs" />
+    <Compile Include="Parameters\Activities\EventImpact3PriceAU.cs" />
+    <Compile Include="Parameters\Activities\EventImpact3PriceEU.cs" />
     <Compile Include="Parameters\Activities\EventsRestoring\EventsRestoringStackSize.cs" />
     <Compile Include="Parameters\Activities\EventsRestoring\EstimatedUnluckyStackChance.cs" />
     <Compile Include="Parameters\Activities\EventsRestoring\EventsRestoringModule.cs" />

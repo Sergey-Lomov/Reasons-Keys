@@ -54,7 +54,6 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
             for (int pa = (int)minpa; pa <= maxpa; pa++)
             {
                 var value = abp(pa);
-                Console.WriteLine("Acebp " + pa + " : " + acebp(pa));
                 unroundValues.Add(value);
                 values.Add(value);
             }
