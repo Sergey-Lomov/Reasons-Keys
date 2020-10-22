@@ -23,6 +23,7 @@ using ModelAnalyzer.Parameters.Items.Artifacts.HoleBox;
 using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
 using ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser;
 using ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule;
+using ModelAnalyzer.Parameters.Items.Artifacts;
 
 namespace ModelAnalyzer
 {
@@ -177,6 +178,7 @@ namespace ModelAnalyzer
             // Items
             storage.AddParameter(parameter: new ArtifactsAvailabilityRound());
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
+            storage.AddParameter(parameter: new ArtifactInaccessibilityCompensation());
             storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
             storage.AddParameter(parameter: new AverageBaseItemsProfit());
             storage.AddParameter(parameter: new BaseItemsAmount());
