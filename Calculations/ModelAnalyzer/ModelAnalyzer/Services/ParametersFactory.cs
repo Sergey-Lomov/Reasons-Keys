@@ -43,7 +43,7 @@ namespace ModelAnalyzer
 
             storage.AddParameter(parameter: new AtackAmount());
             storage.AddParameter(parameter: new AUPriceProportion());
-            storage.AddParameter(parameter: new AverageEventsConcreteBranchPoints());
+            storage.AddParameter(parameter: new EstimatedEventsConcreteBranchPoints());
             storage.AddParameter(parameter: new AverageUnkeyEventsConcreteBranchPoints());
             storage.AddParameter(parameter: new DestructionCoef());
             storage.AddParameter(parameter: new EstimatedEventCreationPrice());
