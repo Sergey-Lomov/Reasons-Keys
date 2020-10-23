@@ -187,6 +187,8 @@
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
+    <Compile Include="Parameters\Timing\FirstRoundAttackers.cs" />
+    <Compile Include="Parameters\Timing\SafePeriodDuration.cs" />
     <Compile Include="Parameters\Topology\BackEdgesAmount.cs" />
     <Compile Include="Parameters\Topology\NodesAvailableBackRelations.cs" />
     <Compile Include="Parameters\Events\StabilityBonusAllocation.cs" />

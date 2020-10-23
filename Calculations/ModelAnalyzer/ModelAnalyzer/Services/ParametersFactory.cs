@@ -137,6 +137,7 @@ namespace ModelAnalyzer
             // Timing
             storage.AddParameter(parameter: new AUMoveAmount());
             storage.AddParameter(parameter: new AUPartyAmount());
+            storage.AddParameter(parameter: new FirstRoundAttackers());
             storage.AddParameter(parameter: new MoveDuration());
             storage.AddParameter(parameter: new PartyDuration());
             storage.AddParameter(parameter: new PhasesAmount());
@@ -144,6 +145,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new PhasesWeight());
             storage.AddParameter(parameter: new RealisationDuration());
             storage.AddParameter(parameter: new RoundAmount());
+            storage.AddParameter(parameter: new SafePeriodDuration());
 
             // Topology
             storage.AddParameter(parameter: new AverageDistance());
