@@ -29,6 +29,9 @@ namespace ModelAnalyzer.Parameters.Timing
             var ieu = RequestParmeter<InitialEU>(calculator).GetValue();
             var ra = RequestParmeter<RoundAmount>(calculator).GetValue();
 
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
             for (int round = 0; round <= ra; round++)
             {
                 // In documentation formula use round + 1, but indexing in code start from 0 not from 1 like in documentation
