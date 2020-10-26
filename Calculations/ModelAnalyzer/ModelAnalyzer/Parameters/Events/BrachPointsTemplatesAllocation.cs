@@ -17,6 +17,7 @@ namespace ModelAnalyzer.Parameters.Events
             details = "Шаблоном очков ветвей считается комбинация, такая как -1/0 или +1/+1. Распределение задается в порядке: -1/-1, +1/+1, -1/0, 0/-1, +1/0, 0/+1, 0/0";
             fractionalDigits = 0;
             tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.branchPoints);
 
             int[] p1 = { +1 };
             int[] m1 = { -1 };

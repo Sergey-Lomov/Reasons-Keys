@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ModelAnalyzer.Services;
-using System.Linq;
 
 namespace ModelAnalyzer.Parameters.BranchPointsTrack
 {
@@ -10,7 +9,7 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
         public InitialBP()
         {
             type = ParameterType.Out;
-            title = "Изначальное количество очков ветви";
+            title = "Изначальное кол-во очков ветви";
             details = "";
             fractionalDigits = 0;
             tags.Add(ParameterTag.branchPoints);

@@ -16,6 +16,7 @@ namespace ModelAnalyzer.Parameters.Events
             details = "Этот параметр отражает максимальное относительное отклонение среди значений параметра “Среднее кол-во очков ветви в континууме” от среднего арифметического этих значений. Например если “Максимальное отклонение очков ветви в континууме” имеет значение 0.15, это означает, что колода позволяет одной из ветвей получать очки на 15% легче, чем это дается среднестатистической ветви.";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.branchPoints);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

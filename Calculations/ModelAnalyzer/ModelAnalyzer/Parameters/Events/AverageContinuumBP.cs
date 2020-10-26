@@ -14,6 +14,7 @@ namespace ModelAnalyzer.Parameters.Events
             details = "Сумма произведений очков ветви на шанс срабатывания ветви на каждой карте континуума";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);
+            tags.Add(ParameterTag.branchPoints);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

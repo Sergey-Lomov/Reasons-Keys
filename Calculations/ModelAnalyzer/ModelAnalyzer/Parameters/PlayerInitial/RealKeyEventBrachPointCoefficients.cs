@@ -14,6 +14,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             details = "Кол-во очков ветвей на решающих событиях считается усредненным для всех возможных количеств игроков. Поэтому реальное значение коэф. очков ветвей на решающих событиях отличаетяс от одноименного входящего параметра.";
             fractionalDigits = 2;
             tags.Add(ParameterTag.playerInitial);
+            tags.Add(ParameterTag.branchPoints);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)
