@@ -41,6 +41,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new RealLuckyStackChance());
             storage.AddParameter(parameter: new RealUnluckyStackChance());
 
+            storage.AddParameter(parameter: new ArtifactDischargeCoef());
+            storage.AddParameter(parameter: new ArtifactsDischargeCompensation());
             storage.AddParameter(parameter: new AtackAmount());
             storage.AddParameter(parameter: new AUPriceProportion());
             storage.AddParameter(parameter: new EstimatedEventsConcreteBranchPoints());

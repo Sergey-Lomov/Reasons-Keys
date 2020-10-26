@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\BranchPointsSet.cs" />
+    <Compile Include="Parameters\Activities\ArtifactDischargeCoef.cs" />
+    <Compile Include="Parameters\Activities\ArtifactsDischargeCompensation.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventCreationPrice.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventImpactPrice.cs" />
