@@ -16,7 +16,7 @@
 
         public static ParameterTag general = new ParameterTag("Общий");
         public static ParameterTag activities = new ParameterTag("Активность игроков");
-        public static ParameterTag branchPointsTrack = new ParameterTag("Трек очков ветвей");
+        public static ParameterTag branchPoints = new ParameterTag("Очки ветвей");
         public static ParameterTag events = new ParameterTag("События");
         public static ParameterTag eventsWeight = new ParameterTag("Оценка веса тайла");
         public static ParameterTag mining = new ParameterTag("Добыча ТЗ");

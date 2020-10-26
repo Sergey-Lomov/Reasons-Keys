@@ -17,6 +17,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Расчетное кол-во очков конкретной ветви на разыгранных событиях";
             details = "Имеется ввиду среднее кол-во очков (как положительных, так и отрицательных) одной конкретной ветви на всех событиях, разыгранных за партию. Не зависит от кол-ва игроков - усреднено.";
             fractionalDigits = 2;
+            tags.Add(ParameterTag.branchPoints);
             tags.Add(ParameterTag.activities);
         }
 

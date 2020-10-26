@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
             title = "Расчетное кол-во очков ветви за партию";
             details = "";
             fractionalDigits = 0;
-            tags.Add(ParameterTag.branchPointsTrack);
+            tags.Add(ParameterTag.branchPoints);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)

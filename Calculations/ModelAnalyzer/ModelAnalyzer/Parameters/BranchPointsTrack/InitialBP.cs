@@ -13,7 +13,7 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
             title = "Изначальное количество очков ветви";
             details = "";
             fractionalDigits = 0;
-            tags.Add(ParameterTag.branchPointsTrack);
+            tags.Add(ParameterTag.branchPoints);
             tags.Add(ParameterTag.playerInitial);
         }
 

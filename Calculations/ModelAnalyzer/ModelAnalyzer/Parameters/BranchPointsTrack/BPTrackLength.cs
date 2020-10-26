@@ -13,7 +13,7 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
             title = "Длина трека очков ветвей";
             details = "";
             fractionalDigits = 0;
-            tags.Add(ParameterTag.branchPointsTrack);
+            tags.Add(ParameterTag.branchPoints);
         }
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)
