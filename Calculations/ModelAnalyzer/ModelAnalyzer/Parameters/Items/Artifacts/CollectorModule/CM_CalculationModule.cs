@@ -17,6 +17,10 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
     {
         internal int power;
         internal float profit;
+        internal float maxLimit;
+        internal float minLimit;
+        internal int maxLimitRounded;
+        internal int minLimitRounded;
 
         private readonly int maxPower = Field.nearesNodesAmount;
 
@@ -40,6 +44,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             var eventCreationAmount = RequestParmeter<EventCreationAmount>(calculator, report).GetValue();
             var estimatedArtifactProfit = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
             var pureEUCoeff = RequestParmeter<PureEUProfitCoefficient>(calculator, report).GetValue();
+            var maxlc = RequestParmeter<CM_MaxLimitCoef>(calculator, report).GetValue();
+            var minlc = RequestParmeter<CM_MinLimitCoef>(calculator, report).GetValue();
 
             var nodes = RequestParmeter<NodesNearestAmount>(calculator, report);
             var mainDeck = RequestParmeter<MainDeck>(calculator, report);
@@ -47,6 +53,13 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
 
             if (!report.IsSuccess)
                 return report;
+
+            float estimatedUsage = miningAmount * (1 - artifactsAvailabilityRound / roundAmount);
+            float eoupr = estimatedArtifactProfit / (estimatedUsage * pureEUCoeff);
+            maxLimit = maxlc * estimatedArtifactProfit / estimatedUsage / pureEUCoeff;
+            minLimit = minlc * estimatedArtifactProfit / estimatedUsage / pureEUCoeff;
+            maxLimitRounded = (int)Math.Round(maxLimit, MidpointRounding.AwayFromZero);
+            minLimitRounded = (int)Math.Round(minLimit, MidpointRounding.AwayFromZero);
 
             List<float> relativeDurations = new List<float>(phasesDuration);
             int currentPhase = 0;
@@ -117,9 +130,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
                      }
             }
 
-            float estimatedUsage = miningAmount * (1 - artifactsAvailabilityRound / roundAmount);
-            float eoupr = estimatedArtifactProfit / (estimatedUsage * pureEUCoeff);
-
             foreach (var currentPower in powerProfit.Keys)
                 if (Math.Abs(powerProfit[currentPower] - eoupr) < Math.Abs(powerProfit[power] - eoupr))
                     power = currentPower;
@@ -185,7 +195,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             for (int i = 1; i <= combination.Count; i++)
             {
                 accumulation += availableBonuses.Max();
-                profits[i] = accumulation;
+                profits[i] = MathAdditional.normalise(accumulation, minLimitRounded, maxLimitRounded);
                 availableBonuses.Remove(availableBonuses.Max());
             }
 

@@ -32,5 +32,12 @@ namespace ModelAnalyzer.Services
         {
             return Factorial(total) / Factorial(chosen) / Factorial(total - chosen);
         }
+
+        internal static T normalise<T>(T value, T min, T max) where T : IComparable<T>
+        {
+            var result = value.CompareTo(min) < 0 ? min : value;
+            result = value.CompareTo(max) > 0 ? max : result;
+            return result;
+        }
     }
 }

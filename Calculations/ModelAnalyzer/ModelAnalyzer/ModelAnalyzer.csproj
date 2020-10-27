@@ -110,6 +110,10 @@
     <Compile Include="Parameters\Events\Weight\FrontRelationsWeightCoef.cs" />
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MaxLimit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MaxLimitCoef.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MinLimit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MinLimitCoef.cs" />
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_CalculationModule.cs" />
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Range.cs" />
     <Compile Include="Parameters\Items\ArtifactInaccessibilityCompensation.cs" />

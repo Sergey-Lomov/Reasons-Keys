@@ -15,7 +15,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
         public InitialStackCalculationModule()
         {
-            title = "Изначальная раздача: модуль подброа";
+            title = "Изначальная раздача: модуль подбора";
         }
 
         internal override ModuleCalculationReport Execute(Calculator calculator)
