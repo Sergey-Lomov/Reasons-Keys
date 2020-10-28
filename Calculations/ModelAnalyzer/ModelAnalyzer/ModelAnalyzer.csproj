@@ -217,6 +217,7 @@
     <Compile Include="Services\DeckXMLGenerator.cs" />
     <Compile Include="Services\Dichotomiser.cs" />
     <Compile Include="Services\EventCardsAnalizer.cs" />
+    <Compile Include="Services\EventRelationsFactory.cs" />
     <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />

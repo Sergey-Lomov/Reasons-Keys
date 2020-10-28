@@ -52,7 +52,7 @@ namespace ModelAnalyzer.DataModels
 
         internal RelationType type;
         internal RelationDirection direction;
-        internal int position;
+        internal int position; // 0 - bottom and another clockwise
 
         public EventRelation(RelationType type, RelationDirection direction, int position)
         {

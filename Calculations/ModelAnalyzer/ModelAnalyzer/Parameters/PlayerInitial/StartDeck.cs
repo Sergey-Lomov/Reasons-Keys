@@ -80,19 +80,17 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var card = new EventCard();
 
-            float micc = RequestParmeter<MiningInitialCardCoefficient>(calculator).GetValue();
-            float am = RequestParmeter<AverageMining>(calculator).GetValue();
-            int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            int immr = (int)RequestParmeter<InitialMiningEventMaxRadius>(calculator).GetValue();
+            var micc = RequestParmeter<MiningInitialCardCoefficient>(calculator).GetValue();
+            var am = RequestParmeter<AverageMining>(calculator).GetValue();
+            var asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
+            var fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
+            var immr = (int)RequestParmeter<InitialMiningEventMaxRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
 
-            var frontBlocker = new EventRelation(RelationType.blocker, RelationDirection.front, 4);
-            var relations = new List<EventRelation> { frontBlocker };
-
-            card.relations = relations;
-            card.stabilityBonus = 0;
+            card.relations = EventRelationsFactory.C1(RelationType.blocker, RelationType.reason);
+            card.stabilityBonus = (int)Math.Round(asb, MidpointRounding.AwayFromZero);
             card.miningBonus = (int)Math.Round(micc * am, MidpointRounding.AwayFromZero);
             card.constraints.SetMaxRadius(immr, fr);
             card.comment = "Добывающее изначальное событие";
