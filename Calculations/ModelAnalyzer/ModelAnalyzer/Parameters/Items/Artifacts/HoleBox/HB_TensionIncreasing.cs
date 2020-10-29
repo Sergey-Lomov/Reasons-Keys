@@ -34,7 +34,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
                 unroundValues.Add(increasing);
             }
 
-            var unroundDecreasing = -unroundValues.Average();
+            var unroundDecreasing = -unroundValues.Max();
             var decreasing = (float)Math.Round(unroundDecreasing, MidpointRounding.AwayFromZero);
 
             values.AddRange(unroundValues);

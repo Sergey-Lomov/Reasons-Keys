@@ -237,7 +237,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new HB_CollapsePreparationDuration());
             storage.AddParameter(parameter: new HB_MaxTension());
             storage.AddParameter(parameter: new HB_MaxTransaction());
-            storage.AddParameter(parameter: new HB_OwnerCollapseAbsorbCoefficient());
             storage.AddParameter(parameter: new HB_Profit());
             storage.AddParameter(parameter: new HB_TensionIncreasing());
             storage.AddParameter(parameter: new HB_TensionInreasingStepsAmount());
