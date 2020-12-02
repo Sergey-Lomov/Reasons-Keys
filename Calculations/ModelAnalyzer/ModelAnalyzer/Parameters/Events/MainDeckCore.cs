@@ -4,17 +4,17 @@ using System.Linq;
 
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Services;
-using ModelAnalyzer.Parameters.General;
+using ModelAnalyzer.Services.FieldAnalyzer;
 using ModelAnalyzer.Parameters.Topology;
+using ModelAnalyzer.Parameters.Timing;
 
 namespace ModelAnalyzer.Parameters.Events
 {
     class MainDeckCore : DeckParameter
     {
         private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
-      
-        readonly int[] backPosPriority = new int[3] { 1, 0, 2 };
-        readonly int[] frontPosPriority = new int[3] { 4, 3, 5 };
+
+        readonly int sidesAmount = Field.nearesNodesAmount;
 
         public MainDeckCore()
         {
@@ -28,25 +28,15 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float na = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            float pa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            deck = InitialDeckWithRelationTemplates(calculator);
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            deck = new List<EventCard>((int)na);
-
             try
             {
-                var cards_2d = BothDirectionCards(calculator);
-                int amount_ob = (int)na - cards_2d.Count();
-                var cards_ob = OnlyBackCards(calculator, amount_ob);
-
-                deck.AddRange(cards_2d);
-                deck.AddRange(cards_ob);
-
-                PairReasons(deck, calculator);
-                UpdateDeckUsability(calculator);
+                SetRelationsTypes(deck, calculator);
+               // PairReasons(deck, calculator);
                 UpdateDeckWeight(calculator);
                 AddStabilityBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);
@@ -55,208 +45,128 @@ namespace ModelAnalyzer.Parameters.Events
             }
             catch (MACalculationException)
             {
-                deck = null;
+                deck = new List<EventCard>();
             }
 
             return calculationReport;
         }
 
-        private void ArrangeRelations(List<EventRelation> relations)
+        private List<EventCard> InitialDeckWithRelationTemplates(Calculator calculator)
         {
-            int backCounter = 0;
-            int frontCounter = 0;
-            foreach (EventRelation relation in relations)
-            {
-                bool isFront = relation.direction == RelationDirection.front;
-                int position = isFront ? frontPosPriority[frontCounter] : backPosPriority[backCounter];
-                relation.position = position;
+            var na = (int)RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            var pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
+            var fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
+            var rna = RequestParmeter<RoundNodesAmount>(calculator).GetValue();
+            var fec = RequestParmeter<FrontEventsCoef>(calculator).GetValue();
+            var mrtu = RequestParmeter<MinRelationsTemplateUsability>(calculator).GetValue();
+            var emr = (int)RequestParmeter<EventMaxRelations>(calculator).GetValue();
+            var mbr = (int)RequestParmeter<MinBackRelations>(calculator).GetValue();
 
-                backCounter += isFront ? 0 : 1;
-                frontCounter += isFront ? 1 : 0;
+            if (!calculationReport.IsSuccess)
+                return new List<EventCard>();
 
-                backCounter = backCounter == backPosPriority.Count() ? 0 : backCounter;
-                frontCounter = frontCounter == frontPosPriority.Count() ? 0 : frontCounter;
-            }
+            var fieldAnalyzer = new FieldAnalyzer(phasesCount: pd.Count);
+            var intPd = pd.Select(v => (int)v).ToList();
+            fieldAnalyzer.templateUsabilityPrecalculations(intPd, fr);
+            Func<EventRelationsTemplate, float> usability = t => fieldAnalyzer.templateUsability(t, rna);
+
+            deck = new List<EventCard>(na);
+            var allDirectionsTemplates = EventRelationsTemplate.allTemplates(sidesAmount);
+            var templatesUsability = allDirectionsTemplates.ToDictionary(t => t, t => usability(t));
+            var filteredTemplates = templatesUsability.Where(kvp => kvp.Value >= mrtu).ToList();
+
+            Func<EventRelationsTemplate, bool> minRelValid = t => t.directionsAmount() > 0;
+            Func<EventRelationsTemplate, bool> maxRelValid = t => t.directionsAmount() <= emr;
+            Func<EventRelationsTemplate, bool> minBackValid = t => t.backAmount() >= mbr;
+            Func<EventRelationsTemplate, bool> validate = t => minRelValid(t) && maxRelValid(t) && minBackValid(t);
+            filteredTemplates = filteredTemplates.Where(kvp => validate(kvp.Key)).ToList();
+            var templates_2d = filteredTemplates.Where(p => p.Key.containsFront()).ToDictionary(p => p.Key, p => p.Value);
+            var templates_ob = filteredTemplates.Where(p => !p.Key.containsFront()).ToDictionary(p => p.Key, p => p.Value);
+
+            var cardsAmount_2d = (int)Math.Round(na * fec, MidpointRounding.AwayFromZero);
+            var cards_2d = CardsForTemplatesUsabilities(calculator, cardsAmount_2d, templates_2d);
+            int cardsAmount_ob = na - cardsAmount_2d;
+            var cards_ob = CardsForTemplatesUsabilities(calculator, cardsAmount_ob, templates_ob);
+
+            deck.AddRange(cards_2d);
+            deck.AddRange(cards_ob);
+
+            return deck;
         }
 
-        private List<EventCard> BothDirectionCards (Calculator calculator)
+        private List<EventCard> CardsForTemplatesUsabilities(Calculator calculator,
+            int cardsAmount,
+            Dictionary<EventRelationsTemplate, float> templatesUsabilities)
         {
-            float na = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            float mbr = RequestParmeter<MinBackRelations>(calculator).GetValue();
-            float frc = RequestParmeter<FrontRelationsCoef>(calculator).GetValue();
-            float bec_2d = RequestParmeter<BlockEventsCoef_2D>(calculator).GetValue();
-            List<float> raa_2d = RequestParmeter<RelationsAmountAllocation_2D>(calculator).GetValue();
-
             var cards = new List<EventCard>();
+            var ordered = templatesUsabilities.OrderByDescending(kvp => kvp.Value);
+            var templates = ordered.Select(kvp => kvp.Key).ToList();
+            var usabilities = ordered.Select(kvp => kvp.Value).ToList();
+            var groupsAmounts = AmountsForAllocation(cardsAmount, usabilities);
 
-            int cardAmount = (int)Math.Round(na * frc);
-            int blockerAmount = (int)Math.Round(cardAmount * bec_2d);
-            int blockerCounter = 0;
-
-            for (int i = 0; i < raa_2d.Count(); i++)
+            for (int groupIter = 0; groupIter < groupsAmounts.Count(); groupIter++)
             {
-                // Generate cards with current relations amount
-                var relationsAmount = (int)(mbr + i + 1);
-                var raCardAmountF = raa_2d[i] / raa_2d.Sum() * cardAmount;
-                var raBlockerAmountF = raa_2d[i] / raa_2d.Sum() * blockerAmount;
-
-                var raCardAmount = (int)Math.Round(raCardAmountF);
-                var raBlockerAmount = (int)Math.Round(raBlockerAmountF);
-                if (i == raa_2d.Count() - 1)
+                for (int cardIter = 0; cardIter < groupsAmounts[groupIter]; cardIter++)
                 {
-                    raCardAmount = cardAmount - cards.Count;
-                    raBlockerAmount = blockerAmount - blockerCounter;
+                    var card = new EventCard();
+                    card.relations = templates[groupIter].instantiateByReasons();
+                    card.usability = usabilities[groupIter];
+                    cards.Add(card);
                 }
-                blockerCounter += raBlockerAmount;
-
-                var raCards = new List<EventCard>();
-                var directionsAllocations = new List<(int backAmount, int frontAmount)>();
-
-                for (int j = 0; j < relationsAmount; j++)
-                {
-                    if (j >= mbr)
-                        directionsAllocations.Add((j, relationsAmount - j));
-                }
-
-                // Generate blockers bit-mask
-                int currentBlockMask = 0;
-                int blockMaskStep = (int)Math.Round((1 << relationsAmount) / (float)raCardAmount);
-                blockMaskStep = blockMaskStep == 0 ? 1 : blockMaskStep;
-
-                var raBlockersCounter = 0;
-                for (int j = 0; j < directionsAllocations.Count; j++)
-                {
-                    // Generate cards with current directions allocation
-                    var (backAmount, frontAmount) = directionsAllocations[j];
-                    var daCardAmount = (int)Math.Round(raCardAmount / (float)directionsAllocations.Count);
-                    var daBlockerAmount = (int)Math.Round(raBlockerAmount / (float)directionsAllocations.Count);
-                    if (j == directionsAllocations.Count - 1)
-                    {
-                        daCardAmount = raCardAmount - raCards.Count;
-                        daBlockerAmount = raBlockerAmount - raBlockersCounter;
-                    }
-                    raBlockersCounter += daBlockerAmount;
-
-                    int daBlockerCounter = 0;
-                    for (int cardIter = 0; cardIter < daCardAmount; cardIter++)
-                    {
-                        bool hasFrontBlocker = false;
-                        var relations = new List<EventRelation>();
-                        for (int relIter = 0; relIter < relationsAmount; relIter++)
-                        {
-                            RelationDirection direction = relIter < backAmount ? RelationDirection.back : RelationDirection.front;
-                            bool isBlocker = (currentBlockMask & (1 << relIter)) != 0;
-                            if (direction == RelationDirection.front)
-                                if (daBlockerCounter == daBlockerAmount)
-                                    isBlocker = false;
-                                else if (!hasFrontBlocker)
-                                    isBlocker = true;
-
-                            if (isBlocker && direction == RelationDirection.front)
-                                hasFrontBlocker = true;
-
-                            RelationType type = isBlocker ? RelationType.blocker : RelationType.reason;
-                            EventRelation relation = new EventRelation(type, direction, 0);
-                            relations.Add(relation);
-                        }
-
-                        ArrangeRelations(relations);
-                        var card = new EventCard();
-                        card.relations = relations;
-                        raCards.Add(card);
-
-                        daBlockerCounter += hasFrontBlocker ? 1 : 0;
-                        currentBlockMask += blockMaskStep;
-                    }
-                }
-                cards.AddRange(raCards);
             }
 
             return cards;
         }
 
-        private List<EventCard> OnlyBackCards(Calculator calculator, int cardAmount)
+        private void SetRelationsTypes(List<EventCard> deck, Calculator calculator)
         {
-            float mbr = RequestParmeter<MinBackRelations>(calculator).GetValue();
-            float brc_ob = RequestParmeter<BlockRelationsCoef_OB>(calculator).GetValue();
-            List<float> raa_ob = RequestParmeter<RelationsAmountAllocation_OB>(calculator).GetValue();
-            List<float> mbca_ob = RequestParmeter<MultyblockCardsAllocation_OB>(calculator).GetValue();
+            var fbc = RequestParmeter<FrontBlockerCoefficient>(calculator).GetValue();
+            var bbc = RequestParmeter<BackBlockerCoefficient>(calculator).GetValue();
 
-            var cards = new List<EventCard>();
+            if (!calculationReport.IsSuccess)
+                return;
 
-            for (int raIter = 0; raIter < raa_ob.Count(); raIter++)
+            SetRelationsTypes(RelationDirection.back, bbc);
+            SetRelationsTypes(RelationDirection.front, fbc);
+        }
+
+        private void SetRelationsTypes(RelationDirection direction, float blockerChance)
+        {
+            Func<EventCard, RelationDirection, int> dirAmount = (e, d) => e.relations.Where(r => r.direction == d).Count();
+            var grouping = deck.GroupBy(e => dirAmount(e, direction)).Where( g => g.Key != 0);
+
+            var types = new List<RelationType> { RelationType.reason, RelationType.blocker };
+            var typesChances = new Dictionary<RelationType, float>
             {
-                // Generate cards with current relations amount
-                var relationsAmount = raIter + (int)mbr;
-                var raCardAmountF = raa_ob[raIter] / raa_ob.Sum() * cardAmount;
-                var raBlockerAmountF = raCardAmountF * relationsAmount * brc_ob;
+                {RelationType.blocker, blockerChance},
+                {RelationType.reason, 1 - blockerChance},
+            };
 
-                var raCardAmount = (int)Math.Round(raCardAmountF);
-                var raBlockerAmount = (int)Math.Round(raBlockerAmountF);
-                if (raIter == raa_ob.Count() - 1)
-                    raCardAmount = cardAmount - cards.Count;
-
-                var raCards = new List<EventCard>();
-
-                var multyblockRelAllocation = new float[relationsAmount];
-                for (int blockersIter = 0; blockersIter < relationsAmount && blockersIter < mbca_ob.Count(); blockersIter++)
-                    multyblockRelAllocation[blockersIter] = (blockersIter + 1) * mbca_ob[blockersIter];
-
-                for (int blockersPerCard = 1; blockersPerCard <= relationsAmount; blockersPerCard++)
-                {
-                    var allCardsBlockers = multyblockRelAllocation[blockersPerCard - 1] / multyblockRelAllocation.Sum() * raBlockerAmount;
-                    var blockersCradsAmoutn = (int)Math.Round(allCardsBlockers / blockersPerCard);
-                    var blcokersCard = BackOnlyCards(blockersCradsAmoutn, relationsAmount, blockersPerCard);
-                    raCards.AddRange(blcokersCard);
-                }
-
-                var noBlockersCardAmount = raCardAmount - raCards.Count;
-                var noBlcokersCard = BackOnlyCards(noBlockersCardAmount, relationsAmount, 0);
-                raCards.AddRange(noBlcokersCard);
-
-                cards.AddRange(raCards);
+            foreach (var group in grouping)
+            {
+                var cards = group.ToList();
+                var combinations = MathAdditional.combinations(types, group.Key);
+                var chances = combinations.Select(c => MathAdditional.combinationChance(c, typesChances)).ToList();
+                var amounts = AmountsForAllocation(group.Count(), chances).ToList();
+                Action<EventCard, List<RelationType>> combinationSetter = 
+                    (e, c) => ApplyRealtionsTypesCombination(e, direction, c);
+                Setter.EvenDistributionSet(cards, combinations, amounts, combinationSetter);
             }
-
-            return cards;
         }
 
-        private List<EventCard> BackOnlyCards(int cardsAmount, int relationsAmount, int blockersPerCardAmount)
+        private void ApplyRealtionsTypesCombination(
+            EventCard card,
+            RelationDirection handleDirection,
+            List<RelationType> combination)
         {
-            var cards = new List<EventCard>();
-            int currentBlockMask = 0;
-            for (int cardIter = 0; cardIter < cardsAmount; cardIter++) {
+            var handlable = card.relations.Where(r => r.direction == handleDirection).ToList();
+            if (handlable.Count() != combination.Count())
+                return;
 
-                while (BlockersAtMask(currentBlockMask, relationsAmount) != blockersPerCardAmount)
-                    currentBlockMask++;
-
-                var relations = new List<EventRelation>();
-                for (int relIter = 0; relIter < relationsAmount; relIter++)
-                {
-                    bool isBlocker = (currentBlockMask & (1 << relIter)) != 0;
-                    RelationType type = isBlocker ? RelationType.blocker : RelationType.reason;
-                    EventRelation relation = new EventRelation(type, RelationDirection.back, 0);
-                    relations.Add(relation);
-                }
-
-                ArrangeRelations(relations);
-                var card = new EventCard();
-                card.relations = relations;
-                cards.Add(card);
-
-                currentBlockMask++;
+            for (int i = 0; i < combination.Count(); i++)
+            {
+                handlable[i].type = combination[i];
             }
-
-            return cards;
-        }
-
-        private int BlockersAtMask(int mask, int relationsAmount)
-        {
-            int blockersAtMask = 0;
-            for (int relIter = 0; relIter < relationsAmount; relIter++)
-                if ((mask & (1 << relIter)) != 0)
-                    blockersAtMask++;
-
-            return blockersAtMask;
         }
 
         private void PairReasons(List<EventCard> deck, Calculator calculator)
@@ -371,19 +281,24 @@ namespace ModelAnalyzer.Parameters.Events
             return groups;
         }
 
-        private int[] AmountsForAllocation (float cna, List<float> allocation)
+        private int[] AmountsForAllocation (float totalAmount, List<float> allocation)
         {
             int[] amounts = new int[allocation.Count()];
+            float roundCredit = 0;
             for (int i = 0; i < allocation.Count(); i++)
             {
-                var amount = cna * allocation[i] / allocation.Sum();
+                if (allocation[i] == 0)
+                    continue;
+
+                var amount = totalAmount * allocation[i] / allocation.Sum() + roundCredit;
                 amounts[i] = (int)Math.Round(amount, MidpointRounding.AwayFromZero);
+                roundCredit = amount - amounts[i];
             }
 
-            if (amounts.Sum() != cna)
+            if (amounts.Sum() != totalAmount)
             {
                 calculationReport.Failed(roundingIssue);
-                return null;
+                return new int[0];
             }
 
             return amounts;
@@ -432,9 +347,9 @@ namespace ModelAnalyzer.Parameters.Events
                 }
             }
 
-            foreach (int stabilityBonus in sequence)
-                if (amounts[stabilityBonus] > 0)
-                    return stabilityBonus;
+            foreach (int value in sequence)
+                if (amounts[value] > 0)
+                    return value;
 
             return 0;
         }

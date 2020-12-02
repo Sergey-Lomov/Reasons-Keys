@@ -2,13 +2,11 @@
 using System.Linq;
 using System.Collections.Generic;
 
-using ModelAnalyzer.Services.FieldAnalyzer;
-
 namespace ModelAnalyzer.DataModels
 {
     using EventRelations = List<EventRelation>;
 
-    enum RelationDirection { back, front }
+    enum RelationDirection { back, front, none }
     enum RelationType { reason, blocker, paired_reason }
 
     internal class EventConstraints
@@ -43,29 +41,6 @@ namespace ModelAnalyzer.DataModels
             unavailableRadiuses.Clear();
             for (int i = maxAvailableRadius + 1; i <= totalMaxRadius; i++)
                 unavailableRadiuses.Add(i);
-        }
-    }
-
-    internal class EventRelation : IEquatable<EventRelation>
-    {
-        internal const int MaxRelationPosition = Field.nearesNodesAmount;
-
-        internal RelationType type;
-        internal RelationDirection direction;
-        internal int position; // 0 - bottom and another clockwise
-
-        public EventRelation(RelationType type, RelationDirection direction, int position)
-        {
-            this.type = type;
-            this.direction = direction;
-            this.position = position;
-        }
-
-        public bool Equals(EventRelation other)
-        {
-            return type == other.type
-                && direction == other.direction
-                && position == other.position;
         }
     }
 

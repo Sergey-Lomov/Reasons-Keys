@@ -33,6 +33,13 @@ namespace ModelAnalyzer.UI
             { RelationType.blocker, "Б" }
         };
 
+        readonly Dictionary<RelationDirection, string> directionsTitles = new Dictionary<RelationDirection, string>()
+        {
+            { RelationDirection.none, "" },
+            { RelationDirection.back, "↓" },
+            { RelationDirection.front, "↑" }
+        };
+
         public EventsDeckDetailsForm()
         {
             InitializeComponent();
@@ -113,7 +120,7 @@ namespace ModelAnalyzer.UI
         {
             return new Label()
             {
-                Text = relationsTitles[relation.type],
+                Text = relationsTitles[relation.type] + directionsTitles[relation.direction],
                 MinimumSize = new Size(relationWidth, rowHeight),
                 MaximumSize = new Size(relationWidth, rowHeight),
                 TextAlign = ContentAlignment.MiddleCenter

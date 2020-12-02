@@ -1,11 +1,11 @@
 ﻿namespace ModelAnalyzer.Parameters.Events
 {
-    class FrontRelationsCoef : FloatSingleParameter
+    class FrontEventsCoef : FloatSingleParameter
     {
-        public FrontRelationsCoef()
+        public FrontEventsCoef()
         {
             type = ParameterType.In;
-            title = "Коэф. связей вперед";
+            title = "Коэф. событий со связями вперед";
             details = "Определяет как много карт континуума должны иметь связи вперед";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);

@@ -47,6 +47,9 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
             var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator, report).GetValue();
             var deck = RequestParmeter<MainDeck>(calculator, report);
 
+            if (!report.IsSuccess)
+                return report;
+
             var sizes = new List<int>();
             var unluckyChances = new List<float>();
             var luckyChances = new List<float>();
@@ -56,9 +59,6 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
                 var stack = StackFor(playersAmount, maxpa, deck.deck, eusc, mlsc, report);
                 stacks.Add(stack);
             }
-
-            if (!report.IsSuccess)
-                return report;
 
             return report;
         }

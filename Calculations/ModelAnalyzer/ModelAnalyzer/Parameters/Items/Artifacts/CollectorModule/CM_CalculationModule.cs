@@ -177,6 +177,9 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             for (int i = 0; i < combination.Count(); i++)
             {
                 var bonus = combination[i];
+                if (!availableBonuses.ContainsKey(bonus))
+                    continue;
+                
                 var bonusChance = availableBonuses[bonus] / availableBonuses.Values.Sum();
                 bonusChance = bonusChance > 0 ? bonusChance : 0;
                 bonusesChance *= bonusChance;

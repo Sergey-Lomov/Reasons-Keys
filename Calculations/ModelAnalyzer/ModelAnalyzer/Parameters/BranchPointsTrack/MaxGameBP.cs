@@ -24,15 +24,15 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float ketbp = RequestParmeter<KeyEventsTotalBrachPoints>(calculator).GetValue();
-            DeckParameter mainDeck = RequestParmeter<MainDeck>(calculator);
-
-            var positiveBp = new BranchPoint(0, 1);
-            int cpea = mainDeck.deck.Where(c => c.branchPoints.ContainsBranchPoint(positiveBp)).Count();
+            var maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            var ketbp = RequestParmeter<KeyEventsTotalBrachPoints>(calculator).GetValue();
+            var mainDeck = RequestParmeter<MainDeck>(calculator);
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
+
+            var positiveBp = new BranchPoint(0, 1);
+            int cpea = mainDeck.deck.Where(c => c.branchPoints.ContainsBranchPoint(positiveBp)).Count();
 
             value = unroundValue = maxpa - 1 + ketbp + cpea;
 

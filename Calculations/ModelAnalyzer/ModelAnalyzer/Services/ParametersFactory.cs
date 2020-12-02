@@ -88,9 +88,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageMiningBonus());
             storage.AddParameter(parameter: new AveragePositiveRealisationChance());
             storage.AddParameter(parameter: new AverageStabilityBonus());
+            storage.AddParameter(parameter: new BackBlockerCoefficient());
             storage.AddParameter(parameter: new BackRelationIgnoringChance());
-            storage.AddParameter(parameter: new BlockEventsCoef_2D());
-            storage.AddParameter(parameter: new BlockRelationsCoef_OB());
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
@@ -100,12 +99,14 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());
             storage.AddParameter(parameter: new EventMinMiningBonus());
+            storage.AddParameter(parameter: new FrontBlockerCoefficient());
             storage.AddParameter(parameter: new FrontBlockersInEstimatedDeck());
             storage.AddParameter(parameter: new FrontReasonsInEstimatedDeck());
-            storage.AddParameter(parameter: new FrontRelationsCoef());
+            storage.AddParameter(parameter: new FrontEventsCoef());
             storage.AddParameter(parameter: new MaxContinuumBPDeviation());
             storage.AddParameter(parameter: new MinBackRelations());
             storage.AddParameter(parameter: new MinigForBalanceAverageStability());
+            storage.AddParameter(parameter: new MinRelationsTemplateUsability());
             storage.AddParameter(parameter: new MultyblockCardsAllocation_OB());
             storage.AddParameter(parameter: new Pairing2Coef());
             storage.AddParameter(parameter: new Pairing3Coef());
@@ -158,6 +159,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MinDistancesPairsAmount_AA());
             storage.AddParameter(parameter: new NodesAvailableBackRelations());
             storage.AddParameter(parameter: new NodesNearestAmount());
+            storage.AddParameter(parameter: new RoundNodesAmount());
             storage.AddParameter(parameter: new RoutesMap());
 
             // Player initial state

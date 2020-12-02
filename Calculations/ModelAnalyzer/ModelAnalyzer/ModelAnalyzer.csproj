@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\BranchPointsSet.cs" />
+    <Compile Include="DataModels\EventRelation.cs" />
+    <Compile Include="DataModels\NodeRelationsTemplate.cs" />
+    <Compile Include="DataModels\EventRelationsTemplate.cs" />
     <Compile Include="Parameters\Activities\ArtifactDischargeCoef.cs" />
     <Compile Include="Parameters\Activities\ArtifactsDischargeCompensation.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventsConcreteBranchPoints.cs" />
@@ -96,15 +99,18 @@
     <Compile Include="Parameters\Events\AverageEventStability.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
     <Compile Include="Parameters\Events\AveragePositiveRealisationChance.cs" />
+    <Compile Include="Parameters\Events\BackBlockerCoefficient.cs" />
     <Compile Include="Parameters\Events\BackRelationIgnoringChance.cs" />
     <Compile Include="Parameters\Events\BranchPointsRandomizationLimit.cs" />
     <Compile Include="Parameters\Events\ChainStabilityLimit.cs" />
+    <Compile Include="Parameters\Events\FrontBlockerCoefficient.cs" />
     <Compile Include="Parameters\Events\FrontBlockersInEstimatedDeck.cs" />
     <Compile Include="Parameters\Events\FrontReasonsInEstimatedDeck.cs" />
     <Compile Include="Parameters\Events\MainDeck.cs" />
     <Compile Include="Parameters\Events\MaxContinuumBPDeviation.cs" />
     <Compile Include="Parameters\Events\MinigForBalanceAverageStability.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
+    <Compile Include="Parameters\Events\MinRelationsTemplateUsability.cs" />
     <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
     <Compile Include="Parameters\Events\Weight\BackRelationsWeightCoef.cs" />
     <Compile Include="Parameters\Events\Weight\FrontRelationsWeightCoef.cs" />
@@ -209,6 +215,7 @@
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\Topology\MinDistancesPairsAmount_AA.cs" />
     <Compile Include="Parameters\Topology\NodesNearestAmount.cs" />
+    <Compile Include="Parameters\Topology\RoundNodesAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />
     <Compile Include="Services\CalculationModule.cs" />
@@ -218,6 +225,7 @@
     <Compile Include="Services\EventCardsAnalizer.cs" />
     <Compile Include="Services\EventRelationsFactory.cs" />
     <Compile Include="Services\Extensions.cs" />
+    <Compile Include="Services\FieldAnalyzer\NodeTopologyType.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldFabric.cs" />
@@ -225,10 +233,12 @@
     <Compile Include="Services\FieldAnalyzer\FieldRoute.cs" />
     <Compile Include="Parameters\DigitalParameter.cs" />
     <Compile Include="Parameters\ParameterTag.cs" />
+    <Compile Include="Services\FieldAnalyzer\NodesAnalyzer.cs" />
     <Compile Include="Services\FloatStringConverter.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialAtackEventMaxRadius.cs" />
     <Compile Include="Services\MathAdditional.cs" />
     <Compile Include="Services\OperationReport.cs" />
+    <Compile Include="Services\Setter.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,8 +301,6 @@
     <Compile Include="Parameters\Items\ArtifactsAvaliabilityPhase.cs" />
     <Compile Include="Parameters\Events\ArtifactsRarity.cs" />
     <Compile Include="Parameters\Events\AverageStabilityBonus.cs" />
-    <Compile Include="Parameters\Events\BlockEventsCoef_2D.cs" />
-    <Compile Include="Parameters\Events\BlockRelationsCoef_OB.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation_Standard.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation_Symmetric.cs" />
@@ -301,7 +309,7 @@
     <Compile Include="Parameters\Events\EventMiningBonusAllocation.cs" />
     <Compile Include="Parameters\Events\EventMinMiningBonus.cs" />
     <Compile Include="Parameters\Events\MainDeckCore.cs" />
-    <Compile Include="Parameters\Events\FrontRelationsCoef.cs" />
+    <Compile Include="Parameters\Events\FrontEventsCoef.cs" />
     <Compile Include="Parameters\Events\EventMaxMiningBonus.cs" />
     <Compile Include="Parameters\Events\MinBackRelations.cs" />
     <Compile Include="Parameters\Events\MultyblockCardsAllocation_OB.cs" />

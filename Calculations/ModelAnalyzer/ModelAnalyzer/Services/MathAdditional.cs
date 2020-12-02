@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ModelAnalyzer.Services
 {
@@ -28,7 +30,48 @@ namespace ModelAnalyzer.Services
             return result;
         }
 
-        internal static double combination(int chosen, int total)
+        internal static List<List<T>> combinations<T>(List<T> availableValues, 
+            int length,
+            List<T> initial = null)
+        {
+            if (initial == null)
+                initial = new List<T>();
+
+            var results = new List<List<T>>();
+            if (length == 0)
+            {
+                return results;
+            }
+
+            foreach (var value in availableValues)
+            {
+                var extended = new List<T>(initial);
+                extended.Add(value);
+
+                if (extended.Count == length)
+                {
+                    results.Add(extended);
+                } else
+                {
+                    var subcombinations = combinations(availableValues, length, extended);
+                    results.AddRange(subcombinations);
+                }
+            }
+
+            return results;
+        }
+
+        internal static float combinationChance<T>(List<T> combination, Dictionary<T, float> valuesChances)
+        {
+            float chance = 1;
+            foreach (var value in combination)
+            {
+                chance *= valuesChances[value];
+            }
+            return chance;
+        }
+
+        internal static double combinationsAmount(int chosen, int total)
         {
             return Factorial(total) / Factorial(chosen) / Factorial(total - chosen);
         }

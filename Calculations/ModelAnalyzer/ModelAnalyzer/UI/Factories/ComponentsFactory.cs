@@ -81,7 +81,7 @@ namespace ModelAnalyzer.UI.Factories
                 Text = title,
                 Font = headerFont,
                 Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft,
+                TextAlign = ContentAlignment.MiddleCenter,
                 Padding = UIConstants.labelsPadding
             };
         }
