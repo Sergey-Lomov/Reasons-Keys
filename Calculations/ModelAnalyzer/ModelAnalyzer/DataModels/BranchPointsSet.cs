@@ -141,6 +141,12 @@ namespace ModelAnalyzer.DataModels
             return branches;
         }
 
+        public bool HasPositivePoints()
+        {
+            var positive = all().Where(bp => bp.point > 0);
+            return positive.Count() > 0;
+        }
+
         public override int GetHashCode()
         {
             unchecked

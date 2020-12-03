@@ -96,6 +96,12 @@ namespace ModelAnalyzer.Parameters.Events
             while (ordered.Count() > 0 && amount < estimatedAmount)
             {
                 var candidate = ordered.First();
+                if (candidate.branchPoints.HasPositivePoints())
+                {
+                    ordered.Remove(candidate);
+                    continue;
+                }
+
                 var cartage = EventCardsAnalizer.FirstFullCartage(candidate, ordered, maxpa);
                 if (cartage == null)
                 {
