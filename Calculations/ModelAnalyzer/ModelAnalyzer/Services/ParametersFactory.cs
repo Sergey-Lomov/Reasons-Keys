@@ -107,11 +107,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MinBackRelations());
             storage.AddParameter(parameter: new MinigForBalanceAverageStability());
             storage.AddParameter(parameter: new MinRelationsTemplateUsability());
-            storage.AddParameter(parameter: new MultyblockCardsAllocation_OB());
             storage.AddParameter(parameter: new Pairing2Coef());
             storage.AddParameter(parameter: new Pairing3Coef());
-            storage.AddParameter(parameter: new RelationsAmountAllocation_2D());
-            storage.AddParameter(parameter: new RelationsAmountAllocation_OB());
             storage.AddParameter(parameter: new StabilityBonusAllocation());
 
             // Events weight
