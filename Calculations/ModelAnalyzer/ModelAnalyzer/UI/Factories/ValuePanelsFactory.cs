@@ -28,6 +28,8 @@ namespace ModelAnalyzer.UI.Factories
                 AddRoutesMap(routesMap, panel, advanced, clickHandler);
             if (p is PairsArrayParameter pairsArray)
                 AddPairsArray(pairsArray, panel, advanced, clickHandler);
+            if (p is FieldNodesParameter fieldNodes)
+                AddFieldNodes(fieldNodes, panel, advanced, clickHandler);
 
             return panel;
         }
@@ -68,6 +70,13 @@ namespace ModelAnalyzer.UI.Factories
         private void AddRoutesMap(RoutesMap p, Panel panel, bool advanced, EventHandler clickHandler)
         {
             var text = string.Format("{0} путей", p.GetRoutesAmount());
+            AddLabel(text, DockStyle.Fill, panel, clickHandler);
+        }
+
+        private void AddFieldNodes(FieldNodesParameter p, Panel panel, bool advanced, EventHandler clickHandler)
+        {
+            int amount = p.VerifyValue() ? p.field.Keys.Count() : 0;
+            var text = string.Format("{0} узлов", amount);
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 

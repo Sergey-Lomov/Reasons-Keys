@@ -8,7 +8,7 @@ namespace ModelAnalyzer.Parameters
 {
     abstract class DeckParameter : Parameter
     {
-        const string valueStub = "Колода";
+        const string stringRepresentationStub = "Колода";
         internal List<EventCard> deck = null;
 
         internal override Parameter Copy()
@@ -44,7 +44,7 @@ namespace ModelAnalyzer.Parameters
 
         public override string StringRepresentation()
         {
-            return valueStub;
+            return stringRepresentationStub;
         }
 
         public int RelationsAmount(RelationType type, RelationDirection direction)

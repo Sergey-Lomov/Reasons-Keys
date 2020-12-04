@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Windows.Forms;
 
 using ModelAnalyzer.Parameters;
 
-namespace ModelAnalyzer.UI
+namespace ModelAnalyzer.UI.DetailsForms
 {
     public partial class PairsArrayDetailsForm : Form, IParameterDetailsForm
     {

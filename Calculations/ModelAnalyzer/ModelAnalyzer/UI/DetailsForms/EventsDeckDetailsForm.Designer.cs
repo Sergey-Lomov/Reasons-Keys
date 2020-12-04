@@ -1,4 +1,4 @@
-﻿namespace ModelAnalyzer.UI
+﻿namespace ModelAnalyzer.UI.DetailsForms
 {
     partial class EventsDeckDetailsForm
     {

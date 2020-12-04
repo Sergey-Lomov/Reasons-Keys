@@ -9,7 +9,7 @@ using ModelAnalyzer.Services;
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Parameters;
 
-namespace ModelAnalyzer.UI
+namespace ModelAnalyzer.UI.DetailsForms
 {
     public partial class EventsDeckDetailsForm : Form, IParameterDetailsForm
     {

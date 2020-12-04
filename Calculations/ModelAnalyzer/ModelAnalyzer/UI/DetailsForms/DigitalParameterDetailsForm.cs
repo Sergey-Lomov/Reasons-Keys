@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
 
-namespace ModelAnalyzer.UI
+namespace ModelAnalyzer.UI.DetailsForms
 {
     public partial class DigitalParameterDetailsForm : Form, IParameterDetailsForm
     {

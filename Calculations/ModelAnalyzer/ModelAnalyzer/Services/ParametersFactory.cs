@@ -153,6 +153,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BackEdgesAmount());
             storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new FieldRadius());
+            storage.AddParameter(parameter: new FrontBlockersMap());
             storage.AddParameter(parameter: new MinDistancesPairsAmount_AA());
             storage.AddParameter(parameter: new NodesAvailableBackRelations());
             storage.AddParameter(parameter: new NodesNearestAmount());

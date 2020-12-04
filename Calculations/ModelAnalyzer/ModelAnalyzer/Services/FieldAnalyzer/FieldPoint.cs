@@ -61,5 +61,10 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
                 return hash;
             }
         }
+
+        public int radius()
+        {
+            return new List<int> { x, y, z }.Select(v => Math.Abs(v)).Max();
+        }
     }
 }

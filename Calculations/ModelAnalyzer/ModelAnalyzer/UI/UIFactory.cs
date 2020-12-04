@@ -8,6 +8,7 @@ using ModelAnalyzer.Parameters;
 using ModelAnalyzer.Parameters.Topology;
 
 using ModelAnalyzer.UI.Factories;
+using ModelAnalyzer.UI.DetailsForms;
 
 namespace ModelAnalyzer.UI
 {
@@ -26,6 +27,7 @@ namespace ModelAnalyzer.UI
             detailsFormsTypes.Add(typeof(RoutesMap), typeof(DigitalParameterDetailsForm));   
             detailsFormsTypes.Add(typeof(PairsArrayParameter), typeof(PairsArrayDetailsForm));
             detailsFormsTypes.Add(typeof(DeckParameter), typeof(EventsDeckDetailsForm));
+            detailsFormsTypes.Add(typeof(FieldNodesParameter), typeof(FieldNodesDetailsForm));
         }
 
         public ParameterEditForm EditFormForParameter (Parameter parameter)
