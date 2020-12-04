@@ -28,8 +28,8 @@ namespace ModelAnalyzer.UI.Factories
                 AddRoutesMap(routesMap, panel, advanced, clickHandler);
             if (p is PairsArrayParameter pairsArray)
                 AddPairsArray(pairsArray, panel, advanced, clickHandler);
-            if (p is FieldNodesParameter fieldNodes)
-                AddFieldNodes(fieldNodes, panel, advanced, clickHandler);
+            if (p is FieldNodesParameter<float> fieldNodes)
+                AddFieldNodesFloatInfo(fieldNodes, panel, advanced, clickHandler);
 
             return panel;
         }
@@ -73,7 +73,7 @@ namespace ModelAnalyzer.UI.Factories
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 
-        private void AddFieldNodes(FieldNodesParameter p, Panel panel, bool advanced, EventHandler clickHandler)
+        private void AddFieldNodesFloatInfo(FieldNodesParameter<float> p, Panel panel, bool advanced, EventHandler clickHandler)
         {
             int amount = p.VerifyValue() ? p.field.Keys.Count() : 0;
             var text = string.Format("{0} узлов", amount);

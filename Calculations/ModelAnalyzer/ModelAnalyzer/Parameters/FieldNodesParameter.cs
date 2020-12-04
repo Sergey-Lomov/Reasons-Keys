@@ -6,12 +6,14 @@ using ModelAnalyzer.Services.FieldAnalyzer;
 
 namespace ModelAnalyzer.Parameters 
 {
-    class FieldNodesParameter : Parameter
+    abstract class FieldNodesParameter<T> : Parameter
     {
         const string stringRepresentationStub = "Карта поля";
 
-        internal Dictionary<FieldPoint, float> field = null;
+        internal Dictionary<FieldPoint, T> field = null;
         internal int fractionalDigits = 2;
+
+        abstract public float deviationForValue(T value);
 
         public override void SetupByString(string str)
         {
@@ -31,6 +33,6 @@ namespace ModelAnalyzer.Parameters
         protected override void NullifyValue()
         {
             field = null;
-        }
+        }        
     }
 }

@@ -13,6 +13,9 @@ namespace ModelAnalyzer.UI
         public Pen pen;
         public Font font;
 
+        private static int pointsMergeDistance = 5;
+        private List<Point> usedPoints = new List<Point>();
+        
         public FieldDrawwer(Pen pen, Font font) 
         {
             this.pen = pen;
@@ -44,14 +47,25 @@ namespace ModelAnalyzer.UI
         }
 
 
-        public static void drawHexagon(Point center, float radius, Pen pen, Color color, Graphics graphics)
+        public void drawHexagon(Point center, float radius, Pen pen, Color color, Graphics graphics)
         {
+            Func<float, float, float, float, bool> atMergingDistance =
+                (x1, y1, x2, y2) => Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) <= pointsMergeDistance;
             var shape = new Point[6];
             for (int a = 0; a < 6; a++)
             {
                 var x = center.X + radius * (float)Math.Cos(a * 60 * Math.PI / 180f);
                 var y = center.Y + radius * (float)Math.Sin(a * 60 * Math.PI / 180f);
-                shape[a] = new Point((int)x, (int)y);
+                var existPoint = usedPoints.Where(p => atMergingDistance(p.X, p.Y, x, y));
+          /*      if (existPoint.Count() > 0)
+                {
+                    shape[a] = existPoint.First();
+                } else
+                {*/
+                    shape[a] = new Point((int)x, (int)y);
+                    usedPoints.Add(shape[a]);
+               // }
+                
             }
 
             SolidBrush brush = new SolidBrush(color);

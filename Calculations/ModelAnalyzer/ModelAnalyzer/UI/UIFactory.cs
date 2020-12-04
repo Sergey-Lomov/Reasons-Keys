@@ -27,7 +27,7 @@ namespace ModelAnalyzer.UI
             detailsFormsTypes.Add(typeof(RoutesMap), typeof(DigitalParameterDetailsForm));   
             detailsFormsTypes.Add(typeof(PairsArrayParameter), typeof(PairsArrayDetailsForm));
             detailsFormsTypes.Add(typeof(DeckParameter), typeof(EventsDeckDetailsForm));
-            detailsFormsTypes.Add(typeof(FieldNodesParameter), typeof(FieldNodesDetailsForm));
+            detailsFormsTypes.Add(typeof(FieldNodesParameter<float>), typeof(FieldNodesDetailsForm));
         }
 
         public ParameterEditForm EditFormForParameter (Parameter parameter)

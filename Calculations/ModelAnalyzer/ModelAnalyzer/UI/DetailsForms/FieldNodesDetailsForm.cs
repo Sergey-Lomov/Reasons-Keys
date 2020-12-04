@@ -12,10 +12,11 @@ namespace ModelAnalyzer.UI.DetailsForms
     {
         private const int mapInsets = 30;
         private int fieldDiameter;
-        FieldNodesParameter parameter;
+        FieldNodesParameter<float> parameter;
 
         internal Color averageColor = Color.FromArgb(102, 159, 88);
-        internal Color maxDeviationColor = Color.FromArgb(232, 230, 73);
+        internal Color middleDeviationColor = Color.FromArgb(232, 230, 73);
+        internal Color maxDeviationColor = Color.FromArgb(161, 69, 52);
 
         public FieldNodesDetailsForm()
         {
@@ -25,10 +26,10 @@ namespace ModelAnalyzer.UI.DetailsForms
 
         public void SetParameter(Parameter _parameter, ParameterValidationReport validation)
         {
-            if (!(_parameter is FieldNodesParameter))
+            if (!(_parameter is FieldNodesParameter<float>))
                 return;
 
-            parameter = _parameter as FieldNodesParameter;
+            parameter = _parameter as FieldNodesParameter<float>;
             bool isParameterIn = parameter.type == ParameterType.In;
 
             titleLabel.Text = parameter.title;
@@ -53,18 +54,28 @@ namespace ModelAnalyzer.UI.DetailsForms
 
             var averageValue = parameter.field.Values.Distinct().Average();
             var maxDeviation = parameter.field.Values.Select(v => Math.Abs(v - averageValue)).Max();
-            Func<float, float, float, int> gradientPosition = (c1, c2, p) => (int)(c1 + (c2 - c1) * p);
 
             foreach (var pair in parameter.field)
             {
                 var title = pair.Key.x.ToString() + ", " + pair.Key.y.ToString() + ", " + pair.Key.z.ToString();
-                var relativeDeviation = maxDeviation != 0 ? Math.Abs(pair.Value - averageValue) / maxDeviation : 0;
-                var r = gradientPosition(averageColor.R, maxDeviationColor.R, relativeDeviation);
-                var g = gradientPosition(averageColor.G, maxDeviationColor.G, relativeDeviation);
-                var b = gradientPosition(averageColor.B, maxDeviationColor.B, relativeDeviation);
-                var color = Color.FromArgb(r, g, b);
+                var deviation = parameter.deviationForValue(pair.Value);
+                var color = ColorForDeviation(deviation);
                 drawwer.drawPoint(pair.Key, radius, fieldCenter, graphics, color, title);
             }
+        }
+
+        private Color ColorForDeviation(float deviation)
+        {
+            var startColor = deviation < 0.5 ? averageColor : middleDeviationColor;
+            var endColor = deviation < 0.5 ? middleDeviationColor : maxDeviationColor;
+            var normalisedDeviation = deviation < 0.5 ? deviation * 2 : (deviation - 0.5f) * 2;
+
+            Func<float, float, float, int> gradientPosition = (c1, c2, p) => (int)(c1 + (c2 - c1) * p);
+            var r = gradientPosition(startColor.R, endColor.R, normalisedDeviation);
+            var g = gradientPosition(startColor.G, endColor.G, normalisedDeviation);
+            var b = gradientPosition(startColor.B, endColor.B, normalisedDeviation);
+
+            return Color.FromArgb(r, g, b);
         }
     }
 }
