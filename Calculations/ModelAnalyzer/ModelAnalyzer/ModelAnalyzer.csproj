@@ -115,6 +115,7 @@
     <Compile Include="Parameters\Events\Weight\BackRelationsWeightCoef.cs" />
     <Compile Include="Parameters\Events\Weight\FrontRelationsWeightCoef.cs" />
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
+    <Compile Include="Parameters\FieldNodesFloatParameter.cs" />
     <Compile Include="Parameters\FieldNodesParameter.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
     <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MaxLimit.cs" />
@@ -206,7 +207,10 @@
     <Compile Include="Parameters\Timing\FirstRoundAttackers.cs" />
     <Compile Include="Parameters\Timing\SafePeriodDuration.cs" />
     <Compile Include="Parameters\Topology\BackEdgesAmount.cs" />
+    <Compile Include="Parameters\Topology\ContinuumFrontBlockersMap.cs" />
     <Compile Include="Parameters\Topology\FrontBlockersMap.cs" />
+    <Compile Include="Parameters\Topology\FrontBlockersRelativeMap.cs" />
+    <Compile Include="Parameters\Topology\FrontImpactMap.cs" />
     <Compile Include="Parameters\Topology\NodesAvailableBackRelations.cs" />
     <Compile Include="Parameters\Events\StabilityBonusAllocation.cs" />
     <Compile Include="Parameters\General\MinPlayersAmount.cs" />
@@ -216,10 +220,12 @@
     <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\Topology\MinDistancesPairsAmount_AA.cs" />
+    <Compile Include="Parameters\Topology\NodesImpactMap.cs" />
     <Compile Include="Parameters\Topology\NodesNearestAmount.cs" />
     <Compile Include="Parameters\Topology\RoundNodesAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />
+    <Compile Include="Parameters\Topology\StartFrontBlockersMap.cs" />
     <Compile Include="Services\CalculationModule.cs" />
     <Compile Include="Services\Combinations.cs" />
     <Compile Include="Services\DeckXMLGenerator.cs" />
@@ -227,6 +233,7 @@
     <Compile Include="Services\EventCardsAnalizer.cs" />
     <Compile Include="Services\EventRelationsFactory.cs" />
     <Compile Include="Services\Extensions.cs" />
+    <Compile Include="Services\FieldAnalyzer\FieldDirection.cs" />
     <Compile Include="Services\FieldAnalyzer\NodeTopologyType.cs" />
     <Compile Include="Services\FieldAnalyzer\Field.cs" />
     <Compile Include="Services\FieldAnalyzer\FieldAnalyzer.cs" />

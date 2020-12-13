@@ -57,14 +57,14 @@ namespace ModelAnalyzer.UI
                 var x = center.X + radius * (float)Math.Cos(a * 60 * Math.PI / 180f);
                 var y = center.Y + radius * (float)Math.Sin(a * 60 * Math.PI / 180f);
                 var existPoint = usedPoints.Where(p => atMergingDistance(p.X, p.Y, x, y));
-          /*      if (existPoint.Count() > 0)
+                if (existPoint.Count() > 0)
                 {
                     shape[a] = existPoint.First();
                 } else
-                {*/
+                {
                     shape[a] = new Point((int)x, (int)y);
                     usedPoints.Add(shape[a]);
-               // }
+                }
                 
             }
 

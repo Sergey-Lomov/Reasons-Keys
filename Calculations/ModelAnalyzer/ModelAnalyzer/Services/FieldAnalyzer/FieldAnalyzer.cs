@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using ModelAnalyzer.DataModels;
 
 namespace ModelAnalyzer.Services.FieldAnalyzer
@@ -62,6 +65,55 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
                 totalVariants += typeCombinations * roundNodesOfType[nodeType];
             }
             return totalVariants / totalRoundNodes;
+        }
+
+        internal Dictionary<FieldPoint, List<RelationType>> affectedPoints(int fieldPhase, EventCard card, FieldPoint point)
+        {
+            var result = new Dictionary<FieldPoint, List<RelationType>>();
+            var field = phasesFields[fieldPhase];
+            var relations = card.relations;
+
+            Func<EventRelation, int, EventRelation> rotate
+                = (r, i) => new EventRelation(r.type, r.direction, (r.position + i) % Field.nearesNodesAmount);
+            for (int i = 0; i < Field.nearesNodesAmount; i++)
+            {
+                var rotated = relations.Select(r => rotate(r, i)).ToList();
+                if (!relationsValid(rotated, point))
+                    continue;
+
+                foreach (var relation in rotated)
+                {
+                    var fieldDirection = FieldDirection.FromEventRelationPosition(relation.position);
+                    var target = new FieldPoint(point, fieldDirection);
+                    if (!field.points.Contains(point))
+                        continue;
+
+                    if (!result.ContainsKey(target))
+                        result[target] = new List<RelationType>();
+
+                    result[target].Add(relation.type);
+                }
+            }
+            return result;
+        }
+
+        private bool relationsValid(List<EventRelation> relations, FieldPoint point)
+        {
+            foreach (var relation in relations)
+            {
+                if (relation.direction == RelationDirection.none)
+                    continue;
+
+                var fieldDirection = FieldDirection.FromEventRelationPosition(relation.position);
+                var target = new FieldPoint(point, fieldDirection);
+
+                if (relation.direction == RelationDirection.front && target.timestamp <= point.timestamp)
+                    return false;
+                if (relation.direction == RelationDirection.back && target.timestamp >= point.timestamp)
+                    return false;
+            }
+
+            return true;
         }
     }
 }

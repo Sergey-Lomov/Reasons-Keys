@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
 using ModelAnalyzer.Parameters;
+using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.UI.DetailsForms
 {
     public partial class FieldNodesDetailsForm : Form, IParameterDetailsForm
     {
         private const int mapInsets = 30;
+        private Pen pen = new Pen(Color.Black, 2);
+        private Font font = new Font("Helvetica", 12, FontStyle.Bold);
+
         private int fieldDiameter;
-        FieldNodesParameter<float> parameter;
+        FieldNodesFloatParameter parameter;
 
         internal Color averageColor = Color.FromArgb(102, 159, 88);
         internal Color middleDeviationColor = Color.FromArgb(232, 230, 73);
@@ -26,10 +29,10 @@ namespace ModelAnalyzer.UI.DetailsForms
 
         public void SetParameter(Parameter _parameter, ParameterValidationReport validation)
         {
-            if (!(_parameter is FieldNodesParameter<float>))
+            if (!(_parameter is FieldNodesFloatParameter))
                 return;
 
-            parameter = _parameter as FieldNodesParameter<float>;
+            parameter = _parameter as FieldNodesFloatParameter;
             bool isParameterIn = parameter.type == ParameterType.In;
 
             titleLabel.Text = parameter.title;
@@ -41,8 +44,7 @@ namespace ModelAnalyzer.UI.DetailsForms
 
         private void drawMap(object sender, PaintEventArgs e)
         {
-            var drawwer = new FieldDrawwer(new Pen(Color.Black, 2),
-                new Font("Helvetica", 8, FontStyle.Regular));
+            var drawwer = new FieldDrawwer(pen, font);
 
             var fieldCenter = new Point(mapPanel.Bounds.Width / 2, mapPanel.Bounds.Height / 2);
             var graphics = mapPanel.CreateGraphics();
@@ -57,9 +59,9 @@ namespace ModelAnalyzer.UI.DetailsForms
 
             foreach (var pair in parameter.field)
             {
-                var title = pair.Key.x.ToString() + ", " + pair.Key.y.ToString() + ", " + pair.Key.z.ToString();
+                var title = FloatStringConverter.FloatToString(pair.Value, parameter.fractionalDigits);
                 var deviation = parameter.deviationForValue(pair.Value);
-                var color = ColorForDeviation(deviation);
+                var color = deviation >= 0 && deviation <= 1 ? ColorForDeviation(deviation) : Color.White;
                 drawwer.drawPoint(pair.Key, radius, fieldCenter, graphics, color, title);
             }
         }

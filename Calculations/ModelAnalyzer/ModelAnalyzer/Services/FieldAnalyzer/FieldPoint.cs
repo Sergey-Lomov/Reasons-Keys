@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelAnalyzer.Services.FieldAnalyzer
 {
@@ -12,12 +10,96 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
         private const int hashInit = 17;
 
         public int x, y, z;
+        public int timestamp;
+
+        public static FieldPoint center = new FieldPoint(0, 0, 0);
 
         public FieldPoint(int x, int y, int z)
         {
             this.x = x;
             this.y = y;
             this.z = z;
+            timestamp = timestampFor(x, y, z);
+        }
+
+        public FieldPoint(FieldPoint source, FieldDirection direction)
+        {
+            x = source.x + direction.x;
+            y = source.y + direction.y;
+            z = source.z + direction.z;
+            timestamp = timestampFor(x, y, z);
+        }
+
+        private static int timestampFor(int x, int y, int z)
+        {
+            var radius = FieldPoint.radius(x, y, z);
+            if (radius == 0)
+                return 0;
+
+            var preRadiuses = Enumerable.Range(1, radius - 1);
+            var preRadiusTime = preRadiuses.Select(i => i * Field.nearesNodesAmount).Sum();
+            return preRadiusTime + inRadiusTime(x, y, z, radius) + 1;
+        }
+
+        private static int inRadiusTime(int x, int y, int z, int radius)
+        {
+            var inRadiusTime = 0;
+            var cx = 0;
+            var cy = radius;
+            var cz = -radius;
+
+            if (cx == x && cy == y && cz == z)
+                return 0;
+
+            while (cy > 0)
+            {
+                cx += 1; cy -= 1;
+                inRadiusTime++;
+                if (cx == x && cy == y && cz == z)
+                    return inRadiusTime;
+            }
+
+            while (cz < 0)
+            {
+                cy -= 1; cz += 1;
+                inRadiusTime++;
+                if (cx == x && cy == y && cz == z)
+                    return inRadiusTime;
+            }
+
+            while (cx > 0)
+            {
+                cx -= 1; cz += 1;
+                inRadiusTime++;
+                if (cx == x && cy == y && cz == z)
+                    return inRadiusTime;
+            }
+
+            while (cy < 0)
+            {
+                cx -= 1; cy += 1;
+                inRadiusTime++;
+                if (cx == x && cy == y && cz == z)
+                    return inRadiusTime;
+            }
+
+            while (cz > 0)
+            {
+                cy += 1; cz -= 1;
+                inRadiusTime++;
+                if (cx == x && cy == y && cz == z)
+                    return inRadiusTime;
+            }
+
+            while (cx < 0)
+            {
+                cx += 1; cz -= 1;
+                inRadiusTime++;
+                if (cx == x && cy == y && cz == z)
+                    return inRadiusTime;
+            }
+
+            return inRadiusTime;
         }
 
         public HashSet<FieldPoint> nearest()
@@ -63,6 +145,11 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
         }
 
         public int radius()
+        {
+            return radius(x, y, z);
+        }
+
+        private static int radius(int x, int y, int z)
         {
             return new List<int> { x, y, z }.Select(v => Math.Abs(v)).Max();
         }

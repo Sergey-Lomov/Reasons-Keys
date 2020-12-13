@@ -224,7 +224,8 @@ namespace ModelAnalyzer.UI
             if (details != null)
             {
                 details.TopLevel = true;
-                details.ShowDialog();
+                details.Text = parameter.title;
+                details.Show();
             }
         }
 

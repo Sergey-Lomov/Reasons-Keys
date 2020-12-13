@@ -11,7 +11,6 @@ namespace ModelAnalyzer.Parameters
         const string stringRepresentationStub = "Карта поля";
 
         internal Dictionary<FieldPoint, T> field = null;
-        internal int fractionalDigits = 2;
 
         abstract public float deviationForValue(T value);
 

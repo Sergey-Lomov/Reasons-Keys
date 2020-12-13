@@ -151,14 +151,18 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageDistance());
             storage.AddParameter(parameter: new AveragePhasesDistance());
             storage.AddParameter(parameter: new BackEdgesAmount());
+            storage.AddParameter(parameter: new ContinuumFrontBlockersMap());
             storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new FieldRadius());
             storage.AddParameter(parameter: new FrontBlockersMap());
+            storage.AddParameter(parameter: new FrontBlockersRelativeMap());
+            storage.AddParameter(parameter: new FrontImpactMap());
             storage.AddParameter(parameter: new MinDistancesPairsAmount_AA());
             storage.AddParameter(parameter: new NodesAvailableBackRelations());
             storage.AddParameter(parameter: new NodesNearestAmount());
             storage.AddParameter(parameter: new RoundNodesAmount());
             storage.AddParameter(parameter: new RoutesMap());
+            storage.AddParameter(parameter: new StartFrontBlockersMap());
 
             // Player initial state
             storage.AddParameter(parameter: new InitialAtackEventMaxRadius());

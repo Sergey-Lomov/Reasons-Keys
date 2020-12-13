@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.titleLabel = new System.Windows.Forms.Label();
-            this.detailsLabel = new System.Windows.Forms.Label();
             this.mapPanel = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.detailsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -45,23 +44,23 @@
             this.titleLabel.Text = "Title";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // mapPanel
+            // 
+            this.mapPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mapPanel.Location = new System.Drawing.Point(0, 132);
+            this.mapPanel.Name = "mapPanel";
+            this.mapPanel.Size = new System.Drawing.Size(784, 729);
+            this.mapPanel.TabIndex = 3;
+            // 
             // detailsLabel
             // 
             this.detailsLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsLabel.Location = new System.Drawing.Point(0, 32);
             this.detailsLabel.Name = "detailsLabel";
-            this.detailsLabel.Padding = new System.Windows.Forms.Padding(20, 0, 0, 10);
-            this.detailsLabel.Size = new System.Drawing.Size(784, 23);
+            this.detailsLabel.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.detailsLabel.Size = new System.Drawing.Size(784, 100);
             this.detailsLabel.TabIndex = 2;
             this.detailsLabel.Text = "Details";
-            // 
-            // mapPanel
-            // 
-            this.mapPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mapPanel.Location = new System.Drawing.Point(0, 55);
-            this.mapPanel.Name = "mapPanel";
-            this.mapPanel.Size = new System.Drawing.Size(784, 806);
-            this.mapPanel.TabIndex = 3;
             // 
             // FieldNodesDetailsForm
             // 
@@ -72,7 +71,6 @@
             this.Controls.Add(this.detailsLabel);
             this.Controls.Add(this.titleLabel);
             this.Name = "FieldNodesDetailsForm";
-            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
@@ -80,8 +78,7 @@
         #endregion
 
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label detailsLabel;
         private System.Windows.Forms.Panel mapPanel;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label detailsLabel;
     }
 }
