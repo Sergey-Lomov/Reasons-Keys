@@ -63,6 +63,7 @@ const circularKeyEventBPLayerName = "CircularKeyEventBP";
 const failedBPLayerName = "FailedBP";
 const successBPLayerName = "SuccessBP";
 const hasValueGroupName = "HasValue";
+const hasValueIconLayerName = "Icon";
 const noValueLayerName = "Empty";
 const valueLayerName = "Value";
 const playersColorsLayerName = "PlayersColors";
@@ -88,7 +89,7 @@ const idValue = "Value";
 var outputInit = "/d/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0/%D0%91%D1%83%D0%BC%D0%B0%D0%B3%D0%B0/%D0%9A%D0%BB%D1%8E%D1%87%D0%B8%20%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD/%D0%A3%D0%BF%D1%80%D0%BE%D1%89%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/%D0%9A%D0%B0%D1%80%D1%82%D1%8B";
 var filesPrefix = "card";
 var useCircular = true;
-var showSystemInfo = true;
+var showSystemInfo = false;
 var previewMode = true;
 var saveAI = true;
 const maxPlayers = 6;
@@ -164,46 +165,46 @@ function HandleOrientatedNumberValue (orientatedGroup, value)
 function HandleBrachPoints (mainLayerName, useCircular, value, doc)
 {
     var mainLayer = doc.layers.getByName(mainLayerName);
-    var circularLayer = mainLayer.layers.getByName(circularName);
-    var orientatedLayer = mainLayer.layers.getByName(orientatedName);
-    circularLayer.visible = useCircular;
-    orientatedLayer.visible = !useCircular;
-    var modeLayer = useCircular ? circularLayer : orientatedLayer;
     
-    var noValueLayer = modeLayer.layers.getByName(noValueLayerName);
-    var hasValueGroup = modeLayer.groupItems.getByName(hasValueGroupName);
+    var noValueLayer = mainLayer.layers.getByName(noValueLayerName);
+    var hasValueLayer = mainLayer.layers.getByName(hasValueGroupName);
     var items = value.child(bpElement);
     noValueLayer.visible = items.length() == 0;
-    hasValueGroup.hidden = items.length() == 0;    
+    hasValueLayer.visible = items.length() != 0;    
     
     if (items.length() != 0) 
     {
         var branch = items[0].child(branchElement);
         var points = items[0].child(pointsElement);    
 
-        var playersColorsGroup = hasValueGroup.groupItems.getByName(playersColorsLayerName);
+        var playersColorsLayer = hasValueLayer.layers.getByName(playersColorsLayerName);
+        var iconLayer = hasValueLayer.layers.getByName(hasValueIconLayerName);
+        var branch = parseInt (branch.toString());
+
         for (var i = -1; i < maxPlayers; i++)
         {
-            var playerColorItem = playersColorsGroup.pathItems.getByName(playersColorsPrefix + i);
-            playerColorItem.hidden = i != parseInt (branch.toString());
+            var playerColorLayer = playersColorsLayer.layers.getByName(playersColorsPrefix + i);
+            playerColorLayer.visible = i == branch;
         }
         
         if (useCircular) 
         {
-            HandleCircularPoints(hasValueGroup, points);
+            HandleCircularPoints(hasValueLayer, points);
         } 
         else 
         {
-            HandleOrientatedPoints (hasValueGroup, points);
+            HandleOrientatedPoints (hasValueLayer, points);
         }
+    
+        iconLayer.visible = branch != -1;
     }
 }
  
-function HandleCircularPoints (mainGroup, points) 
+function HandleCircularPoints (mainLayer, points) 
 {
-    var signGroup = mainGroup.groupItems.getByName(signGroupName);
-    var positivePath = signGroup.pathItems.getByName(positivePointsPathName);
-    var negativePath = signGroup.pathItems.getByName(negativePointsPathName);
+    var signLayer = mainLayer.layers.getByName(signGroupName);
+    var positivePath = signLayer.pathItems.getByName(positivePointsPathName);
+    var negativePath = signLayer.pathItems.getByName(negativePointsPathName);
     positivePath.hidden = points < 0;
     negativePath.hidden = points > 0;
 }
