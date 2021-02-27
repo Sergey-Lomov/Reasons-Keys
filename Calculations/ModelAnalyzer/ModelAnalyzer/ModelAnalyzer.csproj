@@ -328,8 +328,7 @@
     <Compile Include="Parameters\Events\FrontEventsCoef.cs" />
     <Compile Include="Parameters\Events\EventMaxMiningBonus.cs" />
     <Compile Include="Parameters\Events\MinBackRelations.cs" />
-    <Compile Include="Parameters\Events\Pairing2Coef.cs" />
-    <Compile Include="Parameters\Events\Pairing3Coef.cs" />
+    <Compile Include="Parameters\Events\PairingCoef.cs" />
     <Compile Include="Parameters\Topology\FieldRadius.cs" />
     <Compile Include="Parameters\General\MaxPlayersAmount.cs" />
     <Compile Include="Parameters\Mining\AverageMining.cs" />

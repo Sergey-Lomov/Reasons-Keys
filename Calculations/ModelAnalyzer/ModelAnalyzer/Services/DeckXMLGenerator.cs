@@ -22,6 +22,7 @@ namespace ModelAnalyzer.Services
         private static string siElement = "stability_bonus";
         private static string paElement = "provides_artifact";
         private static string isKeyElement = "is_key";
+        private static string isPairedElement = "is_paired";
         private static string mscElement = "min_stability_constraint";
         private static string urcElement = "unavailable_radiuses_constraint";
         private static string weightElement = "weight";
@@ -48,7 +49,6 @@ namespace ModelAnalyzer.Services
         private static Dictionary<RelationType, string> typesStrings = new Dictionary<RelationType, string> {
             { RelationType.blocker, "blocker"},
             { RelationType.reason, "reason"},
-            { RelationType.paired_reason, "paired_reason"}
          };
 
         private static Dictionary<RelationDirection, string> directionsStrings = new Dictionary<RelationDirection, string> {
@@ -88,6 +88,7 @@ namespace ModelAnalyzer.Services
             writer.WriteElementString(siElement, card.stabilityBonus.ToString());
             writer.WriteElementString(paElement, card.provideArtifact.ToString());
             writer.WriteElementString(isKeyElement, card.isKey.ToString());
+            writer.WriteElementString(isPairedElement, card.isPairedReasons.ToString());
             writer.WriteElementString(mscElement, card.constraints.minStability.ToString());
             writer.WriteElementString(weightElement, card.weight.ToString("F0"));
             writer.WriteElementString(usabilityElement, card.usability.ToString("F1"));

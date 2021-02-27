@@ -85,7 +85,7 @@ namespace ModelAnalyzer.Services
             var relations = card.relations.Where(rel => isBack(rel));
             var b = (double)relations.Where(rel => rel.type == RelationType.blocker).Count();
             var r = (double)relations.Where(rel => rel.type == RelationType.reason).Count();
-            var pr = (double)relations.Where(rel => rel.type == RelationType.paired_reason).Count();
+            var pr = 0; //TODO: Update formula regarding to new pairing reasons concept
 
             var aab = b * (1 - bric) + afba;
             var aar = r * (1 - bric) + afra;

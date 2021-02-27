@@ -9,6 +9,7 @@ const mbElement = "mining_bonus";
 const siElement = "stability_bonus";
 const paElement = "provides_artifact";
 const isKeyElement = "is_key";
+const isPairedElement = "is_paired";
 const mscElement = "min_stability_constraint";
 const urcElement = "unavailable_radiuses_constraint";
 const weightElement = "weight";
@@ -43,6 +44,8 @@ const orientatedName = "Orientated";
 const circularName = "Circular";
 const orientatedTextFrameName = "Value"
 const circularValuesGroupName = "Values";
+
+const pairingIndicatorLayer = "Pairing";
 
 const keyIndicatorLayer = "KeyIndicator";
 const keyEventBarierLeayer = "KeyEventBarier";
@@ -278,8 +281,8 @@ function HandleRelations (relations, doc)
           backGroup.hidden = !isBack;
           frontGroup.hidden = isBack;
           
-          var pairedReasonPath = reasonGroup.pathItems.getByName(pairedPathName)
-          pairedReasonPath.hidden = type != pairedReasonType;
+ /*         var pairedReasonPath = reasonGroup.pathItems.getByName(pairedPathName)
+          pairedReasonPath.hidden = type != pairedReasonType;*/
  /*         if (relation.child(typeElement).toString() == pairedReasonType)
           {
               minPaired = minPaired < parseInt (position) && minPaired  != -1 ? minPaired : parseInt (position);
@@ -464,6 +467,7 @@ function HandleCard (card, doc, folder)
       var si = card.child(siElement);
       var pa = card.child(paElement);
       var isKey = card.child(isKeyElement);
+      var isPaired = card.child(isPairedElement);
       var msc = card.child(mscElement);
       var urc = card.child(urcElement);
       var weight = card.child(weightElement);
@@ -480,6 +484,7 @@ function HandleCard (card, doc, folder)
       HandleMarkup(useCircular, doc);
       
       HandleBoolValue(keyEventBarierLeayer, isKey, doc);
+      HandleBoolValue(pairingIndicatorLayer, isPaired, doc);
       HandleBoolValue(artifactIndicatorLayer, pa, doc);
       
       //HandleTextValue(minStabilityConstraintLayer, minStabilityConstraintValue, msc, doc);

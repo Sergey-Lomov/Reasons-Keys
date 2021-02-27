@@ -36,7 +36,7 @@ namespace ModelAnalyzer.Parameters.Events
             try
             {
                 SetRelationsTypes(deck, calculator);
-               // PairReasons(deck, calculator);
+                PairReasons(deck, calculator);
                 UpdateDeckWeight(calculator);
                 AddStabilityBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);
@@ -171,52 +171,17 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void PairReasons(List<EventCard> deck, Calculator calculator)
         {
-            float p2c = RequestParmeter<Pairing2Coef>(calculator).GetValue();
-            float p3c = RequestParmeter<Pairing3Coef>(calculator).GetValue();
-
-            var p2available = new List<EventCard>();
-            var p3available = new List<EventCard>();
-
-            foreach (EventCard card in deck)
+            float pc = RequestParmeter<PairingCoef>(calculator).GetValue();
+            var filtered = deck.Where(c => c.hasBackReason()).OrderBy(c => c.weight).ToList();
+            int pairedCount = (int)Math.Round(deck.Count() * pc, MidpointRounding.AwayFromZero);
+            int step = (int)Math.Floor(filtered.Count() / (float)pairedCount);
+            step = step < 1 ? 1 : step;
+            int index = step;
+            while (index < filtered.Count())
             {
-                var availableReasons = card.relations.Where(r => r.type == RelationType.reason && r.direction == RelationDirection.back);
-                if (availableReasons.Count() == 2)
-                    p2available.Add(card);
-                else if (availableReasons.Count() == 3)
-                    p3available.Add(card);
+                filtered[index].isPairedReasons = true;
+                index += step;
             }
-
-            PairReasonsWithCoef(p2available, p2c);
-            PairReasonsWithCoef(p3available, p3c);
-        }
-
-        private void PairReasonsWithCoef(List<EventCard> cards, float pairingCoefficient)
-        {
-            float accamulator = 0;
-            float step = 1 / pairingCoefficient;
-            int iter = 0;
-            int counter = 0;
-            while (counter < cards.Count * pairingCoefficient)
-            {
-                if (accamulator >= step)
-                {
-                    accamulator -= step;
-                    counter++;
-                    var card = cards[iter];
-                    PairReasons(card);
-                }
-
-                iter++;
-                iter = iter < cards.Count ? iter : 0;
-                accamulator++;
-            }
-        }
-
-        private void PairReasons(EventCard card)
-        {
-            foreach (EventRelation relation in card.relations)
-                if (relation.direction == RelationDirection.back && relation.type == RelationType.reason)
-                    relation.type = RelationType.paired_reason;
         }
 
         private void AddStabilityBonuses(List<EventCard> cards, Calculator calculator)

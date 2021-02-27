@@ -7,7 +7,7 @@ namespace ModelAnalyzer.DataModels
     using EventRelations = List<EventRelation>;
 
     enum RelationDirection { back, front, none }
-    enum RelationType { reason, blocker, paired_reason }
+    enum RelationType { reason, blocker}
 
     internal class EventConstraints
     {
@@ -67,6 +67,7 @@ namespace ModelAnalyzer.DataModels
         internal int miningBonus = 0;
         internal bool provideArtifact = false;
         internal bool isKey = false;
+        internal bool isPairedReasons = false;
 
         internal EventConstraints constraints = new EventConstraints();
 
@@ -88,6 +89,7 @@ namespace ModelAnalyzer.DataModels
             miningBonus = card.miningBonus;
             provideArtifact = card.provideArtifact;
             isKey = card.isKey;
+            isPairedReasons = card.isPairedReasons;
 
             weight = card.weight;
             usability = card.usability;
@@ -104,7 +106,13 @@ namespace ModelAnalyzer.DataModels
                 && miningBonus == other.miningBonus
                 && provideArtifact == other.provideArtifact
                 && isKey == other.isKey
+                && isPairedReasons == other.isPairedReasons
                 && branchPoints == other.branchPoints;
+        }
+
+        public bool hasBackReason()
+        {
+            return relations.Where(r => r.direction == RelationDirection.back && r.type == RelationType.reason).Count() > 0;
         }
     }
 }

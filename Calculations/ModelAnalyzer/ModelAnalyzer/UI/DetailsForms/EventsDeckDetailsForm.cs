@@ -29,7 +29,6 @@ namespace ModelAnalyzer.UI.DetailsForms
         readonly Dictionary<RelationType, string> relationsTitles = new Dictionary<RelationType, string>()
         {
             { RelationType.reason, "П" },
-            { RelationType.paired_reason, "С-П" },
             { RelationType.blocker, "Б" }
         };
 
@@ -101,6 +100,7 @@ namespace ModelAnalyzer.UI.DetailsForms
                     DeckTable.Controls.Add(label);
                 }
 
+                DeckTable.Controls.Add(LabelForBool(card.isPairedReasons));
                 DeckTable.Controls.Add(LabelForBool(card.provideArtifact));
                 DeckTable.Controls.Add(LabelForInt(card.stabilityBonus));
                 DeckTable.Controls.Add(LabelForInt(card.miningBonus));
@@ -230,6 +230,13 @@ namespace ModelAnalyzer.UI.DetailsForms
                 MaximumSize = new Size(indexWidth, rowHeight),
                 TextAlign = ContentAlignment.MiddleCenter
             };
+        }
+
+        private void pairedLabel_Click(object sender, EventArgs e)
+        {
+            order = c => c.isPairedReasons;
+            reverse = !reverse;
+            UpdateCardsTable();
         }
 
         private void deckArtifactLabel_Click(object sender, EventArgs e)
