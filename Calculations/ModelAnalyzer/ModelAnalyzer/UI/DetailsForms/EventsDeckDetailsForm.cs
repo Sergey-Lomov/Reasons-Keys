@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ModelAnalyzer.Services;
 using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Parameters;
+using ModelAnalyzer.Parameters.Events;
 
 namespace ModelAnalyzer.UI.DetailsForms
 {
@@ -20,6 +21,10 @@ namespace ModelAnalyzer.UI.DetailsForms
         private readonly string emptyStub = "-";
         private readonly string issueItemPrefix = "- ";
         private readonly int maxRadius = 4;
+        private readonly string exportWarningMessage = "Перед экспортом колоды нужно проверить:";
+        private readonly List<Parameter> exportWarningParameters = new List<Parameter>() {
+            new BranchPointsDisbalance(),
+        };
 
         private List<Control> predefinedControls;
         private List<EventCard> deck;
@@ -111,7 +116,6 @@ namespace ModelAnalyzer.UI.DetailsForms
                 DeckTable.Controls.Add(LabelForRadiusesConstraint(card.constraints.unavailableRadiuses));
                 DeckTable.Controls.Add(LabelForInt(card.constraints.minStability));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
-                DeckTable.Controls.Add(LabelForFloat(card.positiveRealisationChance));
                 DeckTable.Controls.Add(LabelForString(card.comment));
             }
         }
@@ -318,19 +322,21 @@ namespace ModelAnalyzer.UI.DetailsForms
 
         private void GenerateXMLButton_Click(object sender, EventArgs e)
         {
+            string warning = exportWarningMessage;
+            foreach (var param in exportWarningParameters)
+            {
+                warning += "\n - " + param.title;
+            }
+
+            if (exportWarningParameters.Count > 0)
+                MessageBox.Show(warning);
+
             if (saveXMLDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             
             string filename = saveXMLDialog.FileName;
 
             DeckXMLGenerator.GenerateXML(deck, filename);
-        }
-
-        private void PRClabel_Click(object sender, EventArgs e)
-        {
-            order = c => c.positiveRealisationChance;
-            reverse = !reverse;
-            UpdateCardsTable();
         }
     }
 }

@@ -5,9 +5,8 @@ namespace ModelAnalyzer.Services
     class Dichotomiser
     {
         public double epsilon = 0.01F;
-        //       float iterationLimit = 1000;
-        public Func<double, double> func;
-        public double left, right;
+        public Func<double, double> func = d => d;
+        public double left = 0, right = 0;
 
         public double calculate()
         {

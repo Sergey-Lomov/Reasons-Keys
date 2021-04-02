@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 using ModelAnalyzer.Services;
-using ModelAnalyzer.Parameters.General;
-using ModelAnalyzer.Parameters.Timing;
-using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
-using ModelAnalyzer.Parameters.Items.Artifacts;
+using ModelAnalyzer.Parameters.Moving;
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 {
@@ -31,56 +28,30 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
         {
             var report = new ModuleCalculationReport(this);
 
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator, report).GetValue();
-            float csl = RequestParmeter<ChainStabilityLimit>(calculator, report).GetValue();
             float eip = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
-            float ra = RequestParmeter<RoundAmount>(calculator, report).GetValue();
-            float aar = RequestParmeter<ArtifactsAvailabilityRound>(calculator, report).GetValue();
-            float nkeca = RequestParmeter<NokeyEventCreationAmount>(calculator, report).GetValue();
+            float rip = RequestParmeter<RelationImpactPower>(calculator, report).GetValue();
             float frwc = RequestParmeter<FrontRelationsWeightCoef>(calculator, report).GetValue();
-            float minpa = RequestParmeter<MinPlayersAmount>(calculator, report).GetValue();
-            float maxpa = RequestParmeter<MaxPlayersAmount>(calculator, report).GetValue();
+            float mp = RequestParmeter<MotionPrice>(calculator, report).GetValue();
             float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
-            List<float> mdpa = RequestParmeter<MinDistancesPairsAmount_AA>(calculator, report).GetValue();
+            int minr = (int)RequestParmeter<LN_MinRadius>(calculator, report).GetValue();
+            int maxr = (int)RequestParmeter<LN_MaxRadius>(calculator, report).GetValue();
 
             if (!report.IsSuccess)
                 return report;
 
-            float fea = (minpa + maxpa) / 2 * nkeca;
-            float vea = fea * (1 + aar / ra) / 2;
-            float ncsc = 1 / csl;
+            Func<int, float> unround_uc = r => eapr / (r * mp + eip * rip * frwc);
+            Func<int, int> uc = r => (int)Math.Round(unround_uc(r), MidpointRounding.AwayFromZero);
+            Func<int, float> apr = r => (r * mp + eip * rip * frwc) * uc(r);
+            Func<int, float> delta = r => Math.Abs(eapr - apr(r));
 
-            int range = minRange;
-            float oupr = 0;
+            int best_r = minr;
 
-            int best_range = 1;
-            float best_oupr = 0;
-            int best_ua = 0;
+            for (int r = minr; r <= maxr; r++)
+                best_r = delta(r) < delta(best_r) ? r : best_r;
 
-            while (range <= maxRange && oupr < eapr * 2)
-            {
-                float validPairsSum = 0;
-                for (int i = 0; i < range; i++)
-                    validPairsSum += mdpa[i];
-
-                float rc = validPairsSum / mdpa.Sum();
-                float nec = rc * vea * ncsc;
-
-                oupr = (csl - 1) * eip * frwc * nec;
-                int ua = (int)Math.Round(eapr / oupr, MidpointRounding.AwayFromZero);
-                if (Math.Abs(eapr - oupr * ua) < Math.Abs(eapr - best_oupr * best_ua))
-                {
-                    best_range = range;
-                    best_ua = ua;
-                    best_oupr = oupr;
-                }
-
-                range++;
-            }
-
-            this.range = best_range;
-            this.connectinosAmount = best_ua;
-            this.oneUsageProfit = best_oupr;
+            range = best_r;
+            connectinosAmount = uc(best_r);
+            oneUsageProfit = best_r * mp + eip * rip * frwc;
 
             return report;
         }

@@ -141,4 +141,10 @@ namespace ModelAnalyzer.DataModels
             return new EventRelationsVariant("NNNNNN").instantiateByReasons();
         }
     }
+
+    class RelationsTemplateUsageInfo
+    {
+        public int cardsCount;
+        public float usability;
+    }
 }

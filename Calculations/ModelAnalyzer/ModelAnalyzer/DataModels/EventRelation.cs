@@ -12,6 +12,27 @@ namespace ModelAnalyzer.DataModels
         internal RelationDirection direction;
         internal int position; // 0 - bottom and another clockwise
 
+        public static EventRelation BackReason(int position)
+        {
+            return new EventRelation(RelationType.reason, RelationDirection.back, position);
+        }
+
+        public static EventRelation FrontReason(int position)
+        {
+            return new EventRelation(RelationType.reason, RelationDirection.front, position);
+        }
+
+        public static EventRelation BackBlocker(int position)
+        {
+            return new EventRelation(RelationType.blocker, RelationDirection.back, position);
+        }
+
+        public static EventRelation FrontBlocker(int position)
+        {
+            return new EventRelation(RelationType.blocker, RelationDirection.front, position);
+        }
+
+
         public EventRelation(RelationType type, RelationDirection direction, int position)
         {
             this.type = type;

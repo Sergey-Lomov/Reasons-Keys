@@ -1,19 +1,19 @@
 ﻿using System.Linq;
-
+using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Services;
 
 namespace ModelAnalyzer.Parameters.Events
 {
-    class MaxContinuumBPDeviation : FloatSingleParameter
+    class BranchPointsDisbalance : FloatSingleParameter
     {
         private const float criticalValue = 0.05f;
         private const string bigValueIssue = "Отклонение слишком велико, нужно увеличить параметр \"Кол-во итераций при балансировке очков ветвей\"";
 
-        public MaxContinuumBPDeviation()
+        public BranchPointsDisbalance()
         {
             type = ParameterType.Indicator;
-            title = "Максимальное отклонение очков ветви в континууме";
-            details = "Этот параметр отражает максимальное относительное отклонение среди значений параметра “Среднее кол-во очков ветви в континууме” от среднего арифметического этих значений. Например если “Максимальное отклонение очков ветви в континууме” имеет значение 0.15, это означает, что колода позволяет одной из ветвей получать очки на 15% легче, чем это дается среднестатистической ветви.";
+            title = "Дисбаланс очков ветвей";
+            details = "Этот параметр отражает то, насколько самой легкой из ветвей легче выиграть, чем самой тяжелой";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);
             tags.Add(ParameterTag.branchPoints);
@@ -23,12 +23,15 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var acbp = RequestParmeter<AverageContinuumBP>(calculator).GetValue();
+            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
+            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            var deck = RequestParmeter<MainDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            value = unroundValue = acbp.Deviation() / acbp.Average();
+            var stabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
+            value = unroundValue = EventCardsAnalizer.BrancheDisbalance(deck, stabilities, maxpa);
 
             return calculationReport;
         }

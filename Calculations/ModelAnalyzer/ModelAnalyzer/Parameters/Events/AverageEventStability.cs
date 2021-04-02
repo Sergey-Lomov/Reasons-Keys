@@ -18,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Events
             calculationReport = new ParameterCalculationReport(this);
 
             float abs = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
-            float acs = RequestParmeter<AverageChainStability>(calculator).GetValue();
+            float acs = RequestParmeter<AverageRelationsImpactPower>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

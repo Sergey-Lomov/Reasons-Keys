@@ -31,8 +31,6 @@
             this.DeckTable = new System.Windows.Forms.TableLayoutPanel();
             this.deckIndexLabel = new System.Windows.Forms.Label();
             this.deckRelationsLabel = new System.Windows.Forms.Label();
-            this.deckCommentLabel = new System.Windows.Forms.Label();
-            this.PRClabel = new System.Windows.Forms.Label();
             this.deckWeightLabel = new System.Windows.Forms.Label();
             this.minStavilityLabel = new System.Windows.Forms.Label();
             this.minPhaseLabel = new System.Windows.Forms.Label();
@@ -44,6 +42,7 @@
             this.deckSILabel = new System.Windows.Forms.Label();
             this.deckArtifactLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.deckCommentLabel = new System.Windows.Forms.Label();
             this.issuesPamel = new System.Windows.Forms.Panel();
             this.issuesLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,7 +58,7 @@
             this.DeckTable.AutoScroll = true;
             this.DeckTable.AutoSize = true;
             this.DeckTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeckTable.ColumnCount = 20;
+            this.DeckTable.ColumnCount = 19;
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -78,12 +77,10 @@
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 313F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367F));
+            this.DeckTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
             this.DeckTable.Controls.Add(this.deckIndexLabel, 0, 0);
             this.DeckTable.Controls.Add(this.deckRelationsLabel, 1, 0);
-            this.DeckTable.Controls.Add(this.deckCommentLabel, 19, 0);
-            this.DeckTable.Controls.Add(this.PRClabel, 18, 0);
             this.DeckTable.Controls.Add(this.deckWeightLabel, 17, 0);
             this.DeckTable.Controls.Add(this.minStavilityLabel, 16, 0);
             this.DeckTable.Controls.Add(this.minPhaseLabel, 14, 0);
@@ -95,6 +92,7 @@
             this.DeckTable.Controls.Add(this.deckSILabel, 9, 0);
             this.DeckTable.Controls.Add(this.deckArtifactLabel, 8, 0);
             this.DeckTable.Controls.Add(this.label1, 7, 0);
+            this.DeckTable.Controls.Add(this.deckCommentLabel, 18, 0);
             this.DeckTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DeckTable.Location = new System.Drawing.Point(0, 23);
             this.DeckTable.Name = "DeckTable";
@@ -131,37 +129,6 @@
             this.deckRelationsLabel.TabIndex = 1;
             this.deckRelationsLabel.Text = "Связи";
             this.deckRelationsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // deckCommentLabel
-            // 
-            this.deckCommentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.deckCommentLabel.AutoSize = true;
-            this.deckCommentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deckCommentLabel.Location = new System.Drawing.Point(814, 10);
-            this.deckCommentLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.deckCommentLabel.Name = "deckCommentLabel";
-            this.deckCommentLabel.Size = new System.Drawing.Size(307, 114);
-            this.deckCommentLabel.TabIndex = 10;
-            this.deckCommentLabel.Text = "Комментарий";
-            this.deckCommentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PRClabel
-            // 
-            this.PRClabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PRClabel.AutoSize = true;
-            this.PRClabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PRClabel.Location = new System.Drawing.Point(760, 10);
-            this.PRClabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.PRClabel.Name = "PRClabel";
-            this.PRClabel.Size = new System.Drawing.Size(48, 114);
-            this.PRClabel.TabIndex = 14;
-            this.PRClabel.Text = "PRC";
-            this.PRClabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.PRClabel.Click += new System.EventHandler(this.PRClabel_Click);
             // 
             // deckWeightLabel
             // 
@@ -329,6 +296,21 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.pairedLabel_Click);
             // 
+            // deckCommentLabel
+            // 
+            this.deckCommentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deckCommentLabel.AutoSize = true;
+            this.deckCommentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deckCommentLabel.Location = new System.Drawing.Point(760, 10);
+            this.deckCommentLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.deckCommentLabel.Name = "deckCommentLabel";
+            this.deckCommentLabel.Size = new System.Drawing.Size(361, 114);
+            this.deckCommentLabel.TabIndex = 10;
+            this.deckCommentLabel.Text = "Комментарий";
+            this.deckCommentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // issuesPamel
             // 
             this.issuesPamel.AutoSize = true;
@@ -418,7 +400,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button GenerateXMLButton;
         private System.Windows.Forms.SaveFileDialog saveXMLDialog;
-        private System.Windows.Forms.Label PRClabel;
         private System.Windows.Forms.Label minRadius;
         private System.Windows.Forms.Label successBPLabel;
         private System.Windows.Forms.Label label1;

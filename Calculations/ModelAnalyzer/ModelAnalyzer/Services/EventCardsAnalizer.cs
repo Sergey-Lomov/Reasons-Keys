@@ -33,7 +33,8 @@ namespace ModelAnalyzer.Services
         {
             float frwc = calculator.UpdatedParameter<FrontRelationsWeightCoef>().GetValue();
             float brwc = calculator.UpdatedParameter<BackRelationsWeightCoef>().GetValue();
-            float aсs = calculator.UpdatedParameter<AverageChainStability>().GetValue();
+            var aripc = calculator.UpdatedParameter<AverageRelationsImpactPerCount>().GetValue();
+            float rip = calculator.UpdatedParameter<RelationImpactPower>().GetValue();
             float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
             float eun = calculator.UpdatedParameter<EventUsabilityNormalisation>().GetValue();
 
@@ -44,7 +45,12 @@ namespace ModelAnalyzer.Services
             float usability = RelationsUsability(relations, calculator);
             float noramalisedUsability = 1 + (usability - 1) * eun;
 
-            return aсs * eip * noramalisedUsability * rtwc;
+            int backCount = relations.Where(r => r.direction == RelationDirection.back).Count();
+
+            if (backCount >= aripc.Count)
+                throw new Exception("Constant AverageRelationImpactCoefficient have less items, then some card back relations count");
+
+            return aripc[backCount] * rip * eip * noramalisedUsability * rtwc;
         }
 
         static public float RelationsUsability(List<EventRelation> relations, Calculator calculator)
@@ -79,24 +85,60 @@ namespace ModelAnalyzer.Services
                 card.minPhaseConstraint = (int)aap.GetValue();*/
         }
 
-        static internal double PositiveRealisationChance(EventCard card, double aprc, double afra, double afba, double bric)
+        static internal Dictionary<EventCard, float> CardsStabilities(List<EventCard> deck, List<float> aripc)
         {
-            bool isBack(EventRelation rel) => rel.direction == RelationDirection.back;
-            var relations = card.relations.Where(rel => isBack(rel));
-            var b = (double)relations.Where(rel => rel.type == RelationType.blocker).Count();
-            var r = (double)relations.Where(rel => rel.type == RelationType.reason).Count();
-            var pr = 0; //TODO: Update formula regarding to new pairing reasons concept
+            float cardStability(EventCard c) => c.stabilityBonus + aripc[c.backRelationsCount()];
+            return deck.ToDictionary(c => c, c => cardStability(c));
+        }
 
-            var aab = b * (1 - bric) + afba;
-            var aar = r * (1 - bric) + afra;
-            var aapr = pr * (1 - bric);
+        static internal float BrancheDisbalance(List<EventCard> deck, 
+            Dictionary<EventCard, float> stabilities,
+            int maxpa,
+            List<BranchPointsSet> bpSets = null)
+        {
+            if (bpSets == null)
+            {
+                bpSets = deck.Select(c => c.branchPoints).ToList();
+            }
 
-            var anrc = 1 - aprc;
-            var bComponent = aab <= 1 ? 1 - aprc * aab : Math.Pow(anrc, aab);
-            var rComponent = aar <= 1 ? 1 - anrc * aar : 1 - Math.Pow(anrc, aar);
-            var prComponent = aapr <= 1 ? 1 - anrc * aapr : Math.Pow(aprc, aapr);
+            List<float> playerPositiveStability = Enumerable.Repeat(0f, maxpa).ToList();
+            List<float> playerNegativeStability = Enumerable.Repeat(0f, maxpa).ToList();
+            List<float> playerForwardUsability = Enumerable.Repeat(0f, maxpa).ToList();
+            for (int j = 0; j < deck.Count(); j++)
+            {
+                var card = deck[j];
+                var stability = stabilities[card];
+                var branchPoints = bpSets[j].failed.Concat(bpSets[j].success);
+                foreach (var bp in branchPoints)
+                {
+                    var targetList = bp.point > 0 ? playerPositiveStability : playerNegativeStability;
+                    targetList[bp.branch] += stability;
+                }
 
-            return bComponent * rComponent * prComponent;
+                if (card.frontRelationsCount() == 0) continue;
+
+                var winners = branchPoints.Where(bp => bp.point > 0).Select(bp => bp.branch).ToList();
+                if (winners.Count > 0)
+                {
+                    foreach (var player in winners)
+                        playerForwardUsability[player] += card.usability;
+                } else
+                {
+                    var loosers = branchPoints.Where(bp => bp.point < 0).Select(bp => bp.branch).ToList();
+                    foreach (var player in Enumerable.Range(0, maxpa))
+                        if (!loosers.Contains(player))
+                            playerForwardUsability[player] += card.usability;
+                }
+            }
+
+            float relatedDevoition(List<float> list) => (list.Max() - list.Min()) / list.Average();
+            var devoitions = new List<float>() {
+                relatedDevoition(playerPositiveStability),
+                relatedDevoition(playerNegativeStability),
+                relatedDevoition(playerForwardUsability)
+            };
+
+            return devoitions.Max();
         }
 
         static internal List<float> PointsByAppend(List<float> points, EventCard card)
@@ -110,12 +152,12 @@ namespace ModelAnalyzer.Services
             foreach (var bp in bpSet.success)
             {
                 float point = sign ? bp.point : Math.Abs(bp.point);
-                newPoints[bp.branch] += point * card.positiveRealisationChance;
+                newPoints[bp.branch] += point * 0.5f;
             }
             foreach (var bp in bpSet.failed)
             {
                 float point = sign ? bp.point : Math.Abs(bp.point);
-                newPoints[bp.branch] += point * (1 - card.positiveRealisationChance);
+                newPoints[bp.branch] += point * 0.5f;
             }
             return newPoints;
         }

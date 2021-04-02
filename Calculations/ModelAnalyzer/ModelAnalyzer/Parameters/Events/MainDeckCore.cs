@@ -12,10 +12,6 @@ namespace ModelAnalyzer.Parameters.Events
 {
     class MainDeckCore : DeckParameter
     {
-        private readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
-
-        readonly int sidesAmount = Field.nearesNodesAmount;
-
         public MainDeckCore()
         {
             type = ParameterType.Inner;
@@ -53,69 +49,25 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<EventCard> InitialDeckWithRelationTemplates(Calculator calculator)
         {
-            var na = (int)RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            var pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
-            var fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            var rna = RequestParmeter<RoundNodesAmount>(calculator).GetValue();
-            var fec = RequestParmeter<FrontEventsCoef>(calculator).GetValue();
-            var mrtu = RequestParmeter<MinRelationsTemplateUsability>(calculator).GetValue();
-            var emr = (int)RequestParmeter<EventMaxRelations>(calculator).GetValue();
-            var mbr = (int)RequestParmeter<MinBackRelations>(calculator).GetValue();
+            var rtu = RequestParmeter<RelationTemplatesUsage>(calculator).GetNoZero();
 
             if (!calculationReport.IsSuccess)
                 return new List<EventCard>();
 
-            var fieldAnalyzer = new FieldAnalyzer(phasesCount: pd.Count);
-            var intPd = pd.Select(v => (int)v).ToList();
-            fieldAnalyzer.templateUsabilityPrecalculations(intPd, fr);
-            Func<EventRelationsTemplate, float> usability = t => fieldAnalyzer.templateUsability(t, rna);
+            deck = new List<EventCard>();
 
-            deck = new List<EventCard>(na);
-            var allDirectionsTemplates = EventRelationsTemplate.allTemplates(sidesAmount);
-            var templatesUsability = allDirectionsTemplates.ToDictionary(t => t, t => usability(t));
-            var filteredTemplates = templatesUsability.Where(kvp => kvp.Value >= mrtu).ToList();
-
-            Func<EventRelationsTemplate, bool> minRelValid = t => t.directionsAmount() > 0;
-            Func<EventRelationsTemplate, bool> maxRelValid = t => t.directionsAmount() <= emr;
-            Func<EventRelationsTemplate, bool> minBackValid = t => t.backAmount() >= mbr;
-            Func<EventRelationsTemplate, bool> validate = t => minRelValid(t) && maxRelValid(t) && minBackValid(t);
-            filteredTemplates = filteredTemplates.Where(kvp => validate(kvp.Key)).ToList();
-            var templates_2d = filteredTemplates.Where(p => p.Key.containsFront()).ToDictionary(p => p.Key, p => p.Value);
-            var templates_ob = filteredTemplates.Where(p => !p.Key.containsFront()).ToDictionary(p => p.Key, p => p.Value);
-
-            var cardsAmount_2d = (int)Math.Round(na * fec, MidpointRounding.AwayFromZero);
-            var cards_2d = CardsForTemplatesUsabilities(calculator, cardsAmount_2d, templates_2d);
-            int cardsAmount_ob = na - cardsAmount_2d;
-            var cards_ob = CardsForTemplatesUsabilities(calculator, cardsAmount_ob, templates_ob);
-
-            deck.AddRange(cards_2d);
-            deck.AddRange(cards_ob);
-
-            return deck;
-        }
-
-        private List<EventCard> CardsForTemplatesUsabilities(Calculator calculator,
-            int cardsAmount,
-            Dictionary<EventRelationsTemplate, float> templatesUsabilities)
-        {
-            var cards = new List<EventCard>();
-            var ordered = templatesUsabilities.OrderByDescending(kvp => kvp.Value);
-            var templates = ordered.Select(kvp => kvp.Key).ToList();
-            var usabilities = ordered.Select(kvp => kvp.Value).ToList();
-            var groupsAmounts = AmountsForAllocation(cardsAmount, usabilities);
-
-            for (int groupIter = 0; groupIter < groupsAmounts.Count(); groupIter++)
+            foreach (var template in rtu.Keys)
             {
-                for (int cardIter = 0; cardIter < groupsAmounts[groupIter]; cardIter++)
+                for (int i = 0; i < rtu[template].cardsCount; i++)
                 {
                     var card = new EventCard();
-                    card.relations = templates[groupIter].instantiateByReasons();
-                    card.usability = usabilities[groupIter];
-                    cards.Add(card);
+                    card.relations = template.instantiateByReasons();
+                    card.usability = rtu[template].usability;
+                    deck.Add(card);
                 }
             }
 
-            return cards;
+            return deck;
         }
 
         private void SetRelationsTypes(List<EventCard> deck, Calculator calculator)
@@ -147,7 +99,7 @@ namespace ModelAnalyzer.Parameters.Events
                 var cards = group.ToList();
                 var combinations = MathAdditional.combinations(types, group.Key);
                 var chances = combinations.Select(c => MathAdditional.combinationChance(c, typesChances)).ToList();
-                var amounts = AmountsForAllocation(group.Count(), chances).ToList();
+                var amounts = MathAdditional.AmountsForAllocation(group.Count(), chances, calculationReport).ToList();
                 Action<EventCard, List<RelationType>> combinationSetter = 
                     (e, c) => ApplyRealtionsTypesCombination(e, direction, c);
                 Setter.EvenDistributionSet(cards, combinations, amounts, combinationSetter);
@@ -189,7 +141,7 @@ namespace ModelAnalyzer.Parameters.Events
             float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
             List<float> sb_allocation = RequestParmeter<StabilityBonusAllocation>(calculator).GetValue();
 
-            int[] sb_amounts = AmountsForAllocation(cna, sb_allocation);
+            int[] sb_amounts = MathAdditional.AmountsForAllocation(cna, sb_allocation, calculationReport);
             if (!calculationReport.IsSuccess) return;
 
             var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
@@ -212,7 +164,7 @@ namespace ModelAnalyzer.Parameters.Events
             float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
             List<float> mb_allocation = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
 
-            int[] mb_amounts = AmountsForAllocation(cna, mb_allocation);
+            int[] mb_amounts = MathAdditional.AmountsForAllocation(cna, mb_allocation, calculationReport);
             if (!calculationReport.IsSuccess) return;
 
             var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
@@ -244,29 +196,6 @@ namespace ModelAnalyzer.Parameters.Events
             }
 
             return groups;
-        }
-
-        private int[] AmountsForAllocation (float totalAmount, List<float> allocation)
-        {
-            int[] amounts = new int[allocation.Count()];
-            float roundCredit = 0;
-            for (int i = 0; i < allocation.Count(); i++)
-            {
-                if (allocation[i] == 0)
-                    continue;
-
-                var amount = totalAmount * allocation[i] / allocation.Sum() + roundCredit;
-                amounts[i] = (int)Math.Round(amount, MidpointRounding.AwayFromZero);
-                roundCredit = amount - amounts[i];
-            }
-
-            if (amounts.Sum() != totalAmount)
-            {
-                calculationReport.Failed(roundingIssue);
-                return new int[0];
-            }
-
-            return amounts;
         }
 
         private int SpreadValue(int defaultValue, int index, int[] amounts)

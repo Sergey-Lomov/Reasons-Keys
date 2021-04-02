@@ -73,7 +73,6 @@ namespace ModelAnalyzer.DataModels
 
         internal float weight = 0;
         internal float usability = 0;
-        internal float positiveRealisationChance = 0;
         internal string comment = "";
         internal string name = "";
 
@@ -93,7 +92,6 @@ namespace ModelAnalyzer.DataModels
 
             weight = card.weight;
             usability = card.usability;
-            positiveRealisationChance = card.positiveRealisationChance;
             comment = card.comment;
             name = card.name;
         }
@@ -113,6 +111,16 @@ namespace ModelAnalyzer.DataModels
         public bool hasBackReason()
         {
             return relations.Where(r => r.direction == RelationDirection.back && r.type == RelationType.reason).Count() > 0;
+        }
+
+        public int backRelationsCount()
+        {
+            return relations.Where(r => r.direction == RelationDirection.back).Count();
+        }
+
+        public int frontRelationsCount()
+        {
+            return relations.Where(r => r.direction == RelationDirection.front).Count();
         }
     }
 }

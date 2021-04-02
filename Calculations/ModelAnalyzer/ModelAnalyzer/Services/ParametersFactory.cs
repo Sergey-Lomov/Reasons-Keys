@@ -82,32 +82,31 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MainDeckCore());
 
             storage.AddParameter(parameter: new ArtifactsRarity());
-            storage.AddParameter(parameter: new AverageChainStability());
             storage.AddParameter(parameter: new AverageContinuumBP());
             storage.AddParameter(parameter: new AverageEventStability());
             storage.AddParameter(parameter: new AverageMiningBonus());
-            storage.AddParameter(parameter: new AveragePositiveRealisationChance());
+            storage.AddParameter(parameter: new AverageRelationsImpactPerCount());
+            storage.AddParameter(parameter: new AverageRelationsImpactPower());
             storage.AddParameter(parameter: new AverageStabilityBonus());
             storage.AddParameter(parameter: new BackBlockerCoefficient());
-            storage.AddParameter(parameter: new BackRelationIgnoringChance());
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
+            storage.AddParameter(parameter: new BranchPointsDisbalance());
             storage.AddParameter(parameter: new BranchPointsRandomizationLimit());
-            storage.AddParameter(parameter: new ChainStabilityLimit());
+            storage.AddParameter(parameter: new EstimatedRelationsLoosing());
             storage.AddParameter(parameter: new EventMaxMiningBonus());
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());
             storage.AddParameter(parameter: new EventMinMiningBonus());
             storage.AddParameter(parameter: new FrontBlockerCoefficient());
-            storage.AddParameter(parameter: new FrontBlockersInEstimatedDeck());
-            storage.AddParameter(parameter: new FrontReasonsInEstimatedDeck());
             storage.AddParameter(parameter: new FrontEventsCoef());
-            storage.AddParameter(parameter: new MaxContinuumBPDeviation());
             storage.AddParameter(parameter: new MinBackRelations());
             storage.AddParameter(parameter: new MinigForBalanceAverageStability());
             storage.AddParameter(parameter: new MinRelationsTemplateUsability());
             storage.AddParameter(parameter: new PairingCoef());
+            storage.AddParameter(parameter: new RelationImpactPower());
+            storage.AddParameter(parameter: new RelationTemplatesUsage());
             storage.AddParameter(parameter: new StabilityBonusAllocation());
 
             // Events weight
@@ -149,7 +148,6 @@ namespace ModelAnalyzer
             // Topology
             storage.AddParameter(parameter: new AverageDistance());
             storage.AddParameter(parameter: new AveragePhasesDistance());
-            storage.AddParameter(parameter: new BackEdgesAmount());
             storage.AddParameter(parameter: new ContinuumFrontBlockersMap());
             storage.AddParameter(parameter: new ContinuumNodesAmount());
             storage.AddParameter(parameter: new FieldRadius());
@@ -246,6 +244,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new HB_TensionLimits());
 
             storage.AddParameter(parameter: new LN_ConnectionsAmount());
+            storage.AddParameter(parameter: new LN_MaxRadius());
+            storage.AddParameter(parameter: new LN_MinRadius());
             storage.AddParameter(parameter: new LN_OneConnectionProfit());
             storage.AddParameter(parameter: new LN_Profit());
             storage.AddParameter(parameter: new LN_Range());

@@ -14,6 +14,20 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
     class StartDeck : DeckParameter
     {
         internal const int InitialEventsAmount = 3;
+        internal static List<List<EventRelation>> relationsPrototypes = new List<List<EventRelation>>() {
+                new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.FrontBlocker(4) }, // Mining
+                new List<EventRelation>() {EventRelation.BackReason(0)}, // Atack
+                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Support
+                new List<EventRelation>() {EventRelation.BackReason(0)}, // Not main key 1
+                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Not main key 2
+                new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.BackBlocker(1)}, // Main key
+            };
+
+        private const int miningIndex = 0;
+        private const int attackIndex = 1;
+        private const int supportIndex = 2;
+        private const int notMainKeyIndex = 3;
+        private const int mainKeyIndex = 5;
 
         public StartDeck()
         {
@@ -52,7 +66,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
             var miningEvent = MiningEvent(calculator);
-            var attackEvent = AtackEvent(calculator);
+            var attackEvent = AttackEvent(calculator);
             var supportEvent = SupportEvent(calculator);
 
             if (!calculationReport.IsSuccess)
@@ -89,7 +103,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             if (!calculationReport.IsSuccess)
                 return null;
 
-            card.relations = EventRelationsFactory.C1(RelationType.blocker, RelationType.reason);
+            card.relations = relationsPrototypes[miningIndex];
             card.stabilityBonus = (int)Math.Round(asb, MidpointRounding.AwayFromZero);
             card.miningBonus = (int)Math.Round(micc * am, MidpointRounding.AwayFromZero);
             card.constraints.SetMaxRadius(immr, fr);
@@ -98,13 +112,14 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return card;
         }
 
-        private EventCard AtackEvent(Calculator calculator)
+        private EventCard AttackEvent(Calculator calculator)
         {
             int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
             float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
             int iamr = (int)RequestParmeter<InitialAtackEventMaxRadius>(calculator).GetValue();
 
             var card = AverageStabilityWithUndefineBranchesEvent(asb, -1, "Атакующая изначальная карта");
+            card.relations = relationsPrototypes[attackIndex];
             card.constraints.SetMaxRadius(iamr, fr);
 
             return card;
@@ -117,6 +132,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             int ismr = (int)RequestParmeter<InitialSupportEventMaxRadius>(calculator).GetValue();
 
             var card = AverageStabilityWithUndefineBranchesEvent(asb, +1, "Поддерживающая изначальная карта");
+            card.relations = relationsPrototypes[supportIndex];
             card.constraints.SetMaxRadius(ismr, fr);
 
             return card;
@@ -125,14 +141,11 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         private EventCard AverageStabilityWithUndefineBranchesEvent(float asb, int points, string comment)
         {
             var card = new EventCard();
-            var backReason = new EventRelation(RelationType.reason, RelationDirection.back, 0);
-            var relations = new List<EventRelation> { backReason };
 
             var undefine = new BranchPoint(BranchPoint.undefineBranch, points);
             var undefineList = new List<BranchPoint> { undefine };
             var branchPoints = new BranchPointsSet(undefineList, undefineList);
 
-            card.relations = relations;
             card.branchPoints = branchPoints;
             card.stabilityBonus = (int)Math.Round(asb, MidpointRounding.AwayFromZero);
             card.miningBonus = 0;
@@ -170,22 +183,15 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var keyEvents = new List<EventCard>(amount);
 
-            bool withBlocker = false;
-            var blockerRelations = new List<EventRelation>();
-            blockerRelations.Add(new EventRelation(RelationType.blocker, RelationDirection.back, 1));
-            var reasonRelations = new List<EventRelation>();
-            reasonRelations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 1));
 
             for (int i = 0; i < amount; i++)
             {
                 var card = KeyEvent(kebp, minRadius, owner);
 
-                card.relations = withBlocker ? blockerRelations : reasonRelations;
+                card.relations = relationsPrototypes[notMainKeyIndex + i];
                 card.comment = "Решающее событие";
                 card.name = "P" + (owner + 1) + "_" + (5 + i);
                 keyEvents.Add(card);
-
-                withBlocker = !withBlocker;
             }
 
             return keyEvents;
@@ -195,11 +201,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var card = KeyEvent(mkebp, minRadius, owner);
 
-            var relations = new List<EventRelation>();
-            relations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 0));
-            relations.Add(new EventRelation(RelationType.reason, RelationDirection.back, 1));
-
-            card.relations = relations;
+            card.relations = relationsPrototypes[mainKeyIndex];
             card.comment = "Основное решающее событие";
             card.name = "P" + (owner + 1) + "_4";
 

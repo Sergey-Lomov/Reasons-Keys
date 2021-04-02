@@ -6,6 +6,7 @@ using System.Drawing;
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
 using ModelAnalyzer.Parameters.Topology;
+using ModelAnalyzer.Parameters.Events;
 
 namespace ModelAnalyzer.UI.Factories
 {
@@ -26,6 +27,8 @@ namespace ModelAnalyzer.UI.Factories
                 AddDeck(deck, panel, advanced, clickHandler);
             if (p is RoutesMap routesMap)
                 AddRoutesMap(routesMap, panel, advanced, clickHandler);
+            if (p is RelationTemplatesUsage rtu)
+                AddRelationTemplatesUsage(rtu, panel, advanced, clickHandler);
             if (p is PairsArrayParameter pairsArray)
                 AddPairsArray(pairsArray, panel, advanced, clickHandler);
             if (p is FieldNodesFloatParameter fieldNodes)
@@ -65,6 +68,11 @@ namespace ModelAnalyzer.UI.Factories
             int amount = p.VerifyValue() ? p.deck.Count() : 0;
             var text = string.Format("{0} карт", amount);
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
+        }
+
+        private void AddRelationTemplatesUsage(RelationTemplatesUsage rtu, Panel panel, bool advanced, EventHandler clickHandler)
+        {
+            AddLabel(rtu.StringRepresentation(), DockStyle.Fill, panel, clickHandler);
         }
 
         private void AddRoutesMap(RoutesMap p, Panel panel, bool advanced, EventHandler clickHandler)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelAnalyzer.Parameters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,8 @@ namespace ModelAnalyzer.Services
 {
     class MathAdditional
     {
+        private static readonly string roundingIssue = "Невозможно корректно округлить значения при распределении. Сумма округленных значений отличется суммы не округленных.";
+
         internal static double Factorial (int value)
         {
             double factorial = 1;
@@ -81,6 +84,29 @@ namespace ModelAnalyzer.Services
             var result = value.CompareTo(min) < 0 ? min : value;
             result = value.CompareTo(max) > 0 ? max : result;
             return result;
+        }
+
+        internal static int[] AmountsForAllocation(float totalAmount, List<float> allocation, ParameterCalculationReport report)
+        {
+            int[] amounts = new int[allocation.Count()];
+            float roundCredit = 0;
+            for (int i = 0; i < allocation.Count(); i++)
+            {
+                if (allocation[i] == 0)
+                    continue;
+
+                var amount = totalAmount * allocation[i] / allocation.Sum() + roundCredit;
+                amounts[i] = (int)Math.Round(amount, MidpointRounding.AwayFromZero);
+                roundCredit = amount - amounts[i];
+            }
+
+            if (amounts.Sum() != totalAmount)
+            {
+                report.Failed(roundingIssue);
+                return new int[0];
+            }
+
+            return amounts;
         }
     }
 }
