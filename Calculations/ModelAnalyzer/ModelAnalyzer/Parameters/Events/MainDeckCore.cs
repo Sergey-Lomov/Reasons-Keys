@@ -32,7 +32,6 @@ namespace ModelAnalyzer.Parameters.Events
             try
             {
                 SetRelationsTypes(deck, calculator);
-                PairReasons(deck, calculator);
                 UpdateDeckWeight(calculator);
                 AddStabilityBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);
@@ -118,21 +117,6 @@ namespace ModelAnalyzer.Parameters.Events
             for (int i = 0; i < combination.Count(); i++)
             {
                 handlable[i].type = combination[i];
-            }
-        }
-
-        private void PairReasons(List<EventCard> deck, Calculator calculator)
-        {
-            float pc = RequestParmeter<PairingCoef>(calculator).GetValue();
-            var filtered = deck.Where(c => c.hasBackReason()).OrderBy(c => c.weight).ToList();
-            int pairedCount = (int)Math.Round(deck.Count() * pc, MidpointRounding.AwayFromZero);
-            int step = (int)Math.Floor(filtered.Count() / (float)pairedCount);
-            step = step < 1 ? 1 : step;
-            int index = step;
-            while (index < filtered.Count())
-            {
-                filtered[index].isPairedReasons = true;
-                index += step;
             }
         }
 
