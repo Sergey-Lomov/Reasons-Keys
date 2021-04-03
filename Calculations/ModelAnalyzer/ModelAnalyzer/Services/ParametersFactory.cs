@@ -259,8 +259,9 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new CM_MaxLimitCoef());
             storage.AddParameter(parameter: new CM_MinLimit());
             storage.AddParameter(parameter: new CM_MinLimitCoef());
-            storage.AddParameter(parameter: new CM_Power());
             storage.AddParameter(parameter: new CM_Profit());
+            storage.AddParameter(parameter: new CM_UsageAmount());
+            storage.AddParameter(parameter: new CM_UsageDifficulty());
         }
     }
 }

@@ -1,15 +1,16 @@
 ﻿using ModelAnalyzer.Services;
+using System;
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
 {
-    class CM_Power : FloatSingleParameter
+    class CM_UsageAmount : FloatSingleParameter
     {
-        public CM_Power()
+        public CM_UsageAmount()
         {
             type = ParameterType.Out;
-            title = "МК: мощность";
-            details = "Кол-во соседних узлов, на которое может быть применен модуль-коллектор";
-            fractionalDigits = 2;
+            title = "МК: кол-во испольозваний";
+            details = "";
+            fractionalDigits = 0;
             tags.Add(ParameterTag.items);
             tags.Add(ParameterTag.artifacts);
         }
@@ -19,7 +20,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             calculationReport = new ParameterCalculationReport(this);
 
             var module = calculator.UpdatedModule<CM_CalculationModule>();
-            value = unroundValue = module.power;
+            value = unroundValue = module.usageAmount;
 
             return calculationReport;
         }
