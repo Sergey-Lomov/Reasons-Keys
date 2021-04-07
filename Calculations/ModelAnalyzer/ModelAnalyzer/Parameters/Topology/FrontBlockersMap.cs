@@ -20,15 +20,6 @@ namespace ModelAnalyzer.Parameters.Topology
             handleDirections.Add(RelationDirection.front);
             handleTypes.Add(RelationType.blocker);
         }
-
-        internal override List<EventCard> Deck(Calculator calculator)
-        {
-            var continuumDeck = calculator.UpdatedParameter<MainDeck>().deck;
-            var initialDeck = calculator.UpdatedParameter<StartDeck>().deck;
-            var result = new List<EventCard>(continuumDeck);
-            result.AddRange(initialDeck);
-            return result;
-        }
     }
 }
 

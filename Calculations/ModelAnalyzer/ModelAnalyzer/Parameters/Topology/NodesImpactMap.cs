@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using ModelAnalyzer.DataModels;
+using ModelAnalyzer.Parameters.Events;
+using ModelAnalyzer.Parameters.PlayerInitial;
 using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Services.FieldAnalyzer;
@@ -17,14 +19,14 @@ namespace ModelAnalyzer.Parameters.Topology
         protected List<RelationDirection> handleDirections = new List<RelationDirection>();
         protected List<RelationType> handleTypes = new List<RelationType>();
         protected bool useRelative = false;
-
-        abstract internal List<EventCard> Deck(Calculator calculator);
+        protected bool useInitialDeck = true;
+        protected bool useContinuumDeck = true;
 
         internal override ParameterCalculationReport Calculate(Calculator calculator)
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var pa = (int)calculator.UpdatedParameter<PhasesAmount>().GetValue();
+            var pa = (int)RequestParmeter<PhasesAmount>(calculator).GetValue();
             var deck = Deck(calculator);
 
             if (!calculationReport.IsSuccess)
@@ -79,6 +81,22 @@ namespace ModelAnalyzer.Parameters.Topology
                 return Math.Min(1, value / 2);
             else
                 return (value - minValue) / (averageValue - minValue) / 2;
+        }
+
+        internal List<EventCard> Deck(Calculator calculator)
+        {
+            var continuumDeck = RequestParmeter<MainDeck>(calculator).deck;
+            var initialDeck = RequestParmeter<StartDeck>(calculator).deck;
+
+            var result = new List<EventCard>();
+            if (!calculationReport.IsSuccess)
+                return result;
+
+            if (useContinuumDeck)
+                result.AddRange(initialDeck);
+            if (useInitialDeck)
+                result.AddRange(initialDeck);
+            return result;
         }
     }
 }

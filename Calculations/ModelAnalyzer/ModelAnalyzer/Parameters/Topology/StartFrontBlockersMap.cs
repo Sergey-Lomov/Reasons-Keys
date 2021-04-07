@@ -19,11 +19,7 @@ namespace ModelAnalyzer.Parameters.Topology
 
             handleDirections.Add(RelationDirection.front);
             handleTypes.Add(RelationType.blocker);
-        }
-
-        internal override List<EventCard> Deck(Calculator calculator)
-        {
-            return calculator.UpdatedParameter<StartDeck>().deck;
+            useContinuumDeck = false;
         }
     }
 }
