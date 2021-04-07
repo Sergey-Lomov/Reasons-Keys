@@ -30,7 +30,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
             
             float maeu = tl.Last();
 
-            unroundValue = maeu / (tisa + 1);
+            unroundValue = maeu / tisa;
             value = (float)Math.Ceiling(unroundValue);
 
             return calculationReport;
