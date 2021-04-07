@@ -45,12 +45,16 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var initialEvents = InitialEvents(calculator);
             var keyEvents = KeyEvents(calculator);
 
+            float aes = RequestParmeter<AverageEventStability>(calculator).GetValue();
+
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
             deck = new List<EventCard>(initialEvents.Count() + keyEvents.Count());
             deck.AddRange(initialEvents);
             deck.AddRange(keyEvents);
+
+            deck.ForEach(c => SetStabilityBonus(c, aes, calculator, calculationReport));
 
             UpdateDeckUsability(calculator);
             UpdateDeckWeight(calculator);
@@ -92,19 +96,16 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
         private EventCard MiningEvent(Calculator calculator)
         {
-            var card = new EventCard();
-
             var micc = RequestParmeter<MiningInitialCardCoefficient>(calculator).GetValue();
             var am = RequestParmeter<AverageMining>(calculator).GetValue();
-            var asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
             var fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
             var immr = (int)RequestParmeter<InitialMiningEventMaxRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
 
+            var card = new EventCard();
             card.relations = relationsPrototypes[miningIndex];
-            card.stabilityBonus = (int)Math.Round(asb, MidpointRounding.AwayFromZero);
             card.miningBonus = (int)Math.Round(micc * am, MidpointRounding.AwayFromZero);
             card.constraints.SetMaxRadius(immr, fr);
             card.comment = "Добывающее изначальное событие";
@@ -115,12 +116,17 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         private EventCard AttackEvent(Calculator calculator)
         {
             int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
             int iamr = (int)RequestParmeter<InitialAtackEventMaxRadius>(calculator).GetValue();
 
-            var card = AverageStabilityWithUndefineBranchesEvent(asb, -1, "Атакующая изначальная карта");
+            var bp = new BranchPoint(BranchPoint.undefineBranch, -1);
+            var bpList = new List<BranchPoint> { bp };
+            var branchPoints = new BranchPointsSet(bpList, bpList);
+
+            var card = new EventCard();
+            card.branchPoints = branchPoints;
             card.relations = relationsPrototypes[attackIndex];
             card.constraints.SetMaxRadius(iamr, fr);
+            card.comment = "Атакующая изначальная карта";
 
             return card;
         }
@@ -131,27 +137,30 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
             int ismr = (int)RequestParmeter<InitialSupportEventMaxRadius>(calculator).GetValue();
 
-            var card = AverageStabilityWithUndefineBranchesEvent(asb, +1, "Поддерживающая изначальная карта");
+            var bp = new BranchPoint(BranchPoint.undefineBranch, +1);
+            var bpList = new List<BranchPoint> { bp };
+            var branchPoints = new BranchPointsSet(bpList, bpList);
+
+            var card = new EventCard();
+            card.branchPoints = branchPoints;
             card.relations = relationsPrototypes[supportIndex];
             card.constraints.SetMaxRadius(ismr, fr);
+            card.comment = "Поддерживающая изначальная карта";
 
             return card;
         }
 
-        private EventCard AverageStabilityWithUndefineBranchesEvent(float asb, int points, string comment)
+        private void SetStabilityBonus(EventCard card, float stability, Calculator calculator, ParameterCalculationReport report)
         {
-            var card = new EventCard();
+            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
 
-            var undefine = new BranchPoint(BranchPoint.undefineBranch, points);
-            var undefineList = new List<BranchPoint> { undefine };
-            var branchPoints = new BranchPointsSet(undefineList, undefineList);
+            if (!calculationReport.IsSuccess)
+                return;
 
-            card.branchPoints = branchPoints;
-            card.stabilityBonus = (int)Math.Round(asb, MidpointRounding.AwayFromZero);
-            card.miningBonus = 0;
-            card.comment = comment;
-
-            return card;
+            var relationsImpact = aripc[card.backRelationsCount()];
+            var stabilityBonus = (int)Math.Round(stability - relationsImpact, MidpointRounding.AwayFromZero);
+            stabilityBonus = Math.Max(stabilityBonus, 0);
+            card.stabilityBonus = stabilityBonus;
         }
 
         private List<EventCard> KeyEvents(Calculator calculator)
