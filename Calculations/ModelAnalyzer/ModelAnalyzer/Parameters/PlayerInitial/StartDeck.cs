@@ -16,8 +16,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         internal const int InitialEventsAmount = 3;
         internal static List<List<EventRelation>> relationsPrototypes = new List<List<EventRelation>>() {
                 new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.FrontBlocker(4) }, // Mining
-                new List<EventRelation>() {EventRelation.BackReason(0)}, // Atack
-                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Support
+                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Atack
+                new List<EventRelation>() {EventRelation.BackReason(0)}, // Support
                 new List<EventRelation>() {EventRelation.BackReason(0)}, // Not main key 1
                 new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Not main key 2
                 new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.BackBlocker(1)}, // Main key
