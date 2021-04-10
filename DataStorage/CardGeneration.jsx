@@ -33,10 +33,12 @@ const typeElement = "type";
 const reasonType = "reason";
 const pairedReasonType = "paired_reason";
 const blockerType = "blocker";
+const undefinedType = "undefined";
 
 const directionElement = "direction";
 const frontDirection = "front";
 const backDirection = "back";
+const noneDirection = "none";
 
 //--------------------- Layers Constants
 const markupLayerName = "Markup";
@@ -78,6 +80,7 @@ const negativePointsPathName = "-";
 const relationsLayerName = "Relations";
 const reasonGroupName = "Reason";
 const blockerGroupName = "Blocker";
+const undefinedGroupName = "Undefined";
 const backGroupName = "In";
 const frontGroupName = "Out";
 const pairedPathName = "CoReason";
@@ -260,7 +263,6 @@ function HandleRelations (relations, doc)
             mainGroup.getByName(i).hidden = true;
       }
   
-//      var minPaired = -1;
       for each(var relation in items)
       {
           var position = relation.child(positionElement).toString();
@@ -268,31 +270,34 @@ function HandleRelations (relations, doc)
           groupItem.hidden = false;
           var reasonGroup = groupItem.groupItems.getByName(reasonGroupName);
           var blockerGroup = groupItem.groupItems.getByName(blockerGroupName);
+          var undefinedGroup = groupItem.groupItems.getByName(undefinedGroupName);
 
-          var type = relation.child(typeElement).toString() 
-          var isReason = type != blockerType
-          reasonGroup.hidden = !isReason;
-          blockerGroup.hidden = isReason;
-          var activeGroup = isReason ? reasonGroup : blockerGroup;
+          reasonGroup.hidden = true;
+          blockerGroup.hidden = true;
+          undefinedGroup.hidden = true;
           
-          var isBack = relation.child(directionElement).toString() == backDirection;
+          var type = relation.child(typeElement).toString() 
+          switch (type) {
+              case blockerType:
+                var activeGroup = blockerGroup;
+                break;
+              case reasonType:
+                var activeGroup = reasonGroup;
+                break;
+              case undefinedType:
+                var activeGroup = undefinedGroup;
+                break;
+              }
+          activeGroup.hidden = false;
+          
+          var direction = relation.child(directionElement).toString();
+          if (direction == noneDirection) continue;
+          
           var backGroup = activeGroup.pathItems.getByName(backGroupName);
           var frontGroup = activeGroup.pathItems.getByName(frontGroupName);    
-          backGroup.hidden = !isBack;
-          frontGroup.hidden = isBack;
-          
- /*         var pairedReasonPath = reasonGroup.pathItems.getByName(pairedPathName)
-          pairedReasonPath.hidden = type != pairedReasonType;*/
- /*         if (relation.child(typeElement).toString() == pairedReasonType)
-          {
-              minPaired = minPaired < parseInt (position) && minPaired  != -1 ? minPaired : parseInt (position);
-          }*/
+          backGroup.hidden = direction != backDirection;
+          frontGroup.hidden = direction != frontDirection;
       }
- /*    if (minPaired != -1) 
-     {
-         var reasonGroup = mainGroup.getByName(minPaired).groupItems.getByName(reasonGroupName);
-         reasonGroup.pathItems.getByName(pairedPathName).hidden = false;
-     }*/
 }
 
  //Saving
