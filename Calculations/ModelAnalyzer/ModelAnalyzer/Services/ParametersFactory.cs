@@ -161,26 +161,28 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new StartFrontBlockersMap());
 
             // Player initial state
-            storage.AddParameter(parameter: new InitialAtackEventMaxRadius());
+            storage.AddParameter(parameter: new AtackInitialEventMaxRadius());
             storage.AddParameter(parameter: new InitialEU());
             storage.AddParameter(parameter: new InitialEventsWeightCoefficient());
-            storage.AddParameter(parameter: new InitialMiningEventMaxRadius());
             storage.AddParameter(parameter: new InitialStackArtifactChance());
             storage.AddParameter(parameter: new InitialStackSize());
-            storage.AddParameter(parameter: new InitialSupportEventMaxRadius());
             storage.AddParameter(parameter: new KeyEventsAmount());
             storage.AddParameter(parameter: new KeyEventsBranchPoints());
             storage.AddParameter(parameter: new KeyEventsBranchPointsCoefficient());
             storage.AddParameter(parameter: new KeyEventsTotalBrachPoints());
+            storage.AddParameter(parameter: new LogisticInitialEventMaxRelationPower());
+            storage.AddParameter(parameter: new LogisticInitialEventMaxRadius());
+            storage.AddParameter(parameter: new LogisticInitialEventPowerCoefficient());
+            storage.AddParameter(parameter: new LogisticInitialEventTotalPower());
             storage.AddParameter(parameter: new MainKeyEventBranchPoints());
             storage.AddParameter(parameter: new MainKeyEventBranchPointsCoefficient());
             storage.AddParameter(parameter: new MainKeyEventMinRadius());
-            storage.AddParameter(parameter: new MiningInitialCardCoefficient());
             storage.AddParameter(parameter: new MinInitialCardUsability());
             storage.AddParameter(parameter: new NotMainKeyEventMinRadius());
             storage.AddParameter(parameter: new RealInitialStackArtifactChance());
             storage.AddParameter(parameter: new RealKeyEventBrachPointCoefficients());
             storage.AddParameter(parameter: new StartDeck());
+            storage.AddParameter(parameter: new SupportInitialEventMaxRadius());
 
             // Items
             storage.AddParameter(parameter: new ArtifactsAvailabilityRound());

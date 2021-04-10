@@ -7,7 +7,7 @@ namespace ModelAnalyzer.DataModels
     using EventRelations = List<EventRelation>;
 
     enum RelationDirection { back, front, none }
-    enum RelationType { reason, blocker}
+    enum RelationType { reason, blocker, undefined}
 
     internal class EventConstraints
     {

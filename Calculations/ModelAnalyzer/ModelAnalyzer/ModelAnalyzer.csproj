@@ -191,11 +191,14 @@
     <Compile Include="Parameters\Events\Weight\EventUsabilityNormalisation.cs" />
     <Compile Include="Parameters\Activities\AverageUnkeyEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEU.cs" />
-    <Compile Include="Parameters\PlayerInitial\InitialMiningEventMaxRadius.cs" />
+    <Compile Include="Parameters\PlayerInitial\LogisticInitialEventMaxRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialStackArtifactChance.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialStackCalculationModule.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialStackSize.cs" />
-    <Compile Include="Parameters\PlayerInitial\InitialSupportEventMaxRadius.cs" />
+    <Compile Include="Parameters\PlayerInitial\LogisticInitialEventMaxRelationPower.cs" />
+    <Compile Include="Parameters\PlayerInitial\LogisticInitialEventPowerCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\LogisticInitialEventTotalPower.cs" />
+    <Compile Include="Parameters\PlayerInitial\SupportInitialEventMaxRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventMinRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
     <Compile Include="Parameters\PlayerInitial\NotMainKeyEventMinRadius.cs" />
@@ -217,7 +220,6 @@
     <Compile Include="Parameters\General\MinPlayersAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPoints.cs" />
-    <Compile Include="Parameters\PlayerInitial\MiningInitialCardCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\RealKeyEventBrachPointCoefficients.cs" />
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\Topology\MinDistancesPairsAmount_AA.cs" />
@@ -245,7 +247,7 @@
     <Compile Include="Parameters\ParameterTag.cs" />
     <Compile Include="Services\FieldAnalyzer\NodesAnalyzer.cs" />
     <Compile Include="Services\FloatStringConverter.cs" />
-    <Compile Include="Parameters\PlayerInitial\InitialAtackEventMaxRadius.cs" />
+    <Compile Include="Parameters\PlayerInitial\AtackInitialEventMaxRadius.cs" />
     <Compile Include="Services\MathAdditional.cs" />
     <Compile Include="Services\OperationReport.cs" />
     <Compile Include="Services\Setter.cs" />

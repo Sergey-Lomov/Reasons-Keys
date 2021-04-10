@@ -1,11 +1,11 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class InitialMiningEventMaxRadius : FloatSingleParameter
+    class AtackInitialEventMaxRadius : FloatSingleParameter
     {
-        public InitialMiningEventMaxRadius()
+        public AtackInitialEventMaxRadius()
         {
             type = ParameterType.In;
-            title = "Максимальный радиус добывающей изначальной карты";
+            title = "Максимальный радиус атакующей изначальной карты";
             details = "";
             fractionalDigits = 0;
             tags.Add(ParameterTag.playerInitial);

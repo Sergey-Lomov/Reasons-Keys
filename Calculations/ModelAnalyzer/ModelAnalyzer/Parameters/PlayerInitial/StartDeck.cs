@@ -15,7 +15,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
     {
         internal const int InitialEventsAmount = 3;
         internal static List<List<EventRelation>> relationsPrototypes = new List<List<EventRelation>>() {
-                new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.FrontBlocker(4) }, // Mining
+                new List<EventRelation>() {EventRelation.Undefined(0), EventRelation.Undefined(1), EventRelation.Undefined(2), EventRelation.Undefined(3), EventRelation.Undefined(4), EventRelation.Undefined(5)}, // Logistic
                 new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Atack
                 new List<EventRelation>() {EventRelation.BackReason(0)}, // Support
                 new List<EventRelation>() {EventRelation.BackReason(0)}, // Not main key 1
@@ -23,11 +23,15 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.BackBlocker(1)}, // Main key
             };
 
-        private const int miningIndex = 0;
+        private const int logisticIndex = 0;
         private const int attackIndex = 1;
         private const int supportIndex = 2;
         private const int notMainKeyIndex = 3;
         private const int mainKeyIndex = 5;
+
+        private const string logisticComment = "Логистическое изначальное событие";
+        private const string attackComment = "Атакующее изначальное событие";
+        private const string supportComment = "Поддерживающее изначальное событие";
 
         public StartDeck()
         {
@@ -69,7 +73,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
-            var miningEvent = MiningEvent(calculator);
+            var logisticEvent = LogisticEvent(calculator);
             var attackEvent = AttackEvent(calculator);
             var supportEvent = SupportEvent(calculator);
 
@@ -78,7 +82,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             for (int i = 0; i < mpa; i++)
             {
-                var playerMining = new EventCard(miningEvent);
+                var playerMining = new EventCard(logisticEvent);
                 playerMining.name = "P" + (i + 1) + "_1";
                 initialEvents.Add(playerMining);
 
@@ -94,21 +98,18 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return initialEvents;
         }
 
-        private EventCard MiningEvent(Calculator calculator)
+        private EventCard LogisticEvent(Calculator calculator)
         {
-            var micc = RequestParmeter<MiningInitialCardCoefficient>(calculator).GetValue();
-            var am = RequestParmeter<AverageMining>(calculator).GetValue();
             var fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            var immr = (int)RequestParmeter<InitialMiningEventMaxRadius>(calculator).GetValue();
+            var liemr = (int)RequestParmeter<LogisticInitialEventMaxRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
 
             var card = new EventCard();
-            card.relations = relationsPrototypes[miningIndex];
-            card.miningBonus = (int)Math.Round(micc * am, MidpointRounding.AwayFromZero);
-            card.constraints.SetMaxRadius(immr, fr);
-            card.comment = "Добывающее изначальное событие";
+            card.relations = relationsPrototypes[logisticIndex];
+            card.constraints.SetMaxRadius(liemr, fr);
+            card.comment = logisticComment;
 
             return card;
         }
@@ -116,7 +117,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         private EventCard AttackEvent(Calculator calculator)
         {
             int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            int iamr = (int)RequestParmeter<InitialAtackEventMaxRadius>(calculator).GetValue();
+            int iamr = (int)RequestParmeter<AtackInitialEventMaxRadius>(calculator).GetValue();
 
             var bp = new BranchPoint(BranchPoint.undefineBranch, -1);
             var bpList = new List<BranchPoint> { bp };
@@ -126,7 +127,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.branchPoints = branchPoints;
             card.relations = relationsPrototypes[attackIndex];
             card.constraints.SetMaxRadius(iamr, fr);
-            card.comment = "Атакующая изначальная карта";
+            card.comment = attackComment;
 
             return card;
         }
@@ -135,7 +136,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
             float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
-            int ismr = (int)RequestParmeter<InitialSupportEventMaxRadius>(calculator).GetValue();
+            int ismr = (int)RequestParmeter<SupportInitialEventMaxRadius>(calculator).GetValue();
 
             var bp = new BranchPoint(BranchPoint.undefineBranch, +1);
             var bpList = new List<BranchPoint> { bp };
@@ -145,7 +146,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.branchPoints = branchPoints;
             card.relations = relationsPrototypes[supportIndex];
             card.constraints.SetMaxRadius(ismr, fr);
-            card.comment = "Поддерживающая изначальная карта";
+            card.comment = supportComment;
 
             return card;
         }
@@ -157,7 +158,9 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             if (!calculationReport.IsSuccess)
                 return;
 
-            var relationsImpact = aripc[card.backRelationsCount()];
+            int backCount = card.comment == logisticComment ? 1 : card.backRelationsCount();
+
+            var relationsImpact = aripc[backCount];
             var stabilityBonus = (int)Math.Round(stability - relationsImpact, MidpointRounding.AwayFromZero);
             stabilityBonus = Math.Max(stabilityBonus, 0);
             card.stabilityBonus = stabilityBonus;

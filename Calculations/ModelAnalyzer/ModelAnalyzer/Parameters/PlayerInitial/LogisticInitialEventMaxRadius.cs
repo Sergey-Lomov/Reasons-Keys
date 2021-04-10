@@ -1,11 +1,11 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class InitialAtackEventMaxRadius : FloatSingleParameter
+    class LogisticInitialEventMaxRadius : FloatSingleParameter
     {
-        public InitialAtackEventMaxRadius()
+        public LogisticInitialEventMaxRadius()
         {
             type = ParameterType.In;
-            title = "Максимальный радиус атакующей изначальной карты";
+            title = "ЛИС: максимальный радиус";
             details = "";
             fractionalDigits = 0;
             tags.Add(ParameterTag.playerInitial);

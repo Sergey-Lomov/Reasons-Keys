@@ -49,11 +49,13 @@ namespace ModelAnalyzer.Services
         private static Dictionary<RelationType, string> typesStrings = new Dictionary<RelationType, string> {
             { RelationType.blocker, "blocker"},
             { RelationType.reason, "reason"},
+            { RelationType.undefined, "undefined"},
          };
 
         private static Dictionary<RelationDirection, string> directionsStrings = new Dictionary<RelationDirection, string> {
             { RelationDirection.front, "front"},
-            { RelationDirection.back, "back"}
+            { RelationDirection.back, "back"},
+            { RelationDirection.none, "none"},
          };
 
         internal static void GenerateXML (List<EventCard> deck, string filePath)

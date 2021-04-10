@@ -34,7 +34,8 @@ namespace ModelAnalyzer.UI.DetailsForms
         readonly Dictionary<RelationType, string> relationsTitles = new Dictionary<RelationType, string>()
         {
             { RelationType.reason, "П" },
-            { RelationType.blocker, "Б" }
+            { RelationType.blocker, "Б" },
+            { RelationType.undefined, "?" }
         };
 
         readonly Dictionary<RelationDirection, string> directionsTitles = new Dictionary<RelationDirection, string>()

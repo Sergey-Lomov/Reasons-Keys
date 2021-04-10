@@ -1,8 +1,8 @@
 ﻿namespace ModelAnalyzer.Parameters.PlayerInitial
 {
-    class InitialSupportEventMaxRadius : FloatSingleParameter
+    class SupportInitialEventMaxRadius : FloatSingleParameter
     {
-        public InitialSupportEventMaxRadius()
+        public SupportInitialEventMaxRadius()
         {
             type = ParameterType.In;
             title = "Максимальный радиус поддерживающей изначальной карты";

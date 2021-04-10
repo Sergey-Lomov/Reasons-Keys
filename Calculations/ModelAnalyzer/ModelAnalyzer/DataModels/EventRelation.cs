@@ -32,6 +32,10 @@ namespace ModelAnalyzer.DataModels
             return new EventRelation(RelationType.blocker, RelationDirection.front, position);
         }
 
+        public static EventRelation Undefined(int position)
+        {
+            return new EventRelation(RelationType.undefined, RelationDirection.none, position);
+        }
 
         public EventRelation(RelationType type, RelationDirection direction, int position)
         {
