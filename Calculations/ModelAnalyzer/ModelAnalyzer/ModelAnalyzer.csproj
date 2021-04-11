@@ -102,9 +102,7 @@
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
     <Compile Include="Parameters\Events\AverageRelationsImpactPerCount.cs" />
     <Compile Include="Parameters\Events\AverageRelationsImpactPower.cs" />
-    <Compile Include="Parameters\Events\BackBlockerCoefficient.cs" />
     <Compile Include="Parameters\Events\EstimatedRelationsLoosing.cs" />
-    <Compile Include="Parameters\Events\FrontBlockerCoefficient.cs" />
     <Compile Include="Parameters\Events\MainDeck.cs" />
     <Compile Include="Parameters\Events\MinigForBalanceAverageStability.cs" />
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />

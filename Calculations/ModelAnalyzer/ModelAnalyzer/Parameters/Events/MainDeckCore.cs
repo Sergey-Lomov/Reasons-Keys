@@ -31,7 +31,7 @@ namespace ModelAnalyzer.Parameters.Events
 
             try
             {
-                SetRelationsTypes(deck, calculator);
+                SetRelationsTypes(deck);
                 UpdateDeckWeight(calculator);
                 AddStabilityBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);
@@ -69,19 +69,15 @@ namespace ModelAnalyzer.Parameters.Events
             return deck;
         }
 
-        private void SetRelationsTypes(List<EventCard> deck, Calculator calculator)
+        private void SetRelationsTypes(List<EventCard> deck)
         {
-            var fbc = RequestParmeter<FrontBlockerCoefficient>(calculator).GetValue();
-            var bbc = RequestParmeter<BackBlockerCoefficient>(calculator).GetValue();
-
-            if (!calculationReport.IsSuccess)
-                return;
-
-            SetRelationsTypes(RelationDirection.back, bbc);
-            SetRelationsTypes(RelationDirection.front, fbc);
+            var randomizer = new Random(0);
+            var randomised = deck.OrderBy(bps => randomizer.Next()).ToList();
+            SetRelationsTypes(randomised, RelationDirection.back, 0.5f);
+            SetRelationsTypes(randomised, RelationDirection.front, 0.5f);
         }
 
-        private void SetRelationsTypes(RelationDirection direction, float blockerChance)
+        private void SetRelationsTypes(List<EventCard> deck, RelationDirection direction, float blockerChance)
         {
             Func<EventCard, RelationDirection, int> dirAmount = (e, d) => e.relations.Where(r => r.direction == d).Count();
             var grouping = deck.GroupBy(e => dirAmount(e, direction)).Where( g => g.Key != 0);

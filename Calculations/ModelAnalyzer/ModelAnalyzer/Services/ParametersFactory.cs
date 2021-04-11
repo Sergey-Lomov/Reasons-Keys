@@ -88,7 +88,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new AverageRelationsImpactPerCount());
             storage.AddParameter(parameter: new AverageRelationsImpactPower());
             storage.AddParameter(parameter: new AverageStabilityBonus());
-            storage.AddParameter(parameter: new BackBlockerCoefficient());
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
@@ -99,7 +98,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new EventMaxRelations());
             storage.AddParameter(parameter: new EventMiningBonusAllocation());
             storage.AddParameter(parameter: new EventMinMiningBonus());
-            storage.AddParameter(parameter: new FrontBlockerCoefficient());
             storage.AddParameter(parameter: new FrontEventsCoef());
             storage.AddParameter(parameter: new MinBackRelations());
             storage.AddParameter(parameter: new MinigForBalanceAverageStability());
