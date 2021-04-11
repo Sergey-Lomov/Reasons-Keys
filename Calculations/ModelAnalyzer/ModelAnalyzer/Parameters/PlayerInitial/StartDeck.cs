@@ -18,20 +18,22 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 new List<EventRelation>() {EventRelation.Undefined(0), EventRelation.Undefined(1), EventRelation.Undefined(2), EventRelation.Undefined(3), EventRelation.Undefined(4), EventRelation.Undefined(5)}, // Logistic
                 new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Atack
                 new List<EventRelation>() {EventRelation.BackReason(0)}, // Support
+                new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.BackBlocker(1)}, // Main key
                 new List<EventRelation>() {EventRelation.BackReason(0)}, // Not main key 1
                 new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Not main key 2
-                new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.BackBlocker(1)}, // Main key
             };
 
         private const int logisticIndex = 0;
         private const int attackIndex = 1;
         private const int supportIndex = 2;
-        private const int notMainKeyIndex = 3;
-        private const int mainKeyIndex = 5;
+        private const int mainKeyIndex = 3;
+        private const int notMainKeyIndex = 4;
 
         private const string logisticComment = "Логистическое изначальное событие";
         private const string attackComment = "Атакующее изначальное событие";
         private const string supportComment = "Поддерживающее изначальное событие";
+
+        private List<int> miningBonuses = new List<int>();
 
         public StartDeck()
         {
@@ -46,10 +48,14 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
+            float aes = RequestParmeter<AverageEventStability>(calculator).GetValue();
+            SetupMiningBonuses(calculator);
+
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
+
             var initialEvents = InitialEvents(calculator);
             var keyEvents = KeyEvents(calculator);
-
-            float aes = RequestParmeter<AverageEventStability>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
@@ -65,6 +71,44 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             UpdateDeckConstraints(calculator);
 
             return calculationReport;
+        }
+
+        private void SetupMiningBonuses(Calculator calculator)
+        {
+            var amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
+            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
+
+            if (!calculationReport.IsSuccess)
+                return;
+
+            var size = relationsPrototypes.Count;
+
+            // Found bonuses combination
+            var availableBonuses = mainDeck.Select(c => c.miningBonus).Distinct().ToList();
+            List<List<int>> combinations = MathAdditional.combinations(availableBonuses, size);
+            double combinationDeviation(List<int> c) => Math.Abs(c.Average() - amb);
+            var bonuses = combinations.OrderBy(c => combinationDeviation(c)).First();
+            bonuses = bonuses.OrderByDescending(b => b).ToList();
+
+            // Separate combination to two subcombinations
+            var initialBonuses = new List<int>();
+            var keyBonuses = new List<int>();
+            for (int i = 0; i < size; i++)
+                if (i % 2 == 0)
+                    keyBonuses.Add(bonuses[i]);
+                else
+                    initialBonuses.Add(bonuses[i]);
+
+            // Fill initial events bonuses
+            double bonusDeviation(int value, List<int> values) => Math.Abs(value - values.Average());
+            initialBonuses = initialBonuses.OrderByDescending(b => bonusDeviation(b, initialBonuses)).ToList();
+            for (int i = 0; i < initialBonuses.Count; i++)
+                miningBonuses.Add(initialBonuses[i]);
+
+            // Fill key events bonuses
+            keyBonuses = keyBonuses.OrderByDescending(b => bonusDeviation(b, keyBonuses)).ToList();
+            for (int i = 0; i < keyBonuses.Count; i++)
+                miningBonuses.Add(keyBonuses[i]);
         }
 
         private List<EventCard> InitialEvents(Calculator calculator)
@@ -108,6 +152,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             var card = new EventCard();
             card.relations = relationsPrototypes[logisticIndex];
+            card.miningBonus = miningBonuses[logisticIndex];
             card.constraints.SetMaxRadius(liemr, fr);
             card.comment = logisticComment;
 
@@ -126,6 +171,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var card = new EventCard();
             card.branchPoints = branchPoints;
             card.relations = relationsPrototypes[attackIndex];
+            card.miningBonus = miningBonuses[attackIndex];
             card.constraints.SetMaxRadius(iamr, fr);
             card.comment = attackComment;
 
@@ -145,6 +191,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var card = new EventCard();
             card.branchPoints = branchPoints;
             card.relations = relationsPrototypes[supportIndex];
+            card.miningBonus = miningBonuses[supportIndex];
             card.constraints.SetMaxRadius(ismr, fr);
             card.comment = supportComment;
 
@@ -201,6 +248,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 var card = KeyEvent(kebp, minRadius, owner);
 
                 card.relations = relationsPrototypes[notMainKeyIndex + i];
+                card.miningBonus = miningBonuses[notMainKeyIndex + i];
                 card.comment = "Решающее событие";
                 card.name = "P" + (owner + 1) + "_" + (5 + i);
                 keyEvents.Add(card);
@@ -214,6 +262,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var card = KeyEvent(mkebp, minRadius, owner);
 
             card.relations = relationsPrototypes[mainKeyIndex];
+            card.miningBonus = miningBonuses[mainKeyIndex];
             card.comment = "Основное решающее событие";
             card.name = "P" + (owner + 1) + "_4";
 
