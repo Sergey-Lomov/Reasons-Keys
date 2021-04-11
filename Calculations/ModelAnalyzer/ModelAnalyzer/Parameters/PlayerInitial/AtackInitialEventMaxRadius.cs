@@ -5,8 +5,8 @@
         public AtackInitialEventMaxRadius()
         {
             type = ParameterType.In;
-            title = "Максимальный радиус атакующей изначальной карты";
-            details = "";
+            title = "АИС: максимальный радиус";
+            details = "Максимальный радиус атакующей изначальной карты";
             fractionalDigits = 0;
             tags.Add(ParameterTag.playerInitial);
         }
