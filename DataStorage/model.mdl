@@ -12,20 +12,20 @@ ModelAnalyzer.Parameters.Activities.AUPriceProportion:0,69~0,69|
 ModelAnalyzer.Parameters.Activities.EstimatedEventsConcreteBranchPoints:10,33~10,33|
 ModelAnalyzer.Parameters.Activities.AverageUnkeyEventsConcreteBranchPoints:3 4 5 6~3 4 5 6|
 ModelAnalyzer.Parameters.Activities.DestructionCoef:1~1|
-ModelAnalyzer.Parameters.Activities.EstimatedEventCreationPrice:33,69~33,69|
-ModelAnalyzer.Parameters.Activities.EstimatedEventImpactPrice:8,59~8,59|
+ModelAnalyzer.Parameters.Activities.EstimatedEventCreationPrice:33,27~33,27|
+ModelAnalyzer.Parameters.Activities.EstimatedEventImpactPrice:8,76~8,76|
 ModelAnalyzer.Parameters.Activities.EUPartyAmount:160~-|
 ModelAnalyzer.Parameters.Activities.EventCreationAmount:8,5~8,5|
-ModelAnalyzer.Parameters.Activities.EventCreationPrice:34~34|
-ModelAnalyzer.Parameters.Activities.EventCreationPriceAU:2~2,31|
-ModelAnalyzer.Parameters.Activities.EventCreationPriceEU:14~14|
+ModelAnalyzer.Parameters.Activities.EventCreationPrice:33~33|
+ModelAnalyzer.Parameters.Activities.EventCreationPriceAU:2~2,28|
+ModelAnalyzer.Parameters.Activities.EventCreationPriceEU:13~13|
 ModelAnalyzer.Parameters.Activities.EventImpactAmount:8~-|
 ModelAnalyzer.Parameters.Activities.EventImpactPrice:9~9|
-ModelAnalyzer.Parameters.Activities.EventImpactPriceAU:1~0,59|
+ModelAnalyzer.Parameters.Activities.EventImpactPriceAU:1~0,6|
 ModelAnalyzer.Parameters.Activities.EventImpactPriceEU:-1~-1|
-ModelAnalyzer.Parameters.Activities.EventImpact2PriceAU:1~1,18|
-ModelAnalyzer.Parameters.Activities.EventImpact2PriceEU:7~7|
-ModelAnalyzer.Parameters.Activities.EventImpact3PriceAU:2~1,77|
+ModelAnalyzer.Parameters.Activities.EventImpact2PriceAU:1~1,2|
+ModelAnalyzer.Parameters.Activities.EventImpact2PriceEU:8~8|
+ModelAnalyzer.Parameters.Activities.EventImpact3PriceAU:2~1,8|
 ModelAnalyzer.Parameters.Activities.EventImpact3PriceEU:6~6|
 ModelAnalyzer.Parameters.Activities.EventsActionsPotential:350~350|
 ModelAnalyzer.Parameters.Activities.InitialEventCreationAmount:2~2|
@@ -42,16 +42,16 @@ ModelAnalyzer.Parameters.Events.MainDeck:Кол|
 ModelAnalyzer.Parameters.Events.MainDeckCore:Кол|
 ModelAnalyzer.Parameters.Events.ArtifactsRarity:0,15~0,15|
 ModelAnalyzer.Parameters.Events.AverageContinuumBP:0 0 0 0 0 0~0 0 0 0 0 0|
-ModelAnalyzer.Parameters.Events.AverageEventStability:3,85~3,85|
+ModelAnalyzer.Parameters.Events.AverageEventStability:3,76~3,76|
 ModelAnalyzer.Parameters.Events.AverageMiningBonus:2,8~2,8|
 ModelAnalyzer.Parameters.Events.AverageRelationsImpactPerCount:0 1,8 1,98 2,73~0 1,8 1,98 2,73|
-ModelAnalyzer.Parameters.Events.AverageRelationsImpactPower:1,85~1,85|
+ModelAnalyzer.Parameters.Events.AverageRelationsImpactPower:1,76~1,76|
 ModelAnalyzer.Parameters.Events.AverageStabilityBonus:2~2|
 ModelAnalyzer.Parameters.Events.BackBlockerCoefficient:0,5~0,5|
 ModelAnalyzer.Parameters.Events.BrachPointsTemplatesAllocation:1 1 0 0 0 0 0~1 1 0 0 0 0 0|
 ModelAnalyzer.Parameters.Events.BranchPointsAllocation_Standard:0-1 0-2 0-3 1-2 1-3 2-3 2-4 2-5 3-4 3-5 4-0 4-1 4-5 5-0 5-1|
 ModelAnalyzer.Parameters.Events.BranchPointsAllocation_Symmetric:0-1 0-2 1-2 1-3 1-4 2-3 2-4 3-0 3-4 3-5 4-0 4-5 5-0 5-1 5-2|
-ModelAnalyzer.Parameters.Events.BranchPointsDisbalance:0,13~0,13|
+ModelAnalyzer.Parameters.Events.BranchPointsDisbalance:0,12~0,12|
 ModelAnalyzer.Parameters.Events.BranchPointsRandomizationLimit:20000~20000|
 ModelAnalyzer.Parameters.Events.EstimatedRelationsLoosing:0,1~0,1|
 ModelAnalyzer.Parameters.Events.EventMaxMiningBonus:6~6|
@@ -61,12 +61,12 @@ ModelAnalyzer.Parameters.Events.EventMinMiningBonus:0~-|
 ModelAnalyzer.Parameters.Events.FrontBlockerCoefficient:0,5~0,5|
 ModelAnalyzer.Parameters.Events.FrontEventsCoef:0,25~0,25|
 ModelAnalyzer.Parameters.Events.MinBackRelations:1~-|
-ModelAnalyzer.Parameters.Events.MinigForBalanceAverageStability:3,47~3,47|
+ModelAnalyzer.Parameters.Events.MinigForBalanceAverageStability:3,38~3,38|
 ModelAnalyzer.Parameters.Events.MinRelationsTemplateUsability:1,5~1,5|
 ModelAnalyzer.Parameters.Events.RelationImpactPower:2~2|
 ModelAnalyzer.Parameters.Events.RelationTemplatesUsage:9 шабл|
-ModelAnalyzer.Parameters.Events.StabilityBonusAllocation:1 2 4 2 1~1 2 4 2 1|
-ModelAnalyzer.Parameters.Events.Weight.AverageContinuumEventWeight:80,39~80,39|
+ModelAnalyzer.Parameters.Events.StabilityBonusAllocation:0 1 2 1 0~0 1 2 1 0|
+ModelAnalyzer.Parameters.Events.Weight.AverageContinuumEventWeight:80,31~80,31|
 ModelAnalyzer.Parameters.Events.Weight.BackRelationsWeightCoef:1~1|
 ModelAnalyzer.Parameters.Events.Weight.EventUsabilityNormalisation:0,33~0,33|
 ModelAnalyzer.Parameters.Events.Weight.FrontRelationsWeightCoef:1,3~1,3|
@@ -108,33 +108,35 @@ ModelAnalyzer.Parameters.Topology.NodesNearestAmount:stub|
 ModelAnalyzer.Parameters.Topology.RoundNodesAmount:954~954|
 ModelAnalyzer.Parameters.Topology.RoutesMap:Недос|
 ModelAnalyzer.Parameters.Topology.StartFrontBlockersMap:Карта|
-ModelAnalyzer.Parameters.PlayerInitial.InitialAtackEventMaxRadius:2~2|
-ModelAnalyzer.Parameters.PlayerInitial.InitialEU:17~17|
+ModelAnalyzer.Parameters.PlayerInitial.AtackInitialEventMaxRadius:2~2|
+ModelAnalyzer.Parameters.PlayerInitial.InitialEU:16~16|
 ModelAnalyzer.Parameters.PlayerInitial.InitialEventsWeightCoefficient:1~-|
-ModelAnalyzer.Parameters.PlayerInitial.InitialMiningEventMaxRadius:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.InitialStackArtifactChance:0,5~0,5|
 ModelAnalyzer.Parameters.PlayerInitial.InitialStackSize:4~4|
-ModelAnalyzer.Parameters.PlayerInitial.InitialSupportEventMaxRadius:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsAmount:3~-|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPoints:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPointsCoefficient:1,5~1,5|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsTotalBrachPoints:7~7|
+ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventMaxRelationPower:4~4|
+ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventMaxRadius:2~2|
+ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventPowerCoefficient:1,5~1,5|
+ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventTotalPower:6~6|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPoints:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPointsCoefficient:1,5~-|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventMinRadius:4~4|
-ModelAnalyzer.Parameters.PlayerInitial.MiningInitialCardCoefficient:1,5~1,5|
 ModelAnalyzer.Parameters.PlayerInitial.MinInitialCardUsability:1~1|
 ModelAnalyzer.Parameters.PlayerInitial.NotMainKeyEventMinRadius:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.RealInitialStackArtifactChance:0,49~0,49|
 ModelAnalyzer.Parameters.PlayerInitial.RealKeyEventBrachPointCoefficients:2,33 1,75 1,4 1,17~2,33 1,75 1,4 1,17|
 ModelAnalyzer.Parameters.PlayerInitial.StartDeck:Кол|
+ModelAnalyzer.Parameters.PlayerInitial.SupportInitialEventMaxRadius:2~2|
 ModelAnalyzer.Parameters.Items.ArtifactsAvailabilityRound:6~6|
 ModelAnalyzer.Parameters.Items.ArtifactsAvaliabilityPhase:2~2|
 ModelAnalyzer.Parameters.Items.Artifacts.ArtifactInaccessibilityCompensation:30~30|
 ModelAnalyzer.Parameters.Items.ArtifactsProfitCoefficient:2~-|
 ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:36,05~36,05|
 ModelAnalyzer.Parameters.Items.BaseItemsAmount:10~10|
-ModelAnalyzer.Parameters.Items.EstimatedArtifactsProfit:60,26~60,26|
+ModelAnalyzer.Parameters.Items.EstimatedArtifactsProfit:59,76~59,76|
 ModelAnalyzer.Parameters.Items.FullLoadCoefficient:0,5~0,5|
 ModelAnalyzer.Parameters.Items.ItemPerRoundLimit:1~1|
 ModelAnalyzer.Parameters.Items.ItemPriceCoefficient:0,4~0,4|
