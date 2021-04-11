@@ -93,7 +93,7 @@ namespace ModelAnalyzer.Parameters.Topology
                 return result;
 
             if (useContinuumDeck)
-                result.AddRange(initialDeck);
+                result.AddRange(continuumDeck);
             if (useInitialDeck)
                 result.AddRange(initialDeck);
             return result;
