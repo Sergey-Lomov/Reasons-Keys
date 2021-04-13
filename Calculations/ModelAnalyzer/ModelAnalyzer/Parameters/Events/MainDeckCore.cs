@@ -33,7 +33,6 @@ namespace ModelAnalyzer.Parameters.Events
             {
                 SetRelationsTypes(deck);
                 UpdateDeckWeight(calculator);
-                AddStabilityBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);
                 AddMiningBonuses(deck, calculator);
                 UpdateDeckWeight(calculator);  
@@ -115,30 +114,7 @@ namespace ModelAnalyzer.Parameters.Events
                 handlable[i].type = combination[i];
             }
         }
-
-        private void AddStabilityBonuses(List<EventCard> cards, Calculator calculator)
-        {
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            List<float> sb_allocation = RequestParmeter<StabilityBonusAllocation>(calculator).GetValue();
-
-            int[] sb_amounts = MathAdditional.AmountsForAllocation(cna, sb_allocation, calculationReport);
-            if (!calculationReport.IsSuccess) return;
-
-            var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
-            var groups = SplitForAmounts(ordered, sb_amounts);
-
-            for (int bonusIter = 0; bonusIter < groups.Count() ; bonusIter++)
-            {
-                foreach (EventCard card in groups[bonusIter])
-                {
-                    int index = groups[bonusIter].IndexOf(card);
-                    int stabilityBonus = SpreadValue(bonusIter, index, sb_amounts);
-                    card.stabilityBonus = stabilityBonus;
-                    sb_amounts[stabilityBonus]--;
-                }
-            }
-        }
-
+       
         private void AddMiningBonuses(List<EventCard> cards, Calculator calculator)
         {
             float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();

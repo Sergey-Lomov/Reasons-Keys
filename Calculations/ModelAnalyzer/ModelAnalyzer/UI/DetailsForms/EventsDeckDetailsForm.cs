@@ -108,14 +108,12 @@ namespace ModelAnalyzer.UI.DetailsForms
 
                 DeckTable.Controls.Add(LabelForBool(card.isPairedReasons));
                 DeckTable.Controls.Add(LabelForBool(card.provideArtifact));
-                DeckTable.Controls.Add(LabelForInt(card.stabilityBonus));
                 DeckTable.Controls.Add(LabelForInt(card.miningBonus));
                 DeckTable.Controls.Add(LabelForFloat(card.usability));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.success));
                 DeckTable.Controls.Add(LabelForBranchPoints(card.branchPoints.failed));
                 DeckTable.Controls.Add(LabelForInt(card.constraints.minPhase));
                 DeckTable.Controls.Add(LabelForRadiusesConstraint(card.constraints.unavailableRadiuses));
-                DeckTable.Controls.Add(LabelForInt(card.constraints.minStability));
                 DeckTable.Controls.Add(LabelForFloat(card.weight));
                 DeckTable.Controls.Add(LabelForString(card.comment));
             }
@@ -251,13 +249,6 @@ namespace ModelAnalyzer.UI.DetailsForms
             UpdateCardsTable();
         }
 
-        private void deckSILabel_Click(object sender, EventArgs e)
-        {
-            order = c => c.stabilityBonus;
-            reverse = !reverse;
-            UpdateCardsTable();
-        }
-
         private void deckMBLabel_Click(object sender, EventArgs e)
         {
             order = c => c.miningBonus;
@@ -310,13 +301,6 @@ namespace ModelAnalyzer.UI.DetailsForms
         private void minRadiusLabel_Click(object sender, EventArgs e)
         {
             order = c => c.constraints.unavailableRadiuses.Count();
-            reverse = !reverse;
-            UpdateCardsTable();
-        }
-
-        private void minStavilityLabel_Click(object sender, EventArgs e)
-        {
-            order = c => c.constraints.minStability;
             reverse = !reverse;
             UpdateCardsTable();
         }

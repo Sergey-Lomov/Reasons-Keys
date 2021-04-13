@@ -10,8 +10,8 @@ namespace ModelAnalyzer.Parameters.Events
         public MinigForBalanceAverageStability()
         {
             type = ParameterType.Indicator;
-            title = "Кол-во актов добычи для уравновешивания средней стабильности";
-            details = "Этот параметр отражает кол-во актов добычи (средней добычи), необходимых для получения ТЗ, уравновешивающего среднестатистическую стабильности события.";
+            title = "Кол-во актов добычи для уравновешивания среднего воздействия связей";
+            details = "Этот параметр отражает кол-во актов добычи (средней добычи), необходимых для получения ТЗ, уравновешивающего воздействиями среднее воздействие связей карт.";
             fractionalDigits = 2;
             tags.Add(ParameterTag.events);
         }
@@ -22,12 +22,12 @@ namespace ModelAnalyzer.Parameters.Events
 
             float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
             float am = RequestParmeter<AverageMining>(calculator).GetValue();
-            float aes = RequestParmeter<AverageEventStability>(calculator).GetValue();
+            float arip = RequestParmeter<AverageRelationsImpactPower>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            value = unroundValue = aes * eip / am;
+            value = unroundValue = arip * eip / am;
 
             return calculationReport;
         }

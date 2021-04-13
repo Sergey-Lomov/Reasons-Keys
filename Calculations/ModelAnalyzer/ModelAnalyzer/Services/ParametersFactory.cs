@@ -83,11 +83,9 @@ namespace ModelAnalyzer
 
             storage.AddParameter(parameter: new ArtifactsRarity());
             storage.AddParameter(parameter: new AverageContinuumBP());
-            storage.AddParameter(parameter: new AverageEventStability());
             storage.AddParameter(parameter: new AverageMiningBonus());
             storage.AddParameter(parameter: new AverageRelationsImpactPerCount());
             storage.AddParameter(parameter: new AverageRelationsImpactPower());
-            storage.AddParameter(parameter: new AverageStabilityBonus());
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
@@ -103,7 +101,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new MinRelationsTemplateUsability());
             storage.AddParameter(parameter: new RelationImpactPower());
             storage.AddParameter(parameter: new RelationTemplatesUsage());
-            storage.AddParameter(parameter: new StabilityBonusAllocation());
 
             // Events weight
             storage.AddParameter(parameter: new AverageContinuumEventWeight());

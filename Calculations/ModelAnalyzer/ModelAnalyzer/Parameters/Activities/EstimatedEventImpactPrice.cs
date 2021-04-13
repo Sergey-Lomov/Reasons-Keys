@@ -20,7 +20,7 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aes = RequestParmeter<AverageEventStability>(calculator).GetValue();
+            float arip = RequestParmeter<AverageRelationsImpactPower>(calculator).GetValue();
             float eap = RequestParmeter<EventsActionsPotential>(calculator).GetValue();
             float eca = RequestParmeter<EventCreationAmount>(calculator).GetValue();
             float eia = RequestParmeter<EventImpactAmount>(calculator).GetValue();
@@ -30,7 +30,7 @@ namespace ModelAnalyzer.Parameters.Activities
                 return calculationReport;
 
             // See Mechanic doc for clarify formula
-            value = unroundValue = eap / (eca * aes * dc + eia);
+            value = unroundValue = eap / (eca * arip * dc + eia);
 
             return calculationReport;
         }

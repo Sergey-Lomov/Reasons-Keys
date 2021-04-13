@@ -98,7 +98,6 @@
     <Compile Include="Parameters\Events\BranchPointsDisbalance.cs" />
     <Compile Include="Parameters\Events\RelationTemplatesUsage.cs" />
     <Compile Include="Parameters\Events\AverageContinuumBP.cs" />
-    <Compile Include="Parameters\Events\AverageEventStability.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
     <Compile Include="Parameters\Events\AverageRelationsImpactPerCount.cs" />
     <Compile Include="Parameters\Events\AverageRelationsImpactPower.cs" />
@@ -213,7 +212,6 @@
     <Compile Include="Parameters\Topology\FrontBlockersRelativeMap.cs" />
     <Compile Include="Parameters\Topology\FrontImpactMap.cs" />
     <Compile Include="Parameters\Topology\NodesAvailableBackRelations.cs" />
-    <Compile Include="Parameters\Events\StabilityBonusAllocation.cs" />
     <Compile Include="Parameters\General\MinPlayersAmount.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\MainKeyEventBranchPoints.cs" />
@@ -316,7 +314,6 @@
     <Compile Include="Parameters\Activities\TotalPotential.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvaliabilityPhase.cs" />
     <Compile Include="Parameters\Events\ArtifactsRarity.cs" />
-    <Compile Include="Parameters\Events\AverageStabilityBonus.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation_Standard.cs" />
     <Compile Include="Parameters\Events\BranchPointsAllocation_Symmetric.cs" />

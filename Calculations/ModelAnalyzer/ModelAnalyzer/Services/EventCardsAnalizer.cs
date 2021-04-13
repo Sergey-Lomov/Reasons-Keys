@@ -22,7 +22,6 @@ namespace ModelAnalyzer.Services
 
             float weight = 0;
             weight += RelationsWeight(card.relations, calculator);
-            weight += card.stabilityBonus * eip;
             weight += card.provideArtifact ? eap : 0;
             weight += card.miningBonus * mbw;
 
@@ -87,8 +86,7 @@ namespace ModelAnalyzer.Services
 
         static internal Dictionary<EventCard, float> CardsStabilities(List<EventCard> deck, List<float> aripc)
         {
-            float cardStability(EventCard c) => c.stabilityBonus + aripc[c.backRelationsCount()];
-            return deck.ToDictionary(c => c, c => cardStability(c));
+            return deck.ToDictionary(c => c, c => aripc[c.backRelationsCount()]);
         }
 
         static internal float BrancheDisbalance(List<EventCard> deck, 

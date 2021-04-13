@@ -48,7 +48,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aes = RequestParmeter<AverageEventStability>(calculator).GetValue();
+            float arip = RequestParmeter<AverageRelationsImpactPower>(calculator).GetValue();
             SetupMiningBonuses(calculator);
 
             if (!calculationReport.IsSuccess)
@@ -63,8 +63,6 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             deck = new List<EventCard>(initialEvents.Count() + keyEvents.Count());
             deck.AddRange(initialEvents);
             deck.AddRange(keyEvents);
-
-            deck.ForEach(c => SetStabilityBonus(c, aes, calculator, calculationReport));
 
             UpdateDeckUsability(calculator);
             UpdateDeckWeight(calculator);
@@ -181,7 +179,6 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         private EventCard SupportEvent(Calculator calculator)
         {
             int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            float asb = RequestParmeter<AverageStabilityBonus>(calculator).GetValue();
             int ismr = (int)RequestParmeter<SupportInitialEventMaxRadius>(calculator).GetValue();
 
             var bp = new BranchPoint(BranchPoint.undefineBranch, +1);
@@ -196,21 +193,6 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             card.comment = supportComment;
 
             return card;
-        }
-
-        private void SetStabilityBonus(EventCard card, float stability, Calculator calculator, ParameterCalculationReport report)
-        {
-            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
-
-            if (!calculationReport.IsSuccess)
-                return;
-
-            int backCount = card.comment == logisticComment ? 1 : card.backRelationsCount();
-
-            var relationsImpact = aripc[backCount];
-            var stabilityBonus = (int)Math.Round(stability - relationsImpact, MidpointRounding.AwayFromZero);
-            stabilityBonus = Math.Max(stabilityBonus, 0);
-            card.stabilityBonus = stabilityBonus;
         }
 
         private List<EventCard> KeyEvents(Calculator calculator)

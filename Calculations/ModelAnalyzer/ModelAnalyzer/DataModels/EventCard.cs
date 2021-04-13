@@ -13,20 +13,17 @@ namespace ModelAnalyzer.DataModels
     {
         internal List<int> unavailableRadiuses = new List<int>();
         internal int minPhase = 0;
-        internal int minStability = 0;
 
         internal void MakeEqual (EventConstraints constraints)
         {
             unavailableRadiuses = new List<int>(constraints.unavailableRadiuses);
             minPhase = constraints.minPhase;
-            minStability = constraints.minStability;
         }
 
         public bool Equals(EventConstraints constraints)
         {
             return unavailableRadiuses.SequenceEqual(constraints.unavailableRadiuses)
-                && minPhase == constraints.minPhase
-                && minStability == constraints.minStability;
+                && minPhase == constraints.minPhase;
         }
 
         public void SetMinRadius (int minRadius)
@@ -63,7 +60,6 @@ namespace ModelAnalyzer.DataModels
 
         internal BranchPointsSet branchPoints = new BranchPointsSet(null, null);
 
-        internal int stabilityBonus = 0;
         internal int miningBonus = 0;
         internal bool provideArtifact = false;
         internal bool isKey = false;
@@ -84,7 +80,6 @@ namespace ModelAnalyzer.DataModels
             branchPoints = new BranchPointsSet(card.branchPoints.success, card.branchPoints.failed);
             constraints.MakeEqual(card.constraints);
 
-            stabilityBonus = card.stabilityBonus;
             miningBonus = card.miningBonus;
             provideArtifact = card.provideArtifact;
             isKey = card.isKey;
@@ -100,7 +95,6 @@ namespace ModelAnalyzer.DataModels
         {
             return relations.SequenceEqual(other.relations)
                 && constraints.Equals(other.constraints)
-                && stabilityBonus == other.stabilityBonus
                 && miningBonus == other.miningBonus
                 && provideArtifact == other.provideArtifact
                 && isKey == other.isKey
