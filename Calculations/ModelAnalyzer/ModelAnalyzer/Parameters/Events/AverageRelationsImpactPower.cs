@@ -39,13 +39,13 @@ namespace ModelAnalyzer.Parameters.Events
 
             float cds = rtu.Select(kvp => kvp.Value.cardsCount).Sum();
             float sds = StartDeck.relationsPrototypes.Count * maxpa;
-            double acriCore(float n) => brcca((int)n) * aripc[(int)n];
-            double acri = MathAdditional.sum(0, maxBackRelationsCount, acriCore) / cds;
-            double asriCore(float n) => brsca((int)n) * aripc[(int)n];
-            double asri = MathAdditional.sum(0, maxBackRelationsCount, asriCore) / sds;
+            float acriCore(float n) => brcca((int)n) * aripc[(int)n];
+            float acri = MathAdditional.sum(0, maxBackRelationsCount, acriCore) / cds;
+            float asriCore(float n) => brsca((int)n) * aripc[(int)n];
+            float asri = MathAdditional.sum(0, maxBackRelationsCount, asriCore) / sds;
             float asds = sds * (minpa + maxpa) / 2f / maxpa;
 
-            value = unroundValue = (float)(acri * cds + asri * asds) / (cds + asds);
+            value = unroundValue = (acri * cds + asri * asds) / (cds + asds);
 
             return calculationReport;
         }

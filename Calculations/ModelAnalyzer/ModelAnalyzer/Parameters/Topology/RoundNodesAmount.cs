@@ -27,9 +27,9 @@ namespace ModelAnalyzer.Parameters.Topology
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            Func<float, double> roundNodesAtRadius = r => 6 * r;
-            Func<float, double> roundNodesAtPhase = p => pd[(int)p] * MathAdditional.sum((int)p, pa - 1, roundNodesAtRadius);
-            value = unroundValue = (float)MathAdditional.sum(0, pa - 1, roundNodesAtPhase);
+            Func<float, float> roundNodesAtRadius = r => 6 * r;
+            Func<float, float> roundNodesAtPhase = p => pd[(int)p] * MathAdditional.sum((int)p, pa - 1, roundNodesAtRadius);
+            value = unroundValue = MathAdditional.sum(0, pa - 1, roundNodesAtPhase);
 
             return calculationReport;
         }

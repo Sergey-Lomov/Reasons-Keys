@@ -49,10 +49,10 @@ namespace ModelAnalyzer.Parameters.BranchPointsTrack
             float aiebp = (1 - 2) * ieca / iea;
             float aceca = (maxpa + minpa) / 2 * (nkeca - ieca);
 
-            double comb(float chosen, float total) => MathAdditional.combinationsAmount((int)chosen, (int)total);
-            double cesa = comb(aceca, cna);
-            Func<float, double> cpesa = n => comb(n, cpea) * comb(aceca - n, cna - cpea);
-            Func<float, double> cnesa = n => comb(n, cnea) * comb(aceca - n, cna - cnea);
+            float comb(float chosen, float total) => (float)MathAdditional.combinationsAmount((int)chosen, (int)total);
+            float cesa = comb(aceca, cna);
+            Func<float, float> cpesa = n => comb(n, cpea) * comb(aceca - n, cna - cpea);
+            Func<float, float> cnesa = n => comb(n, cnea) * comb(aceca - n, cna - cnea);
             double acpea = MathAdditional.sum(0, (int)cpea, n => cpesa(n) * n) / cesa;
             double acnea = MathAdditional.sum(0, (int)cnea, n => cnesa(n) * n) / cesa;
             float acebp = (float)(acpea - acnea);

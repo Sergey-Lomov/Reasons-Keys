@@ -25,11 +25,11 @@ namespace ModelAnalyzer.Services
             return result;
         }
 
-        internal static double sum(int from, int to, Func<float, double> innerFunc)
+        internal static float sum(int from, int to, Func<float, float> innerFunc)
         {
-            double result = 0;
+            float result = 0;
             for (int i = from; i <= to; i++)
-                result += innerFunc((float)i);
+                result += innerFunc(i);
             return result;
         }
 

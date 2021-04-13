@@ -1,4 +1,5 @@
 ﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Services.FieldAnalyzer;
 using System.Collections.Generic;
 
 namespace ModelAnalyzer.Parameters.Events
@@ -19,20 +20,17 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float i = RequestParmeter<RelationImpactPower>(calculator).GetValue();
-            float ec = RequestParmeter<EstimatedRelationsLoosing>(calculator).GetValue();
+            float rip = RequestParmeter<RelationImpactPower>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            float c = (1 - ec) / 2;
-            unroundValues = new List<float>();
+            float cubeSum(int n) => MathAdditional.sum(0, n, i => i*i);
+            float sum(int n) => MathAdditional.sum(0, n, i => i);
 
-            // Calculations described at mechanic document
-            unroundValues.Add(0);
-            unroundValues.Add(2 * i * c);
-            unroundValues.Add(4 * i * (ec*c + c*c));
-            unroundValues.Add(6 * i * (ec*ec*c + 2*c*c*c + 2*c*c*ec));
+            unroundValues = new List<float>() { 0 };
+            for (int n = 1; n < Field.nearesNodesAmount; n++)
+                unroundValues.Add(rip * cubeSum(n) / sum(n));
 
             values = unroundValues;
 
