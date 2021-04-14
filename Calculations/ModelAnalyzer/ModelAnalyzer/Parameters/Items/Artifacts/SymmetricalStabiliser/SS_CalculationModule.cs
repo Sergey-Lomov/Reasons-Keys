@@ -19,16 +19,16 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
 
         internal override ModuleCalculationReport Execute(Calculator calculator)
         {
-            var report = new ModuleCalculationReport(this);
+            calculationReport = new ModuleCalculationReport(this);
 
-            var eca = RequestParmeter<EventCreationAmount>(calculator, report).GetValue();
-            var ua = RequestParmeter<SS_UsageAmount>(calculator, report).GetValue();
-            var cna = RequestParmeter<ContinuumNodesAmount>(calculator, report).GetValue();
-            var eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
-            var eifp = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
+            var eca = RequestParmeter<EventCreationAmount>(calculator).GetValue();
+            var ua = RequestParmeter<SS_UsageAmount>(calculator).GetValue();
+            var cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            var eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
+            var eifp = RequestParmeter<EventImpactPrice>(calculator).GetValue();
 
-            if (!report.IsSuccess)
-                return report;
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             var eoupr = eapr / ua;
 
@@ -59,7 +59,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
             impactPower = best_sp;
             secondaryImpactPower = best_ssp;
 
-            return report;
+            return calculationReport;
         }
     }
 }

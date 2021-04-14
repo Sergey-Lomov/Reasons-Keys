@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var module = calculator.UpdatedModule<EventsRestoringModule>();
+            var module = RequestModule<EventsRestoringModule>(calculator);
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

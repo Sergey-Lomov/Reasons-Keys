@@ -20,15 +20,15 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
         internal override ModuleCalculationReport Execute(Calculator calculator)
         {
-            var report = new ModuleCalculationReport(this);
+            calculationReport = new ModuleCalculationReport(this);
 
-            var ar = RequestParmeter<ArtifactsRarity>(calculator, report).GetValue();
-            var cna = (int)RequestParmeter<ContinuumNodesAmount>(calculator, report).GetValue();
-            var isac = RequestParmeter<InitialStackArtifactChance>(calculator, report).GetValue();
-            var deck = RequestParmeter<MainDeck>(calculator, report).deck;
+            var ar = RequestParmeter<ArtifactsRarity>(calculator).GetValue();
+            var cna = (int)RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            var isac = RequestParmeter<InitialStackArtifactChance>(calculator).GetValue();
+            var deck = RequestParmeter<MainDeck>(calculator).deck;
 
-            if (!report.IsSuccess)
-                return report;
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             // Use real value instead fromula provided by mechanica doc for prevent rounding issues
             var nacea = deck.FindAll(e => !e.provideArtifact).Count;
@@ -43,7 +43,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             initialStackSize = sortedValues.First();
             realInitialStackArtifactChance = (float)cisac(initialStackSize);
 
-            return report;
+            return calculationReport;
         }
     }
 }

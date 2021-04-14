@@ -17,7 +17,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var cm = calculator.UpdatedModule<InitialStackCalculationModule>();
+            var cm = RequestModule<InitialStackCalculationModule>(calculator);
             value = unroundValue = cm.initialStackSize;
 
             return calculationReport;

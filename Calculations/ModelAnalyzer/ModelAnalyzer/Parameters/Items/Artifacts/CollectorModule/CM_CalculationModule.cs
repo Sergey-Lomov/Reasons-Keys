@@ -23,18 +23,18 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
 
         internal override ModuleCalculationReport Execute(Calculator calculator)
         {
-            var report = new ModuleCalculationReport(this);
+            calculationReport = new ModuleCalculationReport(this);
 
-            var ud = RequestParmeter<CM_UsageDifficulty>(calculator, report).GetValue();
-            var amb = RequestParmeter<AverageMiningBonus>(calculator, report).GetValue();
-            var eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
-            var peuc = RequestParmeter<PureEUProfitCoefficient>(calculator, report).GetValue();
-            var maxlc = RequestParmeter<CM_MaxLimitCoef>(calculator, report).GetValue();
-            var minlc = RequestParmeter<CM_MinLimitCoef>(calculator, report).GetValue();
-            var adc = RequestParmeter<ArtifactsDischargeCompensation>(calculator, report).GetValue();
+            var ud = RequestParmeter<CM_UsageDifficulty>(calculator).GetValue();
+            var amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
+            var eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
+            var peuc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
+            var maxlc = RequestParmeter<CM_MaxLimitCoef>(calculator).GetValue();
+            var minlc = RequestParmeter<CM_MinLimitCoef>(calculator).GetValue();
+            var adc = RequestParmeter<ArtifactsDischargeCompensation>(calculator).GetValue();
 
-            if (!report.IsSuccess)
-                return report;
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             float eupr = ud * amb * peuc;
             usageAmount = (int)Math.Round(eapr / eupr, MidpointRounding.AwayFromZero);
@@ -42,7 +42,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             maxLimit = ud * amb * maxlc;
             minLimit = adc / usageAmount * minlc;
 
-            return report;
+            return calculationReport;
         }
     }
 }

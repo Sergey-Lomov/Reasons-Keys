@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var module = calculator.UpdatedModule<CM_CalculationModule>();
+            var module = RequestModule<CM_CalculationModule>(calculator);
             unroundValue = module.minLimit;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);
 

@@ -18,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var cm = calculator.UpdatedModule<LN_CalculationModule>();
+            var cm = RequestModule<LN_CalculationModule>(calculator);
             value = unroundValue = cm.range;
 
             return calculationReport;

@@ -66,6 +66,11 @@ namespace ModelAnalyzer.UI
         }
 
         // Calculation results
+        public Panel HeaderForGadeGroup(int grade)
+        {
+            return calculation.HeaderForGadeGroup(grade);
+        }
+
         public Panel HeaderForIssues(string title)
         {
             return calculation.HeaderForIssues(title);

@@ -18,25 +18,33 @@ namespace ModelAnalyzer.Services
         readonly string invalidInMessage = "Для вычисления необходимы параметры: {0}";
 
         internal string title;
+        internal int grade = 0;
+        internal ModuleCalculationReport calculationReport = null;
 
-        abstract internal ModuleCalculationReport Execute(Calculator calculator);
+        virtual internal ModuleCalculationReport Execute(Calculator calculator)
+        {
+            return calculationReport;
+        }
 
-        internal T RequestParmeter<T>(Calculator calculator, ModuleCalculationReport report) where T : Parameter
+        internal T RequestParmeter<T>(Calculator calculator) where T : Parameter
         {
             var parameter = calculator.UpdatedParameter<T>();
 
             if (!parameter.VerifyValue())
-                FailCalculationByInvalidIn(parameter.title, report);
+                FailCalculationByInvalidIn(parameter.title);
+
+            if (grade <= parameter.grade)
+                grade = parameter.grade + 1;
 
             return parameter;
         }
 
-        internal void FailCalculationByInvalidIn(string parameterTitle, ModuleCalculationReport report)
+        internal void FailCalculationByInvalidIn(string parameterTitle)
         {
-            FailCalculationByInvalidIn(new string[] { parameterTitle }, report);
+            FailCalculationByInvalidIn(new string[] { parameterTitle });
         }
 
-        internal void FailCalculationByInvalidIn(string[] parametersTitles, ModuleCalculationReport report)
+        internal void FailCalculationByInvalidIn(string[] parametersTitles)
         {
             string titles = "";
             foreach (string title in parametersTitles)
@@ -44,7 +52,7 @@ namespace ModelAnalyzer.Services
             titles.Remove(titles.Length - 1);
 
             string issue = string.Format(invalidInMessage, titles);
-            report.AddIssue(issue);
+            calculationReport.AddIssue(issue);
         }
     }
 }

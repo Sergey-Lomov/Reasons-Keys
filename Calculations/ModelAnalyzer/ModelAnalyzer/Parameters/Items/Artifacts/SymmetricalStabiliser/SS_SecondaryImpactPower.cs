@@ -18,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var cm = calculator.UpdatedModule<SS_CalculationModule>();
+            var cm = RequestModule<SS_CalculationModule>(calculator);
             value = unroundValue = cm.secondaryImpactPower;
 
             return calculationReport;

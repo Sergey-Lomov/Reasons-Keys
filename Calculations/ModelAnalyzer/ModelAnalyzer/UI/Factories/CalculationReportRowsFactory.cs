@@ -23,6 +23,13 @@ namespace ModelAnalyzer.UI.Factories
         private string comparasionSeparator = "=>";
         private string issueItemPrefix = "- ";
 
+        public Panel HeaderForGadeGroup(int grade)
+        {
+            Panel panel = components.RowPanel(reportRowBack, UIConstants.headerRowHeight);
+            panel.Controls.Add(components.SubheaderTitleLabel("Уровень " + grade.ToString()));
+            return panel;
+        }
+
         public Panel HeaderForIssues(string title)
         {
             Panel panel = components.RowPanel(reportRowBack, UIConstants.headerRowHeight);

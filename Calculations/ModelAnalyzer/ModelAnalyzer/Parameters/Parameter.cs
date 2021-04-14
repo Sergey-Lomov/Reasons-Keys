@@ -11,6 +11,7 @@ namespace ModelAnalyzer.Parameters
     public abstract class Parameter
     {
         public ParameterType type;
+        public int grade = 0;
         internal ParameterCalculationReport calculationReport = null;
 
         public string title;
@@ -18,7 +19,8 @@ namespace ModelAnalyzer.Parameters
         public List<ParameterTag> tags = new List<ParameterTag>();
         readonly protected string dataSeparator = "~";
         readonly string multyInvalidInMessage = "Для вычисления необходимы параметры: {0}";
-        readonly string singleInvalidInMessage = "Для вычисления необходим параметр: \"{0}\""; 
+        readonly string singleInvalidInMessage = "Для вычисления необходим параметр: \"{0}\"";
+        readonly string invalidModuleMessage = "Для вычисления необходим модуль: \"{0}\"";
 
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
@@ -76,9 +78,15 @@ namespace ModelAnalyzer.Parameters
             return new ParameterValidationReport(this);
         }
 
-        internal void FailCalculationByInvalidIn(string parameterTitle)
+        internal void FailCalculationByInvalidIn(string title)
         {
-            string issue = string.Format(singleInvalidInMessage, parameterTitle);
+            string issue = string.Format(singleInvalidInMessage, title);
+            calculationReport.AddIssue(issue);
+        }
+
+        internal void FailCalculationByInvalidModule(string title)
+        {
+            string issue = string.Format(invalidModuleMessage, title);
             calculationReport.AddIssue(issue);
         }
 
@@ -103,7 +111,26 @@ namespace ModelAnalyzer.Parameters
                 FailCalculationByInvalidIn(parameter.title);
             }
 
+            if (grade <= parameter.grade)
+                grade = parameter.grade + 1;
+
             return parameter;
+        }
+
+        internal T RequestModule<T>(Calculator calculator) where T : CalculationModule, new()
+        {
+            var module = calculator.UpdatedModule<T>();
+
+            if (!module.calculationReport.IsSuccess)
+            {
+                NullifyValue();
+                FailCalculationByInvalidIn(module.title);
+            }
+
+            if (grade <= module.grade)
+                grade = module.grade + 1;
+
+            return module;
         }
     }
 }

@@ -54,7 +54,8 @@ namespace ModelAnalyzer.Services
             }
             else
             {
-                if (!float.TryParse(str, out value))
+                var handledStr = str.Replace('.', ',');
+                if (!float.TryParse(handledStr, out value))
                 {
                     string message = string.Format("Can't parse string to float: \"{0}\"", str);
                     MAException e = new MAException(message);

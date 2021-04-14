@@ -44,13 +44,29 @@ namespace ModelAnalyzer.UI
             var factory = new UIFactory();
             var succes = parametersCalculations.Where(r => r.IsSuccess);
             var succesChanged = succes.Where(r => r.WasChanged).ToList();
-            var ordered = succesChanged.OrderBy(r => r.parameter.title);
-            changesTable.RowCount = ordered.Count();
+            var grouped = succesChanged
+                .Select(r => new { r.parameter.grade, r })
+                .GroupBy(p => p.grade)
+                .Select(g => g.Select(p => p.r).ToList())
+                .OrderBy(g => g[0].parameter.grade)
+                .ToList();
+            
+            changesTable.RowCount = succesChanged.Count() + grouped.Count;
 
-            foreach (ParameterCalculationReport report in ordered)
+            foreach (var group in grouped)
             {
-                Panel row = factory.ParameterComparasionRow(report.precalculated, report.parameter);
-                changesTable.Controls.Add(row);
+                if (group.Count == 0) continue;
+
+                var grade = group[0].parameter.grade;
+                Panel header = factory.HeaderForGadeGroup(grade);
+                changesTable.Controls.Add(header);
+
+                var ordered = group.OrderBy(r => r.parameter.title);
+                foreach (ParameterCalculationReport report in ordered)
+                {
+                    Panel row = factory.ParameterComparasionRow(report.precalculated, report.parameter);
+                    changesTable.Controls.Add(row);
+                }
             }
 
             changesTab.Text = string.Format("Изменения ({0})", succesChanged.Count());

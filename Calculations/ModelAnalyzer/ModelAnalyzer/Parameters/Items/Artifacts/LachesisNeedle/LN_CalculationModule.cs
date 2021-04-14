@@ -26,18 +26,18 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
 
         internal override ModuleCalculationReport Execute(Calculator calculator)
         {
-            var report = new ModuleCalculationReport(this);
+            calculationReport = new ModuleCalculationReport(this);
 
-            float eip = RequestParmeter<EventImpactPrice>(calculator, report).GetValue();
-            float rip = RequestParmeter<RelationImpactPower>(calculator, report).GetValue();
-            float frwc = RequestParmeter<FrontRelationsWeightCoef>(calculator, report).GetValue();
-            float mp = RequestParmeter<MotionPrice>(calculator, report).GetValue();
-            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator, report).GetValue();
-            int minr = (int)RequestParmeter<LN_MinRadius>(calculator, report).GetValue();
-            int maxr = (int)RequestParmeter<LN_MaxRadius>(calculator, report).GetValue();
+            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            float rip = RequestParmeter<RelationImpactPower>(calculator).GetValue();
+            float frwc = RequestParmeter<FrontRelationsWeightCoef>(calculator).GetValue();
+            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
+            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
+            int minr = (int)RequestParmeter<LN_MinRadius>(calculator).GetValue();
+            int maxr = (int)RequestParmeter<LN_MaxRadius>(calculator).GetValue();
 
-            if (!report.IsSuccess)
-                return report;
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             Func<int, float> unround_uc = r => eapr / (r * mp + eip * rip * frwc);
             Func<int, int> uc = r => (int)Math.Round(unround_uc(r), MidpointRounding.AwayFromZero);
@@ -53,7 +53,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
             connectinosAmount = uc(best_r);
             oneUsageProfit = best_r * mp + eip * rip * frwc;
 
-            return report;
+            return calculationReport;
         }
     }
 }

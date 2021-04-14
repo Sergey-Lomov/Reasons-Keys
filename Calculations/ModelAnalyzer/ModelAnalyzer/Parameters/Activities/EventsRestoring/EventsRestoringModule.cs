@@ -39,16 +39,16 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
         internal override ModuleCalculationReport Execute(Calculator calculator)
         {
-            var report = new ModuleCalculationReport(this);
+            calculationReport = new ModuleCalculationReport(this);
 
-            var eusc = RequestParmeter<EstimatedUnluckyStackChance>(calculator, report).GetValue();
-            var mlsc = RequestParmeter<MinimalLuckyStackChance>(calculator, report).GetValue();
-            var minpa = (int)RequestParmeter<MinPlayersAmount>(calculator, report).GetValue();
-            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator, report).GetValue();
-            var deck = RequestParmeter<MainDeck>(calculator, report);
+            var eusc = RequestParmeter<EstimatedUnluckyStackChance>(calculator).GetValue();
+            var mlsc = RequestParmeter<MinimalLuckyStackChance>(calculator).GetValue();
+            var minpa = (int)RequestParmeter<MinPlayersAmount>(calculator).GetValue();
+            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            var deck = RequestParmeter<MainDeck>(calculator);
 
-            if (!report.IsSuccess)
-                return report;
+            if (!calculationReport.IsSuccess)
+                return calculationReport;
 
             var sizes = new List<int>();
             var unluckyChances = new List<float>();
@@ -56,11 +56,11 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
             for (int playersAmount = minpa; playersAmount <= maxpa; playersAmount++)
             {
-                var stack = StackFor(playersAmount, maxpa, deck.deck, eusc, mlsc, report);
+                var stack = StackFor(playersAmount, maxpa, deck.deck, eusc, mlsc, calculationReport);
                 stacks.Add(stack);
             }
 
-            return report;
+            return calculationReport;
         }
 
         private StackDescrition StackFor(int playersAmount, int maxPlayersAmount, List<EventCard> deck, float eusc, float mlsc, OperationReport report)

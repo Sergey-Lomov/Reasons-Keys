@@ -13,6 +13,7 @@ namespace ModelAnalyzer.UI.Factories
         Dictionary<ParameterType, Color> typesColors = new Dictionary<ParameterType, Color>();
 
         private readonly Font headerFont = new Font("Serif", 10, FontStyle.Bold);
+        private readonly Font subHeaderFont = new Font("Serif", 8, FontStyle.Bold);
         private readonly Color issueColor = Color.FromArgb(255, 50, 50);
         private readonly int typeIndicatorWidth = 10;
 
@@ -82,6 +83,18 @@ namespace ModelAnalyzer.UI.Factories
                 Font = headerFont,
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter,
+                Padding = UIConstants.labelsPadding
+            };
+        }
+
+        internal Label SubheaderTitleLabel(string title)
+        {
+            return new Label()
+            {
+                Text = title,
+                Font = subHeaderFont,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft,
                 Padding = UIConstants.labelsPadding
             };
         }
