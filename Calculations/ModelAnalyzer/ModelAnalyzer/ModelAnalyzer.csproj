@@ -146,8 +146,8 @@
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Profit.cs" />
     <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_CalculationModule.cs" />
     <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_Profit.cs" />
-    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_SecondaryStabilisationPower.cs" />
-    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_StabilisationPower.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_SecondaryImpactPower.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_ImpactPower.cs" />
     <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_SymmetricalNodesAmount.cs" />
     <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_UsageAmount.cs" />
     <Compile Include="Parameters\Items\AverageBaseItemsProfit.cs" />

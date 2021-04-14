@@ -246,8 +246,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new LN_Range());
 
             storage.AddParameter(parameter: new SS_Profit());
-            storage.AddParameter(parameter: new SS_SecondaryStabilisationPower());
-            storage.AddParameter(parameter: new SS_StabilisationPower());
+            storage.AddParameter(parameter: new SS_SecondaryImpactPower());
+            storage.AddParameter(parameter: new SS_ImpactPower());
             storage.AddParameter(parameter: new SS_SymmetricalNodesAmount());
             storage.AddParameter(parameter: new SS_UsageAmount());
 

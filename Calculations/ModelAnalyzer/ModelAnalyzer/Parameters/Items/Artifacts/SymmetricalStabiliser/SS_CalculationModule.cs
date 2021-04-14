@@ -8,8 +8,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
 {
     class SS_CalculationModule : CalculationModule
     {
-        internal float stabilisationPower;
-        internal float secondaryStabilisationPower;
+        internal float impactPower;
+        internal float secondaryImpactPower;
         internal float symmetricalNodesAmount;
 
         public SS_CalculationModule()
@@ -56,8 +56,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
                     }
 
             symmetricalNodesAmount = best_sna;
-            stabilisationPower = best_sp;
-            secondaryStabilisationPower = best_ssp;
+            impactPower = best_sp;
+            secondaryImpactPower = best_ssp;
 
             return report;
         }

@@ -2,13 +2,13 @@
 
 namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
 {
-    class SS_SecondaryStabilisationPower : FloatSingleParameter
+    class SS_ImpactPower : FloatSingleParameter
     {
-        public SS_SecondaryStabilisationPower()
+        public SS_ImpactPower()
         {
             type = ParameterType.Out;
-            title = "СС: сила вторичной стабилизации";
-            details = "Сила, с которой СС влияет на стабильность узлов, симметричных к тому, на который направлено основное воздействие";
+            title = "СС: сила воздействия";
+            details = "Сила, с которой СС оказывает воздействие на узел, в котором находится игрок";
             fractionalDigits = 0;
             tags.Add(ParameterTag.items);
             tags.Add(ParameterTag.artifacts);
@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
             calculationReport = new ParameterCalculationReport(this);
 
             var cm = calculator.UpdatedModule<SS_CalculationModule>();
-            value = unroundValue = cm.secondaryStabilisationPower;
+            value = unroundValue = cm.impactPower;
 
             return calculationReport;
         }
