@@ -250,22 +250,6 @@ namespace ModelAnalyzer.Parameters.Events
                 ordered = cards.Where(c => c.miningBonus == 0).ToList();
             }
         }
-        /*
-        private Dictionary<int, List<EventCard>> SplitForAmounts(List<EventCard> cards, int[] amounts)
-        {
-            var groups = new Dictionary<int, List<EventCard>>();
-            int cardIter = 0;
-            for (int i = 0; i < amounts.Count(); i++)
-            {
-                groups.Add(i, new List<EventCard>());
-                for (int j = 0; j < amounts[i]; j++)
-                    groups[i].Add(cards[cardIter + j]);
-
-                cardIter += amounts[i];
-            }
-
-            return groups;
-        }*/
 
         private void UpdateDeckNames()
         {
