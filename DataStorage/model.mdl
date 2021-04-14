@@ -6,7 +6,7 @@ ModelAnalyzer.Parameters.Activities.EventsRestoring.MinimalLuckyStackChance:0,6~
 ModelAnalyzer.Parameters.Activities.EventsRestoring.RealLuckyStackChance:0,72 0,63 0,71 0,91~0,72 0,63 0,71 0,91|
 ModelAnalyzer.Parameters.Activities.EventsRestoring.RealUnluckyStackChance:0 0,04 0,1 0,09~0 0,04 0,1 0,09|
 ModelAnalyzer.Parameters.Activities.ArtifactDischargeCoef:0,7~0,7|
-ModelAnalyzer.Parameters.Activities.ArtifactsDischargeCompensation:21~21|
+ModelAnalyzer.Parameters.Activities.ArtifactsDischargeCompensation:22~22|
 ModelAnalyzer.Parameters.Activities.AtackAmount:6~6|
 ModelAnalyzer.Parameters.Activities.AUPriceProportion:0,69~0,69|
 ModelAnalyzer.Parameters.Activities.EstimatedEventsConcreteBranchPoints:10,33~10,33|
@@ -60,7 +60,7 @@ ModelAnalyzer.Parameters.Events.MinigForBalanceAverageStability:1,82~1,82|
 ModelAnalyzer.Parameters.Events.MinRelationsTemplateUsability:1,5~1,5|
 ModelAnalyzer.Parameters.Events.RelationImpactPower:2~2|
 ModelAnalyzer.Parameters.Events.RelationTemplatesUsage:9 шабл|
-ModelAnalyzer.Parameters.Events.Weight.AverageContinuumEventWeight:70,26~70,26|
+ModelAnalyzer.Parameters.Events.Weight.AverageContinuumEventWeight:70,8~70,8|
 ModelAnalyzer.Parameters.Events.Weight.BackRelationsWeightCoef:1~1|
 ModelAnalyzer.Parameters.Events.Weight.EventUsabilityNormalisation:0,33~0,33|
 ModelAnalyzer.Parameters.Events.Weight.FrontRelationsWeightCoef:1,3~1,3|
@@ -75,8 +75,8 @@ ModelAnalyzer.Parameters.Moving.InitialSpeedCoef:0,4~-|
 ModelAnalyzer.Parameters.Moving.MotionAmount:50~50|
 ModelAnalyzer.Parameters.Moving.MotionFreeLevel:2~2|
 ModelAnalyzer.Parameters.Moving.MotionPrice:1~1|
-ModelAnalyzer.Parameters.Moving.SpeedDoublingRate:3,5~-|
-ModelAnalyzer.Parameters.Moving.OneRoundSpeedDoublingProfit:3,5~3,5|
+ModelAnalyzer.Parameters.Moving.SpeedDoublingRate:5~5|
+ModelAnalyzer.Parameters.Moving.OneRoundSpeedDoublingProfit:5~5|
 ModelAnalyzer.Parameters.Timing.AUMoveAmount:2~-|
 ModelAnalyzer.Parameters.Timing.AUPartyAmount:40~40|
 ModelAnalyzer.Parameters.Timing.FirstRoundAttackers:3~3|
@@ -126,11 +126,11 @@ ModelAnalyzer.Parameters.PlayerInitial.StartDeck:Кол|
 ModelAnalyzer.Parameters.PlayerInitial.SupportInitialEventMaxRadius:2~2|
 ModelAnalyzer.Parameters.Items.ArtifactsAvailabilityRound:6~6|
 ModelAnalyzer.Parameters.Items.ArtifactsAvaliabilityPhase:2~2|
-ModelAnalyzer.Parameters.Items.Artifacts.ArtifactInaccessibilityCompensation:30~30|
+ModelAnalyzer.Parameters.Items.Artifacts.ArtifactInaccessibilityCompensation:32~32|
 ModelAnalyzer.Parameters.Items.ArtifactsProfitCoefficient:2~-|
-ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:36,05~36,05|
+ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:39,07~39,07|
 ModelAnalyzer.Parameters.Items.BaseItemsAmount:10~10|
-ModelAnalyzer.Parameters.Items.EstimatedArtifactsProfit:59,76~59,76|
+ModelAnalyzer.Parameters.Items.EstimatedArtifactsProfit:63,38~63,38|
 ModelAnalyzer.Parameters.Items.FullLoadCoefficient:0,5~0,5|
 ModelAnalyzer.Parameters.Items.ItemPerRoundLimit:1~1|
 ModelAnalyzer.Parameters.Items.ItemPriceCoefficient:0,4~0,4|
@@ -151,43 +151,43 @@ ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Profit:36~36|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_ShotPrice:3 4 5~3 4 5|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesAmount:2~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesProfit:24 36 48~24 36 48|
-ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_FullPrice:7 5 4~7 5 4|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_FullPrice:10 7 5~10 7 5|
 ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_MaxSpeedCoef:1~-|
 ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Power:1 1 1~1 1 1|
-ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Profit:28,19~28,19|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_Profit:40,28~40,28|
 ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesAmount:3~-|
-ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesProfit:17,5 11,67 8,75~17,5 11,67 8,75|
+ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_UpgradesProfit:25 16,67 12,5~25 16,67 12,5|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_Capacity:65~65|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_CapacityCoefficient:1,5~1,5|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_FullPrice:20~20|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_InversePower:1~1|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_Profit:50~50|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_RelativeRevenue:3~3|
-ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_ChargesAmount:5~5|
-ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_OneUsageProfit:11,09~11,09|
-ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_Profit:55,43~55,43|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_ChargesAmount:4~4|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_OneUsageProfit:14,58~14,58|
+ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_Profit:58,31~58,31|
 ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_V616Mining:14~14|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_CollapsePreparationDuration:5~5|
-ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTension:12~12|
-ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTransaction:10~10|
-ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_Profit:60~60|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTension:14~14|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTransaction:11~11|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_Profit:64~64|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionIncreasing:-4 1 2 4~-4 1 2 4|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionInreasingStepsAmount:3~3|
-ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionLimits:0 10 20 30~0 10 20 30|
-ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_ConnectionsAmount:2~2|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionLimits:0 11 21 32~0 11 21 32|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_ConnectionsAmount:3~3|
 ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_MaxRadius:5~5|
 ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_MinRadius:2~2|
-ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_OneConnectionProfit:25,8~25,8|
-ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Profit:51,6~51,6|
-ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Range:5~5|
-ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_Profit:59,33~59,33|
-ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SecondaryImpactPower:1~1|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_OneConnectionProfit:22,8~22,8|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Profit:68,4~68,4|
+ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle.LN_Range:2~2|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_Profit:61,6~61,6|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SecondaryImpactPower:3~3|
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_ImpactPower:3~3|
-ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SymmetricalNodesAmount:5~5|
+ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SymmetricalNodesAmount:2~2|
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_UsageAmount:2~2|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimit:8~8|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimitCoef:1,4~1,4|
-ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimit:3~2,63|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimit:3~2,75|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimitCoef:0,75~0,75|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_Profit:64,5~64,5|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_UsageAmount:6~6|
