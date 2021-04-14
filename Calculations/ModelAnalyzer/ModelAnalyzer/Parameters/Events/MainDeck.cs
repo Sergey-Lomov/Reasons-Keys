@@ -13,6 +13,7 @@ namespace ModelAnalyzer.Parameters.Events
     class MainDeck : DeckParameter
     {
         private readonly string artifactsIssue = "Невозможно распределить артефакты симметрично очкам ветвей.";
+        private readonly string mbIssue = "Невозможно распределить бонусы добычи симметрично очкам ветвей.";
         private readonly string cardsNamesPrefix = "Main";
 
         public MainDeck()
@@ -37,6 +38,9 @@ namespace ModelAnalyzer.Parameters.Events
                 deck.Add(new EventCard(card));
 
             AddBranchPoints(deck, calculator);
+            UpdateDeckWeight(calculator);
+            AddMiningBonuses(deck, calculator, calculationReport);
+            UpdateDeckWeight(calculator);
             AddArtifacts(deck, calculator, calculationReport);
             UpdateDeckConstraints(calculator);
             UpdateDeckWeight(calculator);
@@ -50,38 +54,43 @@ namespace ModelAnalyzer.Parameters.Events
             float ar = RequestParmeter<ArtifactsRarity>(calculator).GetValue();
             int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
 
-            int estimatedAmount = (int)Math.Round(cards.Count() * ar, MidpointRounding.AwayFromZero);
-            var ordered = cards.OrderBy(c => c.weight).ToList();
+            int amount = (int)Math.Round(cards.Count() * ar, MidpointRounding.AwayFromZero);
+            var ordered = cards.OrderBy(c => c.weight);
+            var filtered = ordered.Where(c => !c.branchPoints.HasPositivePoints()).ToList();
+            AllocateSymmetrically(filtered, amount, maxpa, artifactsIssue, report, c => c.provideArtifact = true);
+        }
 
-            int amount = 0;
-            while (ordered.Count() > 0 && amount < estimatedAmount)
+        private void AllocateSymmetrically(
+            List<EventCard> cards, 
+            int amount, 
+            int maxpa,
+            string unallocatableIssue,
+            ParameterCalculationReport report,
+            Action<EventCard> applicator)
+        {
+            int doneAmount = 0;
+            while (cards.Count() > 0 && doneAmount < amount)
             {
-                var candidate = ordered.First();
-                if (candidate.branchPoints.HasPositivePoints())
-                {
-                    ordered.Remove(candidate);
-                    continue;
-                }
-
-                var cartage = EventCardsAnalizer.FirstFullCartage(candidate, ordered, maxpa);
+                var candidate = cards.First();
+                var cartage = EventCardsAnalizer.FirstFullCartage(candidate, cards, maxpa);
                 if (cartage == null)
                 {
-                    ordered.Remove(candidate);
+                    cards.Remove(candidate);
                     continue;
                 }
 
-                if (cartage.Count() + amount <= estimatedAmount)
+                if (cartage.Count() + doneAmount <= amount)
                 {
                     foreach (var card in cartage)
-                        card.provideArtifact = true;
-                    amount += cartage.Count();
+                        applicator(card);
+                    doneAmount += cartage.Count();
                 }
 
-                ordered = ordered.Except(cartage).ToList();
+                cards = cards.Except(cartage).ToList();
             }
 
-            if (amount < estimatedAmount)
-                report.AddIssue(artifactsIssue);
+            if (doneAmount < amount)
+                report.AddIssue(unallocatableIssue);
         }
 
         private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
@@ -221,6 +230,42 @@ namespace ModelAnalyzer.Parameters.Events
 
             return sequence;
         }
+
+        private void AddMiningBonuses(List<EventCard> cards, Calculator calculator, ParameterCalculationReport report)
+        {
+            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            List<float> mb_allocation = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
+
+            int[] mb_amounts = MathAdditional.AmountsForAllocation(cna, mb_allocation, calculationReport);
+            if (!calculationReport.IsSuccess) return;
+
+            var ordered = cards.OrderBy(c => c.weight).ToList();
+
+            for (int i = 1; i < mb_amounts.Length; i++)
+            {
+                int amount = mb_amounts[i];
+                if (amount == 0) continue;
+                AllocateSymmetrically(ordered, amount, maxpa, mbIssue, report, c => c.miningBonus = i);
+                ordered = cards.Where(c => c.miningBonus == 0).ToList();
+            }
+        }
+        /*
+        private Dictionary<int, List<EventCard>> SplitForAmounts(List<EventCard> cards, int[] amounts)
+        {
+            var groups = new Dictionary<int, List<EventCard>>();
+            int cardIter = 0;
+            for (int i = 0; i < amounts.Count(); i++)
+            {
+                groups.Add(i, new List<EventCard>());
+                for (int j = 0; j < amounts[i]; j++)
+                    groups[i].Add(cards[cardIter + j]);
+
+                cardIter += amounts[i];
+            }
+
+            return groups;
+        }*/
 
         private void UpdateDeckNames()
         {

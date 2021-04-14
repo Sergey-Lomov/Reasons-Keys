@@ -34,8 +34,6 @@ namespace ModelAnalyzer.Parameters.Events
                 SetRelationsTypes(deck);
                 UpdateDeckWeight(calculator);
                 UpdateDeckWeight(calculator);
-                AddMiningBonuses(deck, calculator);
-                UpdateDeckWeight(calculator);  
             }
             catch (MACalculationException)
             {
@@ -113,95 +111,6 @@ namespace ModelAnalyzer.Parameters.Events
             {
                 handlable[i].type = combination[i];
             }
-        }
-       
-        private void AddMiningBonuses(List<EventCard> cards, Calculator calculator)
-        {
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            List<float> mb_allocation = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
-
-            int[] mb_amounts = MathAdditional.AmountsForAllocation(cna, mb_allocation, calculationReport);
-            if (!calculationReport.IsSuccess) return;
-
-            var ordered = cards.OrderBy(c => c.weight).Reverse().ToList();
-            var groups = SplitForAmounts(ordered, mb_amounts);
-
-            for (int bonusIter = 0; bonusIter < groups.Count(); bonusIter++)
-            {
-                foreach (EventCard card in groups[bonusIter])
-                {
-                    int index = groups[bonusIter].IndexOf(card);
-                    int miningBonus = SpreadValue(bonusIter, index, mb_amounts);
-                    card.miningBonus = miningBonus;
-                    mb_amounts[miningBonus]--;
-                }
-            }
-        }
-
-        private Dictionary<int, List<EventCard>> SplitForAmounts (List<EventCard> cards, int[] amounts)
-        {
-            var groups = new Dictionary<int, List<EventCard>>();
-            int cardIter = 0;
-            for (int i = 0; i < amounts.Count(); i++)
-            {
-                groups.Add(i, new List<EventCard>());
-                for (int j = 0; j < amounts[i]; j++)
-                    groups[i].Add(cards[cardIter + j]);
-
-                cardIter += amounts[i];
-            }
-
-            return groups;
-        }
-
-        private int SpreadValue(int defaultValue, int index, int[] amounts)
-        {
-            switch (index % 3)
-            {
-                case 0:
-                    if (amounts[defaultValue] > 0)
-                        return defaultValue;
-                    else
-                        return NearestAvailableValue(defaultValue, index % 2 == 0, amounts);
-                case 1:
-                    return NearestAvailableValue(defaultValue, false, amounts);
-                case 2:
-                    return NearestAvailableValue(defaultValue, true, amounts);
-            }
-
-            return 0;
-        }
-
-        private int NearestAvailableValue(int current, bool nextFirst, int[] amounts)
-        {
-            List<int> sequence = new List<int>();
-
-            for (int i = 1; i < amounts.Count(); i++)
-            {
-                int rightIndex = current + i;
-                int leftIndex = current - i;
-
-                if (nextFirst)
-                {
-                    if (rightIndex < amounts.Count())
-                        sequence.Add(rightIndex);
-                    if (leftIndex >= 0)
-                        sequence.Add(leftIndex);
-                }
-                else
-                {
-                    if (leftIndex >= 0)
-                        sequence.Add(leftIndex);
-                    if (rightIndex < amounts.Count())
-                        sequence.Add(rightIndex);
-                }
-            }
-
-            foreach (int value in sequence)
-                if (amounts[value] > 0)
-                    return value;
-
-            return 0;
         }
     }
 }
