@@ -124,6 +124,7 @@
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_MinRadius.cs" />
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Range.cs" />
     <Compile Include="Parameters\Items\ArtifactInaccessibilityCompensation.cs" />
+    <Compile Include="Parameters\Items\AveragePrimeItemsProfit.cs" />
     <Compile Include="Parameters\Items\BaseItemsAmount.cs" />
     <Compile Include="Parameters\Items\EstimatedArtifactsProfit.cs" />
     <Compile Include="Parameters\Items\ArtifactsProfitCoefficient.cs" />
@@ -175,6 +176,11 @@
     <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_InversePower.cs" />
     <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_Profit.cs" />
     <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_RelativeRevenue.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_ChargesAmount.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_FullPrice.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_ImprovementLimit.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_ImprovementLimitCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_Profit.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_FullPrice.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Power.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Profit.cs" />

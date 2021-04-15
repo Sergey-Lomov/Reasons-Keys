@@ -24,6 +24,7 @@ using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
 using ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser;
 using ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule;
 using ModelAnalyzer.Parameters.Items.Artifacts;
+using ModelAnalyzer.Parameters.Items.Standard.RelationsImprover;
 
 namespace ModelAnalyzer
 {
@@ -184,6 +185,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new ArtifactInaccessibilityCompensation());
             storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
             storage.AddParameter(parameter: new AverageBaseItemsProfit());
+            storage.AddParameter(parameter: new AveragePrimeItemsProfit());
             storage.AddParameter(parameter: new BaseItemsAmount());
             storage.AddParameter(parameter: new EstimatedArtifactsProfit());
             storage.AddParameter(parameter: new FullLoadCoefficient());
@@ -210,19 +212,25 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BW_UpgradesAmount());
             storage.AddParameter(parameter: new BW_UpgradesProfit());
 
-            storage.AddParameter(parameter: new SB_FullPrice());
-            storage.AddParameter(parameter: new SB_MaxSpeedCoef());
-            storage.AddParameter(parameter: new SB_Power());
-            storage.AddParameter(parameter: new SB_Profit());
-            storage.AddParameter(parameter: new SB_UpgradesAmount());
-            storage.AddParameter(parameter: new SB_UpgradesProfit());
-
             storage.AddParameter(parameter: new KA_Capacity());
             storage.AddParameter(parameter: new KA_CapacityCoefficient());
             storage.AddParameter(parameter: new KA_FullPrice());
             storage.AddParameter(parameter: new KA_InversePower());
             storage.AddParameter(parameter: new KA_Profit());
             storage.AddParameter(parameter: new KA_RelativeRevenue());
+
+            storage.AddParameter(parameter: new RI_ChargesAmount());
+            storage.AddParameter(parameter: new RI_FullPrice());
+            storage.AddParameter(parameter: new RI_ImprovementLimit());
+            storage.AddParameter(parameter: new RI_ImprovementLimitCoefficient());
+            storage.AddParameter(parameter: new RI_Profit());
+
+            storage.AddParameter(parameter: new SB_FullPrice());
+            storage.AddParameter(parameter: new SB_MaxSpeedCoef());
+            storage.AddParameter(parameter: new SB_Power());
+            storage.AddParameter(parameter: new SB_Profit());
+            storage.AddParameter(parameter: new SB_UpgradesAmount());
+            storage.AddParameter(parameter: new SB_UpgradesProfit());
 
             // Artifacts
             storage.AddParameter(parameter: new CG_ChargesAmount());
