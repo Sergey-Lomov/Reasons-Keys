@@ -9,7 +9,7 @@ using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.PlayerInitial;
 using ModelAnalyzer.DataModels;
 
-namespace ModelAnalyzer.Parameters.BranchPointsTrack
+namespace ModelAnalyzer.Parameters.BranchPoints
 {
     class EstimatedGameBP : FloatArrayParameter
     {

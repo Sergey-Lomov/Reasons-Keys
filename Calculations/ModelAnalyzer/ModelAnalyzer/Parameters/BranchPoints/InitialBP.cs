@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ModelAnalyzer.Services;
 
-namespace ModelAnalyzer.Parameters.BranchPointsTrack
+namespace ModelAnalyzer.Parameters.BranchPoints
 {
     class InitialBP : FloatArrayParameter
     {

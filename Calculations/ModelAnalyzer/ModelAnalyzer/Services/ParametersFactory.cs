@@ -3,7 +3,7 @@
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Activities.EventsRestoring;
-using ModelAnalyzer.Parameters.BranchPointsTrack;
+using ModelAnalyzer.Parameters.BranchPoints;
 using ModelAnalyzer.Parameters.Events;
 using ModelAnalyzer.Parameters.Events.Weight;
 using ModelAnalyzer.Parameters.Mining;
@@ -23,6 +23,7 @@ using ModelAnalyzer.Parameters.Items.Artifacts.HoleBox;
 using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
 using ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser;
 using ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule;
+using ModelAnalyzer.Parameters.Items.Artifacts.FateRavel;
 using ModelAnalyzer.Parameters.Items.Artifacts;
 using ModelAnalyzer.Parameters.Items.Standard.RelationsImprover;
 
@@ -71,9 +72,11 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new TotalPotential());
             storage.AddParameter(parameter: new NokeyEventCreationAmount());
 
-            // BranchPointsTrack
+            // BranchPoints
             storage.AddParameter(parameter: new BPTrackLength());
+            storage.AddParameter(parameter: new BranchPointProfit());
             storage.AddParameter(parameter: new EstimatedGameBP());
+            storage.AddParameter(parameter: new EstimatedPrognosedRealisationChance());
             storage.AddParameter(parameter: new InitialBP());
             storage.AddParameter(parameter: new MaxBPLoosingCoefficient());
             storage.AddParameter(parameter: new MaxGameBP());
@@ -245,6 +248,10 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new HB_TensionIncreasing());
             storage.AddParameter(parameter: new HB_TensionInreasingStepsAmount());
             storage.AddParameter(parameter: new HB_TensionLimits());
+
+            storage.AddParameter(parameter: new FR_ImpactSurcharge());
+            storage.AddParameter(parameter: new FR_OwnerBets());
+            storage.AddParameter(parameter: new FR_Profit());
 
             storage.AddParameter(parameter: new LN_ConnectionsAmount());
             storage.AddParameter(parameter: new LN_MaxRadius());

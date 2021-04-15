@@ -7,7 +7,7 @@ using ModelAnalyzer.Parameters.PlayerInitial;
 using ModelAnalyzer.DataModels;
 using System;
 
-namespace ModelAnalyzer.Parameters.BranchPointsTrack
+namespace ModelAnalyzer.Parameters.BranchPoints
 {
     class MaxGameBP : FloatSingleParameter
     {

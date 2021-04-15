@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace ModelAnalyzer.Parameters.BranchPointsTrack
+namespace ModelAnalyzer.Parameters.BranchPoints
 {
     class BPTrackLength : FloatSingleParameter
     {

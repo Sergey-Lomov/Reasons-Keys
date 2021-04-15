@@ -1,4 +1,4 @@
-﻿namespace ModelAnalyzer.Parameters.BranchPointsTrack
+﻿namespace ModelAnalyzer.Parameters.BranchPoints
 {
     class MaxBPLoosingCoefficient : FloatSingleParameter
     {
