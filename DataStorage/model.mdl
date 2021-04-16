@@ -197,10 +197,10 @@ ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SecondaryImpac
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_ImpactPower:3~3|
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SymmetricalNodesAmount:2~2|
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_UsageAmount:2~2|
-ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimit:14~14|
-ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimitCoef:1,2~1,2|
-ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimit:6~5,5|
-ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimitCoef:0,75~0,75|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimit:13~13|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimitCoef:1,1~1,1|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimit:5~4,84|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimitCoef:0,66~0,66|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_Profit:71,67~71,67|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_UsageAmount:3~3|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_UsageDifficulty:2,5~2,5|
