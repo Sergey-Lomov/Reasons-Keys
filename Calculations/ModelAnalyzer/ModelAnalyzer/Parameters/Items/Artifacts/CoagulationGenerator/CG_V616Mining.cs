@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
@@ -24,13 +25,15 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
             List<float> ma = RequestParmeter<MiningAllocation>(calculator).GetValue();
+            var deck = RequestParmeter<MainDeck>(calculator).deck;
+
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            unroundValue = ma[ma.Count - 1] + amb;
+            var averageBonus = (float)deck.Select(c => c.miningBonus).Where(b => b != 0).Average();
+            unroundValue = ma[ma.Count - 1] + averageBonus;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);
 
             return calculationReport;
