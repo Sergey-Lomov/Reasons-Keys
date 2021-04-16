@@ -26,7 +26,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             calculationReport = new ModuleCalculationReport(this);
 
             var ud = RequestParmeter<CM_UsageDifficulty>(calculator).GetValue();
-            var amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
+            var anmb = RequestParmeter<AverageNozeroMiningBonus>(calculator).GetValue();
             var eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
             var peuc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
             var maxlc = RequestParmeter<CM_MaxLimitCoef>(calculator).GetValue();
@@ -36,10 +36,10 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            float eupr = ud * amb * peuc;
+            float eupr = ud * anmb * peuc;
             usageAmount = (int)Math.Round(eapr / eupr, MidpointRounding.AwayFromZero);
             profit = eupr * usageAmount;
-            maxLimit = ud * amb * maxlc;
+            maxLimit = ud * anmb * maxlc;
             minLimit = adc / usageAmount * minlc;
 
             return calculationReport;

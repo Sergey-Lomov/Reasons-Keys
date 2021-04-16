@@ -88,6 +88,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new ArtifactsRarity());
             storage.AddParameter(parameter: new AverageContinuumBP());
             storage.AddParameter(parameter: new AverageMiningBonus());
+            storage.AddParameter(parameter: new AverageNozeroMiningBonus());
             storage.AddParameter(parameter: new AverageRelationsImpactPerCount());
             storage.AddParameter(parameter: new AverageRelationsImpactPower());
             storage.AddParameter(parameter: new BrachPointsTemplatesAllocation());

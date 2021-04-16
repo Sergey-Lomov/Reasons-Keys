@@ -26,14 +26,12 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
             calculationReport = new ParameterCalculationReport(this);
 
             List<float> ma = RequestParmeter<MiningAllocation>(calculator).GetValue();
-            var deck = RequestParmeter<MainDeck>(calculator).deck;
-
+            var anmb = RequestParmeter<AverageNozeroMiningBonus>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            var averageBonus = (float)deck.Select(c => c.miningBonus).Where(b => b != 0).Average();
-            unroundValue = ma[ma.Count - 1] + averageBonus;
+            unroundValue = ma[ma.Count - 1] + anmb;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);
 
             return calculationReport;
