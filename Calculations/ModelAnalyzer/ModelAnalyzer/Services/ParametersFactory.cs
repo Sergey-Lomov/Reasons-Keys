@@ -175,9 +175,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new LogisticInitialEventTotalPower());
             storage.AddParameter(parameter: new MainKeyEventBranchPoints());
             storage.AddParameter(parameter: new MainKeyEventBranchPointsCoefficient());
-            storage.AddParameter(parameter: new MainKeyEventMinRadius());
             storage.AddParameter(parameter: new MinInitialCardUsability());
-            storage.AddParameter(parameter: new NotMainKeyEventMinRadius());
             storage.AddParameter(parameter: new RealInitialStackArtifactChance());
             storage.AddParameter(parameter: new RealKeyEventBrachPointCoefficients());
             storage.AddParameter(parameter: new StartDeck());

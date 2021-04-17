@@ -50,7 +50,6 @@ const circularValuesGroupName = "Values";
 const pairingIndicatorLayer = "Pairing";
 
 const keyIndicatorLayer = "KeyIndicator";
-const keyEventBarierLeayer = "KeyEventBarier";
 const artifactIndicatorLayer = "ArtifactIndicator";
 
 const miningBonusLayer = "MiningBonus";
@@ -488,7 +487,6 @@ function HandleCard (card, doc, folder)
       
       HandleMarkup(useCircular, doc);
       
-      HandleBoolValue(keyEventBarierLeayer, isKey, doc);
       HandleBoolValue(pairingIndicatorLayer, isPaired, doc);
       HandleBoolValue(artifactIndicatorLayer, pa, doc);
       

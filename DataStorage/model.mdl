@@ -120,9 +120,7 @@ ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventPowerCoefficient:1,5~
 ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventTotalPower:6~6|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPoints:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPointsCoefficient:1,5~-|
-ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventMinRadius:4~4|
 ModelAnalyzer.Parameters.PlayerInitial.MinInitialCardUsability:1~1|
-ModelAnalyzer.Parameters.PlayerInitial.NotMainKeyEventMinRadius:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.RealInitialStackArtifactChance:0,49~0,49|
 ModelAnalyzer.Parameters.PlayerInitial.RealKeyEventBrachPointCoefficients:1,67 1,25 1 0,83~1,67 1,25 1 0,83|
 ModelAnalyzer.Parameters.PlayerInitial.StartDeck:Кол|

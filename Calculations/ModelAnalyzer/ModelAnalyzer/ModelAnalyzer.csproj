@@ -206,9 +206,7 @@
     <Compile Include="Parameters\PlayerInitial\LogisticInitialEventPowerCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\LogisticInitialEventTotalPower.cs" />
     <Compile Include="Parameters\PlayerInitial\SupportInitialEventMaxRadius.cs" />
-    <Compile Include="Parameters\PlayerInitial\MainKeyEventMinRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
-    <Compile Include="Parameters\PlayerInitial\NotMainKeyEventMinRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\RealInitialStackArtifactChance.cs" />
     <Compile Include="Parameters\PlayerInitial\StartDeck.cs" />
     <Compile Include="Parameters\PlayerInitial\InitialEventsWeightCoefficient.cs" />

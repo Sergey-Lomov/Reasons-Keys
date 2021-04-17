@@ -206,16 +206,14 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             int kea = (int)RequestParmeter<KeyEventsAmount>(calculator).GetValue();
             int kebp = (int)RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
             int mkebp = (int)RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
-            int mkemr = (int)RequestParmeter<MainKeyEventMinRadius>(calculator).GetValue();
-            int nmkemr = (int)RequestParmeter<NotMainKeyEventMinRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
 
             for (int i = 0; i < mpa; i++)
             {
-                var mainEvent = MainKeyEvent(mkebp, mkemr, i);
-                var notMainEvents = NotMainKeyEvents(kea - 1, kebp, nmkemr, i);
+                var mainEvent = MainKeyEvent(mkebp, i);
+                var notMainEvents = NotMainKeyEvents(kea - 1, kebp, i);
                 keyEvents.Add(mainEvent);
                 keyEvents.AddRange(notMainEvents);
             }
@@ -223,28 +221,30 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return keyEvents;
         }
 
-        private List<EventCard> NotMainKeyEvents(int amount, int kebp, int minRadius, int owner)
+        private List<EventCard> NotMainKeyEvents(int amount, int kebp, int owner)
         {
             var keyEvents = new List<EventCard>(amount);
 
-
+            var bpsOnSuccess = owner % 2 != 0;
             for (int i = 0; i < amount; i++)
             {
-                var card = KeyEvent(kebp, minRadius, owner);
+                var card = KeyEvent(kebp, owner, bpsOnSuccess);
 
                 card.relations = relationsPrototypes[notMainKeyIndex + i];
                 card.miningBonus = miningBonuses[notMainKeyIndex + i];
                 card.comment = "Решающее событие";
                 card.name = "P" + (owner + 1) + "_" + (5 + i);
                 keyEvents.Add(card);
+
+                bpsOnSuccess = !bpsOnSuccess;
             }
 
             return keyEvents;
         }
 
-        private EventCard MainKeyEvent (int mkebp, int minRadius, int owner)
+        private EventCard MainKeyEvent (int mkebp, int owner)
         {
-            var card = KeyEvent(mkebp, minRadius, owner);
+            var card = KeyEvent(mkebp, owner, owner % 2 == 0);
 
             card.relations = relationsPrototypes[mainKeyIndex];
             card.miningBonus = miningBonuses[mainKeyIndex];
@@ -254,18 +254,16 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             return card;
         }
 
-        private EventCard KeyEvent (int points, int minRadius, int owner)
+        private EventCard KeyEvent (int points, int owner, bool bpsOnSuccess)
         {
             var card = new EventCard();
 
             var branchPoint = new BranchPoint(owner, points);
-            var success = new List<BranchPoint>();
-            success.Add(branchPoint);
-            var set = new BranchPointsSet(success, null);
+            var bps = new List<BranchPoint>() { branchPoint };
+            var set = bpsOnSuccess ? new BranchPointsSet(bps, null) : new BranchPointsSet(null, bps);
 
             card.branchPoints = set;
             card.isKey = true;
-            card.constraints.SetMinRadius(minRadius);
 
             return card;
         }
