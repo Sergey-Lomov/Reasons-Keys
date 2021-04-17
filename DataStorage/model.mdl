@@ -63,7 +63,6 @@ ModelAnalyzer.Parameters.Events.MinigForBalanceAverageStability:1,99~1,99|
 ModelAnalyzer.Parameters.Events.MinRelationsTemplateUsability:1,5~1,5|
 ModelAnalyzer.Parameters.Events.RelationImpactPower:2~2|
 ModelAnalyzer.Parameters.Events.RelationTemplatesUsage:9 шабл|
-ModelAnalyzer.Parameters.Events.Weight.AverageContinuumEventWeight:78,21~78,21|
 ModelAnalyzer.Parameters.Events.Weight.BackRelationsWeightCoef:1~1|
 ModelAnalyzer.Parameters.Events.Weight.EventUsabilityNormalisation:0,33~0,33|
 ModelAnalyzer.Parameters.Events.Weight.FrontRelationsWeightCoef:1,3~1,3|
@@ -101,7 +100,6 @@ ModelAnalyzer.Parameters.Topology.FrontBlockersRelativeMap:Карта|
 ModelAnalyzer.Parameters.Topology.FrontImpactMap:Карта|
 ModelAnalyzer.Parameters.Topology.MinDistancesPairsAmount_AA:1350 1698 1698 1728 1866 1896 1746 1374 864 279 72 24~1350 1698 1698 1728 1866 1896 1746 1374 864 279 72 24|
 ModelAnalyzer.Parameters.Topology.NodesAvailableBackRelations:0 4 19 34 3 0 0~0 4 19 34 3 0 0|
-ModelAnalyzer.Parameters.Topology.NodesNearestAmount:stub|
 ModelAnalyzer.Parameters.Topology.RoundNodesAmount:954~954|
 ModelAnalyzer.Parameters.Topology.RoutesMap:Недос|
 ModelAnalyzer.Parameters.Topology.StartFrontBlockersMap:Карта|
@@ -112,7 +110,7 @@ ModelAnalyzer.Parameters.PlayerInitial.InitialStackArtifactChance:0,5~0,5|
 ModelAnalyzer.Parameters.PlayerInitial.InitialStackSize:4~4|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsAmount:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPoints:2~2|
-ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPointsCoefficient:1~1|
+ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPointsCoefficient:1,1~1,1|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsTotalBrachPoints:5~5|
 ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventMaxRelationPower:4~4|
 ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventMaxRadius:4~4|
@@ -175,8 +173,8 @@ ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_OneUsageProfit:
 ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_Profit:58,31~58,31|
 ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator.CG_V616Mining:17~17|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_CollapsePreparationDuration:5~5|
-ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTension:14~14|
-ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTransaction:11~11|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTension:12~12|
+ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_MaxTransaction:10~11|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_Profit:64~64|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionIncreasing:-4 1 2 4~-4 1 2 4|
 ModelAnalyzer.Parameters.Items.Artifacts.HoleBox.HB_TensionInreasingStepsAmount:3~3|

@@ -8,6 +8,7 @@ namespace ModelAnalyzer.Parameters
     {
         protected float value = float.NaN;
         protected float unroundValue = float.NaN;
+        protected bool ignoreRoundingIssue = false;
 
         internal override Parameter Copy()
         {
@@ -36,8 +37,11 @@ namespace ModelAnalyzer.Parameters
         {
             var report = base.Validate(validator, storage);
 
-            var roundingIssues = validator.ValidateRounding(unroundValue, value);
-            report.AddIssues(roundingIssues);
+            if (!ignoreRoundingIssue)
+            {
+                var roundingIssues = validator.ValidateRounding(unroundValue, value);
+                report.AddIssues(roundingIssues);
+            }
 
             return report;
         }

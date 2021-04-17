@@ -11,6 +11,7 @@ namespace ModelAnalyzer.Parameters.Activities
             title = "Стоимость слабого воздействия на событие (ТЗ)";
             details = "Слабое воздействие - воздействие имеющее стандартный эффект (х1)";
             fractionalDigits = 0;
+            ignoreRoundingIssue = true;
             tags.Add(ParameterTag.activities);
             tags.Add(ParameterTag.events);
         }
