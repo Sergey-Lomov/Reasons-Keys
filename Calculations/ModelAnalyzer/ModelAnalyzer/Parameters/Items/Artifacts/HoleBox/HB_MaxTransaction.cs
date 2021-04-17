@@ -14,6 +14,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
             title = "ДК: максимальная транзакция";
             details = "Ограничение на максимальное кол-во ТЗ, которое игрок может взять за 1 раз";
             fractionalDigits = 0;
+            ignoreRoundingIssue = true;
             tags.Add(ParameterTag.items);
             tags.Add(ParameterTag.artifacts);
         }
@@ -31,7 +32,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
             float maeu = tl.Last();
 
             unroundValue = maeu / tisa;
-            value = (float)Math.Ceiling(unroundValue);
+            value = (float)Math.Floor(unroundValue);
 
             return calculationReport;
         }
