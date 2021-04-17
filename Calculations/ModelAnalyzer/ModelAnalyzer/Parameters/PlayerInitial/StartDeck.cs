@@ -17,8 +17,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 new List<EventRelation>() {EventRelation.Undefined(0), EventRelation.Undefined(1), EventRelation.Undefined(2), EventRelation.Undefined(3), EventRelation.Undefined(4), EventRelation.Undefined(5)}, // Logistic
                 new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Atack
                 new List<EventRelation>() {EventRelation.BackReason(0)}, // Support
-                new List<EventRelation>() {EventRelation.BackBlocker(0), EventRelation.BackReason(1)}, // Not main key
-                new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.BackBlocker(1)}, // Main key
+                new List<EventRelation>() {EventRelation.BackReason(0)}, // Not main key
+                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Main key
             };
 
         private const int logisticIndex = 0;
@@ -248,7 +248,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             card.relations = relationsPrototypes[mainKeyIndex];
             card.miningBonus = miningBonuses[mainKeyIndex];
-            card.comment = "Основное решающее событие";
+            card.comment = "Главное решающее событие";
             card.name = "P" + (owner + 1) + "_4";
 
             return card;
