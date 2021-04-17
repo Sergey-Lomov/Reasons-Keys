@@ -115,7 +115,7 @@ ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPoints:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPointsCoefficient:1~1|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsTotalBrachPoints:5~5|
 ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventMaxRelationPower:4~4|
-ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventMaxRadius:2~2|
+ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventMaxRadius:4~4|
 ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventPowerCoefficient:1,5~1,5|
 ModelAnalyzer.Parameters.PlayerInitial.LogisticInitialEventTotalPower:6~6|
 ModelAnalyzer.Parameters.PlayerInitial.MainKeyEventBranchPoints:3~3|
