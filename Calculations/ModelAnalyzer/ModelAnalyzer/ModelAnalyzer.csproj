@@ -108,7 +108,6 @@
     <Compile Include="Parameters\Events\BrachPointsTemplatesAllocation.cs" />
     <Compile Include="Parameters\Events\MinRelationsTemplateUsability.cs" />
     <Compile Include="Parameters\Events\RelationImpactPower.cs" />
-    <Compile Include="Parameters\Events\Weight\AverageContinuumEventWeight.cs" />
     <Compile Include="Parameters\Events\Weight\BackRelationsWeightCoef.cs" />
     <Compile Include="Parameters\Events\Weight\FrontRelationsWeightCoef.cs" />
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
@@ -228,7 +227,6 @@
     <Compile Include="DataModels\EventCard.cs" />
     <Compile Include="Parameters\Topology\MinDistancesPairsAmount_AA.cs" />
     <Compile Include="Parameters\Topology\NodesImpactMap.cs" />
-    <Compile Include="Parameters\Topology\NodesNearestAmount.cs" />
     <Compile Include="Parameters\Topology\RoundNodesAmount.cs" />
     <Compile Include="Parameters\Topology\RoutesMap.cs" />
     <Compile Include="Parameters\DeckParameter.cs" />

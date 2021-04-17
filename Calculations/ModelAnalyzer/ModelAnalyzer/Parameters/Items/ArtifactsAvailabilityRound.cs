@@ -9,7 +9,7 @@ namespace ModelAnalyzer.Parameters.Items
     {
         public ArtifactsAvailabilityRound()
         {
-            type = ParameterType.Inner;
+            type = ParameterType.Out;
             title = "Раунд доступности артефактов";
             details = "Раунд, начиная с которого артефакты могут войти в игру";
             fractionalDigits = 0;

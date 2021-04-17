@@ -8,6 +8,11 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts
     {
         private const string missedEstimationIssue = "Более чем на 20% отклоняется от оценочной выгодности артефактов {0}";
 
+        public ArtifactProfit()
+        {
+            valuableValidation = true;
+        }
+
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);

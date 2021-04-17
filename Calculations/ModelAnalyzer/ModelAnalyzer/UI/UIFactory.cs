@@ -65,6 +65,11 @@ namespace ModelAnalyzer.UI
             return parameters.RowForParameter(parameter, rowDelegate, validation);
         }
 
+        public Panel RowForUnusedParameter(Parameter parameter)
+        {
+            return parameters.RowForParameter(parameter, null, null);
+        }
+
         // Calculation results
         public Panel HeaderForGadeGroup(int grade)
         {

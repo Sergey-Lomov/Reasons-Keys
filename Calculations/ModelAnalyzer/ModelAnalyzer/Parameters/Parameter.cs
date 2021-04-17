@@ -11,8 +11,11 @@ namespace ModelAnalyzer.Parameters
     public abstract class Parameter
     {
         public ParameterType type;
-        public int grade = 0;
         internal ParameterCalculationReport calculationReport = null;
+
+        public int grade = 0;
+        internal int derived = 0;
+        protected bool valuableValidation = false; // Sets true for inner parameters which implement valuable validation. So this parameters should not be displayed in unused list even if count of derived parameters is zero.
 
         public string title;
         public string details;
@@ -131,6 +134,11 @@ namespace ModelAnalyzer.Parameters
                 grade = module.grade + 1;
 
             return module;
+        }
+
+        public bool isUnused()
+        {
+            return derived == 0 && type == ParameterType.Inner && !valuableValidation;
         }
     }
 }

@@ -33,6 +33,7 @@ namespace ModelAnalyzer.UI
 
             ReloadChanges();
             ReloadIssues();
+            ReloadUnused();
         }
 
         void ReloadChanges ()
@@ -91,6 +92,31 @@ namespace ModelAnalyzer.UI
 
             Invalidate(true);
             issuesTable.Visible = true;
+        }
+
+        void ReloadUnused()
+        {
+            unusedTable.Visible = false;
+            unusedTable.Controls.Clear();
+            unusedTable.RowStyles.Clear();
+            unusedTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            var unused = parametersCalculations
+                .Select(r => r.parameter)
+                .Where(p => p.isUnused())
+                .ToList();
+
+            unusedTab.Text = string.Format("Неиспользуемый ({0})", unused.Count);
+
+            var factory = new UIFactory();
+            foreach (var parameter in unused)
+            {
+                Panel row = factory.RowForUnusedParameter(parameter);
+                unusedTable.Controls.Add(row);
+            }
+
+            unusedTable.Invalidate(true);
+            unusedTable.Visible = true;
         }
 
         private int AddIssuesGroup(string headerTitle, IEnumerable<OperationReport> reports)

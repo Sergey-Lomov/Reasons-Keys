@@ -40,9 +40,13 @@ namespace ModelAnalyzer.UI.Factories
             Panel panel = components.RowPanel(rowBack, rowHeight);
 
             Label title = components.TitleLabel(parameter.title);
-            title.Click += (sender, e) => rowDelegate.HandleTitleClick(parameter);
 
-            EventHandler valueClickHandler = (sender, e) => rowDelegate.HandleValueClick(parameter);
+            EventHandler valueClickHandler = null;
+            if (rowDelegate != null)
+            {
+                title.Click += (sender, e) => rowDelegate.HandleTitleClick(parameter);
+                valueClickHandler = (sender, e) => rowDelegate.HandleValueClick(parameter);
+            }
             Panel value = valuePanels.ValuePanel(parameter, false, valueClickHandler);
 
             value.Dock = DockStyle.Right;
@@ -51,7 +55,9 @@ namespace ModelAnalyzer.UI.Factories
             panel.Controls.Add(title);
             panel.Controls.Add(components.TypeIndicator(parameter.type));
             panel.Controls.Add(value);
-            panel.Controls.Add(components.IssuesIndicator(parameter, validation));
+
+            if (validation != null)
+                panel.Controls.Add(components.IssuesIndicator(parameter, validation));
 
             return panel;
         }

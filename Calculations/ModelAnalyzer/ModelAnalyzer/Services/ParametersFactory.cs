@@ -108,7 +108,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new RelationTemplatesUsage());
 
             // Events weight
-            storage.AddParameter(parameter: new AverageContinuumEventWeight());
             storage.AddParameter(parameter: new BackRelationsWeightCoef());
             storage.AddParameter(parameter: new EventUsabilityNormalisation());
             storage.AddParameter(parameter: new FrontRelationsWeightCoef());
@@ -154,7 +153,6 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new FrontImpactMap());
             storage.AddParameter(parameter: new MinDistancesPairsAmount_AA());
             storage.AddParameter(parameter: new NodesAvailableBackRelations());
-            storage.AddParameter(parameter: new NodesNearestAmount());
             storage.AddParameter(parameter: new RoundNodesAmount());
             storage.AddParameter(parameter: new RoutesMap());
             storage.AddParameter(parameter: new StartFrontBlockersMap());

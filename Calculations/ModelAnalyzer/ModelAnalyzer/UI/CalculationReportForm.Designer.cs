@@ -33,15 +33,19 @@
             this.issuesTable = new System.Windows.Forms.TableLayoutPanel();
             this.changesTab = new System.Windows.Forms.TabPage();
             this.changesTable = new System.Windows.Forms.TableLayoutPanel();
+            this.unusedTab = new System.Windows.Forms.TabPage();
+            this.unusedTable = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl.SuspendLayout();
             this.issuesTab.SuspendLayout();
             this.changesTab.SuspendLayout();
+            this.unusedTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.issuesTab);
             this.tabControl.Controls.Add(this.changesTab);
+            this.tabControl.Controls.Add(this.unusedTab);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -101,6 +105,31 @@
             this.changesTable.Size = new System.Drawing.Size(786, 418);
             this.changesTable.TabIndex = 0;
             // 
+            // unusedTab
+            // 
+            this.unusedTab.Controls.Add(this.unusedTable);
+            this.unusedTab.Location = new System.Drawing.Point(4, 22);
+            this.unusedTab.Name = "unusedTab";
+            this.unusedTab.Size = new System.Drawing.Size(792, 424);
+            this.unusedTab.TabIndex = 2;
+            this.unusedTab.Text = "Неиспользуемые";
+            this.unusedTab.UseVisualStyleBackColor = true;
+            // 
+            // unusedTable
+            // 
+            this.unusedTable.AutoScroll = true;
+            this.unusedTable.ColumnCount = 1;
+            this.unusedTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.unusedTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.unusedTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.unusedTable.Location = new System.Drawing.Point(0, 0);
+            this.unusedTable.Name = "unusedTable";
+            this.unusedTable.RowCount = 1;
+            this.unusedTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.unusedTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.unusedTable.Size = new System.Drawing.Size(792, 424);
+            this.unusedTable.TabIndex = 1;
+            // 
             // CalculationReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,6 +141,7 @@
             this.tabControl.ResumeLayout(false);
             this.issuesTab.ResumeLayout(false);
             this.changesTab.ResumeLayout(false);
+            this.unusedTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -123,5 +153,7 @@
         private System.Windows.Forms.TableLayoutPanel issuesTable;
         private System.Windows.Forms.TabPage changesTab;
         private System.Windows.Forms.TableLayoutPanel changesTable;
+        private System.Windows.Forms.TabPage unusedTab;
+        private System.Windows.Forms.TableLayoutPanel unusedTable;
     }
 }

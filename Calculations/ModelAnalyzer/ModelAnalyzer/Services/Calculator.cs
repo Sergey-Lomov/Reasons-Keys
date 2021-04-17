@@ -59,6 +59,7 @@ namespace ModelAnalyzer.Services
         {
             var parameter = storage.Parameter<T>();
             CalculateIfNecessary(parameter);
+            parameter.derived++;
             return parameter as T;
         }
 
