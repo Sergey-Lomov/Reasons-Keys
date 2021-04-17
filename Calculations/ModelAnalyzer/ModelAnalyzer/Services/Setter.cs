@@ -27,8 +27,8 @@ namespace ModelAnalyzer.Services
             removeIdexes.ForEach(i => amounts.RemoveAt(i));
             removeIdexes.ForEach(i => values.RemoveAt(i));
 
-            Func<float, int> rounded = v => (int)Math.Round(v, MidpointRounding.AwayFromZero);
-            Func<int, int> amountForFrame = v => rounded((float)v / amounts.Min());
+            int rounded(float v) => (int)Math.Round(v, MidpointRounding.AwayFromZero);
+            int amountForFrame(int v) => rounded((float)v / amounts.Min());
             var handled = 0;
 
             while (handled < objects.Count())

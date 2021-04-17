@@ -13,7 +13,7 @@ namespace ModelAnalyzer.UI
         public Pen pen;
         public Font font;
 
-        private static int pointsMergeDistance = 5;
+        private static readonly int pointsMergeDistance = 5;
         private List<Point> usedPoints = new List<Point>();
         
         public FieldDrawwer(Pen pen, Font font) 
@@ -49,8 +49,7 @@ namespace ModelAnalyzer.UI
 
         public void drawHexagon(Point center, float radius, Pen pen, Color color, Graphics graphics)
         {
-            Func<float, float, float, float, bool> atMergingDistance =
-                (x1, y1, x2, y2) => Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) <= pointsMergeDistance;
+            bool atMergingDistance(float x1, float y1, float x2, float y2) => Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) <= pointsMergeDistance;
             var shape = new Point[6];
             for (int a = 0; a < 6; a++)
             {

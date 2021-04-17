@@ -8,7 +8,7 @@ namespace ModelAnalyzer.UI.Factories
 {
     class ComponentsFactory
     {
-        private UIConstants constants = new UIConstants();
+        private readonly UIConstants constants = new UIConstants();
 
         Dictionary<ParameterType, Color> typesColors = new Dictionary<ParameterType, Color>();
 

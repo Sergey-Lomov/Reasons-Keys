@@ -14,43 +14,43 @@ namespace ModelAnalyzer.Services
     class DeckXMLGenerator
     {
         // Card
-        private static string deckElement = "Deck";
-        private static string cardElement = "Card";
+        private static readonly string deckElement = "Deck";
+        private static readonly string cardElement = "Card";
 
-        private static string idElement = "id";
-        private static string mbElement = "mining_bonus";
-        private static string paElement = "provides_artifact";
-        private static string isKeyElement = "is_key";
-        private static string isPairedElement = "is_paired";
-        private static string urcElement = "unavailable_radiuses_constraint";
-        private static string weightElement = "weight";
-        private static string usabilityElement = "uisability";
-        private static string nameElement = "name";
+        private static readonly string idElement = "id";
+        private static readonly string mbElement = "mining_bonus";
+        private static readonly string paElement = "provides_artifact";
+        private static readonly string isKeyElement = "is_key";
+        private static readonly string isPairedElement = "is_paired";
+        private static readonly string urcElement = "unavailable_radiuses_constraint";
+        private static readonly string weightElement = "weight";
+        private static readonly string usabilityElement = "uisability";
+        private static readonly string nameElement = "name";
 
         // BracnhPoint
-        private static string branchPointsElement = "BranchPoints";
-        private static string bpSuccessElement = "Success";
-        private static string bpFailedElement = "Failed";
-        private static string bpElement = "BranchPoint";
+        private static readonly string branchPointsElement = "BranchPoints";
+        private static readonly string bpSuccessElement = "Success";
+        private static readonly string bpFailedElement = "Failed";
+        private static readonly string bpElement = "BranchPoint";
 
-        private static string branchElement = "branch";
-        private static string pointsElement = "points";
+        private static readonly string branchElement = "branch";
+        private static readonly string pointsElement = "points";
 
         // Relation
-        private static string relationsElement = "Relations";
-        private static string relationElement = "Relation";
+        private static readonly string relationsElement = "Relations";
+        private static readonly string relationElement = "Relation";
 
-        private static string typeElement = "type";
-        private static string directionElement = "direction";
-        private static string positionElement = "position";
+        private static readonly string typeElement = "type";
+        private static readonly string directionElement = "direction";
+        private static readonly string positionElement = "position";
 
-        private static Dictionary<RelationType, string> typesStrings = new Dictionary<RelationType, string> {
+        private static readonly Dictionary<RelationType, string> typesStrings = new Dictionary<RelationType, string> {
             { RelationType.blocker, "blocker"},
             { RelationType.reason, "reason"},
             { RelationType.undefined, "undefined"},
          };
 
-        private static Dictionary<RelationDirection, string> directionsStrings = new Dictionary<RelationDirection, string> {
+        private static readonly Dictionary<RelationDirection, string> directionsStrings = new Dictionary<RelationDirection, string> {
             { RelationDirection.front, "front"},
             { RelationDirection.back, "back"},
             { RelationDirection.none, "none"},

@@ -72,7 +72,7 @@ namespace ModelAnalyzer.UI.DetailsForms
             var endColor = deviation < 0.5 ? middleDeviationColor : maxDeviationColor;
             var normalisedDeviation = deviation < 0.5 ? deviation * 2 : (deviation - 0.5f) * 2;
 
-            Func<float, float, float, int> gradientPosition = (c1, c2, p) => (int)(c1 + (c2 - c1) * p);
+            int gradientPosition(float c1, float c2, float p) => (int)(c1 + (c2 - c1) * p);
             var r = gradientPosition(startColor.R, endColor.R, normalisedDeviation);
             var g = gradientPosition(startColor.G, endColor.G, normalisedDeviation);
             var b = gradientPosition(startColor.B, endColor.B, normalisedDeviation);

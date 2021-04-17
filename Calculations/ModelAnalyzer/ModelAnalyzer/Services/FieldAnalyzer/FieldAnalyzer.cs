@@ -9,7 +9,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
     class FieldAnalyzer
     {
         internal Dictionary<int, Field> phasesFields = new Dictionary<int, Field>();
-        private List<NodeTopologyType> availableNodeTypes = new List<NodeTopologyType>
+        private readonly List<NodeTopologyType> availableNodeTypes = new List<NodeTopologyType>
         {
             NodeTopologyType.FirstInnerCorner,
             NodeTopologyType.FirstOuterCorner,
@@ -21,7 +21,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             NodeTopologyType.LastAtMiddleRadiuses,
             NodeTopologyType.LastAtLastRadius,
         };
-        private Dictionary<NodeTopologyType, int> roundNodesOfType = new Dictionary<NodeTopologyType, int>();
+        private readonly Dictionary<NodeTopologyType, int> roundNodesOfType = new Dictionary<NodeTopologyType, int>();
 
         internal FieldAnalyzer(int phasesCount)
         {
@@ -73,8 +73,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             var field = phasesFields[fieldPhase];
             var relations = card.relations;
 
-            Func<EventRelation, int, EventRelation> rotate
-                = (r, i) => new EventRelation(r.type, r.direction, (r.position + i) % Field.nearesNodesAmount);
+            EventRelation rotate(EventRelation r, int i) => new EventRelation(r.type, r.direction, (r.position + i) % Field.nearesNodesAmount);
             for (int i = 0; i < Field.nearesNodesAmount; i++)
             {
                 var rotated = relations.Select(r => rotate(r, i)).ToList();

@@ -104,13 +104,15 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
 
         public HashSet<FieldPoint> nearest()
         {
-            var set = new HashSet<FieldPoint>();
-            set.Add(new FieldPoint(x + 1, y - 1, z));
-            set.Add(new FieldPoint(x + 1, y, z - 1));
-            set.Add(new FieldPoint(x - 1, y + 1, z));
-            set.Add(new FieldPoint(x - 1, y, z + 1));
-            set.Add(new FieldPoint(x, y - 1, z + 1));
-            set.Add(new FieldPoint(x, y + 1, z - 1));
+            var set = new HashSet<FieldPoint>
+            {
+                new FieldPoint(x + 1, y - 1, z),
+                new FieldPoint(x + 1, y, z - 1),
+                new FieldPoint(x - 1, y + 1, z),
+                new FieldPoint(x - 1, y, z + 1),
+                new FieldPoint(x, y - 1, z + 1),
+                new FieldPoint(x, y + 1, z - 1)
+            };
             return set;
         }
 

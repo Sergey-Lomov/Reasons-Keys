@@ -37,7 +37,7 @@ namespace ModelAnalyzer.Services
             float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
             float eun = calculator.UpdatedParameter<EventUsabilityNormalisation>().GetValue();
 
-            Func<EventRelation, bool> frontPredicate = r => r.direction == RelationDirection.front;
+            bool frontPredicate(EventRelation r) => r.direction == RelationDirection.front;
             bool hasFront = relations.Where(frontPredicate).Count() > 0;
 
             float rtwc = hasFront ? frwc : brwc;
@@ -162,8 +162,7 @@ namespace ModelAnalyzer.Services
 
         static internal List<EventCard> FirstFullCartage(EventCard card, List<EventCard> deck, int maxpa)
         {
-            var cartage = new List<EventCard>();
-            cartage.Add(card);
+            var cartage = new List<EventCard>() { card };
             var usedBranches = card.branchPoints.UsedBranches();
 
             if (usedBranches.Count() == 0)

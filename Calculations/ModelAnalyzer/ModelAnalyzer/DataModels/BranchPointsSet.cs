@@ -89,8 +89,8 @@ namespace ModelAnalyzer.DataModels
 
         public BranchPointsSet(List<BranchPoint> success, List<BranchPoint> failed)
         {
-            this.success = success != null ? success : this.success;
-            this.failed = failed != null ? failed : this.failed;
+            this.success = success ?? this.success;
+            this.failed = failed ?? this.failed;
         }
 
         public static bool operator ==(BranchPointsSet bps1, BranchPointsSet bps2)

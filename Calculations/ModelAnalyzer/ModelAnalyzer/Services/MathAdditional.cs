@@ -55,8 +55,7 @@ namespace ModelAnalyzer.Services
 
             foreach (var value in availableValues)
             {
-                var extended = new List<T>(initial);
-                extended.Add(value);
+                var extended = new List<T>(initial) { value };
 
                 if (extended.Count == length)
                 {

@@ -10,12 +10,12 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
     {
         internal int x, y, z;
 
-        static FieldDirection top = new FieldDirection(0, 1, -1);
-        static FieldDirection topRight = new FieldDirection(1, 0, -1);
-        static FieldDirection topLeft = new FieldDirection(-1, 1, 0);
-        static FieldDirection bottom = new FieldDirection(0, -1, 1);
-        static FieldDirection bottomRight = new FieldDirection(1, -1, 0);
-        static FieldDirection bottomLeft = new FieldDirection(-1, 0, 1);
+        static readonly FieldDirection top = new FieldDirection(0, 1, -1);
+        static readonly FieldDirection topRight = new FieldDirection(1, 0, -1);
+        static readonly FieldDirection topLeft = new FieldDirection(-1, 1, 0);
+        static readonly FieldDirection bottom = new FieldDirection(0, -1, 1);
+        static readonly FieldDirection bottomRight = new FieldDirection(1, -1, 0);
+        static readonly FieldDirection bottomLeft = new FieldDirection(-1, 0, 1);
 
         static private List<FieldDirection> availableDirections = new List<FieldDirection> {
             bottom, bottomLeft, topLeft, top, topRight, bottomRight };

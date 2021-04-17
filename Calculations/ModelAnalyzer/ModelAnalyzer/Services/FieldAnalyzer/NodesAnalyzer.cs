@@ -10,7 +10,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
 
     class NodesAnalyzer
     {
-        private NodesTemplates nodesTemplates = new NodesTemplates()
+        private readonly NodesTemplates nodesTemplates = new NodesTemplates()
         {
             { NodeTopologyType.Center, new NodeRelationsTemplate("NNNNNN") },
             { NodeTopologyType.FirstInnerCorner, new NodeRelationsTemplate("PFNNNF") },

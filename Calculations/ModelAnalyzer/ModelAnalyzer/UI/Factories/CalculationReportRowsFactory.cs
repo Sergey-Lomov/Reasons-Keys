@@ -20,8 +20,8 @@ namespace ModelAnalyzer.UI.Factories
         private readonly int comparasionSeparatorWidth = 20;
         private readonly int issuesHPadding = 30;
 
-        private string comparasionSeparator = "=>";
-        private string issueItemPrefix = "- ";
+        private readonly string comparasionSeparator = "=>";
+        private readonly string issueItemPrefix = "- ";
 
         public Panel HeaderForGadeGroup(int grade)
         {

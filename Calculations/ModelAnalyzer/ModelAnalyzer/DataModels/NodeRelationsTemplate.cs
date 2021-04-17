@@ -9,7 +9,7 @@ namespace ModelAnalyzer.DataModels
 
     class NodeRelationsTemplate
     {
-        private Dictionary<char, NodeRelationType> marksRelations = new Dictionary<char, NodeRelationType> {
+        private readonly Dictionary<char, NodeRelationType> marksRelations = new Dictionary<char, NodeRelationType> {
             { 'O', NodeRelationType.frontOut},
             { 'N', NodeRelationType.frontNext},
             { 'F', NodeRelationType.frontSame},

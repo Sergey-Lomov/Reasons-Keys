@@ -39,10 +39,10 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            Func<int, float> unround_uc = r => eapr / (r * mp + eip * rip * frwc);
-            Func<int, int> uc = r => (int)Math.Round(unround_uc(r), MidpointRounding.AwayFromZero);
-            Func<int, float> apr = r => (r * mp + eip * rip * frwc) * uc(r);
-            Func<int, float> delta = r => Math.Abs(eapr - apr(r));
+            float unround_uc(int r) => eapr / (r * mp + eip * rip * frwc);
+            int uc(int r) => (int)Math.Round(unround_uc(r), MidpointRounding.AwayFromZero);
+            float apr(int r) => (r * mp + eip * rip * frwc) * uc(r);
+            float delta(int r) => Math.Abs(eapr - apr(r));
 
             int best_r = minr;
 

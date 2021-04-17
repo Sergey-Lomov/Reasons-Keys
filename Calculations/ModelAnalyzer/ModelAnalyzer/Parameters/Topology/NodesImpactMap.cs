@@ -41,9 +41,8 @@ namespace ModelAnalyzer.Parameters.Topology
                 field[point] = 0;
             }
 
-            Func<EventRelation, bool> validRel = 
-                r => handleDirections.Contains(r.direction) && handleTypes.Contains(r.type);
-            Func<EventCard, bool> hasValidRel = c => c.relations.Where(r => validRel(r)).Count() > 0;
+            bool validRel(EventRelation r) => handleDirections.Contains(r.direction) && handleTypes.Contains(r.type);
+            bool hasValidRel(EventCard c) => c.relations.Where(r => validRel(r)).Count() > 0;
 
             var handlingDeck = deck.Where(c => hasValidRel(c));
             foreach (var card in handlingDeck)

@@ -65,16 +65,16 @@ namespace ModelAnalyzer.Parameters.Events
             var fieldAnalyzer = new FieldAnalyzer(phasesCount: pd.Count);
             var intPd = pd.Select(v => (int)v).ToList();
             fieldAnalyzer.templateUsabilityPrecalculations(intPd, fr);
-            Func<EventRelationsTemplate, float> usability = t => fieldAnalyzer.templateUsability(t, rna);
+            float usability(EventRelationsTemplate t) => fieldAnalyzer.templateUsability(t, rna);
 
             var allDirectionsTemplates = EventRelationsTemplate.allTemplates(Field.nearesNodesAmount);
             var templatesUsability = allDirectionsTemplates.ToDictionary(t => t, t => usability(t));
             var filteredTemplates = templatesUsability.Where(kvp => kvp.Value >= mrtu).ToList();
 
-            Func<EventRelationsTemplate, bool> minRelValid = t => t.directionsAmount() > 0;
-            Func<EventRelationsTemplate, bool> maxRelValid = t => t.directionsAmount() <= emr;
-            Func<EventRelationsTemplate, bool> minBackValid = t => t.backAmount() >= mbr;
-            Func<EventRelationsTemplate, bool> validate = t => minRelValid(t) && maxRelValid(t) && minBackValid(t);
+            bool minRelValid(EventRelationsTemplate t) => t.directionsAmount() > 0;
+            bool maxRelValid(EventRelationsTemplate t) => t.directionsAmount() <= emr;
+            bool minBackValid(EventRelationsTemplate t) => t.backAmount() >= mbr;
+            bool validate(EventRelationsTemplate t) => minRelValid(t) && maxRelValid(t) && minBackValid(t);
 
             filteredTemplates = filteredTemplates.Where(kvp => validate(kvp.Key)).ToList();
             var templates_2d = filteredTemplates.Where(p => p.Key.containsFront()).ToDictionary(p => p.Key, p => p.Value);
