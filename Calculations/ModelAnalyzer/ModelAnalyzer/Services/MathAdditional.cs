@@ -33,6 +33,13 @@ namespace ModelAnalyzer.Services
             return result;
         }
 
+        internal static float average(IEnumerable<int> values)
+        {
+            if (values.Count() > 0)
+                return (float)values.Average();
+            return 0;
+        }
+
         internal static List<List<T>> combinations<T>(List<T> availableValues, 
             int length,
             List<T> initial = null)

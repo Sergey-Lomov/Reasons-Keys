@@ -7,27 +7,25 @@ using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Events;
-using ModelAnalyzer.Parameters.Mining;
 
 namespace ModelAnalyzer.Parameters.PlayerInitial
 {
     class StartDeck : DeckParameter
     {
-        internal const int InitialEventsAmount = 3;
+        internal static int InitialEventsAmount = 3;
         internal static List<List<EventRelation>> relationsPrototypes = new List<List<EventRelation>>() {
                 new List<EventRelation>() {EventRelation.Undefined(0), EventRelation.Undefined(1), EventRelation.Undefined(2), EventRelation.Undefined(3), EventRelation.Undefined(4), EventRelation.Undefined(5)}, // Logistic
                 new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Atack
                 new List<EventRelation>() {EventRelation.BackReason(0)}, // Support
+                new List<EventRelation>() {EventRelation.BackBlocker(0), EventRelation.BackReason(1)}, // Not main key
                 new List<EventRelation>() {EventRelation.BackReason(0), EventRelation.BackBlocker(1)}, // Main key
-                new List<EventRelation>() {EventRelation.BackReason(0)}, // Not main key 1
-                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Not main key 2
             };
 
         private const int logisticIndex = 0;
         private const int attackIndex = 1;
         private const int supportIndex = 2;
-        private const int mainKeyIndex = 3;
-        private const int notMainKeyIndex = 4;
+        private const int notMainKeyIndex = 3;
+        private const int mainKeyIndex = 4;
 
         private const string logisticComment = "Логистическое изначальное событие";
         private const string attackComment = "Атакующее изначальное событие";
@@ -74,6 +72,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         private void SetupMiningBonuses(Calculator calculator)
         {
             var amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
+            var anmb = RequestParmeter<AverageNozeroMiningBonus>(calculator).GetValue();
+            var kea = (int)RequestParmeter<KeyEventsAmount>(calculator).GetValue();
             var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
@@ -84,15 +84,18 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             // Found bonuses combination
             var availableBonuses = mainDeck.Select(c => c.miningBonus).Distinct().ToList();
             List<List<int>> combinations = MathAdditional.combinations(availableBonuses, size);
-            double combinationDeviation(List<int> c) => Math.Abs(c.Average() - amb);
-            var bonuses = combinations.OrderBy(c => combinationDeviation(c)).First();
+            double deviation(List<int> c) => Math.Abs(c.Average() - amb);
+            double noZeroAverage(List<int> c) => MathAdditional.average(c.Where(b => b != 0));
+            double noZeroDeviation(List<int> c) => Math.Abs(noZeroAverage(c) - anmb);
+            double totalDeviation(List<int> c) => deviation(c) + noZeroDeviation(c);
+            var bonuses = combinations.OrderBy(c => totalDeviation(c)).First();
             bonuses = bonuses.OrderByDescending(b => b).ToList();
 
             // Separate combination to two subcombinations
             var initialBonuses = new List<int>();
             var keyBonuses = new List<int>();
             for (int i = 0; i < size; i++)
-                if (i % 2 == 0)
+                if ((i % 2 == 0 && keyBonuses.Count < kea) || initialBonuses.Count == InitialEventsAmount)
                     keyBonuses.Add(bonuses[i]);
                 else
                     initialBonuses.Add(bonuses[i]);
