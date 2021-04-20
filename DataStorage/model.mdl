@@ -1,10 +1,10 @@
 ModelAnalyzer.Parameters.General.MaxPlayersAmount:6~6|
 ModelAnalyzer.Parameters.General.MinPlayersAmount:3~3|
 ModelAnalyzer.Parameters.Activities.EventsRestoring.EstimatedUnluckyStackChance:0,1~0,1|
-ModelAnalyzer.Parameters.Activities.EventsRestoring.EventRestoringStackSize:3 2 2 3~3 2 2 3|
-ModelAnalyzer.Parameters.Activities.EventsRestoring.MinimalLuckyStackChance:0,6~0,6|
-ModelAnalyzer.Parameters.Activities.EventsRestoring.RealLuckyStackChance:0,72 0,62 0,71 0,91~0,72 0,62 0,71 0,91|
-ModelAnalyzer.Parameters.Activities.EventsRestoring.RealUnluckyStackChance:0 0,04 0,1 0,09~0 0,04 0,1 0,09|
+ModelAnalyzer.Parameters.Activities.EventsRestoring.EventRestoringStackSize:4 3 3 3~4 3 3 3|
+ModelAnalyzer.Parameters.Activities.EventsRestoring.MinimalLuckyStackChance:0,8~0,8|
+ModelAnalyzer.Parameters.Activities.EventsRestoring.RealLuckyStackChance:0,87 0,82 0,87 0,92~0,87 0,82 0,87 0,92|
+ModelAnalyzer.Parameters.Activities.EventsRestoring.RealUnluckyStackChance:0 0,01 0,02 0,08~0 0,01 0,02 0,08|
 ModelAnalyzer.Parameters.Activities.ArtifactDischargeCoef:0,7~0,7|
 ModelAnalyzer.Parameters.Activities.ArtifactsDischargeCompensation:22~22|
 ModelAnalyzer.Parameters.Activities.AtackAmount:6~6|
@@ -42,7 +42,7 @@ ModelAnalyzer.Parameters.BranchPoints.MaxBPLoosingCoefficient:0,3~0,3|
 ModelAnalyzer.Parameters.BranchPoints.MaxGameBP:20~20|
 ModelAnalyzer.Parameters.Events.MainDeck:Кол|
 ModelAnalyzer.Parameters.Events.MainDeckCore:Кол|
-ModelAnalyzer.Parameters.Events.ArtifactsRarity:0,15~0,15|
+ModelAnalyzer.Parameters.Events.ArtifactsRarity:0,2~0,2|
 ModelAnalyzer.Parameters.Events.AverageContinuumBP:0 0 0 0 0 0~0 0 0 0 0 0|
 ModelAnalyzer.Parameters.Events.AverageMiningBonus:2,15~2,15|
 ModelAnalyzer.Parameters.Events.AverageNozeroMiningBonus:4,78~4,78|
@@ -107,7 +107,7 @@ ModelAnalyzer.Parameters.PlayerInitial.AtackInitialEventMaxRadius:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.InitialEU:17~17|
 ModelAnalyzer.Parameters.PlayerInitial.InitialEventsWeightCoefficient:1~-|
 ModelAnalyzer.Parameters.PlayerInitial.InitialStackArtifactChance:0,5~0,5|
-ModelAnalyzer.Parameters.PlayerInitial.InitialStackSize:4~4|
+ModelAnalyzer.Parameters.PlayerInitial.InitialStackSize:3~3|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsAmount:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPoints:2~2|
 ModelAnalyzer.Parameters.PlayerInitial.KeyEventsBranchPointsCoefficient:1,1~1,1|
