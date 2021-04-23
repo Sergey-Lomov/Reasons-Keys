@@ -159,7 +159,7 @@ ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_Profit:50~50|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_RelativeRevenue:3~3|
 ModelAnalyzer.Parameters.Items.Standard.RelationsImprover.RI_ChargesAmount:4~4|
 ModelAnalyzer.Parameters.Items.Standard.RelationsImprover.RI_FullPrice:14~14|
-ModelAnalyzer.Parameters.Items.Standard.RelationsImprover.RI_ImprovementLimit:2~2|
+ModelAnalyzer.Parameters.Items.Standard.RelationsImprover.RI_ImprovementLimit:3~3|
 ModelAnalyzer.Parameters.Items.Standard.RelationsImprover.RI_ImprovementLimitCoefficient:1~1|
 ModelAnalyzer.Parameters.Items.Standard.RelationsImprover.RI_Profit:36~36|
 ModelAnalyzer.Parameters.Items.Standard.SpeedBooster.SB_FullPrice:10 7 5~10 7 5|

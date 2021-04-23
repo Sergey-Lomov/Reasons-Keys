@@ -27,7 +27,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            unroundValue = rip * ilc;
+            unroundValue = (ilc + 1) * rip - 1;
             value = (float)Math.Round(unroundValue, MidpointRounding.AwayFromZero);
 
             return calculationReport;
