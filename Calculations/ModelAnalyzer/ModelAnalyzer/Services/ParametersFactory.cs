@@ -182,7 +182,6 @@ namespace ModelAnalyzer
             // Items
             storage.AddParameter(parameter: new ArtifactsAvailabilityRound());
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
-            storage.AddParameter(parameter: new ArtifactInaccessibilityCompensation());
             storage.AddParameter(parameter: new ArtifactsProfitCoefficient());
             storage.AddParameter(parameter: new AverageBaseItemsProfit());
             storage.AddParameter(parameter: new AveragePrimeItemsProfit());

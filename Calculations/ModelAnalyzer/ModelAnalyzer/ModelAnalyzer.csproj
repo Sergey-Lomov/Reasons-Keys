@@ -127,7 +127,6 @@
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_MaxRadius.cs" />
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_MinRadius.cs" />
     <Compile Include="Parameters\Items\Artifacts\LachesisNeedle\LN_Range.cs" />
-    <Compile Include="Parameters\Items\ArtifactInaccessibilityCompensation.cs" />
     <Compile Include="Parameters\Items\AveragePrimeItemsProfit.cs" />
     <Compile Include="Parameters\Items\BaseItemsAmount.cs" />
     <Compile Include="Parameters\Items\EstimatedArtifactsProfit.cs" />
