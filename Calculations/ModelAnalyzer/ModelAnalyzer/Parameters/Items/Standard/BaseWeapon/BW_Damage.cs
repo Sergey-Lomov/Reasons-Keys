@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters.Mining;
+using ModelAnalyzer.Parameters.Events;
 
 namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
 {
@@ -26,6 +26,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
             float mpc = RequestParmeter<BW_MaxPowerCoefficient>(calculator).GetValue();
             float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
             float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            float amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
@@ -35,7 +36,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
             for (int i = 0; i <= (int)ua; i++)
             {
                 float power = wsp + i * step;
-                unroundValues.Add(power * am);
+                unroundValues.Add(power * (am + amb));
             }
 
             foreach (var value in unroundValues)

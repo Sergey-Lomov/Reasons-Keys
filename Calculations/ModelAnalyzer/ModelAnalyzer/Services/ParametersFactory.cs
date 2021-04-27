@@ -190,6 +190,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new FullLoadCoefficient());
             storage.AddParameter(parameter: new ItemPerRoundLimit());
             storage.AddParameter(parameter: new ItemPriceCoefficient());
+            storage.AddParameter(parameter: new ProtectionActualityCoefficient());
             storage.AddParameter(parameter: new PureEUProfitCoefficient());
             storage.AddParameter(parameter: new WeaponStandardEffectivity());
             storage.AddParameter(parameter: new WeaponStandardPower());

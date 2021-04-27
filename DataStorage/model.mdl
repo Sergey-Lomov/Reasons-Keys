@@ -6,7 +6,7 @@ ModelAnalyzer.Parameters.Activities.EventsRestoring.MinimalLuckyStackChance:0,8~
 ModelAnalyzer.Parameters.Activities.EventsRestoring.RealLuckyStackChance:0,87 0,82 0,87 0,92~0,87 0,82 0,87 0,92|
 ModelAnalyzer.Parameters.Activities.EventsRestoring.RealUnluckyStackChance:0 0,01 0,02 0,08~0 0,01 0,02 0,08|
 ModelAnalyzer.Parameters.Activities.ArtifactDischargeCoef:0,7~0,7|
-ModelAnalyzer.Parameters.Activities.ArtifactsDischargeCompensation:22~22|
+ModelAnalyzer.Parameters.Activities.ArtifactsDischargeCompensation:23~23|
 ModelAnalyzer.Parameters.Activities.AtackAmount:6~6|
 ModelAnalyzer.Parameters.Activities.AUPriceProportion:0,69~0,69|
 ModelAnalyzer.Parameters.Activities.EstimatedEventsConcreteBranchPoints:10,75~10,75|
@@ -125,32 +125,32 @@ ModelAnalyzer.Parameters.PlayerInitial.StartDeck:Кол|
 ModelAnalyzer.Parameters.PlayerInitial.SupportInitialEventMaxRadius:2~2|
 ModelAnalyzer.Parameters.Items.ArtifactsAvailabilityRound:6~6|
 ModelAnalyzer.Parameters.Items.ArtifactsAvaliabilityPhase:2~2|
-ModelAnalyzer.Parameters.Items.Artifacts.ArtifactInaccessibilityCompensation:32~32|
 ModelAnalyzer.Parameters.Items.ArtifactsProfitCoefficient:2~-|
-ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:39,07~39,07|
-ModelAnalyzer.Parameters.Items.AveragePrimeItemsProfit:39,07~39,07|
+ModelAnalyzer.Parameters.Items.AverageBaseItemsProfit:39,82~39,82|
+ModelAnalyzer.Parameters.Items.AveragePrimeItemsProfit:39,82~39,82|
 ModelAnalyzer.Parameters.Items.BaseItemsAmount:10~10|
-ModelAnalyzer.Parameters.Items.EstimatedArtifactsProfit:63,88~63,88|
+ModelAnalyzer.Parameters.Items.EstimatedArtifactsProfit:64,78~64,78|
 ModelAnalyzer.Parameters.Items.FullLoadCoefficient:0,5~0,5|
 ModelAnalyzer.Parameters.Items.ItemPerRoundLimit:1~1|
 ModelAnalyzer.Parameters.Items.ItemPriceCoefficient:0,4~0,4|
+ModelAnalyzer.Parameters.Items.ProtectionActualityCoefficient:0,75~0,75|
 ModelAnalyzer.Parameters.Items.PureEUProfitCoefficient:2~-|
 ModelAnalyzer.Parameters.Items.WeaponStandardEffectivity:3~-|
 ModelAnalyzer.Parameters.Items.WeaponStandardPower:1~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_BasePower:0,3~-|
-ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Defense:3 5 7~3 5 7|
-ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_FullPrice:7 5 5~7 5 5|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Defense:4 6 8~4 6 8|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_FullPrice:7 4 4~7 4 4|
 ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_MaxPower:0,35~-|
-ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Profit:30~30|
-ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_UpgradesProfit:18 30 42~18 30 42|
-ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Damage:10 15 20~10 15 20|
-ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_FullPrice:10 5 5~10 5 5|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_Profit:27~27|
+ModelAnalyzer.Parameters.Items.Standard.BaseShield.BS_UpgradesProfit:18 27 36~18 27 36|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Damage:12 18 24~12 18 24|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_FullPrice:10 7 7~10 7 7|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_MaxEffectivityCoefficient:1,33~-|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_MaxPowerCoefficient:2~-|
-ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Profit:36~36|
-ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_ShotPrice:3 4 5~3 4 5|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_Profit:42~42|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_ShotPrice:4 5 6~4 5 6|
 ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesAmount:2~-|
-ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesProfit:24 36 48~24 36 48|
+ModelAnalyzer.Parameters.Items.Standard.BaseWeapon.BW_UpgradesProfit:24 42 60~24 42 60|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_Capacity:65~65|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_CapacityCoefficient:1,5~1,5|
 ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator.KA_FullPrice:20~20|
@@ -195,7 +195,7 @@ ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_SymmetricalNod
 ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser.SS_UsageAmount:2~2|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimit:13~13|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MaxLimitCoef:1,1~1,1|
-ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimit:5~4,84|
+ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimit:5~5,06|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_MinLimitCoef:0,66~0,66|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_Profit:71,67~71,67|
 ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule.CM_UsageAmount:3~3|

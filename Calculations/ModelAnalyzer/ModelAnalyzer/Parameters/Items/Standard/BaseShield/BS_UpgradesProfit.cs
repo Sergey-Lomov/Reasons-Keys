@@ -22,6 +22,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
             calculationReport = new ParameterCalculationReport(this);
 
             float saa = RequestParmeter<AtackAmount>(calculator).GetValue();
+            float pac = RequestParmeter<ProtectionActualityCoefficient>(calculator).GetValue();
             List<float> bsd = RequestParmeter<BS_Defense>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
@@ -29,7 +30,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
             ClearValues();
 
             foreach (var defense in bsd)
-                unroundValues.Add(saa * defense);
+                unroundValues.Add(saa * pac * defense);
 
             values = unroundValues;
 

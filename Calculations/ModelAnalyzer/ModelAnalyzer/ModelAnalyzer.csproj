@@ -113,6 +113,7 @@
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\FieldNodesFloatParameter.cs" />
     <Compile Include="Parameters\FieldNodesParameter.cs" />
+    <Compile Include="Parameters\Items\ProtectionActualityCoefficient.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
     <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MaxLimit.cs" />
     <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MaxLimitCoef.cs" />
