@@ -55,6 +55,7 @@ const artifactIndicatorLayer = "ArtifactIndicator";
 const miningBonusLayer = "MiningBonus";
 const stabilityIncrementLayer = "StabilityIncrement";
 
+const lastRoundConstraint = "LastRoundConstraint";
 const minStabilityConstraintLayer = "MinStabilityConstraint";
 const minStabilityConstraintValue = "Value";
 
@@ -489,6 +490,7 @@ function HandleCard (card, doc, folder)
       
       HandleBoolValue(pairingIndicatorLayer, isPaired, doc);
       HandleBoolValue(artifactIndicatorLayer, pa, doc);
+      HandleBoolValue(lastRoundConstraint, isKey, doc);
       
       //HandleTextValue(minStabilityConstraintLayer, minStabilityConstraintValue, msc, doc);
       HandleTextValue(weightLayerName, weightValue, weight, doc);
