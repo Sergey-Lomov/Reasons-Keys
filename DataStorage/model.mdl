@@ -1,10 +1,10 @@
 ModelAnalyzer.Parameters.General.MaxPlayersAmount:6~6|
 ModelAnalyzer.Parameters.General.MinPlayersAmount:3~3|
 ModelAnalyzer.Parameters.Activities.EventsRestoring.EstimatedUnluckyStackChance:0,1~0,1|
-ModelAnalyzer.Parameters.Activities.EventsRestoring.EventRestoringStackSize:4 3 3 3~4 3 3 3|
+ModelAnalyzer.Parameters.Activities.EventsRestoring.EventRestoringStackSize:~|
 ModelAnalyzer.Parameters.Activities.EventsRestoring.MinimalLuckyStackChance:0,8~0,8|
-ModelAnalyzer.Parameters.Activities.EventsRestoring.RealLuckyStackChance:0,87 0,82 0,87 0,92~0,87 0,82 0,87 0,92|
-ModelAnalyzer.Parameters.Activities.EventsRestoring.RealUnluckyStackChance:0 0,01 0,02 0,08~0 0,01 0,02 0,08|
+ModelAnalyzer.Parameters.Activities.EventsRestoring.RealLuckyStackChance:~|
+ModelAnalyzer.Parameters.Activities.EventsRestoring.RealUnluckyStackChance:~|
 ModelAnalyzer.Parameters.Activities.ArtifactDischargeCoef:0,7~0,7|
 ModelAnalyzer.Parameters.Activities.ArtifactsDischargeCompensation:23~23|
 ModelAnalyzer.Parameters.Activities.AtackAmount:6~6|
@@ -51,8 +51,8 @@ ModelAnalyzer.Parameters.Events.AverageRelationsImpactPower:2,21~2,21|
 ModelAnalyzer.Parameters.Events.BrachPointsTemplatesAllocation:1 1 0 0 0 0 0~1 1 0 0 0 0 0|
 ModelAnalyzer.Parameters.Events.BranchPointsAllocation_Standard:0-1 0-2 0-3 1-2 1-3 2-3 2-4 2-5 3-4 3-5 4-0 4-1 4-5 5-0 5-1|
 ModelAnalyzer.Parameters.Events.BranchPointsAllocation_Symmetric:0-1 0-2 1-2 1-3 1-4 2-3 2-4 3-0 3-4 3-5 4-0 4-5 5-0 5-1 5-2|
-ModelAnalyzer.Parameters.Events.BranchPointsDisbalance:0,11~0,11|
-ModelAnalyzer.Parameters.Events.BranchPointsRandomizationLimit:20000~20000|
+ModelAnalyzer.Parameters.Events.BranchPointsDisbalance:0,05~0,05|
+ModelAnalyzer.Parameters.Events.BranchPointsRandomizationLimit:4000000000~4000000000|
 ModelAnalyzer.Parameters.Events.EventMaxMiningBonus:6~6|
 ModelAnalyzer.Parameters.Events.EventMaxRelations:3~-|
 ModelAnalyzer.Parameters.Events.EventMiningBonusAllocation:11 0 0 0 4 3 2~11 0 0 0 4 3 2|
