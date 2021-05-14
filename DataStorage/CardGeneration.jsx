@@ -195,7 +195,7 @@ function HandleBrachPoints (mainLayerName, useCircular, value, doc)
         
         if (useCircular) 
         {
-            HandleCircularPoints(hasValueLayer, points);
+            HandleCircularBrachPoints(hasValueLayer, points);
         } 
         else 
         {
@@ -206,7 +206,7 @@ function HandleBrachPoints (mainLayerName, useCircular, value, doc)
     }
 }
  
-function HandleCircularPoints (mainLayer, points) 
+function HandleCircularBrachPoints (mainLayer, points) 
 {
     var signLayer = mainLayer.layers.getByName(signGroupName);
     var positivePath = signLayer.pathItems.getByName(positivePointsPathName);
@@ -221,14 +221,26 @@ function HandleOrientatedPoints (mainGroup, points)
             mainGroup.textFrames.getByName(valueLayerName).contents = points.toString();
 }
 
-function HandleCircularKeySuccessPoints (success, useCircular, isKey, doc)
+function HandleCircularPoints (success, failed, useCircular, isKey, doc)
 {
-    var items = success.child(bpElement);
-    if (items.length() > 0 && useCircular && isKey == "True") 
+    var successItems = success.child(bpElement);
+    var failedItems = failed.child(bpElement);
+    var maxPoints = 0;
+
+    for (var i = 0; i < successItems.length(); i++) {
+        var points = successItems[i].child(pointsElement);
+        maxPoints = maxPoints <= points ? points : maxPoints;
+    }
+
+    for (var i = 0; i < failedItems.length(); i++) {
+        var points = failedItems[i].child(pointsElement);
+        maxPoints = maxPoints <= points ? points : maxPoints;
+    }
+    
+    if (maxPoints > 1 && useCircular && isKey == "True") 
     {
-        var points = items[0].child(pointsElement)
         doc.layers.getByName(circularKeyEventBPLayerName).visible = true;
-        HandleNumberValue(circularKeyEventBPLayerName, true, points, doc);
+        HandleNumberValue(circularKeyEventBPLayerName, true, maxPoints, doc);
     }
     else
     {
@@ -464,7 +476,7 @@ function toHex2(num) {
 
 
 function HandleCard (card, doc, folder)
-{
+{    
       //Get values
       var id = card.child(idElement);
       var name = card.child(nameElement);
@@ -487,11 +499,11 @@ function HandleCard (card, doc, folder)
       var noMiddleInfo = urc == 0;
       
       HandleMarkup(useCircular, doc);
-      
+
       HandleBoolValue(pairingIndicatorLayer, isPaired, doc);
       HandleBoolValue(artifactIndicatorLayer, pa, doc);
       HandleBoolValue(lastRoundConstraint, isKey, doc);
-      
+
       //HandleTextValue(minStabilityConstraintLayer, minStabilityConstraintValue, msc, doc);
       HandleTextValue(weightLayerName, weightValue, weight, doc);
       HandleTextValue(usabilityLayerName, usabilityValue, usability, doc);
@@ -504,7 +516,7 @@ function HandleCard (card, doc, folder)
 
       HandleBrachPoints(failedBPLayerName, useCircular, failed, doc);
       HandleBrachPoints(successBPLayerName, useCircular, success, doc);
-      HandleCircularKeySuccessPoints(success, useCircular, isKey, doc);
+      HandleCircularPoints(success, failed, useCircular, isKey, doc);
       
       HandleRadiusConstraint(urc, doc)
       HandleRelations(relations, doc);
