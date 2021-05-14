@@ -97,7 +97,7 @@ namespace ModelAnalyzer.Parameters.Events
         {
             // Randomization
             var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var bprl = (int)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
+            var bprl = (long)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
             var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
 
             var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
@@ -106,7 +106,7 @@ namespace ModelAnalyzer.Parameters.Events
             var bpSets = BranchPointSets(calculator);
             float minDeviation = float.MaxValue;
             var minDeviationBPSets = bpSets.ToList();
-            for (int i = 0; i < bprl; i++)
+            for (long i = 0; i < bprl; i++)
             {
                 var randomizedSets = bpSets.OrderBy(bps => randomizer.Next()).ToList();
                 var deviation = EventCardsAnalizer.BrancheDisbalance(deck, cardsStabilities, maxpa, randomizedSets);
