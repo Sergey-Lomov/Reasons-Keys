@@ -44,7 +44,7 @@ namespace ModelAnalyzer.DataModels
     class EventCard : IEquatable<EventCard>
     {
         private EventRelations _relations = new EventRelations();
-        internal EventRelations relations
+        internal EventRelations Relations
         {
             get { return _relations; }
             set {
@@ -76,7 +76,7 @@ namespace ModelAnalyzer.DataModels
 
         public EventCard (EventCard card)
         {
-            relations = new EventRelations(card.relations);
+            Relations = new EventRelations(card.Relations);
             branchPoints = new BranchPointsSet(card.branchPoints.success, card.branchPoints.failed);
             constraints.MakeEqual(card.constraints);
 
@@ -93,7 +93,7 @@ namespace ModelAnalyzer.DataModels
 
         public bool Equals(EventCard other)
         {
-            return relations.SequenceEqual(other.relations)
+            return Relations.SequenceEqual(other.Relations)
                 && constraints.Equals(other.constraints)
                 && miningBonus == other.miningBonus
                 && provideArtifact == other.provideArtifact
@@ -102,19 +102,19 @@ namespace ModelAnalyzer.DataModels
                 && branchPoints == other.branchPoints;
         }
 
-        public bool hasBackReason()
+        public bool HasBackReason()
         {
-            return relations.Where(r => r.direction == RelationDirection.back && r.type == RelationType.reason).Count() > 0;
+            return Relations.Where(r => r.direction == RelationDirection.back && r.type == RelationType.reason).Count() > 0;
         }
 
-        public int backRelationsCount()
+        public int BackRelationsCount()
         {
-            return relations.Where(r => r.direction == RelationDirection.back).Count();
+            return Relations.Where(r => r.direction == RelationDirection.back).Count();
         }
 
-        public int frontRelationsCount()
+        public int FrontRelationsCount()
         {
-            return relations.Where(r => r.direction == RelationDirection.front).Count();
+            return Relations.Where(r => r.direction == RelationDirection.front).Count();
         }
     }
 }

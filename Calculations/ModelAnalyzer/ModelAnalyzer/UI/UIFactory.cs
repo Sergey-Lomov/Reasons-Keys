@@ -15,7 +15,7 @@ namespace ModelAnalyzer.UI
 {
     class UIFactory
     {
-        Dictionary<Type, Type> detailsFormsTypes = new Dictionary<Type, Type>();
+        readonly Dictionary<Type, Type> detailsFormsTypes = new Dictionary<Type, Type>();
 
         private readonly ParametersRowsFactory parameters = new ParametersRowsFactory();
         private readonly CalculationReportRowsFactory calculation = new CalculationReportRowsFactory();

@@ -108,7 +108,7 @@
             this.deckIndexLabel.TabIndex = 0;
             this.deckIndexLabel.Text = "#";
             this.deckIndexLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.deckIndexLabel.Click += new System.EventHandler(this.deckIndexLabel_Click);
+            this.deckIndexLabel.Click += new System.EventHandler(this.DeckIndexLabel_Click);
             // 
             // deckRelationsLabel
             // 
@@ -138,7 +138,7 @@
             this.deckWeightLabel.TabIndex = 7;
             this.deckWeightLabel.Text = "Вес";
             this.deckWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.deckWeightLabel.Click += new System.EventHandler(this.deckWeightLabel_Click);
+            this.deckWeightLabel.Click += new System.EventHandler(this.DeckWeightLabel_Click);
             // 
             // minPhaseLabel
             // 
@@ -154,7 +154,7 @@
             this.minPhaseLabel.TabIndex = 12;
             this.minPhaseLabel.Text = "Мин Фаза";
             this.minPhaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.minPhaseLabel.Click += new System.EventHandler(this.minPhaseLabel_Click);
+            this.minPhaseLabel.Click += new System.EventHandler(this.MinPhaseLabel_Click);
             // 
             // minRadius
             // 
@@ -170,7 +170,7 @@
             this.minRadius.TabIndex = 15;
             this.minRadius.Text = "Мин Радиус";
             this.minRadius.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.minRadius.Click += new System.EventHandler(this.minRadiusLabel_Click);
+            this.minRadius.Click += new System.EventHandler(this.MinRadiusLabel_Click);
             // 
             // failedBPLabel
             // 
@@ -186,7 +186,7 @@
             this.failedBPLabel.TabIndex = 11;
             this.failedBPLabel.Text = "-";
             this.failedBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.failedBPLabel.Click += new System.EventHandler(this.failedBPLabel_Click);
+            this.failedBPLabel.Click += new System.EventHandler(this.FailedBPLabel_Click);
             // 
             // successBPLabel
             // 
@@ -202,7 +202,7 @@
             this.successBPLabel.TabIndex = 16;
             this.successBPLabel.Text = "+";
             this.successBPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.successBPLabel.Click += new System.EventHandler(this.successBPLabel_Click);
+            this.successBPLabel.Click += new System.EventHandler(this.SuccessBPLabel_Click);
             // 
             // deckUsabilityLabel
             // 
@@ -216,7 +216,7 @@
             this.deckUsabilityLabel.TabIndex = 5;
             this.deckUsabilityLabel.Text = "Us";
             this.deckUsabilityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.deckUsabilityLabel.Click += new System.EventHandler(this.deckUsabilityLabel_Click);
+            this.deckUsabilityLabel.Click += new System.EventHandler(this.DeckUsabilityLabel_Click);
             // 
             // deckMBLabel
             // 
@@ -230,7 +230,7 @@
             this.deckMBLabel.TabIndex = 4;
             this.deckMBLabel.Text = "MB";
             this.deckMBLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.deckMBLabel.Click += new System.EventHandler(this.deckMBLabel_Click);
+            this.deckMBLabel.Click += new System.EventHandler(this.DeckMBLabel_Click);
             // 
             // deckArtifactLabel
             // 
@@ -244,7 +244,7 @@
             this.deckArtifactLabel.TabIndex = 2;
             this.deckArtifactLabel.Text = "Aрт";
             this.deckArtifactLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.deckArtifactLabel.Click += new System.EventHandler(this.deckArtifactLabel_Click);
+            this.deckArtifactLabel.Click += new System.EventHandler(this.DeckArtifactLabel_Click);
             // 
             // label1
             // 
@@ -258,7 +258,7 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Сопр";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.pairedLabel_Click);
+            this.label1.Click += new System.EventHandler(this.PairedLabel_Click);
             // 
             // deckCommentLabel
             // 

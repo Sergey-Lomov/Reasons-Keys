@@ -27,7 +27,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            var maxFrontRelations = mainDeck.Select(c => c.frontRelationsCount()).Max();
+            var maxFrontRelations = mainDeck.Select(c => c.FrontRelationsCount()).Max();
             unroundValue = maxFrontRelations * rip;
             value = unroundValue = (int)Math.Round(unroundValue, MidpointRounding.AwayFromZero);
 

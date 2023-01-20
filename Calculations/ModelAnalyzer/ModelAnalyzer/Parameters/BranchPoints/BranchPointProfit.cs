@@ -35,7 +35,7 @@ namespace ModelAnalyzer.Parameters.BranchPoints
             var totalDeck = new List<EventCard>(mainDeck);
             totalDeck.AddRange(startDeck);
             var branchPoints = totalDeck
-                .SelectMany(c => c.branchPoints.all())
+                .SelectMany(c => c.branchPoints.All())
                 .Where(bp => bp.branch == 0 && bp.point > 0)
                 .ToList();
             var positiveCards = branchPoints.Count;

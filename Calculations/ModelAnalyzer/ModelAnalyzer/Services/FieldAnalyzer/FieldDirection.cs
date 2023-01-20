@@ -17,7 +17,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
         static readonly FieldDirection bottomRight = new FieldDirection(1, -1, 0);
         static readonly FieldDirection bottomLeft = new FieldDirection(-1, 0, 1);
 
-        static private List<FieldDirection> availableDirections = new List<FieldDirection> {
+        static private readonly List<FieldDirection> availableDirections = new List<FieldDirection> {
             bottom, bottomLeft, topLeft, top, topRight, bottomRight };
 
         private FieldDirection(int x, int y, int z)

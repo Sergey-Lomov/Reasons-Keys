@@ -16,7 +16,7 @@ namespace ModelAnalyzer
         readonly string keyValueSeparator = ":";
         readonly string parametersSeparator = "|\r\n";
         readonly string defaultModelFile = "default.mdl";
-        UTF8Encoding encoding = new UTF8Encoding();
+        readonly UTF8Encoding encoding = new UTF8Encoding();
 
         public void WriteValuesToFile (Storage storage, string filePath)
         {

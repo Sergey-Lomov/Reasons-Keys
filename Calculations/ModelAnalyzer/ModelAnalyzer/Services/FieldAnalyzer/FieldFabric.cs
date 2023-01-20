@@ -6,16 +6,16 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
 {
     class FieldFabric
     {
-        public Field field(int outerRadius, int innerRadius)
+        public Field Field(int outerRadius, int innerRadius)
         {
-            var points = pointsForRarius(outerRadius);
-            var excludePoints = pointsForRarius(innerRadius - 1);
+            var points = PointsForRarius(outerRadius);
+            var excludePoints = PointsForRarius(innerRadius - 1);
             points.RemoveWhere(p => excludePoints.Contains(p));
 
             return new Field(points);
         }
 
-        private HashSet<FieldPoint> pointsForRarius (int radius)
+        private HashSet<FieldPoint> PointsForRarius (int radius)
         {
             var points = new HashSet<FieldPoint>();
 

@@ -49,7 +49,7 @@
             this.approveButton.TabIndex = 1;
             this.approveButton.Text = "Обновить";
             this.approveButton.UseVisualStyleBackColor = true;
-            this.approveButton.Click += new System.EventHandler(this.approveButton_Click);
+            this.approveButton.Click += new System.EventHandler(this.ApproveButton_Click);
             // 
             // calculateButton
             // 
@@ -59,7 +59,7 @@
             this.calculateButton.TabIndex = 2;
             this.calculateButton.Text = "Обновить всё";
             this.calculateButton.UseVisualStyleBackColor = true;
-            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
+            this.calculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
             // cancelButton
             // 

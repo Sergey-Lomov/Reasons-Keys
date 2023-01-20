@@ -16,9 +16,6 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
         internal float oneUsageProfit;
         internal float connectinosAmount;
 
-        private const int minRange = 2; //Min LN range for selection
-        private const int maxRange = 8; //Max distance between two points
-
         public LN_CalculationModule()
         {
             title = "ИЛ: Модуль подбора";

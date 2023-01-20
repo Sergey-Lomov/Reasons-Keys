@@ -8,9 +8,7 @@ namespace ModelAnalyzer.UI.Factories
 {
     class ComponentsFactory
     {
-        private readonly UIConstants constants = new UIConstants();
-
-        Dictionary<ParameterType, Color> typesColors = new Dictionary<ParameterType, Color>();
+        readonly Dictionary<ParameterType, Color> typesColors = new Dictionary<ParameterType, Color>();
 
         private readonly Font headerFont = new Font("Serif", 10, FontStyle.Bold);
         private readonly Font subHeaderFont = new Font("Serif", 8, FontStyle.Bold);

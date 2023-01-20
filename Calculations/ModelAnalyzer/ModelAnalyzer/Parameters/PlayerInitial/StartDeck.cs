@@ -31,7 +31,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         private const string attackComment = "Атакующее изначальное событие";
         private const string supportComment = "Поддерживающее изначальное событие";
 
-        private List<int> miningBonuses = new List<int>();
+        private readonly List<int> miningBonuses = new List<int>();
 
         public StartDeck()
         {
@@ -46,7 +46,6 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float arip = RequestParmeter<AverageRelationsImpactPower>(calculator).GetValue();
             SetupMiningBonuses(calculator);
 
             if (!calculationReport.IsSuccess)
@@ -64,7 +63,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             UpdateDeckUsability(calculator);
             UpdateDeckWeight(calculator);
-            UpdateDeckConstraints(calculator);
+            // For now cards have no contraints
+            //UpdateDeckConstraints(calculator);
 
             return calculationReport;
         }
@@ -83,9 +83,9 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             // Found bonuses combination
             var availableBonuses = mainDeck.Select(c => c.miningBonus).Distinct().ToList();
-            List<List<int>> combinations = MathAdditional.combinations(availableBonuses, size);
+            List<List<int>> combinations = MathAdditional.Combinations(availableBonuses, size);
             double deviation(List<int> c) => Math.Abs(c.Average() - amb);
-            double noZeroAverage(List<int> c) => MathAdditional.average(c.Where(b => b != 0));
+            double noZeroAverage(List<int> c) => MathAdditional.Average(c.Where(b => b != 0));
             double noZeroDeviation(List<int> c) => Math.Abs(noZeroAverage(c) - anmb);
             double totalDeviation(List<int> c) => deviation(c) + noZeroDeviation(c);
             var bonuses = combinations.OrderBy(c => totalDeviation(c)).First();
@@ -152,7 +152,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 return null;
 
             var card = new EventCard();
-            card.relations = relationsPrototypes[logisticIndex];
+            card.Relations = relationsPrototypes[logisticIndex];
             card.miningBonus = miningBonuses[logisticIndex];
             card.constraints.SetMaxRadius(liemr, fr);
             card.comment = logisticComment;
@@ -171,7 +171,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             var card = new EventCard();
             card.branchPoints = branchPoints;
-            card.relations = relationsPrototypes[attackIndex];
+            card.Relations = relationsPrototypes[attackIndex];
             card.miningBonus = miningBonuses[attackIndex];
             card.constraints.SetMaxRadius(iamr, fr);
             card.comment = attackComment;
@@ -190,7 +190,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             var card = new EventCard();
             card.branchPoints = branchPoints;
-            card.relations = relationsPrototypes[supportIndex];
+            card.Relations = relationsPrototypes[supportIndex];
             card.miningBonus = miningBonuses[supportIndex];
             card.constraints.SetMaxRadius(ismr, fr);
             card.comment = supportComment;
@@ -230,7 +230,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             {
                 var card = KeyEvent(kebp, owner, bpsOnSuccess);
 
-                card.relations = relationsPrototypes[notMainKeyIndex + i];
+                card.Relations = relationsPrototypes[notMainKeyIndex + i];
                 card.miningBonus = miningBonuses[notMainKeyIndex + i];
                 card.comment = "Решающее событие";
                 card.name = "P" + (owner + 1) + "_" + (5 + i);
@@ -246,7 +246,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var card = KeyEvent(mkebp, owner, owner % 2 == 0);
 
-            card.relations = relationsPrototypes[mainKeyIndex];
+            card.Relations = relationsPrototypes[mainKeyIndex];
             card.miningBonus = miningBonuses[mainKeyIndex];
             card.comment = "Главное решающее событие";
             card.name = "P" + (owner + 1) + "_4";

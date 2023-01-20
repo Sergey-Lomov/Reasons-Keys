@@ -36,7 +36,6 @@ namespace ModelAnalyzer.Parameters.BranchPoints
             float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
             float minpa = RequestParmeter<MinPlayersAmount>(calculator).GetValue();
             float ketbp = RequestParmeter<KeyEventsTotalBrachPoints>(calculator).GetValue();
-            var deck = RequestParmeter<MainDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

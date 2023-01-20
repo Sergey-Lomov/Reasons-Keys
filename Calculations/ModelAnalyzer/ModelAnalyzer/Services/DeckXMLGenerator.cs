@@ -94,7 +94,7 @@ namespace ModelAnalyzer.Services
 
             WriteRadiusesConstraint(card.constraints.unavailableRadiuses, writer);
             WriteBranchPoints(card.branchPoints, writer);
-            WriteRelations(card.relations, writer);
+            WriteRelations(card.Relations, writer);
 
             writer.WriteEndElement();
         }

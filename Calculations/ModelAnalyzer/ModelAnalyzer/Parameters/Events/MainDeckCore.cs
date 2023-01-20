@@ -57,7 +57,7 @@ namespace ModelAnalyzer.Parameters.Events
                 for (int i = 0; i < rtu[template].cardsCount; i++)
                 {
                     var card = new EventCard();
-                    card.relations = template.instantiateByReasons();
+                    card.Relations = template.InstantiateByReasons();
                     card.usability = rtu[template].usability;
                     deck.Add(card);
                 }
@@ -76,7 +76,7 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void SetRelationsTypes(List<EventCard> deck, RelationDirection direction, float blockerChance)
         {
-            int dirAmount(EventCard e, RelationDirection d) => e.relations.Where(r => r.direction == d).Count();
+            int dirAmount(EventCard e, RelationDirection d) => e.Relations.Where(r => r.direction == d).Count();
             var grouping = deck.GroupBy(e => dirAmount(e, direction)).Where( g => g.Key != 0);
 
             var types = new List<RelationType> { RelationType.reason, RelationType.blocker };
@@ -89,8 +89,8 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (var group in grouping)
             {
                 var cards = group.ToList();
-                var combinations = MathAdditional.combinations(types, group.Key);
-                var chances = combinations.Select(c => MathAdditional.combinationChance(c, typesChances)).ToList();
+                var combinations = MathAdditional.Combinations(types, group.Key);
+                var chances = combinations.Select(c => MathAdditional.CombinationChance(c, typesChances)).ToList();
                 var amounts = MathAdditional.AmountsForAllocation(group.Count(), chances, calculationReport).ToList();
                 void combinationSetter(EventCard e, List<RelationType> c) => ApplyRealtionsTypesCombination(e, direction, c);
                 Setter.EvenDistributionSet(cards, combinations, amounts, combinationSetter);
@@ -102,7 +102,7 @@ namespace ModelAnalyzer.Parameters.Events
             RelationDirection handleDirection,
             List<RelationType> combination)
         {
-            var handlable = card.relations.Where(r => r.direction == handleDirection).ToList();
+            var handlable = card.Relations.Where(r => r.direction == handleDirection).ToList();
             if (handlable.Count() != combination.Count())
                 return;
 

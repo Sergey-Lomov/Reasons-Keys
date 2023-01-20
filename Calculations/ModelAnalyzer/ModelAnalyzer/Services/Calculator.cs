@@ -15,7 +15,7 @@ namespace ModelAnalyzer.Services
         HashSet<Parameter> updated;
         ModelCalcultaionReport modelCalculationReport;
 
-        private Dictionary<Type, CalculationModule> modules = new Dictionary<Type, CalculationModule>();
+        private readonly Dictionary<Type, CalculationModule> modules = new Dictionary<Type, CalculationModule>();
 
         internal ModelCalcultaionReport CalculateModel (Storage storage)
         {

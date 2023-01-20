@@ -25,8 +25,8 @@ namespace ModelAnalyzer.Parameters.Events
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            float cubeSum(int n) => MathAdditional.sum(0, n, i => i*i);
-            float sum(int n) => MathAdditional.sum(0, n, i => i);
+            float cubeSum(int n) => MathAdditional.Sum(0, n, i => i*i);
+            float sum(int n) => MathAdditional.Sum(0, n, i => i);
 
             unroundValues = new List<float>() { 0 };
             for (int n = 1; n < Field.nearesNodesAmount; n++)

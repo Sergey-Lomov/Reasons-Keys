@@ -22,16 +22,15 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
             List<float> mba = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            float nozeroWeight = mba.Sum() - mba[0];
+            float nozeroSum = mba.Sum() - mba[0];
             float average = 0;
             for (int i = 0; i < mba.Count(); i++)
-                average += i * mba[i] / nozeroWeight;
+                average += i * mba[i] / nozeroSum;
 
             value = unroundValue = average;
 

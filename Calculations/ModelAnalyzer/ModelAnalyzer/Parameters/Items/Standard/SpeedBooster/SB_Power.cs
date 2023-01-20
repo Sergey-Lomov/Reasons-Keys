@@ -11,7 +11,6 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
     class SB_Power : FloatArrayParameter
     {
         private const string zeroBoostIssue = "Одна или несколько ступеней ускорителя не дают прироста скорости";
-        private const string roundingIssue = "Значительная потеря точности при округлении";
 
         public SB_Power()
         {
@@ -72,6 +71,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
                     report.AddIssue(zeroBoostIssue);
 
                 var roundingIssues = validator.ValidateRounding(unroundValues.Sum(), values.Sum());
+                report.AddIssues(roundingIssues);
             }
 
             return report;

@@ -24,7 +24,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             { NodeTopologyType.LastAtLastRadius, new NodeRelationsTemplate("PBOOBP") }
         };
 
-        internal int nodesOfType(NodeTopologyType type, int minRadius, int maxRadius)
+        internal int NodesOfType(NodeTopologyType type, int minRadius, int maxRadius)
         {
             switch (type) {
                 case NodeTopologyType.Center:
@@ -58,12 +58,12 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             return 0;
         }
 
-        internal int templatesCombinations(NodeTopologyType nodeType, EventRelationsTemplate eventTemplate) {
+        internal int TemplatesCombinations(NodeTopologyType nodeType, EventRelationsTemplate eventTemplate) {
             var nodeTemplate = nodesTemplates[nodeType];
-            return eventTemplate.variants.Where(v => isCompatible(nodeTemplate, v)).Count();
+            return eventTemplate.variants.Where(v => IsCompatible(nodeTemplate, v)).Count();
         }
 
-        private bool isCompatible(NodeRelationsTemplate nodeTemplate, EventRelationsVariant variant)
+        private bool IsCompatible(NodeRelationsTemplate nodeTemplate, EventRelationsVariant variant)
         {
             if (nodeTemplate.relations.Count != variant.directions.Count)
             {
@@ -74,7 +74,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             {
                 var nodeRelation = nodeTemplate.relations[i];
                 var direction = variant.directions[i];
-                if (!isCompatible(nodeRelation, direction))
+                if (!IsCompatible(nodeRelation, direction))
                 {
                     return false;
                 }
@@ -83,7 +83,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             return true;
         }
 
-        private bool isCompatible(NodeRelationType nodeRelation, RelationDirection? direction)
+        private bool IsCompatible(NodeRelationType nodeRelation, RelationDirection? direction)
         {
             switch (direction)
             {

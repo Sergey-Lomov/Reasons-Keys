@@ -11,7 +11,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         internal int initialStackSize;
         internal float realInitialStackArtifactChance;
 
-        private static int[] availableValues = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        private static readonly int[] availableValues = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
         public InitialStackCalculationModule()
         {
@@ -33,8 +33,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             // Use real value instead fromula provided by mechanica doc for prevent rounding issues
             var nacea = deck.FindAll(e => !e.provideArtifact).Count;
 
-            double tsca(int iss) => MathAdditional.miltyply(cna - iss + 1, cna);
-            double nasca(int iss) => MathAdditional.miltyply(nacea - iss + 1, nacea);
+            double tsca(int iss) => MathAdditional.Miltyply(cna - iss + 1, cna);
+            double nasca(int iss) => MathAdditional.Miltyply(nacea - iss + 1, nacea);
             double isnac(int iss) => nasca(iss) / tsca(iss);
             double cisac(int iss) => 1 - isnac(iss);
             double distance(int iss) => System.Math.Abs(isac - cisac(iss));

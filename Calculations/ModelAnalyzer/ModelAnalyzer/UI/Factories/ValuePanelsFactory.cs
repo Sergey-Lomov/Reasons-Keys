@@ -24,15 +24,15 @@ namespace ModelAnalyzer.UI.Factories
             if (p is FloatArrayParameter floatArray)
                 AddFloatArray(floatArray, panel, advanced, clickHandler);
             if (p is DeckParameter deck)
-                AddDeck(deck, panel, advanced, clickHandler);
+                AddDeck(deck, panel, clickHandler);
             if (p is RoutesMap routesMap)
-                AddRoutesMap(routesMap, panel, advanced, clickHandler);
+                AddRoutesMap(routesMap, panel, clickHandler);
             if (p is RelationTemplatesUsage rtu)
-                AddRelationTemplatesUsage(rtu, panel, advanced, clickHandler);
+                AddRelationTemplatesUsage(rtu, panel, clickHandler);
             if (p is PairsArrayParameter pairsArray)
-                AddPairsArray(pairsArray, panel, advanced, clickHandler);
+                AddPairsArray(pairsArray, panel, clickHandler);
             if (p is FieldNodesFloatParameter fieldNodes)
-                AddFieldNodesFloatInfo(fieldNodes, panel, advanced, clickHandler);
+                AddFieldNodesFloatInfo(fieldNodes, panel, clickHandler);
 
             return panel;
         }
@@ -63,32 +63,32 @@ namespace ModelAnalyzer.UI.Factories
             }
         }
 
-        private void AddDeck(DeckParameter p, Panel panel, bool advanced, EventHandler clickHandler)
+        private void AddDeck(DeckParameter p, Panel panel, EventHandler clickHandler)
         {
             int amount = p.VerifyValue() ? p.deck.Count() : 0;
             var text = string.Format("{0} карт", amount);
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 
-        private void AddRelationTemplatesUsage(RelationTemplatesUsage rtu, Panel panel, bool advanced, EventHandler clickHandler)
+        private void AddRelationTemplatesUsage(RelationTemplatesUsage rtu, Panel panel, EventHandler clickHandler)
         {
             AddLabel(rtu.StringRepresentation(), DockStyle.Fill, panel, clickHandler);
         }
 
-        private void AddRoutesMap(RoutesMap p, Panel panel, bool advanced, EventHandler clickHandler)
+        private void AddRoutesMap(RoutesMap p, Panel panel, EventHandler clickHandler)
         {
             var text = string.Format("{0} путей", p.GetRoutesAmount());
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 
-        private void AddFieldNodesFloatInfo(FieldNodesFloatParameter p, Panel panel, bool advanced, EventHandler clickHandler)
+        private void AddFieldNodesFloatInfo(FieldNodesFloatParameter p, Panel panel, EventHandler clickHandler)
         {
             int amount = p.VerifyValue() ? p.field.Keys.Count() : 0;
             var text = string.Format("{0} узлов", amount);
             AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 
-        private void AddPairsArray(PairsArrayParameter p, Panel panel, bool advanced, EventHandler clickHandler)
+        private void AddPairsArray(PairsArrayParameter p, Panel panel,  EventHandler clickHandler)
         {
             int pairsAmount = p.GetValue() != null ? p.GetValue().Count() : 0; 
             var text = string.Format("{0} пар", pairsAmount);

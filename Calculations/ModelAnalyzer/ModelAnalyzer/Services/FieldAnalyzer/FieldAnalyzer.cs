@@ -27,10 +27,10 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
         {
             var factory = new FieldFabric();
             for (int phase = 0; phase < phasesCount; phase++)
-                phasesFields[phase] = factory.field(phasesCount - 1, phase);
+                phasesFields[phase] = factory.Field(phasesCount - 1, phase);
         }
 
-        internal Dictionary<int, HashSet<FieldRoute>> phasesRoutes ()
+        internal Dictionary<int, HashSet<FieldRoute>> PhasesRoutes ()
         {
             var phasesRoutes = new Dictionary<int, HashSet<FieldRoute>>();
 
@@ -40,7 +40,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             return phasesRoutes;
         }
 
-        internal void templateUsabilityPrecalculations(List<int> phasesDurations, int fieldRadius)
+        internal void TemplateUsabilityPrecalculations(List<int> phasesDurations, int fieldRadius)
         {
             var nodesAnalyzer = new NodesAnalyzer();
             foreach (var type in availableNodeTypes)
@@ -48,36 +48,36 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
                 int roundNodesAmount = 0;
                 for (int i = 0; i < phasesDurations.Count; i++)
                 {
-                    var nodesAmount = nodesAnalyzer.nodesOfType(type, i, fieldRadius);
+                    var nodesAmount = nodesAnalyzer.NodesOfType(type, i, fieldRadius);
                     roundNodesAmount += nodesAmount * phasesDurations[i];
                 }
                 roundNodesOfType[type] = roundNodesAmount;
             }
         }
 
-        internal float templateUsability(EventRelationsTemplate template, float totalRoundNodes)
+        internal float TemplateUsability(EventRelationsTemplate template, float totalRoundNodes)
         {
             var nodesAnalyzer = new NodesAnalyzer();
             int totalVariants = 0;
             foreach (var nodeType in availableNodeTypes)
             {
-                var typeCombinations = nodesAnalyzer.templatesCombinations(nodeType, template);
+                var typeCombinations = nodesAnalyzer.TemplatesCombinations(nodeType, template);
                 totalVariants += typeCombinations * roundNodesOfType[nodeType];
             }
             return totalVariants / totalRoundNodes;
         }
 
-        internal Dictionary<FieldPoint, List<RelationType>> affectedPoints(int fieldPhase, EventCard card, FieldPoint point)
+        internal Dictionary<FieldPoint, List<RelationType>> AffectedPoints(int fieldPhase, EventCard card, FieldPoint point)
         {
             var result = new Dictionary<FieldPoint, List<RelationType>>();
             var field = phasesFields[fieldPhase];
-            var relations = card.relations;
+            var relations = card.Relations;
 
             EventRelation rotate(EventRelation r, int i) => new EventRelation(r.type, r.direction, (r.position + i) % Field.nearesNodesAmount);
             for (int i = 0; i < Field.nearesNodesAmount; i++)
             {
                 var rotated = relations.Select(r => rotate(r, i)).ToList();
-                if (!relationsValid(rotated, point))
+                if (!RelationsValid(rotated, point))
                     continue;
 
                 foreach (var relation in rotated)
@@ -96,7 +96,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             return result;
         }
 
-        private bool relationsValid(List<EventRelation> relations, FieldPoint point)
+        private bool RelationsValid(List<EventRelation> relations, FieldPoint point)
         {
             foreach (var relation in relations)
             {

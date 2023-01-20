@@ -226,7 +226,7 @@
             this.tagsCLB.Name = "tagsCLB";
             this.tagsCLB.Size = new System.Drawing.Size(194, 159);
             this.tagsCLB.TabIndex = 1;
-            this.tagsCLB.SelectedIndexChanged += new System.EventHandler(this.tagsCLB_SelectedIndexChanged);
+            this.tagsCLB.SelectedIndexChanged += new System.EventHandler(this.TagsCLB_SelectedIndexChanged);
             // 
             // uncheckAllTagsButton
             // 
@@ -237,7 +237,7 @@
             this.uncheckAllTagsButton.TabIndex = 3;
             this.uncheckAllTagsButton.Text = "Отменить все";
             this.uncheckAllTagsButton.UseVisualStyleBackColor = true;
-            this.uncheckAllTagsButton.Click += new System.EventHandler(this.uncheckAllTagsButton_Click);
+            this.uncheckAllTagsButton.Click += new System.EventHandler(this.UncheckAllTagsButton_Click);
             // 
             // checkAllTagsButton
             // 
@@ -248,7 +248,7 @@
             this.checkAllTagsButton.TabIndex = 2;
             this.checkAllTagsButton.Text = "Выбрать все";
             this.checkAllTagsButton.UseVisualStyleBackColor = true;
-            this.checkAllTagsButton.Click += new System.EventHandler(this.checkAllTagsButton_Click);
+            this.checkAllTagsButton.Click += new System.EventHandler(this.CheckAllTagsButton_Click);
             // 
             // tagsLabel
             // 

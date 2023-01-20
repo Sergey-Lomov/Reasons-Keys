@@ -6,8 +6,10 @@ namespace ModelAnalyzer
 {
     class MAException : SystemException
     {
-        string message;
-        Parameter parameter;
+#pragma warning disable IDE0052 // Remove unread private members
+        readonly string message;
+        readonly Parameter parameter;
+#pragma warning restore IDE0052 // Remove unread private members
 
         public MAException(string message)
         : base(message)

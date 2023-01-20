@@ -10,7 +10,6 @@ namespace ModelAnalyzer.Parameters
         protected List<float> values = null;
         protected List<float> unroundValues = null;
 
-        const string emptyMessage = "Пустой массив";
         const string invalidMessage = "Массив не валиден";
 
         private readonly string arraySizeParamMessage = "Размер массива должен быть равен \"{0}\": {1}.";
@@ -40,8 +39,8 @@ namespace ModelAnalyzer.Parameters
         {
             if (!(p is FloatArrayParameter))
                 return false;
-            if (p.isValueNull())
-                return this.isValueNull();
+            if (p.IsValueNull())
+                return this.IsValueNull();
 
             var baseCheck = base.IsEqual(p);
 
@@ -91,7 +90,7 @@ namespace ModelAnalyzer.Parameters
             return unroundValues;
         }
 
-        public override bool isValueNull()
+        public override bool IsValueNull()
         {
             return values == null;
         }

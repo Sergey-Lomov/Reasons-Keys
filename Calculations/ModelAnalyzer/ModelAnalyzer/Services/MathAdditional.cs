@@ -17,7 +17,7 @@ namespace ModelAnalyzer.Services
             return factorial;
         }
 
-        internal static double miltyply(int from, int to)
+        internal static double Miltyply(int from, int to)
         {
             double result = from;
             for (int i = from + 1; i <= to; i++)
@@ -25,7 +25,7 @@ namespace ModelAnalyzer.Services
             return result;
         }
 
-        internal static float sum(int from, int to, Func<float, float> innerFunc)
+        internal static float Sum(int from, int to, Func<float, float> innerFunc)
         {
             float result = 0;
             for (int i = from; i <= to; i++)
@@ -33,14 +33,14 @@ namespace ModelAnalyzer.Services
             return result;
         }
 
-        internal static float average(IEnumerable<int> values)
+        internal static float Average(IEnumerable<int> values)
         {
             if (values.Count() > 0)
                 return (float)values.Average();
             return 0;
         }
 
-        internal static List<List<T>> combinations<T>(List<T> availableValues, 
+        internal static List<List<T>> Combinations<T>(List<T> availableValues, 
             int length,
             List<T> initial = null)
         {
@@ -62,7 +62,7 @@ namespace ModelAnalyzer.Services
                     results.Add(extended);
                 } else
                 {
-                    var subcombinations = combinations(availableValues, length, extended);
+                    var subcombinations = Combinations(availableValues, length, extended);
                     results.AddRange(subcombinations);
                 }
             }
@@ -70,7 +70,7 @@ namespace ModelAnalyzer.Services
             return results;
         }
 
-        internal static float combinationChance<T>(List<T> combination, Dictionary<T, float> valuesChances)
+        internal static float CombinationChance<T>(List<T> combination, Dictionary<T, float> valuesChances)
         {
             float chance = 1;
             foreach (var value in combination)
@@ -80,12 +80,12 @@ namespace ModelAnalyzer.Services
             return chance;
         }
 
-        internal static double combinationsAmount(int chosen, int total)
+        internal static double CombinationsAmount(int chosen, int total)
         {
             return Factorial(total) / Factorial(chosen) / Factorial(total - chosen);
         }
 
-        internal static T normalise<T>(T value, T min, T max) where T : IComparable<T>
+        internal static T Normalise<T>(T value, T min, T max) where T : IComparable<T>
         {
             var result = value.CompareTo(min) < 0 ? min : value;
             result = value.CompareTo(max) > 0 ? max : result;

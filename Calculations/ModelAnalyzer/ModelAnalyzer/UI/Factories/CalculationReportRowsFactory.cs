@@ -10,8 +10,8 @@ namespace ModelAnalyzer.UI.Factories
 {
     class CalculationReportRowsFactory
     {
-        private ComponentsFactory components = new ComponentsFactory();
-        private ValuePanelsFactory valuesPanels = new ValuePanelsFactory();
+        private readonly ComponentsFactory components = new ComponentsFactory();
+        private readonly ValuePanelsFactory valuesPanels = new ValuePanelsFactory();
 
         private readonly Color reportRowBack = Color.FromArgb(240, 240, 240);
 
@@ -111,7 +111,7 @@ namespace ModelAnalyzer.UI.Factories
 
             panel.Controls.Add(issuesLabel);
 
-            Label title = components.TitleLabel(report.operationTitle);
+            Label title = components.TitleLabel(report.OperationTitle);
             title.Dock = DockStyle.Top;
             title.Font = new Font(title.Font, FontStyle.Bold);
 
@@ -126,20 +126,6 @@ namespace ModelAnalyzer.UI.Factories
         private void CustomiseForParameterReport (Panel panel, ParameterOperationReport report)
         {
             panel.Controls.Add(components.TypeIndicator(report.parameter.type));
-        }
-
-
-        private Label ComparasionLabel(string value, bool isNew, bool isRounded)
-        {
-            return new Label()
-            {
-                Text = value,
-                Dock = isRounded ? DockStyle.Top : DockStyle.Bottom,
-                TextAlign = isNew ? ContentAlignment.MiddleLeft : ContentAlignment.MiddleRight,
-                Padding = UIConstants.labelsPadding,
-                Width = comparasionLabelsWidth,
-                Height = reportRowHeight / 2
-            };
         }
 
         private Panel ComparasionLabelsPanel(DockStyle dock)

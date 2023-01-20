@@ -51,7 +51,7 @@ namespace ModelAnalyzer.Parameters
         {
             bool isValid(EventRelation r) => r.type == type && r.direction == direction;
             int validInList(List<EventRelation> rl) => rl.Where(r => isValid(r)).Count();
-            var relationsLists = deck.Select(c => c.relations);
+            var relationsLists = deck.Select(c => c.Relations);
             return relationsLists.Select(rl => validInList(rl)).Sum();
         }
 
@@ -61,20 +61,20 @@ namespace ModelAnalyzer.Parameters
                 card.weight = EventCardsAnalizer.WeightForCard(card, calculator);
         }
 
-        protected void UpdateDeckConstraints(Calculator calculator)
+        /*protected void UpdateDeckConstraints(Calculator calculator)
         {
             foreach (EventCard card in deck)
                 EventCardsAnalizer.UpdateCardConstraints(card, calculator);
-        }
+        }*/
 
 
         protected void UpdateDeckUsability(Calculator calculator)
         {
             foreach (EventCard card in deck)
-                card.usability = EventCardsAnalizer.RelationsUsability(card.relations, calculator);
+                card.usability = EventCardsAnalizer.RelationsUsability(card.Relations, calculator);
         }
 
-        public override bool isValueNull()
+        public override bool IsValueNull()
         {
             return deck == null;
         }

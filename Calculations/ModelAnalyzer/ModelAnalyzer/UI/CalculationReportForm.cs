@@ -103,7 +103,7 @@ namespace ModelAnalyzer.UI
 
             var unused = parametersCalculations
                 .Select(r => r.parameter)
-                .Where(p => p.isUnused())
+                .Where(p => p.IsUnused())
                 .ToList();
 
             unusedTab.Text = string.Format("Неиспользуемый ({0})", unused.Count);
@@ -124,7 +124,7 @@ namespace ModelAnalyzer.UI
             var factory = new UIFactory();
 
             var failed = reports.Where(r => !r.IsSuccess);
-            var ordered = failed.OrderBy(r => r.operationTitle);
+            var ordered = failed.OrderBy(r => r.OperationTitle);
 
             issuesTable.RowCount += failed.Count();
 

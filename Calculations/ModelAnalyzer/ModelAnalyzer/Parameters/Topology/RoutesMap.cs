@@ -91,12 +91,12 @@ namespace ModelAnalyzer.Parameters.Topology
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            phasesRoutes = new FieldAnalyzer(pa).phasesRoutes();
+            phasesRoutes = new FieldAnalyzer(pa).PhasesRoutes();
 
             return calculationReport;
         }
 
-        public override bool isValueNull()
+        public override bool IsValueNull()
         {
             return phasesRoutes == null;
         }

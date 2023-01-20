@@ -14,7 +14,7 @@ namespace ModelAnalyzer.UI
         public Font font;
 
         private static readonly int pointsMergeDistance = 5;
-        private List<Point> usedPoints = new List<Point>();
+        private readonly List<Point> usedPoints = new List<Point>();
         
         public FieldDrawwer(Pen pen, Font font) 
         {
@@ -22,7 +22,7 @@ namespace ModelAnalyzer.UI
             this.font = font;
         }
 
-        public void drawPoint(FieldPoint point, 
+        public void DrawPoint(FieldPoint point, 
             float radius, 
             Point fieldCenter, 
             Graphics graphics,
@@ -34,7 +34,7 @@ namespace ModelAnalyzer.UI
             var x = radius * 3 / 2 * col + fieldCenter.X;
             var y = radius * Math.Sqrt(3) / 2 * row + fieldCenter.Y;
             var center = new Point((int)x, (int)y);
-            drawHexagon(center, radius, pen, color, graphics);
+            DrawHexagon(center, radius, pen, color, graphics);
 
             TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak;
             var titleWidth = (int)(2 * radius);
@@ -47,7 +47,7 @@ namespace ModelAnalyzer.UI
         }
 
 
-        public void drawHexagon(Point center, float radius, Pen pen, Color color, Graphics graphics)
+        public void DrawHexagon(Point center, float radius, Pen pen, Color color, Graphics graphics)
         {
             bool atMergingDistance(float x1, float y1, float x2, float y2) => Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) <= pointsMergeDistance;
             var shape = new Point[6];

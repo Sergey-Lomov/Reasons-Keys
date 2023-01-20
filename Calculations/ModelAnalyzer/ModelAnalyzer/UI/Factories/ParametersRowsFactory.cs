@@ -9,10 +9,10 @@ namespace ModelAnalyzer.UI.Factories
 {
     class ParametersRowsFactory
     {
-        private ComponentsFactory components = new ComponentsFactory();
-        private ValuePanelsFactory valuePanels = new ValuePanelsFactory();
+        private readonly ComponentsFactory components = new ComponentsFactory();
+        private readonly ValuePanelsFactory valuePanels = new ValuePanelsFactory();
 
-        private Dictionary<ParameterType, string> typesTitles = new Dictionary<ParameterType, string>();
+        private readonly Dictionary<ParameterType, string> typesTitles = new Dictionary<ParameterType, string>();
 
         private readonly Color rowBack = Color.FromArgb(250, 250, 250);
         private readonly int rowHeight = 35;

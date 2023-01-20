@@ -14,7 +14,7 @@ namespace ModelAnalyzer.DataModels
             {RelationDirection.back, 'B' }
         };
 
-        public string code
+        public string Code
         {
             get
             {
@@ -38,7 +38,7 @@ namespace ModelAnalyzer.DataModels
             return directions.SequenceEqual(other.directions);
         }
 
-        internal List<EventRelation> instantiateByReasons()
+        internal List<EventRelation> InstantiateByReasons()
         {
             var relations = new List<EventRelation>();
             for (int i = 0; i < directions.Count; i++)
@@ -57,7 +57,7 @@ namespace ModelAnalyzer.DataModels
     class EventRelationsTemplate
     {
         public List<EventRelationsVariant> variants = new List<EventRelationsVariant>();
-        private string doubleCode;
+        private readonly string doubleCode;
 
         public EventRelationsTemplate(string code)
         {
@@ -72,7 +72,7 @@ namespace ModelAnalyzer.DataModels
             doubleCode = code + code;
         }
 
-        public static EventRelationsTemplate templateFor(List<EventRelation> relations, int totalRelations)
+        public static EventRelationsTemplate TemplateFor(List<EventRelation> relations, int totalRelations)
         {
             var emptyMark = EventRelationsVariant.directionsMarks[RelationDirection.none];
             var components = Enumerable.Repeat(emptyMark, totalRelations).ToArray();
@@ -85,7 +85,7 @@ namespace ModelAnalyzer.DataModels
             return new EventRelationsTemplate(code);
         }
 
-        public static List<EventRelationsTemplate> allTemplates(int slotsAmount)
+        public static List<EventRelationsTemplate> AllTemplates(int slotsAmount)
         {
             var templates = new List<EventRelationsTemplate>();
 
@@ -96,7 +96,7 @@ namespace ModelAnalyzer.DataModels
 
             foreach (var code in variantsCodes)
             {
-                var alreadyExist = templates.Where(t => t.containsVariant(code)).Count() > 0;
+                var alreadyExist = templates.Where(t => t.ContainsVariant(code)).Count() > 0;
                 if (!alreadyExist)
                 {
                     templates.Add(new EventRelationsTemplate(code));
@@ -106,39 +106,39 @@ namespace ModelAnalyzer.DataModels
             return templates;
         }
 
-        private bool containsVariant(string code)
+        private bool ContainsVariant(string code)
         {
             return doubleCode.Contains(code);
         }
 
-        internal bool containsBack()
+        internal bool ContainsBack()
         {
             return variants.First().directions.Contains(RelationDirection.back);
         }
 
-        internal int directionsAmount()
+        internal int DirectionsAmount()
         {
             return variants.First().directions.Where(d => d != RelationDirection.none).Count();
         }
 
-        internal int backAmount()
+        internal int BackAmount()
         {
             return variants.First().directions.Where( d => d == RelationDirection.back).Count();
         }
 
-        internal bool containsFront()
+        internal bool ContainsFront()
         {
             return variants.First().directions.Contains(RelationDirection.front);
         }
 
-        internal List<EventRelation> instantiateByReasons()
+        internal List<EventRelation> InstantiateByReasons()
         {
             if (variants.Count > 0)
             {
-                return variants[0].instantiateByReasons();
+                return variants[0].InstantiateByReasons();
             }
 
-            return new EventRelationsVariant("NNNNNN").instantiateByReasons();
+            return new EventRelationsVariant("NNNNNN").InstantiateByReasons();
         }
     }
 

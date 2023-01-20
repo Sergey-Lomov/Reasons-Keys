@@ -42,7 +42,8 @@ namespace ModelAnalyzer.Parameters.Events
             AddMiningBonuses(deck, calculator, calculationReport);
             UpdateDeckWeight(calculator);
             AddArtifacts(deck, calculator, calculationReport);
-            UpdateDeckConstraints(calculator);
+            // For now cards have no contraints
+            //UpdateDeckConstraints(calculator);
             UpdateDeckWeight(calculator);
             UpdateDeckNames();
 

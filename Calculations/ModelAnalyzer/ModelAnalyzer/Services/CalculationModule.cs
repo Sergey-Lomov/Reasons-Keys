@@ -5,7 +5,7 @@ namespace ModelAnalyzer.Services
     internal class ModuleCalculationReport : OperationReport
     {
         internal string moduleTitle;
-        internal override string operationTitle => moduleTitle;
+        internal override string OperationTitle => moduleTitle;
 
         internal ModuleCalculationReport(CalculationModule module)
         {

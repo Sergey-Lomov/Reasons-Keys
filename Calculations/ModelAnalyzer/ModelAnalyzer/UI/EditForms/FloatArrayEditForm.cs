@@ -66,20 +66,20 @@ namespace ModelAnalyzer.UI
             parameterUpdateNecessary = true;
         }
 
-        private void approveButton_Click(object sender, EventArgs e)
+        private void ApproveButton_Click(object sender, EventArgs e)
         {
             UpdateParameter();
             Close();
         }
 
-        private void calculateButton_Click(object sender, EventArgs e)
+        private void CalculateButton_Click(object sender, EventArgs e)
         {
             UpdateParameter();
             modelUpdateNecessary = true;
             Close();
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             parameterUpdateNecessary = false;
             modelUpdateNecessary = false;

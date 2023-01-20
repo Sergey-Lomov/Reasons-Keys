@@ -10,7 +10,7 @@ namespace ModelAnalyzer.UI.Factories
 {
     class EditFormsFactory
     {
-        private Dictionary<Type, Type> editFormsTypes = new Dictionary<Type, Type>();
+        private readonly Dictionary<Type, Type> editFormsTypes = new Dictionary<Type, Type>();
 
         public EditFormsFactory ()
         {

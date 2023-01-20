@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             this.x = x;
             this.y = y;
             this.z = z;
-            timestamp = timestampFor(x, y, z);
+            timestamp = TimestampFor(x, y, z);
         }
 
         public FieldPoint(FieldPoint source, FieldDirection direction)
@@ -27,21 +27,21 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             x = source.x + direction.x;
             y = source.y + direction.y;
             z = source.z + direction.z;
-            timestamp = timestampFor(x, y, z);
+            timestamp = TimestampFor(x, y, z);
         }
 
-        private static int timestampFor(int x, int y, int z)
+        private static int TimestampFor(int x, int y, int z)
         {
-            var radius = FieldPoint.radius(x, y, z);
+            var radius = FieldPoint.Radius(x, y, z);
             if (radius == 0)
                 return 0;
 
             var preRadiuses = Enumerable.Range(1, radius - 1);
             var preRadiusTime = preRadiuses.Select(i => i * Field.nearesNodesAmount).Sum();
-            return preRadiusTime + inRadiusTime(x, y, z, radius) + 1;
+            return preRadiusTime + InRadiusTime(x, y, z, radius) + 1;
         }
 
-        private static int inRadiusTime(int x, int y, int z, int radius)
+        private static int InRadiusTime(int x, int y, int z, int radius)
         {
             var inRadiusTime = 0;
             var cx = 0;
@@ -102,7 +102,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             return inRadiusTime;
         }
 
-        public HashSet<FieldPoint> nearest()
+        public HashSet<FieldPoint> Nearest()
         {
             var set = new HashSet<FieldPoint>
             {
@@ -146,12 +146,12 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
             }
         }
 
-        public int radius()
+        public int Radius()
         {
-            return radius(x, y, z);
+            return Radius(x, y, z);
         }
 
-        private static int radius(int x, int y, int z)
+        private static int Radius(int x, int y, int z)
         {
             return new List<int> { x, y, z }.Select(v => Math.Abs(v)).Max();
         }

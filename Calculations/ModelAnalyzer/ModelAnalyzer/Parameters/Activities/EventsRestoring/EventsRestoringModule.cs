@@ -34,7 +34,7 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
         public EventsRestoringModule()
         {
-            title = "Модуль расчектов раздачи событий";
+            title = "Модуль расчетов раздачи событий";
         }
 
         internal override ModuleCalculationReport Execute(Calculator calculator)
@@ -49,10 +49,6 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
-
-            var sizes = new List<int>();
-            var unluckyChances = new List<float>();
-            var luckyChances = new List<float>();
 
             for (int playersAmount = minpa; playersAmount <= maxpa; playersAmount++)
             {
@@ -121,8 +117,8 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
         private CardType TypeOf(EventCard card, int player, int[] availablePlayers)
         {
-            var positivePlayers = card.branchPoints.all().Where(bp => bp.point > 0).Select(bp => bp.branch);
-            var negativePlayers = card.branchPoints.all().Where(bp => bp.point < 0).Select(bp => bp.branch);
+            var positivePlayers = card.branchPoints.All().Where(bp => bp.point > 0).Select(bp => bp.branch);
+            var negativePlayers = card.branchPoints.All().Where(bp => bp.point < 0).Select(bp => bp.branch);
             var availablePositiveCount = positivePlayers.Where(p => availablePlayers.Contains(p)).Count();
             var availableNegativeCount = negativePlayers.Where(p => availablePlayers.Contains(p)).Count();
             var playerPositiveCount = positivePlayers.Where(b => b == player).Count();

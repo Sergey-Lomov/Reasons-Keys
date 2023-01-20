@@ -11,8 +11,8 @@ namespace ModelAnalyzer.UI.DetailsForms
     public partial class FieldNodesDetailsForm : Form, IParameterDetailsForm
     {
         private const int mapInsets = 30;
-        private Pen pen = new Pen(Color.Black, 2);
-        private Font font = new Font("Helvetica", 12, FontStyle.Bold);
+        private readonly Pen pen = new Pen(Color.Black, 2);
+        private readonly Font font = new Font("Helvetica", 12, FontStyle.Bold);
 
         private int fieldDiameter;
         FieldNodesFloatParameter parameter;
@@ -24,7 +24,7 @@ namespace ModelAnalyzer.UI.DetailsForms
         public FieldNodesDetailsForm()
         {
             InitializeComponent();
-            mapPanel.Paint += new PaintEventHandler(drawMap);
+            mapPanel.Paint += new PaintEventHandler(DrawMap);
         }
 
         public void SetParameter(Parameter _parameter, ParameterValidationReport validation)
@@ -38,11 +38,11 @@ namespace ModelAnalyzer.UI.DetailsForms
             titleLabel.Text = parameter.title;
             detailsLabel.Text = parameter.details;
 
-            var fieldRadius = parameter.field.Keys.Select(p => p.radius()).Max();
+            var fieldRadius = parameter.field.Keys.Select(p => p.Radius()).Max();
             fieldDiameter = fieldRadius * 2 + 1;
         }
 
-        private void drawMap(object sender, PaintEventArgs e)
+        private void DrawMap(object sender, PaintEventArgs e)
         {
             var drawwer = new FieldDrawwer(pen, font);
 
@@ -60,9 +60,9 @@ namespace ModelAnalyzer.UI.DetailsForms
             foreach (var pair in parameter.field)
             {
                 var title = FloatStringConverter.FloatToString(pair.Value, parameter.fractionalDigits);
-                var deviation = parameter.deviationForValue(pair.Value);
+                var deviation = parameter.DeviationForValue(pair.Value);
                 var color = deviation >= 0 && deviation <= 1 ? ColorForDeviation(deviation) : Color.White;
-                drawwer.drawPoint(pair.Key, radius, fieldCenter, graphics, color, title);
+                drawwer.DrawPoint(pair.Key, radius, fieldCenter, graphics, color, title);
             }
         }
 

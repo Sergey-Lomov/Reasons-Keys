@@ -91,7 +91,7 @@ namespace ModelAnalyzer.Parameters
             value = unroundValue = newValue;
         }
 
-        public override bool isValueNull()
+        public override bool IsValueNull()
         {
             return float.IsNaN(value);
         }

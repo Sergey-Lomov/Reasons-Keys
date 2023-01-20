@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-using ModelAnalyzer.Parameters;
+﻿using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.UI
 {

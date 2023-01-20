@@ -79,7 +79,7 @@ namespace ModelAnalyzer.DataModels
             return str;
         }
 
-        public List<BranchPoint> all()
+        public List<BranchPoint> All()
         {
             var result = new List<BranchPoint>(success.Count() + failed.Count());
             result.AddRange(success);
@@ -143,7 +143,7 @@ namespace ModelAnalyzer.DataModels
 
         public bool HasPositivePoints()
         {
-            var positive = all().Where(bp => bp.point > 0);
+            var positive = All().Where(bp => bp.point > 0);
             return positive.Count() > 0;
         }
 

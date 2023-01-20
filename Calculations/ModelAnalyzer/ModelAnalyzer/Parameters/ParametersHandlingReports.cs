@@ -8,7 +8,7 @@ namespace ModelAnalyzer.Parameters
     {
         public Parameter parameter;
 
-        internal override string operationTitle => parameter.title;
+        internal override string OperationTitle => parameter.title;
 
         internal ParameterOperationReport(ParameterOperationReport report) : base(report)
         {

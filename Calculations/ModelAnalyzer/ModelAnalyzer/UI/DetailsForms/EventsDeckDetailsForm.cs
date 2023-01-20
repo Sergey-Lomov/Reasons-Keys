@@ -26,7 +26,7 @@ namespace ModelAnalyzer.UI.DetailsForms
             new BranchPointsDisbalance(),
         };
 
-        private List<Control> predefinedControls;
+        private readonly List<Control> predefinedControls;
         private List<EventCard> deck;
         private Func<EventCard, IComparable> order = null;
         private bool reverse = false;
@@ -91,7 +91,7 @@ namespace ModelAnalyzer.UI.DetailsForms
 
             foreach (EventCard card in cards)
             {
-                var relations = card.relations.OrderBy(r => r.position);
+                var relations = card.Relations.OrderBy(r => r.position);
                 var index = cards.FindIndex(c => ReferenceEquals(c, card)) + 1;
 
                 DeckTable.Controls.Add(IndexLabel(index));
@@ -235,70 +235,70 @@ namespace ModelAnalyzer.UI.DetailsForms
             };
         }
 
-        private void pairedLabel_Click(object sender, EventArgs e)
+        private void PairedLabel_Click(object sender, EventArgs e)
         {
             order = c => c.isPairedReasons;
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void deckArtifactLabel_Click(object sender, EventArgs e)
+        private void DeckArtifactLabel_Click(object sender, EventArgs e)
         {
             order = c => c.provideArtifact;
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void deckMBLabel_Click(object sender, EventArgs e)
+        private void DeckMBLabel_Click(object sender, EventArgs e)
         {
             order = c => c.miningBonus;
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void deckUsabilityLabel_Click(object sender, EventArgs e)
+        private void DeckUsabilityLabel_Click(object sender, EventArgs e)
         {
             order = c => c.usability;
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void deckWeightLabel_Click(object sender, EventArgs e)
+        private void DeckWeightLabel_Click(object sender, EventArgs e)
         {
             order = c => c.weight;
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void deckIndexLabel_Click(object sender, EventArgs e)
+        private void DeckIndexLabel_Click(object sender, EventArgs e)
         {
             order = null;
             reverse = false;
             UpdateCardsTable();
         }
 
-        private void successBPLabel_Click(object sender, EventArgs e)
+        private void SuccessBPLabel_Click(object sender, EventArgs e)
         {
             order = c => c.branchPoints.success.Count();
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void failedBPLabel_Click(object sender, EventArgs e)
+        private void FailedBPLabel_Click(object sender, EventArgs e)
         {
             order = c => c.branchPoints.failed.Count();
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void minPhaseLabel_Click(object sender, EventArgs e)
+        private void MinPhaseLabel_Click(object sender, EventArgs e)
         {
             order = c => c.constraints.minPhase;
             reverse = !reverse;
             UpdateCardsTable();
         }
 
-        private void minRadiusLabel_Click(object sender, EventArgs e)
+        private void MinRadiusLabel_Click(object sender, EventArgs e)
         {
             order = c => c.constraints.unavailableRadiuses.Count();
             reverse = !reverse;

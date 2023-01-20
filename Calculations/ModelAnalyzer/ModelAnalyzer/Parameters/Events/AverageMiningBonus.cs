@@ -22,7 +22,6 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
             List<float> mba = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)

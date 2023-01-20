@@ -3,7 +3,7 @@ namespace ModelAnalyzer.Services
 {
     public abstract class OperationReport
     {
-        abstract internal string operationTitle { get; }
+        abstract internal string OperationTitle { get; }
         internal bool IsSuccess => issues.Count == 0;
         protected List<string> issues = new List<string>();
 

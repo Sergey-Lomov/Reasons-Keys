@@ -42,14 +42,14 @@ namespace ModelAnalyzer.Parameters.Topology
             }
 
             bool validRel(EventRelation r) => handleDirections.Contains(r.direction) && handleTypes.Contains(r.type);
-            bool hasValidRel(EventCard c) => c.relations.Where(r => validRel(r)).Count() > 0;
+            bool hasValidRel(EventCard c) => c.Relations.Where(r => validRel(r)).Count() > 0;
 
             var handlingDeck = deck.Where(c => hasValidRel(c));
             foreach (var card in handlingDeck)
             {
                 foreach (var point in points)
                 {
-                    var impacts = fieldAnalyzer.affectedPoints(0, card, point);
+                    var impacts = fieldAnalyzer.AffectedPoints(0, card, point);
                     var validImpacts = impacts.Where(kvp => kvp.Value.Intersect(handleTypes).Count() > 0);
                     foreach (var impact in validImpacts)
                     {
@@ -74,7 +74,7 @@ namespace ModelAnalyzer.Parameters.Topology
             return calculationReport;
         }
 
-        public override float deviationForValue(float value)
+        public override float DeviationForValue(float value)
         {
             if (useRelative)
                 return Math.Min(1, value / 2);

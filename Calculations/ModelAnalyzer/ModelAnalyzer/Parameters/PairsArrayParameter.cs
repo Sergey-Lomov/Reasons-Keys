@@ -87,7 +87,7 @@ namespace ModelAnalyzer.Parameters
             throw e;
         }
 
-        public override bool isValueNull()
+        public override bool IsValueNull()
         {
             return values == null;
         }

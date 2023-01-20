@@ -17,7 +17,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
 
         public List<FieldPoint> AvailableNearestFor(FieldPoint point)
         {
-            var nearest = point.nearest();
+            var nearest = point.Nearest();
             return nearest.Where(p => points.Contains(p)).ToList();
         }
 
@@ -46,7 +46,7 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
 
                     foreach (var edgePoint in edgePoints)
                     {
-                        var nearest = edgePoint.nearest();
+                        var nearest = edgePoint.Nearest();
                         foreach (var nearePoint in nearest)
                         {
                             var isNotHandled = !localHandledPoints.Contains(nearePoint);

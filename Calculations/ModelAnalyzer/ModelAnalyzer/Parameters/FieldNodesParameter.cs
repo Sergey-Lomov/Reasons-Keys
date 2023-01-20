@@ -12,7 +12,7 @@ namespace ModelAnalyzer.Parameters
 
         internal Dictionary<FieldPoint, T> field = null;
 
-        abstract public float deviationForValue(T value);
+        abstract public float DeviationForValue(T value);
 
         public override void SetupByString(string str)
         {
@@ -24,7 +24,7 @@ namespace ModelAnalyzer.Parameters
             return stringRepresentationStub;
         }
 
-        public override bool isValueNull()
+        public override bool IsValueNull()
         {
             return field == null;
         }

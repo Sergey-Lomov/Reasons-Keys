@@ -17,11 +17,10 @@ namespace ModelAnalyzer.Services
         static internal float WeightForCard(EventCard card, Calculator calculator)
         {
             float eap = calculator.UpdatedParameter<EstimatedArtifactsProfit>().GetValue();
-            float eip = calculator.UpdatedParameter<EventImpactPrice>().GetValue();
             float mbw = calculator.UpdatedParameter<MiningBonusWeight>().GetValue();
 
             float weight = 0;
-            weight += RelationsWeight(card.relations, calculator);
+            weight += RelationsWeight(card.Relations, calculator);
             weight += card.provideArtifact ? eap : 0;
             weight += card.miningBonus * mbw;
 
@@ -63,16 +62,16 @@ namespace ModelAnalyzer.Services
 
             var fieldAnalyzer = new FieldAnalyzer.FieldAnalyzer(phasesCount: pd.Count);
             var intPd = pd.Select(v => (int)v).ToList();
-            fieldAnalyzer.templateUsabilityPrecalculations(intPd, fr);
+            fieldAnalyzer.TemplateUsabilityPrecalculations(intPd, fr);
 
-            var template = EventRelationsTemplate.templateFor(relations, FieldAnalyzer.Field.nearesNodesAmount);
-            return fieldAnalyzer.templateUsability(template, rna);
+            var template = EventRelationsTemplate.TemplateFor(relations, FieldAnalyzer.Field.nearesNodesAmount);
+            return fieldAnalyzer.TemplateUsability(template, rna);
         }
 
-        static internal void UpdateCardConstraints (EventCard card, Calculator calculator)
+        // For now cards have no contraints
+       /* static internal void UpdateCardConstraints (EventCard card, Calculator calculator)
         {
-            // For now cards have no contraints 
-           /* var aap = calculator.UpdatedParameter<ArtifactsAvaliabilityPhase>();
+           var aap = calculator.UpdatedParameter<ArtifactsAvaliabilityPhase>();
             if (!aap.VerifyValue())
             {
                 var message = string.Format(invalidIn, aap.title);
@@ -81,12 +80,12 @@ namespace ModelAnalyzer.Services
             }
 
             if (card.provideArtifact)
-                card.minPhaseConstraint = (int)aap.GetValue();*/
-        }
+                card.minPhaseConstraint = (int)aap.GetValue();
+        }*/
 
         static internal Dictionary<EventCard, float> CardsStabilities(List<EventCard> deck, List<float> aripc)
         {
-            return deck.ToDictionary(c => c, c => aripc[c.backRelationsCount()]);
+            return deck.ToDictionary(c => c, c => aripc[c.BackRelationsCount()]);
         }
 
         static internal float BrancheDisbalance(List<EventCard> deck, 
@@ -113,7 +112,7 @@ namespace ModelAnalyzer.Services
                     targetList[bp.branch] += stability;
                 }
 
-                if (card.frontRelationsCount() == 0) continue;
+                if (card.FrontRelationsCount() == 0) continue;
 
                 var winners = branchPoints.Where(bp => bp.point > 0).Select(bp => bp.branch).ToList();
                 if (winners.Count > 0)
@@ -141,10 +140,10 @@ namespace ModelAnalyzer.Services
 
         static internal List<float> PointsByAppend(List<float> points, EventCard card)
         {
-            return PointsByAppend(points, card, card.branchPoints);
+            return PointsByAppend(points, card.branchPoints);
         }
 
-        static internal List<float> PointsByAppend(List<float> points, EventCard card, BranchPointsSet bpSet, bool sign = true)
+        static internal List<float> PointsByAppend(List<float> points, BranchPointsSet bpSet, bool sign = true)
         {
             var newPoints = new List<float>(points);
             foreach (var bp in bpSet.success)

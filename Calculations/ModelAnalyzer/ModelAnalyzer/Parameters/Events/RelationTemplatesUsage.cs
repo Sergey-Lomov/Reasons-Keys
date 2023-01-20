@@ -25,7 +25,7 @@ namespace ModelAnalyzer.Parameters.Events
             tags.Add(ParameterTag.events);
         }
 
-        public override bool isValueNull()
+        public override bool IsValueNull()
         {
             return counts == null;
         }
@@ -37,7 +37,7 @@ namespace ModelAnalyzer.Parameters.Events
 
         public override string StringRepresentation()
         {
-            if (isValueNull()) return nullStub;
+            if (IsValueNull()) return nullStub;
             return GetNoZero().Count().ToString() + " шаблонов";
         }
 
@@ -64,27 +64,27 @@ namespace ModelAnalyzer.Parameters.Events
 
             var fieldAnalyzer = new FieldAnalyzer(phasesCount: pd.Count);
             var intPd = pd.Select(v => (int)v).ToList();
-            fieldAnalyzer.templateUsabilityPrecalculations(intPd, fr);
-            float usability(EventRelationsTemplate t) => fieldAnalyzer.templateUsability(t, rna);
+            fieldAnalyzer.TemplateUsabilityPrecalculations(intPd, fr);
+            float usability(EventRelationsTemplate t) => fieldAnalyzer.TemplateUsability(t, rna);
 
-            var allDirectionsTemplates = EventRelationsTemplate.allTemplates(Field.nearesNodesAmount);
+            var allDirectionsTemplates = EventRelationsTemplate.AllTemplates(Field.nearesNodesAmount);
             var templatesUsability = allDirectionsTemplates.ToDictionary(t => t, t => usability(t));
             var filteredTemplates = templatesUsability.Where(kvp => kvp.Value >= mrtu).ToList();
 
-            bool minRelValid(EventRelationsTemplate t) => t.directionsAmount() > 0;
-            bool maxRelValid(EventRelationsTemplate t) => t.directionsAmount() <= emr;
-            bool minBackValid(EventRelationsTemplate t) => t.backAmount() >= mbr;
+            bool minRelValid(EventRelationsTemplate t) => t.DirectionsAmount() > 0;
+            bool maxRelValid(EventRelationsTemplate t) => t.DirectionsAmount() <= emr;
+            bool minBackValid(EventRelationsTemplate t) => t.BackAmount() >= mbr;
             bool validate(EventRelationsTemplate t) => minRelValid(t) && maxRelValid(t) && minBackValid(t);
 
             filteredTemplates = filteredTemplates.Where(kvp => validate(kvp.Key)).ToList();
-            var templates_2d = filteredTemplates.Where(p => p.Key.containsFront()).ToDictionary(p => p.Key, p => p.Value);
-            var templates_ob = filteredTemplates.Where(p => !p.Key.containsFront()).ToDictionary(p => p.Key, p => p.Value);
+            var templates_2d = filteredTemplates.Where(p => p.Key.ContainsFront()).ToDictionary(p => p.Key, p => p.Value);
+            var templates_ob = filteredTemplates.Where(p => !p.Key.ContainsFront()).ToDictionary(p => p.Key, p => p.Value);
             var cardsAmount_2d = (int)Math.Round(na * fec, MidpointRounding.AwayFromZero);
             int cardsAmount_ob = na - cardsAmount_2d;
 
             counts = new Dictionary<EventRelationsTemplate, RelationsTemplateUsageInfo>();
-            CalculateForAmounts(calculator, cardsAmount_2d, templates_2d);
-            CalculateForAmounts(calculator, cardsAmount_ob, templates_ob);
+            UpdateCountsBy(cardsAmount_2d, templates_2d);
+            UpdateCountsBy(cardsAmount_ob, templates_ob);
 
             var missedTemplates = allDirectionsTemplates.Where(t => !counts.ContainsKey(t));
             foreach (var template in missedTemplates)
@@ -98,7 +98,7 @@ namespace ModelAnalyzer.Parameters.Events
             return calculationReport;
         }
 
-        private void CalculateForAmounts(Calculator calculator, int cardsAmount, Dictionary<EventRelationsTemplate, float> templatesUsabilities)
+        private void UpdateCountsBy(int cardsAmount, Dictionary<EventRelationsTemplate, float> templatesUsabilities)
         {
             var cards = new List<EventCard>();
             var ordered = templatesUsabilities.OrderByDescending(kvp => kvp.Value);
@@ -120,7 +120,7 @@ namespace ModelAnalyzer.Parameters.Events
         {
             var report = base.Validate(validator, storage);
 
-            var allTemplates = EventRelationsTemplate.allTemplates(Field.nearesNodesAmount);
+            var allTemplates = EventRelationsTemplate.AllTemplates(Field.nearesNodesAmount);
             if (counts.Count < allTemplates.Count)
                 report.AddIssue(notAllTemplatesIssue);
 
@@ -129,12 +129,12 @@ namespace ModelAnalyzer.Parameters.Events
 
         internal Dictionary<EventRelationsTemplate, RelationsTemplateUsageInfo> GetValue()
         {
-            return isValueNull() ? new Dictionary<EventRelationsTemplate, RelationsTemplateUsageInfo>() : counts;
+            return IsValueNull() ? new Dictionary<EventRelationsTemplate, RelationsTemplateUsageInfo>() : counts;
         }
 
         internal Dictionary<EventRelationsTemplate, RelationsTemplateUsageInfo> GetNoZero()
         {
-            if (isValueNull()) return new Dictionary<EventRelationsTemplate, RelationsTemplateUsageInfo>();
+            if (IsValueNull()) return new Dictionary<EventRelationsTemplate, RelationsTemplateUsageInfo>();
             return counts.Where(kvp => kvp.Value.cardsCount != 0).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         }
     }

@@ -68,6 +68,7 @@
     <Compile Include="DataModels\EventRelation.cs" />
     <Compile Include="DataModels\NodeRelationsTemplate.cs" />
     <Compile Include="DataModels\EventRelationsTemplate.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Parameters\Activities\ArtifactDischargeCoef.cs" />
     <Compile Include="Parameters\Activities\ArtifactsDischargeCompensation.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventsConcreteBranchPoints.cs" />
@@ -421,6 +422,9 @@
     <EmbeddedResource Include="UI\EditForms\UnavailableEditingForm.resx">
       <DependentUpon>UnavailableEditingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

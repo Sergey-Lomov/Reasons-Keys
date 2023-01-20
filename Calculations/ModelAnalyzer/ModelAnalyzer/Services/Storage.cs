@@ -8,7 +8,7 @@ namespace ModelAnalyzer.Services
 {
     class Storage
     {
-        Dictionary<Type, Parameter> parameters = new Dictionary<Type, Parameter>();
+        readonly Dictionary<Type, Parameter> parameters = new Dictionary<Type, Parameter>();
 
         public void AddParameter(Parameter parameter)
         {
@@ -60,15 +60,15 @@ namespace ModelAnalyzer.Services
 
         public List<Parameter> Parameters(ParameterType[] types, List<ParameterTag> tags, string titleFilter = null)
         {
-            Func<Parameter, bool> typesLambda = p => Array.Exists(types, type => type == p.type);
-            Func<Parameter, bool> tagsLambda = p => tags.Intersect(p.tags).Count() > 0;
-            Func<Parameter, bool> filterLambda = p => typesLambda(p) && tagsLambda(p);
-            Func<Parameter, string> sortLambda = p => p.title;
+            bool typesLambda(Parameter p) => Array.Exists(types, type => type == p.type);
+            bool tagsLambda(Parameter p) => tags.Intersect(p.tags).Count() > 0;
+            bool filterLambda(Parameter p) => typesLambda(p) && tagsLambda(p);
+            string sortLambda(Parameter p) => p.title;
             List<Parameter> result = parameters.Values.Where(filterLambda).OrderBy(sortLambda).ToList();
 
             if (titleFilter != null)
             {
-                Func<Parameter, bool> titleFilterLambda = p => p.title.ToUpper().Contains(titleFilter.ToUpper());
+                bool titleFilterLambda(Parameter p) => p.title.ToUpper().Contains(titleFilter.ToUpper());
                 result = result.Where(titleFilterLambda).ToList();
             }
 

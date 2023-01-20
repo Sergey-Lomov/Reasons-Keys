@@ -11,14 +11,14 @@ namespace ModelAnalyzer.UI
     public partial class MainForm : Form, IParameterRowDelegate
     {
         private readonly string fileDialogTitle = "Выберите файл";
+        
+        readonly Storage storage = new Storage();
+        readonly Calculator calculator = new Calculator();
+        readonly Validator validator = new Validator();
+        readonly FilesManager filesManager = new FilesManager();
+        readonly UIFactory uiFactory = new UIFactory();
 
-        Storage storage = new Storage();
-        Calculator calculator = new Calculator();
-        Validator validator = new Validator();
-        FilesManager filesManager = new FilesManager();
-        UIFactory uiFactory = new UIFactory();
-
-        private Dictionary<Parameter, Panel> parametersRows = new Dictionary<Parameter, Panel>();
+        private readonly Dictionary<Parameter, Panel> parametersRows = new Dictionary<Parameter, Panel>();
 
         public MainForm()
         {
@@ -229,12 +229,12 @@ namespace ModelAnalyzer.UI
             }
         }
 
-        private void tagsCLB_SelectedIndexChanged(object sender, EventArgs e)
+        private void TagsCLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReloadTable();
         }
 
-        private void uncheckAllTagsButton_Click(object sender, EventArgs e)
+        private void UncheckAllTagsButton_Click(object sender, EventArgs e)
         {
             foreach (int i in tagsCLB.CheckedIndices)
                 tagsCLB.SetItemCheckState(i, CheckState.Unchecked);
@@ -242,7 +242,7 @@ namespace ModelAnalyzer.UI
             ReloadTable();
         }
 
-        private void checkAllTagsButton_Click(object sender, EventArgs e)
+        private void CheckAllTagsButton_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < tagsCLB.Items.Count; i++)
                 tagsCLB.SetItemCheckState(i, CheckState.Checked);

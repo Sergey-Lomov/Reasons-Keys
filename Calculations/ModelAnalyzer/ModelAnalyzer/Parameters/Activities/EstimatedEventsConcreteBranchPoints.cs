@@ -9,8 +9,6 @@ namespace ModelAnalyzer.Parameters.Activities
 {
     class EstimatedEventsConcreteBranchPoints : FloatSingleParameter
     {
-        readonly int[] BranchPointsAmounts = {2, 2, 1, 1, 1, 1, 0};
-
         public EstimatedEventsConcreteBranchPoints()
         {
             type = ParameterType.Indicator;

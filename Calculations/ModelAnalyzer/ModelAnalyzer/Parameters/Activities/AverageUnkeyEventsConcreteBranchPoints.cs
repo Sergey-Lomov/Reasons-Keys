@@ -46,7 +46,7 @@ namespace ModelAnalyzer.Parameters.Activities
             float acebp = 0; //Average brach points in continuum event
             for (int i = 0; i < bpal.Count; i++)
                 acebp += bpal[i] * bpam[i];
-            acebp = acebp / bpal.Sum();
+            acebp /= bpal.Sum();
 
             float eaiea = nkeca * 1 / (1 + iewc) * iewc;
 

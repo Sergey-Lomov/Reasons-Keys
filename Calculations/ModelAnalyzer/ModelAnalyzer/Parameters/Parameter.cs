@@ -28,7 +28,7 @@ namespace ModelAnalyzer.Parameters
         public abstract void SetupByString(string str);
         public abstract string StringRepresentation();
 
-        public abstract bool isValueNull();
+        public abstract bool IsValueNull();
         protected abstract void NullifyValue();
 
         internal virtual Parameter Copy ()
@@ -63,7 +63,7 @@ namespace ModelAnalyzer.Parameters
         internal virtual bool VerifyValue ()
         {
             if (type == ParameterType.In)
-                return !isValueNull();
+                return !IsValueNull();
 
             if (calculationReport != null)
                 return calculationReport.IsSuccess;
@@ -136,7 +136,7 @@ namespace ModelAnalyzer.Parameters
             return module;
         }
 
-        public bool isUnused()
+        public bool IsUnused()
         {
             return derived == 0 && type == ParameterType.Inner && !valuableValidation;
         }

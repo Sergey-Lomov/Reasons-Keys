@@ -31,18 +31,18 @@ namespace ModelAnalyzer.Parameters.Events
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            int brcca(int n) => rtu.Keys.Where(t => t.backAmount() == n).Select(t => rtu[t].cardsCount).Sum();
+            int brcca(int n) => rtu.Keys.Where(t => t.BackAmount() == n).Select(t => rtu[t].cardsCount).Sum();
             int backAmount(List<EventRelation> relations) => relations.Where(r => r.direction == RelationDirection.back).Count();
             int brsca(int n) => StartDeck.relationsPrototypes.FindAll(rs => backAmount(rs) == n).Count * (int)maxpa;
 
-            int maxBackRelationsCount = rtu.Keys.Select(t => t.backAmount()).Max();
+            int maxBackRelationsCount = rtu.Keys.Select(t => t.BackAmount()).Max();
 
             float cds = rtu.Select(kvp => kvp.Value.cardsCount).Sum();
             float sds = StartDeck.relationsPrototypes.Count * maxpa;
             float acriCore(float n) => brcca((int)n) * aripc[(int)n];
-            float acri = MathAdditional.sum(0, maxBackRelationsCount, acriCore) / cds;
+            float acri = MathAdditional.Sum(0, maxBackRelationsCount, acriCore) / cds;
             float asriCore(float n) => brsca((int)n) * aripc[(int)n];
-            float asri = MathAdditional.sum(0, maxBackRelationsCount, asriCore) / sds;
+            float asri = MathAdditional.Sum(0, maxBackRelationsCount, asriCore) / sds;
             float asds = sds * (minpa + maxpa) / 2f / maxpa;
 
             value = unroundValue = (acri * cds + asri * asds) / (cds + asds);

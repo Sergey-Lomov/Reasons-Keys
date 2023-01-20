@@ -8,7 +8,7 @@ namespace ModelAnalyzer.Services
         public Func<double, double> func = d => d;
         public double left = 0, right = 0;
 
-        public double calculate()
+        public double Calculate()
         {
             double cLeft = left;
             double cRight = right;
