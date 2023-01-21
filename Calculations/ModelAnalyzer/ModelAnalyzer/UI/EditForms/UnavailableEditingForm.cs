@@ -11,16 +11,6 @@ namespace ModelAnalyzer.UI
             InitializeComponent();
         }
 
-        internal override bool IsModelUpdateNecessary()
-        {
-            return false;
-        }
-
-        internal override bool IsParameterUpdateNecessary()
-        {
-            return false;
-        }
-
         internal override void SetParameter(Parameter p)
         {
             parameter = p;

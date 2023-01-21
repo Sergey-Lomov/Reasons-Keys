@@ -27,6 +27,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -100,6 +101,7 @@
     <Compile Include="Parameters\Events\AverageNozeroMiningBonus.cs" />
     <Compile Include="Parameters\Events\BranchPointsRandomizationLimit.cs" />
     <Compile Include="Parameters\Events\BranchPointsDisbalance.cs" />
+    <Compile Include="Parameters\Events\BranchPointsRandomizationThreading.cs" />
     <Compile Include="Parameters\Events\RelationTemplatesUsage.cs" />
     <Compile Include="Parameters\Events\AverageContinuumBP.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />
@@ -261,11 +263,23 @@
     <Compile Include="UI\CalculationReportForm.Designer.cs">
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\DetailsForms\BoolDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DetailsForms\BoolDetailsForm.Designer.cs">
+      <DependentUpon>BoolDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DetailsForms\FieldNodesDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\DetailsForms\FieldNodesDetailsForm.Designer.cs">
       <DependentUpon>FieldNodesDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\BoolEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\BoolEditForm.Designer.cs">
+      <DependentUpon>BoolEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FieldDrawwer.cs" />
     <Compile Include="UI\Factories\CalculationReportRowsFactory.cs" />
@@ -389,8 +403,14 @@
       <DependentUpon>CalculationReportForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\DetailsForms\BoolDetailsForm.resx">
+      <DependentUpon>BoolDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\DetailsForms\FieldNodesDetailsForm.resx">
       <DependentUpon>FieldNodesDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\BoolEditForm.resx">
+      <DependentUpon>BoolEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\EditForms\FloatSingleEditForm.resx">
       <DependentUpon>FloatSingleEditForm.cs</DependentUpon>

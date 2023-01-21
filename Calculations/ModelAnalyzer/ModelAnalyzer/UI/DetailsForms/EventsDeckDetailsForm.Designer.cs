@@ -334,7 +334,7 @@
             this.Controls.Add(this.issuesPamel);
             this.Name = "EventsDeckDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "EventsDeckForm";
+            this.Text = "Детали";
             this.DeckTable.ResumeLayout(false);
             this.DeckTable.PerformLayout();
             this.issuesPamel.ResumeLayout(false);

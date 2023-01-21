@@ -71,6 +71,7 @@
             this.Controls.Add(this.detailsLabel);
             this.Controls.Add(this.titleLabel);
             this.Name = "FieldNodesDetailsForm";
+            this.Text = "Детали";
             this.ResumeLayout(false);
 
         }

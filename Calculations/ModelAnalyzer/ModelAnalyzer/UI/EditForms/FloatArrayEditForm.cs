@@ -10,8 +10,6 @@ namespace ModelAnalyzer.UI
     public partial class FloatArrayEditForm : ParameterEditForm
     {
         private FloatArrayParameter parameter;
-        private bool modelUpdateNecessary = false;
-        private bool parameterUpdateNecessary = false;
 
         public FloatArrayEditForm()
         {
@@ -32,58 +30,14 @@ namespace ModelAnalyzer.UI
             return parameter;
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                UpdateParameter();
-                e.Handled = true;
-                Close();
-            }
-
-            if (e.KeyCode == Keys.Escape)
-            {
-                parameterUpdateNecessary = false;
-                modelUpdateNecessary = false;
-                e.Handled = true;
-                Close();
-            }
-        }
-
-        internal override bool IsParameterUpdateNecessary()
-        {
-            return parameterUpdateNecessary;
-        }
-
-        internal override bool IsModelUpdateNecessary()
-        {
-            return modelUpdateNecessary;
-        }
-
-        private void UpdateParameter ()
+        internal override void UpdateParameter ()
         {
             parameter.SetValue(FloatStringConverter.ListFromString(textBox.Text));
             parameterUpdateNecessary = true;
         }
 
-        private void ApproveButton_Click(object sender, EventArgs e)
-        {
-            UpdateParameter();
-            Close();
-        }
-
-        private void CalculateButton_Click(object sender, EventArgs e)
-        {
-            UpdateParameter();
-            modelUpdateNecessary = true;
-            Close();
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            parameterUpdateNecessary = false;
-            modelUpdateNecessary = false;
-            Close();
-        }
+        private void ApproveButton_Click(object sender, EventArgs e) { Approve(); }
+        private void CalculateButton_Click(object sender, EventArgs e) { Calculate(); }
+        private void CancelButton_Click(object sender, EventArgs e) { Cancel(); }
     }
 }

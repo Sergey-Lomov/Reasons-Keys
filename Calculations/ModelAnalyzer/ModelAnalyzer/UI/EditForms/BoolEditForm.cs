@@ -1,26 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ModelAnalyzer.Services;
 using ModelAnalyzer.Parameters;
 
-namespace ModelAnalyzer.UI
+namespace ModelAnalyzer.UI.EditForms
 {
-    public partial class FloatSingleEditForm : ParameterEditForm
+    public partial class BoolEditForm : ParameterEditForm
     {
-        private FloatSingleParameter parameter;
-        public FloatSingleEditForm()
+        private BoolParameter parameter;
+
+        public BoolEditForm()
         {
             InitializeComponent();
         }
 
         internal override void SetParameter(Parameter p)
         {
-            if (!(p is FloatSingleParameter))
+            if (!(p is BoolParameter))
                 return;
 
-            parameter = p as FloatSingleParameter;
-            textBox.Text = FloatStringConverter.FloatToString(parameter.GetValue(), parameter.fractionalDigits);
+            parameter = p as BoolParameter;
+            valueCheckBox.Checked = parameter.GetValue();
+            valueCheckBox.Text = parameter.EditorLabel();
         }
 
         internal override Parameter GetParameter()
@@ -30,7 +38,7 @@ namespace ModelAnalyzer.UI
 
         internal override void UpdateParameter()
         {
-            parameter.SetValue(FloatStringConverter.FloatFromString(textBox.Text));
+            parameter.SetValue(valueCheckBox.Checked);
             parameterUpdateNecessary = true;
         }
 

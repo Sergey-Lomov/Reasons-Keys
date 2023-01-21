@@ -50,15 +50,7 @@ namespace ModelAnalyzer.UI.DetailsForms
                 issues.AddRange(parameter.calculationReport.GetIssues());
 
             issues.AddRange(validation.GetIssues());
-
-            issuesLabel.Text = "";
-            foreach (string issue in issues)
-            {
-                var prefix = issues.Count > 1 ? issueItemPrefix : "";
-                issuesLabel.Text += prefix + issue;
-                if (issue != issues.Last())
-                    issuesLabel.Text += Environment.NewLine;
-            }
+            issuesLabel.Text = issues.ToIssuesList(issueItemPrefix);
 
             detailsTitleLabel.Visible = detailsLabel.Text.Length > 0;
             valueTitleLabel.Visible = valueLabel.Text.Length > 0;

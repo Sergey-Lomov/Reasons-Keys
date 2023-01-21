@@ -25,6 +25,7 @@ namespace ModelAnalyzer.UI
         {
             detailsFormsTypes.Add(typeof(FloatArrayParameter), typeof(DigitalParameterDetailsForm));
             detailsFormsTypes.Add(typeof(FloatSingleParameter), typeof(DigitalParameterDetailsForm));
+            detailsFormsTypes.Add(typeof(BoolParameter), typeof(BoolDetailsForm));
             detailsFormsTypes.Add(typeof(RoutesMap), typeof(DigitalParameterDetailsForm));
             detailsFormsTypes.Add(typeof(RelationTemplatesUsage), typeof(DigitalParameterDetailsForm));
             detailsFormsTypes.Add(typeof(PairsArrayParameter), typeof(PairsArrayDetailsForm));

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using ModelAnalyzer.Parameters;
 using ModelAnalyzer.Parameters.Topology;
 using ModelAnalyzer.Parameters.Events;
+using ModelAnalyzer.UI.EditForms;
 
 namespace ModelAnalyzer.UI.Factories
 {
@@ -16,6 +17,7 @@ namespace ModelAnalyzer.UI.Factories
         {
             editFormsTypes.Add(typeof(FloatArrayParameter), typeof(FloatArrayEditForm));
             editFormsTypes.Add(typeof(FloatSingleParameter), typeof(FloatSingleEditForm));
+            editFormsTypes.Add(typeof(BoolParameter), typeof(BoolEditForm));
             editFormsTypes.Add(typeof(RoutesMap), typeof(UnavailableEditingForm));
             editFormsTypes.Add(typeof(PairsArrayParameter), typeof(UnavailableEditingForm));
             editFormsTypes.Add(typeof(DeckParameter), typeof(UnavailableEditingForm));

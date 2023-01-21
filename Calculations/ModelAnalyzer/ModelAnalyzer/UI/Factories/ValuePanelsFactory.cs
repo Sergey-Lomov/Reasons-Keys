@@ -23,6 +23,8 @@ namespace ModelAnalyzer.UI.Factories
                 AddFloatSingle(floatSingle, panel, advanced, clickHandler);
             if (p is FloatArrayParameter floatArray)
                 AddFloatArray(floatArray, panel, advanced, clickHandler);
+            if (p is BoolParameter boolParameter)
+                AddBool(boolParameter, panel, clickHandler);
             if (p is DeckParameter deck)
                 AddDeck(deck, panel, clickHandler);
             if (p is RoutesMap routesMap)
@@ -61,6 +63,12 @@ namespace ModelAnalyzer.UI.Factories
                 var unroundValueText = FloatStringConverter.ListToString(p.GetUnroundValue(), unroundFractionalDigits);
                 AddLabel(unroundValueText, DockStyle.Bottom, panel, clickHandler);
             }
+        }
+
+        private void AddBool(BoolParameter p, Panel panel, EventHandler clickHandler)
+        {
+            var text = p.GetNullableValue().HumanRedeable();
+            AddLabel(text, DockStyle.Fill, panel, clickHandler);
         }
 
         private void AddDeck(DeckParameter p, Panel panel, EventHandler clickHandler)
