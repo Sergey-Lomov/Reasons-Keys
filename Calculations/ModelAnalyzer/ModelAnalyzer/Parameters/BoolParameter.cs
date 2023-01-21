@@ -11,6 +11,42 @@ namespace ModelAnalyzer.Parameters
         readonly private string nullValueStub = "-";
 
         protected bool? value = null;
+        protected string editorLabel = "";
+
+        public bool GetValue()
+        {
+            return value ?? false;
+        }
+
+        public bool? GetNullableValue()
+        {
+            return value;
+        }
+
+        public void SetValue(bool newValue)
+        {
+            value = newValue;
+        }
+
+        internal override Parameter Copy()
+        {
+            var copy = base.Copy() as BoolParameter;
+            copy.value = value;
+
+            return copy;
+        }
+
+        internal override bool IsEqual(Parameter p)
+        {
+            if (!(p is BoolParameter))
+                return false;
+
+            var baseCheck = base.IsEqual(p);
+            var bp = p as BoolParameter;
+            var valueCheck = bp.value == value;
+
+            return baseCheck && valueCheck;
+        }
 
         public override bool IsValueNull()
         {
@@ -21,7 +57,7 @@ namespace ModelAnalyzer.Parameters
         {
             try
             {
-                value = bool.Parse(str)
+                value = bool.Parse(str);
             }
             catch
             {
@@ -32,6 +68,11 @@ namespace ModelAnalyzer.Parameters
         public override string StringRepresentation()
         {
             return value.HasValue ? value.ToString() : nullValueStub;
+        }
+
+        public string EditorLabel()
+        {
+            return editorLabel == "" ? title : editorLabel;
         }
 
         protected override void NullifyValue()

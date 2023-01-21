@@ -7,6 +7,7 @@ using ModelAnalyzer.DataModels;
 using ModelAnalyzer.Parameters.General;
 using ModelAnalyzer.Parameters.Activities;
 using ModelAnalyzer.Parameters.Topology;
+using System.Threading;
 
 namespace ModelAnalyzer.Parameters.Events
 {
@@ -29,6 +30,7 @@ namespace ModelAnalyzer.Parameters.Events
             calculationReport = new ParameterCalculationReport(this);
 
             var core = RequestParmeter<MainDeckCore>(calculator);
+            var mt = RequestParmeter<BranchPointsRandomizationThreading>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
@@ -37,7 +39,7 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (var card in core.deck)
                 deck.Add(new EventCard(card));
 
-            AddBranchPoints(deck, calculator);
+            AddBranchPoints(deck, calculator, mt);
             UpdateDeckWeight(calculator);
             AddMiningBonuses(deck, calculator, calculationReport);
             UpdateDeckWeight(calculator);
@@ -62,8 +64,8 @@ namespace ModelAnalyzer.Parameters.Events
         }
 
         private void AllocateSymmetrically(
-            List<EventCard> cards, 
-            int amount, 
+            List<EventCard> cards,
+            int amount,
             int maxpa,
             string unallocatableIssue,
             ParameterCalculationReport report,
@@ -94,11 +96,19 @@ namespace ModelAnalyzer.Parameters.Events
                 report.AddIssue(unallocatableIssue);
         }
 
-        private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
+        private void AddBranchPoints(List<EventCard> cards, Calculator calculator, bool threading)
+        {
+            if (threading)
+                AddBranchPointsMultyThread(cards, calculator);
+            else
+                AddBranchPointsSingleThread(cards, calculator);
+        } 
+
+        private void AddBranchPointsMultyThread(List<EventCard> cards, Calculator calculator)
         {
             // Randomization
             var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var bprl = (long)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
+            var bprl = (int)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
             var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
 
             var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
@@ -107,6 +117,47 @@ namespace ModelAnalyzer.Parameters.Events
             var bpSets = BranchPointSets(calculator);
             float minDeviation = float.MaxValue;
             var minDeviationBPSets = bpSets.ToList();
+
+            var countdown = new CountdownEvent(bprl);
+            for (long i = 0; i < bprl; i++)
+            {
+                var randomizedSets = bpSets.OrderBy(bps => randomizer.Next()).ToList();
+                ThreadPool.QueueUserWorkItem(
+                    _ =>
+                    {
+                        var deviation = EventCardsAnalizer.BrancheDisbalance(deck, cardsStabilities, maxpa, randomizedSets);
+                        lock (this)
+                        {
+                            if (deviation < minDeviation)
+                            {
+                                minDeviation = deviation;
+                                minDeviationBPSets = randomizedSets;
+                            }
+                        }
+                        countdown.Signal();
+                    });
+            }
+            countdown.Wait();
+
+            var sets = bpSets.OrderBy(bps => randomizer.Next()).ToArray();
+            for (int i = 0; i < cards.Count(); i++)
+                cards[i].branchPoints = minDeviationBPSets[i];
+        }
+
+        private void AddBranchPointsSingleThread(List<EventCard> cards, Calculator calculator)
+        {
+            // Randomization
+            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            var bprl = (int)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
+            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
+
+            var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
+
+            var randomizer = new Random(0);
+            var bpSets = BranchPointSets(calculator);
+            float minDeviation = float.MaxValue;
+            var minDeviationBPSets = bpSets.ToList();
+
             for (long i = 0; i < bprl; i++)
             {
                 var randomizedSets = bpSets.OrderBy(bps => randomizer.Next()).ToList();

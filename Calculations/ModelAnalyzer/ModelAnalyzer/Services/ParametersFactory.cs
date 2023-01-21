@@ -95,6 +95,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BranchPointsAllocation_Standard());
             storage.AddParameter(parameter: new BranchPointsAllocation_Symmetric());
             storage.AddParameter(parameter: new BranchPointsDisbalance());
+            storage.AddParameter(parameter: new BranchPointsRandomizationThreading());
             storage.AddParameter(parameter: new BranchPointsRandomizationLimit());
             storage.AddParameter(parameter: new EventMaxMiningBonus());
             storage.AddParameter(parameter: new EventMaxRelations());

@@ -104,7 +104,6 @@ namespace ModelAnalyzer.Parameters
         internal override bool VerifyValue()
         {
             bool baseVerify = base.VerifyValue();
-
             return baseVerify && !float.IsNaN(value);
         }
     }

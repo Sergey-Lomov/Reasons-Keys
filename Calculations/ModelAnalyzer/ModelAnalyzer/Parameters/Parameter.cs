@@ -20,6 +20,7 @@ namespace ModelAnalyzer.Parameters
         public string title;
         public string details;
         public List<ParameterTag> tags = new List<ParameterTag>();
+        
         readonly protected string dataSeparator = "~";
         readonly string multyInvalidInMessage = "Для вычисления необходимы параметры: {0}";
         readonly string singleInvalidInMessage = "Для вычисления необходим параметр: \"{0}\"";
