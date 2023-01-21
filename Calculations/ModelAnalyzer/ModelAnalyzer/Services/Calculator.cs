@@ -5,7 +5,10 @@ using ModelAnalyzer.Parameters;
 
 namespace ModelAnalyzer.Services
 {
-    using ModelCalcultaionReport = List<OperationReport>;
+    class ModelCalcultaionReport {
+        public List<OperationReport> operations = new List<OperationReport>();
+        public double duration;
+    }
 
     class Calculator
     {
@@ -16,12 +19,14 @@ namespace ModelAnalyzer.Services
         ModelCalcultaionReport modelCalculationReport;
 
         private readonly Dictionary<Type, CalculationModule> modules = new Dictionary<Type, CalculationModule>();
+        private readonly TimingsStack timingStack = new TimingsStack();
 
         internal ModelCalcultaionReport CalculateModel (Storage storage)
         {
             modelCalculationReport = new ModelCalcultaionReport();
             this.storage = storage;
             updated = new HashSet<Parameter>();
+            var start = DateTime.Now;
 
             var inParameters = storage.Parameters(new [] { ParameterType.In});
             var missedParameters = new List<string>();
@@ -39,6 +44,10 @@ namespace ModelAnalyzer.Services
                 CalculateIfNecessary(parameter);
 
             modules.Clear();
+            
+            var finish = DateTime.Now;
+            var duration = (finish - start).TotalMilliseconds;
+            modelCalculationReport.duration = duration;
 
             return modelCalculationReport;
         }
@@ -49,8 +58,10 @@ namespace ModelAnalyzer.Services
                 return modules[typeof(T)] as T;
 
             var module = new T();
+            timingStack.StartNewTiming();
             var report = module.Execute(this);
-            modelCalculationReport.Add(report);
+            report.duration = timingStack.FinishCurrentTiming();
+            modelCalculationReport.operations.Add(report);
             modules[typeof(T)] = module;
             return module;
         }
@@ -67,8 +78,10 @@ namespace ModelAnalyzer.Services
         {
             if (!updated.Contains(parameter) && parameter.type != ParameterType.In)
             {
+                timingStack.StartNewTiming();
                 var report = parameter.Calculate(this);
-                modelCalculationReport.Add(report);
+                report.duration = timingStack.FinishCurrentTiming();
+                modelCalculationReport.operations.Add(report);
                 updated.Add(parameter);
             }
         }

@@ -13,27 +13,26 @@ namespace ModelAnalyzer.UI
         List<ParameterValidationReport> validations = new List<ParameterValidationReport>();
         List<ModuleCalculationReport> modulesCalculations = new List<ModuleCalculationReport>();
         List<ParameterCalculationReport> parametersCalculations = new List<ParameterCalculationReport>();
+        ModelCalcultaionReport report;
 
         public CalculationReportForm()
         {
             InitializeComponent();
         }
 
-        internal void SetData (List<ParameterValidationReport> validations, List<OperationReport> calculations)
+        internal void SetData (List<ParameterValidationReport> validations, ModelCalcultaionReport report)
         {
+            this.report = report;
             if (validations != null)
                 this.validations = validations;
 
-            if (calculations != null)
-            {
-                modulesCalculations = calculations.Where(r => r is ModuleCalculationReport).Select(r => r as ModuleCalculationReport).ToList();
-                parametersCalculations = calculations.Where(r => r is ParameterCalculationReport).Select(r => r as ParameterCalculationReport).ToList();
-
-            }
+            modulesCalculations = report.operations.Where(r => r is ModuleCalculationReport).Select(r => r as ModuleCalculationReport).ToList();
+            parametersCalculations = report.operations.Where(r => r is ParameterCalculationReport).Select(r => r as ParameterCalculationReport).ToList();
 
             ReloadChanges();
             ReloadIssues();
             ReloadUnused();
+            ReloadTiming();
         }
 
         void ReloadChanges ()
@@ -72,7 +71,7 @@ namespace ModelAnalyzer.UI
 
             changesTab.Text = string.Format("Изменения ({0})", succesChanged.Count());
 
-            Invalidate(true);
+            changesTable.Invalidate(true);
             changesTable.Visible = true;
         }
 
@@ -90,7 +89,7 @@ namespace ModelAnalyzer.UI
 
             issuesTab.Text = string.Format("Проблемы ({0})", totalIssues);
 
-            Invalidate(true);
+            issuesTable.Invalidate(true);
             issuesTable.Visible = true;
         }
 
@@ -117,6 +116,28 @@ namespace ModelAnalyzer.UI
 
             unusedTable.Invalidate(true);
             unusedTable.Visible = true;
+        }
+
+        void ReloadTiming()
+        {
+            timingTable.Visible = false;
+            timingTable.Controls.Clear();
+            timingTable.RowStyles.Clear();
+            timingTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            var factory = new UIFactory();
+            Panel totalRow = factory.RowForTiming("Общее время", report.duration);
+            timingTable.Controls.Add(totalRow);
+
+            var operations = report.operations.OrderByDescending(o => o.duration);
+            foreach (var operationReport in operations)
+            {
+                Panel row = factory.RowForTiming(operationReport);
+                timingTable.Controls.Add(row);
+            }
+
+            timingTable.Invalidate(true);
+            timingTable.Visible = true;
         }
 
         private int AddIssuesGroup(string headerTitle, IEnumerable<OperationReport> reports)

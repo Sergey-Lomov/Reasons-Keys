@@ -35,10 +35,13 @@
             this.changesTable = new System.Windows.Forms.TableLayoutPanel();
             this.unusedTab = new System.Windows.Forms.TabPage();
             this.unusedTable = new System.Windows.Forms.TableLayoutPanel();
+            this.timingTab = new System.Windows.Forms.TabPage();
+            this.timingTable = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl.SuspendLayout();
             this.issuesTab.SuspendLayout();
             this.changesTab.SuspendLayout();
             this.unusedTab.SuspendLayout();
+            this.timingTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -46,6 +49,7 @@
             this.tabControl.Controls.Add(this.issuesTab);
             this.tabControl.Controls.Add(this.changesTab);
             this.tabControl.Controls.Add(this.unusedTab);
+            this.tabControl.Controls.Add(this.timingTab);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -72,6 +76,7 @@
             this.issuesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.issuesTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.issuesTable.Location = new System.Drawing.Point(3, 3);
+            this.issuesTable.Margin = new System.Windows.Forms.Padding(0);
             this.issuesTable.Name = "issuesTable";
             this.issuesTable.RowCount = 1;
             this.issuesTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -130,6 +135,32 @@
             this.unusedTable.Size = new System.Drawing.Size(792, 424);
             this.unusedTable.TabIndex = 1;
             // 
+            // timingTab
+            // 
+            this.timingTab.Controls.Add(this.timingTable);
+            this.timingTab.Location = new System.Drawing.Point(4, 22);
+            this.timingTab.Name = "timingTab";
+            this.timingTab.Padding = new System.Windows.Forms.Padding(3);
+            this.timingTab.Size = new System.Drawing.Size(792, 424);
+            this.timingTab.TabIndex = 3;
+            this.timingTab.Text = "Тайминг";
+            this.timingTab.UseVisualStyleBackColor = true;
+            // 
+            // timingTable
+            // 
+            this.timingTable.AutoScroll = true;
+            this.timingTable.ColumnCount = 1;
+            this.timingTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.timingTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.timingTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timingTable.Location = new System.Drawing.Point(3, 3);
+            this.timingTable.Name = "timingTable";
+            this.timingTable.RowCount = 1;
+            this.timingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.timingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.timingTable.Size = new System.Drawing.Size(786, 418);
+            this.timingTable.TabIndex = 2;
+            // 
             // CalculationReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,6 +173,7 @@
             this.issuesTab.ResumeLayout(false);
             this.changesTab.ResumeLayout(false);
             this.unusedTab.ResumeLayout(false);
+            this.timingTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -155,5 +187,7 @@
         private System.Windows.Forms.TableLayoutPanel changesTable;
         private System.Windows.Forms.TabPage unusedTab;
         private System.Windows.Forms.TableLayoutPanel unusedTable;
+        private System.Windows.Forms.TabPage timingTab;
+        private System.Windows.Forms.TableLayoutPanel timingTable;
     }
 }

@@ -257,6 +257,7 @@
     <Compile Include="Services\MathAdditional.cs" />
     <Compile Include="Services\OperationReport.cs" />
     <Compile Include="Services\Setter.cs" />
+    <Compile Include="Services\TimingsStack.cs" />
     <Compile Include="UI\CalculationReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +282,7 @@
     <Compile Include="UI\EditForms\BoolEditForm.Designer.cs">
       <DependentUpon>BoolEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Factories\TimingRowsFactory.cs" />
     <Compile Include="UI\FieldDrawwer.cs" />
     <Compile Include="UI\Factories\CalculationReportRowsFactory.cs" />
     <Compile Include="UI\Factories\EditFormsFactory.cs" />

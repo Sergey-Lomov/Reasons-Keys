@@ -18,6 +18,7 @@ namespace ModelAnalyzer.UI
         readonly Dictionary<Type, Type> detailsFormsTypes = new Dictionary<Type, Type>();
 
         private readonly ParametersRowsFactory parameters = new ParametersRowsFactory();
+        private readonly TimingRowsFactory timings = new TimingRowsFactory();
         private readonly CalculationReportRowsFactory calculation = new CalculationReportRowsFactory();
         private readonly EditFormsFactory editForms = new EditFormsFactory();
 
@@ -69,6 +70,16 @@ namespace ModelAnalyzer.UI
         public Panel RowForUnusedParameter(Parameter parameter)
         {
             return parameters.RowForParameter(parameter, null, null);
+        }
+
+        public Panel RowForTiming(string title, double duration)
+        {
+            return timings.RowFor(title, duration);
+        }
+
+        public Panel RowForTiming(OperationReport report)
+        {
+            return timings.RowForReport(report);
         }
 
         // Calculation results

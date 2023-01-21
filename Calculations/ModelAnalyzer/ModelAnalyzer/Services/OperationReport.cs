@@ -6,6 +6,7 @@ namespace ModelAnalyzer.Services
         abstract internal string OperationTitle { get; }
         internal bool IsSuccess => issues.Count == 0;
         protected List<string> issues = new List<string>();
+        public double duration = 0;
 
         public OperationReport() {}
 
