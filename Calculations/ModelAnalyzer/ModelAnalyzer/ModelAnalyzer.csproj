@@ -89,6 +89,7 @@
     <Compile Include="Parameters\Activities\MiningAmount.cs" />
     <Compile Include="Parameters\Activities\NokeyEventCreationAmount.cs" />
     <Compile Include="Parameters\Activities\KeyEventCreationAmount.cs" />
+    <Compile Include="Parameters\BoolParameter.cs" />
     <Compile Include="Parameters\BranchPoints\BPTrackLength.cs" />
     <Compile Include="Parameters\BranchPoints\BranchPointProfit.cs" />
     <Compile Include="Parameters\BranchPoints\EstimatedGameBP.cs" />
