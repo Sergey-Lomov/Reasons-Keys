@@ -20,9 +20,9 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eeip = RequestParmeter<EstimatedEventImpactPrice>(calculator).GetValue();
-            float am = RequestParmeter<AverageMining>(calculator).GetValue();
-            float aupp = RequestParmeter<AUPriceProportion>(calculator).GetValue();
+            float eeip = RequestParameter<EstimatedEventImpactPrice>(calculator).GetValue();
+            float am = RequestParameter<AverageMining>(calculator).GetValue();
+            float aupp = RequestParameter<AUPriceProportion>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

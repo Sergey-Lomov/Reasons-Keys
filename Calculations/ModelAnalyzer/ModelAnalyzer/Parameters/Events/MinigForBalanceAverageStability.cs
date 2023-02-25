@@ -20,9 +20,9 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
-            float am = RequestParmeter<AverageMining>(calculator).GetValue();
-            float arip = RequestParmeter<AverageRelationsImpactPower>(calculator).GetValue();
+            float eip = RequestParameter<EventImpactPrice>(calculator).GetValue();
+            float am = RequestParameter<AverageMining>(calculator).GetValue();
+            float arip = RequestParameter<AverageRelationsImpactPower>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

@@ -23,16 +23,16 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> pd = RequestParmeter<AveragePhasesDistance>(calculator).GetValue();
-            List<float> pw = RequestParmeter<PhasesWeight>(calculator).GetValue();
+            List<float> pd = RequestParameter<AveragePhasesDistance>(calculator).GetValue();
+            List<float> pw = RequestParameter<PhasesWeight>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
             if (pd.Count != pw.Count)
             {
-                string title1 = RequestParmeter<AveragePhasesDistance>(calculator).title;
-                string title2 = RequestParmeter<PhasesWeight>(calculator).title;
+                string title1 = RequestParameter<AveragePhasesDistance>(calculator).title;
+                string title2 = RequestParameter<PhasesWeight>(calculator).title;
                 string message = string.Format(arrayIssueFormat, title1, title2);
 
                 calculationReport.Failed(message);

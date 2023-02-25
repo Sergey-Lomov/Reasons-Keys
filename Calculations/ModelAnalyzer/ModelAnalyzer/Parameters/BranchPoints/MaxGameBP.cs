@@ -24,9 +24,9 @@ namespace ModelAnalyzer.Parameters.BranchPoints
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var ketbp = RequestParmeter<KeyEventsTotalBrachPoints>(calculator).GetValue();
-            var mainDeck = RequestParmeter<MainDeck>(calculator);
+            var maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            var ketbp = RequestParameter<KeyEventsTotalBrachPoints>(calculator).GetValue();
+            var mainDeck = RequestParameter<MainDeck>(calculator);
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

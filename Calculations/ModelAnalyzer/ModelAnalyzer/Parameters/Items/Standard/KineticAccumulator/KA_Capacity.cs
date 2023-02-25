@@ -19,9 +19,9 @@ namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cc = RequestParmeter<KA_CapacityCoefficient>(calculator).GetValue();
-            float pr = RequestParmeter<KA_Profit>(calculator).GetValue();
-            float fp = RequestParmeter<KA_FullPrice>(calculator).GetValue();
+            float cc = RequestParameter<KA_CapacityCoefficient>(calculator).GetValue();
+            float pr = RequestParameter<KA_Profit>(calculator).GetValue();
+            float fp = RequestParameter<KA_FullPrice>(calculator).GetValue();
 
             value = unroundValue = (pr - fp) * cc + fp;
 

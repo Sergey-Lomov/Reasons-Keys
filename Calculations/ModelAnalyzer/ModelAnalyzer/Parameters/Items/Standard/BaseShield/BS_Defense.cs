@@ -22,10 +22,10 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bp = RequestParmeter<BS_BasePower>(calculator).GetValue();
-            float mp = RequestParmeter<BS_MaxPower>(calculator).GetValue();
-            float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
-            List<float> bwd = RequestParmeter<BW_Damage>(calculator).GetValue();
+            float bp = RequestParameter<BS_BasePower>(calculator).GetValue();
+            float mp = RequestParameter<BS_MaxPower>(calculator).GetValue();
+            float ua = RequestParameter<BW_UpgradesAmount>(calculator).GetValue();
+            List<float> bwd = RequestParameter<BW_Damage>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

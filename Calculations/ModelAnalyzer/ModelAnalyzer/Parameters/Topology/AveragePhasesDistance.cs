@@ -42,8 +42,8 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float pa = RequestParmeter<PhasesAmount>(calculator).GetValue();
-            var routesMap = RequestParmeter<RoutesMap>(calculator);
+            float pa = RequestParameter<PhasesAmount>(calculator).GetValue();
+            var routesMap = RequestParameter<RoutesMap>(calculator);
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

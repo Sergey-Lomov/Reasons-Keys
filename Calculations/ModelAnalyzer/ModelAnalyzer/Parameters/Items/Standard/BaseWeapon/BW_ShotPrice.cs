@@ -21,10 +21,10 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float wse = RequestParmeter<WeaponStandardEffectivity>(calculator).GetValue();
-            float mec = RequestParmeter<BW_MaxEffectivityCoefficient>(calculator).GetValue();
-            float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
-            List<float> bwd = RequestParmeter<BW_Damage>(calculator).GetValue();
+            float wse = RequestParameter<WeaponStandardEffectivity>(calculator).GetValue();
+            float mec = RequestParameter<BW_MaxEffectivityCoefficient>(calculator).GetValue();
+            float ua = RequestParameter<BW_UpgradesAmount>(calculator).GetValue();
+            List<float> bwd = RequestParameter<BW_Damage>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

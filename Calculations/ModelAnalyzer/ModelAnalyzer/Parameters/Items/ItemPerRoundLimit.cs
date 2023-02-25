@@ -20,9 +20,9 @@ namespace ModelAnalyzer.Parameters.Items
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float flc = RequestParmeter<FullLoadCoefficient>(calculator).GetValue();
-            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
-            float bia = RequestParmeter<BaseItemsAmount>(calculator).GetValue();
+            float flc = RequestParameter<FullLoadCoefficient>(calculator).GetValue();
+            float ra = RequestParameter<RoundAmount>(calculator).GetValue();
+            float bia = RequestParameter<BaseItemsAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

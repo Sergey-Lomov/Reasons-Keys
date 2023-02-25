@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float rip = RequestParmeter<RelationImpactPower>(calculator).GetValue();
-            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
+            float rip = RequestParameter<RelationImpactPower>(calculator).GetValue();
+            var mainDeck = RequestParameter<MainDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

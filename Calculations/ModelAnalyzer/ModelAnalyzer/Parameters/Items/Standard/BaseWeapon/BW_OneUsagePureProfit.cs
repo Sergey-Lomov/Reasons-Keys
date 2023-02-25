@@ -19,9 +19,9 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bwp = RequestParmeter<BW_Profit>(calculator).GetValue();
-            float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
-            float saa = RequestParmeter<AtackAmount>(calculator).GetValue();
+            float bwp = RequestParameter<BW_Profit>(calculator).GetValue();
+            float ipc = RequestParameter<ItemPriceCoefficient>(calculator).GetValue();
+            float saa = RequestParameter<AtackAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

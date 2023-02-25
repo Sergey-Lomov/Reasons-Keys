@@ -25,10 +25,10 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float pa = RequestParmeter<PhasesAmount>(calculator).GetValue();
-            int aap = (int)RequestParmeter<ArtifactsAvaliabilityPhase>(calculator).GetValue();
-            List<float> pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
-            var phasesRoutes = RequestParmeter<RoutesMap>(calculator).phasesRoutes;
+            float pa = RequestParameter<PhasesAmount>(calculator).GetValue();
+            int aap = (int)RequestParameter<ArtifactsAvaliabilityPhase>(calculator).GetValue();
+            List<float> pd = RequestParameter<PhasesDuration>(calculator).GetValue();
+            var phasesRoutes = RequestParameter<RoutesMap>(calculator).phasesRoutes;
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

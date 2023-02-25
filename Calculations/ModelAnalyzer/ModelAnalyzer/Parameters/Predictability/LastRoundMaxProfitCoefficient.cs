@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters.Predictability
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float arp = RequestParmeter<AverageRoundProfit>(calculator).GetValue();
-            float lrmp = RequestParmeter<LastRoundMaxProfit>(calculator).GetValue();
+            float arp = RequestParameter<AverageRoundProfit>(calculator).GetValue();
+            float lrmp = RequestParameter<LastRoundMaxProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

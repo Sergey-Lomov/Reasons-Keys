@@ -19,11 +19,11 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float md = RequestParmeter<MoveDuration>(calculator).GetValue();
-            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
-            float rd = RequestParmeter<RealisationDuration>(calculator).GetValue();
-            float ea = RequestParmeter<EventCreationAmount>(calculator).GetValue();
-            float pa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            float md = RequestParameter<MoveDuration>(calculator).GetValue();
+            float ra = RequestParameter<RoundAmount>(calculator).GetValue();
+            float rd = RequestParameter<RealisationDuration>(calculator).GetValue();
+            float ea = RequestParameter<EventCreationAmount>(calculator).GetValue();
+            float pa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

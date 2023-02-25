@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aap = RequestParmeter<ArtifactsAvaliabilityPhase>(calculator).GetValue();
-            List<float> pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
+            float aap = RequestParameter<ArtifactsAvaliabilityPhase>(calculator).GetValue();
+            List<float> pd = RequestParameter<PhasesDuration>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

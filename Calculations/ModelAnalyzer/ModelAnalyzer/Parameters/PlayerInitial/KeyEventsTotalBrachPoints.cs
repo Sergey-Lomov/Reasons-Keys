@@ -23,8 +23,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float kebpc = RequestParmeter<KeyEventsBranchPointsCoefficient>(calculator).GetValue();
-            List<float> auecbp = RequestParmeter<AverageUnkeyEventsConcreteBranchPoints>(calculator).GetValue();
+            float kebpc = RequestParameter<KeyEventsBranchPointsCoefficient>(calculator).GetValue();
+            List<float> auecbp = RequestParameter<AverageUnkeyEventsConcreteBranchPoints>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

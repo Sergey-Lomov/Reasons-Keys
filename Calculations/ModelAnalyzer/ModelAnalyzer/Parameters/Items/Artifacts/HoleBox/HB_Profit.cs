@@ -23,8 +23,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var peuprc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
-            var tl = RequestParmeter<HB_TensionLimits>(calculator).GetValue();
+            var peuprc = RequestParameter<PureEUProfitCoefficient>(calculator).GetValue();
+            var tl = RequestParameter<HB_TensionLimits>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

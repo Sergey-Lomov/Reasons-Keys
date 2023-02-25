@@ -22,12 +22,12 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var fta = RequestParmeter<FirstRoundAttackers>(calculator).GetValue();
-            var am = RequestParmeter<AverageMining>(calculator).GetValue();
-            var auma = RequestParmeter<AUMoveAmount>(calculator).GetValue();
-            var bwd = RequestParmeter<BW_Damage>(calculator).GetValue();
-            var ieu = RequestParmeter<InitialEU>(calculator).GetValue();
-            var ra = RequestParmeter<RoundAmount>(calculator).GetValue();
+            var fta = RequestParameter<FirstRoundAttackers>(calculator).GetValue();
+            var am = RequestParameter<AverageMining>(calculator).GetValue();
+            var auma = RequestParameter<AUMoveAmount>(calculator).GetValue();
+            var bwd = RequestParameter<BW_Damage>(calculator).GetValue();
+            var ieu = RequestParameter<InitialEU>(calculator).GetValue();
+            var ra = RequestParameter<RoundAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

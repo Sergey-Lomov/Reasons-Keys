@@ -29,12 +29,12 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int minpa = (int)RequestParmeter<MinPlayersAmount>(calculator).GetValue();
-            int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float iewc = RequestParmeter<InitialEventsWeightCoefficient>(calculator).GetValue();
-            float nkeca = RequestParmeter<NokeyEventCreationAmount>(calculator).GetValue();
+            int minpa = (int)RequestParameter<MinPlayersAmount>(calculator).GetValue();
+            int maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            float iewc = RequestParameter<InitialEventsWeightCoefficient>(calculator).GetValue();
+            float nkeca = RequestParameter<NokeyEventCreationAmount>(calculator).GetValue();
             float aiebpa = averageInitialEventsBranchPointsAmount;
-            List<float> bpal = RequestParmeter<BrachPointsTemplatesAllocation>(calculator).GetValue();
+            List<float> bpal = RequestParameter<BrachPointsTemplatesAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

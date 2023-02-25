@@ -23,9 +23,9 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
-            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var deck = RequestParmeter<MainDeck>(calculator).deck;
+            var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue();
+            var maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            var deck = RequestParameter<MainDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

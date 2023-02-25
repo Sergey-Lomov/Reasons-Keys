@@ -23,10 +23,10 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float minpa = RequestParmeter<MinPlayersAmount>(calculator).GetValue();
-            float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue(); // Constants from documentation
-            var rtu = RequestParmeter<RelationTemplatesUsage>(calculator).GetNoZero();
+            float minpa = RequestParameter<MinPlayersAmount>(calculator).GetValue();
+            float maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue(); // Constants from documentation
+            var rtu = RequestParameter<RelationTemplatesUsage>(calculator).GetNoZero();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

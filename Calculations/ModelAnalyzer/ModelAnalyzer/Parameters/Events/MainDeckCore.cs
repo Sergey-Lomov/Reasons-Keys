@@ -45,7 +45,7 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<EventCard> InitialDeckWithRelationTemplates(Calculator calculator)
         {
-            var rtu = RequestParmeter<RelationTemplatesUsage>(calculator).GetNoZero();
+            var rtu = RequestParameter<RelationTemplatesUsage>(calculator).GetNoZero();
 
             if (!calculationReport.IsSuccess)
                 return new List<EventCard>();

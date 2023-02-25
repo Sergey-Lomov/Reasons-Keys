@@ -86,7 +86,7 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int pa = (int)RequestParmeter<PhasesAmount>(calculator).GetValue();
+            int pa = (int)RequestParameter<PhasesAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

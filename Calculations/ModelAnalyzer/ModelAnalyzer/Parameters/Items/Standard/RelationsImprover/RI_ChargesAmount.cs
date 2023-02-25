@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float apipr = RequestParmeter<AveragePrimeItemsProfit>(calculator).GetValue();
-            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            float apipr = RequestParameter<AveragePrimeItemsProfit>(calculator).GetValue();
+            float eip = RequestParameter<EventImpactPrice>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

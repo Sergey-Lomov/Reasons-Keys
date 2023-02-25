@@ -24,10 +24,10 @@ namespace ModelAnalyzer.Parameters.BranchPoints
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eprc = RequestParmeter<EstimatedPrognosedRealisationChance>(calculator).GetValue();
-            float ecp = RequestParmeter<EventCreationPrice>(calculator).GetValue();
-            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
-            var startDeck = RequestParmeter<StartDeck>(calculator).deck;
+            float eprc = RequestParameter<EstimatedPrognosedRealisationChance>(calculator).GetValue();
+            float ecp = RequestParameter<EventCreationPrice>(calculator).GetValue();
+            var mainDeck = RequestParameter<MainDeck>(calculator).deck;
+            var startDeck = RequestParameter<StartDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

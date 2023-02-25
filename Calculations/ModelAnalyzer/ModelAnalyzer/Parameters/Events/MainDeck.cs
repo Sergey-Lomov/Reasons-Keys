@@ -29,8 +29,8 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var core = RequestParmeter<MainDeckCore>(calculator);
-            var mt = RequestParmeter<BranchPointsRandomizationThreading>(calculator).GetValue();
+            var core = RequestParameter<MainDeckCore>(calculator);
+            var mt = RequestParameter<BranchPointsRandomizationThreading>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
@@ -54,8 +54,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddArtifacts(List<EventCard> cards, Calculator calculator, ParameterCalculationReport report)
         {
-            float ar = RequestParmeter<ArtifactsRarity>(calculator).GetValue();
-            int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            float ar = RequestParameter<ArtifactsRarity>(calculator).GetValue();
+            int maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
 
             int amount = (int)Math.Round(cards.Count() * ar, MidpointRounding.AwayFromZero);
             var ordered = cards.OrderBy(c => c.weight);
@@ -107,9 +107,9 @@ namespace ModelAnalyzer.Parameters.Events
         private void AddBranchPointsMultyThread(List<EventCard> cards, Calculator calculator)
         {
             // Randomization
-            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var bprl = (int)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
-            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
+            var maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            var bprl = (int)RequestParameter<BranchPointsRandomizationLimit>(calculator).GetValue();
+            var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue();
 
             var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
 
@@ -147,9 +147,9 @@ namespace ModelAnalyzer.Parameters.Events
         private void AddBranchPointsSingleThread(List<EventCard> cards, Calculator calculator)
         {
             // Randomization
-            var maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var bprl = (int)RequestParmeter<BranchPointsRandomizationLimit>(calculator).GetValue();
-            var aripc = RequestParmeter<AverageRelationsImpactPerCount>(calculator).GetValue();
+            var maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            var bprl = (int)RequestParameter<BranchPointsRandomizationLimit>(calculator).GetValue();
+            var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue();
 
             var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
 
@@ -189,8 +189,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private Dictionary<BranchPointsTemplate, int> AmountsForTemplates(Calculator calculator)
         {
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            List<float> bpta = RequestParmeter<BrachPointsTemplatesAllocation>(calculator).GetValue();
+            float cna = RequestParameter<ContinuumNodesAmount>(calculator).GetValue();
+            List<float> bpta = RequestParameter<BrachPointsTemplatesAllocation>(calculator).GetValue();
 
             var templates = new BrachPointsTemplatesAllocation().templates;
             int[] amounts = MathAdditional.AmountsForAllocation(cna, bpta, calculationReport);
@@ -237,7 +237,7 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<BranchPointsSet> SingleBranchSets(BranchPointsTemplate template, int lenght, Calculator calculator)
         {
-            float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            float mpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
 
             var sets = new List<BranchPointsSet>();
             int index = 0;
@@ -253,8 +253,8 @@ namespace ModelAnalyzer.Parameters.Events
 
         private List<BranchPointsSet> DoubleBranchSequence(BranchPointsTemplate template, int lenght, Calculator calculator)
         {
-            var bpa_std = (BranchPointsAllocation)RequestParmeter<BranchPointsAllocation_Standard>(calculator);
-            var bpa_sym = (BranchPointsAllocation)RequestParmeter<BranchPointsAllocation_Symmetric>(calculator);
+            var bpa_std = (BranchPointsAllocation)RequestParameter<BranchPointsAllocation_Standard>(calculator);
+            var bpa_sym = (BranchPointsAllocation)RequestParameter<BranchPointsAllocation_Symmetric>(calculator);
 
             if (!calculationReport.IsSuccess)
             {
@@ -285,9 +285,9 @@ namespace ModelAnalyzer.Parameters.Events
 
         private void AddMiningBonuses(List<EventCard> cards, Calculator calculator, ParameterCalculationReport report)
         {
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            List<float> mb_allocation = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
+            float cna = RequestParameter<ContinuumNodesAmount>(calculator).GetValue();
+            int maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            List<float> mb_allocation = RequestParameter<EventMiningBonusAllocation>(calculator).GetValue();
 
             int[] mb_amounts = MathAdditional.AmountsForAllocation(cna, mb_allocation, calculationReport);
             if (!calculationReport.IsSuccess) return;

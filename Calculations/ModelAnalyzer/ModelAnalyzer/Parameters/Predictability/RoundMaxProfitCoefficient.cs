@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.Predictability
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float arp = RequestParmeter<AverageRoundProfit>(calculator).GetValue();
-            float rmp = RequestParmeter<RoundMaxProfit>(calculator).GetValue();
+            float arp = RequestParameter<AverageRoundProfit>(calculator).GetValue();
+            float rmp = RequestParameter<RoundMaxProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

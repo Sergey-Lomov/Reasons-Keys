@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.BranchPoints
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mgbp = RequestParmeter<MaxGameBP>(calculator).GetValue();
-            List<float> ibp = RequestParmeter<InitialBP>(calculator).GetValue();
+            float mgbp = RequestParameter<MaxGameBP>(calculator).GetValue();
+            List<float> ibp = RequestParameter<InitialBP>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

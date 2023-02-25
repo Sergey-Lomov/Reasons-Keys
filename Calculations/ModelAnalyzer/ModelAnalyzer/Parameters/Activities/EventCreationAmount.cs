@@ -17,8 +17,8 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float keca = RequestParmeter<KeyEventCreationAmount>(calculator).GetValue();
-            float nkeca = RequestParmeter<NokeyEventCreationAmount>(calculator).GetValue();
+            float keca = RequestParameter<KeyEventCreationAmount>(calculator).GetValue();
+            float nkeca = RequestParameter<NokeyEventCreationAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

@@ -19,7 +19,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.FateRavel
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int eip = (int)RequestParmeter<EventImpactPrice>(calculator).GetValue();
+            int eip = (int)RequestParameter<EventImpactPrice>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

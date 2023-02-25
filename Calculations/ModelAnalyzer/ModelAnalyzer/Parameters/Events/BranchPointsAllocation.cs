@@ -18,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float pa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            float pa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

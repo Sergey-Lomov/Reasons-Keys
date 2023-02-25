@@ -21,7 +21,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> up = RequestParmeter<BW_UpgradesProfit>(calculator).GetValue();
+            List<float> up = RequestParameter<BW_UpgradesProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

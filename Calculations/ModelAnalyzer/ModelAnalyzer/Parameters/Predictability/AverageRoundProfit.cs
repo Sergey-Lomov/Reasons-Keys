@@ -23,16 +23,16 @@ namespace ModelAnalyzer.Parameters.Predictability
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aarp = RequestParmeter<AverageActrionsRoundProfit>(calculator).GetValue();
-            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
-            float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
-            float eap = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
-            float bwp = RequestParmeter<BW_Profit>(calculator).GetValue();
-            float rispc = RequestParmeter<RI_StandardPurchaseCount>(calculator).GetValue();
-            float rip = RequestParmeter<RI_Profit>(calculator).GetValue();
-            float aaa = RequestParmeter<ArtifactsActingAmount>(calculator).GetValue();
-            float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float minpa = RequestParmeter<MinPlayersAmount>(calculator).GetValue();
+            float aarp = RequestParameter<AverageActrionsRoundProfit>(calculator).GetValue();
+            float ra = RequestParameter<RoundAmount>(calculator).GetValue();
+            float ipc = RequestParameter<ItemPriceCoefficient>(calculator).GetValue();
+            float eap = RequestParameter<EstimatedArtifactsProfit>(calculator).GetValue();
+            float bwp = RequestParameter<BW_Profit>(calculator).GetValue();
+            float rispc = RequestParameter<RI_StandardPurchaseCount>(calculator).GetValue();
+            float rip = RequestParameter<RI_Profit>(calculator).GetValue();
+            float aaa = RequestParameter<ArtifactsActingAmount>(calculator).GetValue();
+            float maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            float minpa = RequestParameter<MinPlayersAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

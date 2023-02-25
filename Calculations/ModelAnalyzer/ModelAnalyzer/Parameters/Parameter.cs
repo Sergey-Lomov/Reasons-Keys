@@ -105,7 +105,7 @@ namespace ModelAnalyzer.Parameters
             calculationReport.AddIssue(issue);
         }
 
-        internal T RequestParmeter<T> (Calculator calculator) where T : Parameter
+        internal T RequestParameter<T> (Calculator calculator) where T : Parameter
         {
             var parameter = calculator.UpdatedParameter<T>();
 

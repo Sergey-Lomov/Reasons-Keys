@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.BranchPoints
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> egbpList = RequestParmeter<EstimatedGameBP>(calculator).GetValue();
-            float mbplc = RequestParmeter<MaxBPLoosingCoefficient>(calculator).GetValue();
+            List<float> egbpList = RequestParameter<EstimatedGameBP>(calculator).GetValue();
+            float mbplc = RequestParameter<MaxBPLoosingCoefficient>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

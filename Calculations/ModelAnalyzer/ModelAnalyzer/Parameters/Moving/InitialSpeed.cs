@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Moving
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float isc = RequestParmeter<InitialSpeedCoef>(calculator).GetValue();
-            float ad = RequestParmeter<AverageDistance>(calculator).GetValue();
+            float isc = RequestParameter<InitialSpeedCoef>(calculator).GetValue();
+            float ad = RequestParameter<AverageDistance>(calculator).GetValue();
 
             unroundValue = ad * isc;
             value = (float) Math.Round(unroundValue);

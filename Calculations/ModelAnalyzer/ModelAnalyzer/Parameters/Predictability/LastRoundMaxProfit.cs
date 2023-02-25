@@ -22,11 +22,11 @@ namespace ModelAnalyzer.Parameters.Predictability
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aarp = RequestParmeter<AverageActrionsRoundProfit>(calculator).GetValue();
-            float mbirp = RequestParmeter<MaxBaseItemsRoundPureProfit>(calculator).GetValue();
-            float cgup = RequestParmeter<CG_OneUsageProfit>(calculator).GetValue();
-            float cmup = RequestParmeter<CM_OneUsageProfit>(calculator).GetValue();
-            float hbeup = RequestParmeter<HB_EstimatedOneUsageProfit>(calculator).GetValue();
+            float aarp = RequestParameter<AverageActrionsRoundProfit>(calculator).GetValue();
+            float mbirp = RequestParameter<MaxBaseItemsRoundPureProfit>(calculator).GetValue();
+            float cgup = RequestParameter<CG_OneUsageProfit>(calculator).GetValue();
+            float cmup = RequestParameter<CM_OneUsageProfit>(calculator).GetValue();
+            float hbeup = RequestParameter<HB_EstimatedOneUsageProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

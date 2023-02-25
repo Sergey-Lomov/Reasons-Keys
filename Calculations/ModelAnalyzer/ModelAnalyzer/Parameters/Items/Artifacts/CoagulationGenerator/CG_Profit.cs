@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float oupr = RequestParmeter<CG_OneUsageProfit>(calculator).GetValue();
-            float ca = RequestParmeter<CG_ChargesAmount>(calculator).GetValue();
+            float oupr = RequestParameter<CG_OneUsageProfit>(calculator).GetValue();
+            float ca = RequestParameter<CG_ChargesAmount>(calculator).GetValue();
 
             value = unroundValue = oupr * ca;
 

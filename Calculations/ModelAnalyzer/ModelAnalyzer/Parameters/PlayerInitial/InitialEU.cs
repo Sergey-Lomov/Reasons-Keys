@@ -25,9 +25,9 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float r = RequestParmeter<FieldRadius>(calculator).GetValue();
-            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
-            float ecp_eu = RequestParmeter<EventCreationPriceEU>(calculator).GetValue();
+            float r = RequestParameter<FieldRadius>(calculator).GetValue();
+            float mp = RequestParameter<MotionPrice>(calculator).GetValue();
+            float ecp_eu = RequestParameter<EventCreationPriceEU>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var bwa = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
-            var sba = RequestParmeter<SB_UpgradesAmount>(calculator).GetValue();
+            var bwa = RequestParameter<BW_UpgradesAmount>(calculator).GetValue();
+            var sba = RequestParameter<SB_UpgradesAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

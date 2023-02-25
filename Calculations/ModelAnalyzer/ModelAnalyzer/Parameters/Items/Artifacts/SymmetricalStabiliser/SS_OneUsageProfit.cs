@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ssp = RequestParmeter<SS_Profit>(calculator).GetValue();
-            float ssua = RequestParmeter<SS_UsageAmount>(calculator).GetValue();
+            float ssp = RequestParameter<SS_Profit>(calculator).GetValue();
+            float ssua = RequestParameter<SS_UsageAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

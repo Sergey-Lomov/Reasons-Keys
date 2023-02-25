@@ -20,11 +20,11 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float arip = RequestParmeter<AverageRelationsImpactPower>(calculator).GetValue();
-            float eap = RequestParmeter<EventsActionsPotential>(calculator).GetValue();
-            float eca = RequestParmeter<EventCreationAmount>(calculator).GetValue();
-            float eia = RequestParmeter<EventImpactAmount>(calculator).GetValue();
-            float dc = RequestParmeter<DestructionCoef>(calculator).GetValue();
+            float arip = RequestParameter<AverageRelationsImpactPower>(calculator).GetValue();
+            float eap = RequestParameter<EventsActionsPotential>(calculator).GetValue();
+            float eca = RequestParameter<EventCreationAmount>(calculator).GetValue();
+            float eia = RequestParameter<EventImpactAmount>(calculator).GetValue();
+            float dc = RequestParameter<DestructionCoef>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

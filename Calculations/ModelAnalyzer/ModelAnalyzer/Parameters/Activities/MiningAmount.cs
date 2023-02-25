@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float au = RequestParmeter<AUPartyAmount>(calculator).GetValue();
-            float mc = RequestParmeter<MiningAUCoef>(calculator).GetValue();
+            float au = RequestParameter<AUPartyAmount>(calculator).GetValue();
+            float mc = RequestParameter<MiningAUCoef>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

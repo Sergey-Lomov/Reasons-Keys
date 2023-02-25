@@ -23,8 +23,8 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
-            List<float> pw = RequestParmeter<PhasesWeight>(calculator).GetValue();
+            float ra = RequestParameter<RoundAmount>(calculator).GetValue();
+            List<float> pw = RequestParameter<PhasesWeight>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

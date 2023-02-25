@@ -18,9 +18,9 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float rip = RequestParmeter<RI_Profit>(calculator).GetValue();
-            float rica = RequestParmeter<RI_ChargesAmount>(calculator).GetValue();
-            float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
+            float rip = RequestParameter<RI_Profit>(calculator).GetValue();
+            float rica = RequestParameter<RI_ChargesAmount>(calculator).GetValue();
+            float ipc = RequestParameter<ItemPriceCoefficient>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

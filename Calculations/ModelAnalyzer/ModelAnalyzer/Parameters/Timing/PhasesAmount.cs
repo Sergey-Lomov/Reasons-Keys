@@ -18,7 +18,7 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float r = RequestParmeter<FieldRadius>(calculator).GetValue();
+            float r = RequestParameter<FieldRadius>(calculator).GetValue();
             value = unroundValue = r + 1;
 
             return calculationReport;

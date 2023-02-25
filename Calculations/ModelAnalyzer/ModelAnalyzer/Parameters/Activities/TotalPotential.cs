@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float md = RequestParmeter<AUPartyAmount>(calculator).GetValue();
-            float m = RequestParmeter<AverageMining>(calculator).GetValue();
+            float md = RequestParameter<AUPartyAmount>(calculator).GetValue();
+            float m = RequestParameter<AverageMining>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

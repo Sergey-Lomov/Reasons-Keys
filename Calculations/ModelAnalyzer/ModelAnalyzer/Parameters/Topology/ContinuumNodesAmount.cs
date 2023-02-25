@@ -21,7 +21,7 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float fr = RequestParmeter<FieldRadius>(calculator).GetValue();
+            float fr = RequestParameter<FieldRadius>(calculator).GetValue();
 
             value = 0;
             for (int i = 1; i <= fr; i++)

@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters.Timing
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aum = RequestParmeter<AUMoveAmount>(calculator).GetValue();
-            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
+            float aum = RequestParameter<AUMoveAmount>(calculator).GetValue();
+            float ra = RequestParameter<RoundAmount>(calculator).GetValue();
 
             value = unroundValue = ra * aum;
 

@@ -21,9 +21,9 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.FateRavel
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bppr = RequestParmeter<BranchPointProfit>(calculator).GetValue();
-            float eprc = RequestParmeter<EstimatedPrognosedRealisationChance>(calculator).GetValue();
-            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
+            float bppr = RequestParameter<BranchPointProfit>(calculator).GetValue();
+            float eprc = RequestParameter<EstimatedPrognosedRealisationChance>(calculator).GetValue();
+            float eapr = RequestParameter<EstimatedArtifactsProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

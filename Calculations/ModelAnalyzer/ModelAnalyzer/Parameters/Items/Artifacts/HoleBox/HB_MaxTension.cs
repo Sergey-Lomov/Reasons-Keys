@@ -21,10 +21,10 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cpd = RequestParmeter<HB_CollapsePreparationDuration>(calculator).GetValue();
-            int mtr = (int)RequestParmeter<HB_MaxTransaction>(calculator).GetValue();
-            List<float> tl = RequestParmeter<HB_TensionLimits>(calculator).GetValue();
-            List<float> ti = RequestParmeter<HB_TensionIncreasing>(calculator).GetValue();
+            float cpd = RequestParameter<HB_CollapsePreparationDuration>(calculator).GetValue();
+            int mtr = (int)RequestParameter<HB_MaxTransaction>(calculator).GetValue();
+            List<float> tl = RequestParameter<HB_TensionLimits>(calculator).GetValue();
+            List<float> ti = RequestParameter<HB_TensionIncreasing>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

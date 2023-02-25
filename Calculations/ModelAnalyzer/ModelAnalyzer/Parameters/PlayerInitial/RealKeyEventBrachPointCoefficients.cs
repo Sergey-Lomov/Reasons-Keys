@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ketbp = RequestParmeter<KeyEventsTotalBrachPoints>(calculator).GetValue();
-            List<float> auecbp = RequestParmeter<AverageUnkeyEventsConcreteBranchPoints>(calculator).GetValue();
+            float ketbp = RequestParameter<KeyEventsTotalBrachPoints>(calculator).GetValue();
+            List<float> auecbp = RequestParameter<AverageUnkeyEventsConcreteBranchPoints>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

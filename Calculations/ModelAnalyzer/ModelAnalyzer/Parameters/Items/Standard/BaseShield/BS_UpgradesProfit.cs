@@ -21,9 +21,9 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float saa = RequestParmeter<AtackAmount>(calculator).GetValue();
-            float pac = RequestParmeter<ProtectionActualityCoefficient>(calculator).GetValue();
-            List<float> bsd = RequestParmeter<BS_Defense>(calculator).GetValue();
+            float saa = RequestParameter<AtackAmount>(calculator).GetValue();
+            float pac = RequestParameter<ProtectionActualityCoefficient>(calculator).GetValue();
+            List<float> bsd = RequestParameter<BS_Defense>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

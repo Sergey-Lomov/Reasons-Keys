@@ -22,8 +22,8 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mi = RequestParmeter<MiningIncrement>(calculator).GetValue();
-            float fr = RequestParmeter<FieldRadius>(calculator).GetValue();
+            float mi = RequestParameter<MiningIncrement>(calculator).GetValue();
+            float fr = RequestParameter<FieldRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

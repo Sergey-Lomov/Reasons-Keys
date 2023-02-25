@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float rip = RequestParmeter<RelationImpactPower>(calculator).GetValue();
-            float ilc = RequestParmeter<RI_ImprovementLimitCoefficient>(calculator).GetValue();
+            float rip = RequestParameter<RelationImpactPower>(calculator).GetValue();
+            float ilc = RequestParameter<RI_ImprovementLimitCoefficient>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

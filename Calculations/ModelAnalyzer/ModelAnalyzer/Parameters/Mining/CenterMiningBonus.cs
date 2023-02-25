@@ -26,12 +26,12 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
-            float isp = RequestParmeter<InitialSpeed>(calculator).GetValue();
-            float fr = RequestParmeter<FieldRadius>(calculator).GetValue();
-            float au = RequestParmeter<AUMoveAmount>(calculator).GetValue();
-            List<float> pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
-            List<float> ma = RequestParmeter<MiningAllocation>(calculator).GetValue();
+            float mp = RequestParameter<MotionPrice>(calculator).GetValue();
+            float isp = RequestParameter<InitialSpeed>(calculator).GetValue();
+            float fr = RequestParameter<FieldRadius>(calculator).GetValue();
+            float au = RequestParameter<AUMoveAmount>(calculator).GetValue();
+            List<float> pd = RequestParameter<PhasesDuration>(calculator).GetValue();
+            List<float> ma = RequestParameter<MiningAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
@@ -43,8 +43,8 @@ namespace ModelAnalyzer.Parameters.Mining
             }
             if (ma.Count < fr + 1)
             {
-                var maTitle = RequestParmeter<MiningAllocation>(calculator).title;
-                var frTitle = RequestParmeter<FieldRadius>(calculator).title;
+                var maTitle = RequestParameter<MiningAllocation>(calculator).title;
+                var frTitle = RequestParameter<FieldRadius>(calculator).title;
                 var issue = string.Format(miningAllocationIssue, maTitle, frTitle);
                 issues.Add(issue);
             }

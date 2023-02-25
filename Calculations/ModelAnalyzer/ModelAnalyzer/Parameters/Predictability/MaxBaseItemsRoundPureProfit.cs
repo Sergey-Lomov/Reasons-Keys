@@ -21,9 +21,9 @@ namespace ModelAnalyzer.Parameters.Predictability
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bwupp = RequestParmeter<BW_OneUsagePureProfit>(calculator).GetValue();
-            float riupp = RequestParmeter<RI_OneUsagePureProfit>(calculator).GetValue();
-            float rirul = RequestParmeter<RI_RoundUsageLimit>(calculator).GetValue();
+            float bwupp = RequestParameter<BW_OneUsagePureProfit>(calculator).GetValue();
+            float riupp = RequestParameter<RI_OneUsagePureProfit>(calculator).GetValue();
+            float rirul = RequestParameter<RI_RoundUsageLimit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

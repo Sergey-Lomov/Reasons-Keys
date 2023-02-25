@@ -26,12 +26,12 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cgup = RequestParmeter<CG_OneUsageProfit>(calculator).GetValue();
-            float cmup = RequestParmeter<CM_OneUsageProfit>(calculator).GetValue();
-            float frp = RequestParmeter<FR_Profit>(calculator).GetValue();
-            float hbeup = RequestParmeter<HB_EstimatedOneUsageProfit>(calculator).GetValue();
-            float lnocp = RequestParmeter<LN_OneConnectionProfit>(calculator).GetValue();
-            float ssup = RequestParmeter<SS_OneUsageProfit>(calculator).GetValue();
+            float cgup = RequestParameter<CG_OneUsageProfit>(calculator).GetValue();
+            float cmup = RequestParameter<CM_OneUsageProfit>(calculator).GetValue();
+            float frp = RequestParameter<FR_Profit>(calculator).GetValue();
+            float hbeup = RequestParameter<HB_EstimatedOneUsageProfit>(calculator).GetValue();
+            float lnocp = RequestParameter<LN_OneConnectionProfit>(calculator).GetValue();
+            float ssup = RequestParameter<SS_OneUsageProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

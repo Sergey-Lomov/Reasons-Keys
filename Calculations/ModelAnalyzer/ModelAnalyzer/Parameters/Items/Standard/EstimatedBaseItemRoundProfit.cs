@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float aarp = RequestParmeter<AverageArtifactRoundProfit>(calculator).GetValue();
-            float apc = RequestParmeter<ArtifactsProfitCoefficient>(calculator).GetValue();
+            float aarp = RequestParameter<AverageArtifactRoundProfit>(calculator).GetValue();
+            float apc = RequestParameter<ArtifactsProfitCoefficient>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ebirp = RequestParmeter<EstimatedBaseItemRoundProfit>(calculator).GetValue();
-            float riup = RequestParmeter<RI_OneUsagePureProfit>(calculator).GetValue();
+            float ebirp = RequestParameter<EstimatedBaseItemRoundProfit>(calculator).GetValue();
+            float riup = RequestParameter<RI_OneUsagePureProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

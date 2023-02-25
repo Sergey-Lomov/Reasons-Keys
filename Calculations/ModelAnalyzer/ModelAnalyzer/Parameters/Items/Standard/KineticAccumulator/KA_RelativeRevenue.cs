@@ -20,9 +20,9 @@ namespace ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float am = RequestParmeter<AverageMining>(calculator).GetValue();
-            float pr = RequestParmeter<KA_Profit>(calculator).GetValue();
-            float fp = RequestParmeter<KA_FullPrice>(calculator).GetValue();
+            float am = RequestParameter<AverageMining>(calculator).GetValue();
+            float pr = RequestParameter<KA_Profit>(calculator).GetValue();
+            float fp = RequestParameter<KA_FullPrice>(calculator).GetValue();
 
             value = unroundValue = (pr - fp) / am;
 

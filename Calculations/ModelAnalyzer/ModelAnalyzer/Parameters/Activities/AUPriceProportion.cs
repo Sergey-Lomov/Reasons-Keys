@@ -20,12 +20,12 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eu = RequestParmeter<EUPartyAmount>(calculator).GetValue();
-            float au = RequestParmeter<AUPartyAmount>(calculator).GetValue();
-            float mota = RequestParmeter<MotionAmount>(calculator).GetValue();
-            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
-            float mina = RequestParmeter<MiningAmount>(calculator).GetValue();
-            float am = RequestParmeter<AverageMining>(calculator).GetValue();
+            float eu = RequestParameter<EUPartyAmount>(calculator).GetValue();
+            float au = RequestParameter<AUPartyAmount>(calculator).GetValue();
+            float mota = RequestParameter<MotionAmount>(calculator).GetValue();
+            float mp = RequestParameter<MotionPrice>(calculator).GetValue();
+            float mina = RequestParameter<MiningAmount>(calculator).GetValue();
+            float am = RequestParameter<AverageMining>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

@@ -26,7 +26,7 @@ namespace ModelAnalyzer.Parameters.Topology
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var pa = (int)RequestParmeter<PhasesAmount>(calculator).GetValue();
+            var pa = (int)RequestParameter<PhasesAmount>(calculator).GetValue();
             var deck = Deck(calculator);
 
             if (!calculationReport.IsSuccess)
@@ -84,8 +84,8 @@ namespace ModelAnalyzer.Parameters.Topology
 
         internal List<EventCard> Deck(Calculator calculator)
         {
-            var continuumDeck = RequestParmeter<MainDeck>(calculator).deck;
-            var initialDeck = RequestParmeter<StartDeck>(calculator).deck;
+            var continuumDeck = RequestParameter<MainDeck>(calculator).deck;
+            var initialDeck = RequestParameter<StartDeck>(calculator).deck;
 
             var result = new List<EventCard>();
             if (!calculationReport.IsSuccess)

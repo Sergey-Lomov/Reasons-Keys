@@ -20,8 +20,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
-            float pr = RequestParmeter<RI_Profit>(calculator).GetValue();
+            float ipc = RequestParameter<ItemPriceCoefficient>(calculator).GetValue();
+            float pr = RequestParameter<RI_Profit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

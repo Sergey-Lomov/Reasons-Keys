@@ -21,9 +21,9 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var eap = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
-            var peupc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
-            var adc = RequestParmeter<ArtifactDischargeCoef>(calculator).GetValue();
+            var eap = RequestParameter<EstimatedArtifactsProfit>(calculator).GetValue();
+            var peupc = RequestParameter<PureEUProfitCoefficient>(calculator).GetValue();
+            var adc = RequestParameter<ArtifactDischargeCoef>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

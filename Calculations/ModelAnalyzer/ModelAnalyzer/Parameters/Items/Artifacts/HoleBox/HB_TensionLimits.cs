@@ -22,9 +22,9 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eapr = RequestParmeter<EstimatedArtifactsProfit>(calculator).GetValue();
-            float peuprc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
-            float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
+            float eapr = RequestParameter<EstimatedArtifactsProfit>(calculator).GetValue();
+            float peuprc = RequestParameter<PureEUProfitCoefficient>(calculator).GetValue();
+            float tisa = RequestParameter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

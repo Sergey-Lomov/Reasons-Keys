@@ -20,7 +20,7 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float rip = RequestParmeter<RelationImpactPower>(calculator).GetValue();
+            float rip = RequestParameter<RelationImpactPower>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

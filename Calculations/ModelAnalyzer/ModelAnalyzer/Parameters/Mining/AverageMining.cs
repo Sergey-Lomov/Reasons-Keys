@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters.Mining
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eu = RequestParmeter<EUPartyAmount>(calculator).GetValue();
-            float ma = RequestParmeter<MiningAmount>(calculator).GetValue();
+            float eu = RequestParameter<EUPartyAmount>(calculator).GetValue();
+            float ma = RequestParameter<MiningAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

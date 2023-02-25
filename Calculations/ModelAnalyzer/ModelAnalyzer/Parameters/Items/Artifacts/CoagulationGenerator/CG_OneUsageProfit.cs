@@ -25,11 +25,11 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float isp = RequestParmeter<InitialSpeed>(calculator).GetValue();
-            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
-            float orsdpr = RequestParmeter<OneRoundSpeedDoublingProfit>(calculator).GetValue();
-            List<float> mdpa = RequestParmeter<MinDistancesPairsAmount_AA>(calculator).GetValue();
-            List<float> sbp = RequestParmeter<SB_Power>(calculator).GetValue();
+            float isp = RequestParameter<InitialSpeed>(calculator).GetValue();
+            float mp = RequestParameter<MotionPrice>(calculator).GetValue();
+            float orsdpr = RequestParameter<OneRoundSpeedDoublingProfit>(calculator).GetValue();
+            List<float> mdpa = RequestParameter<MinDistancesPairsAmount_AA>(calculator).GetValue();
+            List<float> sbp = RequestParameter<SB_Power>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

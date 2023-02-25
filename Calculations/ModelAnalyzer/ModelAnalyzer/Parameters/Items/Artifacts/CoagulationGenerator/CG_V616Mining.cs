@@ -25,8 +25,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> ma = RequestParmeter<MiningAllocation>(calculator).GetValue();
-            var anmb = RequestParmeter<AverageNozeroMiningBonus>(calculator).GetValue();
+            List<float> ma = RequestParameter<MiningAllocation>(calculator).GetValue();
+            var anmb = RequestParameter<AverageNozeroMiningBonus>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

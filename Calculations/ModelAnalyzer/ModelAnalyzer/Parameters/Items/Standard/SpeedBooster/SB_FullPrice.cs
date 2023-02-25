@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.SpeedBooster
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float ipc = RequestParmeter<ItemPriceCoefficient>(calculator).GetValue();
-            List<float> up = RequestParmeter<SB_UpgradesProfit>(calculator).GetValue();
+            float ipc = RequestParameter<ItemPriceCoefficient>(calculator).GetValue();
+            List<float> up = RequestParameter<SB_UpgradesProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

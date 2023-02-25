@@ -18,8 +18,8 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float hbmt = RequestParmeter<HB_MaxTransaction>(calculator).GetValue();
-            float peuc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
+            float hbmt = RequestParameter<HB_MaxTransaction>(calculator).GetValue();
+            float peuc = RequestParameter<PureEUProfitCoefficient>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

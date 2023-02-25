@@ -50,14 +50,14 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            var na = (int)RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            var pd = RequestParmeter<PhasesDuration>(calculator).GetValue();
-            var fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            var rna = RequestParmeter<RoundNodesAmount>(calculator).GetValue();
-            var fec = RequestParmeter<FrontEventsCoef>(calculator).GetValue();
-            var mrtu = RequestParmeter<MinRelationsTemplateUsability>(calculator).GetValue();
-            var emr = (int)RequestParmeter<EventMaxRelations>(calculator).GetValue();
-            var mbr = (int)RequestParmeter<MinBackRelations>(calculator).GetValue();
+            var na = (int)RequestParameter<ContinuumNodesAmount>(calculator).GetValue();
+            var pd = RequestParameter<PhasesDuration>(calculator).GetValue();
+            var fr = (int)RequestParameter<FieldRadius>(calculator).GetValue();
+            var rna = RequestParameter<RoundNodesAmount>(calculator).GetValue();
+            var fec = RequestParameter<FrontEventsCoef>(calculator).GetValue();
+            var mrtu = RequestParameter<MinRelationsTemplateUsability>(calculator).GetValue();
+            var emr = (int)RequestParameter<EventMaxRelations>(calculator).GetValue();
+            var mbr = (int)RequestParameter<MinBackRelations>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

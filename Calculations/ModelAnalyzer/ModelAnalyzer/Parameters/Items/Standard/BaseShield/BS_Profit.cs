@@ -21,7 +21,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseShield
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> up = RequestParmeter<BS_UpgradesProfit>(calculator).GetValue();
+            List<float> up = RequestParameter<BS_UpgradesProfit>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

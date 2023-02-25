@@ -26,16 +26,16 @@ namespace ModelAnalyzer.Parameters.BranchPoints
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
-            float keca = RequestParmeter<KeyEventCreationAmount>(calculator).GetValue();
-            float nkeca = RequestParmeter<NokeyEventCreationAmount>(calculator).GetValue();
-            float ieca = RequestParmeter<InitialEventCreationAmount>(calculator).GetValue();
-            var bcbp = RequestParmeter<AverageContinuumBP>(calculator).GetValue();
-            float kea = RequestParmeter<KeyEventsAmount>(calculator).GetValue();
+            float cna = RequestParameter<ContinuumNodesAmount>(calculator).GetValue();
+            float keca = RequestParameter<KeyEventCreationAmount>(calculator).GetValue();
+            float nkeca = RequestParameter<NokeyEventCreationAmount>(calculator).GetValue();
+            float ieca = RequestParameter<InitialEventCreationAmount>(calculator).GetValue();
+            var bcbp = RequestParameter<AverageContinuumBP>(calculator).GetValue();
+            float kea = RequestParameter<KeyEventsAmount>(calculator).GetValue();
             float iea = StartDeck.InitialEventsAmount;
-            float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float minpa = RequestParmeter<MinPlayersAmount>(calculator).GetValue();
-            float ketbp = RequestParmeter<KeyEventsTotalBrachPoints>(calculator).GetValue();
+            float maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            float minpa = RequestParameter<MinPlayersAmount>(calculator).GetValue();
+            float ketbp = RequestParameter<KeyEventsTotalBrachPoints>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

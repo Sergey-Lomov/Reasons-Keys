@@ -22,7 +22,7 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            List<float> mba = RequestParmeter<EventMiningBonusAllocation>(calculator).GetValue();
+            List<float> mba = RequestParameter<EventMiningBonusAllocation>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

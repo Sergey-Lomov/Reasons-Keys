@@ -20,9 +20,9 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eop = RequestParmeter<EventCreationPrice>(calculator).GetValue();
-            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
-            float liepc = RequestParmeter<LogisticInitialEventPowerCoefficient>(calculator).GetValue();
+            float eop = RequestParameter<EventCreationPrice>(calculator).GetValue();
+            float eip = RequestParameter<EventImpactPrice>(calculator).GetValue();
+            float liepc = RequestParameter<LogisticInitialEventPowerCoefficient>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

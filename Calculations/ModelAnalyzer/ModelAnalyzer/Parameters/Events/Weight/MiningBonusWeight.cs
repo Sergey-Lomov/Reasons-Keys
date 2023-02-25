@@ -21,10 +21,10 @@ namespace ModelAnalyzer.Parameters.Events.Weight
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float maxpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            float minpa = RequestParmeter<MinPlayersAmount>(calculator).GetValue();
-            float ma = RequestParmeter<MiningAmount>(calculator).GetValue();
-            float cna = RequestParmeter<ContinuumNodesAmount>(calculator).GetValue();
+            float maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            float minpa = RequestParameter<MinPlayersAmount>(calculator).GetValue();
+            float ma = RequestParameter<MiningAmount>(calculator).GetValue();
+            float cna = RequestParameter<ContinuumNodesAmount>(calculator).GetValue();
 
             float averagePlayersAmount = (maxpa + minpa) / 2;
             value = unroundValue = ma * averagePlayersAmount / cna; ;

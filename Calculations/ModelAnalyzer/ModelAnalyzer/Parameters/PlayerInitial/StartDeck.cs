@@ -71,10 +71,10 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
         private void SetupMiningBonuses(Calculator calculator)
         {
-            var amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
-            var anmb = RequestParmeter<AverageNozeroMiningBonus>(calculator).GetValue();
-            var kea = (int)RequestParmeter<KeyEventsAmount>(calculator).GetValue();
-            var mainDeck = RequestParmeter<MainDeck>(calculator).deck;
+            var amb = RequestParameter<AverageMiningBonus>(calculator).GetValue();
+            var anmb = RequestParameter<AverageNozeroMiningBonus>(calculator).GetValue();
+            var kea = (int)RequestParameter<KeyEventsAmount>(calculator).GetValue();
+            var mainDeck = RequestParameter<MainDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
                 return;
@@ -116,7 +116,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var initialEvents = new List<EventCard>();
 
-            float mpa = RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
+            float mpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
 
             var logisticEvent = LogisticEvent(calculator);
             var attackEvent = AttackEvent(calculator);
@@ -145,8 +145,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
         private EventCard LogisticEvent(Calculator calculator)
         {
-            var fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            var liemr = (int)RequestParmeter<LogisticInitialEventMaxRadius>(calculator).GetValue();
+            var fr = (int)RequestParameter<FieldRadius>(calculator).GetValue();
+            var liemr = (int)RequestParameter<LogisticInitialEventMaxRadius>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;
@@ -162,8 +162,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
         private EventCard AttackEvent(Calculator calculator)
         {
-            int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            int iamr = (int)RequestParmeter<AtackInitialEventMaxRadius>(calculator).GetValue();
+            int fr = (int)RequestParameter<FieldRadius>(calculator).GetValue();
+            int iamr = (int)RequestParameter<AtackInitialEventMaxRadius>(calculator).GetValue();
 
             var bp = new BranchPoint(BranchPoint.undefineBranch, -1);
             var bpList = new List<BranchPoint> { bp };
@@ -181,8 +181,8 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
         private EventCard SupportEvent(Calculator calculator)
         {
-            int fr = (int)RequestParmeter<FieldRadius>(calculator).GetValue();
-            int ismr = (int)RequestParmeter<SupportInitialEventMaxRadius>(calculator).GetValue();
+            int fr = (int)RequestParameter<FieldRadius>(calculator).GetValue();
+            int ismr = (int)RequestParameter<SupportInitialEventMaxRadius>(calculator).GetValue();
 
             var bp = new BranchPoint(BranchPoint.undefineBranch, +1);
             var bpList = new List<BranchPoint> { bp };
@@ -202,10 +202,10 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var keyEvents = new List<EventCard>();
 
-            int mpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            int kea = (int)RequestParmeter<KeyEventsAmount>(calculator).GetValue();
-            int kebp = (int)RequestParmeter<KeyEventsBranchPoints>(calculator).GetValue();
-            int mkebp = (int)RequestParmeter<MainKeyEventBranchPoints>(calculator).GetValue();
+            int mpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            int kea = (int)RequestParameter<KeyEventsAmount>(calculator).GetValue();
+            int kebp = (int)RequestParameter<KeyEventsBranchPoints>(calculator).GetValue();
+            int mkebp = (int)RequestParameter<MainKeyEventBranchPoints>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return null;

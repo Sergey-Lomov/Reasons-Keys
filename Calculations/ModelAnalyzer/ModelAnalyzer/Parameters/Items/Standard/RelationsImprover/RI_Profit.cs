@@ -19,8 +19,8 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eip = RequestParmeter<EventImpactPrice>(calculator).GetValue();
-            float ca = RequestParmeter<RI_ChargesAmount>(calculator).GetValue();
+            float eip = RequestParameter<EventImpactPrice>(calculator).GetValue();
+            float ca = RequestParameter<RI_ChargesAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

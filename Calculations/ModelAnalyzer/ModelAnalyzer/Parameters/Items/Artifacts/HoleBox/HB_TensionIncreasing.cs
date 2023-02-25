@@ -22,7 +22,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.HoleBox
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tisa = RequestParmeter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
+            float tisa = RequestParameter<HB_TensionInreasingStepsAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

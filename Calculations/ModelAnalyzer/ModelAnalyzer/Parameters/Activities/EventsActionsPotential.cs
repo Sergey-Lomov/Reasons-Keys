@@ -18,9 +18,9 @@ namespace ModelAnalyzer.Parameters.Activities
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tp = RequestParmeter<TotalPotential>(calculator).GetValue();
-            float ma = RequestParmeter<MotionAmount>(calculator).GetValue();
-            float mp = RequestParmeter<MotionPrice>(calculator).GetValue();
+            float tp = RequestParameter<TotalPotential>(calculator).GetValue();
+            float ma = RequestParameter<MotionAmount>(calculator).GetValue();
+            float mp = RequestParameter<MotionPrice>(calculator).GetValue();
 
             value = unroundValue = tp - ma * mp;
 

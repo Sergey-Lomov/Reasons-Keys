@@ -22,10 +22,10 @@ namespace ModelAnalyzer.Parameters.Predictability
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float tp = RequestParmeter<TotalPotential>(calculator).GetValue();
-            float mauc = RequestParmeter<MiningAUCoef>(calculator).GetValue();
-            float peuc = RequestParmeter<PureEUProfitCoefficient>(calculator).GetValue();
-            float ra = RequestParmeter<RoundAmount>(calculator).GetValue();
+            float tp = RequestParameter<TotalPotential>(calculator).GetValue();
+            float mauc = RequestParameter<MiningAUCoef>(calculator).GetValue();
+            float peuc = RequestParameter<PureEUProfitCoefficient>(calculator).GetValue();
+            float ra = RequestParameter<RoundAmount>(calculator).GetValue();
 
 
             if (!calculationReport.IsSuccess)

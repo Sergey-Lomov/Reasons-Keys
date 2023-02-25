@@ -22,11 +22,11 @@ namespace ModelAnalyzer.Parameters.Items.Standard.BaseWeapon
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float wsp = RequestParmeter<WeaponStandardPower>(calculator).GetValue();
-            float mpc = RequestParmeter<BW_MaxPowerCoefficient>(calculator).GetValue();
-            float ua = RequestParmeter<BW_UpgradesAmount>(calculator).GetValue();
-            float am = RequestParmeter<AverageMining>(calculator).GetValue();
-            float amb = RequestParmeter<AverageMiningBonus>(calculator).GetValue();
+            float wsp = RequestParameter<WeaponStandardPower>(calculator).GetValue();
+            float mpc = RequestParameter<BW_MaxPowerCoefficient>(calculator).GetValue();
+            float ua = RequestParameter<BW_UpgradesAmount>(calculator).GetValue();
+            float am = RequestParameter<AverageMining>(calculator).GetValue();
+            float amb = RequestParameter<AverageMiningBonus>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

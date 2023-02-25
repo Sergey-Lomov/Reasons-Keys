@@ -21,8 +21,8 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            int maxpa = (int)RequestParmeter<MaxPlayersAmount>(calculator).GetValue();
-            var deck = RequestParmeter<MainDeck>(calculator).deck;
+            int maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            var deck = RequestParameter<MainDeck>(calculator).deck;
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;

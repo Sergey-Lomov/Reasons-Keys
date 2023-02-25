@@ -22,10 +22,10 @@ namespace ModelAnalyzer.Parameters.Items
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float bspr = RequestParmeter<BS_Profit>(calculator).GetValue();
-            float bwpr = RequestParmeter<BW_Profit>(calculator).GetValue();
-            float kapr = RequestParmeter<KA_Profit>(calculator).GetValue();
-            float sbpr = RequestParmeter<SB_Profit>(calculator).GetValue();
+            float bspr = RequestParameter<BS_Profit>(calculator).GetValue();
+            float bwpr = RequestParameter<BW_Profit>(calculator).GetValue();
+            float kapr = RequestParameter<KA_Profit>(calculator).GetValue();
+            float sbpr = RequestParameter<SB_Profit>(calculator).GetValue();
 
             value = unroundValue = (bspr + bwpr + kapr + sbpr) / 4;
 
