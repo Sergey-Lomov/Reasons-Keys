@@ -83,7 +83,7 @@ namespace ModelAnalyzer.Services
                 card.minPhaseConstraint = (int)aap.GetValue();
         }*/
 
-        static internal Dictionary<EventCard, float> CardsStabilities(List<EventCard> deck, List<float> aripc)
+        static internal Dictionary<EventCard, float> CardsStabilities (List<EventCard> deck, List<float> aripc)
         {
             return deck.ToDictionary(c => c, c => aripc[c.BackRelationsCount()]);
         }
@@ -113,7 +113,7 @@ namespace ModelAnalyzer.Services
                 }
 
                 if (card.FrontRelationsCount() == 0) continue;
-
+    
                 var winners = branchPoints.Where(bp => bp.point > 0).Select(bp => bp.branch).ToList();
                 if (winners.Count > 0)
                 {

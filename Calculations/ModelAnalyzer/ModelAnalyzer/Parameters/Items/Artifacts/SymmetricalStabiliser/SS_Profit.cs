@@ -9,7 +9,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser
         public SS_Profit()
         {
             type = ParameterType.Inner;
-            title = "СС: Выгодность";
+            title = "СС: выгодность";
             details = "";
             fractionalDigits = 2;
             tags.Add(ParameterTag.items);

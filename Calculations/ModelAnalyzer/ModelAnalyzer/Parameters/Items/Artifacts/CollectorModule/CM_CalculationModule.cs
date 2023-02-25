@@ -11,6 +11,7 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
 {
     class CM_CalculationModule : CalculationModule
     {
+        internal float usageProfit;
         internal int usageAmount;
         internal float profit;
         internal float maxLimit;
@@ -36,9 +37,9 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            float eupr = ud * anmb * peuc;
-            usageAmount = (int)Math.Round(eapr / eupr, MidpointRounding.AwayFromZero);
-            profit = eupr * usageAmount;
+            usageProfit = ud * anmb * peuc;
+            usageAmount = (int)Math.Round(eapr / usageProfit, MidpointRounding.AwayFromZero);
+            profit = usageProfit * usageAmount;
             maxLimit = ud * anmb * maxlc;
             minLimit = adc / usageAmount * minlc;
 

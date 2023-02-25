@@ -10,21 +10,23 @@ using ModelAnalyzer.Parameters.Mining;
 using ModelAnalyzer.Parameters.Moving;
 using ModelAnalyzer.Parameters.Timing;
 using ModelAnalyzer.Parameters.PlayerInitial;
+using ModelAnalyzer.Parameters.Predictability;
 using ModelAnalyzer.Parameters.Topology;
 
 using ModelAnalyzer.Parameters.Items;
+using ModelAnalyzer.Parameters.Items.Standard;
 using ModelAnalyzer.Parameters.Items.Standard.BaseShield;
 using ModelAnalyzer.Parameters.Items.Standard.BaseWeapon;
 using ModelAnalyzer.Parameters.Items.Standard.SpeedBooster;
 using ModelAnalyzer.Parameters.Items.Standard.KineticAccumulator;
 
+using ModelAnalyzer.Parameters.Items.Artifacts;
 using ModelAnalyzer.Parameters.Items.Artifacts.CoagulationGenerator;
 using ModelAnalyzer.Parameters.Items.Artifacts.HoleBox;
 using ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle;
 using ModelAnalyzer.Parameters.Items.Artifacts.SymmetricalStabiliser;
 using ModelAnalyzer.Parameters.Items.Artifacts.CollectorModule;
 using ModelAnalyzer.Parameters.Items.Artifacts.FateRavel;
-using ModelAnalyzer.Parameters.Items.Artifacts;
 using ModelAnalyzer.Parameters.Items.Standard.RelationsImprover;
 
 namespace ModelAnalyzer
@@ -44,6 +46,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new RealUnluckyStackChance());
 
             storage.AddParameter(parameter: new ArtifactDischargeCoef());
+            storage.AddParameter(parameter: new ArtifactsActingAmount());
             storage.AddParameter(parameter: new ArtifactsDischargeCompensation());
             storage.AddParameter(parameter: new AtackAmount());
             storage.AddParameter(parameter: new AUPriceProportion());
@@ -180,6 +183,15 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new StartDeck());
             storage.AddParameter(parameter: new SupportInitialEventMaxRadius());
 
+            // Predictability
+            storage.AddParameter(parameter: new AverageActrionsRoundProfit());
+            storage.AddParameter(parameter: new AverageRoundProfit());
+            storage.AddParameter(parameter: new LastRoundMaxProfit());
+            storage.AddParameter(parameter: new LastRoundMaxProfitCoefficient());
+            storage.AddParameter(parameter: new MaxBaseItemsRoundPureProfit());
+            storage.AddParameter(parameter: new RoundMaxProfit());
+            storage.AddParameter(parameter: new RoundMaxProfitCoefficient());
+
             // Items
             storage.AddParameter(parameter: new ArtifactsAvailabilityRound());
             storage.AddParameter(parameter: new ArtifactsAvaliabilityPhase());
@@ -197,6 +209,8 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new WeaponStandardPower());
 
             // Standard
+            storage.AddParameter(parameter: new EstimatedBaseItemRoundProfit());
+
             storage.AddParameter(parameter: new BS_BasePower());
             storage.AddParameter(parameter: new BS_Defense());
             storage.AddParameter(parameter: new BS_FullPrice());
@@ -208,6 +222,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new BW_FullPrice());
             storage.AddParameter(parameter: new BW_MaxEffectivityCoefficient());
             storage.AddParameter(parameter: new BW_MaxPowerCoefficient());
+            storage.AddParameter(parameter: new BW_OneUsagePureProfit());
             storage.AddParameter(parameter: new BW_Profit());
             storage.AddParameter(parameter: new BW_ShotPrice());
             storage.AddParameter(parameter: new BW_UpgradesAmount());
@@ -224,7 +239,10 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new RI_FullPrice());
             storage.AddParameter(parameter: new RI_ImprovementLimit());
             storage.AddParameter(parameter: new RI_ImprovementLimitCoefficient());
+            storage.AddParameter(parameter: new RI_OneUsagePureProfit());
             storage.AddParameter(parameter: new RI_Profit());
+            storage.AddParameter(parameter: new RI_RoundUsageLimit());
+            storage.AddParameter(parameter: new RI_StandardPurchaseCount());
 
             storage.AddParameter(parameter: new SB_FullPrice());
             storage.AddParameter(parameter: new SB_MaxSpeedCoef());
@@ -234,12 +252,15 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new SB_UpgradesProfit());
 
             // Artifacts
+            storage.AddParameter(parameter: new AverageArtifactRoundProfit());
+
             storage.AddParameter(parameter: new CG_ChargesAmount());
             storage.AddParameter(parameter: new CG_OneUsageProfit());
             storage.AddParameter(parameter: new CG_Profit());
             storage.AddParameter(parameter: new CG_V616Mining());
 
             storage.AddParameter(parameter: new HB_CollapsePreparationDuration());
+            storage.AddParameter(parameter: new HB_EstimatedOneUsageProfit());
             storage.AddParameter(parameter: new HB_MaxTension());
             storage.AddParameter(parameter: new HB_MaxTransaction());
             storage.AddParameter(parameter: new HB_Profit());
@@ -261,6 +282,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new SS_Profit());
             storage.AddParameter(parameter: new SS_SecondaryImpactPower());
             storage.AddParameter(parameter: new SS_ImpactPower());
+            storage.AddParameter(parameter: new SS_OneUsageProfit());
             storage.AddParameter(parameter: new SS_SymmetricalNodesAmount());
             storage.AddParameter(parameter: new SS_UsageAmount());
 
@@ -268,6 +290,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new CM_MaxLimitCoef());
             storage.AddParameter(parameter: new CM_MinLimit());
             storage.AddParameter(parameter: new CM_MinLimitCoef());
+            storage.AddParameter(parameter: new CM_OneUsageProfit());
             storage.AddParameter(parameter: new CM_Profit());
             storage.AddParameter(parameter: new CM_UsageAmount());
             storage.AddParameter(parameter: new CM_UsageDifficulty());

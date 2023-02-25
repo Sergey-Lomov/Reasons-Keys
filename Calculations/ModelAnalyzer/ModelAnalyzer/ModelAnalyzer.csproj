@@ -71,6 +71,7 @@
     <Compile Include="DataModels\EventRelationsTemplate.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Parameters\Activities\ArtifactDischargeCoef.cs" />
+    <Compile Include="Parameters\Activities\ArtifactsActingAmount.cs" />
     <Compile Include="Parameters\Activities\ArtifactsDischargeCompensation.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventsConcreteBranchPoints.cs" />
     <Compile Include="Parameters\Activities\EstimatedEventCreationPrice.cs" />
@@ -117,6 +118,10 @@
     <Compile Include="Parameters\Events\Weight\MiningBonusWeight.cs" />
     <Compile Include="Parameters\FieldNodesFloatParameter.cs" />
     <Compile Include="Parameters\FieldNodesParameter.cs" />
+    <Compile Include="Parameters\Items\Artifacts\AverageArtifactRoundProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_OneUsageProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\HoleBox\HB_EstimatedOneUsageProfit.cs" />
+    <Compile Include="Parameters\Items\Artifacts\SymmetricalStabiliser\SS_OneUsageProfit.cs" />
     <Compile Include="Parameters\Items\ProtectionActualityCoefficient.cs" />
     <Compile Include="Parameters\Items\ArtifactsAvailabilityRound.cs" />
     <Compile Include="Parameters\Items\Artifacts\CollectorModule\CM_MaxLimit.cs" />
@@ -173,11 +178,13 @@
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_Damage.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_FullPrice.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_MaxPowerCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_OneUsagePureProfit.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_Profit.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_ShotPrice.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_MaxEffectivityCoefficient.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesAmount.cs" />
     <Compile Include="Parameters\Items\Standard\BaseWeapon\BW_UpgradesProfit.cs" />
+    <Compile Include="Parameters\Items\Standard\EstimatedBaseItemRoundProfit.cs" />
     <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_Capacity.cs" />
     <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_CapacityCoefficient.cs" />
     <Compile Include="Parameters\Items\Standard\KineticAccumulator\KA_FullPrice.cs" />
@@ -188,7 +195,10 @@
     <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_FullPrice.cs" />
     <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_ImprovementLimit.cs" />
     <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_ImprovementLimitCoefficient.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_OneUsagePureProfit.cs" />
     <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_Profit.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_RoundUsageLimit.cs" />
+    <Compile Include="Parameters\Items\Standard\RelationsImprover\RI_StandardPurchaseCount.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_FullPrice.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Power.cs" />
     <Compile Include="Parameters\Items\Standard\SpeedBooster\SB_Profit.cs" />
@@ -217,6 +227,13 @@
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPointsCoefficient.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsBranchPoints.cs" />
     <Compile Include="Parameters\PlayerInitial\KeyEventsTotalBrachPoints.cs" />
+    <Compile Include="Parameters\Predictability\AverageActrionsRoundProfit.cs" />
+    <Compile Include="Parameters\Predictability\AverageRoundProfit.cs" />
+    <Compile Include="Parameters\Predictability\LastRoundMaxProfit.cs" />
+    <Compile Include="Parameters\Predictability\LastRoundMaxProfitCoefficient.cs" />
+    <Compile Include="Parameters\Predictability\MaxBaseItemsRoundPureProfit.cs" />
+    <Compile Include="Parameters\Predictability\RoundMaxProfit.cs" />
+    <Compile Include="Parameters\Predictability\RoundMaxProfitCoefficient.cs" />
     <Compile Include="Parameters\Timing\FirstRoundAttackers.cs" />
     <Compile Include="Parameters\Timing\SafePeriodDuration.cs" />
     <Compile Include="Parameters\Topology\ContinuumFrontBlockersMap.cs" />
