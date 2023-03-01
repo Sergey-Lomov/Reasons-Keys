@@ -107,7 +107,7 @@ namespace ModelAnalyzer.Parameters
 
         internal T RequestParameter<T> (Calculator calculator) where T : Parameter
         {
-            var parameter = calculator.UpdatedParameter<T>();
+             var parameter = calculator.UpdatedParameter<T>();
 
             if (!parameter.VerifyValue())
             {

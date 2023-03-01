@@ -39,7 +39,7 @@ namespace ModelAnalyzer.Parameters.Activities
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            float iea = StartDeck.InitialEventsAmount;
+            float iea = StartDeck.initialEventsAmount;
             int[] bpam = BranchPointsAmounts;
 
             // For calculation details see mechanic document

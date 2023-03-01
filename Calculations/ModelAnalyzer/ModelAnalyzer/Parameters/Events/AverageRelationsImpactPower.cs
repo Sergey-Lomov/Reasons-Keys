@@ -23,25 +23,27 @@ namespace ModelAnalyzer.Parameters.Events
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float minpa = RequestParameter<MinPlayersAmount>(calculator).GetValue();
-            float maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
+            var minpa = RequestParameter<MinPlayersAmount>(calculator).GetValue();
+            var maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
             var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue(); // Constants from documentation
             var rtu = RequestParameter<RelationTemplatesUsage>(calculator).GetNoZero();
+            var kea = (int)RequestParameter<KeyEventsAmount>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
+            float sds = StartDeck.initialEventsAmount + kea;
+            int brsca1 = (int)(kea % 2 == 0 ? sds : sds - 1) * (int)maxpa;
+            int brsca2 = (kea % 2 == 0 ? 0 : 1) * (int)maxpa;
+            // 5 is max amount of back relations (based on field topology), but array shouls start from 0 back relations.
+            int[] brsca = new int[6] { 0, brsca1, brsca2, 0, 0, 0 };
+
             int brcca(int n) => rtu.Keys.Where(t => t.BackAmount() == n).Select(t => rtu[t].cardsCount).Sum();
-            int backAmount(List<EventRelation> relations) => relations.Where(r => r.direction == RelationDirection.back).Count();
-            int brsca(int n) => StartDeck.relationsPrototypes.FindAll(rs => backAmount(rs) == n).Count * (int)maxpa;
-
             int maxBackRelationsCount = rtu.Keys.Select(t => t.BackAmount()).Max();
-
             float cds = rtu.Select(kvp => kvp.Value.cardsCount).Sum();
-            float sds = StartDeck.relationsPrototypes.Count * maxpa;
             float acriCore(float n) => brcca((int)n) * aripc[(int)n];
             float acri = MathAdditional.Sum(0, maxBackRelationsCount, acriCore) / cds;
-            float asriCore(float n) => brsca((int)n) * aripc[(int)n];
+            float asriCore(float n) => brsca[(int)n] * aripc[(int)n];
             float asri = MathAdditional.Sum(0, maxBackRelationsCount, asriCore) / sds;
             float asds = sds * (minpa + maxpa) / 2f / maxpa;
 

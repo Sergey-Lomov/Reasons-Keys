@@ -12,14 +12,9 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 {
     class StartDeck : DeckParameter
     {
-        internal static int InitialEventsAmount = 3;
-        internal static List<List<EventRelation>> relationsPrototypes = new List<List<EventRelation>>() {
-                new List<EventRelation>() {EventRelation.Undefined(0), EventRelation.Undefined(1), EventRelation.Undefined(2), EventRelation.Undefined(3), EventRelation.Undefined(4), EventRelation.Undefined(5)}, // Logistic
-                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Atack
-                new List<EventRelation>() {EventRelation.BackReason(0)}, // Support
-                new List<EventRelation>() {EventRelation.BackReason(0)}, // Not main key
-                new List<EventRelation>() {EventRelation.BackBlocker(0)}, // Main key
-            };
+        internal static int initialEventsAmount = 3;
+        internal static List<EventRelation> backReason0 = new List<EventRelation> {EventRelation.BackReason(0)};
+        internal static List<EventRelation> backBlocker0 = new List<EventRelation> {EventRelation.BackBlocker(0)};
 
         private const int logisticIndex = 0;
         private const int attackIndex = 1;
@@ -63,8 +58,6 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             UpdateDeckUsability(calculator);
             UpdateDeckWeight(calculator);
-            // For now cards have no contraints
-            //UpdateDeckConstraints(calculator);
 
             return calculationReport;
         }
@@ -79,7 +72,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             if (!calculationReport.IsSuccess)
                 return;
 
-            var size = relationsPrototypes.Count;
+            var size = initialEventsAmount + kea;
 
             // Found bonuses combination
             var availableBonuses = mainDeck.Select(c => c.miningBonus).Distinct().ToList();
@@ -95,7 +88,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var initialBonuses = new List<int>();
             var keyBonuses = new List<int>();
             for (int i = 0; i < size; i++)
-                if ((i % 2 == 0 && keyBonuses.Count < kea) || initialBonuses.Count == InitialEventsAmount)
+                if ((i % 2 == 0 && keyBonuses.Count < kea) || initialBonuses.Count == initialEventsAmount)
                     keyBonuses.Add(bonuses[i]);
                 else
                     initialBonuses.Add(bonuses[i]);
@@ -118,32 +111,20 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             float mpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
 
-            var logisticEvent = LogisticEvent(calculator);
-            var attackEvent = AttackEvent(calculator);
-            var supportEvent = SupportEvent(calculator);
-
             if (!calculationReport.IsSuccess)
                 return initialEvents;
 
             for (int i = 0; i < mpa; i++)
             {
-                var playerMining = new EventCard(logisticEvent);
-                playerMining.name = "P" + (i + 1) + "_1";
-                initialEvents.Add(playerMining);
-
-                var playerAttack = new EventCard(attackEvent);
-                playerAttack.name = "P" + (i + 1) + "_2";
-                initialEvents.Add(new EventCard(playerAttack));
-
-                var playerSupport = new EventCard(supportEvent);
-                playerSupport.name = "P" + (i + 1) + "_3";
-                initialEvents.Add(new EventCard(playerSupport));
+                initialEvents.Add(LogisticEvent(calculator, i));
+                initialEvents.Add(AttackEvent(calculator, i));
+                initialEvents.Add(SupportEvent(calculator, i));
             }
 
             return initialEvents;
         }
 
-        private EventCard LogisticEvent(Calculator calculator)
+        private EventCard LogisticEvent(Calculator calculator, int owner)
         {
             var fr = (int)RequestParameter<FieldRadius>(calculator).GetValue();
             var liemr = (int)RequestParameter<LogisticInitialEventMaxRadius>(calculator).GetValue();
@@ -152,15 +133,16 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
                 return null;
 
             var card = new EventCard();
-            card.Relations = relationsPrototypes[logisticIndex];
+            card.Relations = new List<EventRelation> {EventRelation.Undefined(0), EventRelation.Undefined(1), EventRelation.Undefined(2), EventRelation.Undefined(3), EventRelation.Undefined(4), EventRelation.Undefined(5)};
             card.miningBonus = miningBonuses[logisticIndex];
             card.constraints.SetMaxRadius(liemr, fr);
+            card.name = "P" + (owner + 1) + "_" + logisticIndex;
             card.comment = logisticComment;
 
             return card;
         }
 
-        private EventCard AttackEvent(Calculator calculator)
+        private EventCard AttackEvent(Calculator calculator, int owner)
         {
             int fr = (int)RequestParameter<FieldRadius>(calculator).GetValue();
             int iamr = (int)RequestParameter<AtackInitialEventMaxRadius>(calculator).GetValue();
@@ -171,15 +153,16 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
 
             var card = new EventCard();
             card.branchPoints = branchPoints;
-            card.Relations = relationsPrototypes[attackIndex];
+            card.Relations = owner % 2 == 0 ? backBlocker0 : backReason0;
             card.miningBonus = miningBonuses[attackIndex];
             card.constraints.SetMaxRadius(iamr, fr);
+            card.name = "P" + (owner + 1) + "_" + attackIndex;
             card.comment = attackComment;
 
             return card;
         }
 
-        private EventCard SupportEvent(Calculator calculator)
+        private EventCard SupportEvent(Calculator calculator, int owner)
         {
             int fr = (int)RequestParameter<FieldRadius>(calculator).GetValue();
             int ismr = (int)RequestParameter<SupportInitialEventMaxRadius>(calculator).GetValue();
@@ -187,12 +170,14 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var bp = new BranchPoint(BranchPoint.undefineBranch, +1);
             var bpList = new List<BranchPoint> { bp };
             var branchPoints = new BranchPointsSet(bpList, bpList);
+            var relation = owner % 2 == 0 ? EventRelation.BackReason(0) : EventRelation.BackBlocker(0);
 
             var card = new EventCard();
             card.branchPoints = branchPoints;
-            card.Relations = relationsPrototypes[supportIndex];
+            card.Relations = owner % 2 == 0 ? backReason0 : backBlocker0;
             card.miningBonus = miningBonuses[supportIndex];
             card.constraints.SetMaxRadius(ismr, fr);
+            card.name = "P" + (owner + 1) + "_" + supportIndex;
             card.comment = supportComment;
 
             return card;
@@ -230,10 +215,10 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             {
                 var card = KeyEvent(kebp, owner, bpsOnSuccess);
 
-                card.Relations = relationsPrototypes[notMainKeyIndex + i];
+                card.Relations = owner % 2 == 0 ? backReason0 : backBlocker0;
                 card.miningBonus = miningBonuses[notMainKeyIndex + i];
                 card.comment = "Решающее событие";
-                card.name = "P" + (owner + 1) + "_" + (5 + i);
+                card.name = "P" + (owner + 1) + "_" + (notMainKeyIndex + i);
                 keyEvents.Add(card);
 
                 bpsOnSuccess = !bpsOnSuccess;
@@ -246,10 +231,10 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             var card = KeyEvent(mkebp, owner, owner % 2 == 0);
 
-            card.Relations = relationsPrototypes[mainKeyIndex];
             card.miningBonus = miningBonuses[mainKeyIndex];
+            card.Relations = owner % 2 == 0 ? backReason0 : backBlocker0;
             card.comment = "Главное решающее событие";
-            card.name = "P" + (owner + 1) + "_4";
+            card.name = "P" + (owner + 1) + "_" + mainKeyIndex;
 
             return card;
         }

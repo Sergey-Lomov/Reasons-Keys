@@ -32,7 +32,7 @@ namespace ModelAnalyzer.Parameters.BranchPoints
             float ieca = RequestParameter<InitialEventCreationAmount>(calculator).GetValue();
             var bcbp = RequestParameter<AverageContinuumBP>(calculator).GetValue();
             float kea = RequestParameter<KeyEventsAmount>(calculator).GetValue();
-            float iea = StartDeck.InitialEventsAmount;
+            float iea = StartDeck.initialEventsAmount;
             float maxpa = RequestParameter<MaxPlayersAmount>(calculator).GetValue();
             float minpa = RequestParameter<MinPlayersAmount>(calculator).GetValue();
             float ketbp = RequestParameter<KeyEventsTotalBrachPoints>(calculator).GetValue();
