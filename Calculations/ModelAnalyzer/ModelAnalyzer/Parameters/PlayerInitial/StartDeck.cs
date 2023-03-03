@@ -170,7 +170,6 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
             var bp = new BranchPoint(BranchPoint.undefineBranch, +1);
             var bpList = new List<BranchPoint> { bp };
             var branchPoints = new BranchPointsSet(bpList, bpList);
-            var relation = owner % 2 == 0 ? EventRelation.BackReason(0) : EventRelation.BackBlocker(0);
 
             var card = new EventCard();
             card.branchPoints = branchPoints;
