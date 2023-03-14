@@ -100,9 +100,10 @@
     <Compile Include="Parameters\BranchPoints\MaxBPLoosingCoefficient.cs" />
     <Compile Include="Parameters\BranchPoints\MaxGameBP.cs" />
     <Compile Include="Parameters\Events\AverageNozeroMiningBonus.cs" />
+    <Compile Include="Parameters\Events\BranchPointsEndlessRandomization.cs" />
     <Compile Include="Parameters\Events\BranchPointsRandomizationLimit.cs" />
     <Compile Include="Parameters\Events\BranchPointsDisbalance.cs" />
-    <Compile Include="Parameters\Events\BranchPointsRandomizationThreading.cs" />
+    <Compile Include="Parameters\Events\BranchPointsRandomizationSeed.cs" />
     <Compile Include="Parameters\Events\RelationTemplatesUsage.cs" />
     <Compile Include="Parameters\Events\AverageContinuumBP.cs" />
     <Compile Include="Parameters\Events\AverageMiningBonus.cs" />

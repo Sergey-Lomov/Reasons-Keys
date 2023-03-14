@@ -30,7 +30,6 @@ namespace ModelAnalyzer.Parameters.Events
             calculationReport = new ParameterCalculationReport(this);
 
             var core = RequestParameter<MainDeckCore>(calculator);
-            var mt = RequestParameter<BranchPointsRandomizationThreading>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
@@ -39,7 +38,7 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (var card in core.deck)
                 deck.Add(new EventCard(card));
 
-            AddBranchPoints(deck, calculator, mt);
+            AddBranchPoints(deck, calculator, true);
             UpdateDeckWeight(calculator);
             AddMiningBonuses(deck, calculator, calculationReport);
             UpdateDeckWeight(calculator);
@@ -109,18 +108,26 @@ namespace ModelAnalyzer.Parameters.Events
             // Randomization
             var maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
             var bprl = (int)RequestParameter<BranchPointsRandomizationLimit>(calculator).GetValue();
+            var bprs = (int)RequestParameter<BranchPointsRandomizationOffset>(calculator).GetValue();
             var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue();
+            var endless = RequestParameter<BranchPointsEndlessRandomization>(calculator).GetValue();
 
             var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
 
-            var randomizer = new Random(0);
+            var randomizer = new Random(bprs);
             var bpSets = BranchPointSets(calculator);
             float minDeviation = float.MaxValue;
             var minDeviationBPSets = bpSets.ToList();
 
+            var findValid = false;
+            long iteration = 0;
+
             var countdown = new CountdownEvent(bprl);
-            for (long i = 0; i < bprl; i++)
+            var findValidEvent = new ManualResetEvent(false);
+
+            while ((iteration < bprl && !endless) || (endless && !findValid))
             {
+                iteration++;
                 var randomizedSets = bpSets.OrderBy(bps => randomizer.Next()).ToList();
                 ThreadPool.QueueUserWorkItem(
                     _ =>
@@ -130,14 +137,32 @@ namespace ModelAnalyzer.Parameters.Events
                         {
                             if (deviation < minDeviation)
                             {
+                                if (deviation < BranchPointsDisbalance.criticalValue)
+                                {
+                                    findValid = true;
+                                    if (endless) 
+                                        findValidEvent.Set();
+                                }
+                                
                                 minDeviation = deviation;
                                 minDeviationBPSets = randomizedSets;
                             }
                         }
-                        countdown.Signal();
+
+                        if (!endless)
+                        {
+                            countdown.Signal();
+                        }
                     });
             }
-            countdown.Wait();
+
+            if (endless)
+            {
+                findValidEvent.WaitOne();
+            } else
+            {
+                countdown.Wait();
+            }
 
             var sets = bpSets.OrderBy(bps => randomizer.Next()).ToArray();
             for (int i = 0; i < cards.Count(); i++)

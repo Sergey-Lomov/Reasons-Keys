@@ -119,6 +119,7 @@ namespace ModelAnalyzer.Parameters.Events
         internal override ParameterValidationReport Validate(Validator validator, Storage storage)
         {
             var report = base.Validate(validator, storage);
+            if (IsValueNull()) { return report; }
 
             var allTemplates = EventRelationsTemplate.AllTemplates(Field.nearesNodesAmount);
             if (counts.Count < allTemplates.Count)
