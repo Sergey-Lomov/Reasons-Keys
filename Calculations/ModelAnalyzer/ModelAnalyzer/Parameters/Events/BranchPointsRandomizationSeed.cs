@@ -1,9 +1,9 @@
 ﻿
 namespace ModelAnalyzer.Parameters.Events
 {
-    class BranchPointsRandomizationOffset : FloatSingleParameter
+    class BranchPointsRandomizationSeed : FloatSingleParameter
     {
-        public BranchPointsRandomizationOffset()
+        public BranchPointsRandomizationSeed()
         {
             type = ParameterType.In;
             title = "Семя рандомизации для балансировки очков ветвей";

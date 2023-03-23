@@ -68,7 +68,7 @@ namespace ModelAnalyzer.Services
             return fieldAnalyzer.TemplateUsability(template, rna);
         }
 
-        // For now cards have no contraints
+        // For now cards have no constraints
        /* static internal void UpdateCardConstraints (EventCard card, Calculator calculator)
         {
            var aap = calculator.UpdatedParameter<ArtifactsAvaliabilityPhase>();
@@ -98,8 +98,7 @@ namespace ModelAnalyzer.Services
                 bpSets = deck.Select(c => c.branchPoints).ToList();
             }
 
-            List<float> playerPositiveStability = Enumerable.Repeat(0f, maxpa).ToList();
-            List<float> playerNegativeStability = Enumerable.Repeat(0f, maxpa).ToList();
+            List<float> playerStability = Enumerable.Repeat(0f, maxpa).ToList();
             List<float> playerForwardUsability = Enumerable.Repeat(0f, maxpa).ToList();
             for (int j = 0; j < deck.Count(); j++)
             {
@@ -108,8 +107,8 @@ namespace ModelAnalyzer.Services
                 var branchPoints = bpSets[j].failed.Concat(bpSets[j].success);
                 foreach (var bp in branchPoints)
                 {
-                    var targetList = bp.point > 0 ? playerPositiveStability : playerNegativeStability;
-                    targetList[bp.branch] += stability;
+                    var sign = bp.point > 0 ? 1 : -1;
+                    playerStability[bp.branch] += sign * stability;
                 }
 
                 if (card.FrontRelationsCount() == 0) continue;
@@ -130,8 +129,7 @@ namespace ModelAnalyzer.Services
 
             float relatedDevoition(List<float> list) => (list.Max() - list.Min()) / list.Average();
             var devoitions = new List<float>() {
-                relatedDevoition(playerPositiveStability),
-                relatedDevoition(playerNegativeStability),
+                relatedDevoition(playerStability),
                 relatedDevoition(playerForwardUsability)
             };
 

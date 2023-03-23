@@ -6,7 +6,7 @@ namespace ModelAnalyzer.Parameters.Events
 {
     class BranchPointsDisbalance : FloatSingleParameter
     {
-        public const float criticalValue = 0.05f;
+        public const float criticalValue = 0.025f;
         private const string bigValueIssue = "Отклонение слишком велико, нужно увеличить параметр \"Кол-во итераций при балансировке очков ветвей\"";
 
         public BranchPointsDisbalance()

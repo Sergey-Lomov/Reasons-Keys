@@ -38,9 +38,6 @@ namespace ModelAnalyzer.Services.FieldAnalyzer
                 var currentDistance = 0;
                 while (localHandledPoints.Count < points.Count)
                 {
-                    if (point.x == -2 && point.y == 0 && point.z == 2)
-                        Console.Write("Issue");
-
                     var longRoutes = localRoutes.Where(r => r.distance == currentDistance);
                     var edgePoints = longRoutes.Select(r => r.p2).ToList();
 

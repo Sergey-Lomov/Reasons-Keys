@@ -114,5 +114,28 @@ namespace ModelAnalyzer.Services
 
             return amounts;
         }
+
+        internal static Dictionary<K, List<V>> Split<K, V>(List<K> keys, List<V> values, List<float> weights)
+        {
+            var result = new Dictionary<K, List<V>>();
+            if (keys.Count != weights.Count) {
+                throw new Exception("Try to split with inconsistence keys and weights amount");
+            }
+
+            var unhandledValues = new List<V>(values);
+            var totalWeight = weights.Sum();
+            float roundingDeposit = 0;
+            for (int i = 0; i < keys.Count(); i++)
+            {
+                var weight = weights[i] / totalWeight;
+                var count = values.Count() * weight;
+                var roundedCount = (int)Math.Round(count + roundingDeposit, MidpointRounding.AwayFromZero);
+                roundingDeposit += count - roundedCount;
+                result[keys[i]] = unhandledValues.Take(roundedCount).ToList();
+                unhandledValues = unhandledValues.Skip(roundedCount).ToList();
+            }
+
+            return result;
+        }
     }
 }

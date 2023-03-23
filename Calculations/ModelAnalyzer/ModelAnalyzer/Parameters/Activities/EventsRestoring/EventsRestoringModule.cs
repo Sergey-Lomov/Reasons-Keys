@@ -16,13 +16,13 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
         private enum CardType { positive, neutral, negative }
 
-        internal struct StackDescrition
+        internal struct StackDescription
         {
             internal int size;
             internal float luckyChance;
             internal float unluckyChance;
 
-            internal StackDescrition(int size, float luckyChance, float unluckyChance)
+            internal StackDescription(int size, float luckyChance, float unluckyChance)
             {
                 this.size = size;
                 this.luckyChance = luckyChance;
@@ -30,7 +30,7 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
             }
         }
 
-        internal List<StackDescrition> stacks = new List<StackDescrition>();
+        internal List<StackDescription> stacks = new List<StackDescription>();
 
         public EventsRestoringModule()
         {
@@ -59,30 +59,34 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
             return calculationReport;
         }
 
-        private StackDescrition StackFor(int playersAmount, int maxPlayersAmount, List<EventCard> deck, float eusc, float mlsc, OperationReport report)
+        private StackDescription StackFor(int playersAmount, int maxPlayersAmount, List<EventCard> deck, float eusc, float mlsc, OperationReport report)
         {
-            var result = new StackDescrition();
+            var result = new StackDescription();
             var allPlayers = Enumerable.Range(0, maxPlayersAmount).ToList();
             var playersCombinations = Combinations.Build(allPlayers, playersAmount);
-            var stacks = new List<StackDescrition>();
+            var stacks = new List<StackDescription>();
             foreach (IEnumerable<int> combination in playersCombinations)
             {
                 var stack = StackFor(combination.ToArray(), deck, eusc, mlsc, report);
                 stacks.Add(stack);
             }
 
-            result.size = stacks.First().size;
+            /*result.size = stacks.First().size;
             if (stacks.Where(s => s.size != result.size).Count() > 0)
             {
                 report.AddIssue(inconsistentSizeIssue);
+            }*/
+            var size = (int)Math.Round(stacks.Select(s => s.size).Average(), MidpointRounding.AwayFromZero);
+            if (size > 0)
+            {
+                return StackFor(playersCombinations, deck, size);
+            } else
+            {
+                return stacks.First();
             }
-            result.unluckyChance = stacks.Select(s => s.unluckyChance).Average();
-            result.luckyChance = stacks.Select(s => s.luckyChance).Average();
-
-            return result;
         }
 
-        private StackDescrition StackFor(int[] availablePlayers, List<EventCard> deck, float eusc, float mlsc, OperationReport report)
+        private List<StackDescription> StacksFor(int[] availablePlayers, List<EventCard> deck)
         {
             var player = availablePlayers.First(); //Calculates only for first player, because all player have simmetrically cards concepts
             var negativeCards = deck.Where(c => TypeOf(c, player, availablePlayers) == CardType.negative).Count();
@@ -90,7 +94,7 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
             var totalCards = (float)deck.Count();
             var nonPositiveCards = totalCards - positiveCards;
 
-            var stacks = new List<StackDescrition>(maxStackSize);
+            var stacks = new List<StackDescription>(maxStackSize);
             for (int size = 1; size <= maxStackSize; size++)
             {
                 float negativeChance = 1;
@@ -100,19 +104,43 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
                     negativeChance *= (negativeCards - i) / (totalCards - i);
                     nonPositiveChance *= (nonPositiveCards - i) / (totalCards - i);
                 }
-                var stack = new StackDescrition(size, 1 - nonPositiveChance, negativeChance);
+                var stack = new StackDescription(size, 1 - nonPositiveChance, negativeChance);
                 stacks.Add(stack);
             }
-            var validStacks = stacks.Where(s => s.luckyChance >= mlsc);
+
+            return stacks;
+        }
+
+        private StackDescription StackFor(int[] availablePlayers, List<EventCard> deck, float eusc, float mlsc, OperationReport report)
+        {
+            var stacks = StacksFor(availablePlayers, deck);
+            var validStacks = stacks.Where(s => s.luckyChance >= mlsc).ToList();
             if (validStacks.Count() == 0)
             {
                 report.AddIssue(minimalLuckyIssue);
-                return new StackDescrition();
+                return new StackDescription();
             }
 
             var bestStack = validStacks.OrderBy(s => Math.Abs(s.unluckyChance - eusc)).First();
 
             return bestStack;
+        }
+
+        private StackDescription StackFor(System.Collections.IEnumerable playersCombinations, List<EventCard> deck, int size)
+        {
+            var stacks = new List<StackDescription>();
+            foreach (IEnumerable<int> combination in playersCombinations)
+            {
+                var combinationStacks = StacksFor(combination.ToArray(), deck);
+                var filtered = combinationStacks.Where(s => s.size == size);
+                stacks.Add(filtered.First());
+            }
+
+            var result = new StackDescription();
+            result.size = size;
+            result.unluckyChance = stacks.Select(s => s.unluckyChance).Average();
+            result.luckyChance = stacks.Select(s => s.luckyChance).Average();
+            return result;
         }
 
         private CardType TypeOf(EventCard card, int player, int[] availablePlayers)
@@ -123,7 +151,8 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
             var availableNegativeCount = negativePlayers.Where(p => availablePlayers.Contains(p)).Count();
             var playerPositiveCount = positivePlayers.Where(b => b == player).Count();
             var playerNegativeCount = negativePlayers.Where(b => b == player).Count();
-            if ((availableNegativeCount >= 2 && playerNegativeCount == 0) // Guaranted -1 to enemy
+            // TODO: Remove test code and test enum value
+            if ((availableNegativeCount >= 2 && playerNegativeCount == 0) // Guaranted -1 to enemy                                                             
                 || playerPositiveCount > 0 // Chance to get +1 to player
                 || (card.provideArtifact && (availablePositiveCount <= 2 || playerPositiveCount >= 0))) // Provide artifact and not get guaranted +1 to enemy   
                 return CardType.positive;

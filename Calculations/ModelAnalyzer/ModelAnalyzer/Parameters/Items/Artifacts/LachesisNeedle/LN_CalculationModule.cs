@@ -44,7 +44,10 @@ namespace ModelAnalyzer.Parameters.Items.Artifacts.LachesisNeedle
             int best_r = minr;
 
             for (int r = minr; r <= maxr; r++)
+            {
+                Console.WriteLine(r + ": " + delta(r));
                 best_r = delta(r) < delta(best_r) ? r : best_r;
+            }
 
             range = best_r;
             connectinosAmount = uc(best_r);
