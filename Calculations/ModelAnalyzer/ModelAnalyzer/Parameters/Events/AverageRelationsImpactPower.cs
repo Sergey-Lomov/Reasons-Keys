@@ -32,13 +32,14 @@ namespace ModelAnalyzer.Parameters.Events
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            float sds = StartDeck.initialEventsAmount + kea;
-            int brsca1 = (int)(kea % 2 == 0 ? sds : sds - 1) * (int)maxpa;
+            float psds = StartDeck.initialEventsAmount + kea;
+            float sds = psds * maxpa;
+            int brsca1 = (int)(kea % 2 == 0 ? psds : psds - 1) * (int)maxpa;
             int brsca2 = (kea % 2 == 0 ? 0 : 1) * (int)maxpa;
             // 5 is max amount of back relations (based on field topology), but array shouls start from 0 back relations.
             int[] brsca = new int[6] { 0, brsca1, brsca2, 0, 0, 0 };
-
             int brcca(int n) => rtu.Keys.Where(t => t.BackAmount() == n).Select(t => rtu[t].cardsCount).Sum();
+
             int maxBackRelationsCount = rtu.Keys.Select(t => t.BackAmount()).Max();
             float cds = rtu.Select(kvp => kvp.Value.cardsCount).Sum();
             float acriCore(float n) => brcca((int)n) * aripc[(int)n];
