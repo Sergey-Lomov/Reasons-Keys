@@ -345,11 +345,11 @@ function ExportFileToPDF(file, doc)
 function ExportFileToPNG24(file, doc) {
     var exportOptions = new ExportOptionsPNG24();
     exportOptions.antiAliasing = true;
-    exportOptions.transparency = false;
+    exportOptions.transparency = true;
     exportOptions.artBoardClipping = false;
-    exportOptions.horizontalScale = 300;
-    exportOptions.verticalScale = 300;
-    
+    exportOptions.horizontalScale = 450;
+    exportOptions.verticalScale = 450;
+
     var type = ExportType.PNG24;
     var fileSpec = new File(file);
 
