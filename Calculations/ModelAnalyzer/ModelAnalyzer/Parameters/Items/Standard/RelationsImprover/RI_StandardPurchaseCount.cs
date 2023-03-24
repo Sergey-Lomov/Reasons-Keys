@@ -8,7 +8,7 @@ namespace ModelAnalyzer.Parameters.Items.Standard.RelationsImprover
             type = ParameterType.In;
             title = "УС: стандартное кол-во покупок";
             details = "В течении партии игрок может купить несколько усилителей связей. Поэтому по, аналогии со стандартными кол-вами других действий игроков, работает данный параметр.";
-            fractionalDigits = 0;
+            fractionalDigits = 2;
             tags.Add(ParameterTag.items);
             tags.Add(ParameterTag.baseItems);
         }
