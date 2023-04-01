@@ -1,4 +1,4 @@
-cloning_source_tag = "cloning_source"
+local cloning_source_tag = "cloning_source"
 
 local function executeCloning(object)
   local clone = object.clone()
