@@ -29,6 +29,7 @@ end
 
 local function applyInjections(injections_table, event, ...)
   if injections_table == nil then return end
+  if injections_table[event] == nil then return end
 
   local injections = injections_table[event]
   for _, injection in ipairs(injections) do
