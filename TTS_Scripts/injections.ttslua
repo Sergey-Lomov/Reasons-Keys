@@ -1,0 +1,45 @@
+
+GlobalInjections = {}
+
+local function addInjection(injections_table, event, func)
+  if injections_table[event] == nil then
+    injections_table[event] = {}
+  end
+  table.insert(injections_table[event], func)
+end
+
+function addObjectInjection(object, event, func)
+  if object.events_injections == nil then
+    object.events_injections = {}
+  end
+  addInjection(object.events_injections, event, func)
+end
+
+function addGlobalInjection(event, func)
+  addInjection(GlobalInjections, event, func)
+end
+
+function getObjectInjections(object, event)
+  return object.events_injections[event]
+end
+
+function getGlobalInjections(event)
+  return GlobalInjections[event]
+end
+
+local function applyInjections(injections_table, event, ...)
+  if injections_table == nil then return end
+
+  local injections = injections_table[event]
+  for _, injection in ipairs(injections) do
+    injection(...)
+  end
+end
+
+function applyGlobalInjections(event, ...)
+  applyInjections(GlobalInjections, event, ...)
+end
+
+function applyObjectInjections(object, event, ...)
+  applyInjections(object.events_injections, event, ...)
+end

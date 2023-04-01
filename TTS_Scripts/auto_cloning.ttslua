@@ -1,0 +1,16 @@
+cloning_source_tag = "cloning_source"
+
+local function executeCloning(object)
+  local clone = object.clone()
+  clone.setPosition(object.getPosition())
+  clone.addTag(cloning_source_tag)
+  object.removeTag(cloning_source_tag)
+end
+
+local function cloningInjection(colorName, object)
+  if object.hasTag(cloning_source_tag) then
+    executeCloning(object)
+  end
+end
+
+addGlobalInjection(Events.onObjectPickUp, cloningInjection)
