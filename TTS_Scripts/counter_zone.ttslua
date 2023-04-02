@@ -1,0 +1,58 @@
+local counter_zone_tag = "counter_zone"
+
+thickness = 0.125
+color = color(0.8, 0.1, 0.1, 1.0)
+textId = nil
+textSize = 72
+valueKey = "denomination"
+
+local function updateValue()
+  local objects = self.getObjects()
+  local total = 0
+  for i, o in ipairs(objects) do
+    local value = o.getVar(valueKey)
+    local count = o.getQuantity()
+    count = (count == -1) and 1 or count
+    if value != nil then
+      total = total + value * count
+    end
+  end
+  getObjectFromGUID(textId).setValue("" .. total)
+end
+
+function onLoad()
+  --Make an X above the middle of the table
+  local pos = self.getPosition()
+  local scale = self.getScale()
+  local y = pos.y - scale.y / 2
+  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}
+  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}
+  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}
+  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}
+  local border =   {
+      points    = { p1, p2, p3, p4, p1},
+      color     = color,
+      thickness = thickness,
+      rotation  = {0,0,0},
+  }
+  local existLines = Global.getVectorLines()
+  existLines = (existLines != nil) and existLines or {}
+  table.insert(existLines, border)
+  Global.setVectorLines(existLines)
+
+  local text = getObjectFromGUID(textId)
+  text.TextTool.setFontColor(color)
+  text.TextTool.setFontSize(textSize)
+  updateValue()
+end
+
+function onObjectEnterZone(zone, object)
+    updateValue()
+end
+
+function onObjectLeaveZone(zone, object)
+    updateValue()
+end
+
+
+--addGlobalInjection(Events.onObjectEnterZone, updateValue)
