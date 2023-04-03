@@ -1,0 +1,128 @@
+local nodes = {
+  {x = 300.000, y = 300.000, forwardRelation = {true, true, true, true, true, true}},
+
+  {x = 300.000, y = 360.622, forwardRelation = {true, true, true, false, true, true}},
+  {x = 352.535, y = 330.311, forwardRelation = {true, true, true, true, false, false}},
+  {x = 352.535, y = 269.689, forwardRelation = {false, true, true, true, true, false}},
+  {x = 300.000, y = 239.378, forwardRelation = {false, false, true, true, true, true}},
+  {x = 247.525, y = 269.689, forwardRelation = {true, false, false, true, true, true}},
+  {x = 247.525, y = 330.311, forwardRelation = {true, false, false, false, true, true}},
+
+  {x = 300.000, y = 421.244, forwardRelation = {true, true, true, false, true, true}},
+  {x = 352.536, y = 390.934, forwardRelation = {true, true, true, false, false, false}},
+  {x = 405.029, y = 360.623, forwardRelation = {true, true, true, true, false, false}},
+  {x = 405.038, y = 300.000, forwardRelation = {false, true, true, true, false, false}},
+  {x = 405.028, y = 239.378, forwardRelation = {false, true, true, true, true, false}},
+  {x = 352.535, y = 209.067, forwardRelation = {false, false, true, true, true, false}},
+  {x = 300.000, y = 178.772, forwardRelation = {false, false, true, true, true, true}},
+  {x = 247.524, y = 209.067, forwardRelation = {false, false, false, true, true, true}},
+  {x = 195.037, y = 239.378, forwardRelation = {true, false, false, true, true, true}},
+  {x = 195.037, y = 300.000, forwardRelation = {true, false, false, false, true, true}},
+  {x = 195.038, y = 360.622, forwardRelation = {true, true, false, false, true, true}},
+  {x = 247.524, y = 390.934, forwardRelation = {true, false, false, false, false, true}},
+
+  {x = 300.000, y = 481.855, forwardRelation = {true, true, true, false, true, true}},
+  {x = 352.535, y = 451.554, forwardRelation = {true, true, true, false, false, false}},
+  {x = 405.068, y = 421.243, forwardRelation = {true, true, true, false, false, false}},
+  {x = 457.600, y = 390.932, forwardRelation = {true, true, true, true, false, false}},
+  {x = 457.600, y = 330.311, forwardRelation = {false, true, true, true, false, false}},
+  {x = 457.600, y = 269.69, forwardRelation = {false, true, true, true, false, false}},
+  {x = 457.600, y = 209.067, forwardRelation = {false, true, true, true, true, false}},
+  {x = 405.029, y = 178.756, forwardRelation = {false, false, true, true, true, false}},
+  {x = 352.535, y = 148.446, forwardRelation = {false, false, true, true, true, false}},
+  {x = 300.000, y = 118.135, forwardRelation = {false, false, true, true, true, true}},
+  {x = 247.524, y = 148.446, forwardRelation = {false, false, false, true, true, true}},
+  {x = 195.035, y = 178.756, forwardRelation = {false, false, false, true, true, true}},
+  {x = 142.544, y = 209.067, forwardRelation = {true, false, false, true, true, true}},
+  {x = 142.544, y = 269.689, forwardRelation = {true, false, false, false, true, true}},
+  {x = 142.544, y = 330.312, forwardRelation = {true, false, false, false, true, true}},
+  {x = 142.544, y = 390.933, forwardRelation = {true, true, false, false, true, true}},
+  {x = 195.038, y = 421.245, forwardRelation = {true, true, false, false, false, true}},
+  {x = 247.525, y = 451.556, forwardRelation = {true, false, false, false, false, true}},
+
+  {x = 300.000, y = 542.49, forwardRelation = {true, true, true, false, true, true}},
+  {x = 352.535, y = 512.179, forwardRelation = {true, true, true, false, false, false}},
+  {x = 405.068, y = 481.868, forwardRelation = {true, true, true, false, false, false}},
+  {x = 457.600, y = 451.554, forwardRelation = {true, true, true, false, false, false}},
+  {x = 510.124, y = 421.243, forwardRelation = {true, true, true, true, false, false}},
+  {x = 510.124, y = 360.623, forwardRelation = {false, true, true, true, false, false}},
+  {x = 510.124, y = 300.000, forwardRelation = {false, true, true, true, false, false}},
+  {x = 510.124, y = 239.379, forwardRelation = {false, true, true, true, false, false}},
+  {x = 510.124, y = 178.756, forwardRelation = {false, true, true, true, true, false}},
+  {x = 457.577, y = 148.446, forwardRelation = {false, false, true, true, true, false}},
+  {x = 405.069, y = 118.135, forwardRelation = {false, false, true, true, true, false}},
+  {x = 352.535, y = 87.824, forwardRelation = {false, false, true, true, true, false}},
+  {x = 300.000, y = 57.513, forwardRelation = {false, false, true, true, true, true}},
+  {x = 247.524, y = 87.824, forwardRelation = {false, false, false, true, true, true}},
+  {x = 195.035, y = 118.135, forwardRelation = {false, false, false, true, true, true}},
+  {x = 142.545, y = 148.446, forwardRelation = {false, false, false, true, true, true}},
+  {x = 90.112, y = 178.756, forwardRelation = {true, false, false, true, true, true}},
+  {x = 90.112, y = 239.378, forwardRelation = {true, false, false, false, true, true}},
+  {x = 90.112, y = 300.000, forwardRelation = {true, false, false, false, true, true}},
+  {x = 90.112, y = 360.623, forwardRelation = {true, false, false, false, true, true}},
+  {x = 90.112, y = 421.244, forwardRelation = {true, true, false, false, true, true}},
+  {x = 142.545, y = 451.556, forwardRelation = {true, true, false, false, false, true}},
+  {x = 195.035, y = 481.865, forwardRelation = {true, true, false, false, false, true}},
+  {x = 247.526, y = 512.179, forwardRelation = {true, false, false, false, false, true}},
+}
+
+local boardId = "6008c0"
+local boardHalfSize = 300
+local nodeInnerRadius = 60.622 / 600.0
+
+local function generateSnaps()
+  local board = getObjectFromGUID(boardId)
+  --local scale = {x = board.getScale().x, z = board.getScale().z}
+  --local position = {x = board.getPosition().x, z = board.getPosition().z}
+
+  local snaps = {}
+
+  --[[for radius = 0, 4 do
+    local nodesCount = radius * 6
+    for index = 0, nodesCount do
+      local angleStep = 2 * math.pi / nodesCount
+      local angle = math.pi / 2 - index * angleStep
+      local distance = radius * nodeDiameter
+      local center = {distance * math.cos(angle), 0, distance * math.sin(angle)}
+      local eventSnap = {position = center}
+      table.insert(snaps, eventSnap)
+    end
+  end]]--
+
+  for _, node in ipairs(nodes) do
+    local x = (node.x - boardHalfSize) / boardHalfSize * -1
+    local y = (node.y - boardHalfSize) / boardHalfSize * -1
+--[[    local text = spawnObject({
+      type = "3DText",
+      position = {x * 13.63, 2, y*13.63 - 3.94},
+      sound = false,
+      rotation = {90, 0, 0}
+    })
+    text.TextTool.setFontSize(16)
+    text.TextTool.setValue("" .. nIndex) ]]--
+    local eventSnap = {
+      position = {x, 1, y},
+      tags = {"event_card", "realization_tocken"}
+    }
+    table.insert(snaps, eventSnap)
+
+    for index, isForward in ipairs(node.forwardRelation) do
+      if isForward then
+        local angle = math.pi / 2 + (index - 1) * math.pi / 3
+        local deltaX = nodeInnerRadius * math.cos(angle)
+        local deltaY = nodeInnerRadius * math.sin(angle)
+        local relSnap = {
+          position = {x + deltaX, 1, y - deltaY},
+          tags = {"relation_element"},
+          rotation = {0, (index - 1) * 60, 0},
+          rotation_snap = true
+        }
+        table.insert(snaps, relSnap)
+      end
+    end
+  end
+
+  board.setSnapPoints(snaps)
+end
+
+addGlobalInjection(Events.onLoad, generateSnaps)
