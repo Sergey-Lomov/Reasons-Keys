@@ -1,5 +1,6 @@
 local itemsListsIds = {"bffb9a", "8c9809", "21377d", "d10057", "f8bf5a", "4efcd6"}
 local itemMarkerTag = "item_marker"
+
 local points = {
   {x = 41, y = 17.5},
   {x = 52, y = 17.5},
@@ -13,12 +14,13 @@ local points = {
   {x = 108, y = 17.5},
   {x = 107.93, y = 61.5},
 }
+
 local halfWidth = 117 / 2.0
 local halfHeight = 86 / 2.0
-local xMult = (halfHeight < halfWidth) and halfWidth / halfHeight or 1
-local yMult = (halfWidth < halfHeight) and halfHeight / halfWisth or 1
 local xOffset = 3
 local yOffset = 3
+local xMult = (halfHeight < halfWidth) and halfWidth / halfHeight or 1
+local yMult = (halfWidth < halfHeight) and halfHeight / halfWisth or 1
 
 local function generateSnapsFor(itemsListId)
   local itemsList = getObjectFromGUID(itemsListId)
