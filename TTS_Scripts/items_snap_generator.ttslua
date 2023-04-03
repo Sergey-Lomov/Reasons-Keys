@@ -1,0 +1,46 @@
+local itemsListsIds = {"bffb9a", "8c9809", "21377d", "d10057", "f8bf5a", "4efcd6"}
+local itemMarkerTag = "item_marker"
+local points = {
+  {x = 41, y = 17.5},
+  {x = 52, y = 17.5},
+  {x = 63, y = 17.5},
+  {x = 41, y = 48.5},
+  {x = 52, y = 48.5},
+  {x = 63, y = 48.5},
+  {x = 41, y = 73.5},
+  {x = 52, y = 73.5},
+  {x = 63, y = 73.5},
+  {x = 108, y = 17.5},
+  {x = 107.93, y = 61.5},
+}
+local halfWidth = 117 / 2.0
+local halfHeight = 86 / 2.0
+local xMult = (halfHeight < halfWidth) and halfWidth / halfHeight or 1
+local yMult = (halfWidth < halfHeight) and halfHeight / halfWisth or 1
+local xOffset = 3
+local yOffset = 3
+
+local function generateSnapsFor(itemsListId)
+  local itemsList = getObjectFromGUID(itemsListId)
+  local snaps = {}
+
+  for _, point in ipairs(points) do
+    local x = (point.x - xOffset - halfWidth) / halfWidth * -1 * xMult
+    local y = (point.y - yOffset - halfHeight) / halfHeight * yMult
+    local snap = {
+      position = {x, 0, y},
+      tags = {itemMarkerTag}
+    }
+    table.insert(snaps, snap)
+  end
+
+  itemsList.setSnapPoints(snaps)
+end
+
+local function generateSnaps()
+  for _, listId in ipairs(itemsListsIds) do
+    generateSnapsFor(listId)
+  end
+end
+
+addGlobalInjection(Events.onLoad, generateSnaps)

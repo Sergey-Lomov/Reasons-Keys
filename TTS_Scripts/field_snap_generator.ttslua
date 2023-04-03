@@ -72,34 +72,11 @@ local nodeInnerRadius = 60.622 / 600.0
 
 local function generateSnaps()
   local board = getObjectFromGUID(boardId)
-  --local scale = {x = board.getScale().x, z = board.getScale().z}
-  --local position = {x = board.getPosition().x, z = board.getPosition().z}
-
   local snaps = {}
-
-  --[[for radius = 0, 4 do
-    local nodesCount = radius * 6
-    for index = 0, nodesCount do
-      local angleStep = 2 * math.pi / nodesCount
-      local angle = math.pi / 2 - index * angleStep
-      local distance = radius * nodeDiameter
-      local center = {distance * math.cos(angle), 0, distance * math.sin(angle)}
-      local eventSnap = {position = center}
-      table.insert(snaps, eventSnap)
-    end
-  end]]--
 
   for _, node in ipairs(nodes) do
     local x = (node.x - boardHalfSize) / boardHalfSize * -1
     local y = (node.y - boardHalfSize) / boardHalfSize * -1
---[[    local text = spawnObject({
-      type = "3DText",
-      position = {x * 13.63, 2, y*13.63 - 3.94},
-      sound = false,
-      rotation = {90, 0, 0}
-    })
-    text.TextTool.setFontSize(16)
-    text.TextTool.setValue("" .. nIndex) ]]--
     local eventSnap = {
       position = {x, 1, y},
       tags = {"event_card", "realization_tocken"}
