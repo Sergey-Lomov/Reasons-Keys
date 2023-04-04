@@ -1,0 +1,189 @@
+{
+  "SaveName": "",
+  "Date": "",
+  "VersionNumber": "",
+  "GameMode": "",
+  "GameType": "",
+  "GameComplexity": "",
+  "Tags": [],
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+  "Table": "",
+  "Sky": "",
+  "Note": "",
+  "TabStates": {},
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "XmlUI": "",
+  "ObjectStates": [
+    {
+      "GUID": "4efcd6",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": -24.1,
+        "posY": 0.960000157,
+        "posZ": -11.1,
+        "rotX": 2.29331434E-07,
+        "rotY": 270.0,
+        "rotZ": 1.23478287E-07,
+        "scaleX": 3.4,
+        "scaleY": 1.0,
+        "scaleZ": 3.4
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2075637243223902912/B38B584921769E15D4FC949417CAB0D1B5FDD909/",
+        "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/2075637243223903515/10A7DC2F68C74C942CE8501C0BFF74077FF04F07/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 3,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 0.476744175,
+            "y": 0.0,
+            "z": -0.6627907
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.220930234,
+            "y": 0.0,
+            "z": -0.6627907
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.0348837227,
+            "y": 0.0,
+            "z": -0.6627907
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.476744175,
+            "y": 0.0,
+            "z": 0.0581395365
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.220930234,
+            "y": 0.0,
+            "z": 0.0581395365
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.0348837227,
+            "y": 0.0,
+            "z": 0.0581395365
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.476744175,
+            "y": 0.0,
+            "z": 0.6395349
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.220930234,
+            "y": 0.0,
+            "z": 0.6395349
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.0348837227,
+            "y": 0.0,
+            "z": 0.6395349
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.08139539,
+            "y": 0.0,
+            "z": -0.6627907
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.07976747,
+            "y": 0.0,
+            "z": 0.3604651
+          },
+          "Tags": [
+            "item_marker"
+          ]
+        }
+      ]
+    }
+  ]
+}

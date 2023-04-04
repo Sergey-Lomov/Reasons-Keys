@@ -20,12 +20,12 @@
       "GUID": "d7d97e",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -7.343492,
+        "posX": -9.17083,
         "posY": 1.0600003,
-        "posZ": 14.709507,
-        "rotX": -3.11223448E-05,
-        "rotY": 179.999985,
-        "rotZ": 4.90262937E-05,
+        "posZ": 14.3679028,
+        "rotX": -3.145839E-05,
+        "rotY": 180.016556,
+        "rotZ": 5.38246277E-05,
         "scaleX": 0.43313846,
         "scaleY": 1.0,
         "scaleZ": 0.43313846
@@ -39,10 +39,13 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.06274506,
-        "g": 0.0431372076,
+        "r": 0.06274305,
+        "g": 0.043135412,
         "b": 0.454901934
       },
+      "Tags": [
+        "horizon_tocken"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,

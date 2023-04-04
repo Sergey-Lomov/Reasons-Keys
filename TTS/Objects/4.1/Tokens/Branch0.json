@@ -17,15 +17,15 @@
   "XmlUI": "",
   "ObjectStates": [
     {
-      "GUID": "4da155",
+      "GUID": "657768",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 14.920846,
-        "posY": 0.959999859,
-        "posZ": 17.32204,
-        "rotX": -1.6324977E-05,
-        "rotY": 180.000015,
-        "rotZ": 2.594831E-05,
+        "posX": 19.9982967,
+        "posY": 0.96,
+        "posZ": 8.3,
+        "rotX": -1.37877632E-05,
+        "rotY": 90.0,
+        "rotZ": 1.95676566E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -39,12 +39,13 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.176470369,
+        "r": 0.1764678,
         "g": 0.6901961,
         "b": 0.8156863
       },
       "Tags": [
-        "cloning_source"
+        "cloning_source",
+        "item_marker"
       ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,

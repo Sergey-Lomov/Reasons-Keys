@@ -20,12 +20,12 @@
       "GUID": "e8e7cb",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -27.2627373,
+        "posX": -19.9999924,
         "posY": 0.959999859,
-        "posZ": 15.7151508,
-        "rotX": -1.73736062E-05,
-        "rotY": 180.0,
-        "rotZ": 2.53977687E-05,
+        "posZ": -4.1,
+        "rotX": -1.33197718E-05,
+        "rotY": 270.4334,
+        "rotZ": 2.323536E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -44,7 +44,8 @@
         "b": 0.0235294122
       },
       "Tags": [
-        "cloning_source"
+        "cloning_source",
+        "item_marker"
       ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,

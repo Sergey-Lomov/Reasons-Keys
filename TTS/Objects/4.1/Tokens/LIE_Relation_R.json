@@ -17,15 +17,15 @@
   "XmlUI": "",
   "ObjectStates": [
     {
-      "GUID": "3fd39e",
+      "GUID": "615dd2",
       "Name": "Custom_Token",
       "Transform": {
-        "posX": -10.0629311,
-        "posY": 1.10881233,
-        "posZ": 7.02376842,
-        "rotX": 0.002519186,
-        "rotY": 210.032516,
-        "rotZ": 179.997162,
+        "posX": 11.185729,
+        "posY": 1.10991561,
+        "posZ": -12.3021679,
+        "rotX": -0.000846340961,
+        "rotY": -0.000111964961,
+        "rotZ": 0.00368871377,
         "scaleX": 0.25,
         "scaleY": 1.0,
         "scaleZ": 0.25

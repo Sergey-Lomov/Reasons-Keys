@@ -17,18 +17,18 @@
   "XmlUI": "",
   "ObjectStates": [
     {
-      "GUID": "3ffdd1",
-      "Name": "Custom_Tile",
+      "GUID": "487594",
+      "Name": "Custom_PDF",
       "Transform": {
-        "posX": 20.0,
-        "posY": 0.96,
-        "posZ": -16.4997826,
-        "rotX": -1.82613239E-05,
-        "rotY": 89.9818344,
-        "rotZ": 2.59244025E-05,
-        "scaleX": 0.45,
+        "posX": 5.00000143,
+        "posY": 3.8215158,
+        "posZ": 20.2,
+        "rotX": -3.395419E-07,
+        "rotY": 89.99395,
+        "rotZ": 180.0,
+        "scaleX": 2.0,
         "scaleY": 1.0,
-        "scaleZ": 0.45
+        "scaleZ": 2.0
       },
       "Nickname": "",
       "Description": "",
@@ -39,14 +39,10 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.698039234,
-        "g": 0.6627451,
-        "b": 0.6
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
       },
-      "Tags": [
-        "cloning_source",
-        "item_marker"
-      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -61,17 +57,11 @@
       "GridProjection": false,
       "HideWhenFaceDown": false,
       "Hands": false,
-      "CustomImage": {
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2075637136801849916/35B259D10D40C917F8C6CD23CA99A473092A805E/",
-        "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/2075637136801849916/35B259D10D40C917F8C6CD23CA99A473092A805E/",
-        "ImageScalar": 1.0,
-        "WidthScale": 0.0,
-        "CustomTile": {
-          "Type": 1,
-          "Thickness": 0.1,
-          "Stackable": true,
-          "Stretch": true
-        }
+      "CustomPDF": {
+        "PDFUrl": "http://cloud-3.steamusercontent.com/ugc/2075637243229211056/6A843E8653C6B7EC966F75E8C9C433C36852ED1A/",
+        "PDFPassword": "",
+        "PDFPage": 0,
+        "PDFPageOffset": 0
       },
       "LuaScript": "",
       "LuaScriptState": "",

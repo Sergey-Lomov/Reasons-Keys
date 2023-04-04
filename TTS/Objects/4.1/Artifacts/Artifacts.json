@@ -17,15 +17,15 @@
   "XmlUI": "",
   "ObjectStates": [
     {
-      "GUID": "5fff00",
+      "GUID": "aee28e",
       "Name": "Deck",
       "Transform": {
-        "posX": -14.449893,
-        "posY": 1.038699,
-        "posZ": 12.2055912,
-        "rotX": 2.717352E-06,
-        "rotY": 179.9896,
-        "rotZ": 180.0,
+        "posX": -10.8034315,
+        "posY": 1.13718963,
+        "posZ": -12.5631075,
+        "rotX": -0.00360721746,
+        "rotY": 59.9330521,
+        "rotZ": 180.00116,
         "scaleX": 1.04,
         "scaleY": 1.0,
         "scaleZ": 1.04
@@ -39,10 +39,13 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.0784309,
-        "g": 0.09411719,
-        "b": 0.105881877
+        "r": 0.07842726,
+        "g": 0.09411294,
+        "b": 0.105877481
       },
+      "Tags": [
+        "non_event_artifact"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -59,18 +62,18 @@
       "Hands": false,
       "SidewaysCard": false,
       "DeckIDs": [
-        1502,
-        1507,
-        1503,
-        1508,
-        1511,
-        1501,
+        1505,
+        1509,
         1500,
+        1507,
         1504,
         1506,
-        1509,
+        1511,
+        1503,
         1510,
-        1505
+        1501,
+        1508,
+        1502
       ],
       "CustomDeck": {
         "15": {
@@ -88,15 +91,15 @@
       "XmlUI": "",
       "ContainedObjects": [
         {
-          "GUID": "00f582",
+          "GUID": "28c0de",
           "Name": "Card",
           "Transform": {
-            "posX": -15.0560532,
-            "posY": 1.38037992,
-            "posZ": 12.7580261,
-            "rotX": 359.877045,
-            "rotY": 270.002625,
-            "rotZ": 189.023087,
+            "posX": -10.7433958,
+            "posY": 1.23440242,
+            "posZ": -12.0794153,
+            "rotX": -0.00356146647,
+            "rotY": 59.9890747,
+            "rotZ": 180.001663,
             "scaleX": 1.04,
             "scaleY": 1.0,
             "scaleZ": 1.04
@@ -110,10 +113,13 @@
             "z": 0.0
           },
           "ColorDiffuse": {
-            "r": 0.07843087,
-            "g": 0.09411716,
-            "b": 0.105881847
+            "r": 0.07842726,
+            "g": 0.09411294,
+            "b": 0.105877481
           },
+          "Tags": [
+            "non_event_artifact"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -128,7 +134,7 @@
           "GridProjection": false,
           "HideWhenFaceDown": true,
           "Hands": true,
-          "CardID": 1502,
+          "CardID": 1505,
           "SidewaysCard": false,
           "CustomDeck": {
             "15": {
@@ -143,485 +149,143 @@
           },
           "LuaScript": "",
           "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "bac971",
-          "Name": "Card",
-          "Transform": {
-            "posX": 20.9679813,
-            "posY": 1.09747159,
-            "posZ": -5.35186243,
-            "rotX": -0.00457538338,
-            "rotY": 179.999527,
-            "rotZ": 179.998459,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1507,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
+          "XmlUI": "",
+          "AttachedSnapPoints": [
+            {
+              "Position": {
+                "x": 0.711859465,
+                "y": 0.209304988,
+                "z": 0.255889148
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": 0.3565922,
+                "y": 0.209304914,
+                "z": 0.250461429
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": -0.00765847135,
+                "y": 0.209304869,
+                "z": 0.2613548
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": -0.374688983,
+                "y": 0.209304839,
+                "z": 0.250491679
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": -0.742248,
+                "y": 0.2093048,
+                "z": 0.255951047
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": -0.557877,
+                "y": 0.209305152,
+                "z": 0.6864939
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": -0.400201529,
+                "y": 0.2093047,
+                "z": 1.07382917
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": -0.023970658,
+                "y": 0.20930472,
+                "z": 1.0690645
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": -0.183787614,
+                "y": 0.2093052,
+                "z": 0.671248138
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": 0.179208949,
+                "y": 0.209305242,
+                "z": 0.6661502
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": 0.5372236,
+                "y": 0.2093053,
+                "z": 0.6762948
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
+            },
+            {
+              "Position": {
+                "x": 0.3699932,
+                "y": 0.20930469,
+                "z": 1.07379556
+              },
+              "Tags": [
+                "hole_tocken"
+              ]
             }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "f93bd4",
-          "Name": "Card",
-          "Transform": {
-            "posX": 21.19284,
-            "posY": 1.15258372,
-            "posZ": -5.997554,
-            "rotX": 359.965851,
-            "rotY": 179.999954,
-            "rotZ": 179.99353,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1503,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "091fa7",
-          "Name": "Card",
-          "Transform": {
-            "posX": 21.36122,
-            "posY": 1.07811272,
-            "posZ": -5.808163,
-            "rotX": -0.0005330193,
-            "rotY": 180.0,
-            "rotZ": 180.000946,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1508,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "09535e",
-          "Name": "Card",
-          "Transform": {
-            "posX": 21.0313683,
-            "posY": 1.1130724,
-            "posZ": -5.933818,
-            "rotX": 0.136385426,
-            "rotY": 179.998871,
-            "rotZ": 179.773056,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1511,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "47becc",
-          "Name": "Card",
-          "Transform": {
-            "posX": 21.6173019,
-            "posY": 1.08794749,
-            "posZ": -5.17924,
-            "rotX": 359.9654,
-            "rotY": 180.0,
-            "rotZ": 180.014,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1501,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "dfab06",
-          "Name": "Card",
-          "Transform": {
-            "posX": 21.45384,
-            "posY": 1.04927063,
-            "posZ": -6.191729,
-            "rotX": 0.00185779808,
-            "rotY": 180.0,
-            "rotZ": 180.000519,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1500,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "dc55cb",
-          "Name": "Card",
-          "Transform": {
-            "posX": 21.2228851,
-            "posY": 1.13587248,
-            "posZ": -5.21972275,
-            "rotX": -0.00205306476,
-            "rotY": 180.0,
-            "rotZ": 179.998566,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1504,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "1ea49a",
-          "Name": "Card",
-          "Transform": {
-            "posX": 21.04983,
-            "posY": 1.12627149,
-            "posZ": -5.85696268,
-            "rotX": -0.0005241818,
-            "rotY": 180.00177,
-            "rotZ": 180.001251,
-            "scaleX": 1.0,
-            "scaleY": 1.0,
-            "scaleZ": 1.0
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 1506,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "15": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
-              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
-              "NumWidth": 3,
-              "NumHeight": 4,
-              "BackIsHidden": false,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
+          ]
         },
         {
           "GUID": "317d0c",
           "Name": "Card",
           "Transform": {
-            "posX": 21.1683884,
-            "posY": 1.06848478,
-            "posZ": -6.660446,
-            "rotX": 0.0001576037,
-            "rotY": 180.0,
-            "rotZ": 179.99971,
-            "scaleX": 1.0,
+            "posX": -12.4650459,
+            "posY": 1.08247674,
+            "posZ": -10.154706,
+            "rotX": 0.00355776818,
+            "rotY": 270.018677,
+            "rotZ": 180.000137,
+            "scaleX": 1.04,
             "scaleY": 1.0,
-            "scaleZ": 1.0
+            "scaleZ": 1.04
           },
           "Nickname": "",
           "Description": "",
@@ -632,10 +296,13 @@
             "z": 0.0
           },
           "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
+            "r": 0.07842729,
+            "g": 0.09411297,
+            "b": 0.105877511
           },
+          "Tags": [
+            "non_event_artifact"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -668,18 +335,18 @@
           "XmlUI": ""
         },
         {
-          "GUID": "42723f",
+          "GUID": "dfab06",
           "Name": "Card",
           "Transform": {
-            "posX": 21.12897,
-            "posY": 0.973583,
-            "posZ": -5.92355728,
-            "rotX": -0.000672357448,
-            "rotY": 180.0,
-            "rotZ": 180.000809,
-            "scaleX": 1.0,
+            "posX": 9.571334,
+            "posY": 1.12655568,
+            "posZ": -9.997445,
+            "rotX": 359.9836,
+            "rotY": 59.9966965,
+            "rotZ": 0.032730937,
+            "scaleX": 1.04,
             "scaleY": 1.0,
-            "scaleZ": 1.0
+            "scaleZ": 1.04
           },
           "Nickname": "",
           "Description": "",
@@ -690,10 +357,465 @@
             "z": 0.0
           },
           "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
           },
+          "Tags": [
+            "non_event_artifact"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "bac971",
+          "Name": "Card",
+          "Transform": {
+            "posX": 2.62551451,
+            "posY": 1.11454749,
+            "posZ": -14.1095266,
+            "rotX": -0.00298093446,
+            "rotY": 60.0002136,
+            "rotZ": 0.002430187,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
+          },
+          "Tags": [
+            "non_event_artifact"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1507,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "dc55cb",
+          "Name": "Card",
+          "Transform": {
+            "posX": -10.8093061,
+            "posY": 1.22487354,
+            "posZ": -12.3272276,
+            "rotX": -0.00312066358,
+            "rotY": 89.9999161,
+            "rotZ": 180.023819,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842729,
+            "g": 0.09411297,
+            "b": 0.105877511
+          },
+          "Tags": [
+            "non_event_artifact"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1504,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "AttachedSnapPoints": [
+            {
+              "Position": {
+                "x": 0.7121941,
+                "y": 0.209319741,
+                "z": 0.249881342
+              }
+            },
+            {
+              "Position": {
+                "x": 0.34655866,
+                "y": 0.209319249,
+                "z": 0.274407148
+              }
+            },
+            {
+              "Position": {
+                "x": -0.0103029329,
+                "y": 0.209319651,
+                "z": 0.262154073
+              }
+            },
+            {
+              "Position": {
+                "x": -0.363367081,
+                "y": 0.209320068,
+                "z": 0.256021023
+              }
+            },
+            {
+              "Position": {
+                "x": -0.737041533,
+                "y": 0.209319547,
+                "z": 0.256020844
+              }
+            },
+            {
+              "Position": {
+                "x": -0.559153259,
+                "y": 0.209319934,
+                "z": 0.6777944
+              }
+            },
+            {
+              "Position": {
+                "x": -0.4172733,
+                "y": 0.209319323,
+                "z": 1.04628515
+              }
+            },
+            {
+              "Position": {
+                "x": -0.192799509,
+                "y": 0.209319532,
+                "z": 0.695019364
+              }
+            },
+            {
+              "Position": {
+                "x": 0.192273483,
+                "y": 0.209320068,
+                "z": 0.672041535
+              }
+            },
+            {
+              "Position": {
+                "x": 0.562033057,
+                "y": 0.209319666,
+                "z": 0.677795
+              }
+            },
+            {
+              "Position": {
+                "x": 0.366947234,
+                "y": 0.209319517,
+                "z": 1.06252539
+              }
+            },
+            {
+              "Position": {
+                "x": -0.0263591874,
+                "y": 0.209319875,
+                "z": 1.07332754
+              }
+            }
+          ]
+        },
+        {
+          "GUID": "1ea49a",
+          "Name": "Card",
+          "Transform": {
+            "posX": 10.6282511,
+            "posY": 1.10072362,
+            "posZ": -11.1506319,
+            "rotX": 359.983826,
+            "rotY": 59.99914,
+            "rotZ": 359.9942,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
+          },
+          "Tags": [
+            "non_event_artifact"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1506,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "09535e",
+          "Name": "Card",
+          "Transform": {
+            "posX": -11.1580954,
+            "posY": 1.25735414,
+            "posZ": -12.6046419,
+            "rotX": 359.991577,
+            "rotY": 90.000206,
+            "rotZ": 178.547012,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842729,
+            "g": 0.09411297,
+            "b": 0.105877511
+          },
+          "Tags": [
+            "non_event_artifact"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1511,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "f93bd4",
+          "Name": "Card",
+          "Transform": {
+            "posX": 7.16043425,
+            "posY": 1.073358,
+            "posZ": -5.31919956,
+            "rotX": -0.003607066,
+            "rotY": 60.00033,
+            "rotZ": 0.00115795038,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1503,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "42723f",
+          "Name": "Card",
+          "Transform": {
+            "posX": 10.6234093,
+            "posY": 1.07344329,
+            "posZ": -15.1909037,
+            "rotX": -0.00370599143,
+            "rotY": 60.0001678,
+            "rotZ": 0.00117667252,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
+          },
+          "Tags": [
+            "non_event_artifact"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -726,18 +848,18 @@
           "XmlUI": ""
         },
         {
-          "GUID": "28c0de",
+          "GUID": "47becc",
           "Name": "Card",
           "Transform": {
-            "posX": 21.385231,
-            "posY": 1.015107,
-            "posZ": -5.51475239,
-            "rotX": -0.003735015,
-            "rotY": 180.0,
-            "rotZ": 180.006119,
-            "scaleX": 1.0,
+            "posX": 9.805182,
+            "posY": 1.123506,
+            "posZ": -15.3724966,
+            "rotX": -0.00407442357,
+            "rotY": 60.000145,
+            "rotZ": 0.00128002965,
+            "scaleX": 1.04,
             "scaleY": 1.0,
-            "scaleZ": 1.0
+            "scaleZ": 1.04
           },
           "Nickname": "",
           "Description": "",
@@ -748,10 +870,13 @@
             "z": 0.0
           },
           "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
           },
+          "Tags": [
+            "non_event_artifact"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -766,7 +891,129 @@
           "GridProjection": false,
           "HideWhenFaceDown": true,
           "Hands": true,
-          "CardID": 1505,
+          "CardID": 1501,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "091fa7",
+          "Name": "Card",
+          "Transform": {
+            "posX": 2.66865063,
+            "posY": 1.07290208,
+            "posZ": -13.682663,
+            "rotX": -0.003663153,
+            "rotY": 60.0002747,
+            "rotZ": 0.00456218142,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
+          },
+          "Tags": [
+            "non_event_artifact"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1508,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "15": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089201349/15835350B0C6BBB00D4E7300980E8E3B81404CF4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2075635690089203160/E0C67449A7B6DF74AFF61B87D1F5390C0CA93FE3/",
+              "NumWidth": 3,
+              "NumHeight": 4,
+              "BackIsHidden": false,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "00f582",
+          "Name": "Card",
+          "Transform": {
+            "posX": 6.77861547,
+            "posY": 1.07322073,
+            "posZ": -13.3689785,
+            "rotX": -0.003608365,
+            "rotY": 60.00003,
+            "rotZ": 0.0011579619,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.07842738,
+            "g": 0.09411306,
+            "b": 0.1058776
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 1502,
           "SidewaysCard": false,
           "CustomDeck": {
             "15": {
