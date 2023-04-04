@@ -1,0 +1,77 @@
+{
+  "SaveName": "",
+  "Date": "",
+  "VersionNumber": "",
+  "GameMode": "",
+  "GameType": "",
+  "GameComplexity": "",
+  "Tags": [],
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+  "Table": "",
+  "Sky": "",
+  "Note": "",
+  "TabStates": {},
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "XmlUI": "",
+  "ObjectStates": [
+    {
+      "GUID": "9654ec",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": 3.13305545,
+        "posY": 1.0600003,
+        "posZ": 9.182044,
+        "rotX": -1.51780869E-05,
+        "rotY": 179.966858,
+        "rotZ": 2.580217E-05,
+        "scaleX": 0.45,
+        "scaleY": 1.0,
+        "scaleZ": 0.45
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.9882353,
+        "g": 0.9882353,
+        "b": 0.929411769
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2075636507589473826/0DDDA9F0B29078C6D4F75F231380DACAF0C28616/",
+        "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/2075636507589473533/C132C5D6E5E22DADDF7DDA83FA9E9D9974E946C3/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 1,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "function onLoad()\r\n  math.randomseed(os.time())\r\n  self.addContextMenuItem(\"Roll\", roll)\r\nend\r\n\r\nfunction roll(player_color, position, object)\r\n  self.addForce(vector(0, 20, 0))\r\n  -- Use random generated torgue is wrong way. By unclear reason random generated torgue almost always leads to roll same face.\r\n  changeFace = math.random() > 0.5\r\n  if (changeFace)\r\n  then\r\n  self.addTorque(vector(0.42, 0.16, 0.33))\r\n  else\r\n    self.addTorque(vector(0.52, 0.48, 0.93))\r\n  end\r\nend\r\n",
+      "LuaScriptState": "",
+      "XmlUI": "function onLoad()\r\n    self.addContextMenuItem(\"doStuff\", itemAction)\r\nend\r\n\r\nfunction itemAction(player_color, position, object)\r\n    log({player_color, position, object})\r\nend"
+    }
+  ]
+}

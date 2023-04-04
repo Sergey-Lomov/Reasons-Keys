@@ -1,0 +1,77 @@
+{
+  "SaveName": "",
+  "Date": "",
+  "VersionNumber": "",
+  "GameMode": "",
+  "GameType": "",
+  "GameComplexity": "",
+  "Tags": [],
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+  "Table": "",
+  "Sky": "",
+  "Note": "",
+  "TabStates": {},
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "XmlUI": "",
+  "ObjectStates": [
+    {
+      "GUID": "8de1e0",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": 24.4440632,
+        "posY": 0.959999859,
+        "posZ": 11.314312,
+        "rotX": -1.2751424E-05,
+        "rotY": 180.026031,
+        "rotZ": 1.78922728E-05,
+        "scaleX": 0.54,
+        "scaleY": 1.0,
+        "scaleZ": 0.54
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.68235296,
+        "g": 0.274509728,
+        "b": 0.9098039
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2075635690085414149/F5020BF3A486D0B5E03DE1C6162A5CF7CA336CB3/",
+        "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/2075635690085414149/F5020BF3A486D0B5E03DE1C6162A5CF7CA336CB3/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 1,
+          "Thickness": 0.1,
+          "Stackable": true,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    }
+  ]
+}
