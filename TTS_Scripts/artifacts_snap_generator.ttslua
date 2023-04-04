@@ -1,0 +1,61 @@
+local handsIds = {"76e9c1", "707d50", "b37d34", "ff8fa7", "64d264", "79cf43"}
+local nonevenArtifactTag = "non_event_artifact"
+local midDeltaX = 12.45
+local midDeltaZ = 0.2
+local radius2 = 4.7
+local radius1 = 2.71
+
+local function snap(coords, angle)
+  return {
+    position = {coords.x, 1, coords.z},
+    rotation = {0, angle, 0},
+    rotation_snap = true,
+    tags = {nonevenArtifactTag},
+  }
+end
+
+local function generateSnapsFor(handId)
+  local hand = getObjectFromGUID(handId)
+  local pos = hand.getPosition()
+  local snaps = Global.getSnapPoints()
+
+  local xMult = (pos.x > 0) and -1 or 1
+  local angle = (pos.x > 0) and 90 or -90
+
+  local mid = {
+    x = pos.x + midDeltaX * xMult,
+    z = pos.z + midDeltaZ
+  }
+  local left1 = {
+    x = mid.x + radius1 * math.sin(math.pi / -6 * 5  * xMult),
+    z = mid.z + radius1 * math.cos(math.pi / -6 * 5),
+  }
+  local left2 = {
+    x = mid.x,
+    z = mid.z - radius2
+  }
+  local right1 = {
+    x = mid.x + radius1 * math.sin(math.pi / -6 * xMult),
+    z = mid.z + radius1 * math.cos(math.pi / -6),
+  }
+  local right2 = {
+    x = mid.x,
+    z = mid.z  + radius2
+  }
+
+  table.insert(snaps, snap(left2, angle))
+  table.insert(snaps, snap(left1, angle))
+  table.insert(snaps, snap(mid, angle))
+  table.insert(snaps, snap(right1, angle))
+  table.insert(snaps, snap(right2, angle))
+
+  Global.setSnapPoints(snaps)
+end
+
+local function generateSnaps()
+  for _, handId in ipairs(handsIds) do
+    generateSnapsFor(handId)
+  end
+end
+
+addGlobalInjection(Events.onLoad, generateSnaps)
