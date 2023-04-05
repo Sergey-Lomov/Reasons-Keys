@@ -35,6 +35,7 @@ local function handleObject(object)
 end
 
 function onObjectEnterZone(zone, object)
+  if zone ~= self then return end
   if object.held_by_color ~= nil then return end
   handleObject(object)
 end
