@@ -1,0 +1,7 @@
+Events = {
+  onLoad = "onLoad",
+  onObjectEnterZone = "onObjectEnterZone",
+  onObjectPickUp = "onObjectPickUp",
+  onObjectDrop = "onObjectDrop",
+  onObjectSpawn = "onObjectSpawn",
+}

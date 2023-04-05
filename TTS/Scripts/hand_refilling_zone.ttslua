@@ -1,0 +1,56 @@
+#include <events.ttslua>
+#include <injections.ttslua>
+#include <data_utils.ttslua>
+
+local selectionTitle = "Take to hand"
+local faceUp = {0, 0, 0}
+local faceDown = {0, 0, 180}
+local eventsTag = "event_card"
+local discardedPosition = {-11.7, 1.15, -15.15}
+local choosen = nil
+
+local function finishRefilling(player_color, selected)
+  choosen = selected
+  for _, object in ipairs(self.getObjects()) do
+    if object.hasTag(eventsTag) then
+      object.clearContextMenu()
+      object.setRotation(faceDown)
+      if object ~= choosen then
+        object.setPositionSmooth(discardedPosition, false)
+      else
+        choosen.drop()
+        choosen.deal(1, player_color)
+      end
+    end
+  end
+end
+
+local function handleObject(object)
+  if not object.hasTag(eventsTag) then return end
+  if object == choosen then return end
+  local source = object.getRotation()
+  object.setRotation(faceUp)
+  object.clearContextMenu()
+  object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)
+end
+
+function onObjectEnterZone(zone, object)
+  log("Enterred: ")
+  log(object)
+  if object.held_by_color ~= nil then return end
+  handleObject(object)
+end
+
+function onObjectDrop(_, object)
+  log("Dropped: ")
+  log(object)
+  if arrayContains(self.getObjects(), object) then
+    onObjectEnterZone(self, object)
+  end
+end
+
+function onObjectPickUp(player_color, object)
+  if arrayContains(self.getObjects(), object) then
+    finishRefilling(player_color, object)
+  end
+end

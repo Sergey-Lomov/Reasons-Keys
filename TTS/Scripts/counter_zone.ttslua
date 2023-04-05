@@ -1,5 +1,3 @@
-local counter_zone_tag = "counter_zone"
-
 thickness = 0.125
 color = color(0.8, 0.1, 0.1, 1.0)
 textId = nil
@@ -53,6 +51,3 @@ end
 function onObjectLeaveZone(zone, object)
     updateValue()
 end
-
-
---addGlobalInjection(Events.onObjectEnterZone, updateValue)

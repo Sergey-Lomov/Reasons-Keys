@@ -1,0 +1,33 @@
+function countArrayWithCondition(array, condition)
+  local count = 0
+  for _, object in ipairs(array) do
+    if condition(object) then
+      count = count + 1
+    end
+  end
+  return count
+end
+
+function map(table, mapFunc)
+    local result = {}
+    for k, v in pairs(table) do
+        result[k] = mapFunc(v)
+    end
+    return result
+end
+
+function arrayContains(array, value)
+  for _, v in ipairs(array) do
+    if v == value then return true end
+  end
+  return false
+end
+
+function arraysHaveIntersection(array1, array2)
+  for _, v1 in ipairs(array1) do
+    for _, v2 in ipairs(array2) do
+      if v1 == v2 then return true end
+    end
+  end
+  return false
+end

@@ -1,4 +1,3 @@
-
 GlobalInjections = {}
 
 local function addInjection(injections_table, event, func)
