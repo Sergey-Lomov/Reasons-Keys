@@ -1,0 +1,37 @@
+-- EXPERIMENTAL. UNUSED.
+#include <data_utils.ttslua>
+
+local watermark = "local handledByBehaviorApplier = true"
+local tagsBehaviors = {
+  ["hand_refilling_zone"] = "hand_refilling_zone"
+}
+
+local function applyBehavior(object, behavior)
+  local current = object.getLuaScript()
+  if string.find(current, watermark, 1, true) then return end
+  log(object)
+  local script = watermark .. string.char(10) .. "#include <" .. behavior .. ".ttslua>" --.. string.char(10) .. current
+  object.setLuaScript(script)
+end
+
+local function onLoad()
+  for _, description in ipairs(getObjects()) do
+    for tag, behavior in pairs(tagsBehaviors) do
+      if description.hasTag(tag) then
+        local object = getObjectFromGUID(description.guid)
+        applyBehavior(object, behavior)
+      end
+    end
+  end
+end
+
+local function onObjectSpawn(object)
+  for tag, behavior in ipairs(tagsBehaviors) do
+    if object.hasTag(tag) then
+      applyBehavior(object, behavior)
+    end
+  end
+end
+
+addGlobalInjection(Events.onLoad, onLoad)
+addGlobalInjection(Events.onObjectSpawn, onObjectSpawn)
