@@ -8,12 +8,12 @@ function countArrayWithCondition(array, condition)
   return count
 end
 
-function map(table, mapFunc)
-    local result = {}
-    for k, v in pairs(table) do
-        result[k] = mapFunc(v)
-    end
-    return result
+function filterArray(array, validator)
+  local result = {}
+  for _, v in ipairs(array) do
+    if validator(v) then table.insert(result, v) end
+  end
+  return result
 end
 
 function arrayContains(array, value)
@@ -30,4 +30,12 @@ function arraysHaveIntersection(array1, array2)
     end
   end
   return false
+end
+
+function map(table, mapFunc)
+    local result = {}
+    for k, v in pairs(table) do
+        result[k] = mapFunc(v)
+    end
+    return result
 end

@@ -1,0 +1,20 @@
+handlers = {}
+
+UIEvent = {
+  onButtonClick = "onButtonClick"
+}
+
+function addUIEventHandler(event, id, handler)
+  if handlers[event] == nil then handlers[event] = {} end
+  handlers[event][id] = handler
+end
+
+function routeUIEvent(event, player, value, id)
+  local eventHandlers = handlers[event]
+  if eventHandlers ~= nil then
+    local idHandler = eventHandlers[id]
+    if idHandler ~= nil then
+      idHandler(player, value, id)
+    end
+  end
+end

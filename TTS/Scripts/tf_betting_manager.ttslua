@@ -1,0 +1,456 @@
+#include <data_utils.ttslua>
+
+local energyCounters = {
+  ["Blue"] = "1dcc4b",
+  ["Teal"] = "f3bafb",
+  ["Yellow"] = "d77825",
+  ["Purple"] = "687941",
+  ["Orange"] = "889eb4",
+  ["White"] = "a015ef",
+}
+
+local labelColors = {
+  ["Blue"] = "#2DB0D0",
+  ["Teal"] = "#018379",
+  ["Yellow"] = "#E3F206",
+  ["Purple"] = "#AA4192",
+  ["Orange"] = "#FF6E00",
+  ["White"] = "#B2A999",
+}
+
+local impactPrice = 8
+local nonstarterBets = 1
+local starterBets = 3
+
+local menuHeightStub = "!{menuHeight}"
+local playerColorStub = "!{playerColor}"
+
+local betsRowsStub = "!{betsRows}"
+local betsTotalHeightStub = "!{betsTotalHeight}"
+local betsHeaderHeightStub = "!{betsHeaderHeight}"
+local betsRowHeightStub = "!{betsRowHeight}"
+local besRowIndexStub = "!{betsRowIndex}"
+
+local statusRowsStub = "!{statusRows}"
+local statusTotalHeightStub = "!{statusTotalHeight}"
+local statusHeaderHeightStub = "!{statusHeaderHeight}"
+local statusRowHeightStub = "!{statusRowHeight}"
+local statusRowColorStub = "!{statusRowColor}"
+local statusRowLabelColorStub = "!{statusRowLabelColor}"
+local statusRowEnergyStub = "!{statusRowEnergy}"
+local statusRowBetsStub = "!{statusRowBets}"
+
+local betPanelId = "TF_BetPanel"
+local betSuccessId = "BetSuccess"
+local betFailId = "BetFail"
+local successIconId = "SuccessIcon"
+local failIconId = "FailIcon"
+local decreaseImpactId = "DecreaseImpact"
+local increaseImpactId = "IncreaseImpact"
+local impactCountId = "ImpactCount"
+local impactPriceId = "ImpactPrice"
+local statusStateId = "StatusState"
+local approveRowId = "ApproveButtonRow"
+local approvedRowId = "ApprovedTitleRow"
+
+local initialMenuHeight = 315
+local betsHeaderHeight = 20
+local betsRowHeight = 50
+local statusHeaderHeight = 30
+local statusRowHeight = 30
+local impactPriceFormat = "Total impact cost: %d energy (you have %d)"
+local statusStateDone = "done"
+local statusStateInProgress = "not done"
+local textColor = "#FCFCED"
+local warningColor = "#C71210"
+local warningMessageColor = Color
+local realizationSelectedColor = "#FCFCEDFF"
+local realizationUnselectedColor = "#FCFCED10"
+
+local needRealizationMessage = "Please, select realization for each bet"
+local notEnoughEnergyMessage = "Please, decrease impact count, you have no enough energy"
+local cancelMessageFormat = "%s cancel betting"
+
+local personalMenuDefaults = [[
+<Defaults>
+  <Panel class="BorderedWindow" color="#14181B" outline="#FCFCED" outlineSize="2 -2" />
+  <Text class="Title" fontSize="22" fontStyle="Bold" color="#FCFCED" rectAlignment="UpperCenter"/>
+  <Text class="SectionHeader" fontSize="18" color="#FCFCED" rectAlignment="UpperCenter"/>
+  <Text class="Info" fontSize="16" color="#FCFCED" />
+  <Text class="SecondaryInfo" fontSize="14" color="#FCFCED" />
+  <Text class="Player" fontSize="14" fontStyle="Bold" color="#FCFCED" />
+  <Text class="ActionTitle" fontSize="14" fontStyle="Bold" color="#14181B" />
+  <Button class="YourBet" color="clear"/>
+  <Button class="Action" color="#FCFCED"/>
+  <Image class="YourBet" width="30" height="30"/>
+  <Row class="Action" preferredHeight="45"/>
+  <Row class="ActionSeparator" preferredHeight="10"/>
+</Defaults>
+]]
+
+local personalMenuTemplate = [[
+<Panel id="TF_BetPanel!{playerColor}" visibility="!{playerColor}" class="BorderedWindow" width="385" height="!{menuHeight}" rectAlignment="MiddleRight" showAnimation="Grow" hideAnimation="Shrink" returnToOriginalPositionWhenReleased="false" allowDragging="true">
+  <TableLayout cellBackgroundColor="Clear"  padding="20 20 10 20">
+    <Row preferredHeight="25">
+      <Text class="Title">TANGLE OF FATES</Text>
+    </Row>
+    <Row preferredHeight="20" />
+    <Row preferredHeight="20">
+      <Text class="SectionHeader">Your bet</Text>
+    </Row>
+    <Row preferredHeight="!{betsTotalHeight}">
+      <TableLayout cellBackgroundColor="clear" cellSpacing="0">
+      <Row preferredHeight="!{betsHeaderHeight}">
+        <Cell>
+          <Text class="Info">Realization</Text>
+        </Cell>
+        <Cell>
+          <Text class="Info">Impact</Text>
+        </Cell>
+      </Row>
+      <Row preferredHeight="10" />
+      !{betsRows}
+      </TableLayout>
+    </Row>
+    <Row preferredHeight="15" />
+    <Row preferredHeight="20">
+      <Cell>
+        <Text id="ImpactPrice!{playerColor}" class="SecondaryInfo">Total impact cost: 0 energy (you have ?)</Text>
+      </Cell>
+    </Row>
+    <Row preferredHeight="30" />
+    <Row preferredHeight="20">
+      <Text class="SectionHeader">Betting status</Text>
+    </Row>
+    <Row preferredHeight="5" />
+    <Row preferredHeight="!{statusTotalHeight}">
+      <TableLayout cellBackgroundColor="clear">
+        <Row preferredHeight="!{statusHeaderHeight}">
+          <Cell>
+            <Text class="Info">Player</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Energy</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Bets</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Status</Text>
+          </Cell>
+        </Row>
+        !{statusRows}
+      </TableLayout>
+    </Row>
+    <Row preferredHeight="30" />
+    <Row class="Action" id="ApproveButtonRow!{playerColor}">
+      <Cell>
+        <Button class="Action" id="Approve!{playerColor}" onClick="onButtonClick">
+          <Text class="ActionTitle">Approve bet</Text>
+        </Button>
+      </Cell>
+    </Row>
+    <Row class="Action" active="false" id="ApprovedTitleRow!{playerColor}">
+      <Cell>
+          <Text class="Title">BET APPROVED</Text>
+      </Cell>
+    </Row>
+    <Row class="ActionSeparator" />
+    <Row class="Action">
+      <Cell>
+        <Button class="Action" id="Cancel!{playerColor}" onClick="onButtonClick">
+          <Text class="ActionTitle">Cancel betting (for all)</Text>
+        </Button>
+      </Cell>
+    </Row>
+  </TableLayout>
+</Panel>
+]]
+
+local playerBetRowTemplate = [[
+  <Row class="BetRow" preferredHeight="!{betsRowHeight}">
+      <Cell>
+          <HorizontalLayout>
+            <Button class="YourBet" id="BetSuccess!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
+                <Image class="YourBet" id="SuccessIcon!{playerColor}!{betsRowIndex}" image="TF_Dialog_S" color="#FCFCED10"/>
+            </Button>
+            <Button class="YourBet" id="BetFail!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
+                <Image class="YourBet" id="FailIcon!{playerColor}!{betsRowIndex}" image="TF_Dialog_F" color="#FCFCED10"/>
+            </Button>
+          </HorizontalLayout>
+      </Cell>
+      <Cell>
+          <HorizontalLayout>
+            <Button class="YourBet" id="IncreaseImpact!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
+              <Image class="YourBet" image="TF_Dialog_Up"/>
+            </Button>
+            <Text id="ImpactCount!{playerColor}!{betsRowIndex}" class="Info">0</Text>
+            <Button class="YourBet" id="DecreaseImpact!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
+              <Image class="YourBet" image="TF_Dialog_Down"/>
+            </Button>
+          </HorizontalLayout>
+      </Cell>
+  </Row>
+]]
+
+local betStatusRowTemplate = [[
+<Row class="PlayerBetStatusRow" preferredHeight="!{statusRowHeight}">
+  <Cell>
+    <Text class="Player" id="StatusColor!{playerColor}!{statusRowColor}" color="!{statusRowLabelColor}">!{statusRowColor}</Text>
+  </Cell>
+  <Cell>
+    <Text class="SecondaryInfo" id="StatusEnergy!{playerColor}!{statusRowColor}">!{statusRowEnergy}</Text>
+  </Cell>
+  <Cell>
+    <Text class="SecondaryInfo" id="StatusColorBets!{playerColor}!{statusRowColor}">!{statusRowBets}</Text>
+  </Cell>
+  <Cell>
+    <Text class="SecondaryInfo" id="StatusState!{playerColor}!{statusRowColor}"></Text>
+  </Cell>
+</Row>
+]]
+
+local function playersColors()
+  --[[local players = filterArray(
+    Player.getPlayers(),
+    function(p) return p.color ~= spectratorColor and p.color ~= masterColor end
+  )
+
+  return map(players, function (p) return p.color end)]]
+  return {"White", "Teal", "Blue", "Yellow"}
+end
+
+local function energyOf(color)
+  local energyText = getObjectFromGUID(energyCounters[color])
+  local energyStr = energyText.TextTool.getValue()
+  return tonumber(energyStr)
+end
+
+local function totalImpactPrice(color)
+  local impactCount = 0
+  for i = 1, starterBets do
+    local countId = impactCountId .. color .. i
+    local value = UI.getValue(countId)
+    local value = value ~= nil and UI.getValue(countId) or "0"
+    impactCount = impactCount + tonumber(value)
+  end
+
+  return impactCount * impactPrice
+end
+
+local function updateIpactPrice(color)
+  local price = totalImpactPrice(color)
+  local totalEnergy = energyOf(color)
+  local priceStr = string.format(impactPriceFormat, price, "" .. totalEnergy)
+  local priceColor = (price > totalEnergy) and warningColor or textColor
+  local priceId = impactPriceId .. color
+  UI.setValue(priceId, priceStr)
+  UI.setAttribute(priceId, "color", priceColor)
+end
+
+local function updateImpactCount(color, index, affect)
+  local countId = impactCountId .. color .. index
+  local impactCount = tonumber(UI.getValue(countId)) + affect
+  impactCount = (impactCount < 0) and 0 or impactCount
+  UI.setValue(countId, "" .. impactCount)
+
+  Wait.condition(
+    function() updateIpactPrice(color) end,
+    function() return not UI.loading end
+  )
+end
+
+local function decreaseImpact(color, index)
+  updateImpactCount(color, index, -1)
+end
+
+local function increaseImpact(color, index)
+  updateImpactCount(color, index, 1)
+end
+
+local function updateRealization(color, index, success)
+  local successId = successIconId .. color .. index
+  local failId = failIconId .. color .. index
+  local successColor = success and realizationSelectedColor or realizationUnselectedColor
+  local failColor = success and realizationUnselectedColor or realizationSelectedColor
+  UI.setAttribute(successId, "color", successColor)
+  UI.setAttribute(failId, "color", failColor)
+end
+
+local function betOnSuccess(color, index)
+  updateRealization(color, index, true)
+end
+
+local function betOnFail(color, index)
+  updateRealization(color, index, false)
+end
+
+local function addButtonHandler(id, handler)
+  addUIEventHandler(UIEvent.onButtonClick, id, handler)
+end
+
+local function updateStatusState(playerColor, statusColor)
+  local stateId = statusStateId .. playerColor .. statusColor
+  local approvedId = approvedRowId .. statusColor
+  local isApproved = UI.getAttribute(approvedId, "active")
+  local state = (isApproved == "true" or isApproved == "True") and statusStateDone or statusStateInProgress
+  UI.setValue(stateId, state)
+end
+
+local function removePlayersMenus()
+  local uiTable = UI.getXmlTable()
+
+  for index, element in ipairs(uiTable) do
+    if element.tag == "Panel" then
+      if element.attributes.id:find(betPanelId, 1, true) == 1 then
+        table.remove(uiTable, index)
+      end
+    end
+  end
+
+  UI.setXmlTable(uiTable)
+end
+
+local function cancel(color)
+  local message = string.format(cancelMessageFormat, color)
+  broadcastToAll(message, Color.Blocker)
+  removePlayersMenus()
+end
+
+local function validateBets(color)
+  for index = 1, starterBets do
+    local successId = successIconId .. color .. index
+    local failId = failIconId .. color .. index
+    local successColor = UI.getAttribute(successId, "color")
+    local failColor = UI.getAttribute(failId, "color")
+    if successColor == realizationUnselectedColor and failColor == realizationUnselectedColor then
+      broadcastToColor(needRealizationMessage, color, Color.Blocker)
+      return false
+    end
+  end
+
+  if totalImpactPrice(color) > energyOf(color) then
+      broadcastToColor(notEnoughEnergyMessage, color, Color.Blocker)
+      return false
+  end
+
+  return true
+end
+
+local function handleBetStateChanged(color, colors)
+  for _, statusColor in ipairs(colors) do
+    if statusColor ~= color then
+      updateStatusState(statusColor, color)
+    end
+  end
+end
+
+local function approve(color, colors)
+ if not validateBets(color) then return end
+
+  for index = 1, starterBets do
+    local successId = betSuccessId .. color .. index
+    local failId = betFailId .. color .. index
+    local decreaseId = decreaseImpactId .. color .. index
+    local increaseId = increaseImpactId .. color .. index
+
+    UI.setAttribute(successId, "interactable", false)
+    UI.setAttribute(failId, "interactable", false)
+    UI.setAttribute(decreaseId, "interactable", false)
+    UI.setAttribute(increaseId, "interactable", false)
+  end
+
+  local approveId = approveRowId .. color
+  local approvedId = approvedRowId .. color
+  UI.hide(approveId)
+  UI.show(approvedId)
+
+  Wait.condition(
+    function() handleBetStateChanged(color, colors) end,
+    function() return not UI.loading end
+  )
+end
+
+local function setupPlayerBetRow(color, index)
+
+  addButtonHandler(decreaseImpactId .. color .. index, function() decreaseImpact(color, index) end)
+  addButtonHandler(increaseImpactId .. color .. index, function() increaseImpact(color, index) end)
+  addButtonHandler(betSuccessId .. color .. index, function() betOnSuccess(color, index) end)
+  addButtonHandler(betFailId .. color .. index, function() betOnFail(color, index) end)
+
+  return playerBetRowTemplate
+    :gsub(playerColorStub, color)
+    :gsub(besRowIndexStub, index)
+    :gsub(betsRowHeightStub, betsRowHeight)
+end
+
+local function setupStatusRow(playerColor, statusColor, starterColor)
+  local bets = (statusColor == starterColor) and starterBets or nonstarterBets
+  return betStatusRowTemplate
+    :gsub(playerColorStub, playerColor)
+    :gsub(statusRowColorStub, statusColor)
+    :gsub(statusRowLabelColorStub, labelColors[statusColor])
+    :gsub(statusRowEnergyStub, energyOf(statusColor))
+    :gsub(statusRowBetsStub, bets)
+    :gsub(statusRowHeightStub, statusRowHeight)
+end
+
+local function setupPersonalMenu(color, colors, starterColor, compoundXml)
+  local betRows = color == starterColor and starterBets or nonstarterBets
+  local betsHeight = betsHeaderHeight + betsRowHeight * betRows
+  local statusHeight = statusHeaderHeight + statusRowHeight * (#colors - 1)
+  local menuHeight = initialMenuHeight + betsHeight + statusHeight
+
+  local betRowsXml = ""
+  for i = 1, betRows do
+    betRowsXml = betRowsXml ..  setupPlayerBetRow(color, i)
+  end
+
+  local statusRowsXml = ""
+  for _, statusColor in ipairs(colors) do
+    if statusColor ~= color then
+      statusRowsXml = statusRowsXml .. setupStatusRow(color, statusColor, starterColor)
+    end
+  end
+
+  local personalMenuXml = personalMenuTemplate
+    :gsub(menuHeightStub, menuHeight)
+    :gsub(playerColorStub, color)
+    :gsub(betsTotalHeightStub, betsHeight)
+    :gsub(betsHeaderHeightStub, betsHeaderHeight)
+    :gsub(betsRowsStub, betRowsXml)
+    :gsub(statusTotalHeightStub, statusHeight)
+    :gsub(statusHeaderHeightStub, statusHeaderHeight)
+    :gsub(statusRowsStub, statusRowsXml)
+
+  addButtonHandler("Cancel" .. color, function() cancel(color) end)
+  addButtonHandler("Approve" .. color, function() approve(color, colors) end)
+
+  return compoundXml .. personalMenuXml
+end
+
+local function onUILoaded()
+  for _, playerColor in ipairs(playersColors()) do
+    updateIpactPrice(playerColor)
+    for _, statusColor in ipairs(playersColors()) do
+      if statusColor != playerColor then
+        updateStatusState(playerColor, statusColor)
+      end
+    end
+  end
+end
+
+function startBetting(starterColor)
+  local colors = playersColors()
+  local compoundXml = ""
+  compoundXml = compoundXml .. personalMenuDefaults
+  for _, color in ipairs(colors) do
+    compoundXml = setupPersonalMenu(color, colors, starterColor, compoundXml)
+  end
+
+  UI.setXml(UI.getXml() .. compoundXml)
+  Wait.condition(
+    function() onUILoaded() end,
+    function() return not UI.loading end
+  )
+end

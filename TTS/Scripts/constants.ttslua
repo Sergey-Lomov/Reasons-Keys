@@ -5,3 +5,6 @@ Events = {
   onObjectDrop = "onObjectDrop",
   onObjectSpawn = "onObjectSpawn",
 }
+
+masterColor = "Balck"
+spectratorColor = "Grey"

@@ -1,0 +1,117 @@
+<Defaults>
+  <Panel class="BorderedWindow" color="#14181B" outline="#FCFCED" outlineSize="2 -2" />
+  <Text class="Title" fontSize="22" fontStyle="Bold" color="#FCFCED" rectAlignment="UpperCenter"/>
+  <Text class="SectionHeader" fontSize="18" color="#FCFCED" rectAlignment="UpperCenter"/>
+  <Text class="Info" fontSize="16" color="#FCFCED" />
+  <Text class="SecondaryInfo" fontSize="14" color="#FCFCED" />
+  <Text class="Player" fontSize="14" fontStyle="Bold" color="#FCFCED" />
+  <Text class="ActionTitle" fontSize="14" fontStyle="Bold" color="#14181B" />
+  <Button class="YourBet" color="clear"/>
+  <Button class="Action" color="#FCFCED"/>
+  <Image class="YourBet" width="30" height="30"/>
+  <Row class="Action" preferredHeight="45"/>
+  <Row class="ActionSeparator" preferredHeight="10"/>
+</Defaults>
+<Panel id="TF_Player_Bet" class="BorderedWindow" width="385" height="445" rectAlignment="MiddleRight" showAnimation="Grow" hideAnimation="Shrink" returnToOriginalPositionWhenReleased="false" allowDragging="true">
+  <TableLayout cellBackgroundColor="Clear"  padding="20 20 10 20">
+    <Row preferredHeight="25">
+      <Text class="Title">Tangle of Fates</Text>
+    </Row>
+    <Row preferredHeight="20" />
+    <Row preferredHeight="20">
+      <Text class="SectionHeader">Your bet</Text>
+    </Row>
+    <Row id="PlayerBetRow" preferredHeight="70">
+      <TableLayout cellBackgroundColor="clear" cellSpacing="40">
+        <Row class="BetRow" preferredHeight="75">
+            <Cell>
+              <VerticalLayout>
+                <Text class="Info">Realization</Text>
+                <HorizontalLayout>
+                  <Button class="YourBet" id="Success1">
+                      <Image class="YourBet" image="TF_Dialog_S"/>
+                  </Button>
+                  <Button class="YourBet" id="Fail1">
+                      <Image class="YourBet" image="TF_Dialog_F"/>
+                  </Button>
+                </HorizontalLayout>
+              </VerticalLayout>
+            </Cell>
+            <Cell>
+              <VerticalLayout>
+                <Text class="Info">Impact</Text>
+                <HorizontalLayout>
+                  <Button class="YourBet" id="IncreaseImpact1">
+                    <Image class="YourBet" image="TF_Dialog_Up"/>
+                  </Button>
+                  <Text id="Impact1" class="Info">0</Text>
+                  <Button class="YourBet" id="DecreasImpact2">
+                    <Image class="YourBet" image="TF_Dialog_Down"/>
+                  </Button>
+                </HorizontalLayout>
+              </VerticalLayout>
+            </Cell>
+        </Row>
+      </TableLayout>
+    </Row>
+    <Row preferredHeight="15" />
+    <Row preferredHeight="20">
+      <Cell>
+        <Text id="ImpactPrice" class="SecondaryInfo">Total impact cost: 24 energy (you have 34)</Text>
+      </Cell>
+    </Row>
+    <Row preferredHeight="30" />
+    <Row preferredHeight="20">
+      <Text class="SectionHeader">Betting status</Text>
+    </Row>
+    <Row preferredHeight="10" />
+    <Row id="BettingStatusRow" preferredHeight="70">
+      <TableLayout cellBackgroundColor="clear" cellSpacing="10">
+        <Row class="PlayerBetStatusRow" preferredHeight="25">
+          <Cell>
+            <Text class="Info">Player</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Energy</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Bets</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Status</Text>
+          </Cell>
+        </Row>
+        <Row class="PlayerBetStatusRow" preferredHeight="20">
+          <Cell>
+            <Text class="Player" color="#ffa500">Orange</Text>
+          </Cell>
+          <Cell>
+            <Text class="SecondaryInfo">43</Text>
+          </Cell>
+          <Cell>
+            <Text class="SecondaryInfo">1</Text>
+          </Cell>
+          <Cell>
+            <Text class="SecondaryInfo">thinking</Text>
+          </Cell>
+        </Row>
+      </TableLayout>
+    </Row>
+    <Row preferredHeight="20" />
+    <Row class="Action">
+      <Cell>
+        <Button class="Action">
+          <Text class="ActionTitle">Approve bet</Text>
+        </Button>
+      </Cell>
+    </Row>
+    <Row class="ActionSeparator" />
+    <Row class="Action">
+      <Cell>
+        <Button class="Action">
+          <Text class="ActionTitle">Cancel betting (for all)</Text>
+        </Button>
+      </Cell>
+    </Row>
+  </TableLayout>
+</Panel>
