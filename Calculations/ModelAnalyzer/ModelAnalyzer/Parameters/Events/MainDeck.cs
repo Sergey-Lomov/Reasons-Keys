@@ -38,7 +38,7 @@ namespace ModelAnalyzer.Parameters.Events
             foreach (var card in core.deck)
                 deck.Add(new EventCard(card));
 
-            AddBranchPoints(deck, calculator, false);
+            AddBranchPoints(deck, calculator);
             UpdateDeckWeight(calculator);
             AddMiningBonuses(deck, calculator, calculationReport);
             UpdateDeckWeight(calculator);
@@ -95,54 +95,12 @@ namespace ModelAnalyzer.Parameters.Events
                 report.AddIssue(unallocatableIssue);
         }
 
-        private void AddBranchPoints(List<EventCard> cards, Calculator calculator, bool randomization)
-        {
-            if (randomization)
-                AddBranchPointsMultyThread(cards, calculator);
-            else
-                AddBranchPointsNoRandom(cards, calculator);
-        }
-
-        // Experemental code. May be deleted.
-        /*private List<BranchPointsSet> OrderSets(List<EventCard> cards, List<BranchPointsSet> sets, int maxpa, Dictionary<EventCard, float> cardsStabilities) {
-            var availableSets = new List<BranchPointsSet>(sets);
-            var completedCards = new List<EventCard>();
-            var completedSets = new List<BranchPointsSet>();
-
-            foreach (var card in cards)
-            {
-                var bestSet = availableSets.First();
-                var bestDevoition = float.MaxValue;
-
-                foreach (var set in availableSets)
-                {
-                    var tempCards = new List<EventCard>(completedCards);
-                    tempCards.Add(card);
-                    var tempSets = new List<BranchPointsSet>(completedSets);
-                    tempSets.Add(set);
-                    var devoition = EventCardsAnalizer.BrancheDisbalance(tempCards, cardsStabilities, maxpa, tempSets);
-
-                    if (devoition < bestDevoition)
-                    {
-                        bestDevoition = devoition;
-                        bestSet = set;
-                    }
-                }
-
-                completedCards.Add(card);
-                completedSets.Add(bestSet);
-                availableSets.Remove(bestSet);
-            }
-
-            return completedSets;
-        } */
-
-        private void AddBranchPointsNoRandom(List<EventCard> cards, Calculator calculator)
+        private void AddBranchPoints(List<EventCard> cards, Calculator calculator)
         {
             var maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
             var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue();
 
-            var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
+            var cardsStabilities = EventCardsAnalizer.CardsStabilities(cards, aripc);
             var stabilityCards = cardsStabilities.GroupBy(p => p.Value, p => p.Key);
             var allSets = BranchPointSets(calculator);
             var templatesSets = allSets.GroupBy(s => s.Template());
@@ -192,7 +150,7 @@ namespace ModelAnalyzer.Parameters.Events
             if (sets.Count == 0) { return result; }
             
             result.Add(sets.First());
-            Func<int, bool> anyResultCapture = b => result.Any( s => s.UsedBranches().Contains(b));
+            bool anyResultCapture(int b) => result.Any(s => s.UsedBranches().Contains(b));
 
             foreach (var set in sets)
             {
@@ -205,77 +163,6 @@ namespace ModelAnalyzer.Parameters.Events
 
             return result;
         } 
-
-        private void AddBranchPointsMultyThread(List<EventCard> cards, Calculator calculator)
-        {
-            // Randomization
-            var maxpa = (int)RequestParameter<MaxPlayersAmount>(calculator).GetValue();
-            var bprl = (int)RequestParameter<BranchPointsRandomizationLimit>(calculator).GetValue();
-            var bprs = (int)RequestParameter<BranchPointsRandomizationSeed>(calculator).GetValue();
-            var aripc = RequestParameter<AverageRelationsImpactPerCount>(calculator).GetValue();
-            var endless = RequestParameter<BranchPointsEndlessRandomization>(calculator).GetValue();
-
-            var cardsStabilities = EventCardsAnalizer.CardsStabilities(deck, aripc);
-
-            var randomizer = new Random(bprs);
-            var bpSets = BranchPointSets(calculator);
-            float minDeviation = float.MaxValue;
-            var minDeviationBPSets = bpSets.ToList();
-
-            var findValid = false;
-            long iteration = 0;
-
-            var countdown = new CountdownEvent(bprl);
-            var findValidEvent = new ManualResetEvent(false);
-            var timer = Stopwatch.StartNew();
-
-            while ((iteration < bprl && !endless) || (endless && !findValid))
-            {
-                iteration++;
-                var randomizedSets = bpSets.OrderBy(bps => randomizer.Next()).ToList();
-                ThreadPool.QueueUserWorkItem(
-                    _ =>
-                    {
-                        //var orderedSets = OrderSets(deck, randomizedSets, maxpa, cardsStabilities);
-                        var deviation = EventCardsAnalizer.BrancheDisbalance(deck, cardsStabilities, maxpa, randomizedSets);
-                        lock (this)
-                        {
-                            if (deviation < minDeviation)
-                            {
-                                if (deviation < BranchPointsDisbalance.criticalValue)
-                                {
-                                    findValid = true;
-                                    if (endless) 
-                                        findValidEvent.Set();
-                                }
-                                
-                                minDeviation = deviation;
-                                minDeviationBPSets = randomizedSets;
-                            }
-                        }
-
-                        if (!endless)
-                        {
-                            countdown.Signal();
-                        }
-                    });
-            }
-
-            if (endless)
-            {
-                findValidEvent.WaitOne();
-            } else
-            {
-                countdown.Wait();
-            }
-
-            for (int i = 0; i < cards.Count(); i++)
-                cards[i].branchPoints = minDeviationBPSets[i];
-
-            timer.Stop();
-            var timespan = TimeSpan.FromMilliseconds(timer.ElapsedMilliseconds);
-            Console.WriteLine("\nDeck randomization duration: " + timespan);
-        }
 
         private List<BranchPointsSet> BranchPointSets(Calculator calculator)
         {

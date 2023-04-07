@@ -10,7 +10,6 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 {
     class EventsRestoringModule : CalculationModule
     {
-        const string inconsistentSizeIssue = "При расчетах различные комбинации участвующих в игре игроков дали разное кол-во карт в раздаче";
         const string minimalLuckyIssue = "Как минимум для одной комбинации игроков не удалось подобрать кол-во карт, удовлетворяющее минимальному шансу успешной раздачи";
         const int maxStackSize = 6;
 
@@ -61,7 +60,6 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
 
         private StackDescription StackFor(int playersAmount, int maxPlayersAmount, List<EventCard> deck, float eusc, float mlsc, OperationReport report)
         {
-            var result = new StackDescription();
             var allPlayers = Enumerable.Range(0, maxPlayersAmount).ToList();
             var playersCombinations = Combinations.Build(allPlayers, playersAmount);
             var stacks = new List<StackDescription>();
@@ -71,11 +69,6 @@ namespace ModelAnalyzer.Parameters.Activities.EventsRestoring
                 stacks.Add(stack);
             }
 
-            /*result.size = stacks.First().size;
-            if (stacks.Where(s => s.size != result.size).Count() > 0)
-            {
-                report.AddIssue(inconsistentSizeIssue);
-            }*/
             var size = (int)Math.Round(stacks.Select(s => s.size).Average(), MidpointRounding.AwayFromZero);
             if (size > 0)
             {
