@@ -38,9 +38,13 @@ local statusRowHeightStub = "!{statusRowHeight}"
 local statusRowColorStub = "!{statusRowColor}"
 local statusRowLabelColorStub = "!{statusRowLabelColor}"
 local statusRowEnergyStub = "!{statusRowEnergy}"
+local statusRowBetIconStub = "!{statusRowBetIconStub}"
+local statusRowImpactsStub = "!{statusRowImpacts}"
+local statusRowPriceStub = "!{statusRowPrice}"
 local statusRowBetsStub = "!{statusRowBets}"
 
 local betPanelId = "TF_BetPanel"
+local resultsPanelId = "TF_ResultsPanel"
 local betSuccessId = "BetSuccess"
 local betFailId = "BetFail"
 local successIconId = "SuccessIcon"
@@ -53,11 +57,14 @@ local statusStateId = "StatusState"
 local approveRowId = "ApproveButtonRow"
 local approvedRowId = "ApprovedTitleRow"
 
-local initialMenuHeight = 315
+local initialPlayerMenuHeight = 315
 local betsHeaderHeight = 20
 local betsRowHeight = 50
 local statusHeaderHeight = 30
 local statusRowHeight = 30
+local initialResultsMenuHeight = 170
+local resultsHeaderHeight = 20
+local resultsRowHeight = 30
 local impactPriceFormat = "Total impact cost: %d energy (you have %d)"
 local statusStateDone = "done"
 local statusStateInProgress = "not done"
@@ -66,14 +73,18 @@ local warningColor = "#C71210"
 local warningMessageColor = Color
 local realizationSelectedColor = "#FCFCEDFF"
 local realizationUnselectedColor = "#FCFCED10"
+local successIcon = "TF_Dialog_S"
+local failIcon = "TF_Dialog_F"
 
 local needRealizationMessage = "Please, select realization for each bet"
 local notEnoughEnergyMessage = "Please, decrease impact count, you have no enough energy"
 local cancelMessageFormat = "%s cancel betting"
+local noFinishPermissionsFormat = "The betting process can only be completed by the artifact owner (%s)"
+local bettingCompletedMessage = "Betting completed"
 
 local personalMenuDefaults = [[
 <Defaults>
-  <Panel class="BorderedWindow" color="#14181B" outline="#FCFCED" outlineSize="2 -2" />
+  <Panel class="TFPanel" color="#14181B" outline="#FCFCED" outlineSize="2 -2" width="385"  rectAlignment="UpperLeft" showAnimation="Grow" hideAnimation="Shrink" returnToOriginalPositionWhenReleased="false" allowDragging="true"/>
   <Text class="Title" fontSize="22" fontStyle="Bold" color="#FCFCED" rectAlignment="UpperCenter"/>
   <Text class="SectionHeader" fontSize="18" color="#FCFCED" rectAlignment="UpperCenter"/>
   <Text class="Info" fontSize="16" color="#FCFCED" />
@@ -82,14 +93,14 @@ local personalMenuDefaults = [[
   <Text class="ActionTitle" fontSize="14" fontStyle="Bold" color="#14181B" />
   <Button class="YourBet" color="clear"/>
   <Button class="Action" color="#FCFCED"/>
-  <Image class="YourBet" width="30" height="30"/>
+  <Image class="RealizationIcon" width="30" height="30"/>
   <Row class="Action" preferredHeight="45"/>
   <Row class="ActionSeparator" preferredHeight="10"/>
 </Defaults>
 ]]
 
 local personalMenuTemplate = [[
-<Panel id="TF_BetPanel!{playerColor}" visibility="!{playerColor}" class="BorderedWindow" width="385" height="!{menuHeight}" rectAlignment="MiddleRight" showAnimation="Grow" hideAnimation="Shrink" returnToOriginalPositionWhenReleased="false" allowDragging="true">
+<Panel id="TF_BetPanel" visibility="!{playerColor}" class="TFPanel" height="!{menuHeight}">
   <TableLayout cellBackgroundColor="Clear"  padding="20 20 10 20">
     <Row preferredHeight="25">
       <Text class="Title">TANGLE OF FATES</Text>
@@ -168,25 +179,25 @@ local personalMenuTemplate = [[
 ]]
 
 local playerBetRowTemplate = [[
-  <Row class="BetRow" preferredHeight="!{betsRowHeight}">
+  <Row preferredHeight="!{betsRowHeight}">
       <Cell>
           <HorizontalLayout>
             <Button class="YourBet" id="BetSuccess!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
-                <Image class="YourBet" id="SuccessIcon!{playerColor}!{betsRowIndex}" image="TF_Dialog_S" color="#FCFCED10"/>
+                <Image class="RealizationIcon" id="SuccessIcon!{playerColor}!{betsRowIndex}" image="TF_Dialog_S" color="#FCFCED10"/>
             </Button>
             <Button class="YourBet" id="BetFail!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
-                <Image class="YourBet" id="FailIcon!{playerColor}!{betsRowIndex}" image="TF_Dialog_F" color="#FCFCED10"/>
+                <Image class="RealizationIcon" id="FailIcon!{playerColor}!{betsRowIndex}" image="TF_Dialog_F" color="#FCFCED10"/>
             </Button>
           </HorizontalLayout>
       </Cell>
       <Cell>
           <HorizontalLayout>
             <Button class="YourBet" id="IncreaseImpact!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
-              <Image class="YourBet" image="TF_Dialog_Up"/>
+              <Image class="RealizationIcon" image="TF_Dialog_Up"/>
             </Button>
             <Text id="ImpactCount!{playerColor}!{betsRowIndex}" class="Info">0</Text>
             <Button class="YourBet" id="DecreaseImpact!{playerColor}!{betsRowIndex}" onClick="onButtonClick">
-              <Image class="YourBet" image="TF_Dialog_Down"/>
+              <Image class="RealizationIcon" image="TF_Dialog_Down"/>
             </Button>
           </HorizontalLayout>
       </Cell>
@@ -194,7 +205,7 @@ local playerBetRowTemplate = [[
 ]]
 
 local betStatusRowTemplate = [[
-<Row class="PlayerBetStatusRow" preferredHeight="!{statusRowHeight}">
+<Row preferredHeight="!{statusRowHeight}">
   <Cell>
     <Text class="Player" id="StatusColor!{playerColor}!{statusRowColor}" color="!{statusRowLabelColor}">!{statusRowColor}</Text>
   </Cell>
@@ -210,6 +221,67 @@ local betStatusRowTemplate = [[
 </Row>
 ]]
 
+local resultsMenuTemplate = [[
+<Panel id="TF_ResultsPanel" class="TFPanel" height="!{menuHeight}">
+  <TableLayout cellBackgroundColor="Clear"  padding="20 20 10 20">
+    <Row preferredHeight="25">
+      <Text class="Title">TANGLE OF FATES</Text>
+    </Row>
+    <Row preferredHeight="20" />
+    <Row preferredHeight="20">
+      <Text class="SectionHeader">Betting results</Text>
+    </Row>
+    <Row preferredHeight="5" />
+    <Row preferredHeight="!{statusTotalHeight}">
+      <TableLayout cellBackgroundColor="clear">
+        <Row preferredHeight="!{statusHeaderHeight}">
+          <Cell>
+            <Text class="Info">Player</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Bet</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Impact</Text>
+          </Cell>
+          <Cell>
+            <Text class="Info">Price</Text>
+          </Cell>
+        </Row>
+        !{statusRows}
+      </TableLayout>
+    </Row>
+    <Row preferredHeight="30" />
+    <Row class="Action">
+      <Cell>
+        <Button class="Action" id="Finish" onClick="onButtonClick">
+          <Text class="ActionTitle">Complete</Text>
+        </Button>
+      </Cell>
+    </Row>
+  </TableLayout>
+</Panel>
+]]
+
+local resultsRowTemplate = [[
+<Row preferredHeight="!{statusRowHeight}">
+  <Cell>
+    <Text class="Player" color="!{statusRowLabelColor}">!{statusRowColor}</Text>
+  </Cell>
+  <Cell>
+    <Button interactable="false" color="clear">
+        <Image class="RealizationIcon" width="25" height="25" image="!{statusRowBetIconStub}" color="#FCFCED"/>
+    </Button>
+  </Cell>
+  <Cell>
+    <Text class="SecondaryInfo">!{statusRowImpacts}</Text>
+  </Cell>
+  <Cell>
+    <Text class="SecondaryInfo">!{statusRowPrice}</Text>
+  </Cell>
+</Row>
+]]
+
 local function playersColors()
   --[[local players = filterArray(
     Player.getPlayers(),
@@ -217,7 +289,7 @@ local function playersColors()
   )
 
   return map(players, function (p) return p.color end)]]
-  return {"White", "Teal", "Blue", "Yellow"}
+  return {"White", "Teal"}
 end
 
 local function energyOf(color)
@@ -228,14 +300,38 @@ end
 
 local function totalImpactPrice(color)
   local impactCount = 0
-  for i = 1, starterBets do
-    local countId = impactCountId .. color .. i
+  for index = 1, starterBets do
+    local countId = impactCountId .. color .. index
     local value = UI.getValue(countId)
     local value = value ~= nil and UI.getValue(countId) or "0"
     impactCount = impactCount + tonumber(value)
   end
 
   return impactCount * impactPrice
+end
+
+local function isApproved(color)
+  local approvedId = approvedRowId .. color
+  local isApproved = UI.getAttribute(approvedId, "active")
+  return (isApproved == "true" or isApproved == "True")
+end
+
+local function colorBets(color)
+  local bets = {}
+  for index = 1, starterBets do
+    local bet = {["color"] = color}
+    local successId = successIconId .. color .. index
+    local successColor = UI.getAttribute(successId, "color")
+
+    if successColor ~= nil then
+      bet.success = successColor == realizationSelectedColor
+      local impactId = impactCountId .. color .. index
+      bet.impacts = tonumber(UI.getValue(impactId))
+      bet.price = bet.impacts * impactPrice
+      table.insert(bets, bet)
+    end
+  end
+  return bets
 end
 
 local function updateIpactPrice(color)
@@ -291,30 +387,77 @@ end
 
 local function updateStatusState(playerColor, statusColor)
   local stateId = statusStateId .. playerColor .. statusColor
-  local approvedId = approvedRowId .. statusColor
-  local isApproved = UI.getAttribute(approvedId, "active")
-  local state = (isApproved == "true" or isApproved == "True") and statusStateDone or statusStateInProgress
+  local state = isApproved(statusColor) and statusStateDone or statusStateInProgress
   UI.setValue(stateId, state)
 end
 
-local function removePlayersMenus()
+local function removeMenus(id)
   local uiTable = UI.getXmlTable()
-
-  for index, element in ipairs(uiTable) do
-    if element.tag == "Panel" then
-      if element.attributes.id:find(betPanelId, 1, true) == 1 then
-        table.remove(uiTable, index)
-      end
-    end
-  end
-
+  uiTable = filterArray(uiTable, function(e) return e.attributes.id ~= id end)
   UI.setXmlTable(uiTable)
 end
 
-local function cancel(color)
+local function cancelBetting(color)
   local message = string.format(cancelMessageFormat, color)
-  broadcastToAll(message, Color.Blocker)
-  removePlayersMenus()
+  broadcastToAll(message, Color.Critical)
+  removeMenus(betPanelId)
+end
+
+local function finishResults(color, starter)
+  log("Color: " .. color .. " starter: " .. starter)
+  if color ~= starter then
+    local message = string.format(noFinishPermissionsFormat, starter)
+    broadcastToColor(message, color, Color.Warning)
+    return
+  else
+    removeMenus(resultsPanelId)
+    broadcastToAll(bettingCompletedMessage, Color.SuccessInfo)
+  end
+end
+
+local function setupResultsRow(bet)
+  local icon = bet.success and successIcon or failIcon
+  return resultsRowTemplate
+    :gsub(statusRowColorStub, bet.color)
+    :gsub(statusRowLabelColorStub, labelColors[bet.color])
+    :gsub(statusRowHeightStub, resultsRowHeight)
+    :gsub(statusRowBetIconStub, icon)
+    :gsub(statusRowImpactsStub, bet.impacts)
+    :gsub(statusRowPriceStub, bet.price)
+end
+
+local function setupResultsMenu(bets)
+  local resultsHeight = resultsHeaderHeight + resultsRowHeight * #bets
+  local menuHeight = initialResultsMenuHeight + resultsHeight
+
+  local resultsRowsXml = ""
+  for _, bet in ipairs(bets) do
+    resultsRowsXml = resultsRowsXml .. setupResultsRow(bet)
+  end
+
+  return resultsMenuTemplate
+    :gsub(menuHeightStub, menuHeight)
+    :gsub(statusTotalHeightStub, resultsHeight)
+    :gsub(statusHeaderHeightStub, resultsHeaderHeight)
+    :gsub(statusRowsStub, resultsRowsXml)
+end
+
+local function showBettingResults(colors, starter)
+
+  addButtonHandler("Finish", function(player) finishResults(player.color, starter) end)
+
+  local bets = {}
+  for _, color in ipairs(colors) do
+    for _, bet in ipairs(colorBets(color)) do
+      table.insert(bets, bet)
+    end
+  end
+
+  removeMenus(betPanelId)
+  Wait.condition(
+    function() UI.setXml(UI.getXml() .. setupResultsMenu(bets)) end,
+    function() return not UI.loading end
+  )
 end
 
 local function validateBets(color)
@@ -324,28 +467,39 @@ local function validateBets(color)
     local successColor = UI.getAttribute(successId, "color")
     local failColor = UI.getAttribute(failId, "color")
     if successColor == realizationUnselectedColor and failColor == realizationUnselectedColor then
-      broadcastToColor(needRealizationMessage, color, Color.Blocker)
+      broadcastToColor(needRealizationMessage, color, Color.Warning)
       return false
     end
   end
 
   if totalImpactPrice(color) > energyOf(color) then
-      broadcastToColor(notEnoughEnergyMessage, color, Color.Blocker)
+      broadcastToColor(notEnoughEnergyMessage, color, Color.Critical)
       return false
   end
 
   return true
 end
 
-local function handleBetStateChanged(color, colors)
+local function handleBetStateChanged(color, colors, starter)
+  local approvedBets = 0
   for _, statusColor in ipairs(colors) do
     if statusColor ~= color then
       updateStatusState(statusColor, color)
     end
+    if isApproved(statusColor) then
+      approvedBets = approvedBets + 1
+    end
+  end
+
+  if approvedBets == #colors then
+    Wait.condition(
+      function()showBettingResults(colors, starter) end,
+      function() return not UI.loading end
+    )
   end
 end
 
-local function approve(color, colors)
+local function approveBets(color, colors, starter)
  if not validateBets(color) then return end
 
   for index = 1, starterBets do
@@ -366,7 +520,7 @@ local function approve(color, colors)
   UI.show(approvedId)
 
   Wait.condition(
-    function() handleBetStateChanged(color, colors) end,
+    function() handleBetStateChanged(color, colors, starter) end,
     function() return not UI.loading end
   )
 end
@@ -399,7 +553,7 @@ local function setupPersonalMenu(color, colors, starterColor, compoundXml)
   local betRows = color == starterColor and starterBets or nonstarterBets
   local betsHeight = betsHeaderHeight + betsRowHeight * betRows
   local statusHeight = statusHeaderHeight + statusRowHeight * (#colors - 1)
-  local menuHeight = initialMenuHeight + betsHeight + statusHeight
+  local menuHeight = initialPlayerMenuHeight + betsHeight + statusHeight
 
   local betRowsXml = ""
   for i = 1, betRows do
@@ -423,8 +577,8 @@ local function setupPersonalMenu(color, colors, starterColor, compoundXml)
     :gsub(statusHeaderHeightStub, statusHeaderHeight)
     :gsub(statusRowsStub, statusRowsXml)
 
-  addButtonHandler("Cancel" .. color, function() cancel(color) end)
-  addButtonHandler("Approve" .. color, function() approve(color, colors) end)
+  addButtonHandler("Cancel" .. color, function() cancelBetting(color) end)
+  addButtonHandler("Approve" .. color, function() approveBets(color, colors, starterColor) end)
 
   return compoundXml .. personalMenuXml
 end

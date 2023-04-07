@@ -20,12 +20,12 @@
       "GUID": "208519",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 18.2147236,
-        "posY": 0.9600002,
-        "posZ": 3.87971473,
-        "rotX": -6.224582E-05,
-        "rotY": 179.999756,
-        "rotZ": 0.000119402168,
+        "posX": -4.7812705,
+        "posY": 1.05916274,
+        "posZ": 7.660394,
+        "rotX": 0.0007825647,
+        "rotY": 179.997147,
+        "rotZ": -0.003670027,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -39,10 +39,13 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.227450937,
-        "g": 0.8784314,
-        "b": 0.07058821
+        "r": 0.2313725,
+        "g": 0.5803921,
+        "b": 0.188235253
       },
+      "Tags": [
+        "realization_tocken"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
