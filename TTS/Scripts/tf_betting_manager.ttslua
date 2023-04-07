@@ -22,6 +22,10 @@ local impactPrice = 8
 local nonstarterBets = 1
 local starterBets = 3
 
+local tfTag = "tangle_of_fates"
+local fieldId = "6008c0"
+local tfCardGap = 0.001
+
 local menuHeightStub = "!{menuHeight}"
 local playerColorStub = "!{playerColor}"
 
@@ -283,13 +287,11 @@ local resultsRowTemplate = [[
 ]]
 
 local function playersColors()
-  --[[local players = filterArray(
+  local players = filterArray(
     Player.getPlayers(),
     function(p) return p.color ~= spectratorColor and p.color ~= masterColor end
   )
-
-  return map(players, function (p) return p.color end)]]
-  return {"White", "Teal"}
+  return map(players, function (p) return p.color end)
 end
 
 local function energyOf(color)
@@ -404,7 +406,6 @@ local function cancelBetting(color)
 end
 
 local function finishResults(color, starter)
-  log("Color: " .. color .. " starter: " .. starter)
   if color ~= starter then
     local message = string.format(noFinishPermissionsFormat, starter)
     broadcastToColor(message, color, Color.Warning)
@@ -594,7 +595,7 @@ local function onUILoaded()
   end
 end
 
-function startBetting(starterColor)
+local function startBetting(starterColor)
   local colors = playersColors()
   local compoundXml = ""
   compoundXml = compoundXml .. personalMenuDefaults
@@ -608,3 +609,31 @@ function startBetting(starterColor)
     function() return not UI.loading end
   )
 end
+
+local function isObjectOnFieldSnap(object)
+  local field = getObjectFromGUID(fieldId)
+  local position = field.positionToLocal(object.getPosition())
+  local snaps = filterArray(field.getSnapPoints(), function(s) return not s.rotation_snap end)
+  for _, snap in ipairs(snaps) do
+    local deltaX = math.abs(snap.position.x - position.x)
+    local deltaZ = math.abs(snap.position.z - position.z)
+    if deltaX < tfCardGap and deltaZ < tfCardGap then
+      return true
+    end
+  end
+  return false
+end
+
+local function handleDrop(color, object)
+  if not object.hasTag(tfTag) then return end
+  Wait.condition(
+    function()
+      if isObjectOnFieldSnap(object) then
+        startBetting(color)
+      end
+    end,
+    function() return not object.isSmoothMoving() end
+  )
+end
+
+addGlobalInjection(Events.onObjectDrop, handleDrop)
