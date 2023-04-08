@@ -154,7 +154,7 @@ namespace ModelAnalyzer.Parameters.Events
 
             foreach (var set in sets)
             {
-                var captured = set.UsedBranches().Any(b => anyResultCapture(b));
+               var captured = set.UsedBranches().Any(b => anyResultCapture(b));
                 if (!captured)
                 {
                     result.Add(set);
