@@ -32,22 +32,21 @@ function CopyLayer (layer, toLayer, doc)
     return newLayer
 }
 
-function MoveLayerContent(layer, translate)
+function MoveLayerContent(layer, x, y)
 {
     for (var i = 0; i < layer.layers.length; i++) {
-         MoveLayerContent (layer.layers[i], translate)
+        MoveLayerContent(layer.layers[i], x, y)
     }
 
     for (var i = 0; i < layer.pageItems.length; i++) {
-        layer.pageItems[i].translate(translate[0], translate[1])
+        layer.pageItems[i].translate(x, y)
     }
 }
 
-function move(layer, x, y) 
+function Move(layer, x, y) 
 {
     var center = LayerCenter (layer)
-    var translate = [x - center[0], y - center[1]]
-    MoveLayerContent(layer, translate)
+    MoveLayerContent(layer, x - center[0], y - center[1])
 }
 
 function LayerBounds(layer)
