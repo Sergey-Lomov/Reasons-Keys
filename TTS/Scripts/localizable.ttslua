@@ -1,0 +1,40 @@
+local localizable_tag = "localizable"
+local language_key = "custom_language"
+local setups_key = "localization_setups"
+local default_language = "ru"
+
+local function executeLocalization(object)
+  local language = Global.getVar(language_key) or default_language
+  local setup = object.getVar(setups_key)[language]
+  local customObject = object.getCustomObject()
+
+  for key, _ in pairs(customObject) do
+    if setup[key] ~= nil then
+      customObject[key] = setup[key]
+    end
+  end
+
+  object.setCustomObject(customObject)
+end
+
+local function isLocalized(object)
+  return object.hasTag(localizable_tag) and object.getVar(setups_key) ~= nil
+end
+
+local function localizationInjection(object)
+  if isLocalized(object) then
+    executeLocalization(object)
+  end
+end
+
+local function loadInjection(object)
+  local tagedObjects = getObjectsWithTag(localizable_tag)
+  for inex, object in ipairs(tagedObjects) do
+    if isLocalized(object) then
+      executeLocalization(object)
+    end
+  end
+end
+
+addGlobalInjection(Events.onObjectSpawn, localizationInjection)
+addGlobalInjection(Events.onLoad, loadInjection)

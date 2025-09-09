@@ -1,0 +1,15 @@
+logStyle("debug", {1.0, 0.5, 1.0}, "", "")
+logStyle("error", "Red", "", "")
+logStyle("warning", "Yellow", "", "")
+
+function logDebug(message)
+  log(message, nil, "debug")
+end
+
+function logError(message)
+  log(message, nil, "error")
+end
+
+function logWarning(message)
+  log(message, nil, "warning")
+end
