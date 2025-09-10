@@ -1,3 +1,5 @@
+local eventCardTag = "event_card"
+
 local nodes = {
   {x = 300.000, y = 300.000, forwardRelation = {true, true, true, true, true, true}},
 
@@ -78,8 +80,8 @@ local function generateSnaps()
     local x = (node.x - boardHalfSize) / boardHalfSize * -1
     local y = (node.y - boardHalfSize) / boardHalfSize * -1
     local eventSnap = {
-      position = {x, 1, y},
-      tags = {"event_card", "realization_tocken"}
+      position = {x, 0.1, y},
+      tags = {eventCardTag, "realization_tocken"}
     }
     table.insert(snaps, eventSnap)
 
@@ -102,4 +104,41 @@ local function generateSnaps()
   board.setSnapPoints(snaps)
 end
 
+local function lockIfNeccessary(object)
+  local treshhold = 0.01
+  local yTreshhold = 0.05
+  local board = getObjectFromGUID(boardId)
+  local position = object.getPosition()
+  local test = board.positionToWorld(board.getSnapPoints()[2].position)
+  for _, snap in ipairs(board.getSnapPoints()) do
+    local snapPosition = board.positionToWorld(snap.position)
+    if math.abs(position.x - snapPosition[1]) < treshhold
+      and math.abs(position.y - snapPosition[2]) < yTreshhold
+      and math.abs(position.z - snapPosition[3]) < treshhold then
+      object.setLock(true)
+    end
+  end
+end
+
+local function isSettled(object)
+    if not object then return false end
+    local treshhold = 0.01
+    local v = object.getVelocity()
+    local av = object.getAngularVelocity()
+    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold
+       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold
+end
+
+local function handleCardsDrop(color, object)
+  if not object.hasTag(eventCardTag) then return end
+  Wait.condition(function()
+    if object == nil then return end
+    lockIfNeccessary(object)
+  end, function()
+    if object == nil then return true end
+    return isSettled(object)
+  end)
+end
+
 addGlobalInjection(Events.onLoad, generateSnaps)
+addGlobalInjection(Events.onObjectDrop, handleCardsDrop)
