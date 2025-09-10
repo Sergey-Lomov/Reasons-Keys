@@ -1,7 +1,5 @@
-﻿using System;
-
-using ModelAnalyzer.Services;
-using ModelAnalyzer.Parameters.Activities;
+﻿using ModelAnalyzer.Services;
+using ModelAnalyzer.Parameters.Events;
 
 namespace ModelAnalyzer.Parameters.PlayerInitial
 {
@@ -11,7 +9,7 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             type = ParameterType.Out;
             title = "ЛИС: сила связей вперед";
-            details = "Максимальная разрешенная суммарная сила всех связей вперед на логистической изначальной карте";
+            details = "Максимальная разрешенная суммарная сила всех связей на логистической изначальной карте";
             fractionalDigits = 0;
             tags.Add(ParameterTag.playerInitial);
         }
@@ -20,15 +18,13 @@ namespace ModelAnalyzer.Parameters.PlayerInitial
         {
             calculationReport = new ParameterCalculationReport(this);
 
-            float eop = RequestParameter<EventCreationPrice>(calculator).GetValue();
-            float eip = RequestParameter<EventImpactPrice>(calculator).GetValue();
-            float liepc = RequestParameter<LogisticInitialEventPowerCoefficient>(calculator).GetValue();
+            float rip = RequestParameter<RelationImpactPower>(calculator).GetValue();
+            float lieftp = RequestParameter<LogisticInitialEventForceTotalPower>(calculator).GetValue();
 
             if (!calculationReport.IsSuccess)
                 return calculationReport;
 
-            unroundValue = eop / eip * liepc;
-            value = (int)Math.Round(unroundValue, MidpointRounding.AwayFromZero);
+            value = rip + lieftp;
 
             return calculationReport;
         }

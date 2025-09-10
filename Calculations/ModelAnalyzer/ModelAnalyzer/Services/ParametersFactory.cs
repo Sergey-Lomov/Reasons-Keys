@@ -172,6 +172,7 @@ namespace ModelAnalyzer
             storage.AddParameter(parameter: new LogisticInitialEventMaxRelationPower());
             storage.AddParameter(parameter: new LogisticInitialEventMaxRadius());
             storage.AddParameter(parameter: new LogisticInitialEventPowerCoefficient());
+            storage.AddParameter(parameter: new LogisticInitialEventForceTotalPower());
             storage.AddParameter(parameter: new LogisticInitialEventTotalPower());
             storage.AddParameter(parameter: new MainKeyEventBranchPoints());
             storage.AddParameter(parameter: new MainKeyEventBranchPointsCoefficient());

@@ -215,6 +215,7 @@
     <Compile Include="Parameters\PlayerInitial\InitialStackSize.cs" />
     <Compile Include="Parameters\PlayerInitial\LogisticInitialEventMaxRelationPower.cs" />
     <Compile Include="Parameters\PlayerInitial\LogisticInitialEventPowerCoefficient.cs" />
+    <Compile Include="Parameters\PlayerInitial\LogisticInitialEventForceTotalPower.cs" />
     <Compile Include="Parameters\PlayerInitial\LogisticInitialEventTotalPower.cs" />
     <Compile Include="Parameters\PlayerInitial\SupportInitialEventMaxRadius.cs" />
     <Compile Include="Parameters\PlayerInitial\MinInitialCardUsability.cs" />
