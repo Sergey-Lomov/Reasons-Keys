@@ -1,0 +1,28 @@
+borderThickness = 0.125
+borderColor = color(0.8, 0.1, 0.1, 1.0)
+onLoadHandlers = {}
+
+function onLoad()
+  --Make an X above the middle of the table
+  local pos = self.getPosition()
+  local scale = self.getScale()
+  local y = pos.y - scale.y / 2
+  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}
+  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}
+  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}
+  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}
+  local border =   {
+      points    = { p1, p2, p3, p4, p1},
+      color     = borderColor,
+      thickness = borderThickness,
+      rotation  = {0,0,0},
+  }
+  local existLines = Global.getVectorLines()
+  existLines = (existLines != nil) and existLines or {}
+  table.insert(existLines, border)
+  Global.setVectorLines(existLines)
+
+  for _, handler in ipairs(onLoadHandlers) do
+      handler()
+  end
+end

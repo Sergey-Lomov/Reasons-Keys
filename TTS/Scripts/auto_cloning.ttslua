@@ -1,24 +1,26 @@
-local cloning_source_tag = "cloning_source"
+local cloningSourceTag = "cloning_source"
+local cloneTag = "clone"
 
 local function executeCloning(object)
   local clone = object.clone()
   clone.setPosition(object.getPosition())
-  clone.addTag(cloning_source_tag)
+  clone.addTag(cloningSourceTag)
 
   -- Obviously code "object.removeTag(cloning_source_tag)" not working properly in case, when cloning_source_tag is only one tag.
   -- In this case cloned objects staks only by 2 and third object can't stack with already stacked two.
   -- Probably this is an issue inside removeTag function. Manual removing tag and reset whole tags table fix the issue.
   local tags = {}
   for _, tag in ipairs(object.getTags()) do
-    if tag ~= cloning_source_tag then
+    if tag ~= cloningSourceTag then
       table.insert(tags, tag)
     end
   end
+  table.insert(tags, cloneTag)
   object.setTags(tags)
 end
 
 local function cloningInjection(colorName, object)
-  if object.hasTag(cloning_source_tag) then
+  if object.hasTag(cloningSourceTag) then
     executeCloning(object)
   end
 end

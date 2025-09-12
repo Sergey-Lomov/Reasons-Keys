@@ -1,5 +1,5 @@
-thickness = 0.125
-color = color(0.8, 0.1, 0.1, 1.0)
+#include <bordered_zone.ttslua>
+
 textId = nil
 textSize = 72
 valueKey = "denomination"
@@ -18,31 +18,13 @@ local function updateValue()
   getObjectFromGUID(textId).setValue("" .. total)
 end
 
-function onLoad()
-  --Make an X above the middle of the table
-  local pos = self.getPosition()
-  local scale = self.getScale()
-  local y = pos.y - scale.y / 2
-  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}
-  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}
-  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}
-  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}
-  local border =   {
-      points    = { p1, p2, p3, p4, p1},
-      color     = color,
-      thickness = thickness,
-      rotation  = {0,0,0},
-  }
-  local existLines = Global.getVectorLines()
-  existLines = (existLines != nil) and existLines or {}
-  table.insert(existLines, border)
-  Global.setVectorLines(existLines)
-
+table.insert(onLoadHandlers, function()
   local text = getObjectFromGUID(textId)
-  text.TextTool.setFontColor(color)
+  text.TextTool.setFontColor(borderColor)
   text.TextTool.setFontSize(textSize)
+
   updateValue()
-end
+end)
 
 function onObjectEnterZone(zone, object)
     updateValue()

@@ -1,0 +1,19 @@
+-- This zone will remove all elements whose tags intersect with the zone's tags.
+
+#include <bordered_zone.ttslua>
+
+local function tagsIntersect(tags1, tags2)
+  for _, t1 in ipairs(tags1) do
+    for _, t2 in ipairs(tags2) do
+      if t1 == t2 then return true end
+    end
+  end
+  return false
+end
+
+function onObjectEnterZone(zone, object)
+  if zone ~= self then return end
+  if tagsIntersect(zone.getTags(), object.getTags()) then
+    destroyObject(object)
+  end
+end
