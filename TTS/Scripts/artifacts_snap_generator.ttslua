@@ -49,7 +49,7 @@ local function generateSnapsFor(handId)
   table.insert(snaps, snap(right1, angle))
   table.insert(snaps, snap(right2, angle))
 
-  --Global.setSnapPoints(snaps)
+  Global.setSnapPoints(snaps)
 end
 
 local function generateSnaps()

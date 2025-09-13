@@ -36,7 +36,7 @@ local function generateSnapsFor(itemsListId)
     table.insert(snaps, snap)
   end
 
-  --itemsList.setSnapPoints(snaps)
+  itemsList.setSnapPoints(snaps)
 end
 
 local function generateSnaps()
