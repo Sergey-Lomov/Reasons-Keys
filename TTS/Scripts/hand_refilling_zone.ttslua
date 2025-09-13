@@ -6,7 +6,7 @@ local selectionTitle = "Take to hand"
 local faceUp = {0, 0, 0}
 local faceDown = {0, 0, 180}
 local eventsTag = "event_card"
-local discardedPosition = {-11.7, 1.15, -15.15}
+local discardedPosition = {-11.20, 2.0, -14.97}
 local choosen = nil
 
 local function finishRefilling(player_color, selected)

@@ -1,4 +1,7 @@
+-- data_utils.ttslua should be included
+
 local eventCardTag = "event_card"
+local lockSnapTag = "locking_snap"
 
 local nodes = {
   {x = 300.000, y = 300.000, forwardRelation = {true, true, true, true, true, true}},
@@ -68,6 +71,15 @@ local nodes = {
   {x = 247.526, y = 512.179, forwardRelation = {true, false, false, false, false, true}},
 }
 
+local custom = {
+  {x = 545.125, y = 57.44, tags={"v616_mon_token"}},
+  {x = 459.42, y = 57.44, tags={"non_event_artifact"}},
+  {x = 138.98, y = 57.44, tags={eventCardTag}},
+  {x = 53.276, y = 57.44, tags={eventCardTag}},
+  {x = 34.612, y = 269.689, tags={"neutral_token"}},
+  {x = 34.612, y = 330.362, tags={"first_player_token"}},
+}
+
 local boardId = "6008c0"
 local boardHalfSize = 300
 local nodeInnerRadius = 60.622 / 600.0
@@ -81,7 +93,7 @@ local function generateSnaps()
     local y = (node.y - boardHalfSize) / boardHalfSize * -1
     local eventSnap = {
       position = {x, 0.1, y},
-      tags = {eventCardTag, "realization_tocken"}
+      tags = {eventCardTag, "realization_tocken", lockSnapTag}
     }
     table.insert(snaps, eventSnap)
 
@@ -101,6 +113,16 @@ local function generateSnaps()
     end
   end
 
+  for _, data in ipairs(custom) do
+    local x = (data.x - boardHalfSize) / boardHalfSize * -1
+    local y = (data.y - boardHalfSize) / boardHalfSize * -1
+    local snap = {
+      position = {x, 0.1, y},
+      tags = data.tags
+    }
+    table.insert(snaps, snap)
+  end
+
   board.setSnapPoints(snaps)
 end
 
@@ -111,11 +133,13 @@ local function lockIfNeccessary(object)
   local position = object.getPosition()
   local test = board.positionToWorld(board.getSnapPoints()[2].position)
   for _, snap in ipairs(board.getSnapPoints()) do
-    local snapPosition = board.positionToWorld(snap.position)
-    if math.abs(position.x - snapPosition[1]) < treshhold
-      and math.abs(position.y - snapPosition[2]) < yTreshhold
-      and math.abs(position.z - snapPosition[3]) < treshhold then
-      object.setLock(true)
+    if arrayContains(snap.tags, lockSnapTag) then
+      local snapPosition = board.positionToWorld(snap.position)
+      if math.abs(position.x - snapPosition[1]) < treshhold
+        and math.abs(position.y - snapPosition[2]) < yTreshhold
+        and math.abs(position.z - snapPosition[3]) < treshhold then
+        object.setLock(true)
+      end
     end
   end
 end
