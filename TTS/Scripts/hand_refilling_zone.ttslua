@@ -1,6 +1,7 @@
 #include <constants.ttslua>
 #include <injections.ttslua>
 #include <data_utils.ttslua>
+#include <objects_utils.ttslua>
 
 local selectionTitle = "Take to hand"
 local faceUp = {0, 0, 0}
@@ -25,13 +26,19 @@ local function finishRefilling(player_color, selected)
   end
 end
 
+local function test()
+  print("test")
+end
+
 local function handleObject(object)
   if not object.hasTag(eventsTag) then return end
   if object == choosen then return end
   local source = object.getRotation()
-  object.setRotation(faceUp)
+
   object.clearContextMenu()
   object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)
+
+  executeAfterSettled(object, function() object.setRotation(faceUp) end)
 end
 
 function onObjectEnterZone(zone, object)

@@ -144,24 +144,9 @@ local function lockIfNeccessary(object)
   end
 end
 
-local function isSettled(object)
-    if not object then return false end
-    local treshhold = 0.01
-    local v = object.getVelocity()
-    local av = object.getAngularVelocity()
-    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold
-       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold
-end
-
 local function handleCardsDrop(color, object)
   if not object.hasTag(eventCardTag) then return end
-  Wait.condition(function()
-    if object == nil then return end
-    lockIfNeccessary(object)
-  end, function()
-    if object == nil then return true end
-    return isSettled(object)
-  end)
+  executeAfterSettled(object, function() lockIfNeccessary(object) end)
 end
 
 addGlobalInjection(Events.onLoad, generateSnaps)
