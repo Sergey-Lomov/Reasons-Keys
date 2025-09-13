@@ -1,5 +1,4 @@
 local handsIds = {"76e9c1", "707d50", "b37d34", "ff8fa7", "64d264", "79cf43"}
-local nonevenArtifactTag = "non_event_artifact"
 local midDeltaX = 12.45
 local midDeltaZ = 0.2
 local radius2 = 4.7
@@ -10,7 +9,7 @@ local function snap(coords, angle)
     position = {coords.x, 1, coords.z},
     rotation = {0, angle, 0},
     rotation_snap = true,
-    tags = {nonevenArtifactTag},
+    tags = {Tags.nonEventArtifact},
   }
 end
 

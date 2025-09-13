@@ -1,4 +1,5 @@
 #include <data_utils.ttslua>
+#include <constants.ttslua>
 
 local energyCounters = {
   ["Blue"] = "1dcc4b",
@@ -22,7 +23,6 @@ local impactPrice = 8
 local nonstarterBets = 1
 local starterBets = 3
 
-local tfTag = "tangle_of_fates"
 local fieldId = "6008c0"
 local tfCardGap = 0.001
 
@@ -625,7 +625,7 @@ local function isObjectOnFieldSnap(object)
 end
 
 local function handleDrop(color, object)
-  if not object.hasTag(tfTag) then return end
+  if not object.hasTag(Tags.tangleOfFates) then return end
   Wait.condition(
     function()
       if isObjectOnFieldSnap(object) then

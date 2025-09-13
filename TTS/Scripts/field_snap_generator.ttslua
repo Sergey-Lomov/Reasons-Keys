@@ -1,8 +1,5 @@
 -- data_utils.ttslua should be included
 
-local eventCardTag = "event_card"
-local lockSnapTag = "locking_snap"
-
 local nodes = {
   {x = 300.000, y = 300.000, forwardRelation = {true, true, true, true, true, true}},
 
@@ -72,12 +69,12 @@ local nodes = {
 }
 
 local custom = {
-  {x = 545.125, y = 57.44, tags={"v616_mon_token"}},
-  {x = 459.42, y = 57.44, tags={"non_event_artifact"}},
-  {x = 138.98, y = 57.44, tags={eventCardTag}},
-  {x = 53.276, y = 57.44, tags={eventCardTag}},
-  {x = 34.612, y = 269.689, tags={"neutral_token"}},
-  {x = 34.612, y = 330.362, tags={"first_player_token"}},
+  {x = 545.125, y = 57.44, tags={Tags.v616MonToken}},
+  {x = 459.42, y = 57.44, tags={Tags.nonEventArtifact}},
+  {x = 138.98, y = 57.44, tags={Tags.eventCard}},
+  {x = 53.276, y = 57.44, tags={Tags.eventCard}},
+  {x = 34.612, y = 269.689, tags={Tags.neutralToken}},
+  {x = 34.612, y = 330.362, tags={Tags.firstPlayerToken}},
 }
 
 local boardId = "6008c0"
@@ -93,7 +90,7 @@ local function generateSnaps()
     local y = (node.y - boardHalfSize) / boardHalfSize * -1
     local eventSnap = {
       position = {x, 0.1, y},
-      tags = {eventCardTag, "realization_tocken", lockSnapTag}
+      tags = {Tags.eventCard, Tags.realizationToken, Tags.lockingSnap}
     }
     table.insert(snaps, eventSnap)
 
@@ -104,7 +101,7 @@ local function generateSnaps()
         local deltaY = nodeInnerRadius * math.sin(angle)
         local relSnap = {
           position = {x + deltaX, 1, y - deltaY},
-          tags = {"relation_element"},
+          tags = {Tags.relationElement},
           rotation = {0, (index - 1) * 60, 0},
           rotation_snap = true
         }
@@ -133,7 +130,7 @@ local function lockIfNeccessary(object)
   local position = object.getPosition()
   local test = board.positionToWorld(board.getSnapPoints()[2].position)
   for _, snap in ipairs(board.getSnapPoints()) do
-    if arrayContains(snap.tags, lockSnapTag) then
+    if arrayContains(snap.tags, Tags.lockingSnap) then
       local snapPosition = board.positionToWorld(snap.position)
       if math.abs(position.x - snapPosition[1]) < treshhold
         and math.abs(position.y - snapPosition[2]) < yTreshhold
@@ -145,7 +142,7 @@ local function lockIfNeccessary(object)
 end
 
 local function handleCardsDrop(color, object)
-  if not object.hasTag(eventCardTag) then return end
+  if not object.hasTag(Tags.eventCard) then return end
   executeAfterSettled(object, function() lockIfNeccessary(object) end)
 end
 

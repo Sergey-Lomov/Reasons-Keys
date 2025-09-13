@@ -1,5 +1,4 @@
 local itemsListsIds = {"bffb9a", "8c9809", "21377d", "d10057", "f8bf5a", "4efcd6"}
-local itemMarkerTag = "item_marker"
 
 local points = {
   {x = 41, y = 17.5},
@@ -31,7 +30,7 @@ local function generateSnapsFor(itemsListId)
     local y = (point.y - yOffset - halfHeight) / halfHeight * yMult
     local snap = {
       position = {x, 0, y},
-      tags = {itemMarkerTag}
+      tags = {Tags.itemMarker}
     }
     table.insert(snaps, snap)
   end

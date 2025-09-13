@@ -1,4 +1,3 @@
-local localizable_tag = "localizable"
 local language_key = "custom_language"
 local setups_key = "localization_setups"
 local default_language = "ru"
@@ -18,7 +17,7 @@ local function executeLocalization(object)
 end
 
 local function isLocalized(object)
-  return object.hasTag(localizable_tag) and object.getVar(setups_key) ~= nil
+  return object.hasTag(Tags.localizable) and object.getVar(setups_key) ~= nil
 end
 
 local function localizationInjection(object)
@@ -28,7 +27,7 @@ local function localizationInjection(object)
 end
 
 local function loadInjection(object)
-  local tagedObjects = getObjectsWithTag(localizable_tag)
+  local tagedObjects = getObjectsWithTag(Tags.localizable)
   for inex, object in ipairs(tagedObjects) do
     if isLocalized(object) then
       executeLocalization(object)

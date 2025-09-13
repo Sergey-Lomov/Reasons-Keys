@@ -6,14 +6,13 @@
 local selectionTitle = "Take to hand"
 local faceUp = {0, 0, 0}
 local faceDown = {0, 0, 180}
-local eventsTag = "event_card"
 local discardedPosition = {-11.20, 2.0, -14.97}
 local choosen = nil
 
 local function finishRefilling(player_color, selected)
   choosen = selected
   for _, object in ipairs(self.getObjects()) do
-    if object.hasTag(eventsTag) then
+    if object.hasTag(Tags.eventCard) then
       object.clearContextMenu()
       object.setRotation(faceDown)
       if object ~= choosen then
@@ -26,12 +25,8 @@ local function finishRefilling(player_color, selected)
   end
 end
 
-local function test()
-  print("test")
-end
-
 local function handleObject(object)
-  if not object.hasTag(eventsTag) then return end
+  if not object.hasTag(Tags.eventCard) then return end
   if object == choosen then return end
   local source = object.getRotation()
 

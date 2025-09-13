@@ -6,5 +6,22 @@ Events = {
   onObjectSpawn = "onObjectSpawn",
 }
 
+Tags = {
+  cloningSource = "cloning_source",
+  eventCard = "event_card",
+  realizationToken = "realization_token",
+  relationElement = "relation_element",
+  itemMarker = "item_marker",
+  nonEventArtifact = "non_event_artifact",
+  horizonToken = "horizon_token",
+  localizable = "localizable",
+  tangleOfFates = "tangle_of_fates",
+  clone = "clone",
+  neutralToken = "neutral_token",
+  firstPlayerToken = "first_player_token",
+  v616MonToken = "v616_mon_token",
+  lockingSnap = "locking_snap",
+}
+
 masterColor = "Balck"
 spectratorColor = "Grey"
