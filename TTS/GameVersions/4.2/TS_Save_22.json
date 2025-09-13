@@ -1,7 +1,7 @@
 {
   "SaveName": "V4.2_4",
-  "EpochTime": 1757778050,
-  "Date": "9/13/2025 6:40:50 PM",
+  "EpochTime": 1757780524,
+  "Date": "9/13/2025 7:22:04 PM",
   "VersionNumber": "v13.3",
   "GameMode": "Custom",
   "GameType": "Game",
@@ -315,6 +315,706 @@
     }
   ],
   "VectorLines": [
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 6.7
+        }
+      ],
+      "color": {
+        "r": 0.003921569,
+        "g": 0.5137255,
+        "b": 0.4745098
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -5.7
+        }
+      ],
+      "color": {
+        "r": 0.8901961,
+        "g": 0.9490196,
+        "b": 0.0235294122
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -18.1
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 0.431372553,
+        "b": 0.0
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        }
+      ],
+      "color": {
+        "r": 0.698039234,
+        "g": 0.6627451,
+        "b": 0.6
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        }
+      ],
+      "color": {
+        "r": 0.6666667,
+        "g": 0.254901975,
+        "b": 0.572549045
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        }
+      ],
+      "color": {
+        "r": 0.1764706,
+        "g": 0.6901961,
+        "b": 0.8156863
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 6.7
+        }
+      ],
+      "color": {
+        "r": 0.003921569,
+        "g": 0.5137255,
+        "b": 0.4745098
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -5.7
+        }
+      ],
+      "color": {
+        "r": 0.8901961,
+        "g": 0.9490196,
+        "b": 0.0235294122
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -18.1
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 0.431372553,
+        "b": 0.0
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        }
+      ],
+      "color": {
+        "r": 0.698039234,
+        "g": 0.6627451,
+        "b": 0.6
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        }
+      ],
+      "color": {
+        "r": 0.6666667,
+        "g": 0.254901975,
+        "b": 0.572549045
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        }
+      ],
+      "color": {
+        "r": 0.1764706,
+        "g": 0.6901961,
+        "b": 0.8156863
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
     {
       "points3": [
         {
@@ -7961,12 +8661,12 @@
       "GUID": "8de1e0",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 9.200212,
+        "posX": 9.200211,
         "posY": 1.05973613,
         "posZ": -15.9633,
-        "rotX": 0.000790768,
-        "rotY": 180.024124,
-        "rotZ": -0.00368101918,
+        "rotX": 0.0007929589,
+        "rotY": 180.024033,
+        "rotZ": -0.00368066784,
         "scaleX": 0.54,
         "scaleY": 1.0,
         "scaleZ": 0.54
@@ -7981,7 +8681,7 @@
       },
       "ColorDiffuse": {
         "r": 0.666666746,
-        "g": 0.2548958,
+        "g": 0.254895747,
         "b": 0.57058835
       },
       "Tags": [
@@ -8022,12 +8722,12 @@
       "GUID": "fa2d50",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 11.1406631,
+        "posX": 11.1406622,
         "posY": 1.05987561,
         "posZ": -14.9603844,
-        "rotX": 0.0007881957,
-        "rotY": 179.999924,
-        "rotZ": -0.0036831575,
+        "rotX": 0.000787736557,
+        "rotY": 179.999939,
+        "rotZ": -0.00368307484,
         "scaleX": 1.6,
         "scaleY": 1.0,
         "scaleZ": 1.6
@@ -8041,9 +8741,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842489,
-        "g": 0.0941100046,
-        "b": 0.105874427
+        "r": 0.07842483,
+        "g": 0.094109945,
+        "b": 0.105874367
       },
       "Tags": [
         "v616_mon_token"
@@ -8101,9 +8801,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842489,
-        "g": 0.0941100046,
-        "b": 0.105874427
+        "r": 0.07842483,
+        "g": 0.094109945,
+        "b": 0.105874367
       },
       "Tags": [
         "localizable"
@@ -8145,9 +8845,9 @@
         "posX": -12.0563517,
         "posY": 1.05851078,
         "posZ": -5.32681847,
-        "rotX": 0.0007855992,
+        "rotX": 0.0007857889,
         "rotY": 180.0,
-        "rotZ": -0.00367899355,
+        "rotZ": -0.003679137,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8195,7 +8895,8 @@
         }
       },
       "LuaScript": "local contextTile = \"Roll\"\r\n\r\nlocal function roll(player_color, position, object)\r\n  self.addForce(vector(0, 20, 0))\r\n  -- Use random generated torgue is wrong way. By unclear reason random generated torgue almost always leads to roll same face.\r\n  changeFace = math.random() > 0.5\r\n  if (changeFace)\r\n  then\r\n  self.addTorque(vector(0.42, 0.16, 0.33))\r\n  else\r\n    self.addTorque(vector(0.52, 0.48, 0.93))\r\n  end\r\nend\r\n\r\nfunction onLoad()\r\n  math.randomseed(os.time())\r\n  self.addContextMenuItem(contextTile, roll)\r\nend",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "904108",
@@ -8240,18 +8941,19 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <counter_zone.ttslua>\ndo\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\ntextId = nil\r\ntextSize = 72\r\nvalueKey = \"denomination\"\r\n\r\nlocal function updateValue()\r\n  local objects = self.getObjects()\r\n  local total = 0\r\n  for i, o in ipairs(objects) do\r\n    local value = o.getVar(valueKey)\r\n    local count = o.getQuantity()\r\n    count = (count == -1) and 1 or count\r\n    if value != nil then\r\n      total = total + value * count\r\n    end\r\n  end\r\n  getObjectFromGUID(textId).setValue(\"\" .. total)\r\nend\r\n\r\ntable.insert(onLoadHandlers, function()\r\n  local text = getObjectFromGUID(textId)\r\n  text.TextTool.setFontColor(borderColor)\r\n  text.TextTool.setFontSize(textSize)\r\n\r\n  updateValue()\r\nend)\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n    updateValue()\r\nend\r\n\r\nfunction onObjectLeaveZone(zone, object)\r\n    updateValue()\r\nend\r\n\nend\n----#include <counter_zone.ttslua>\n----#include <colors.ttslua>\ndo\nColor.Add(\"Player0\", Color(45 / 255, 176 / 255, 208 / 255))\r\nColor.Add(\"Player1\", Color(1 / 255, 131 / 255, 121 / 255))\r\nColor.Add(\"Player2\", Color(227 / 255, 242 / 255, 6 / 255))\r\nColor.Add(\"Player3\", Color(170 / 255, 65 / 255, 146 / 255))\r\nColor.Add(\"Player4\", Color(255 / 255, 110 / 255, 0 / 255))\r\nColor.Add(\"Player5\", Color(178 / 255, 169 / 255, 153 / 255))\r\nColor.Add(\"Blocker\", Color(198 / 255, 19 / 255, 10 / 255))\r\nColor.Add(\"Reason\", Color(59 / 255, 148 / 255, 48 / 255))\r\nColor.Add(\"SuccessInfo\", Color.Reason)\r\nColor.Add(\"Critical\", Color.Blocker)\r\nColor.Add(\"Warning\", Color(193 / 255, 217 / 255, 0 / 255))\r\n\nend\n----#include <colors.ttslua>\n\r\nborderColor = Color.Player1\r\ntextId = \"f3bafb\"",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "5c31fd",
       "Name": "3DText",
       "Transform": {
-        "posX": 0.000116825111,
-        "posY": -0.0001449585,
-        "posZ": -0.00097847,
-        "rotX": 4.47098046E-06,
-        "rotY": 7.854716E-05,
-        "rotZ": 2.27299079E-05,
+        "posX": 0.000112533577,
+        "posY": -0.000145912185,
+        "posZ": -0.0009880066,
+        "rotX": 4.64952154E-06,
+        "rotY": 8.19622655E-05,
+        "rotZ": 2.39048168E-05,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -8300,12 +9002,12 @@
       "GUID": "503ac0",
       "Name": "3DText",
       "Transform": {
-        "posX": 0.000116825111,
-        "posY": -0.0001449585,
-        "posZ": -0.00097847,
-        "rotX": 4.47098046E-06,
-        "rotY": 7.854716E-05,
-        "rotZ": 2.27299079E-05,
+        "posX": 0.000112533577,
+        "posY": -0.000145912185,
+        "posZ": -0.0009880066,
+        "rotX": 4.64952154E-06,
+        "rotY": 8.19622655E-05,
+        "rotZ": 2.39048168E-05,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -8354,9 +9056,9 @@
       "GUID": "f3bafb",
       "Name": "3DText",
       "Transform": {
-        "posX": -20.5006924,
-        "posY": 0.9999173,
-        "posZ": 7.69911051,
+        "posX": -20.5007,
+        "posY": 0.999912,
+        "posZ": 7.69909668,
         "rotX": 90.0,
         "rotY": 89.9997,
         "rotZ": 0.0,
@@ -8408,12 +9110,12 @@
       "GUID": "d7d97e",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -10.4751167,
-        "posY": 1.05958831,
-        "posZ": 14.2968483,
-        "rotX": -0.00102465425,
-        "rotY": 180.016266,
-        "rotZ": -0.00133026112,
+        "posX": -10.4751492,
+        "posY": 1.05803275,
+        "posZ": 14.2968359,
+        "rotX": 1.85025E-05,
+        "rotY": 180.016464,
+        "rotZ": 359.9938,
         "scaleX": 0.43313846,
         "scaleY": 1.0,
         "scaleZ": 0.43313846
@@ -8427,8 +9129,8 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.06274058,
-        "g": 0.04313319,
+        "r": 0.06274053,
+        "g": 0.0431331545,
         "b": 0.454901934
       },
       "Tags": [
@@ -8469,11 +9171,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -20.02356,
-        "posY": 0.9600001,
+        "posY": 0.959999859,
         "posZ": 7.100001,
-        "rotX": -1.21227058E-05,
+        "rotX": -1.249261E-05,
         "rotY": 270.0054,
-        "rotZ": 2.829194E-05,
+        "rotZ": 3.09106072E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8528,9 +9230,9 @@
         "posX": -20.0,
         "posY": 0.959999859,
         "posZ": -5.3,
-        "rotX": -2.22649687E-05,
+        "rotX": -1.4094061E-05,
         "rotY": 270.000061,
-        "rotZ": 2.27657947E-05,
+        "rotZ": 2.96808248E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8583,11 +9285,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -19.9999943,
-        "posY": 0.96,
+        "posY": 0.959999859,
         "posZ": -17.7000027,
-        "rotX": -1.511773E-05,
+        "rotX": -9.056618E-06,
         "rotY": 269.916229,
-        "rotZ": 2.62742342E-05,
+        "rotZ": 2.86183113E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8602,7 +9304,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.4313663,
+        "g": 0.4313662,
         "b": 0.0
       },
       "LayoutGroupSortIndex": 0,
@@ -8640,11 +9342,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 20.0000019,
-        "posY": 0.9600001,
+        "posY": 0.96,
         "posZ": -17.7,
-        "rotX": -1.41296632E-05,
+        "rotX": -1.45583745E-05,
         "rotY": 90.0010452,
-        "rotZ": 2.93525045E-05,
+        "rotZ": 3.148396E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8697,11 +9399,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 19.9998837,
-        "posY": 0.96,
+        "posY": 0.9600001,
         "posZ": -5.299946,
-        "rotX": -1.32223768E-05,
+        "rotX": -1.87259084E-05,
         "rotY": 89.99772,
-        "rotZ": 2.72976486E-05,
+        "rotZ": 2.30839087E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8716,7 +9418,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254895717,
+        "g": 0.254895657,
         "b": 0.572549045
       },
       "LayoutGroupSortIndex": 0,
@@ -8754,11 +9456,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 19.9999943,
-        "posY": 0.959999859,
+        "posY": 0.95999974,
         "posZ": 7.1,
-        "rotX": -9.985497E-06,
+        "rotX": -1.807495E-05,
         "rotY": 90.00001,
-        "rotZ": 2.93189387E-05,
+        "rotZ": 1.94523654E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8772,7 +9474,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.176464647,
+        "r": 0.176464587,
         "g": 0.6901961,
         "b": 0.8156863
       },
@@ -8907,9 +9609,9 @@
         "posX": -20.0,
         "posY": 0.96,
         "posZ": -16.5,
-        "rotX": -1.7098977E-05,
+        "rotX": -1.23342816E-05,
         "rotY": 269.960754,
-        "rotZ": 2.58775872E-05,
+        "rotZ": 2.26314041E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8924,7 +9626,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.431366354,
+        "g": 0.4313663,
         "b": 0.0
       },
       "Tags": [
@@ -8966,11 +9668,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 19.9982967,
-        "posY": 0.96,
+        "posY": 0.9600001,
         "posZ": 8.3,
-        "rotX": -1.71974953E-05,
+        "rotX": -1.66385125E-05,
         "rotY": 90.0,
-        "rotZ": 2.14626016E-05,
+        "rotZ": 3.27727175E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -8984,7 +9686,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.176464677,
+        "r": 0.176464617,
         "g": 0.6901961,
         "b": 0.8156863
       },
@@ -9065,7 +9767,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <counter_zone.ttslua>\ndo\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\ntextId = nil\r\ntextSize = 72\r\nvalueKey = \"denomination\"\r\n\r\nlocal function updateValue()\r\n  local objects = self.getObjects()\r\n  local total = 0\r\n  for i, o in ipairs(objects) do\r\n    local value = o.getVar(valueKey)\r\n    local count = o.getQuantity()\r\n    count = (count == -1) and 1 or count\r\n    if value != nil then\r\n      total = total + value * count\r\n    end\r\n  end\r\n  getObjectFromGUID(textId).setValue(\"\" .. total)\r\nend\r\n\r\ntable.insert(onLoadHandlers, function()\r\n  local text = getObjectFromGUID(textId)\r\n  text.TextTool.setFontColor(borderColor)\r\n  text.TextTool.setFontSize(textSize)\r\n\r\n  updateValue()\r\nend)\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n    updateValue()\r\nend\r\n\r\nfunction onObjectLeaveZone(zone, object)\r\n    updateValue()\r\nend\r\n\nend\n----#include <counter_zone.ttslua>\n----#include <colors.ttslua>\ndo\nColor.Add(\"Player0\", Color(45 / 255, 176 / 255, 208 / 255))\r\nColor.Add(\"Player1\", Color(1 / 255, 131 / 255, 121 / 255))\r\nColor.Add(\"Player2\", Color(227 / 255, 242 / 255, 6 / 255))\r\nColor.Add(\"Player3\", Color(170 / 255, 65 / 255, 146 / 255))\r\nColor.Add(\"Player4\", Color(255 / 255, 110 / 255, 0 / 255))\r\nColor.Add(\"Player5\", Color(178 / 255, 169 / 255, 153 / 255))\r\nColor.Add(\"Blocker\", Color(198 / 255, 19 / 255, 10 / 255))\r\nColor.Add(\"Reason\", Color(59 / 255, 148 / 255, 48 / 255))\r\nColor.Add(\"SuccessInfo\", Color.Reason)\r\nColor.Add(\"Critical\", Color.Blocker)\r\nColor.Add(\"Warning\", Color(193 / 255, 217 / 255, 0 / 255))\r\n\nend\n----#include <colors.ttslua>\n\r\nborderColor = Color.Player2\r\ntextId = \"d77825\"",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "34f5ed",
@@ -9110,7 +9813,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <counter_zone.ttslua>\ndo\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\ntextId = nil\r\ntextSize = 72\r\nvalueKey = \"denomination\"\r\n\r\nlocal function updateValue()\r\n  local objects = self.getObjects()\r\n  local total = 0\r\n  for i, o in ipairs(objects) do\r\n    local value = o.getVar(valueKey)\r\n    local count = o.getQuantity()\r\n    count = (count == -1) and 1 or count\r\n    if value != nil then\r\n      total = total + value * count\r\n    end\r\n  end\r\n  getObjectFromGUID(textId).setValue(\"\" .. total)\r\nend\r\n\r\ntable.insert(onLoadHandlers, function()\r\n  local text = getObjectFromGUID(textId)\r\n  text.TextTool.setFontColor(borderColor)\r\n  text.TextTool.setFontSize(textSize)\r\n\r\n  updateValue()\r\nend)\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n    updateValue()\r\nend\r\n\r\nfunction onObjectLeaveZone(zone, object)\r\n    updateValue()\r\nend\r\n\nend\n----#include <counter_zone.ttslua>\n----#include <colors.ttslua>\ndo\nColor.Add(\"Player0\", Color(45 / 255, 176 / 255, 208 / 255))\r\nColor.Add(\"Player1\", Color(1 / 255, 131 / 255, 121 / 255))\r\nColor.Add(\"Player2\", Color(227 / 255, 242 / 255, 6 / 255))\r\nColor.Add(\"Player3\", Color(170 / 255, 65 / 255, 146 / 255))\r\nColor.Add(\"Player4\", Color(255 / 255, 110 / 255, 0 / 255))\r\nColor.Add(\"Player5\", Color(178 / 255, 169 / 255, 153 / 255))\r\nColor.Add(\"Blocker\", Color(198 / 255, 19 / 255, 10 / 255))\r\nColor.Add(\"Reason\", Color(59 / 255, 148 / 255, 48 / 255))\r\nColor.Add(\"SuccessInfo\", Color.Reason)\r\nColor.Add(\"Critical\", Color.Blocker)\r\nColor.Add(\"Warning\", Color(193 / 255, 217 / 255, 0 / 255))\r\n\nend\n----#include <colors.ttslua>\n\r\nborderColor = Color.Player4\r\ntextId = \"889eb4\"",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "edc336",
@@ -9155,7 +9859,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <counter_zone.ttslua>\ndo\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\ntextId = nil\r\ntextSize = 72\r\nvalueKey = \"denomination\"\r\n\r\nlocal function updateValue()\r\n  local objects = self.getObjects()\r\n  local total = 0\r\n  for i, o in ipairs(objects) do\r\n    local value = o.getVar(valueKey)\r\n    local count = o.getQuantity()\r\n    count = (count == -1) and 1 or count\r\n    if value != nil then\r\n      total = total + value * count\r\n    end\r\n  end\r\n  getObjectFromGUID(textId).setValue(\"\" .. total)\r\nend\r\n\r\ntable.insert(onLoadHandlers, function()\r\n  local text = getObjectFromGUID(textId)\r\n  text.TextTool.setFontColor(borderColor)\r\n  text.TextTool.setFontSize(textSize)\r\n\r\n  updateValue()\r\nend)\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n    updateValue()\r\nend\r\n\r\nfunction onObjectLeaveZone(zone, object)\r\n    updateValue()\r\nend\r\n\nend\n----#include <counter_zone.ttslua>\n----#include <colors.ttslua>\ndo\nColor.Add(\"Player0\", Color(45 / 255, 176 / 255, 208 / 255))\r\nColor.Add(\"Player1\", Color(1 / 255, 131 / 255, 121 / 255))\r\nColor.Add(\"Player2\", Color(227 / 255, 242 / 255, 6 / 255))\r\nColor.Add(\"Player3\", Color(170 / 255, 65 / 255, 146 / 255))\r\nColor.Add(\"Player4\", Color(255 / 255, 110 / 255, 0 / 255))\r\nColor.Add(\"Player5\", Color(178 / 255, 169 / 255, 153 / 255))\r\nColor.Add(\"Blocker\", Color(198 / 255, 19 / 255, 10 / 255))\r\nColor.Add(\"Reason\", Color(59 / 255, 148 / 255, 48 / 255))\r\nColor.Add(\"SuccessInfo\", Color.Reason)\r\nColor.Add(\"Critical\", Color.Blocker)\r\nColor.Add(\"Warning\", Color(193 / 255, 217 / 255, 0 / 255))\r\n\nend\n----#include <colors.ttslua>\n\r\nborderColor = Color.Player5\r\ntextId = \"a015ef\"",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "0dc000",
@@ -9200,7 +9905,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <counter_zone.ttslua>\ndo\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\ntextId = nil\r\ntextSize = 72\r\nvalueKey = \"denomination\"\r\n\r\nlocal function updateValue()\r\n  local objects = self.getObjects()\r\n  local total = 0\r\n  for i, o in ipairs(objects) do\r\n    local value = o.getVar(valueKey)\r\n    local count = o.getQuantity()\r\n    count = (count == -1) and 1 or count\r\n    if value != nil then\r\n      total = total + value * count\r\n    end\r\n  end\r\n  getObjectFromGUID(textId).setValue(\"\" .. total)\r\nend\r\n\r\ntable.insert(onLoadHandlers, function()\r\n  local text = getObjectFromGUID(textId)\r\n  text.TextTool.setFontColor(borderColor)\r\n  text.TextTool.setFontSize(textSize)\r\n\r\n  updateValue()\r\nend)\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n    updateValue()\r\nend\r\n\r\nfunction onObjectLeaveZone(zone, object)\r\n    updateValue()\r\nend\r\n\nend\n----#include <counter_zone.ttslua>\n----#include <colors.ttslua>\ndo\nColor.Add(\"Player0\", Color(45 / 255, 176 / 255, 208 / 255))\r\nColor.Add(\"Player1\", Color(1 / 255, 131 / 255, 121 / 255))\r\nColor.Add(\"Player2\", Color(227 / 255, 242 / 255, 6 / 255))\r\nColor.Add(\"Player3\", Color(170 / 255, 65 / 255, 146 / 255))\r\nColor.Add(\"Player4\", Color(255 / 255, 110 / 255, 0 / 255))\r\nColor.Add(\"Player5\", Color(178 / 255, 169 / 255, 153 / 255))\r\nColor.Add(\"Blocker\", Color(198 / 255, 19 / 255, 10 / 255))\r\nColor.Add(\"Reason\", Color(59 / 255, 148 / 255, 48 / 255))\r\nColor.Add(\"SuccessInfo\", Color.Reason)\r\nColor.Add(\"Critical\", Color.Blocker)\r\nColor.Add(\"Warning\", Color(193 / 255, 217 / 255, 0 / 255))\r\n\nend\n----#include <colors.ttslua>\n\r\nborderColor = Color.Player3\r\ntextId = \"687941\"",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "efe2b4",
@@ -9245,15 +9951,16 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <counter_zone.ttslua>\ndo\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\ntextId = nil\r\ntextSize = 72\r\nvalueKey = \"denomination\"\r\n\r\nlocal function updateValue()\r\n  local objects = self.getObjects()\r\n  local total = 0\r\n  for i, o in ipairs(objects) do\r\n    local value = o.getVar(valueKey)\r\n    local count = o.getQuantity()\r\n    count = (count == -1) and 1 or count\r\n    if value != nil then\r\n      total = total + value * count\r\n    end\r\n  end\r\n  getObjectFromGUID(textId).setValue(\"\" .. total)\r\nend\r\n\r\ntable.insert(onLoadHandlers, function()\r\n  local text = getObjectFromGUID(textId)\r\n  text.TextTool.setFontColor(borderColor)\r\n  text.TextTool.setFontSize(textSize)\r\n\r\n  updateValue()\r\nend)\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n    updateValue()\r\nend\r\n\r\nfunction onObjectLeaveZone(zone, object)\r\n    updateValue()\r\nend\r\n\nend\n----#include <counter_zone.ttslua>\n----#include <colors.ttslua>\ndo\nColor.Add(\"Player0\", Color(45 / 255, 176 / 255, 208 / 255))\r\nColor.Add(\"Player1\", Color(1 / 255, 131 / 255, 121 / 255))\r\nColor.Add(\"Player2\", Color(227 / 255, 242 / 255, 6 / 255))\r\nColor.Add(\"Player3\", Color(170 / 255, 65 / 255, 146 / 255))\r\nColor.Add(\"Player4\", Color(255 / 255, 110 / 255, 0 / 255))\r\nColor.Add(\"Player5\", Color(178 / 255, 169 / 255, 153 / 255))\r\nColor.Add(\"Blocker\", Color(198 / 255, 19 / 255, 10 / 255))\r\nColor.Add(\"Reason\", Color(59 / 255, 148 / 255, 48 / 255))\r\nColor.Add(\"SuccessInfo\", Color.Reason)\r\nColor.Add(\"Critical\", Color.Blocker)\r\nColor.Add(\"Warning\", Color(193 / 255, 217 / 255, 0 / 255))\r\n\nend\n----#include <colors.ttslua>\n\r\nborderColor = Color.Player0\r\ntextId = \"1dcc4b\"",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "d77825",
       "Name": "3DText",
       "Transform": {
-        "posX": -20.5005379,
-        "posY": 0.9999206,
-        "posZ": -4.70212173,
+        "posX": -20.50055,
+        "posY": 0.999915957,
+        "posZ": -4.702149,
         "rotX": 90.0,
         "rotY": 89.9997,
         "rotZ": 0.0,
@@ -9305,9 +10012,9 @@
       "GUID": "889eb4",
       "Name": "3DText",
       "Transform": {
-        "posX": -20.500555,
-        "posY": 0.999931633,
-        "posZ": -17.1016445,
+        "posX": -20.5005627,
+        "posY": 0.99992764,
+        "posZ": -17.1016579,
         "rotX": 90.0,
         "rotY": 89.9997,
         "rotZ": 0.0,
@@ -9359,10 +10066,10 @@
       "GUID": "a015ef",
       "Name": "3DText",
       "Transform": {
-        "posX": 20.5009785,
-        "posY": 0.9999655,
-        "posZ": -17.1020184,
-        "rotX": 90.0,
+        "posX": 20.5009918,
+        "posY": 0.9999719,
+        "posZ": -17.1020317,
+        "rotX": 89.98022,
         "rotY": 269.999939,
         "rotZ": 0.0,
         "scaleX": 1.0,
@@ -9413,10 +10120,10 @@
       "GUID": "687941",
       "Name": "3DText",
       "Transform": {
-        "posX": 20.5010338,
-        "posY": 0.999967456,
-        "posZ": -4.70224571,
-        "rotX": 90.0,
+        "posX": 20.501049,
+        "posY": 0.999974966,
+        "posZ": -4.702273,
+        "rotX": 89.98022,
         "rotY": 269.999939,
         "rotZ": 0.0,
         "scaleX": 1.0,
@@ -9467,10 +10174,10 @@
       "GUID": "1dcc4b",
       "Name": "3DText",
       "Transform": {
-        "posX": 20.500927,
-        "posY": 0.999959767,
-        "posZ": 7.69889259,
-        "rotX": 90.0,
+        "posX": 20.5009422,
+        "posY": 0.9999664,
+        "posZ": 7.698878,
+        "rotX": 89.98022,
         "rotY": 269.999939,
         "rotZ": 0.0,
         "scaleX": 1.0,
@@ -9521,11 +10228,11 @@
       "GUID": "c8166f",
       "Name": "Deck",
       "Transform": {
-        "posX": -7.31079149,
+        "posX": -7.31078959,
         "posY": 1.36845577,
         "posZ": -14.9677191,
-        "rotX": -0.0008046786,
-        "rotY": 0.004310846,
+        "rotX": -0.000805057934,
+        "rotY": 0.004293425,
         "rotZ": 180.0037,
         "scaleX": 1.04,
         "scaleY": 1.0,
@@ -9637,6 +10344,7 @@
       },
       "LuaScript": "----#include <constants.ttslua>\ndo\nEvents = {\r\n  onLoad = \"onLoad\",\r\n  onObjectEnterZone = \"onObjectEnterZone\",\r\n  onObjectPickUp = \"onObjectPickUp\",\r\n  onObjectDrop = \"onObjectDrop\",\r\n  onObjectSpawn = \"onObjectSpawn\",\r\n}\r\n\r\nmasterColor = \"Balck\"\r\nspectratorColor = \"Grey\"\r\n\nend\n----#include <constants.ttslua>\n----#include <data_utils.ttslua>\ndo\nfunction countArrayWithCondition(array, condition)\r\n  local count = 0\r\n  for _, object in ipairs(array) do\r\n    if condition(object) then\r\n      count = count + 1\r\n    end\r\n  end\r\n  return count\r\nend\r\n\r\nfunction filterArray(array, validator)\r\n  local result = {}\r\n  for _, v in ipairs(array) do\r\n    if validator(v) then table.insert(result, v) end\r\n  end\r\n  return result\r\nend\r\n\r\nfunction arrayContains(array, value)\r\n  for _, v in ipairs(array) do\r\n    if v == value then return true end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction arraysHaveIntersection(array1, array2)\r\n  for _, v1 in ipairs(array1) do\r\n    for _, v2 in ipairs(array2) do\r\n      if v1 == v2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction map(table, mapFunc)\r\n    local result = {}\r\n    for k, v in pairs(table) do\r\n        result[k] = mapFunc(v)\r\n    end\r\n    return result\r\nend\r\n\nend\n----#include <data_utils.ttslua>\n\r\nlocal contextTile = \"Start a hand refilling\"\r\nlocal notEnoughCardsMessage = \"Not enough cards. Please take cards manually, shuffle discarded cards and then take more to get necessary amount - \"\r\nlocal cardsCountForPlayersCount = {[3] = 4, [4] = 3, [5] = 3, [6] = 3}\r\n\r\nlocal fillingZonesIds = {\r\n  [\"Orange\"] = \"301832\",\r\n  [\"Yellow\"] = \"6870d6\",\r\n  [\"Teal\"] = \"55e6e3\",\r\n  [\"Blue\"] = \"89e867\",\r\n  [\"Purple\"] = \"e83bf4\",\r\n  [\"White\"] = \"dbc42d\"\r\n}\r\n\r\nlocal function takeCardsRecursively(player_color, index, total)\r\n  local zone = getObjectFromGUID(fillingZonesIds[player_color])\r\n  local cardPosZ = (index + 0.5) / total - 0.5\r\n  local cardPos = zone.positionToWorld({0, 1, cardPosZ})\r\n\r\n  self.takeObject({\r\n    callback_function = function(card)\r\n      if not card.isDestroyed() then\r\n          card.setPositionSmooth(cardPos, false)\r\n      end\r\n\r\n      if index ~= total - 1 then\r\n        Wait.time( function () takeCardsRecursively(player_color, index + 1, total) end, 0)\r\n      end\r\n    end\r\n  })\r\nend\r\n\r\nlocal function playerValidator(player)\r\n  return player.color ~= spectratorColor and player.color ~= masterColor\r\nend\r\n\r\nlocal function getRefillingCards(player_color, position, object)\r\n  local playersCount = countArrayWithCondition(Player.getPlayers(), playerValidator)\r\n  local cardsCount = cardsCountForPlayersCount[playersCount]\r\n  cardsCount = (cardsCount == nil) and 3 or cardCount\r\n\r\n  if self.getQuantity() >= cardsCount then\r\n    takeCardsRecursively(player_color, 0, cardsCount)\r\n  else\r\n    broadcastToColor(notEnoughCardsMessage .. cardsCount, player_color, Color.Red)\r\n  end\r\nend\r\n\r\nfunction onLoad()\r\n  self.addContextMenuItem(contextTile, getRefillingCards)\r\nend",
       "LuaScriptState": "",
+      "XmlUI": "",
       "ContainedObjects": [
         {
           "GUID": "881a94",
@@ -12790,7 +13498,7 @@
         "posX": 4.99999237,
         "posY": 3.8215158,
         "posZ": 20.2,
-        "rotX": -6.41688347E-09,
+        "rotX": -7.21711135E-09,
         "rotY": 89.99397,
         "rotZ": 180.0,
         "scaleX": 2.0,
@@ -12841,9 +13549,9 @@
         "posX": 19.9999619,
         "posY": 0.96,
         "posZ": -4.100009,
-        "rotX": -1.20811155E-05,
+        "rotX": -1.812845E-05,
         "rotY": 89.9777756,
-        "rotZ": 2.71223926E-05,
+        "rotZ": 2.36774886E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12858,7 +13566,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254895777,
+        "g": 0.254895717,
         "b": 0.572549045
       },
       "Tags": [
@@ -12921,7 +13629,7 @@
         "r": 1.0,
         "g": 1.0,
         "b": 1.0,
-        "a": 0.1346156
+        "a": 0.551282
       },
       "Tags": [
         "event_card"
@@ -12945,7 +13653,8 @@
       "FogReverseHiding": false,
       "FogSeethrough": true,
       "LuaScript": "----#include <hand_refilling_zone.ttslua>\ndo\n----#include <constants.ttslua>\ndo\nEvents = {\r\n  onLoad = \"onLoad\",\r\n  onObjectEnterZone = \"onObjectEnterZone\",\r\n  onObjectPickUp = \"onObjectPickUp\",\r\n  onObjectDrop = \"onObjectDrop\",\r\n  onObjectSpawn = \"onObjectSpawn\",\r\n}\r\n\r\nmasterColor = \"Balck\"\r\nspectratorColor = \"Grey\"\r\n\nend\n----#include <constants.ttslua>\n----#include <injections.ttslua>\ndo\nGlobalInjections = {}\r\n\r\nlocal function addInjection(injections_table, event, func)\r\n  if injections_table[event] == nil then\r\n    injections_table[event] = {}\r\n  end\r\n  table.insert(injections_table[event], func)\r\nend\r\n\r\nfunction addObjectInjection(object, event, func)\r\n  if object.events_injections == nil then\r\n    object.events_injections = {}\r\n  end\r\n  addInjection(object.events_injections, event, func)\r\nend\r\n\r\nfunction addGlobalInjection(event, func)\r\n  addInjection(GlobalInjections, event, func)\r\nend\r\n\r\nfunction getObjectInjections(object, event)\r\n  return object.events_injections[event]\r\nend\r\n\r\nfunction getGlobalInjections(event)\r\n  return GlobalInjections[event]\r\nend\r\n\r\nlocal function applyInjections(injections_table, event, ...)\r\n  if injections_table == nil then return end\r\n  if injections_table[event] == nil then return end\r\n\r\n  local injections = injections_table[event]\r\n  for _, injection in ipairs(injections) do\r\n    injection(...)\r\n  end\r\nend\r\n\r\nfunction applyGlobalInjections(event, ...)\r\n  applyInjections(GlobalInjections, event, ...)\r\nend\r\n\r\nfunction applyObjectInjections(object, event, ...)\r\n  applyInjections(object.events_injections, event, ...)\r\nend\r\n\nend\n----#include <injections.ttslua>\n----#include <data_utils.ttslua>\ndo\nfunction countArrayWithCondition(array, condition)\r\n  local count = 0\r\n  for _, object in ipairs(array) do\r\n    if condition(object) then\r\n      count = count + 1\r\n    end\r\n  end\r\n  return count\r\nend\r\n\r\nfunction filterArray(array, validator)\r\n  local result = {}\r\n  for _, v in ipairs(array) do\r\n    if validator(v) then table.insert(result, v) end\r\n  end\r\n  return result\r\nend\r\n\r\nfunction arrayContains(array, value)\r\n  for _, v in ipairs(array) do\r\n    if v == value then return true end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction arraysHaveIntersection(array1, array2)\r\n  for _, v1 in ipairs(array1) do\r\n    for _, v2 in ipairs(array2) do\r\n      if v1 == v2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction map(table, mapFunc)\r\n    local result = {}\r\n    for k, v in pairs(table) do\r\n        result[k] = mapFunc(v)\r\n    end\r\n    return result\r\nend\r\n\nend\n----#include <data_utils.ttslua>\n----#include <objects_utils.ttslua>\ndo\nlocal function isSettled(object)\r\n    if not object then return false end\r\n    local treshhold = 0.01\r\n    local v = object.getVelocity()\r\n    local av = object.getAngularVelocity()\r\n    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold\r\n       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold\r\nend\r\n\r\nlocal function handleCardsDrop(color, object)\r\n  if not object.hasTag(eventCardTag) then return end\r\n\r\nend\r\n\r\nfunction executeAfterSettled(object, handler)\r\n  Wait.condition(function()\r\n    if object == nil then return end\r\n    handler(object)\r\n  end, function()\r\n    if object == nil then return true end\r\n    return isSettled(object)\r\n  end)\r\nend\r\n\nend\n----#include <objects_utils.ttslua>\n\r\nlocal selectionTitle = \"Take to hand\"\r\nlocal faceUp = {0, 0, 0}\r\nlocal faceDown = {0, 0, 180}\r\nlocal eventsTag = \"event_card\"\r\nlocal discardedPosition = {-11.20, 2.0, -14.97}\r\nlocal choosen = nil\r\n\r\nlocal function finishRefilling(player_color, selected)\r\n  choosen = selected\r\n  for _, object in ipairs(self.getObjects()) do\r\n    if object.hasTag(eventsTag) then\r\n      object.clearContextMenu()\r\n      object.setRotation(faceDown)\r\n      if object ~= choosen then\r\n        object.setPositionSmooth(discardedPosition, false)\r\n      else\r\n        choosen.drop()\r\n        choosen.deal(1, player_color)\r\n      end\r\n    end\r\n  end\r\nend\r\n\r\nlocal function test()\r\n  print(\"test\")\r\nend\r\n\r\nlocal function handleObject(object)\r\n  if not object.hasTag(eventsTag) then return end\r\n  if object == choosen then return end\r\n  local source = object.getRotation()\r\n\r\n  object.clearContextMenu()\r\n  object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)\r\n\r\n  executeAfterSettled(object, function() object.setRotation(faceUp) end)\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if object.held_by_color ~= nil then return end\r\n  handleObject(object)\r\nend\r\n\r\nfunction onObjectDrop(_, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    onObjectEnterZone(self, object)\r\n  end\r\nend\r\n\r\nfunction onObjectPickUp(player_color, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    finishRefilling(player_color, object)\r\n  end\r\nend\r\n\nend\n----#include <hand_refilling_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "e83bf4",
@@ -12997,7 +13706,8 @@
       "FogReverseHiding": false,
       "FogSeethrough": true,
       "LuaScript": "----#include <hand_refilling_zone.ttslua>\ndo\n----#include <constants.ttslua>\ndo\nEvents = {\r\n  onLoad = \"onLoad\",\r\n  onObjectEnterZone = \"onObjectEnterZone\",\r\n  onObjectPickUp = \"onObjectPickUp\",\r\n  onObjectDrop = \"onObjectDrop\",\r\n  onObjectSpawn = \"onObjectSpawn\",\r\n}\r\n\r\nmasterColor = \"Balck\"\r\nspectratorColor = \"Grey\"\r\n\nend\n----#include <constants.ttslua>\n----#include <injections.ttslua>\ndo\nGlobalInjections = {}\r\n\r\nlocal function addInjection(injections_table, event, func)\r\n  if injections_table[event] == nil then\r\n    injections_table[event] = {}\r\n  end\r\n  table.insert(injections_table[event], func)\r\nend\r\n\r\nfunction addObjectInjection(object, event, func)\r\n  if object.events_injections == nil then\r\n    object.events_injections = {}\r\n  end\r\n  addInjection(object.events_injections, event, func)\r\nend\r\n\r\nfunction addGlobalInjection(event, func)\r\n  addInjection(GlobalInjections, event, func)\r\nend\r\n\r\nfunction getObjectInjections(object, event)\r\n  return object.events_injections[event]\r\nend\r\n\r\nfunction getGlobalInjections(event)\r\n  return GlobalInjections[event]\r\nend\r\n\r\nlocal function applyInjections(injections_table, event, ...)\r\n  if injections_table == nil then return end\r\n  if injections_table[event] == nil then return end\r\n\r\n  local injections = injections_table[event]\r\n  for _, injection in ipairs(injections) do\r\n    injection(...)\r\n  end\r\nend\r\n\r\nfunction applyGlobalInjections(event, ...)\r\n  applyInjections(GlobalInjections, event, ...)\r\nend\r\n\r\nfunction applyObjectInjections(object, event, ...)\r\n  applyInjections(object.events_injections, event, ...)\r\nend\r\n\nend\n----#include <injections.ttslua>\n----#include <data_utils.ttslua>\ndo\nfunction countArrayWithCondition(array, condition)\r\n  local count = 0\r\n  for _, object in ipairs(array) do\r\n    if condition(object) then\r\n      count = count + 1\r\n    end\r\n  end\r\n  return count\r\nend\r\n\r\nfunction filterArray(array, validator)\r\n  local result = {}\r\n  for _, v in ipairs(array) do\r\n    if validator(v) then table.insert(result, v) end\r\n  end\r\n  return result\r\nend\r\n\r\nfunction arrayContains(array, value)\r\n  for _, v in ipairs(array) do\r\n    if v == value then return true end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction arraysHaveIntersection(array1, array2)\r\n  for _, v1 in ipairs(array1) do\r\n    for _, v2 in ipairs(array2) do\r\n      if v1 == v2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction map(table, mapFunc)\r\n    local result = {}\r\n    for k, v in pairs(table) do\r\n        result[k] = mapFunc(v)\r\n    end\r\n    return result\r\nend\r\n\nend\n----#include <data_utils.ttslua>\n----#include <objects_utils.ttslua>\ndo\nlocal function isSettled(object)\r\n    if not object then return false end\r\n    local treshhold = 0.01\r\n    local v = object.getVelocity()\r\n    local av = object.getAngularVelocity()\r\n    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold\r\n       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold\r\nend\r\n\r\nlocal function handleCardsDrop(color, object)\r\n  if not object.hasTag(eventCardTag) then return end\r\n\r\nend\r\n\r\nfunction executeAfterSettled(object, handler)\r\n  Wait.condition(function()\r\n    if object == nil then return end\r\n    handler(object)\r\n  end, function()\r\n    if object == nil then return true end\r\n    return isSettled(object)\r\n  end)\r\nend\r\n\nend\n----#include <objects_utils.ttslua>\n\r\nlocal selectionTitle = \"Take to hand\"\r\nlocal faceUp = {0, 0, 0}\r\nlocal faceDown = {0, 0, 180}\r\nlocal eventsTag = \"event_card\"\r\nlocal discardedPosition = {-11.20, 2.0, -14.97}\r\nlocal choosen = nil\r\n\r\nlocal function finishRefilling(player_color, selected)\r\n  choosen = selected\r\n  for _, object in ipairs(self.getObjects()) do\r\n    if object.hasTag(eventsTag) then\r\n      object.clearContextMenu()\r\n      object.setRotation(faceDown)\r\n      if object ~= choosen then\r\n        object.setPositionSmooth(discardedPosition, false)\r\n      else\r\n        choosen.drop()\r\n        choosen.deal(1, player_color)\r\n      end\r\n    end\r\n  end\r\nend\r\n\r\nlocal function test()\r\n  print(\"test\")\r\nend\r\n\r\nlocal function handleObject(object)\r\n  if not object.hasTag(eventsTag) then return end\r\n  if object == choosen then return end\r\n  local source = object.getRotation()\r\n\r\n  object.clearContextMenu()\r\n  object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)\r\n\r\n  executeAfterSettled(object, function() object.setRotation(faceUp) end)\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if object.held_by_color ~= nil then return end\r\n  handleObject(object)\r\nend\r\n\r\nfunction onObjectDrop(_, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    onObjectEnterZone(self, object)\r\n  end\r\nend\r\n\r\nfunction onObjectPickUp(player_color, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    finishRefilling(player_color, object)\r\n  end\r\nend\r\n\nend\n----#include <hand_refilling_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "89e867",
@@ -13049,7 +13759,8 @@
       "FogReverseHiding": false,
       "FogSeethrough": true,
       "LuaScript": "----#include <hand_refilling_zone.ttslua>\ndo\n----#include <constants.ttslua>\ndo\nEvents = {\r\n  onLoad = \"onLoad\",\r\n  onObjectEnterZone = \"onObjectEnterZone\",\r\n  onObjectPickUp = \"onObjectPickUp\",\r\n  onObjectDrop = \"onObjectDrop\",\r\n  onObjectSpawn = \"onObjectSpawn\",\r\n}\r\n\r\nmasterColor = \"Balck\"\r\nspectratorColor = \"Grey\"\r\n\nend\n----#include <constants.ttslua>\n----#include <injections.ttslua>\ndo\nGlobalInjections = {}\r\n\r\nlocal function addInjection(injections_table, event, func)\r\n  if injections_table[event] == nil then\r\n    injections_table[event] = {}\r\n  end\r\n  table.insert(injections_table[event], func)\r\nend\r\n\r\nfunction addObjectInjection(object, event, func)\r\n  if object.events_injections == nil then\r\n    object.events_injections = {}\r\n  end\r\n  addInjection(object.events_injections, event, func)\r\nend\r\n\r\nfunction addGlobalInjection(event, func)\r\n  addInjection(GlobalInjections, event, func)\r\nend\r\n\r\nfunction getObjectInjections(object, event)\r\n  return object.events_injections[event]\r\nend\r\n\r\nfunction getGlobalInjections(event)\r\n  return GlobalInjections[event]\r\nend\r\n\r\nlocal function applyInjections(injections_table, event, ...)\r\n  if injections_table == nil then return end\r\n  if injections_table[event] == nil then return end\r\n\r\n  local injections = injections_table[event]\r\n  for _, injection in ipairs(injections) do\r\n    injection(...)\r\n  end\r\nend\r\n\r\nfunction applyGlobalInjections(event, ...)\r\n  applyInjections(GlobalInjections, event, ...)\r\nend\r\n\r\nfunction applyObjectInjections(object, event, ...)\r\n  applyInjections(object.events_injections, event, ...)\r\nend\r\n\nend\n----#include <injections.ttslua>\n----#include <data_utils.ttslua>\ndo\nfunction countArrayWithCondition(array, condition)\r\n  local count = 0\r\n  for _, object in ipairs(array) do\r\n    if condition(object) then\r\n      count = count + 1\r\n    end\r\n  end\r\n  return count\r\nend\r\n\r\nfunction filterArray(array, validator)\r\n  local result = {}\r\n  for _, v in ipairs(array) do\r\n    if validator(v) then table.insert(result, v) end\r\n  end\r\n  return result\r\nend\r\n\r\nfunction arrayContains(array, value)\r\n  for _, v in ipairs(array) do\r\n    if v == value then return true end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction arraysHaveIntersection(array1, array2)\r\n  for _, v1 in ipairs(array1) do\r\n    for _, v2 in ipairs(array2) do\r\n      if v1 == v2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction map(table, mapFunc)\r\n    local result = {}\r\n    for k, v in pairs(table) do\r\n        result[k] = mapFunc(v)\r\n    end\r\n    return result\r\nend\r\n\nend\n----#include <data_utils.ttslua>\n----#include <objects_utils.ttslua>\ndo\nlocal function isSettled(object)\r\n    if not object then return false end\r\n    local treshhold = 0.01\r\n    local v = object.getVelocity()\r\n    local av = object.getAngularVelocity()\r\n    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold\r\n       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold\r\nend\r\n\r\nlocal function handleCardsDrop(color, object)\r\n  if not object.hasTag(eventCardTag) then return end\r\n\r\nend\r\n\r\nfunction executeAfterSettled(object, handler)\r\n  Wait.condition(function()\r\n    if object == nil then return end\r\n    handler(object)\r\n  end, function()\r\n    if object == nil then return true end\r\n    return isSettled(object)\r\n  end)\r\nend\r\n\nend\n----#include <objects_utils.ttslua>\n\r\nlocal selectionTitle = \"Take to hand\"\r\nlocal faceUp = {0, 0, 0}\r\nlocal faceDown = {0, 0, 180}\r\nlocal eventsTag = \"event_card\"\r\nlocal discardedPosition = {-11.20, 2.0, -14.97}\r\nlocal choosen = nil\r\n\r\nlocal function finishRefilling(player_color, selected)\r\n  choosen = selected\r\n  for _, object in ipairs(self.getObjects()) do\r\n    if object.hasTag(eventsTag) then\r\n      object.clearContextMenu()\r\n      object.setRotation(faceDown)\r\n      if object ~= choosen then\r\n        object.setPositionSmooth(discardedPosition, false)\r\n      else\r\n        choosen.drop()\r\n        choosen.deal(1, player_color)\r\n      end\r\n    end\r\n  end\r\nend\r\n\r\nlocal function test()\r\n  print(\"test\")\r\nend\r\n\r\nlocal function handleObject(object)\r\n  if not object.hasTag(eventsTag) then return end\r\n  if object == choosen then return end\r\n  local source = object.getRotation()\r\n\r\n  object.clearContextMenu()\r\n  object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)\r\n\r\n  executeAfterSettled(object, function() object.setRotation(faceUp) end)\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if object.held_by_color ~= nil then return end\r\n  handleObject(object)\r\nend\r\n\r\nfunction onObjectDrop(_, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    onObjectEnterZone(self, object)\r\n  end\r\nend\r\n\r\nfunction onObjectPickUp(player_color, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    finishRefilling(player_color, object)\r\n  end\r\nend\r\n\nend\n----#include <hand_refilling_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "301832",
@@ -13077,7 +13788,7 @@
         "r": 0.9559999,
         "g": 0.39199996,
         "b": 0.112999953,
-        "a": 0.551282
+        "a": 0.1346156
       },
       "Tags": [
         "event_card"
@@ -13101,7 +13812,8 @@
       "FogReverseHiding": false,
       "FogSeethrough": true,
       "LuaScript": "----#include <hand_refilling_zone.ttslua>\ndo\n----#include <constants.ttslua>\ndo\nEvents = {\r\n  onLoad = \"onLoad\",\r\n  onObjectEnterZone = \"onObjectEnterZone\",\r\n  onObjectPickUp = \"onObjectPickUp\",\r\n  onObjectDrop = \"onObjectDrop\",\r\n  onObjectSpawn = \"onObjectSpawn\",\r\n}\r\n\r\nmasterColor = \"Balck\"\r\nspectratorColor = \"Grey\"\r\n\nend\n----#include <constants.ttslua>\n----#include <injections.ttslua>\ndo\nGlobalInjections = {}\r\n\r\nlocal function addInjection(injections_table, event, func)\r\n  if injections_table[event] == nil then\r\n    injections_table[event] = {}\r\n  end\r\n  table.insert(injections_table[event], func)\r\nend\r\n\r\nfunction addObjectInjection(object, event, func)\r\n  if object.events_injections == nil then\r\n    object.events_injections = {}\r\n  end\r\n  addInjection(object.events_injections, event, func)\r\nend\r\n\r\nfunction addGlobalInjection(event, func)\r\n  addInjection(GlobalInjections, event, func)\r\nend\r\n\r\nfunction getObjectInjections(object, event)\r\n  return object.events_injections[event]\r\nend\r\n\r\nfunction getGlobalInjections(event)\r\n  return GlobalInjections[event]\r\nend\r\n\r\nlocal function applyInjections(injections_table, event, ...)\r\n  if injections_table == nil then return end\r\n  if injections_table[event] == nil then return end\r\n\r\n  local injections = injections_table[event]\r\n  for _, injection in ipairs(injections) do\r\n    injection(...)\r\n  end\r\nend\r\n\r\nfunction applyGlobalInjections(event, ...)\r\n  applyInjections(GlobalInjections, event, ...)\r\nend\r\n\r\nfunction applyObjectInjections(object, event, ...)\r\n  applyInjections(object.events_injections, event, ...)\r\nend\r\n\nend\n----#include <injections.ttslua>\n----#include <data_utils.ttslua>\ndo\nfunction countArrayWithCondition(array, condition)\r\n  local count = 0\r\n  for _, object in ipairs(array) do\r\n    if condition(object) then\r\n      count = count + 1\r\n    end\r\n  end\r\n  return count\r\nend\r\n\r\nfunction filterArray(array, validator)\r\n  local result = {}\r\n  for _, v in ipairs(array) do\r\n    if validator(v) then table.insert(result, v) end\r\n  end\r\n  return result\r\nend\r\n\r\nfunction arrayContains(array, value)\r\n  for _, v in ipairs(array) do\r\n    if v == value then return true end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction arraysHaveIntersection(array1, array2)\r\n  for _, v1 in ipairs(array1) do\r\n    for _, v2 in ipairs(array2) do\r\n      if v1 == v2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction map(table, mapFunc)\r\n    local result = {}\r\n    for k, v in pairs(table) do\r\n        result[k] = mapFunc(v)\r\n    end\r\n    return result\r\nend\r\n\nend\n----#include <data_utils.ttslua>\n----#include <objects_utils.ttslua>\ndo\nlocal function isSettled(object)\r\n    if not object then return false end\r\n    local treshhold = 0.01\r\n    local v = object.getVelocity()\r\n    local av = object.getAngularVelocity()\r\n    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold\r\n       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold\r\nend\r\n\r\nlocal function handleCardsDrop(color, object)\r\n  if not object.hasTag(eventCardTag) then return end\r\n\r\nend\r\n\r\nfunction executeAfterSettled(object, handler)\r\n  Wait.condition(function()\r\n    if object == nil then return end\r\n    handler(object)\r\n  end, function()\r\n    if object == nil then return true end\r\n    return isSettled(object)\r\n  end)\r\nend\r\n\nend\n----#include <objects_utils.ttslua>\n\r\nlocal selectionTitle = \"Take to hand\"\r\nlocal faceUp = {0, 0, 0}\r\nlocal faceDown = {0, 0, 180}\r\nlocal eventsTag = \"event_card\"\r\nlocal discardedPosition = {-11.20, 2.0, -14.97}\r\nlocal choosen = nil\r\n\r\nlocal function finishRefilling(player_color, selected)\r\n  choosen = selected\r\n  for _, object in ipairs(self.getObjects()) do\r\n    if object.hasTag(eventsTag) then\r\n      object.clearContextMenu()\r\n      object.setRotation(faceDown)\r\n      if object ~= choosen then\r\n        object.setPositionSmooth(discardedPosition, false)\r\n      else\r\n        choosen.drop()\r\n        choosen.deal(1, player_color)\r\n      end\r\n    end\r\n  end\r\nend\r\n\r\nlocal function test()\r\n  print(\"test\")\r\nend\r\n\r\nlocal function handleObject(object)\r\n  if not object.hasTag(eventsTag) then return end\r\n  if object == choosen then return end\r\n  local source = object.getRotation()\r\n\r\n  object.clearContextMenu()\r\n  object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)\r\n\r\n  executeAfterSettled(object, function() object.setRotation(faceUp) end)\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if object.held_by_color ~= nil then return end\r\n  handleObject(object)\r\nend\r\n\r\nfunction onObjectDrop(_, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    onObjectEnterZone(self, object)\r\n  end\r\nend\r\n\r\nfunction onObjectPickUp(player_color, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    finishRefilling(player_color, object)\r\n  end\r\nend\r\n\nend\n----#include <hand_refilling_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "6870d6",
@@ -13153,7 +13865,8 @@
       "FogReverseHiding": false,
       "FogSeethrough": true,
       "LuaScript": "----#include <hand_refilling_zone.ttslua>\ndo\n----#include <constants.ttslua>\ndo\nEvents = {\r\n  onLoad = \"onLoad\",\r\n  onObjectEnterZone = \"onObjectEnterZone\",\r\n  onObjectPickUp = \"onObjectPickUp\",\r\n  onObjectDrop = \"onObjectDrop\",\r\n  onObjectSpawn = \"onObjectSpawn\",\r\n}\r\n\r\nmasterColor = \"Balck\"\r\nspectratorColor = \"Grey\"\r\n\nend\n----#include <constants.ttslua>\n----#include <injections.ttslua>\ndo\nGlobalInjections = {}\r\n\r\nlocal function addInjection(injections_table, event, func)\r\n  if injections_table[event] == nil then\r\n    injections_table[event] = {}\r\n  end\r\n  table.insert(injections_table[event], func)\r\nend\r\n\r\nfunction addObjectInjection(object, event, func)\r\n  if object.events_injections == nil then\r\n    object.events_injections = {}\r\n  end\r\n  addInjection(object.events_injections, event, func)\r\nend\r\n\r\nfunction addGlobalInjection(event, func)\r\n  addInjection(GlobalInjections, event, func)\r\nend\r\n\r\nfunction getObjectInjections(object, event)\r\n  return object.events_injections[event]\r\nend\r\n\r\nfunction getGlobalInjections(event)\r\n  return GlobalInjections[event]\r\nend\r\n\r\nlocal function applyInjections(injections_table, event, ...)\r\n  if injections_table == nil then return end\r\n  if injections_table[event] == nil then return end\r\n\r\n  local injections = injections_table[event]\r\n  for _, injection in ipairs(injections) do\r\n    injection(...)\r\n  end\r\nend\r\n\r\nfunction applyGlobalInjections(event, ...)\r\n  applyInjections(GlobalInjections, event, ...)\r\nend\r\n\r\nfunction applyObjectInjections(object, event, ...)\r\n  applyInjections(object.events_injections, event, ...)\r\nend\r\n\nend\n----#include <injections.ttslua>\n----#include <data_utils.ttslua>\ndo\nfunction countArrayWithCondition(array, condition)\r\n  local count = 0\r\n  for _, object in ipairs(array) do\r\n    if condition(object) then\r\n      count = count + 1\r\n    end\r\n  end\r\n  return count\r\nend\r\n\r\nfunction filterArray(array, validator)\r\n  local result = {}\r\n  for _, v in ipairs(array) do\r\n    if validator(v) then table.insert(result, v) end\r\n  end\r\n  return result\r\nend\r\n\r\nfunction arrayContains(array, value)\r\n  for _, v in ipairs(array) do\r\n    if v == value then return true end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction arraysHaveIntersection(array1, array2)\r\n  for _, v1 in ipairs(array1) do\r\n    for _, v2 in ipairs(array2) do\r\n      if v1 == v2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction map(table, mapFunc)\r\n    local result = {}\r\n    for k, v in pairs(table) do\r\n        result[k] = mapFunc(v)\r\n    end\r\n    return result\r\nend\r\n\nend\n----#include <data_utils.ttslua>\n----#include <objects_utils.ttslua>\ndo\nlocal function isSettled(object)\r\n    if not object then return false end\r\n    local treshhold = 0.01\r\n    local v = object.getVelocity()\r\n    local av = object.getAngularVelocity()\r\n    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold\r\n       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold\r\nend\r\n\r\nlocal function handleCardsDrop(color, object)\r\n  if not object.hasTag(eventCardTag) then return end\r\n\r\nend\r\n\r\nfunction executeAfterSettled(object, handler)\r\n  Wait.condition(function()\r\n    if object == nil then return end\r\n    handler(object)\r\n  end, function()\r\n    if object == nil then return true end\r\n    return isSettled(object)\r\n  end)\r\nend\r\n\nend\n----#include <objects_utils.ttslua>\n\r\nlocal selectionTitle = \"Take to hand\"\r\nlocal faceUp = {0, 0, 0}\r\nlocal faceDown = {0, 0, 180}\r\nlocal eventsTag = \"event_card\"\r\nlocal discardedPosition = {-11.20, 2.0, -14.97}\r\nlocal choosen = nil\r\n\r\nlocal function finishRefilling(player_color, selected)\r\n  choosen = selected\r\n  for _, object in ipairs(self.getObjects()) do\r\n    if object.hasTag(eventsTag) then\r\n      object.clearContextMenu()\r\n      object.setRotation(faceDown)\r\n      if object ~= choosen then\r\n        object.setPositionSmooth(discardedPosition, false)\r\n      else\r\n        choosen.drop()\r\n        choosen.deal(1, player_color)\r\n      end\r\n    end\r\n  end\r\nend\r\n\r\nlocal function test()\r\n  print(\"test\")\r\nend\r\n\r\nlocal function handleObject(object)\r\n  if not object.hasTag(eventsTag) then return end\r\n  if object == choosen then return end\r\n  local source = object.getRotation()\r\n\r\n  object.clearContextMenu()\r\n  object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)\r\n\r\n  executeAfterSettled(object, function() object.setRotation(faceUp) end)\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if object.held_by_color ~= nil then return end\r\n  handleObject(object)\r\nend\r\n\r\nfunction onObjectDrop(_, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    onObjectEnterZone(self, object)\r\n  end\r\nend\r\n\r\nfunction onObjectPickUp(player_color, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    finishRefilling(player_color, object)\r\n  end\r\nend\r\n\nend\n----#include <hand_refilling_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "55e6e3",
@@ -13205,7 +13918,8 @@
       "FogReverseHiding": false,
       "FogSeethrough": true,
       "LuaScript": "----#include <hand_refilling_zone.ttslua>\ndo\n----#include <constants.ttslua>\ndo\nEvents = {\r\n  onLoad = \"onLoad\",\r\n  onObjectEnterZone = \"onObjectEnterZone\",\r\n  onObjectPickUp = \"onObjectPickUp\",\r\n  onObjectDrop = \"onObjectDrop\",\r\n  onObjectSpawn = \"onObjectSpawn\",\r\n}\r\n\r\nmasterColor = \"Balck\"\r\nspectratorColor = \"Grey\"\r\n\nend\n----#include <constants.ttslua>\n----#include <injections.ttslua>\ndo\nGlobalInjections = {}\r\n\r\nlocal function addInjection(injections_table, event, func)\r\n  if injections_table[event] == nil then\r\n    injections_table[event] = {}\r\n  end\r\n  table.insert(injections_table[event], func)\r\nend\r\n\r\nfunction addObjectInjection(object, event, func)\r\n  if object.events_injections == nil then\r\n    object.events_injections = {}\r\n  end\r\n  addInjection(object.events_injections, event, func)\r\nend\r\n\r\nfunction addGlobalInjection(event, func)\r\n  addInjection(GlobalInjections, event, func)\r\nend\r\n\r\nfunction getObjectInjections(object, event)\r\n  return object.events_injections[event]\r\nend\r\n\r\nfunction getGlobalInjections(event)\r\n  return GlobalInjections[event]\r\nend\r\n\r\nlocal function applyInjections(injections_table, event, ...)\r\n  if injections_table == nil then return end\r\n  if injections_table[event] == nil then return end\r\n\r\n  local injections = injections_table[event]\r\n  for _, injection in ipairs(injections) do\r\n    injection(...)\r\n  end\r\nend\r\n\r\nfunction applyGlobalInjections(event, ...)\r\n  applyInjections(GlobalInjections, event, ...)\r\nend\r\n\r\nfunction applyObjectInjections(object, event, ...)\r\n  applyInjections(object.events_injections, event, ...)\r\nend\r\n\nend\n----#include <injections.ttslua>\n----#include <data_utils.ttslua>\ndo\nfunction countArrayWithCondition(array, condition)\r\n  local count = 0\r\n  for _, object in ipairs(array) do\r\n    if condition(object) then\r\n      count = count + 1\r\n    end\r\n  end\r\n  return count\r\nend\r\n\r\nfunction filterArray(array, validator)\r\n  local result = {}\r\n  for _, v in ipairs(array) do\r\n    if validator(v) then table.insert(result, v) end\r\n  end\r\n  return result\r\nend\r\n\r\nfunction arrayContains(array, value)\r\n  for _, v in ipairs(array) do\r\n    if v == value then return true end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction arraysHaveIntersection(array1, array2)\r\n  for _, v1 in ipairs(array1) do\r\n    for _, v2 in ipairs(array2) do\r\n      if v1 == v2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction map(table, mapFunc)\r\n    local result = {}\r\n    for k, v in pairs(table) do\r\n        result[k] = mapFunc(v)\r\n    end\r\n    return result\r\nend\r\n\nend\n----#include <data_utils.ttslua>\n----#include <objects_utils.ttslua>\ndo\nlocal function isSettled(object)\r\n    if not object then return false end\r\n    local treshhold = 0.01\r\n    local v = object.getVelocity()\r\n    local av = object.getAngularVelocity()\r\n    return math.abs(v.x) < treshhold and math.abs(v.y) < treshhold and math.abs(v.z) < treshhold\r\n       and math.abs(av.x) < treshhold and math.abs(av.y) < treshhold and math.abs(av.z) < treshhold\r\nend\r\n\r\nlocal function handleCardsDrop(color, object)\r\n  if not object.hasTag(eventCardTag) then return end\r\n\r\nend\r\n\r\nfunction executeAfterSettled(object, handler)\r\n  Wait.condition(function()\r\n    if object == nil then return end\r\n    handler(object)\r\n  end, function()\r\n    if object == nil then return true end\r\n    return isSettled(object)\r\n  end)\r\nend\r\n\nend\n----#include <objects_utils.ttslua>\n\r\nlocal selectionTitle = \"Take to hand\"\r\nlocal faceUp = {0, 0, 0}\r\nlocal faceDown = {0, 0, 180}\r\nlocal eventsTag = \"event_card\"\r\nlocal discardedPosition = {-11.20, 2.0, -14.97}\r\nlocal choosen = nil\r\n\r\nlocal function finishRefilling(player_color, selected)\r\n  choosen = selected\r\n  for _, object in ipairs(self.getObjects()) do\r\n    if object.hasTag(eventsTag) then\r\n      object.clearContextMenu()\r\n      object.setRotation(faceDown)\r\n      if object ~= choosen then\r\n        object.setPositionSmooth(discardedPosition, false)\r\n      else\r\n        choosen.drop()\r\n        choosen.deal(1, player_color)\r\n      end\r\n    end\r\n  end\r\nend\r\n\r\nlocal function test()\r\n  print(\"test\")\r\nend\r\n\r\nlocal function handleObject(object)\r\n  if not object.hasTag(eventsTag) then return end\r\n  if object == choosen then return end\r\n  local source = object.getRotation()\r\n\r\n  object.clearContextMenu()\r\n  object.addContextMenuItem(selectionTitle, function (player_color) finishRefilling(player_color, object) end, bool)\r\n\r\n  executeAfterSettled(object, function() object.setRotation(faceUp) end)\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if object.held_by_color ~= nil then return end\r\n  handleObject(object)\r\nend\r\n\r\nfunction onObjectDrop(_, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    onObjectEnterZone(self, object)\r\n  end\r\nend\r\n\r\nfunction onObjectPickUp(player_color, object)\r\n  if arrayContains(self.getObjects(), object) then\r\n    finishRefilling(player_color, object)\r\n  end\r\nend\r\n\nend\n----#include <hand_refilling_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "bffb9a",
@@ -13383,9 +14097,9 @@
         "posX": 20.0,
         "posY": 0.96,
         "posZ": -16.4997826,
-        "rotX": -1.49600037E-05,
+        "rotX": -1.646395E-05,
         "rotY": 89.98183,
-        "rotZ": 2.81900047E-05,
+        "rotZ": 2.38751873E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -13782,7 +14496,7 @@
         "posX": -24.1,
         "posY": 0.960000157,
         "posZ": -11.1,
-        "rotX": 2.29338809E-07,
+        "rotX": 2.29338966E-07,
         "rotY": 270.0,
         "rotZ": 1.23478287E-07,
         "scaleX": 3.4,
@@ -13951,7 +14665,7 @@
         "posX": -24.0631275,
         "posY": 0.960000038,
         "posZ": 1.29964018,
-        "rotX": 3.27535332E-07,
+        "rotX": 3.275355E-07,
         "rotY": 270.0,
         "rotZ": 8.73589343E-08,
         "scaleX": 3.4,
@@ -14118,11 +14832,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -24.1,
-        "posY": 0.960000157,
-        "posZ": 13.7000971,
-        "rotX": -1.89315519E-09,
+        "posY": 0.9600001,
+        "posZ": 13.700099,
+        "rotX": -7.044613E-07,
         "rotY": 269.999817,
-        "rotZ": -1.665279E-07,
+        "rotZ": 1.18367524E-07,
         "scaleX": 3.4,
         "scaleY": 1.0,
         "scaleZ": 3.4
@@ -14286,11 +15000,11 @@
       "GUID": "aee28e",
       "Name": "Deck",
       "Transform": {
-        "posX": 7.24697828,
+        "posX": 7.246978,
         "posY": 1.138323,
         "posZ": -14.9619207,
-        "rotX": -0.00360855972,
-        "rotY": 59.9988327,
+        "rotX": -0.00360882119,
+        "rotY": 59.999054,
         "rotZ": 180.00116,
         "scaleX": 1.04,
         "scaleY": 1.0,
@@ -14305,9 +15019,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.0784246549,
-        "g": 0.0941097662,
-        "b": 0.105874173
+        "r": 0.07842458,
+        "g": 0.09410971,
+        "b": 0.105874114
       },
       "Tags": [
         "non_event_artifact"
@@ -15053,7 +15767,7 @@
         "posX": -5.00000048,
         "posY": 3.8215158,
         "posZ": 20.2,
-        "rotX": -1.15336228E-07,
+        "rotX": -1.11841715E-07,
         "rotY": 269.99588,
         "rotZ": 180.0,
         "scaleX": 2.0,
@@ -15104,9 +15818,9 @@
         "posX": 9.18773651,
         "posY": 1.05976343,
         "posZ": -13.9519968,
-        "rotX": 0.0007874017,
-        "rotY": 180.004379,
-        "rotZ": -0.003677114,
+        "rotX": 0.000782623771,
+        "rotY": 180.0043,
+        "rotZ": -0.00367996655,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -15163,10 +15877,10 @@
       "Transform": {
         "posX": -12.0574417,
         "posY": 1.05854928,
-        "posZ": -2.57037234,
-        "rotX": -0.00363302836,
-        "rotY": 59.9810677,
-        "rotZ": 0.00119367824,
+        "posZ": -2.57037258,
+        "rotX": -0.00362848979,
+        "rotY": 59.981102,
+        "rotZ": 0.00119421992,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -15180,9 +15894,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07843008,
-        "g": 0.09411607,
-        "b": 0.105880715
+        "r": 0.07843002,
+        "g": 0.09411601,
+        "b": 0.105880655
       },
       "Tags": [
         "first_player_token"
@@ -15221,12 +15935,12 @@
       "GUID": "f18409",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 7.139641,
-        "posY": 1.05990589,
-        "posZ": 5.68675661,
-        "rotX": 0.000784755,
-        "rotY": 179.998688,
-        "rotZ": -0.003681269,
+        "posX": 7.13964128,
+        "posY": 1.05990577,
+        "posZ": 5.686756,
+        "rotX": 0.00078666216,
+        "rotY": 179.998611,
+        "rotZ": -0.00367708062,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -15240,9 +15954,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.231370062,
+        "r": 0.23137,
         "g": 0.5803921,
-        "b": 0.188232929
+        "b": 0.188232869
       },
       "Tags": [
         "cloning_source"
@@ -15283,9 +15997,9 @@
       "Transform": {
         "posX": 4.744043,
         "posY": 1.15977013,
-        "posZ": 7.05873775,
-        "rotX": 0.0008184058,
-        "rotY": 180.0309,
+        "posZ": 7.058738,
+        "rotX": 0.0008175147,
+        "rotY": 180.030869,
         "rotZ": 179.996323,
         "scaleX": 0.45,
         "scaleY": 1.0,
@@ -15301,8 +16015,8 @@
       },
       "ColorDiffuse": {
         "r": 0.78039217,
-        "g": 0.07058246,
-        "b": 0.06273909
+        "g": 0.07058243,
+        "b": 0.0627390444
       },
       "Tags": [
         "cloning_source"
@@ -15383,7 +16097,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <destruction_zone.ttslua>\ndo\n-- This zone will remove all elements whose tags intersect with the zone's tags.\r\n\r\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\n--borderColor = Color.Critical\r\n\r\nlocal function tagsIntersect(tags1, tags2)\r\n  for _, t1 in ipairs(tags1) do\r\n    for _, t2 in ipairs(tags2) do\r\n      if t1 == t2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if tagsIntersect(zone.getTags(), object.getTags()) then\r\n    destroyObject(object)\r\n  end\r\nend\r\n\nend\n----#include <destruction_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "f0582d",
@@ -15431,7 +16146,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <destruction_zone.ttslua>\ndo\n-- This zone will remove all elements whose tags intersect with the zone's tags.\r\n\r\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\n--borderColor = Color.Critical\r\n\r\nlocal function tagsIntersect(tags1, tags2)\r\n  for _, t1 in ipairs(tags1) do\r\n    for _, t2 in ipairs(tags2) do\r\n      if t1 == t2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if tagsIntersect(zone.getTags(), object.getTags()) then\r\n    destroyObject(object)\r\n  end\r\nend\r\n\nend\n----#include <destruction_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "fa00b0",
@@ -15457,8 +16173,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626636,
-        "b": 0.09411683
+        "g": 0.168626577,
+        "b": 0.0941167548
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -15497,9 +16213,9 @@
         "posX": 15.0,
         "posY": 0.96,
         "posZ": 6.3,
-        "rotX": 8.931807E-06,
+        "rotX": 8.931814E-06,
         "rotY": 210.0,
-        "rotZ": -3.42310364E-06,
+        "rotZ": -3.423102E-06,
         "scaleX": 0.4,
         "scaleY": 1.0,
         "scaleZ": 0.4
@@ -15514,8 +16230,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626636,
-        "b": 0.09411683
+        "g": 0.168626577,
+        "b": 0.0941167548
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -15593,7 +16309,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <destruction_zone.ttslua>\ndo\n-- This zone will remove all elements whose tags intersect with the zone's tags.\r\n\r\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\n--borderColor = Color.Critical\r\n\r\nlocal function tagsIntersect(tags1, tags2)\r\n  for _, t1 in ipairs(tags1) do\r\n    for _, t2 in ipairs(tags2) do\r\n      if t1 == t2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if tagsIntersect(zone.getTags(), object.getTags()) then\r\n    destroyObject(object)\r\n  end\r\nend\r\n\nend\n----#include <destruction_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "cb93d1",
@@ -15641,7 +16358,8 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "----#include <destruction_zone.ttslua>\ndo\n-- This zone will remove all elements whose tags intersect with the zone's tags.\r\n\r\n----#include <bordered_zone.ttslua>\ndo\nborderThickness = 0.125\r\nborderColor = color(0.8, 0.1, 0.1, 1.0)\r\nonLoadHandlers = {}\r\n\r\nfunction onLoad()\r\n  --Make an X above the middle of the table\r\n  local pos = self.getPosition()\r\n  local scale = self.getScale()\r\n  local y = pos.y - scale.y / 2\r\n  local p1 = {pos.x - scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p2 = {pos.x + scale.x / 2, y, pos.z - scale.z / 2}\r\n  local p3 = {pos.x + scale.x / 2, y, pos.z + scale.z / 2}\r\n  local p4 = {pos.x - scale.x / 2, y, pos.z + scale.z / 2}\r\n  local border =   {\r\n      points    = { p1, p2, p3, p4, p1},\r\n      color     = borderColor,\r\n      thickness = borderThickness,\r\n      rotation  = {0,0,0},\r\n  }\r\n  local existLines = Global.getVectorLines()\r\n  existLines = (existLines != nil) and existLines or {}\r\n  table.insert(existLines, border)\r\n  Global.setVectorLines(existLines)\r\n\r\n  for _, handler in ipairs(onLoadHandlers) do\r\n      handler()\r\n  end\r\nend\r\n\nend\n----#include <bordered_zone.ttslua>\n\r\n--borderColor = Color.Critical\r\n\r\nlocal function tagsIntersect(tags1, tags2)\r\n  for _, t1 in ipairs(tags1) do\r\n    for _, t2 in ipairs(tags2) do\r\n      if t1 == t2 then return true end\r\n    end\r\n  end\r\n  return false\r\nend\r\n\r\nfunction onObjectEnterZone(zone, object)\r\n  if zone ~= self then return end\r\n  if tagsIntersect(zone.getTags(), object.getTags()) then\r\n    destroyObject(object)\r\n  end\r\nend\r\n\nend\n----#include <destruction_zone.ttslua>",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "672e85",
@@ -15667,8 +16385,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626636,
-        "b": 0.09411683
+        "g": 0.168626577,
+        "b": 0.0941167548
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -15707,7 +16425,7 @@
         "posX": -15.0,
         "posY": 0.9600001,
         "posZ": 6.3,
-        "rotX": 3.76938374E-07,
+        "rotX": 3.7693863E-07,
         "rotY": 270.0,
         "rotZ": -1.296104E-07,
         "scaleX": 0.4,
@@ -15724,8 +16442,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626636,
-        "b": 0.09411683
+        "g": 0.168626577,
+        "b": 0.0941167548
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -15762,11 +16480,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -19.9999924,
-        "posY": 0.95999974,
+        "posY": 0.959999859,
         "posZ": -4.1,
-        "rotX": -1.03506027E-05,
+        "rotX": -1.82592485E-05,
         "rotY": 270.3909,
-        "rotZ": 2.47215685E-05,
+        "rotZ": 2.07909288E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -15823,11 +16541,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -19.999979,
-        "posY": 0.95999974,
+        "posY": 0.959999859,
         "posZ": 8.296001,
-        "rotX": -1.54902627E-05,
+        "rotX": -1.67249709E-05,
         "rotY": 270.062744,
-        "rotZ": 3.6187892E-05,
+        "rotZ": 2.64468272E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -15936,8 +16654,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "911ced",
@@ -15996,8 +16715,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "654687",
@@ -16056,8 +16776,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "337f51",
@@ -16116,8 +16837,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "5a03ba",
@@ -16176,8 +16898,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "5431ef",
@@ -16186,8 +16909,8 @@
         "posX": -30.2,
         "posY": 6.035121,
         "posZ": 8.203554,
-        "rotX": 2.548515E-10,
-        "rotY": 269.995728,
+        "rotX": 2.57497718E-10,
+        "rotY": 269.995636,
         "rotZ": 180.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16236,8 +16959,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "355fdc",
@@ -16246,9 +16970,9 @@
         "posX": -30.22,
         "posY": 5.635121,
         "posZ": 16.7964458,
-        "rotX": 7.11084738E-07,
-        "rotY": 269.956116,
-        "rotZ": -4.54209066E-06,
+        "rotX": 7.11089569E-07,
+        "rotY": 269.956177,
+        "rotZ": -4.542094E-06,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -16296,8 +17020,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "4de296",
@@ -16306,9 +17031,9 @@
         "posX": -30.2,
         "posY": 5.735121,
         "posZ": 14.648222,
-        "rotX": 0.0025837326,
+        "rotX": 0.00258418615,
         "rotY": 269.871979,
-        "rotZ": 0.7095314,
+        "rotZ": 0.709531367,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -16356,8 +17081,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "af137c",
@@ -16367,7 +17093,7 @@
         "posY": 5.83512068,
         "posZ": 12.5,
         "rotX": 0.0,
-        "rotY": 270.002136,
+        "rotY": 270.002167,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16416,8 +17142,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "e30d01",
@@ -16427,7 +17154,7 @@
         "posY": 5.935121,
         "posZ": 10.3517771,
         "rotX": 0.0,
-        "rotY": 270.002441,
+        "rotY": 270.002472,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16476,8 +17203,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "4413d5",
@@ -16536,8 +17264,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "977e2f",
@@ -16596,8 +17325,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "2494c7",
@@ -16607,7 +17337,7 @@
         "posY": 5.83512068,
         "posZ": -12.3,
         "rotX": 0.0,
-        "rotY": 270.003479,
+        "rotY": 270.0036,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16656,8 +17386,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "0f8815",
@@ -16667,7 +17398,7 @@
         "posY": 5.635121,
         "posZ": -8.003553,
         "rotX": 0.0,
-        "rotY": 270.003,
+        "rotY": 270.0031,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16716,8 +17447,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "5c8717",
@@ -16727,7 +17459,7 @@
         "posY": 5.735121,
         "posZ": -10.1517773,
         "rotX": 0.0,
-        "rotY": 270.003448,
+        "rotY": 270.00354,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16776,8 +17508,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "c1bcf2",
@@ -16787,7 +17520,7 @@
         "posY": 6.035121,
         "posZ": -16.596447,
         "rotX": 0.0,
-        "rotY": 270.0036,
+        "rotY": 270.003723,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16836,8 +17569,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "271cf0",
@@ -16847,7 +17581,7 @@
         "posY": 6.035121,
         "posZ": -8.00356,
         "rotX": 0.0,
-        "rotY": 90.00412,
+        "rotY": 90.00418,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -16896,8 +17630,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "d204db",
@@ -16907,8 +17642,8 @@
         "posY": 5.935121,
         "posZ": -10.15178,
         "rotX": 359.989349,
-        "rotY": 90.0251,
-        "rotZ": 0.5190313,
+        "rotY": 90.02503,
+        "rotZ": 0.5190308,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -16956,8 +17691,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "5204a0",
@@ -16966,9 +17702,9 @@
         "posX": 30.25,
         "posY": 5.83512068,
         "posZ": -12.3,
-        "rotX": -7.4739927E-07,
-        "rotY": 89.9697342,
-        "rotZ": -4.188955E-07,
+        "rotX": -7.473996E-07,
+        "rotY": 89.9696655,
+        "rotZ": -4.188951E-07,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17016,8 +17752,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "92579c",
@@ -17026,9 +17763,9 @@
         "posX": 30.25,
         "posY": 5.635121,
         "posZ": -16.59644,
-        "rotX": -4.862368E-07,
+        "rotX": -4.86236559E-07,
         "rotY": 90.01475,
-        "rotZ": -7.20677349E-07,
+        "rotZ": -7.20677E-07,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17076,8 +17813,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "cae58f",
@@ -17086,9 +17824,9 @@
         "posX": 30.25,
         "posY": 5.735121,
         "posZ": -14.44822,
-        "rotX": -3.55305986E-07,
+        "rotX": -3.55305815E-07,
         "rotY": 90.0136,
-        "rotZ": 1.125845E-07,
+        "rotZ": 1.125846E-07,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17136,8 +17874,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "e27923",
@@ -17147,7 +17886,7 @@
         "posY": 5.935121,
         "posZ": -14.4482231,
         "rotX": 0.0,
-        "rotY": 90.0023651,
+        "rotY": 90.00251,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -17196,8 +17935,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "84ae62",
@@ -17256,8 +17996,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "52fbac",
@@ -17316,8 +18057,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "d7edfa",
@@ -17376,8 +18118,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "50a4fc",
@@ -17387,7 +18130,7 @@
         "posY": 5.735121,
         "posZ": 10.35178,
         "rotX": 0.0,
-        "rotY": 90.00596,
+        "rotY": 90.0060349,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -17436,8 +18179,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "df8c01",
@@ -17447,7 +18191,7 @@
         "posY": 5.83512068,
         "posZ": 12.5,
         "rotX": 0.0,
-        "rotY": 90.00703,
+        "rotY": 90.0070953,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -17496,8 +18240,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "f9731c",
@@ -17507,7 +18252,7 @@
         "posY": 6.035121,
         "posZ": 16.79644,
         "rotX": 0.0,
-        "rotY": 90.00516,
+        "rotY": 90.0052261,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -17556,8 +18301,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "eb249a",
@@ -17616,8 +18362,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "b3e636",
@@ -17626,7 +18373,7 @@
         "posX": 30.25,
         "posY": 5.635121,
         "posZ": 8.20356,
-        "rotX": 1.59114313E-06,
+        "rotX": 1.59114165E-06,
         "rotY": 90.40017,
         "rotZ": 180.0,
         "scaleX": 1.0,
@@ -17676,8 +18423,9 @@
           "Type": 3
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "3533c9",
@@ -17686,9 +18434,9 @@
         "posX": 7.0,
         "posY": 3.63512039,
         "posZ": -20.0000038,
-        "rotX": -1.11722315E-07,
+        "rotX": -9.779826E-08,
         "rotY": 180.0,
-        "rotZ": 1.01115262E-07,
+        "rotZ": 7.243786E-08,
         "scaleX": 1.5,
         "scaleY": 1.0,
         "scaleZ": 1.5
@@ -17733,19 +18481,20 @@
           "Type": 0
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "bc68af",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": 0.680622,
-        "posY": 1.06117129,
+        "posX": 0.6806223,
+        "posY": 1.061171,
         "posZ": -5.04688549,
-        "rotX": -0.000790535356,
-        "rotY": 359.966522,
-        "rotZ": 0.0037140192,
+        "rotX": -0.0007897313,
+        "rotY": 359.966461,
+        "rotZ": 0.00371976267,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17778,19 +18527,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 4,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "988785",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -1.25970411,
+        "posX": -1.259704,
         "posY": 1.06106162,
         "posZ": -3.934536,
-        "rotX": -0.00079365453,
+        "rotX": -0.0007989165,
         "rotY": 359.977936,
-        "rotZ": 0.00371774659,
+        "rotZ": 0.003719275,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17805,7 +18555,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.431367725,
+        "g": 0.431367666,
         "b": 0.0
       },
       "LayoutGroupSortIndex": 0,
@@ -17823,8 +18573,9 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 2,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "ba41ca",
@@ -17833,9 +18584,9 @@
         "posX": -0.7249513,
         "posY": 1.06108069,
         "posZ": -5.040258,
-        "rotX": 0.00372024113,
-        "rotY": 270.026459,
-        "rotZ": 0.000800554233,
+        "rotX": 0.00371931656,
+        "rotY": 270.02655,
+        "rotZ": 0.000799632631,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17849,8 +18600,8 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.249124169,
-        "g": 0.3757417,
+        "r": 0.24912411,
+        "g": 0.3757416,
         "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
@@ -17868,19 +18619,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 5,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "6e5bec",
       "Name": "PlayerPawn",
       "Transform": {
         "posX": 0.581106246,
-        "posY": 1.06119537,
+        "posY": 1.06119525,
         "posZ": -2.88998,
-        "rotX": -0.00372064672,
-        "rotY": 89.9634247,
-        "rotZ": -0.000798082037,
+        "rotX": -0.0037206097,
+        "rotY": 89.96341,
+        "rotZ": -0.00079563004,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17895,7 +18647,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254897177,
+        "g": 0.254897118,
         "b": 0.572549045
       },
       "LayoutGroupSortIndex": 0,
@@ -17913,19 +18665,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 6,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "6eb1b5",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": 1.426686,
-        "posY": 1.061237,
-        "posZ": -3.812961,
-        "rotX": -0.0008089146,
+        "posX": 1.42668617,
+        "posY": 1.0612371,
+        "posZ": -3.81295753,
+        "rotX": -0.0008087785,
         "rotY": 359.961426,
-        "rotZ": 0.00371726556,
+        "rotZ": 0.00371840945,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -17958,19 +18711,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 1,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "60c77d",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -0.6149248,
+        "posX": -0.6149247,
         "posY": 1.0611186,
-        "posZ": -2.85067964,
-        "rotX": -0.0008013121,
+        "posZ": -2.8506794,
+        "rotX": -0.0008036675,
         "rotY": 359.983643,
-        "rotZ": 0.00371876871,
+        "rotZ": 0.00371523015,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18003,19 +18757,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 3,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "4dea0f",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.93573856,
-        "posY": 1.06106544,
-        "posZ": 11.1248693,
-        "rotX": 0.00811340753,
-        "rotY": 359.9926,
-        "rotZ": 0.04408573,
+        "posX": -6.935797,
+        "posY": 1.06136036,
+        "posZ": 11.1248569,
+        "rotX": 0.009095757,
+        "rotY": -0.00544665335,
+        "rotZ": 0.03321448,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18048,19 +18803,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 3,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "eff1a9",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.18342,
-        "posY": 1.06082892,
-        "posZ": 12.5114679,
-        "rotX": 0.00321139046,
-        "rotY": 89.9880142,
-        "rotZ": 0.0191521812,
+        "posX": -6.18342257,
+        "posY": 1.06160855,
+        "posZ": 12.5114689,
+        "rotX": -0.000483830983,
+        "rotY": 89.98791,
+        "rotZ": 0.0025426473,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18075,7 +18831,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254897147,
+        "g": 0.2548971,
         "b": 0.572549045
       },
       "LayoutGroupSortIndex": 0,
@@ -18093,19 +18849,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 6,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "3c1194",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.882254,
-        "posY": 1.06137967,
-        "posZ": 12.53806,
-        "rotX": 0.00312112039,
-        "rotY": 359.979065,
-        "rotZ": 0.011140516,
+        "posX": -6.882284,
+        "posY": 1.06064165,
+        "posZ": 12.5380564,
+        "rotX": -0.003982697,
+        "rotY": 359.9791,
+        "rotZ": 0.0399178453,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18120,7 +18877,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.4313677,
+        "g": 0.431367636,
         "b": 0.0
       },
       "LayoutGroupSortIndex": 0,
@@ -18138,19 +18895,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 2,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "007b72",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.6978097,
-        "posY": 1.0614481,
-        "posZ": 11.8563023,
-        "rotX": 0.001492233,
-        "rotY": 359.9629,
-        "rotZ": 0.00674804673,
+        "posX": -6.697854,
+        "posY": 1.06101584,
+        "posZ": 11.8563013,
+        "rotX": 0.00120312022,
+        "rotY": 359.963745,
+        "rotZ": 0.0408830829,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18183,19 +18941,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 1,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "e20e50",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -5.97734976,
-        "posY": 1.0602963,
-        "posZ": 11.87839,
-        "rotX": -0.005290567,
-        "rotY": 359.9765,
-        "rotZ": 0.0478593335,
+        "posX": -5.97739649,
+        "posY": 1.05970478,
+        "posZ": 11.87836,
+        "rotX": 359.993134,
+        "rotY": 359.976318,
+        "rotZ": 0.0508889258,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18228,19 +18987,20 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 4,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "a3d4bd",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.250888,
-        "posY": 1.05940139,
-        "posZ": 11.2376585,
-        "rotX": -0.00531801768,
-        "rotY": 329.9979,
-        "rotZ": 0.07239762,
+        "posX": -6.25091267,
+        "posY": 1.0615412,
+        "posZ": 11.2376423,
+        "rotX": 0.004187239,
+        "rotY": 329.9978,
+        "rotZ": 0.00584035367,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18254,8 +19014,8 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.24912414,
-        "g": 0.375741631,
+        "r": 0.24912408,
+        "g": 0.375741571,
         "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
@@ -18273,8 +19033,9 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "MaterialIndex": 5,
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "a22ffc",
@@ -18283,9 +19044,9 @@
         "posX": -6.96924,
         "posY": 3.63512039,
         "posZ": -20.0117741,
-        "rotX": 6.201934E-08,
+        "rotX": 6.940701E-08,
         "rotY": 180.0,
-        "rotZ": 1.94558925E-09,
+        "rotZ": 9.678643E-09,
         "scaleX": 1.5,
         "scaleY": 1.0,
         "scaleZ": 1.5
@@ -18330,8 +19091,9 @@
           "Type": 0
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
-      "LuaScriptState": ""
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "022449",
@@ -18340,8 +19102,8 @@
         "posX": 8.630721,
         "posY": 1.07334673,
         "posZ": -12.9226084,
-        "rotX": 0.0008048087,
-        "rotY": 180.047668,
+        "rotX": 0.000804914453,
+        "rotY": 180.0477,
         "rotZ": 179.9963,
         "scaleX": 0.3,
         "scaleY": 1.0,
@@ -18390,8 +19152,9 @@
           "Type": 2
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
+      "LuaScript": "",
       "LuaScriptState": "",
+      "XmlUI": "",
       "States": {
         "4": {
           "GUID": "559576",
@@ -18983,10 +19746,10 @@
       "Transform": {
         "posX": 9.739799,
         "posY": 1.07341838,
-        "posZ": -12.9268589,
-        "rotX": 0.000806175463,
-        "rotY": 180.085,
-        "rotZ": -0.003703563,
+        "posZ": -12.9268579,
+        "rotX": 0.0008072477,
+        "rotY": 180.085037,
+        "rotZ": -0.00370337861,
         "scaleX": 0.3,
         "scaleY": 1.0,
         "scaleZ": 0.3
@@ -19034,8 +19797,9 @@
           "Type": 2
         }
       },
-      "LuaScript": "              function onContextMenu(player_color)\n                  return {\n                      {name=\"Inspect size\", function_owner=self, function_name=\"myHandler\"}\n                  }\n              end\n              function myHandler(player_color)\n                  print(\"Нажал \"..player_color..\" на \"..self.getName())\n              end\n          ",
+      "LuaScript": "",
       "LuaScriptState": "",
+      "XmlUI": "",
       "States": {
         "1": {
           "GUID": "c4c3bd",
@@ -19334,11 +20098,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 12.06727,
-        "posY": 1.06007063,
+        "posY": 1.06007051,
         "posZ": -5.301559,
-        "rotX": 0.0007884439,
+        "rotX": 0.0007884062,
         "rotY": 180.045883,
-        "rotZ": -0.00367858517,
+        "rotZ": -0.00367734162,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -19352,7 +20116,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.309795827,
+        "r": 0.309795767,
         "g": 0.486274481,
         "b": 0.6392157
       },
@@ -19386,7 +20150,8 @@
         }
       },
       "LuaScript": "denomination = 10",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "50b3f7",
@@ -19395,9 +20160,9 @@
         "posX": 12.0705137,
         "posY": 1.060032,
         "posZ": -8.072095,
-        "rotX": 0.0007888828,
-        "rotY": 180.056213,
-        "rotZ": -0.00367858587,
+        "rotX": 0.0007889233,
+        "rotY": 180.056183,
+        "rotZ": -0.00367824035,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -19411,7 +20176,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.305873454,
+        "r": 0.3058734,
         "g": 0.4588232,
         "b": 0.6
       },
@@ -19445,7 +20210,8 @@
         }
       },
       "LuaScript": "denomination = 25",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "6008c0",
@@ -19454,7 +20220,7 @@
         "posX": -6.44855845E-07,
         "posY": 0.95930934,
         "posZ": -3.94499254,
-        "rotX": 0.0007999419,
+        "rotX": 0.0007999421,
         "rotY": 179.977386,
         "rotZ": -0.003704198,
         "scaleX": 13.6293545,
@@ -19470,9 +20236,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842446,
-        "g": 0.09410957,
-        "b": 0.105873995
+        "r": 0.0784244,
+        "g": 0.09410951,
+        "b": 0.105873935
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -23452,12 +24218,12 @@
       "GUID": "558f43",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 10.2333546,
+        "posX": 10.2333536,
         "posY": 1.06013548,
-        "posZ": 7.813245,
-        "rotX": -0.00371840177,
+        "posZ": 7.813246,
+        "rotX": -0.00371874962,
         "rotY": 89.98206,
-        "rotZ": -0.0007802058,
+        "rotZ": -0.0007805929,
         "scaleX": 0.54,
         "scaleY": 1.0,
         "scaleZ": 0.54
@@ -23472,7 +24238,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254895777,
+        "g": 0.254895717,
         "b": 0.572549045
       },
       "Tags": [
@@ -23513,12 +24279,12 @@
       "GUID": "ff89ab",
       "Name": "Custom_Token",
       "Transform": {
-        "posX": 9.146649,
-        "posY": 1.11006522,
-        "posZ": 7.81514072,
-        "rotX": -0.003711945,
-        "rotY": 90.00267,
-        "rotZ": 179.999222,
+        "posX": 9.146647,
+        "posY": 1.11006546,
+        "posZ": 7.81514168,
+        "rotX": -0.003674864,
+        "rotY": 90.00264,
+        "rotZ": 179.9992,
         "scaleX": 0.25,
         "scaleY": 1.0,
         "scaleZ": 0.25
@@ -23574,12 +24340,12 @@
       "GUID": "2d7fb1",
       "Name": "Custom_Token",
       "Transform": {
-        "posX": 11.3510094,
-        "posY": 1.11020756,
-        "posZ": 7.798418,
-        "rotX": 0.00372117362,
-        "rotY": 269.9964,
-        "rotZ": 180.000809,
+        "posX": 11.3510084,
+        "posY": 1.11020744,
+        "posZ": 7.798419,
+        "rotX": 0.00368954334,
+        "rotY": 269.996521,
+        "rotZ": 180.0008,
         "scaleX": 0.25,
         "scaleY": 1.0,
         "scaleZ": 0.25
@@ -23637,9 +24403,9 @@
       "Transform": {
         "posX": -7.149322,
         "posY": 1.35898161,
-        "posZ": 5.683389,
-        "rotX": -0.0007801397,
-        "rotY": 4.4584227E-05,
+        "posZ": 5.683388,
+        "rotX": -0.0007810321,
+        "rotY": -9.203544E-06,
         "rotZ": 180.003738,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -23699,9 +24465,9 @@
         "posX": -9.544658,
         "posY": 1.058808,
         "posZ": 4.31767035,
-        "rotX": 0.0007805729,
-        "rotY": 180.000244,
-        "rotZ": -0.0036703425,
+        "rotX": 0.000780686445,
+        "rotY": 180.000259,
+        "rotZ": -0.00366951828,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -23716,8 +24482,8 @@
       },
       "ColorDiffuse": {
         "r": 0.78039217,
-        "g": 0.07058244,
-        "b": 0.06273907
+        "g": 0.0705824,
+        "b": 0.06273902
       },
       "Tags": [
         "cloning_source",
@@ -23759,10 +24525,10 @@
       "Transform": {
         "posX": -4.781042,
         "posY": 1.05915427,
-        "posZ": 7.055672,
-        "rotX": 0.000782559742,
-        "rotY": 179.997223,
-        "rotZ": -0.003670026,
+        "posZ": 7.05567169,
+        "rotX": 0.000781328,
+        "rotY": 179.997238,
+        "rotZ": -0.00366928568,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -23776,9 +24542,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.231370062,
+        "r": 0.23137,
         "g": 0.5803921,
-        "b": 0.188232929
+        "b": 0.188232869
       },
       "Tags": [
         "cloning_source",
@@ -23821,9 +24587,9 @@
         "posX": 12.0618725,
         "posY": 1.06010878,
         "posZ": -2.54170418,
-        "rotX": 0.000814003346,
-        "rotY": 180.38765,
-        "rotZ": -0.00367352716,
+        "rotX": 0.0008123151,
+        "rotY": 180.38768,
+        "rotZ": -0.00367405661,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -23837,7 +24603,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.349011481,
+        "r": 0.349011421,
         "g": 0.5647059,
         "b": 0.7254902
       },
@@ -23871,7 +24637,8 @@
         }
       },
       "LuaScript": "denomination = 5",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "2fa356",
@@ -23879,10 +24646,10 @@
       "Transform": {
         "posX": 12.03595,
         "posY": 1.06014585,
-        "posZ": 0.225146666,
-        "rotX": 0.0007163006,
-        "rotY": 178.936234,
-        "rotZ": -0.003693309,
+        "posZ": 0.225146547,
+        "rotX": 0.0007184215,
+        "rotY": 178.936279,
+        "rotZ": -0.003693619,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -23896,7 +24663,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.156855017,
+        "r": 0.156854957,
         "g": 0.552941144,
         "b": 0.784313738
       },
@@ -23930,18 +24697,19 @@
         }
       },
       "LuaScript": "denomination = 1",
-      "LuaScriptState": ""
+      "LuaScriptState": "",
+      "XmlUI": ""
     },
     {
       "GUID": "2eecf1",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -5.570478E-06,
-        "posY": 0.9598652,
-        "posZ": 13.7999811,
-        "rotX": 0.000564743765,
+        "posX": -8.451848E-06,
+        "posY": 0.959907651,
+        "posZ": 13.79997,
+        "rotX": 0.000425927,
         "rotY": 180.0,
-        "rotZ": -0.000872351229,
+        "rotZ": -0.00061095343,
         "scaleX": 3.77516055,
         "scaleY": 1.0,
         "scaleZ": 3.77516055
@@ -23955,9 +24723,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.0784247443,
-        "g": 0.09410984,
-        "b": 0.105874278
+        "r": 0.0784246847,
+        "g": 0.09410978,
+        "b": 0.105874218
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
