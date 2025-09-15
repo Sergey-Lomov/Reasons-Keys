@@ -1,7 +1,7 @@
 {
   "SaveName": "V4.2_4",
-  "EpochTime": 1757895654,
-  "Date": "9/15/2025 3:20:54 AM",
+  "EpochTime": 1757978019,
+  "Date": "9/16/2025 2:13:39 AM",
   "VersionNumber": "v13.3",
   "GameMode": "Custom",
   "GameType": "Game",
@@ -277,14 +277,21 @@
     ]
   },
   "Turns": {
-    "Enable": false,
-    "Type": 0,
-    "TurnOrder": [],
+    "Enable": true,
+    "Type": 1,
+    "TurnOrder": [
+      "Orange",
+      "Yellow",
+      "Teal",
+      "Blue",
+      "Purple",
+      "White"
+    ],
     "Reverse": false,
     "SkipEmpty": false,
     "DisableInteractions": false,
     "PassTurns": true,
-    "TurnColor": ""
+    "TurnColor": "White"
   },
   "DecalPallet": [
     {
@@ -319,6 +326,356 @@
     }
   ],
   "VectorLines": [
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": 6.7
+        }
+      ],
+      "color": {
+        "r": 0.003921569,
+        "g": 0.5137255,
+        "b": 0.4745098
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -5.7
+        }
+      ],
+      "color": {
+        "r": 0.8901961,
+        "g": 0.9490196,
+        "b": 0.0235294122
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": -21.8000011,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": -27.4,
+          "y": 1.0,
+          "z": -18.1
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 0.431372553,
+        "b": 0.0
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -18.1
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -16.1
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -18.1
+        }
+      ],
+      "color": {
+        "r": 0.698039234,
+        "g": 0.6627451,
+        "b": 0.6
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -5.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -3.69999981
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": -5.7
+        }
+      ],
+      "color": {
+        "r": 0.6666667,
+        "g": 0.254901975,
+        "b": 0.572549045
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": 6.7
+        },
+        {
+          "x": 27.4,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 8.7
+        },
+        {
+          "x": 21.8000011,
+          "y": 1.0,
+          "z": 6.7
+        }
+      ],
+      "color": {
+        "r": 0.1764706,
+        "g": 0.6901961,
+        "b": 0.8156863
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": 16.125,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": 13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": 5.175
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 7.425
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": 5.175
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
+    {
+      "points3": [
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": -7.225
+        },
+        {
+          "x": -13.875,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -4.975
+        },
+        {
+          "x": -16.125,
+          "y": 0.99999994,
+          "z": -7.225
+        }
+      ],
+      "color": {
+        "r": 0.8,
+        "g": 0.1,
+        "b": 0.1
+      },
+      "thickness": 0.125
+    },
     {
       "points3": [
         {
@@ -11465,12 +11822,12 @@
       "GUID": "8de1e0",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 9.200206,
+        "posX": 9.200205,
         "posY": 1.05973613,
         "posZ": -15.9632988,
-        "rotX": 0.000791819242,
-        "rotY": 180.023651,
-        "rotZ": -0.00368131767,
+        "rotX": 0.00078707654,
+        "rotY": 180.0236,
+        "rotZ": -0.00368108135,
         "scaleX": 0.54,
         "scaleY": 1.0,
         "scaleZ": 0.54
@@ -11485,7 +11842,7 @@
       },
       "ColorDiffuse": {
         "r": 0.666666746,
-        "g": 0.254895478,
+        "g": 0.254895449,
         "b": 0.57058835
       },
       "Tags": [
@@ -11528,9 +11885,9 @@
         "posX": 11.14066,
         "posY": 1.05987561,
         "posZ": -14.9603815,
-        "rotX": 0.000789171958,
+        "rotX": 0.0007891597,
         "rotY": 179.999878,
-        "rotZ": -0.00368268066,
+        "rotZ": -0.00368266762,
         "scaleX": 1.6,
         "scaleY": 1.0,
         "scaleZ": 1.6
@@ -11544,9 +11901,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842458,
-        "g": 0.09410971,
-        "b": 0.105874114
+        "r": 0.07842455,
+        "g": 0.09410968,
+        "b": 0.105874084
       },
       "Tags": [
         "v616_mon_token"
@@ -11604,9 +11961,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842458,
-        "g": 0.09410971,
-        "b": 0.105874114
+        "r": 0.07842455,
+        "g": 0.09410968,
+        "b": 0.105874084
       },
       "Tags": [
         "localizable"
@@ -11648,9 +12005,9 @@
         "posX": -12.0563517,
         "posY": 1.05851078,
         "posZ": -5.32681847,
-        "rotX": 0.0007832382,
-        "rotY": 180.000031,
-        "rotZ": -0.00367951184,
+        "rotX": 0.0007856605,
+        "rotY": 180.000015,
+        "rotZ": -0.00367881847,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -11751,8 +12108,8 @@
       "GUID": "5c31fd",
       "Name": "3DText",
       "Transform": {
-        "posX": 0.000125885024,
-        "posY": -0.000154733672,
+        "posX": 0.000125885053,
+        "posY": -0.0001547337,
         "posZ": -0.00103759766,
         "rotX": 4.64952245E-06,
         "rotY": 8.19622655E-05,
@@ -11805,8 +12162,8 @@
       "GUID": "503ac0",
       "Name": "3DText",
       "Transform": {
-        "posX": 0.000125885024,
-        "posY": -0.000154733672,
+        "posX": 0.000125885053,
+        "posY": -0.0001547337,
         "posZ": -0.00103759766,
         "rotX": 4.64952245E-06,
         "rotY": 8.19622655E-05,
@@ -11860,7 +12217,7 @@
       "Name": "3DText",
       "Transform": {
         "posX": -20.5007324,
-        "posY": 0.9999116,
+        "posY": 0.999911845,
         "posZ": 7.699052,
         "rotX": 90.0,
         "rotY": 89.9997,
@@ -11914,11 +12271,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -10.4752245,
-        "posY": 1.05860341,
-        "posZ": 14.2968273,
-        "rotX": 0.0184517223,
-        "rotY": 180.016281,
-        "rotZ": -0.00293287332,
+        "posY": 1.05959117,
+        "posZ": 14.2968283,
+        "rotX": 0.00214928039,
+        "rotY": 180.016235,
+        "rotZ": -0.00113816361,
         "scaleX": 0.43313846,
         "scaleY": 1.0,
         "scaleZ": 0.43313846
@@ -11932,8 +12289,8 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.06274034,
-        "g": 0.0431329831,
+        "r": 0.06274032,
+        "g": 0.04313296,
         "b": 0.454901934
       },
       "Tags": [
@@ -11974,11 +12331,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -20.02356,
-        "posY": 0.9600001,
+        "posY": 0.96,
         "posZ": 7.100001,
-        "rotX": -1.63847617E-05,
+        "rotX": -1.668936E-05,
         "rotY": 270.0054,
-        "rotZ": 3.038719E-05,
+        "rotZ": 1.94720542E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12031,11 +12388,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -20.0,
-        "posY": 0.959999859,
+        "posY": 0.95999974,
         "posZ": -5.3,
-        "rotX": -1.38076566E-05,
+        "rotX": -9.93436E-06,
         "rotY": 270.000061,
-        "rotZ": 2.57556148E-05,
+        "rotZ": 2.728954E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12088,11 +12445,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -19.9999943,
-        "posY": 0.96,
+        "posY": 0.95999974,
         "posZ": -17.7000027,
-        "rotX": -8.024507E-06,
+        "rotX": -1.55225389E-05,
         "rotY": 269.916229,
-        "rotZ": 3.395831E-05,
+        "rotZ": 3.46850757E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12107,7 +12464,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.431365967,
+        "g": 0.431365937,
         "b": 0.0
       },
       "LayoutGroupSortIndex": 0,
@@ -12145,11 +12502,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 20.0000019,
-        "posY": 0.959999859,
+        "posY": 0.9600001,
         "posZ": -17.7,
-        "rotX": -6.297839E-06,
+        "rotX": -6.768511E-06,
         "rotY": 90.0010452,
-        "rotZ": 2.2184282E-05,
+        "rotZ": 2.90138723E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12202,11 +12559,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 19.9998837,
-        "posY": 0.96,
+        "posY": 0.9600001,
         "posZ": -5.299946,
-        "rotX": -1.75818823E-05,
+        "rotX": -1.3515476E-05,
         "rotY": 89.99772,
-        "rotZ": 2.28944E-05,
+        "rotZ": 2.43985942E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12221,7 +12578,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.2548954,
+        "g": 0.254895359,
         "b": 0.572549045
       },
       "LayoutGroupSortIndex": 0,
@@ -12261,9 +12618,9 @@
         "posX": 19.9999943,
         "posY": 0.959999859,
         "posZ": 7.1,
-        "rotX": -1.28296124E-05,
+        "rotX": -1.30647722E-05,
         "rotY": 90.00001,
-        "rotZ": 3.77360229E-05,
+        "rotZ": 2.73135138E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12277,7 +12634,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.176464349,
+        "r": 0.176464319,
         "g": 0.6901961,
         "b": 0.8156863
       },
@@ -12412,9 +12769,9 @@
         "posX": -20.0,
         "posY": 0.96,
         "posZ": -16.5,
-        "rotX": -9.698115E-06,
+        "rotX": -2.1330723E-05,
         "rotY": 269.960754,
-        "rotZ": 2.51627662E-05,
+        "rotZ": 2.2805194E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12429,7 +12786,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.431366026,
+        "g": 0.431366,
         "b": 0.0
       },
       "Tags": [
@@ -12471,11 +12828,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 19.9982967,
-        "posY": 0.9600002,
+        "posY": 0.96,
         "posZ": 8.3,
-        "rotX": -2.129931E-05,
+        "rotX": -1.61162552E-05,
         "rotY": 90.0,
-        "rotZ": 2.54231727E-05,
+        "rotZ": 2.72780326E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -12489,7 +12846,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.176464379,
+        "r": 0.176464349,
         "g": 0.6901961,
         "b": 0.8156863
       },
@@ -12869,10 +13226,10 @@
       "GUID": "a015ef",
       "Name": "3DText",
       "Transform": {
-        "posX": 20.5010471,
-        "posY": 0.999963343,
+        "posX": 20.501049,
+        "posY": 0.9999635,
         "posZ": -17.10213,
-        "rotX": 89.98022,
+        "rotX": 90.0,
         "rotY": 269.999939,
         "rotZ": 0.0,
         "scaleX": 1.0,
@@ -12925,8 +13282,8 @@
       "Transform": {
         "posX": 20.5010967,
         "posY": 0.9999635,
-        "posZ": -4.70238733,
-        "rotX": 89.98022,
+        "posZ": -4.70238829,
+        "rotX": 90.0,
         "rotY": 269.999939,
         "rotZ": 0.0,
         "scaleX": 1.0,
@@ -12978,9 +13335,9 @@
       "Name": "3DText",
       "Transform": {
         "posX": 20.5010033,
-        "posY": 0.999956,
+        "posY": 0.99995625,
         "posZ": 7.698813,
-        "rotX": 89.98022,
+        "rotX": 90.0,
         "rotY": 269.999939,
         "rotZ": 0.0,
         "scaleX": 1.0,
@@ -13031,11 +13388,11 @@
       "GUID": "c8166f",
       "Name": "Deck",
       "Transform": {
-        "posX": -7.310727,
+        "posX": -7.31169033,
         "posY": 1.36845577,
-        "posZ": -14.967741,
-        "rotX": -0.0008049105,
-        "rotY": 0.000442345481,
+        "posZ": -14.9684238,
+        "rotX": -0.0008030135,
+        "rotY": 0.0219359659,
         "rotZ": 180.0037,
         "scaleX": 1.04,
         "scaleY": 1.0,
@@ -13073,66 +13430,66 @@
       "Hands": false,
       "SidewaysCard": false,
       "DeckIDs": [
-        3146,
-        3133,
-        3113,
-        3132,
-        3129,
-        3155,
-        3153,
-        3157,
-        3139,
-        3103,
-        3137,
         3121,
-        3109,
-        3151,
-        3108,
-        3122,
-        3120,
-        3101,
-        3123,
-        3150,
-        3143,
-        3147,
-        3134,
-        3148,
-        3118,
-        3124,
-        3112,
-        3102,
-        3116,
-        3100,
-        3115,
-        3159,
-        3130,
-        3111,
-        3104,
-        3128,
-        3127,
-        3145,
-        3125,
-        3154,
-        3140,
-        3106,
-        3119,
-        3136,
-        3144,
-        3107,
-        3149,
-        3156,
-        3141,
-        3105,
-        3114,
-        3117,
         3152,
-        3142,
-        3110,
-        3138,
-        3126,
-        3158,
+        3135,
         3131,
-        3135
+        3125,
+        3123,
+        3104,
+        3108,
+        3113,
+        3116,
+        3141,
+        3102,
+        3140,
+        3111,
+        3100,
+        3107,
+        3136,
+        3117,
+        3103,
+        3112,
+        3126,
+        3142,
+        3149,
+        3143,
+        3130,
+        3114,
+        3138,
+        3115,
+        3120,
+        3146,
+        3148,
+        3158,
+        3129,
+        3132,
+        3101,
+        3156,
+        3118,
+        3155,
+        3133,
+        3153,
+        3145,
+        3105,
+        3134,
+        3139,
+        3119,
+        3144,
+        3124,
+        3151,
+        3137,
+        3150,
+        3110,
+        3106,
+        3127,
+        3128,
+        3109,
+        3147,
+        3159,
+        3122,
+        3157,
+        3154
       ],
       "CustomDeck": {
         "31": {
@@ -13150,942 +13507,15 @@
       "XmlUI": "",
       "ContainedObjects": [
         {
-          "GUID": "881a94",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.31098461,
-            "posY": 1.69839072,
-            "posZ": -14.96752,
-            "rotX": 0.00226758281,
-            "rotY": 270.000061,
-            "rotZ": 179.882065,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 3146,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "31": {
-              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
-              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
-              "NumWidth": 10,
-              "NumHeight": 6,
-              "BackIsHidden": true,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "d85aba",
-          "Name": "Card",
-          "Transform": {
-            "posX": -11.2046242,
-            "posY": 1.13675952,
-            "posZ": -14.9692078,
-            "rotX": -0.00100810186,
-            "rotY": 0.000778354937,
-            "rotZ": 180.005859,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 3133,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "31": {
-              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
-              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
-              "NumWidth": 10,
-              "NumHeight": 6,
-              "BackIsHidden": true,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "cf9f71",
-          "Name": "Card",
-          "Transform": {
-            "posX": -11.2,
-            "posY": 1.996917,
-            "posZ": -14.97,
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 180.0,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 3113,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "31": {
-              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
-              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
-              "NumWidth": 10,
-              "NumHeight": 6,
-              "BackIsHidden": true,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "bbc356",
-          "Name": "Card",
-          "Transform": {
-            "posX": -11.2,
-            "posY": 1.95382357,
-            "posZ": -14.97,
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 180.0,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 3132,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "31": {
-              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
-              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
-              "NumWidth": 10,
-              "NumHeight": 6,
-              "BackIsHidden": true,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "ce61d6",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3129,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "e055ab",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3155,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "e8ddae",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3153,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "00bd12",
-          "Name": "Card",
-          "Transform": {
-            "posX": -11.7000933,
-            "posY": 1.13956511,
-            "posZ": -15.1504765,
-            "rotX": 356.7627,
-            "rotY": 359.9926,
-            "rotZ": 180.439865,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 3157,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "31": {
-              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
-              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
-              "NumWidth": 10,
-              "NumHeight": 6,
-              "BackIsHidden": true,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "ffe8fb",
-          "Name": "Card",
-          "Transform": {
-            "posX": -9.43125,
-            "posY": 1.677396,
-            "posZ": -12.2786341,
-            "rotX": 0.00370847457,
-            "rotY": 269.999634,
-            "rotZ": 180.000809,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 3139,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "31": {
-              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
-              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
-              "NumWidth": 10,
-              "NumHeight": 6,
-              "BackIsHidden": true,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "bdef3f",
-          "Name": "Card",
-          "Transform": {
-            "posX": -11.6998959,
-            "posY": 1.15804458,
-            "posZ": -15.1499052,
-            "rotX": 356.993347,
-            "rotY": 359.993958,
-            "rotZ": 180.485611,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": true,
-          "Hands": true,
-          "CardID": 3103,
-          "SidewaysCard": false,
-          "CustomDeck": {
-            "31": {
-              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
-              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
-              "NumWidth": 10,
-              "NumHeight": 6,
-              "BackIsHidden": true,
-              "UniqueBack": false,
-              "Type": 3
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        },
-        {
-          "GUID": "870e5b",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3137,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
           "GUID": "9c6a0c",
           "Name": "Card",
           "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3121,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "90da77",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3109,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "8b26eb",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3151,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "e2276d",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3108,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "5a5c23",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3122,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "979605",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3120,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "dee186",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.232522,
-            "posY": 2.10063887,
-            "posZ": -14.8825111,
-            "rotX": -1.85592326E-05,
-            "rotY": -1.14632012E-05,
-            "rotZ": 195.123215,
+            "posX": -11.2,
+            "posY": 2.00780082,
+            "posZ": -14.97,
+            "rotX": -2.85802635E-08,
+            "rotY": -1.24388207E-15,
+            "rotZ": 180.0,
             "scaleX": 1.04,
             "scaleY": 1.0,
             "scaleZ": 1.04
@@ -14120,7 +13550,7 @@
           "GridProjection": false,
           "HideWhenFaceDown": true,
           "Hands": true,
-          "CardID": 3101,
+          "CardID": 3121,
           "SidewaysCard": false,
           "CustomDeck": {
             "31": {
@@ -14136,6 +13566,228 @@
           "LuaScript": "",
           "LuaScriptState": "",
           "XmlUI": ""
+        },
+        {
+          "GUID": "63e88c",
+          "Name": "Card",
+          "Transform": {
+            "posX": -11.2,
+            "posY": 1.98603308,
+            "posZ": -14.97,
+            "rotX": 2.85802617E-08,
+            "rotY": 1.25470281E-15,
+            "rotZ": 180.0,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3152,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "f7ba74",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.31098557,
+            "posY": 1.67326367,
+            "posZ": -14.9677658,
+            "rotX": -0.00297345,
+            "rotY": 89.99998,
+            "rotZ": 179.970444,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3135,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "ea6050",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3131,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "56bfcf",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3125,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
         },
         {
           "GUID": "5edb70",
@@ -14199,7 +13851,7 @@
           "XmlUI": ""
         },
         {
-          "GUID": "1a0ca1",
+          "GUID": "4af9cf",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -14241,7 +13893,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3150,
+          "CardID": 3104,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -14249,7 +13901,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "2fe73f",
+          "GUID": "e2276d",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -14291,7 +13943,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3143,
+          "CardID": 3108,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -14299,7 +13951,68 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "f7c9fd",
+          "GUID": "cf9f71",
+          "Name": "Card",
+          "Transform": {
+            "posX": -11.2,
+            "posY": 1.996917,
+            "posZ": -14.97,
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 180.0,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3113,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "d44078",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -14341,7 +14054,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3147,
+          "CardID": 3116,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -14349,7 +14062,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "b75a21",
+          "GUID": "41c853",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -14391,207 +14104,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3134,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "37e0fb",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3148,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "d679c4",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3118,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "ba5f09",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3124,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "a957b0",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3112,
+          "CardID": 3141,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -14660,7 +14173,7 @@
           "XmlUI": ""
         },
         {
-          "GUID": "d44078",
+          "GUID": "389bae",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -14702,7 +14215,57 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3116,
+          "CardID": 3140,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "d25c48",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3111,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -14771,756 +14334,6 @@
           "XmlUI": ""
         },
         {
-          "GUID": "d14561",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3115,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "03301e",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3159,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "de4072",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3130,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "d25c48",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3111,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "4af9cf",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3104,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "383f4a",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3128,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "730a7e",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3127,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "73d257",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3145,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "56bfcf",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3125,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "7305c5",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3154,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "389bae",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3140,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "89ed20",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3106,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "f0c483",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3119,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "a66df2",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3136,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
-          "GUID": "d93e15",
-          "Name": "Card",
-          "Transform": {
-            "posX": -7.53040266,
-            "posY": 1.36843932,
-            "posZ": -15.1318026,
-            "rotX": 0.000804074458,
-            "rotY": 179.9928,
-            "rotZ": 179.9963,
-            "scaleX": 1.04,
-            "scaleY": 1.0,
-            "scaleZ": 1.04
-          },
-          "Nickname": "",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 0.713235259,
-            "g": 0.713235259,
-            "b": 0.713235259
-          },
-          "Tags": [
-            "event_card"
-          ],
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "Hands": true,
-          "CardID": 3144,
-          "SidewaysCard": false,
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": "",
-          "ContainedObjects": []
-        },
-        {
           "GUID": "ff138a",
           "Name": "Card",
           "Transform": {
@@ -15582,6 +14395,317 @@
           "XmlUI": ""
         },
         {
+          "GUID": "a66df2",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3136,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "ba4992",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3117,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "bdef3f",
+          "Name": "Card",
+          "Transform": {
+            "posX": -11.6998959,
+            "posY": 1.15804458,
+            "posZ": -15.1499052,
+            "rotX": 356.993347,
+            "rotY": 359.993958,
+            "rotZ": 180.485611,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3103,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "a957b0",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3112,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "598578",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3126,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "95af00",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3142,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
           "GUID": "7bcc4e",
           "Name": "Card",
           "Transform": {
@@ -15626,6 +14750,639 @@
           "HideWhenFaceDown": true,
           "Hands": true,
           "CardID": 3149,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "2fe73f",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3143,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "de4072",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3130,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "e5d574",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3114,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "9125d6",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3138,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "d14561",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3115,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "979605",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3120,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "881a94",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.31098461,
+            "posY": 1.69839072,
+            "posZ": -14.96752,
+            "rotX": 0.00226758281,
+            "rotY": 270.000061,
+            "rotZ": 179.882065,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3146,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "37e0fb",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3148,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "cbcf01",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3158,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "ce61d6",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3129,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "bbc356",
+          "Name": "Card",
+          "Transform": {
+            "posX": -11.2,
+            "posY": 1.95382357,
+            "posZ": -14.97,
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 180.0,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3132,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "dee186",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.232522,
+            "posY": 2.10063887,
+            "posZ": -14.8825111,
+            "rotX": -1.85592326E-05,
+            "rotY": -1.14632012E-05,
+            "rotZ": 195.123215,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3101,
           "SidewaysCard": false,
           "CustomDeck": {
             "31": {
@@ -15693,7 +15450,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "41c853",
+          "GUID": "d679c4",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -15735,7 +15492,218 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3141,
+          "CardID": 3118,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "e055ab",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3155,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "d85aba",
+          "Name": "Card",
+          "Transform": {
+            "posX": -11.2046242,
+            "posY": 1.13675952,
+            "posZ": -14.9692078,
+            "rotX": -0.00100810186,
+            "rotY": 0.000778354937,
+            "rotZ": 180.005859,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3133,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "e8ddae",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3153,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "73d257",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3145,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -15793,7 +15761,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "e5d574",
+          "GUID": "b75a21",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -15835,7 +15803,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3114,
+          "CardID": 3134,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -15843,7 +15811,68 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "ba4992",
+          "GUID": "ffe8fb",
+          "Name": "Card",
+          "Transform": {
+            "posX": -9.43125,
+            "posY": 1.677396,
+            "posZ": -12.2786341,
+            "rotX": 0.00370847457,
+            "rotY": 269.999634,
+            "rotZ": 180.000809,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 3139,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "31": {
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580451355/48028B7DD5CAD979264F2219459F5818DD21D667/",
+              "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2075636507580429030/E5E319871CF9A8FA6524EBF50DEF60150F600031/",
+              "NumWidth": 10,
+              "NumHeight": 6,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 3
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "f0c483",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -15885,7 +15914,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3117,
+          "CardID": 3119,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -15893,7 +15922,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "63e88c",
+          "GUID": "d93e15",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -15935,7 +15964,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3152,
+          "CardID": 3144,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -15943,7 +15972,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "95af00",
+          "GUID": "ba5f09",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -15985,7 +16014,157 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3142,
+          "CardID": 3124,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "8b26eb",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3151,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "870e5b",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3137,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "1a0ca1",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3150,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -16043,7 +16222,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "9125d6",
+          "GUID": "89ed20",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -16085,7 +16264,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3138,
+          "CardID": 3106,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -16093,7 +16272,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "598578",
+          "GUID": "730a7e",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -16135,7 +16314,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3126,
+          "CardID": 3127,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -16143,7 +16322,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "cbcf01",
+          "GUID": "383f4a",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -16185,7 +16364,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3158,
+          "CardID": 3128,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -16193,7 +16372,7 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "ea6050",
+          "GUID": "90da77",
           "Name": "Card",
           "Transform": {
             "posX": -7.53040266,
@@ -16235,7 +16414,7 @@
           "Tooltip": true,
           "GridProjection": false,
           "Hands": true,
-          "CardID": 3131,
+          "CardID": 3109,
           "SidewaysCard": false,
           "LuaScript": "",
           "LuaScriptState": "",
@@ -16243,15 +16422,165 @@
           "ContainedObjects": []
         },
         {
-          "GUID": "f7ba74",
+          "GUID": "f7c9fd",
           "Name": "Card",
           "Transform": {
-            "posX": -11.7000866,
-            "posY": 1.1667304,
-            "posZ": -15.1505136,
-            "rotX": 357.4388,
-            "rotY": -0.0032645422,
-            "rotZ": 180.565338,
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3147,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "03301e",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3159,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "5a5c23",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3122,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
+        },
+        {
+          "GUID": "00bd12",
+          "Name": "Card",
+          "Transform": {
+            "posX": -11.7000933,
+            "posY": 1.13956511,
+            "posZ": -15.1504765,
+            "rotX": 356.7627,
+            "rotY": 359.9926,
+            "rotZ": 180.439865,
             "scaleX": 1.04,
             "scaleY": 1.0,
             "scaleZ": 1.04
@@ -16286,7 +16615,7 @@
           "GridProjection": false,
           "HideWhenFaceDown": true,
           "Hands": true,
-          "CardID": 3135,
+          "CardID": 3157,
           "SidewaysCard": false,
           "CustomDeck": {
             "31": {
@@ -16302,6 +16631,56 @@
           "LuaScript": "",
           "LuaScriptState": "",
           "XmlUI": ""
+        },
+        {
+          "GUID": "7305c5",
+          "Name": "Card",
+          "Transform": {
+            "posX": -7.53040266,
+            "posY": 1.36843932,
+            "posZ": -15.1318026,
+            "rotX": 0.000804074458,
+            "rotY": 179.9928,
+            "rotZ": 179.9963,
+            "scaleX": 1.04,
+            "scaleY": 1.0,
+            "scaleZ": 1.04
+          },
+          "Nickname": "",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "Tags": [
+            "event_card"
+          ],
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "Hands": true,
+          "CardID": 3154,
+          "SidewaysCard": false,
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ContainedObjects": []
         }
       ]
     },
@@ -16312,7 +16691,7 @@
         "posX": 4.99999142,
         "posY": 3.8215158,
         "posZ": 20.2,
-        "rotX": -1.208677E-08,
+        "rotX": 1.50737933E-09,
         "rotY": 89.99397,
         "rotZ": 180.0,
         "scaleX": 2.0,
@@ -16361,11 +16740,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 19.9999619,
-        "posY": 0.9600001,
+        "posY": 0.96,
         "posZ": -4.100009,
-        "rotX": -1.23945829E-05,
+        "rotX": -1.98240032E-05,
         "rotY": 89.9777756,
-        "rotZ": 2.74109134E-05,
+        "rotZ": 2.86529648E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -16380,7 +16759,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254895449,
+        "g": 0.254895419,
         "b": 0.572549045
       },
       "Tags": [
@@ -16909,11 +17288,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 20.0,
-        "posY": 0.959999859,
+        "posY": 0.96,
         "posZ": -16.4997826,
-        "rotX": -1.92015323E-05,
+        "rotX": -1.59941974E-05,
         "rotY": 89.98183,
-        "rotZ": 2.50098656E-05,
+        "rotZ": 2.392615E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -17310,7 +17689,7 @@
         "posX": -24.1,
         "posY": 0.960000157,
         "posZ": -11.1,
-        "rotX": 2.29339491E-07,
+        "rotX": 2.29339577E-07,
         "rotY": 270.0,
         "rotZ": 1.23478287E-07,
         "scaleX": 3.4,
@@ -17479,7 +17858,7 @@
         "posX": -24.0631275,
         "posY": 0.960000038,
         "posZ": 1.29964018,
-        "rotX": 3.2753627E-07,
+        "rotX": 3.27536384E-07,
         "rotY": 270.0,
         "rotZ": 8.73589343E-08,
         "scaleX": 3.4,
@@ -17647,10 +18026,10 @@
       "Transform": {
         "posX": -24.1,
         "posY": 0.9600001,
-        "posZ": 13.7001047,
-        "rotX": -7.46219939E-07,
+        "posZ": 13.7001057,
+        "rotX": -3.795733E-07,
         "rotY": 269.999817,
-        "rotZ": 1.5594695E-07,
+        "rotZ": 1.2536222E-07,
         "scaleX": 3.4,
         "scaleY": 1.0,
         "scaleZ": 3.4
@@ -17816,9 +18195,9 @@
       "Transform": {
         "posX": 7.24698162,
         "posY": 1.138323,
-        "posZ": -14.9620762,
-        "rotX": -0.00360866613,
-        "rotY": 60.00842,
+        "posZ": -14.9620743,
+        "rotX": -0.00360870943,
+        "rotY": 60.0084572,
         "rotZ": 180.00116,
         "scaleX": 1.04,
         "scaleY": 1.0,
@@ -17833,9 +18212,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842433,
-        "g": 0.09410945,
-        "b": 0.10587386
+        "r": 0.0784243,
+        "g": 0.09410942,
+        "b": 0.105873831
       },
       "Tags": [
         "non_event_artifact"
@@ -18605,7 +18984,7 @@
         "posX": -5.00000048,
         "posY": 3.8215158,
         "posZ": 20.2,
-        "rotX": -2.91457326E-07,
+        "rotX": -2.69171579E-07,
         "rotY": 269.99588,
         "rotZ": 180.0,
         "scaleX": 2.0,
@@ -18653,12 +19032,12 @@
       "GUID": "eb7d43",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 9.187733,
+        "posX": 9.187732,
         "posY": 1.05976343,
-        "posZ": -13.9519939,
-        "rotX": 0.000782883842,
-        "rotY": 180.003922,
-        "rotZ": -0.00367997377,
+        "posZ": -13.951993,
+        "rotX": 0.0007851839,
+        "rotY": 180.003891,
+        "rotZ": -0.003676941,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -18713,12 +19092,12 @@
       "GUID": "513941",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -12.0574369,
-        "posY": 1.05854917,
-        "posZ": -2.570372,
-        "rotX": -0.00362842088,
-        "rotY": 59.9811935,
-        "rotZ": 0.00119205,
+        "posX": -12.057436,
+        "posY": 1.05854928,
+        "posZ": -2.57037234,
+        "rotX": -0.003626989,
+        "rotY": 59.981144,
+        "rotZ": 0.00119494391,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -18732,9 +19111,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.0784298256,
-        "g": 0.09411576,
-        "b": 0.1058804
+        "r": 0.0784297958,
+        "g": 0.09411573,
+        "b": 0.105880372
       },
       "Tags": [
         "first_player_token"
@@ -18773,12 +19152,12 @@
       "GUID": "f18409",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": 7.13964224,
+        "posX": 7.13964272,
         "posY": 1.05990577,
         "posZ": 5.68675566,
-        "rotX": 0.0007805986,
-        "rotY": 179.998291,
-        "rotZ": -0.00368280057,
+        "rotX": 0.0007861317,
+        "rotY": 179.998276,
+        "rotZ": -0.00367780216,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -18792,9 +19171,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.231369734,
+        "r": 0.2313697,
         "g": 0.5803921,
-        "b": 0.18823263
+        "b": 0.1882326
       },
       "Tags": [
         "cloning_source"
@@ -18835,9 +19214,9 @@
       "Transform": {
         "posX": 4.744043,
         "posY": 1.15977013,
-        "posZ": 7.058738,
-        "rotX": 0.000817705237,
-        "rotY": 180.030869,
+        "posZ": 7.05873775,
+        "rotX": 0.0008176975,
+        "rotY": 180.030853,
         "rotZ": 179.996323,
         "scaleX": 0.45,
         "scaleY": 1.0,
@@ -18853,8 +19232,8 @@
       },
       "ColorDiffuse": {
         "r": 0.78039217,
-        "g": 0.07058225,
-        "b": 0.06273886
+        "g": 0.07058222,
+        "b": 0.06273883
       },
       "Tags": [
         "cloning_source"
@@ -19011,8 +19390,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626338,
-        "b": 0.09411653
+        "g": 0.168626308,
+        "b": 0.09411649
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -19051,9 +19430,9 @@
         "posX": 15.0,
         "posY": 0.96,
         "posZ": 6.3,
-        "rotX": 8.931831E-06,
+        "rotX": 8.931834E-06,
         "rotY": 210.0,
-        "rotZ": -3.42309727E-06,
+        "rotZ": -3.42309636E-06,
         "scaleX": 0.4,
         "scaleY": 1.0,
         "scaleZ": 0.4
@@ -19068,8 +19447,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626338,
-        "b": 0.09411653
+        "g": 0.168626308,
+        "b": 0.09411649
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -19223,8 +19602,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626338,
-        "b": 0.09411653
+        "g": 0.168626308,
+        "b": 0.09411649
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -19263,7 +19642,7 @@
         "posX": -15.0,
         "posY": 0.9600001,
         "posZ": 6.3,
-        "rotX": 3.76939624E-07,
+        "rotX": 3.76939738E-07,
         "rotY": 270.0,
         "rotZ": -1.29610413E-07,
         "scaleX": 0.4,
@@ -19280,8 +19659,8 @@
       },
       "ColorDiffuse": {
         "r": 0.7490196,
-        "g": 0.168626338,
-        "b": 0.09411653
+        "g": 0.168626308,
+        "b": 0.09411649
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -19320,9 +19699,9 @@
         "posX": -19.9999924,
         "posY": 0.95999974,
         "posZ": -4.1,
-        "rotX": -1.46347593E-05,
+        "rotX": -1.566911E-05,
         "rotY": 270.3909,
-        "rotZ": 2.452153E-05,
+        "rotZ": 3.43044157E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -19379,11 +19758,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": -19.999979,
-        "posY": 0.96,
+        "posY": 0.95999974,
         "posZ": 8.296001,
-        "rotX": -1.39285894E-05,
+        "rotX": -1.42806039E-05,
         "rotY": 270.062744,
-        "rotZ": 2.66290044E-05,
+        "rotZ": 1.616199E-05,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -19440,11 +19819,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.2511711,
-        "posY": 5.635121,
+        "posY": 5.63512039,
         "posZ": -4.2064414,
-        "rotX": 0.0,
-        "rotY": 90.00723,
-        "rotZ": 0.0,
+        "rotX": -3.05341346E-05,
+        "rotY": 90.00403,
+        "rotZ": 6.534933E-05,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19503,9 +19882,9 @@
         "posX": 30.2511711,
         "posY": 5.735121,
         "posZ": -2.05822062,
-        "rotX": 0.0,
-        "rotY": 90.00724,
-        "rotZ": 0.0,
+        "rotX": 0.0538478047,
+        "rotY": 90.013855,
+        "rotZ": 0.713194847,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19563,10 +19942,10 @@
       "Transform": {
         "posX": 30.2511711,
         "posY": 5.83512068,
-        "posZ": 0.09000027,
-        "rotX": 0.0,
-        "rotY": 90.00723,
-        "rotZ": 0.0,
+        "posZ": 0.09000021,
+        "rotX": 0.0581591465,
+        "rotY": 89.95455,
+        "rotZ": 0.722981632,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19623,11 +20002,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.2511711,
-        "posY": 5.935121,
+        "posY": 5.93512058,
         "posZ": 2.238221,
-        "rotX": 0.0,
-        "rotY": 90.00724,
-        "rotZ": 0.0,
+        "rotX": 0.06044716,
+        "rotY": 90.00414,
+        "rotZ": 0.7213958,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19686,9 +20065,9 @@
         "posX": 30.2511711,
         "posY": 6.035121,
         "posZ": 4.386442,
-        "rotX": 0.0,
-        "rotY": 90.00723,
-        "rotZ": 0.0,
+        "rotX": 0.06240428,
+        "rotY": 90.00965,
+        "rotZ": 0.7214792,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19747,9 +20126,9 @@
         "posX": -30.2,
         "posY": 6.035121,
         "posZ": 8.203554,
-        "rotX": 2.63400829E-10,
-        "rotY": 269.995544,
-        "rotZ": 180.0,
+        "rotX": 0.3764573,
+        "rotY": 269.992249,
+        "rotZ": 180.724091,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19805,12 +20184,12 @@
       "GUID": "355fdc",
       "Name": "Card",
       "Transform": {
-        "posX": -30.22,
+        "posX": -30.2,
         "posY": 5.635121,
         "posZ": 16.7964458,
-        "rotX": 7.111014E-07,
-        "rotY": 269.956268,
-        "rotZ": -4.54209976E-06,
+        "rotX": 8.639514E-07,
+        "rotY": 269.957977,
+        "rotZ": 6.2090854E-05,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19869,9 +20248,9 @@
         "posX": -30.2,
         "posY": 5.735121,
         "posZ": 14.648222,
-        "rotX": 0.00258560013,
-        "rotY": 269.871979,
-        "rotZ": 0.7095312,
+        "rotX": 0.399106115,
+        "rotY": 269.878052,
+        "rotZ": 0.7113849,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19930,9 +20309,9 @@
         "posX": -30.2,
         "posY": 5.83512068,
         "posZ": 12.5,
-        "rotX": 0.0,
-        "rotY": 270.002167,
-        "rotZ": 0.0,
+        "rotX": 0.3811328,
+        "rotY": 269.998474,
+        "rotZ": 0.7200033,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19989,11 +20368,11 @@
       "Name": "Card",
       "Transform": {
         "posX": -30.2,
-        "posY": 5.935121,
+        "posY": 5.93512058,
         "posZ": 10.3517771,
-        "rotX": 0.0,
-        "rotY": 270.002472,
-        "rotZ": 0.0,
+        "rotX": 0.37907508,
+        "rotY": 270.003357,
+        "rotZ": 0.720585763,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20052,9 +20431,9 @@
         "posX": -30.2,
         "posY": 5.935121,
         "posZ": -2.048223,
-        "rotX": 0.0,
-        "rotY": 270.005066,
-        "rotZ": 0.0,
+        "rotX": 359.691925,
+        "rotY": 270.0083,
+        "rotZ": 0.722277761,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20113,9 +20492,9 @@
         "posX": -30.2,
         "posY": 6.035121,
         "posZ": -4.196446,
-        "rotX": 0.0,
-        "rotY": 270.008545,
-        "rotZ": 0.0,
+        "rotX": 359.6918,
+        "rotY": 270.007141,
+        "rotZ": 0.7242613,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20174,9 +20553,9 @@
         "posX": -30.2,
         "posY": 5.83512068,
         "posZ": -12.3,
-        "rotX": 0.0,
-        "rotY": 270.004059,
-        "rotZ": 0.0,
+        "rotX": 0.355380684,
+        "rotY": 270.031219,
+        "rotZ": 0.722771049,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20235,9 +20614,9 @@
         "posX": -30.2,
         "posY": 5.635121,
         "posZ": -8.003553,
-        "rotX": 0.0,
-        "rotY": 270.003265,
-        "rotZ": 0.0,
+        "rotX": -5.59697437E-05,
+        "rotY": 270.004028,
+        "rotZ": -9.899445E-06,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20296,9 +20675,9 @@
         "posX": -30.2,
         "posY": 5.735121,
         "posZ": -10.1517773,
-        "rotX": 0.0,
-        "rotY": 270.0039,
-        "rotZ": 0.0,
+        "rotX": 0.3722946,
+        "rotY": 270.017731,
+        "rotZ": 0.710160255,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20357,9 +20736,9 @@
         "posX": -30.2,
         "posY": 6.035121,
         "posZ": -16.596447,
-        "rotX": 0.0,
-        "rotY": 270.00412,
-        "rotZ": 0.0,
+        "rotX": 0.3383493,
+        "rotY": 269.999847,
+        "rotZ": 0.7242662,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20416,11 +20795,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.25,
-        "posY": 6.035121,
+        "posY": 6.02279,
         "posZ": -8.00356,
-        "rotX": 0.0,
-        "rotY": 90.00438,
-        "rotZ": 0.0,
+        "rotX": 359.650879,
+        "rotY": 90.00307,
+        "rotZ": 0.72446847,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20477,11 +20856,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.25,
-        "posY": 5.935121,
+        "posY": 5.92279,
         "posZ": -10.15178,
-        "rotX": 359.989349,
-        "rotY": 90.02484,
-        "rotZ": 0.5190299,
+        "rotX": 359.6525,
+        "rotY": 90.02328,
+        "rotZ": 0.722241461,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20538,11 +20917,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.25,
-        "posY": 5.83512068,
+        "posY": 5.82278967,
         "posZ": -12.3,
-        "rotX": -7.474005E-07,
-        "rotY": 89.96949,
-        "rotZ": -4.188944E-07,
+        "rotX": 359.656067,
+        "rotY": 89.9685,
+        "rotZ": 0.723216534,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20599,11 +20978,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.25,
-        "posY": 5.635121,
+        "posY": 5.62279,
         "posZ": -16.59644,
-        "rotX": -4.862356E-07,
-        "rotY": 90.01475,
-        "rotZ": -7.20675871E-07,
+        "rotX": -1.5362868E-05,
+        "rotY": 90.014534,
+        "rotZ": -8.386459E-05,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20660,11 +21039,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.25,
-        "posY": 5.735121,
+        "posY": 5.72279,
         "posZ": -14.44822,
-        "rotX": -3.55305446E-07,
-        "rotY": 90.0136,
-        "rotZ": 1.12584765E-07,
+        "rotX": 359.659363,
+        "rotY": 90.01239,
+        "rotZ": 0.7133682,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20723,9 +21102,9 @@
         "posX": -30.2,
         "posY": 5.935121,
         "posZ": -14.4482231,
-        "rotX": 0.0,
-        "rotY": 90.00298,
-        "rotZ": 0.0,
+        "rotX": 359.652466,
+        "rotY": 90.011,
+        "rotZ": 359.276733,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20784,9 +21163,9 @@
         "posX": -30.2,
         "posY": 5.735121,
         "posZ": 2.24822235,
-        "rotX": 0.0,
-        "rotY": 270.008575,
-        "rotZ": 0.0,
+        "rotX": 359.6913,
+        "rotY": 270.0342,
+        "rotZ": 0.71731025,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20844,10 +21223,10 @@
       "Transform": {
         "posX": -30.2,
         "posY": 5.83512068,
-        "posZ": 0.09999979,
-        "rotX": 0.0,
-        "rotY": 270.008575,
-        "rotZ": 0.0,
+        "posZ": 0.0999997556,
+        "rotX": 359.693024,
+        "rotY": 270.0045,
+        "rotZ": 0.7206031,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20904,11 +21283,11 @@
       "Name": "Card",
       "Transform": {
         "posX": -30.2,
-        "posY": 5.635121,
+        "posY": 5.63512039,
         "posZ": 4.39644527,
-        "rotX": 0.0,
-        "rotY": 270.000122,
-        "rotZ": 0.0,
+        "rotX": 0.000137566181,
+        "rotY": 270.009949,
+        "rotZ": -0.0008476627,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -20967,9 +21346,9 @@
         "posX": 30.25,
         "posY": 5.735121,
         "posZ": 10.35178,
-        "rotX": 0.0,
-        "rotY": 90.00618,
-        "rotZ": 0.0,
+        "rotX": 0.008505266,
+        "rotY": 89.99219,
+        "rotZ": 0.7195792,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21028,9 +21407,9 @@
         "posX": 30.25,
         "posY": 5.83512068,
         "posZ": 12.5,
-        "rotX": 0.0,
-        "rotY": 90.007225,
-        "rotZ": 0.0,
+        "rotX": 0.0110454829,
+        "rotY": 89.98983,
+        "rotZ": 0.7199353,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21089,9 +21468,9 @@
         "posX": 30.25,
         "posY": 6.035121,
         "posZ": 16.79644,
-        "rotX": 0.0,
-        "rotY": 90.0053558,
-        "rotZ": 0.0,
+        "rotX": 0.0170592256,
+        "rotY": 90.003006,
+        "rotZ": 0.724540532,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21148,11 +21527,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.25,
-        "posY": 5.935121,
+        "posY": 5.93512058,
         "posZ": 14.64822,
-        "rotX": 0.0,
-        "rotY": 89.96872,
-        "rotZ": 0.0,
+        "rotX": 0.014195988,
+        "rotY": 89.95978,
+        "rotZ": 0.7225771,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21209,11 +21588,11 @@
       "Name": "Card",
       "Transform": {
         "posX": 30.25,
-        "posY": 5.635121,
+        "posY": 5.63512039,
         "posZ": 8.20356,
-        "rotX": 1.59113881E-06,
-        "rotY": 90.40017,
-        "rotZ": 180.0,
+        "rotX": -1.11086456E-05,
+        "rotY": 90.40015,
+        "rotZ": 179.998184,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21272,9 +21651,9 @@
         "posX": 7.0,
         "posY": 3.63512039,
         "posZ": -20.0000038,
-        "rotX": 2.84641963E-08,
+        "rotX": -9.9944E-08,
         "rotY": 180.0,
-        "rotZ": -3.57306824E-08,
+        "rotZ": -3.70320556E-08,
         "scaleX": 1.5,
         "scaleY": 1.0,
         "scaleZ": 1.5
@@ -21330,9 +21709,9 @@
         "posX": 0.6806232,
         "posY": 1.06117117,
         "posZ": -5.04688549,
-        "rotX": -0.000797076267,
+        "rotX": -0.0007972152,
         "rotY": 359.966461,
-        "rotZ": 0.00371693331,
+        "rotZ": 0.0037178807,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21373,12 +21752,12 @@
       "GUID": "988785",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -1.25970328,
+        "posX": -1.259703,
         "posY": 1.06106162,
         "posZ": -3.9345355,
-        "rotX": -0.000793192245,
+        "rotX": -0.000790247,
         "rotY": 359.977936,
-        "rotZ": 0.00372082484,
+        "rotZ": 0.00371481432,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21393,7 +21772,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.431367427,
+        "g": 0.4313674,
         "b": 0.0
       },
       "LayoutGroupSortIndex": 0,
@@ -21420,11 +21799,11 @@
       "Name": "PlayerPawn",
       "Transform": {
         "posX": -0.7249515,
-        "posY": 1.06108093,
+        "posY": 1.06108046,
         "posZ": -5.040258,
-        "rotX": 0.00372359366,
-        "rotY": 270.0273,
-        "rotZ": 0.0008010351,
+        "rotX": 0.00371948024,
+        "rotY": 270.027374,
+        "rotZ": 0.000799716,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21438,8 +21817,8 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.249123842,
-        "g": 0.375741363,
+        "r": 0.249123812,
+        "g": 0.375741333,
         "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
@@ -21466,11 +21845,11 @@
       "Name": "PlayerPawn",
       "Transform": {
         "posX": 0.581106842,
-        "posY": 1.0611949,
+        "posY": 1.06119514,
         "posZ": -2.88998079,
-        "rotX": -0.00372069934,
-        "rotY": 89.96277,
-        "rotZ": -0.000797581044,
+        "rotX": -0.00372210052,
+        "rotY": 89.96273,
+        "rotZ": -0.000796112465,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21485,7 +21864,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254896879,
+        "g": 0.254896849,
         "b": 0.572549045
       },
       "LayoutGroupSortIndex": 0,
@@ -21511,12 +21890,12 @@
       "GUID": "6eb1b5",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": 1.42668664,
-        "posY": 1.06123662,
-        "posZ": -3.81295657,
-        "rotX": -0.00080867653,
-        "rotY": 359.961426,
-        "rotZ": 0.003720394,
+        "posX": 1.42668676,
+        "posY": 1.06123734,
+        "posZ": -3.81295633,
+        "rotX": -0.0007948093,
+        "rotY": 359.9614,
+        "rotZ": 0.0037171545,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21557,12 +21936,12 @@
       "GUID": "60c77d",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -0.6149244,
+        "posX": -0.6149243,
         "posY": 1.0611186,
-        "posZ": -2.85067868,
-        "rotX": -0.0008052128,
+        "posZ": -2.850679,
+        "rotX": -0.0008012173,
         "rotY": 359.983673,
-        "rotZ": 0.00371683785,
+        "rotZ": 0.003714893,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21603,12 +21982,12 @@
       "GUID": "4dea0f",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.935981,
-        "posY": 1.06144524,
-        "posZ": 11.1247692,
-        "rotX": 0.01056497,
-        "rotY": -0.00150932942,
-        "rotZ": 0.0246143136,
+        "posX": -6.93598652,
+        "posY": 1.06142569,
+        "posZ": 11.1247721,
+        "rotX": 0.00342230615,
+        "rotY": -0.00126693549,
+        "rotZ": 0.009539273,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21649,12 +22028,12 @@
       "GUID": "eff1a9",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.18348265,
-        "posY": 1.061593,
-        "posZ": 12.51146,
-        "rotX": -0.00068067055,
-        "rotY": 89.9883957,
-        "rotZ": 0.00162713788,
+        "posX": -6.183506,
+        "posY": 1.06028652,
+        "posZ": 12.5114479,
+        "rotX": 0.000470131636,
+        "rotY": 89.98847,
+        "rotZ": 0.0185382888,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21669,7 +22048,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254896849,
+        "g": 0.25489682,
         "b": 0.572549045
       },
       "LayoutGroupSortIndex": 0,
@@ -21695,12 +22074,12 @@
       "GUID": "3c1194",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.882391,
-        "posY": 1.06155157,
-        "posZ": 12.5380363,
-        "rotX": 0.000569653756,
-        "rotY": 359.98,
-        "rotZ": 0.00252484949,
+        "posX": -6.882404,
+        "posY": 1.06135464,
+        "posZ": 12.53804,
+        "rotX": 0.00291649764,
+        "rotY": 359.980377,
+        "rotZ": 0.0138814328,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21715,7 +22094,7 @@
       },
       "ColorDiffuse": {
         "r": 1.0,
-        "g": 0.4313674,
+        "g": 0.431367338,
         "b": 0.0
       },
       "LayoutGroupSortIndex": 0,
@@ -21741,12 +22120,12 @@
       "GUID": "007b72",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.69799757,
-        "posY": 1.06116009,
-        "posZ": 11.8562574,
-        "rotX": 0.00392017048,
-        "rotY": 359.9663,
-        "rotZ": 0.0385813341,
+        "posX": -6.69802046,
+        "posY": 1.061116,
+        "posZ": 11.8562565,
+        "rotX": 0.0048671905,
+        "rotY": 359.966919,
+        "rotZ": 0.03122272,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21787,12 +22166,12 @@
       "GUID": "e20e50",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -5.977464,
-        "posY": 1.06031024,
-        "posZ": 11.8783627,
-        "rotX": -0.00120857486,
-        "rotY": 359.978027,
-        "rotZ": 0.05135513,
+        "posX": -5.977485,
+        "posY": 1.0596447,
+        "posZ": 11.8783426,
+        "rotX": 359.988037,
+        "rotY": 359.977661,
+        "rotZ": 0.04903857,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21833,12 +22212,12 @@
       "GUID": "a3d4bd",
       "Name": "PlayerPawn",
       "Transform": {
-        "posX": -6.25106049,
-        "posY": 1.059406,
-        "posZ": 11.2375393,
-        "rotX": -0.00214899657,
-        "rotY": 329.996552,
-        "rotZ": 0.07442051,
+        "posX": -6.25108767,
+        "posY": 1.06057668,
+        "posZ": 11.2375278,
+        "rotX": 0.004712831,
+        "rotY": 329.9965,
+        "rotZ": 0.0606587641,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -21852,8 +22231,8 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.249123812,
-        "g": 0.375741333,
+        "r": 0.249123782,
+        "g": 0.3757413,
         "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
@@ -21882,9 +22261,9 @@
         "posX": -6.96924,
         "posY": 3.63512039,
         "posZ": -20.0117741,
-        "rotX": 6.216482E-08,
+        "rotX": 4.400937E-09,
         "rotY": 180.0,
-        "rotZ": 1.739119E-09,
+        "rotZ": -7.689807E-08,
         "scaleX": 1.5,
         "scaleY": 1.0,
         "scaleZ": 1.5
@@ -21937,11 +22316,11 @@
       "GUID": "022449",
       "Name": "CardCustom",
       "Transform": {
-        "posX": 8.630716,
+        "posX": 8.630715,
         "posY": 1.07334673,
         "posZ": -12.9225988,
-        "rotX": 0.00080434524,
-        "rotY": 180.047974,
+        "rotX": 0.0008050825,
+        "rotY": 180.048111,
         "rotZ": 179.9963,
         "scaleX": 0.3,
         "scaleY": 1.0,
@@ -22584,10 +22963,10 @@
       "Transform": {
         "posX": 9.739796,
         "posY": 1.07341838,
-        "posZ": -12.9268494,
-        "rotX": 0.0008074479,
+        "posZ": -12.9268484,
+        "rotX": 0.000806892058,
         "rotY": 180.084824,
-        "rotZ": -0.00370300235,
+        "rotZ": -0.00370284962,
         "scaleX": 0.3,
         "scaleY": 1.0,
         "scaleZ": 0.3
@@ -22938,9 +23317,9 @@
         "posX": 12.0705137,
         "posY": 1.060032,
         "posZ": -8.072095,
-        "rotX": 0.00078883447,
+        "rotX": 0.000788910664,
         "rotY": 180.056076,
-        "rotZ": -0.00367839122,
+        "rotZ": -0.003678492,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -22954,7 +23333,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.305873156,
+        "r": 0.305873126,
         "g": 0.4588232,
         "b": 0.6
       },
@@ -22998,7 +23377,7 @@
         "posX": -6.44855845E-07,
         "posY": 0.95930934,
         "posZ": -3.94499254,
-        "rotX": 0.000799943053,
+        "rotX": 0.000799943169,
         "rotY": 179.977386,
         "rotZ": -0.003704198,
         "scaleX": 13.6293545,
@@ -23014,9 +23393,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842415,
-        "g": 0.0941092744,
-        "b": 0.105873682
+        "r": 0.07842412,
+        "g": 0.0941092446,
+        "b": 0.105873652
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -26999,9 +27378,9 @@
         "posX": 10.23335,
         "posY": 1.06013548,
         "posZ": 7.813247,
-        "rotX": -0.00371900271,
+        "rotX": -0.00371627114,
         "rotY": 89.9820251,
-        "rotZ": -0.0007804251,
+        "rotZ": -0.00077978865,
         "scaleX": 0.54,
         "scaleY": 1.0,
         "scaleZ": 0.54
@@ -27016,7 +27395,7 @@
       },
       "ColorDiffuse": {
         "r": 0.6666667,
-        "g": 0.254895449,
+        "g": 0.254895419,
         "b": 0.572549045
       },
       "Tags": [
@@ -27057,11 +27436,11 @@
       "GUID": "ff89ab",
       "Name": "Custom_Token",
       "Transform": {
-        "posX": 9.146642,
-        "posY": 1.11006534,
-        "posZ": 7.815142,
-        "rotX": -0.003700817,
-        "rotY": 90.00264,
+        "posX": 9.14664,
+        "posY": 1.11006546,
+        "posZ": 7.81514263,
+        "rotX": -0.003670534,
+        "rotY": 90.0026,
         "rotZ": 179.9992,
         "scaleX": 0.25,
         "scaleY": 1.0,
@@ -27119,10 +27498,10 @@
       "Name": "Custom_Token",
       "Transform": {
         "posX": 11.3510084,
-        "posY": 1.11020768,
-        "posZ": 7.79842043,
-        "rotX": 0.00373317278,
-        "rotY": 269.9967,
+        "posY": 1.11020756,
+        "posZ": 7.79842138,
+        "rotX": 0.003700815,
+        "rotY": 269.996765,
         "rotZ": 180.000809,
         "scaleX": 0.25,
         "scaleY": 1.0,
@@ -27181,9 +27560,9 @@
       "Transform": {
         "posX": -7.14932346,
         "posY": 1.35898161,
-        "posZ": 5.683382,
-        "rotX": -0.000780710543,
-        "rotY": -3.524363E-05,
+        "posZ": 5.683381,
+        "rotX": -0.0007832604,
+        "rotY": -5.78687323E-05,
         "rotZ": 180.003738,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -27240,12 +27619,12 @@
       "GUID": "d1d9ef",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -4.781039,
+        "posX": -4.78103876,
         "posY": 1.05915427,
-        "posZ": 7.05567265,
-        "rotX": 0.0007816706,
-        "rotY": 179.997314,
-        "rotZ": -0.00366905518,
+        "posZ": 7.055673,
+        "rotX": 0.0007825648,
+        "rotY": 179.99733,
+        "rotZ": -0.00367001863,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -27259,9 +27638,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.231369734,
+        "r": 0.2313697,
         "g": 0.5803921,
-        "b": 0.18823263
+        "b": 0.1882326
       },
       "Tags": [
         "cloning_source",
@@ -27302,11 +27681,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 12.03595,
-        "posY": 1.06014585,
-        "posZ": 0.225144774,
-        "rotX": 0.0007199001,
-        "rotY": 178.936417,
-        "rotZ": -0.003693149,
+        "posY": 1.06014574,
+        "posZ": 0.2251443,
+        "rotX": 0.0007113842,
+        "rotY": 178.936447,
+        "rotZ": -0.00369501486,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -27320,7 +27699,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.156854719,
+        "r": 0.156854689,
         "g": 0.552941144,
         "b": 0.784313738
       },
@@ -27361,12 +27740,12 @@
       "GUID": "2eecf1",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -1.70660587E-05,
-        "posY": 0.959892631,
-        "posZ": 13.7999315,
-        "rotX": 0.000474658242,
+        "posX": -1.79248927E-05,
+        "posY": 0.959867358,
+        "posZ": 13.7999268,
+        "rotX": 0.0005630168,
         "rotY": 180.0,
-        "rotZ": -0.0007025175,
+        "rotZ": -0.0008602565,
         "scaleX": 3.77516055,
         "scaleY": 1.0,
         "scaleZ": 3.77516055
@@ -27380,9 +27759,9 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.07842443,
-        "g": 0.09410954,
-        "b": 0.105873965
+        "r": 0.0784244,
+        "g": 0.09410951,
+        "b": 0.105873935
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -27620,12 +27999,12 @@
       "GUID": "eeb38b",
       "Name": "Custom_Tile",
       "Transform": {
-        "posX": -9.544652,
+        "posX": -9.544651,
         "posY": 1.058808,
         "posZ": 4.31767,
-        "rotX": 0.0007816305,
+        "rotX": 0.000781048846,
         "rotY": 180.000381,
-        "rotZ": -0.0036685958,
+        "rotZ": -0.00366861047,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -27640,8 +28019,8 @@
       },
       "ColorDiffuse": {
         "r": 0.78039217,
-        "g": 0.07058222,
-        "b": 0.06273883
+        "g": 0.07058219,
+        "b": 0.062738806
       },
       "Tags": [
         "cloning_source",
@@ -27684,9 +28063,9 @@
         "posX": 12.0618763,
         "posY": 1.06010878,
         "posZ": -2.54170346,
-        "rotX": 0.000805684656,
+        "rotX": 0.0008057612,
         "rotY": 180.309189,
-        "rotZ": -0.00367454137,
+        "rotZ": -0.00367471925,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -27700,7 +28079,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.349011153,
+        "r": 0.349011123,
         "g": 0.5647059,
         "b": 0.7254902
       },
@@ -27742,11 +28121,11 @@
       "Name": "Custom_Tile",
       "Transform": {
         "posX": 12.0672722,
-        "posY": 1.06007063,
+        "posY": 1.06007075,
         "posZ": -5.301559,
-        "rotX": 0.0007886591,
-        "rotY": 180.045883,
-        "rotZ": -0.00367844338,
+        "rotX": 0.0007918566,
+        "rotY": 180.045868,
+        "rotZ": -0.00367820123,
         "scaleX": 0.45,
         "scaleY": 1.0,
         "scaleZ": 0.45
@@ -27760,7 +28139,7 @@
         "z": 0.0
       },
       "ColorDiffuse": {
-        "r": 0.3097955,
+        "r": 0.309795469,
         "g": 0.486274481,
         "b": 0.6392157
       },
