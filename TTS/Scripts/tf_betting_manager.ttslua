@@ -1,5 +1,4 @@
 #include <data_utils.ttslua>
-#include <constants.ttslua>
 
 local energyCounters = {
   ["Blue"] = "1dcc4b",
