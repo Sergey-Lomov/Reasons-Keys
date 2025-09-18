@@ -1,0 +1,152 @@
+defaultPagesConfig = {
+  height= 600,
+  width = 600,
+}
+
+demoPages = {
+  menuTitle = "Demo articles",
+  menuText = "This is table of content for demo pages, which should demosrate how pages presenter works.",
+  items = {
+    {menuTitle = "Article 1 menu title", title = "Article 1 title", content = "<Row>Article 1 content</Row>"},
+    {menuTitle = "Article 2 menu title", title = "Article 2 title", content = "<Row>Article 2 content</Row>"},
+    {menuTitle = "Article 3 menu title", title = "Article 3 title", content = "<Row>Article 3 content</Row>"},
+    {menuTitle = "Article 4 menu title", title = "Article 4 title", content = "<Row>Article 4 content</Row>"},
+  }
+}
+
+local playersPresenters = {}
+
+local menuHeightStub = "!{height}"
+local menuWidthStub = "!{width}"
+local playerColorStub = "!{playerColor}"
+local contentStub = "!{content}"
+local onClickParamsSeparator = "|"
+
+local defaults = [[
+<Defaults>
+  <Panel class="PagesPanel" color="#FCFCED" outline="#14181B" outlineSize="2 -2" width="1000" rectAlignment="Center" showAnimation="Grow" hideAnimation="Shrink" returnToOriginalPositionWhenReleased="false" allowDragging="true"/>
+  <Text class="Title" fontSize="22" fontStyle="Bold" color="#14181B" rectAlignment="UpperCenter"/>
+  <Text class="MenuItem" fontSize="16" fontStyle="Bold" color="#14181B" rectAlignment="UpperLeft"/>
+  <Text class="Info" fontSize="16" color="#14181B" rectAlignment="UpperLeft"/>
+</Defaults>
+]]
+
+local function showTableLayoutContent(playerColor, content)
+  local config = playersPresenters[playerColor].config
+  local panel = [[
+  <Panel id="Pages" class="PagesPanel" visibility="!{playerColor}" width="!{width}" height="!{height}">
+    <VerticalScrollView  width="!{width}" height="!{height}" horizontalScrollbarVisibility="AutoHideAndExpandViewport" verticalScrollbarVisibility="AutoHide">
+
+      <TableLayout cellBackgroundColor="Clear" padding="20 20 10 20" autoCalculateHeight="true">
+        !{content}
+      </TableLayout>
+
+    </VerticalScrollView>
+  </Panel>
+  ]]
+
+    panel = [[
+    <Panel id="Pages" class="PagesPanel" visibility="!{playerColor}" width="!{width}" height="!{height}">
+      <VerticalScrollView  width="!{width}" height="!{height}" horizontalScrollbarVisibility="AutoHideAndExpandViewport" verticalScrollbarVisibility="AutoHide">
+        <TableLayout cellBackgroundColor="Clear" padding="20 20 10 20" autoCalculateHeight="true">
+
+          <Row preferredHeight="25" color="#445566" dontUseTableRowBackground="true">
+            <Text class="Title">
+              Main menu title
+            </Text>
+          </Row>
+
+          <Row preferredHeight="20" color="#665566" dontUseTableRowBackground="true"/>
+
+          <Row preferredHeight="0" color="#885566" dontUseTableRowBackground="true">
+                <Text class="Info" alignment="UpperLeft" verticalOverflow="Overflow" horizontalOverflow="Wrap" >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut arcu ex. Duis pharetra, ipsum a pulvinar molestie, lectus nunc interdum tellus, in posuere justo erat at est. Integer consectetur pharetra dolor, vel semper nulla bibendum ut. Mauris magna nulla, viverra et dolor a, porttitor sollicitudin lacus. Mauris tempor molestie vestibulum. Curabitur volutpat, erat dapibus tincidunt eleifend, arcu ex luctus sem, quis sagittis tellus augue a eros. Ut tempor turpis ac leo volutpat, non fermentum diam finibus.
+                </Text>
+          </Row>
+
+          <Row preferredHeight="30" color="#AA5566" dontUseTableRowBackground="true"/>
+
+          <Row preferredHeight="25" color="#CC5566" dontUseTableRowBackground="true">
+            <Text class="MenuItem" alignment="UpperLeft">Bottom text</Text>
+          </Row>
+
+        </TableLayout>
+      </VerticalScrollView>
+    </Panel>
+    ]]
+
+--   panel = [[
+--   <Panel id="Pages" class="PagesPanel" visibility="!{playerColor}" width="!{width}" height="!{height}">
+--     <VerticalScrollView  width="!{width}" height="!{height}" horizontalScrollbarVisibility="AutoHideAndExpandViewport" verticalScrollbarVisibility="AutoHide">
+--
+--     <VerticalLayout childForceExpandHeight="false" color="#3388BB" width="!{width}" prefferedHeight="!{height}">
+-- !{content}
+-- </VerticalLayout>
+--
+--     </VerticalScrollView>
+--   </Panel>
+--   ]]
+
+  local xml = panel
+    :gsub(playerColorStub, playerColor)
+    :gsub(menuHeightStub, config.height)
+    :gsub(menuWidthStub, config.width)
+    :gsub(contentStub, content)
+  UI.setXml(defaults .. xml)
+end
+
+local function menuContent(playerColor, pages)
+  local pages = playersPresenters[playerColor].pages
+  local content = [[
+  <Row preferredHeight="25" color="#445566" dontUseTableRowBackground="true">
+    <Text class="Title">]] .. pages.menuTitle .. [[</Text>
+  </Row>
+  <Row preferredHeight="20" color="#665566" dontUseTableRowBackground="true"/>
+  <Row preferredHeight="0" color="#885566" dontUseTableRowBackground="true">
+        <Text class="Info" alignment="UpperLeft" verticalOverflow="Overflow" horizontalOverflow="Wrap" >]] .. pages.menuText .. [[</Text>
+  </Row>
+  <Row preferredHeight="30" color="#AA5566" dontUseTableRowBackground="true"/>
+  <Row preferredHeight="25" color="#CC5566" dontUseTableRowBackground="true">
+    <Text class="MenuItem" alignment="UpperLeft">Table of content:</Text>
+  </Row>
+  ]]
+
+  for index, page in ipairs(pages.items) do
+    local onClick = "showPage(" .. playerColor .. onClickParamsSeparator .. index .. ")"
+    local pageRow = [[
+    <Row preferredHeight="25" color="#CC55AA" dontUseTableRowBackground="true">
+      <Button onClick="]] .. onClick .. [[)" colors="#00000000|#00000000|#00000000|#00000000">
+        <Text class="MenuItem" alignment="UpperLeft" offsetXY="20 0">]] .. "\t" .. index .. " " .. page.menuTitle .. [[</Text>
+        </Button>
+    </Row>
+    ]]
+
+    -- content = content .. pageRow
+  end
+
+  print(content)
+  return content
+end
+
+local function pageContent(playerColor, index)
+  local pages = playersPresenters[playerColor].pages
+  local content =  [[
+  <Row preferredHeight="25">
+    <Text class="Title">]] .. pages.items[index].title .. [[</Text>
+  </Row>]] .. pages.items[index].content
+  return content
+end
+
+function showPage(player, param)
+  local playerColor, index = param:match("([^|]+)|([^|]+)")
+  local content = pageContent(playerColor, tonumber(index))
+  showTableLayoutContent(playerColor, content)
+end
+
+function showPages(playerColor, pages, config)
+  if playersPresenters[playerColor] == nil then playersPresenters[playerColor] = {} end
+  playersPresenters[playerColor].pages = pages
+  playersPresenters[playerColor].config = config
+  local content = menuContent(playerColor)
+  showTableLayoutContent(playerColor, content)
+end

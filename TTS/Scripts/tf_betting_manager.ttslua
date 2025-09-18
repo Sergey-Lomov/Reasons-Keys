@@ -87,7 +87,7 @@ local bettingCompletedMessage = "Betting completed"
 
 local personalMenuDefaults = [[
 <Defaults>
-  <Panel class="TFPanel" color="#14181B" outline="#FCFCED" outlineSize="2 -2" width="385"  rectAlignment="UpperLeft" showAnimation="Grow" hideAnimation="Shrink" returnToOriginalPositionWhenReleased="false" allowDragging="true"/>
+  <Panel class="TFPanel" color="#14181B" outline="#FCFCED" outlineSize="2 -2" width="385" rectAlignment="UpperLeft" showAnimation="Grow" hideAnimation="Shrink" returnToOriginalPositionWhenReleased="false" allowDragging="true"/>
   <Text class="Title" fontSize="22" fontStyle="Bold" color="#FCFCED" rectAlignment="UpperCenter"/>
   <Text class="SectionHeader" fontSize="18" color="#FCFCED" rectAlignment="UpperCenter"/>
   <Text class="Info" fontSize="16" color="#FCFCED" />
@@ -104,7 +104,7 @@ local personalMenuDefaults = [[
 
 local personalMenuTemplate = [[
 <Panel id="TF_BetPanel" visibility="!{playerColor}" class="TFPanel" height="!{menuHeight}">
-  <TableLayout cellBackgroundColor="Clear"  padding="20 20 10 20">
+  <TableLayout cellBackgroundColor="Clear" padding="20 20 10 20">
     <Row preferredHeight="25">
       <Text class="Title">TANGLE OF FATES</Text>
     </Row>
